@@ -5,9 +5,18 @@
 //
 // Roda no CI logo após o painel gravar data/queue.json, e/ou em cron curto.
 import { google } from 'googleapis';
+import { unlink } from 'node:fs/promises';
+import { join } from 'node:path';
 import * as store from './state/store.js';
 import { getAuth } from './youtube/auth.js';
-import { log, warn } from './util.js';
+import { log, warn, ROOT } from './util.js';
+
+// Remove o preview auto-hospedado (já decidido, não precisa mais ocupar o repo).
+async function dropPreview(d) {
+  const rel = d.video?.previewFile;
+  if (!rel) return;
+  try { await unlink(join(ROOT, rel)); } catch { /* já não existe */ }
+}
 
 async function setPublic(youtube, videoId) {
   await youtube.videos.update({
@@ -47,9 +56,11 @@ async function main() {
       } else {
         log(`Aprovado (sem YouTube conectado): ${d.id} marcado como publicado localmente.`);
       }
-      newlyPublished.push({ ...d, status: 'published', privacyStatus: 'public', publishedAt: now, views: 0, likes: 0, comments: 0, score: 0 });
+      await dropPreview(d);
+      newlyPublished.push({ ...d, status: 'published', privacyStatus: 'public', publishedAt: now, views: 0, likes: 0, comments: 0, score: 0, video: { ...d.video, previewFile: null } });
     } else if (d.status === 'rejected') {
       if (youtube && d.youtubeId) await deleteVideo(youtube, d.youtubeId);
+      await dropPreview(d);
       log(`Rejeitado e descartado: ${d.id}`);
       // não entra em lugar nenhum — sai da fila
     } else {

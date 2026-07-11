@@ -13,6 +13,7 @@
 import { mkdtemp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { ROOT } from './util.js';
 import * as store from './state/store.js';
 import { collectItems } from './sources/index.js';
 import { generateShorts } from './ai/generate.js';
@@ -83,6 +84,7 @@ async function main() {
   log(`${drafts.length} drafts gerados.`);
 
   const workDir = await mkdtemp(join(tmpdir(), 'shorts-'));
+  const previewDir = join(ROOT, 'data', 'previews');
   const mock = Boolean(argFlag('mock'));
   const now = new Date().toISOString();
   const newEntries = [];
@@ -105,8 +107,8 @@ async function main() {
     };
 
     if (!mock) {
-      const asm = await assembleVideo(entry, { config, workDir });
-      entry.video = { rendered: asm.rendered, durationSec: asm.durationSec, ttsProvider: asm.ttsProvider };
+      const asm = await assembleVideo(entry, { config, workDir, previewDir });
+      entry.video = { rendered: asm.rendered, durationSec: asm.durationSec, ttsProvider: asm.ttsProvider, previewFile: asm.previewFile || null };
 
       // Upload de preview (não listado) quando há vídeo e credenciais.
       if (asm.rendered && youtubeReady()) {

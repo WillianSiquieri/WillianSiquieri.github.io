@@ -25,7 +25,7 @@ function buildCaptions(script, durationSec) {
   }));
 }
 
-export async function assembleVideo(draft, { config, workDir }) {
+export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const dir = join(workDir, draft.id);
   await mkdir(dir, { recursive: true });
 
@@ -80,7 +80,23 @@ export async function assembleVideo(draft, { config, workDir }) {
   try {
     await run(args);
     log(`Vídeo renderizado → ${outPath}`);
-    return { rendered: true, videoPath: outPath, audioPath: tts?.audioPath || null, durationSec, ttsProvider: tts?.provider };
+
+    // Preview leve e auto-hospedado (540x960), commitado no repo para o painel tocar.
+    let previewFile = null;
+    if (previewDir) {
+      await mkdir(previewDir, { recursive: true });
+      const prev = join(previewDir, `${draft.id}.mp4`);
+      try {
+        await run(['-i', outPath, '-vf', 'scale=540:960', '-c:v', 'libx264', '-crf', '30',
+          '-preset', 'veryfast', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', '-y', prev]);
+        previewFile = `data/previews/${draft.id}.mp4`;
+        log(`Preview gerado → ${previewFile}`);
+      } catch (e) {
+        warn('Preview leve falhou (segue sem):', e.message);
+      }
+    }
+
+    return { rendered: true, videoPath: outPath, previewFile, audioPath: tts?.audioPath || null, durationSec, ttsProvider: tts?.provider };
   } catch (err) {
     warn('Falha ao renderizar vídeo:', err.message);
     return { rendered: false, audioPath: tts?.audioPath || null, durationSec, reason: err.message };

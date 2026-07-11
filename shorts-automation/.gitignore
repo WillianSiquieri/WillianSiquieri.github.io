@@ -4,3 +4,7 @@ node_modules/
 *.mp3
 *.wav
 tmp/
+
+# Exceção: previews leves dos shorts pendentes são versionados para o painel tocar.
+!data/previews/
+!data/previews/*.mp4

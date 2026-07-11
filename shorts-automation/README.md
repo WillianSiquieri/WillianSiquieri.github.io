@@ -94,6 +94,19 @@ Publicado em `https://<seu-usuario>.github.io/shorts-automation/dashboard/`.
   **modo** (pausar/retomar), ajustar **shorts/dia** e enviar **feedback** — tudo
   isso grava nos JSON e o motor obedece no próximo ciclo.
 
+### Preview dos shorts pendentes
+
+Cada short na fila mostra um player para você assistir antes de aprovar:
+
+- **Sem YouTube conectado:** o motor gera um preview leve (540×960) em
+  `data/previews/<id>.mp4`, versionado no repo, e o painel toca via player HTML5.
+  O arquivo é **apagado automaticamente** ao aprovar ou rejeitar (não incha o repo).
+- **Com YouTube conectado:** o short sobe como **não listado** e o painel embute o
+  player do YouTube diretamente.
+
+O preview só aparece depois que o motor **renderiza** o vídeo (precisa de `ffmpeg` —
+o workflow já instala no CI).
+
 ## Adicionar fontes de notícia
 
 Edite `config/config.json` → array `sources`. Hoje há suporte a `rss`. Para
