@@ -56,5 +56,67 @@
       "rendered": false,
       "durationSec": 42
     }
+  },
+  {
+    "id": "sh_mrgkkvfvk9qt",
+    "status": "draft",
+    "createdAt": "2026-07-11T16:19:18.187Z",
+    "theme": "China evacua mais de um milhão de pessoas com aproximação d…",
+    "title": "China evacua mais de um milhão de pessoas com aproximação do tufão Bavi",
+    "hook": "Você viu isso? China evacua mais de um milhão de pessoas com aproximação do tufão Bavi",
+    "script": "China evacua mais de um milhão de pessoas com aproximação do tufão Bavi. Tufão trouxe chuvas intensas e ventos violentos ao arquipélago de Sakishima, no sul do Japão, e passou pelo norte de ⁠Taiwan, após matar 17 pessoas nas Filipinas The post China evacua mais de um milhão de pessoas com ap… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "China",
+      "evacua",
+      "milhão",
+      "pessoas",
+      "aproximação",
+      "tufão"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/china-evacua-mais-de-um-milhao-de-pessoas-com-aproximacao-do-tufao-bavi/",
+    "rationale": "[mock] gerado sem IA — configure ANTHROPIC_API_KEY para roteiros reais.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mrgkkvfvk9qt.mp4"
+    }
+  },
+  {
+    "id": "sh_mrgkl9vld6p9",
+    "status": "draft",
+    "createdAt": "2026-07-11T16:19:18.187Z",
+    "theme": "Marco Rubio assume controle político e financeiro de Caraca…",
+    "title": "Marco Rubio assume controle político e financeiro de Caracas, diz jornal",
+    "hook": "Você viu isso? Marco Rubio assume controle político e financeiro de Caracas, diz jornal",
+    "script": "Marco Rubio assume controle político e financeiro de Caracas, diz jornal. Segundo fontes do NYT, Rubio atua como administrador da Venezuela, mantendo coordenação com a presidente interina Delcy Rodríguez por meio de mensagens de texto The post Marco Rubio assume controle político e financeiro… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Marco",
+      "Rubio",
+      "assume",
+      "controle",
+      "político",
+      "financeiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/marco-rubio-assume-controle-politico-e-financeiro-de-caracas-diz-jornal/",
+    "rationale": "[mock] gerado sem IA — configure ANTHROPIC_API_KEY para roteiros reais.",
+    "video": {
+      "rendered": true,
+      "durationSec": 24,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mrgkl9vld6p9.mp4"
+    }
   }
 ]
