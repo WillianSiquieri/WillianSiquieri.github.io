@@ -125,18 +125,16 @@ function geminiSchema() {
   };
 }
 
-async function generateWithGemini({ items, preferences, topPerformers, count, niche, llm }) {
-  const model = llm?.geminiModel || 'gemini-2.0-flash';
+const GEMINI_DEFAULT_MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash'];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// Uma chamada a um modelo específico do Gemini.
+async function callGemini(model, { items, preferences, topPerformers, count, niche }) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
   const body = {
     system_instruction: { parts: [{ text: SYSTEM }] },
     contents: [{ role: 'user', parts: [{ text: buildUserPrompt({ items, preferences, topPerformers, count, niche }) }] }],
-    generationConfig: {
-      responseMimeType: 'application/json',
-      responseSchema: geminiSchema(),
-      temperature: 0.9,
-      maxOutputTokens: 4096,
-    },
+    generationConfig: { responseMimeType: 'application/json', responseSchema: geminiSchema(), temperature: 0.9, maxOutputTokens: 4096 },
   };
   const res = await fetch(url, {
     method: 'POST',
@@ -144,12 +142,46 @@ async function generateWithGemini({ items, preferences, topPerformers, count, ni
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(60000),
   });
-  if (!res.ok) throw new Error(`Gemini HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    err.status = res.status;
+    throw err;
+  }
   const data = await res.json();
   const text = (data?.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
-  if (!text) throw new Error('Gemini retornou resposta vazia');
-  const parsed = JSON.parse(text);
-  return (parsed.shorts || []).slice(0, count);
+  if (!text) throw new Error('resposta vazia');
+  return (JSON.parse(text).shorts || []).slice(0, count);
+}
+
+// Cada modelo do free tier tem cota diária própria; se um estourar (429),
+// tentamos o próximo. Também 1 retry curto para limite por minuto.
+async function generateWithGemini(opts) {
+  const { llm } = opts;
+  const models = llm?.geminiModels?.length
+    ? llm.geminiModels
+    : llm?.geminiModel
+      ? [llm.geminiModel]
+      : GEMINI_DEFAULT_MODELS;
+
+  let lastErr;
+  for (const model of models) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const shorts = await callGemini(model, opts);
+        log(`Gemini OK com modelo ${model}`);
+        return shorts;
+      } catch (e) {
+        lastErr = e;
+        if (e.status === 429 && attempt === 0) {
+          await sleep(4000); // pode ser limite por minuto — tenta uma vez mais
+          continue;
+        }
+        warn(`Gemini modelo ${model} falhou (${e.message}); tentando próximo…`);
+        break;
+      }
+    }
+  }
+  throw lastErr || new Error('Gemini indisponível em todos os modelos');
 }
 
 // Fallback sem IA: transforma manchetes diretamente em drafts simples.
