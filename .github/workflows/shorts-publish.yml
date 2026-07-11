@@ -1,0 +1,51 @@
+name: Shorts · Publicar aprovados
+
+# Processa decisões do painel (aprovar/rejeitar) e atualiza performance.
+# Dispara quando o painel grava data/queue.json e também de 6 em 6 horas
+# para manter o analytics em dia.
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'shorts-automation/data/queue.json'
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shorts-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Processar aprovações e atualizar analytics
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          node src/publish.js
+          node src/youtube/analytics.js || true
+
+      - name: Commitar estado atualizado
+        run: |
+          git config user.name "shorts-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "publicar aprovados + atualizar analytics"
+          git push

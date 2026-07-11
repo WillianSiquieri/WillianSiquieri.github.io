@@ -1,0 +1,26 @@
+{
+  "channelName": "Meu Canal de Atualidades",
+  "niche": "Atualidades, notícias e política do Brasil e do mundo",
+  "language": "pt-BR",
+  "video": {
+    "type": "faceless",
+    "width": 1080,
+    "height": 1920,
+    "targetDurationSec": 45,
+    "backgroundStyle": "gradient"
+  },
+  "tts": {
+    "provider": "auto",
+    "voice": "pt-BR"
+  },
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-opus-4-8"
+  },
+  "sources": [
+    { "id": "g1", "type": "rss", "url": "https://g1.globo.com/rss/g1/", "label": "G1 - Últimas", "enabled": true, "weight": 1 },
+    { "id": "g1-politica", "type": "rss", "url": "https://g1.globo.com/rss/g1/politica/", "label": "G1 - Política", "enabled": true, "weight": 1 },
+    { "id": "bbc-brasil", "type": "rss", "url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "label": "BBC Brasil", "enabled": true, "weight": 1 },
+    { "id": "cnn-brasil", "type": "rss", "url": "https://www.cnnbrasil.com.br/feed/", "label": "CNN Brasil", "enabled": true, "weight": 1 }
+  ]
+}

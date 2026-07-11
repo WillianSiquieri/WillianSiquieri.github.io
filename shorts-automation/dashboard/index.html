@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shorts Automation · Painel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▶</span>
+      <div>
+        <h1>Shorts Automation</h1>
+        <p class="sub" id="channel-name">Painel de controle</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="mode-pill" id="mode-pill">—</span>
+      <button class="btn ghost" id="btn-settings">⚙ Config</button>
+      <button class="btn ghost" id="btn-connect">🔌 Conectar</button>
+      <button class="btn" id="btn-refresh">↻ Atualizar</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner hidden"></div>
+
+  <main>
+    <!-- KPIs -->
+    <section class="kpis" id="kpis"></section>
+
+    <!-- Controles rápidos -->
+    <section class="card control-strip">
+      <div class="control-group">
+        <label>Estado da geração</label>
+        <div class="segmented" id="mode-switch">
+          <button data-mode="paused">⏸ Pausado</button>
+          <button data-mode="approval">✅ Aprovação</button>
+          <button data-mode="auto">⚡ Automático</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="per-day">Shorts por dia</label>
+        <input type="number" id="per-day" min="0" max="20" />
+      </div>
+      <div class="control-group grow">
+        <label for="guidance">Orientação de estilo / temas (vira instrução para a IA)</label>
+        <textarea id="guidance" rows="2" placeholder="Ex.: tom direto, foco em economia, evitar fofoca de celebridades..."></textarea>
+      </div>
+      <button class="btn" id="btn-save-settings">Salvar configurações</button>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="queue">Fila de aprovação <span class="count" id="count-queue">0</span></button>
+      <button class="tab" data-tab="published">Publicados <span class="count" id="count-published">0</span></button>
+      <button class="tab" data-tab="feedback">Feedback</button>
+    </div>
+
+    <section id="tab-queue" class="tab-panel active">
+      <div id="queue-list" class="grid"></div>
+      <p id="queue-empty" class="empty hidden">Nada na fila. O próximo ciclo diário vai gerar novos shorts.</p>
+    </section>
+
+    <section id="tab-published" class="tab-panel">
+      <div id="published-list" class="grid"></div>
+      <p id="published-empty" class="empty hidden">Nenhum vídeo publicado ainda.</p>
+    </section>
+
+    <section id="tab-feedback" class="tab-panel">
+      <div class="card">
+        <label for="global-feedback">Feedback geral para a IA</label>
+        <textarea id="global-feedback" rows="3" placeholder="Ex.: 'Os últimos shorts ficaram genéricos, quero mais análise e menos manchete crua.'"></textarea>
+        <button class="btn" id="btn-add-feedback">Enviar feedback</button>
+      </div>
+      <ul id="feedback-log" class="feedback-log"></ul>
+    </section>
+  </main>
+
+  <!-- Modal: conectar (GitHub token) -->
+  <div class="modal hidden" id="modal-connect">
+    <div class="modal-box">
+      <h2>Conectar ao repositório</h2>
+      <p class="muted">Para <strong>aprovar, rejeitar e configurar</strong> pelo painel, ele grava nos arquivos JSON via API do GitHub. Cole um token de acesso com permissão de escrita neste repositório. Ele fica salvo apenas no seu navegador (localStorage).</p>
+      <label>Repositório (owner/repo)</label>
+      <input id="cfg-repo" placeholder="williansiquieri/williansiquieri.github.io" />
+      <label>Branch</label>
+      <input id="cfg-branch" placeholder="master" />
+      <label>GitHub token (fine-grained, escopo Contents: Read/Write)</label>
+      <input id="cfg-token" type="password" placeholder="github_pat_..." />
+      <div class="modal-actions">
+        <button class="btn ghost" id="btn-disconnect">Desconectar</button>
+        <button class="btn" id="btn-save-connect">Salvar</button>
+      </div>
+      <p class="muted small">Sem token, o painel funciona em modo somente-leitura.</p>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
