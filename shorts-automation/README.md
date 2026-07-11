@@ -66,11 +66,14 @@ Defina como **GitHub Secrets** (Settings → Secrets → Actions) ou no `.env` l
 > **A pilha padrão é 100% gratuita:** Gemini (free tier) para roteiro + edge-tts
 > (sem chave) para voz. A única chave a criar é a do Gemini (2 min, grátis).
 
-### 1. Roteiro (IA) — Gemini grátis (recomendado)
-- `GEMINI_API_KEY` — crie de graça em https://aistudio.google.com/apikey.
-  A cota gratuita cobre de sobra alguns shorts por dia.
-- Alternativa paga: `ANTHROPIC_API_KEY` (Claude). Se ambas existirem, o Gemini
-  tem prioridade. Sem nenhuma, cai para um gerador mock simples.
+### 1. Roteiro (IA) — grátis (defina UMA chave)
+Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
+- `GROQ_API_KEY` — **recomendado** (grátis e confiável, Llama 3.3 70B):
+  https://console.groq.com/keys
+- `GEMINI_API_KEY` — grátis, mas a quota do free tier **depende da conta/região**
+  (pode retornar 429 sem quota): https://aistudio.google.com/apikey
+- `ANTHROPIC_API_KEY` — alternativa paga (Claude).
+- Sem nenhuma chave, cai para um gerador mock simples.
 - Provedor e modelos ficam em `config/config.json → llm` (`provider: "auto"`).
 
 ### 2. Voz / TTS — edge-tts grátis (padrão, sem chave)

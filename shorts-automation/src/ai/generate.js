@@ -184,6 +184,42 @@ async function generateWithGemini(opts) {
   throw lastErr || new Error('Gemini indisponível em todos os modelos');
 }
 
+// Groq (free tier): endpoint compatível com OpenAI, hospeda Llama 3.3 70B.
+// Alternativa confiável quando o free tier do Gemini não tem quota.
+async function generateWithGroq(opts) {
+  const { llm, count } = opts;
+  const model = llm?.groqModel || 'llama-3.3-70b-versatile';
+  const sys =
+    SYSTEM +
+    `\n\nResponda APENAS com um objeto JSON no formato ` +
+    `{"shorts":[{"theme","title","hook","script","captionKeywords":[],"tags":[],"sourceLink","rationale"}]} ` +
+    `contendo exatamente ${count} itens.`;
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model,
+      messages: [
+        { role: 'system', content: sys },
+        { role: 'user', content: buildUserPrompt(opts) },
+      ],
+      response_format: { type: 'json_object' },
+      temperature: 0.9,
+      max_tokens: 4096,
+    }),
+    signal: AbortSignal.timeout(60000),
+  });
+  if (!res.ok) {
+    const err = new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    err.status = res.status;
+    throw err;
+  }
+  const data = await res.json();
+  const text = data?.choices?.[0]?.message?.content || '';
+  if (!text) throw new Error('Groq retornou resposta vazia');
+  return (JSON.parse(text).shorts || []).slice(0, count);
+}
+
 // Fallback sem IA: transforma manchetes diretamente em drafts simples.
 function generateMock({ items, count }) {
   const picked = items.slice(0, count);
@@ -200,13 +236,18 @@ function generateMock({ items, count }) {
 }
 
 // Escolhe o provedor de IA: config.llm.provider (ou 'auto') + chaves disponíveis.
+// Groq vem primeiro no 'auto' por ser o free tier mais confiável.
 function pickProvider(llm) {
   const p = llm?.provider || 'auto';
   if (p !== 'auto') return p;
+  if (process.env.GROQ_API_KEY) return 'groq';
   if (process.env.GEMINI_API_KEY) return 'gemini';
   if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
   return 'mock';
 }
+
+const RUNNERS = { groq: generateWithGroq, gemini: generateWithGemini, anthropic: generateWithClaude };
+const LABELS = { groq: 'Groq (grátis)', gemini: 'Gemini (grátis)', anthropic: 'Claude API' };
 
 export async function generateShorts(opts) {
   const { items, llm } = opts;
@@ -215,15 +256,15 @@ export async function generateShorts(opts) {
     return [];
   }
   const provider = pickProvider(llm);
-  if (provider === 'gemini' || provider === 'anthropic') {
+  if (RUNNERS[provider]) {
     try {
-      log(`Gerando shorts com ${provider === 'gemini' ? 'Gemini (grátis)' : 'Claude API'}…`);
-      return provider === 'gemini' ? await generateWithGemini(opts) : await generateWithClaude(opts);
+      log(`Gerando shorts com ${LABELS[provider]}…`);
+      return await RUNNERS[provider](opts);
     } catch (err) {
       warn(`Falha no provedor "${provider}", usando fallback mock:`, err.message);
       return generateMock(opts);
     }
   }
-  log('Sem chave de IA (GEMINI_API_KEY/ANTHROPIC_API_KEY) — usando gerador mock.');
+  log('Sem chave de IA (GROQ/GEMINI/ANTHROPIC) — usando gerador mock.');
   return generateMock(opts);
 }
