@@ -150,9 +150,16 @@ function renderFeedback() {
 }
 
 function shortCard(d, isPublished) {
-  const preview = d.youtubeId && !String(d.youtubeId).startsWith('DEMO')
-    ? `<div class="preview"><iframe src="https://www.youtube.com/embed/${d.youtubeId}" allowfullscreen></iframe></div>`
-    : `<div class="no-preview">🎬 ${d.video?.rendered ? 'Vídeo renderizado' : 'Sem preview de vídeo'} · ${d.video?.durationSec || '?'}s</div>`;
+  let preview;
+  if (d.youtubeId && !String(d.youtubeId).startsWith('DEMO')) {
+    // Vídeo já enviado (não listado) → player do YouTube.
+    preview = `<div class="preview"><iframe src="https://www.youtube.com/embed/${d.youtubeId}" allowfullscreen></iframe></div>`;
+  } else if (d.video?.previewFile) {
+    // Preview leve auto-hospedado no repo → player HTML5.
+    preview = `<div class="preview"><video controls preload="metadata" playsinline src="${BASE}/${d.video.previewFile}"></video></div>`;
+  } else {
+    preview = `<div class="no-preview">🎬 ${d.video?.rendered ? 'Vídeo renderizado (preview indisponível)' : 'Preview aparece após o motor renderizar'} · ${d.video?.durationSec || '?'}s</div>`;
+  }
 
   const stats = isPublished
     ? `<div class="stats">
