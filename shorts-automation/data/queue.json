@@ -180,5 +180,66 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrgslfyaghtr.mp4"
     }
+  },
+  {
+    "id": "sh_mrgt1jbg1cm2",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:16:12.556Z",
+    "theme": "Número de mortos em terremotos na Venezuela subiu para 4.333",
+    "title": "Número de mortos em terremotos na Venezuela subiu para 4.333",
+    "hook": "Você viu isso? Número de mortos em terremotos na Venezuela subiu para 4.333",
+    "script": "Número de mortos em terremotos na Venezuela subiu para 4.333. Segundo Jorge Rodríguez, presidente da Assembleia Nacional, 856 edifícios foram afetados, dos quais 190 desabaram completamente ou sofreram ⁠colapso ​estrutural The post Número de mortos em terremotos na Venezuela subiu… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Número",
+      "mortos",
+      "terremotos",
+      "Venezuela",
+      "subiu",
+      "4.333"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/numero-de-mortos-em-terremotos-na-venezuela-subiu-para-4-333/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 23,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgt1jbg1cm2.mp4"
+    }
+  },
+  {
+    "id": "sh_mrgt1rpqa64n",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:16:12.556Z",
+    "theme": "Mudança no tempo derruba as temperaturas no Sudeste e Sul",
+    "title": "Mudança no tempo derruba as temperaturas no Sudeste e Sul",
+    "hook": "Você viu isso? Mudança no tempo derruba as temperaturas no Sudeste e Sul",
+    "script": "Mudança no tempo derruba as temperaturas no Sudeste e Sul. O frio será sentido primeiro no Rio Grande do Sul, em Santa Catarina e no Paraná, onde pode haver chuva e temporais, depois, alcançará o sul e o leste de São Paulo, incluindo a capital paulista The post Mudança no tempo… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Mudança",
+      "tempo",
+      "derruba",
+      "temperaturas",
+      "Sudeste"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/mudanca-no-tempo-derruba-as-temperaturas-no-sudeste-e-sul/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgt1rpqa64n.mp4"
+    }
   }
 ]
