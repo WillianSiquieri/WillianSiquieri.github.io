@@ -1,13 +1,14 @@
 {
-  "channelName": "Meu Canal de Atualidades",
-  "niche": "Atualidades, notícias e política do Brasil e do mundo",
+  "channelName": "Minuto Financeiro",
+  "niche": "Finanças, economia e investimentos para o público brasileiro — explicar de forma simples o que move o dinheiro (mercado, juros, dólar, bolsa, cripto, economia pessoal)",
   "language": "pt-BR",
   "video": {
     "type": "faceless",
     "width": 1080,
     "height": 1920,
     "targetDurationSec": 45,
-    "backgroundStyle": "gradient"
+    "backgroundStyle": "gradient",
+    "categoryId": "25"
   },
   "tts": {
     "provider": "auto",
@@ -18,9 +19,10 @@
     "model": "claude-opus-4-8"
   },
   "sources": [
-    { "id": "g1", "type": "rss", "url": "https://g1.globo.com/rss/g1/", "label": "G1 - Últimas", "enabled": true, "weight": 1 },
-    { "id": "g1-politica", "type": "rss", "url": "https://g1.globo.com/rss/g1/politica/", "label": "G1 - Política", "enabled": true, "weight": 1 },
-    { "id": "bbc-brasil", "type": "rss", "url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "label": "BBC Brasil", "enabled": true, "weight": 1 },
-    { "id": "cnn-brasil", "type": "rss", "url": "https://www.cnnbrasil.com.br/feed/", "label": "CNN Brasil", "enabled": true, "weight": 1 }
+    { "id": "infomoney", "type": "rss", "url": "https://www.infomoney.com.br/feed/", "label": "InfoMoney", "enabled": true, "weight": 1 },
+    { "id": "moneytimes", "type": "rss", "url": "https://www.moneytimes.com.br/feed/", "label": "Money Times", "enabled": true, "weight": 1 },
+    { "id": "g1-economia", "type": "rss", "url": "https://g1.globo.com/rss/g1/economia/", "label": "G1 - Economia", "enabled": true, "weight": 1 },
+    { "id": "exame-invest", "type": "rss", "url": "https://exame.com/invest/feed/", "label": "Exame Invest", "enabled": true, "weight": 1 },
+    { "id": "seudinheiro", "type": "rss", "url": "https://www.seudinheiro.com/feed/", "label": "Seu Dinheiro", "enabled": true, "weight": 1 }
   ]
 }

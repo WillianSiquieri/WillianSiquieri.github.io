@@ -3,58 +3,58 @@
     "id": "sh_demo1",
     "status": "draft",
     "createdAt": "2026-07-11T09:00:00.000Z",
-    "theme": "Nova regra do PIX",
-    "title": "A nova regra do PIX que muda tudo a partir de agora",
-    "hook": "Se você usa PIX, presta atenção nos próximos 40 segundos.",
-    "script": "Se você usa PIX, presta atenção. O Banco Central anunciou uma mudança que afeta todo mundo. A partir de agora, transferências acima de um certo valor vão passar por uma verificação extra. Isso foi feito para reduzir golpes, que cresceram muito no último ano. Na prática, você pode sentir um pequeno atraso em transações grandes, mas ganha mais segurança. Vale a pena? Comenta aqui o que você acha dessa mudança!",
+    "theme": "Corte na Selic",
+    "title": "A Selic caiu — o que muda no seu dinheiro agora",
+    "hook": "O juro caiu e isso mexe direto no seu bolso. Em 40 segundos:",
+    "script": "O Banco Central cortou a Selic, a taxa básica de juros. Na prática: financiamento e cartão tendem a ficar um pouco mais baratos, mas a renda fixa mais conservada rende menos. Quem tem dinheiro no Tesouro Selic ou na poupança sente primeiro. Já quem pensa em investir em bolsa, juro menor costuma empurrar mais gente para a renda variável. Ou seja: a mesma notícia é boa para uns e ruim para outros. Você está mais para renda fixa ou renda variável? Comenta aqui!",
     "tags": [
-      "pix",
-      "bancocentral",
-      "economia",
-      "financas",
+      "selic",
+      "juros",
+      "investimentos",
+      "rendafixa",
       "shorts"
     ],
     "captionKeywords": [
-      "PIX",
-      "Banco Central",
-      "verificação",
-      "golpes",
-      "segurança"
+      "Selic",
+      "juros",
+      "Tesouro",
+      "renda fixa",
+      "bolsa"
     ],
-    "sourceLink": "https://exemplo.com/noticia-pix",
-    "rationale": "Tema financeiro de alto interesse e alcance amplo; PIX gera muito engajamento.",
+    "sourceLink": "https://exemplo.com/noticia-selic",
+    "rationale": "Selic afeta todo investidor; tema de finanças tem RPM alto e busca constante.",
     "video": {
       "rendered": false,
-      "durationSec": 42
+      "durationSec": 44
     }
   },
   {
     "id": "sh_demo2",
     "status": "draft",
     "createdAt": "2026-07-11T09:00:00.000Z",
-    "theme": "Onda de calor recorde",
-    "title": "Por que este calor está batendo recordes históricos",
-    "hook": "Esse calor não é normal — e os números provam.",
-    "script": "Esse calor não é normal. Cidades registraram as maiores temperaturas da história para este mês. Mas por que isso está acontecendo agora? A combinação de um fenômeno climático no oceano com as mudanças de longo prazo está criando essas ondas extremas. E os especialistas alertam: isso deve ficar mais frequente. O que a sua cidade está fazendo para se preparar? Conta aqui embaixo!",
+    "theme": "Dólar em alta",
+    "title": "Por que o dólar subiu de novo (e como isso te afeta)",
+    "hook": "O dólar voltou a subir — e não é só quem viaja que sente.",
+    "script": "O dólar voltou a subir e o impacto vai muito além de quem viaja. Dólar mais caro encarece combustível, eletrônicos e até o supermercado, porque muita coisa é importada ou cotada em dólar. Isso pressiona a inflação, que por sua vez influencia os juros. Para quem investe, mexe em quem tem ativos lá fora ou dolarizados. Entender esse efeito dominó é o que separa quem reage de quem se antecipa. Você acompanha o dólar no dia a dia? Conta aqui!",
     "tags": [
-      "clima",
-      "ondadecalor",
-      "meioambiente",
-      "atualidades",
+      "dolar",
+      "cambio",
+      "inflacao",
+      "economia",
       "shorts"
     ],
     "captionKeywords": [
-      "calor recorde",
-      "temperatura",
-      "clima",
-      "oceano",
-      "alerta"
+      "dólar",
+      "câmbio",
+      "inflação",
+      "importados",
+      "juros"
     ],
-    "sourceLink": "https://exemplo.com/noticia-calor",
-    "rationale": "Assunto sazonal, alta busca e forte apelo emocional/utilitário.",
+    "sourceLink": "https://exemplo.com/noticia-dolar",
+    "rationale": "Câmbio é dos temas mais buscados; conecta economia macro ao bolso do espectador.",
     "video": {
       "rendered": false,
-      "durationSec": 40
+      "durationSec": 42
     }
   }
 ]
