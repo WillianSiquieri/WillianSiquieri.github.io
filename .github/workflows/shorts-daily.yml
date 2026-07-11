@@ -1,0 +1,60 @@
+name: Shorts · Ciclo diário
+
+# Gera os shorts do dia a partir das fontes de notícias.
+# Roda no fuso ~09:00 BRT (12:00 UTC) e também pode ser disparado manualmente.
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Quantos shorts gerar (sobrescreve a config)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-daily
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shorts-automation
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar ffmpeg + fontes
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Rodar ciclo de geração
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.count }}" ]; then ARGS="--count=${{ github.event.inputs.count }}"; fi
+          node src/cycle.js $ARGS
+
+      - name: Commitar estado atualizado
+        run: |
+          git config user.name "shorts-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "ciclo diário: novos shorts + analytics"
+          git push

@@ -1,0 +1,10 @@
+{
+  "mode": "approval",
+  "shortsPerDay": 2,
+  "preferences": {
+    "guidance": "Tom informativo e direto, linguagem acessível, sem sensacionalismo. Foque em explicar o 'porquê' da notícia importar para o público.",
+    "likedThemes": [],
+    "dislikedThemes": []
+  },
+  "updatedAt": "2026-07-11T00:00:00.000Z"
+}

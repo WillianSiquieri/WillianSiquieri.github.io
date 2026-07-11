@@ -1,0 +1,40 @@
+[
+  {
+    "id": "sh_demo_pub1",
+    "status": "published",
+    "createdAt": "2026-07-08T09:00:00.000Z",
+    "publishedAt": "2026-07-08T12:00:00.000Z",
+    "theme": "Reforma tributária explicada",
+    "title": "A reforma tributária em 40 segundos (sem enrolação)",
+    "script": "A reforma tributária foi aprovada e vai mudar como você paga imposto...",
+    "tags": ["reformatributaria", "impostos", "economia", "shorts"],
+    "sourceLink": "https://exemplo.com/reforma",
+    "youtubeId": "DEMO_ID_1",
+    "previewUrl": "https://youtube.com/shorts/DEMO_ID_1",
+    "privacyStatus": "public",
+    "views": 18400,
+    "likes": 1220,
+    "comments": 210,
+    "score": 61400,
+    "analyticsUpdatedAt": "2026-07-11T06:00:00.000Z"
+  },
+  {
+    "id": "sh_demo_pub2",
+    "status": "published",
+    "createdAt": "2026-07-09T09:00:00.000Z",
+    "publishedAt": "2026-07-09T12:00:00.000Z",
+    "theme": "Eleição nos EUA e o Brasil",
+    "title": "O que a eleição dos EUA muda para o seu bolso no Brasil",
+    "script": "A eleição nos Estados Unidos pode parecer distante, mas afeta o dólar...",
+    "tags": ["eleicoes", "eua", "dolar", "economia", "shorts"],
+    "sourceLink": "https://exemplo.com/eua",
+    "youtubeId": "DEMO_ID_2",
+    "previewUrl": "https://youtube.com/shorts/DEMO_ID_2",
+    "privacyStatus": "public",
+    "views": 7300,
+    "likes": 480,
+    "comments": 95,
+    "score": 24200,
+    "analyticsUpdatedAt": "2026-07-11T06:00:00.000Z"
+  }
+]

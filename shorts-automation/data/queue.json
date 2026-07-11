@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sh_demo1",
+    "status": "draft",
+    "createdAt": "2026-07-11T09:00:00.000Z",
+    "theme": "Nova regra do PIX",
+    "title": "A nova regra do PIX que muda tudo a partir de agora",
+    "hook": "Se você usa PIX, presta atenção nos próximos 40 segundos.",
+    "script": "Se você usa PIX, presta atenção. O Banco Central anunciou uma mudança que afeta todo mundo. A partir de agora, transferências acima de um certo valor vão passar por uma verificação extra. Isso foi feito para reduzir golpes, que cresceram muito no último ano. Na prática, você pode sentir um pequeno atraso em transações grandes, mas ganha mais segurança. Vale a pena? Comenta aqui o que você acha dessa mudança!",
+    "tags": ["pix", "bancocentral", "economia", "financas", "shorts"],
+    "captionKeywords": ["PIX", "Banco Central", "verificação", "golpes", "segurança"],
+    "sourceLink": "https://exemplo.com/noticia-pix",
+    "rationale": "Tema financeiro de alto interesse e alcance amplo; PIX gera muito engajamento.",
+    "video": { "rendered": false, "durationSec": 42 }
+  },
+  {
+    "id": "sh_demo2",
+    "status": "draft",
+    "createdAt": "2026-07-11T09:00:00.000Z",
+    "theme": "Onda de calor recorde",
+    "title": "Por que este calor está batendo recordes históricos",
+    "hook": "Esse calor não é normal — e os números provam.",
+    "script": "Esse calor não é normal. Cidades registraram as maiores temperaturas da história para este mês. Mas por que isso está acontecendo agora? A combinação de um fenômeno climático no oceano com as mudanças de longo prazo está criando essas ondas extremas. E os especialistas alertam: isso deve ficar mais frequente. O que a sua cidade está fazendo para se preparar? Conta aqui embaixo!",
+    "tags": ["clima", "ondadecalor", "meioambiente", "atualidades", "shorts"],
+    "captionKeywords": ["calor recorde", "temperatura", "clima", "oceano", "alerta"],
+    "sourceLink": "https://exemplo.com/noticia-calor",
+    "rationale": "Assunto sazonal, alta busca e forte apelo emocional/utilitário.",
+    "video": { "rendered": false, "durationSec": 40 }
+  }
+]
