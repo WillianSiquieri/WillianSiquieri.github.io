@@ -51,6 +51,15 @@ function ttsPiper(text, outPath) {
   });
 }
 
+// edge-tts: vozes neurais da Microsoft, gratuitas e sem chave de API.
+async function ttsEdge(text, outPath, cfg) {
+  const { EdgeTTS } = await import('node-edge-tts');
+  const voice = cfg.voice && /Neural$/.test(cfg.voice) ? cfg.voice : 'pt-BR-AntonioNeural';
+  const tts = new EdgeTTS({ voice });
+  await tts.ttsPromise(text, outPath);
+  return outPath;
+}
+
 async function ttsSilent(text, outPath) {
   if (!(await hasFfmpeg())) return null;
   const dur = estimateDuration(text);
@@ -64,6 +73,7 @@ export async function synthesize(text, workDir, cfg = {}) {
   try {
     let audioPath = null;
     if (provider === 'elevenlabs') audioPath = await ttsElevenLabs(text, out, cfg);
+    else if (provider === 'edge') audioPath = await ttsEdge(text, out, cfg);
     else if (provider === 'piper') audioPath = await ttsPiper(text, out);
     else audioPath = await ttsSilent(text, join(workDir, 'narration.mp3'));
 
@@ -80,5 +90,7 @@ export async function synthesize(text, workDir, cfg = {}) {
 function autoProvider() {
   if (process.env.ELEVENLABS_API_KEY) return 'elevenlabs';
   if (process.env.PIPER_MODEL) return 'piper';
-  return 'silent';
+  // edge-tts é grátis e não precisa de chave — padrão para ter voz natural sem custo.
+  // Se falhar (rede/serviço), o synthesize cai para trilha silenciosa.
+  return 'edge';
 }

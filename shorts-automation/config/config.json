@@ -12,11 +12,12 @@
   },
   "tts": {
     "provider": "auto",
-    "voice": "pt-BR"
+    "voice": "pt-BR-AntonioNeural"
   },
   "llm": {
-    "provider": "anthropic",
-    "model": "claude-opus-4-8"
+    "provider": "auto",
+    "geminiModel": "gemini-2.0-flash",
+    "anthropicModel": "claude-opus-4-8"
   },
   "sources": [
     { "id": "infomoney", "type": "rss", "url": "https://www.infomoney.com.br/feed/", "label": "InfoMoney", "enabled": true, "weight": 1 },

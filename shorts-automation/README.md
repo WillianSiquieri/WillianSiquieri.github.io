@@ -63,13 +63,23 @@ npx serve .            # e acesse /dashboard/  (ou qualquer servidor estático)
 
 Defina como **GitHub Secrets** (Settings → Secrets → Actions) ou no `.env` local:
 
-### 1. Claude API (roteiros) — recomendado
-- `ANTHROPIC_API_KEY` — sem ela, o sistema usa um gerador mock simples.
+> **A pilha padrão é 100% gratuita:** Gemini (free tier) para roteiro + edge-tts
+> (sem chave) para voz. A única chave a criar é a do Gemini (2 min, grátis).
 
-### 2. Voz / TTS — opcional
-- `ELEVENLABS_API_KEY` (+ `ELEVENLABS_VOICE_ID`) para voz de alta qualidade, **ou**
-- `PIPER_MODEL` para TTS local grátis (open-source), **ou**
-- nada → o vídeo sai com trilha silenciosa (útil para testar o fluxo).
+### 1. Roteiro (IA) — Gemini grátis (recomendado)
+- `GEMINI_API_KEY` — crie de graça em https://aistudio.google.com/apikey.
+  A cota gratuita cobre de sobra alguns shorts por dia.
+- Alternativa paga: `ANTHROPIC_API_KEY` (Claude). Se ambas existirem, o Gemini
+  tem prioridade. Sem nenhuma, cai para um gerador mock simples.
+- Provedor e modelos ficam em `config/config.json → llm` (`provider: "auto"`).
+
+### 2. Voz / TTS — edge-tts grátis (padrão, sem chave)
+- **Nada a configurar:** por padrão usa **edge-tts** (vozes neurais da Microsoft,
+  gratuitas). Troque a voz em `config/config.json → tts.voice`
+  (ex.: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaNeural`).
+- Opcional (pago, premium): `ELEVENLABS_API_KEY` (+ `ELEVENLABS_VOICE_ID`).
+- Opcional (offline): `PIPER_MODEL`.
+- Se o edge-tts falhar (rede), o vídeo sai com trilha silenciosa como fallback.
 
 ### 3. YouTube (publicar + medir performance)
 1. No [Google Cloud Console](https://console.cloud.google.com): crie um projeto,

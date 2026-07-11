@@ -82,13 +82,13 @@ Selecione os ${count} melhores temas dentre as manchetes acima (evite os temas i
 e entregue os shorts via a ferramenta 'entregar_shorts'.`;
 }
 
-async function generateWithClaude({ items, preferences, topPerformers, count, niche, model }) {
+async function generateWithClaude({ items, preferences, topPerformers, count, niche, llm }) {
   const { default: Anthropic } = await import('@anthropic-ai/sdk');
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   const tool = outputToolSchema(count);
 
   const resp = await client.messages.create({
-    model: model || 'claude-opus-4-8',
+    model: llm?.anthropicModel || llm?.model || 'claude-opus-4-8',
     max_tokens: 4000,
     system: SYSTEM,
     tools: [tool],
@@ -99,6 +99,57 @@ async function generateWithClaude({ items, preferences, topPerformers, count, ni
   const block = resp.content.find((b) => b.type === 'tool_use');
   if (!block) throw new Error('Claude não retornou tool_use');
   return block.input.shorts;
+}
+
+// Schema de saída para o Gemini (tipos em MAIÚSCULAS, subconjunto OpenAPI).
+function geminiSchema() {
+  const S = { type: 'STRING' };
+  return {
+    type: 'OBJECT',
+    properties: {
+      shorts: {
+        type: 'ARRAY',
+        items: {
+          type: 'OBJECT',
+          properties: {
+            theme: S, title: S, hook: S, script: S,
+            captionKeywords: { type: 'ARRAY', items: S },
+            tags: { type: 'ARRAY', items: S },
+            sourceLink: S, rationale: S,
+          },
+          required: ['theme', 'title', 'hook', 'script', 'tags', 'sourceLink'],
+        },
+      },
+    },
+    required: ['shorts'],
+  };
+}
+
+async function generateWithGemini({ items, preferences, topPerformers, count, niche, llm }) {
+  const model = llm?.geminiModel || 'gemini-2.0-flash';
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+  const body = {
+    system_instruction: { parts: [{ text: SYSTEM }] },
+    contents: [{ role: 'user', parts: [{ text: buildUserPrompt({ items, preferences, topPerformers, count, niche }) }] }],
+    generationConfig: {
+      responseMimeType: 'application/json',
+      responseSchema: geminiSchema(),
+      temperature: 0.9,
+      maxOutputTokens: 4096,
+    },
+  };
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(60000),
+  });
+  if (!res.ok) throw new Error(`Gemini HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  const data = await res.json();
+  const text = (data?.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
+  if (!text) throw new Error('Gemini retornou resposta vazia');
+  const parsed = JSON.parse(text);
+  return (parsed.shorts || []).slice(0, count);
 }
 
 // Fallback sem IA: transforma manchetes diretamente em drafts simples.
@@ -112,25 +163,35 @@ function generateMock({ items, count }) {
     captionKeywords: it.title.split(/\s+/).filter((w) => w.length > 4).slice(0, 6),
     tags: ['atualidades', 'noticias', 'brasil', 'shorts'],
     sourceLink: it.link,
-    rationale: '[mock] gerado sem IA — configure ANTHROPIC_API_KEY para roteiros reais.',
+    rationale: '[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.',
   }));
 }
 
+// Escolhe o provedor de IA: config.llm.provider (ou 'auto') + chaves disponíveis.
+function pickProvider(llm) {
+  const p = llm?.provider || 'auto';
+  if (p !== 'auto') return p;
+  if (process.env.GEMINI_API_KEY) return 'gemini';
+  if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
+  return 'mock';
+}
+
 export async function generateShorts(opts) {
-  const { items } = opts;
+  const { items, llm } = opts;
   if (!items?.length) {
     warn('Nenhum item de notícia disponível — nada a gerar.');
     return [];
   }
-  if (process.env.ANTHROPIC_API_KEY) {
+  const provider = pickProvider(llm);
+  if (provider === 'gemini' || provider === 'anthropic') {
     try {
-      log('Gerando shorts com Claude API…');
-      return await generateWithClaude(opts);
+      log(`Gerando shorts com ${provider === 'gemini' ? 'Gemini (grátis)' : 'Claude API'}…`);
+      return provider === 'gemini' ? await generateWithGemini(opts) : await generateWithClaude(opts);
     } catch (err) {
-      warn('Falha na Claude API, usando fallback mock:', err.message);
+      warn(`Falha no provedor "${provider}", usando fallback mock:`, err.message);
       return generateMock(opts);
     }
   }
-  log('ANTHROPIC_API_KEY ausente — usando gerador mock.');
+  log('Sem chave de IA (GEMINI_API_KEY/ANTHROPIC_API_KEY) — usando gerador mock.');
   return generateMock(opts);
 }
