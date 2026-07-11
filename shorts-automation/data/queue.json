@@ -241,5 +241,61 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrgt1rpqa64n.mp4"
     }
+  },
+  {
+    "id": "sh_mrgthhda1my6",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:28:36.526Z",
+    "theme": "Inflação e IPCA",
+    "title": "IPCA: Inflação desacelera para 0,16% em junho",
+    "hook": "Inflação desacelera, mas o que isso significa para o seu bolso?",
+    "script": "O IPCA, considerado a inflação oficial do país, desacelera para 0,16% em junho. É um sinal de que a economia está sob controle? Ou significa que os preços vão parar de subir? Segundo o IBGE, a queda dos preços dos alimentos foi o principal motivador dessa desaceleração. Mas e a conta de luz? Ela continua pressionando. Entenda o que isso significa para o seu orçamento e como você pode se preparar para o que vem por aí.",
+    "tags": [
+      "economia",
+      "inflação",
+      "IPC"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "IPCA",
+      "economia",
+      "orçamento"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/10/ipca-inflacao-junho.ghtml",
+    "rationale": "Esse tema é relevante porque a inflação é um assunto que afeta diretamente o bolso de todos os brasileiros. A desaceleração da inflação pode ser um sinal de que a economia está melhorando, mas é importante entender o que isso significa para o nosso orçamento e como podemos nos preparar para o futuro.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgthhda1my6.mp4"
+    }
+  },
+  {
+    "id": "sh_mrgthyupkdfd",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:28:36.526Z",
+    "theme": "Dólar e Ibovespa",
+    "title": "Dólar fecha em queda, de olho em inflação e tensões no Oriente Médio",
+    "hook": "Dólar em queda, mas o que isso significa para o seu dinheiro?",
+    "script": "O dólar fechou em queda, com um recuo de 0,28%, cotado a R$ 5,1084. Isso é um sinal de que a economia brasileira está se fortalecendo? Ou é apenas uma flutuação momentânea? Além disso, o Ibovespa sobe quase 3%. O que isso significa para os investidores? Entenda como as notícias internacionais afetam o valor do dólar e como isso pode impactar o seu orçamento e investimentos.",
+    "tags": [
+      "economia",
+      "dólar",
+      "Ibovespa"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "Ibovespa",
+      "economia",
+      "investimentos"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/10/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é relevante porque o valor do dólar e a performance do Ibovespa são indicadores importantes da saúde da economia brasileira. Entender como esses fatores se relacionam e como podem afetar o nosso orçamento e investimentos é fundamental para tomar decisões informadas.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgthyupkdfd.mp4"
+    }
   }
 ]
