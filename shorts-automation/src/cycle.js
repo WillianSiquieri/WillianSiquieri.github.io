@@ -112,7 +112,7 @@ async function main() {
       if (asm.rendered && youtubeReady()) {
         try {
           const privacy = settings.mode === 'auto' ? 'public' : 'unlisted';
-          const up = await uploadShort(entry, asm.videoPath, { privacyStatus: privacy });
+          const up = await uploadShort(entry, asm.videoPath, { privacyStatus: privacy, categoryId: config.video?.categoryId });
           if (up) {
             entry.youtubeId = up.youtubeId;
             entry.previewUrl = up.url;
