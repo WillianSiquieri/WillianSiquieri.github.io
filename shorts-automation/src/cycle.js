@@ -79,7 +79,7 @@ async function main() {
     topPerformers: performers,
     count,
     niche: config.niche,
-    model: config.llm?.model,
+    llm: config.llm,
   });
   log(`${drafts.length} drafts gerados.`);
 
