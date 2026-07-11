@@ -118,5 +118,67 @@
       "ttsProvider": "silent",
       "previewFile": "data/previews/sh_mrgkl9vld6p9.mp4"
     }
+  },
+  {
+    "id": "sh_mrgsl4gi4qon",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:03:26.802Z",
+    "theme": "Federação alemã diz estar confiante sobre contratação de té…",
+    "title": "Federação alemã diz estar confiante sobre contratação de técnico Klopp para a seleção",
+    "hook": "Você viu isso? Federação alemã diz estar confiante sobre contratação de técnico Klopp para a s…",
+    "script": "Federação alemã diz estar confiante sobre contratação de técnico Klopp para a seleção. Klopp é considerado a escolha mais popular entre os torcedores ​alemães, mas causou polêmica no início da Copa do Mundo por sugerir que o ​tempo de Nagelsmann no ⁠comando da seleção alemã poderia estar chegando ao fim T… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Federação",
+      "alemã",
+      "estar",
+      "confiante",
+      "sobre",
+      "contratação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/esportes/federacao-alema-diz-estar-confiante-sobre-contratacao-de-tecnico-klopp-para-a-selecao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgsl4gi4qon.mp4"
+    }
+  },
+  {
+    "id": "sh_mrgslfyaghtr",
+    "status": "draft",
+    "createdAt": "2026-07-11T20:03:26.802Z",
+    "theme": "Zelensky pede união com Polônia contra Rússia ao lembrar ví…",
+    "title": "Zelensky pede união com Polônia contra Rússia ao lembrar vítimas da 2ª Guerra",
+    "hook": "Você viu isso? Zelensky pede união com Polônia contra Rússia ao lembrar vítimas da 2ª Guerra",
+    "script": "Zelensky pede união com Polônia contra Rússia ao lembrar vítimas da 2ª Guerra. Os massacres de civis poloneses e as ações de represália contra ucranianos em 1943 permanecem entre os temas mais sensíveis das relações entre Kiev e Varsóvia The post Zelensky pede união com Polônia contra Rússia ao le… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Zelensky",
+      "união",
+      "Polônia",
+      "contra",
+      "Rússia",
+      "lembrar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/zelensky-pede-uniao-com-polonia-contra-russia-ao-lembrar-vitimas-da-2a-guerra/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrgslfyaghtr.mp4"
+    }
   }
 ]
