@@ -1,0 +1,57 @@
+name: Roupas · Ciclo (buscar fotos + gerar posts)
+
+# Busca as fotos de roupa recebidas no WhatsApp das fornecedoras e gera os posts.
+# Roda de 3 em 3 horas (as fotos chegam ao longo do dia) e pode ser disparado à mão.
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Quantos posts gerar (sobrescreve a config)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clothing-cycle
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clothing-automation
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Rodar ciclo de geração
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WHATSAPP_PROVIDER: ${{ secrets.WHATSAPP_PROVIDER }}
+          WHATSAPP_INBOX_URL: ${{ secrets.WHATSAPP_INBOX_URL }}
+          WHATSAPP_INBOX_TOKEN: ${{ secrets.WHATSAPP_INBOX_TOKEN }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.count }}" ]; then ARGS="--count=${{ github.event.inputs.count }}"; fi
+          node src/cycle.js $ARGS
+
+      - name: Commitar estado atualizado
+        run: |
+          git config user.name "clothing-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "ciclo roupas: novos posts a partir do WhatsApp"
+          git push

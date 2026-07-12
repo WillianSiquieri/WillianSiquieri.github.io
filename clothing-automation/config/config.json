@@ -1,0 +1,23 @@
+{
+  "storeName": "Bazar da Willi",
+  "niche": "Moda feminina e roupas em geral para revenda — peças recebidas de fornecedoras, anunciadas para venda no Instagram com preço final e chamada para o direct/WhatsApp",
+  "language": "pt-BR",
+  "contact": "Chama no direct 💬 ou WhatsApp para comprar",
+  "publicBaseUrl": "https://williansiquieri.github.io/clothing-automation",
+  "llm": {
+    "provider": "auto",
+    "groqModel": "llama-3.3-70b-versatile",
+    "geminiModels": ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
+    "anthropicModel": "claude-opus-4-8"
+  },
+  "whatsapp": {
+    "provider": "auto",
+    "vendors": [
+      { "number": "5511999990001", "name": "Fornecedora Ana", "enabled": true },
+      { "number": "5511999990002", "name": "Fornecedora Bruna", "enabled": true }
+    ]
+  },
+  "instagram": {
+    "maxImagesPerPost": 10
+  }
+}

@@ -1,0 +1,48 @@
+name: Roupas · Publicar aprovados
+
+# Processa as decisões do painel (aprovar/rejeitar) e publica no Instagram.
+# Dispara quando o painel grava data/queue.json e também de 2 em 2 horas
+# para reprocessar aprovados que ainda não foram publicados.
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'clothing-automation/data/queue.json'
+  schedule:
+    - cron: '30 */2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clothing-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clothing-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      - name: Publicar posts aprovados no Instagram
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node src/publish.js
+
+      - name: Commitar estado atualizado
+        run: |
+          git config user.name "clothing-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "publicar roupas aprovadas no Instagram"
+          git push

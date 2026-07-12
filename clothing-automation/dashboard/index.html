@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shorts Automation · Painel</title>
+  <title>Roupas · Painel de vendas Instagram</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <span class="logo">▶</span>
+      <span class="logo">🛍️</span>
       <div>
-        <h1>Shorts Automation</h1>
-        <p class="sub" id="channel-name">Painel de controle</p>
+        <h1>Roupas · Instagram</h1>
+        <p class="sub" id="store-name">Painel de vendas</p>
       </div>
     </div>
     <div class="topbar-right">
-      <a class="btn ghost" href="../../clothing-automation/dashboard/" title="Ir para o painel de Roupas">🛍️ Roupas</a>
+      <a class="btn ghost" href="../../shorts-automation/dashboard/" title="Ir para o painel de Shorts">▶ Shorts</a>
       <span class="mode-pill" id="mode-pill">—</span>
       <button class="btn ghost" id="btn-settings">⚙ Config</button>
       <button class="btn ghost" id="btn-connect">🔌 Conectar</button>
@@ -33,7 +33,7 @@
     <!-- Controles rápidos -->
     <section class="card control-strip">
       <div class="control-group">
-        <label>Estado da geração</label>
+        <label>Estado da automação</label>
         <div class="segmented" id="mode-switch">
           <button data-mode="paused">⏸ Pausado</button>
           <button data-mode="approval">✅ Aprovação</button>
@@ -41,12 +41,24 @@
         </div>
       </div>
       <div class="control-group">
-        <label for="per-day">Shorts por dia</label>
-        <input type="number" id="per-day" min="0" max="20" />
+        <label for="spread">Spread de preço (%)</label>
+        <input type="number" id="spread" min="0" max="500" step="1" />
+      </div>
+      <div class="control-group">
+        <label for="rounding">Arredondamento</label>
+        <select id="rounding">
+          <option value="psychological">Terminar em ,90</option>
+          <option value="integer">Inteiro</option>
+          <option value="none">Exato</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="per-day">Posts por dia</label>
+        <input type="number" id="per-day" min="0" max="30" />
       </div>
       <div class="control-group grow">
-        <label for="guidance">Orientação de estilo / temas (vira instrução para a IA)</label>
-        <textarea id="guidance" rows="2" placeholder="Ex.: tom direto, foco em economia, evitar fofoca de celebridades..."></textarea>
+        <label for="guidance">Orientação de estilo da legenda (vira instrução para a IA)</label>
+        <textarea id="guidance" rows="2" placeholder="Ex.: tom simpático, destacar tecido e caimento, sempre chamar pro direct..."></textarea>
       </div>
       <button class="btn" id="btn-save-settings">Salvar configurações</button>
     </section>
@@ -59,18 +71,18 @@
 
     <section id="tab-queue" class="tab-panel active">
       <div id="queue-list" class="grid"></div>
-      <p id="queue-empty" class="empty hidden">Nada na fila. O próximo ciclo diário vai gerar novos shorts.</p>
+      <p id="queue-empty" class="empty hidden">Nada na fila. O próximo ciclo vai buscar novas fotos das fornecedoras no WhatsApp.</p>
     </section>
 
     <section id="tab-published" class="tab-panel">
       <div id="published-list" class="grid"></div>
-      <p id="published-empty" class="empty hidden">Nenhum vídeo publicado ainda.</p>
+      <p id="published-empty" class="empty hidden">Nenhum post publicado ainda.</p>
     </section>
 
     <section id="tab-feedback" class="tab-panel">
       <div class="card">
         <label for="global-feedback">Feedback geral para a IA</label>
-        <textarea id="global-feedback" rows="3" placeholder="Ex.: 'Os últimos shorts ficaram genéricos, quero mais análise e menos manchete crua.'"></textarea>
+        <textarea id="global-feedback" rows="3" placeholder="Ex.: 'As legendas ficaram longas demais, quero mais curtas e diretas.'"></textarea>
         <button class="btn" id="btn-add-feedback">Enviar feedback</button>
       </div>
       <ul id="feedback-log" class="feedback-log"></ul>

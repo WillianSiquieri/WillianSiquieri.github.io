@@ -1,0 +1,15 @@
+{
+  "name": "clothing-automation",
+  "version": "0.1.0",
+  "description": "Recebe fotos de roupas (com preço) de fornecedoras no WhatsApp e gera posts de venda no Instagram, com painel de aprovação, spread de preço configurável e loop de feedback.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "cycle": "node src/cycle.js",
+    "publish": "node src/publish.js",
+    "seed": "node src/cycle.js --mock --count=3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.1"
+  }
+}
