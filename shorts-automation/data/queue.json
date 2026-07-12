@@ -54,5 +54,59 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrgthyupkdfd.mp4"
     }
+  },
+  {
+    "id": "sh_mrht25yjkc5",
+    "status": "draft",
+    "createdAt": "2026-07-12T13:04:28.075Z",
+    "theme": "Finanças Pessoais",
+    "title": "3 erros com dívidas que te deixam pobre",
+    "hook": "Você sabia que 70% dos brasileiros têm dívidas?",
+    "script": "Dívida boa e dívida ruim: qual é a diferença? Segundo o G1, nem toda dívida é ruim. A diferença entre 'dívida boa' e 'dívida ruim' é econômica, não moral. Dívida boa é aquela que pode trazer benefícios a longo prazo, como um financiamento de imóvel ou um empréstimo para investir em educação. Já a dívida ruim é aquela que pode levar a problemas financeiros, como juros altos e pagamento de contas atrasadas. Então, como saber se você está com uma dívida boa ou ruim? A resposta está no seu bolso. Segundo o G1, é importante saber diferenciar uma dívida boa de uma dívida ruim para não cair em armadilhas financeiras.",
+    "tags": [
+      "finanças",
+      "economia",
+      "dívidas"
+    ],
+    "captionKeywords": [
+      "dívida boa",
+      "dívida ruim",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://g1.globo.com/g1-explica/noticia/2026/07/11/financiamento-ou-armadilha-saiba-diferenciar-uma-divida-boa-de-uma-divida-ruim.ghtml",
+    "rationale": "O usuário gostou de vídeo sobre erros com cartão de crédito e Tesouro Direto, então um vídeo sobre dívidas pode ser interessante.",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrht25yjkc5.mp4"
+    }
+  },
+  {
+    "id": "sh_mrht2uutdi5n",
+    "status": "draft",
+    "createdAt": "2026-07-12T13:04:28.075Z",
+    "theme": "Economia e Inflação",
+    "title": "Por que o petróleo mais caro afeta o seu bolso",
+    "hook": "O preço do petróleo subiu novamente! Mas por quê?",
+    "script": "Do avião ao ovo, o petróleo afeta o preço de tudo. Segundo o G1, uma guerra no Oriente Médio pode impactar o bolso dos brasileiros porque a região concentra grandes reservas de petróleo. Isso pode levar a um aumento no preço do barril de petróleo, o que afeta a economia de muitos países, incluindo o Brasil. Então, como isso pode afetar o seu bolso? A resposta está na inflação. Com o aumento do preço do petróleo, os preços de muitos produtos e serviços podem subir, incluindo combustíveis, alimentos e transporte.",
+    "tags": [
+      "economia",
+      "inflação",
+      "petróleo"
+    ],
+    "captionKeywords": [
+      "petróleo",
+      "inflação",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/g1-explica/noticia/2026/07/12/petroleo-mais-caro-por-que-uma-guerra-tao-distante-pesa-no-bolso-do-brasileiro.ghtml",
+    "rationale": "O usuário está interessado em finanças e economia, então um vídeo sobre o impacto do petróleo no bolso dos brasileiros pode ser interessante.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrht2uutdi5n.mp4"
+    }
   }
 ]
