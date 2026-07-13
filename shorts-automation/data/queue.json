@@ -108,5 +108,59 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrht2uutdi5n.mp4"
     }
+  },
+  {
+    "id": "sh_mrjb4n3sawnb",
+    "status": "draft",
+    "createdAt": "2026-07-13T14:18:02.872Z",
+    "theme": "Dólar e inflação",
+    "title": "Dólar em alta: como isso afeta o seu bolso?",
+    "hook": "O dólar está subindo! Saiba como isso influencia os preços dos produtos importados e a sua economia.",
+    "script": "O dólar opera em alta, com um avanço de 0,31% perto das 10h30, cotado a R$ 5,1243. Isso significa que os produtos importados podem ficar mais caros. Além disso, a alta do dólar pode influenciar a inflação, que é a medida de quanto os preços dos produtos e serviços estão subindo. De acordo com o G1, o mercado financeiro reduziu sua estimativa média para a inflação em 2026, passando de 5,30% para 5,16%. Isso é bom ou ruim para o seu bolso? Fonte: G1.",
+    "tags": [
+      "dólar",
+      "inflação",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "inflação",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/13/dolar-ibovespa.ghtml",
+    "rationale": "O tema do dólar e inflação é sempre relevante para o público brasileiro, especialmente quando há variações significativas no valor do dólar. Isso pode afetar diretamente o bolso das pessoas, especialmente aquelas que importam produtos ou têm dívidas em dólar.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrjb4n3sawnb.mp4"
+    }
+  },
+  {
+    "id": "sh_mrjb50xwfh8i",
+    "status": "draft",
+    "createdAt": "2026-07-13T14:18:02.872Z",
+    "theme": "Economia pessoal",
+    "title": "3 erros comuns que podem afetar sua aposentadoria",
+    "hook": "Você está preparado para a aposentadoria? Evite esses 3 erros comuns!",
+    "script": "A aposentadoria é um tema importante para muitas pessoas. No entanto, alguns erros comuns podem afetar negativamente sua aposentadoria. De acordo com o G1, é fundamental começar a planejar cedo, evitar dívidas e diversificar investimentos. Além disso, uma notícia recente do Sebrae destacou a importância de planejar a aposentadoria, especialmente para os donos de pequenos negócios. Qual é o seu maior desafio para se preparar para a aposentadoria? Fonte: G1.",
+    "tags": [
+      "aposentadoria",
+      "economia pessoal",
+      "planejamento"
+    ],
+    "captionKeywords": [
+      "aposentadoria",
+      "economia pessoal",
+      "planejamento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/previdencia-complementar-amplia-protecao-alem-da-aposentadoria-para-advogados/",
+    "rationale": "O tema da aposentadoria é sempre relevante para o público brasileiro, especialmente porque muitas pessoas não estão preparadas para essa fase da vida. Isso pode afetar diretamente a economia pessoal e a tranquilidade financeira.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrjb50xwfh8i.mp4"
+    }
   }
 ]
