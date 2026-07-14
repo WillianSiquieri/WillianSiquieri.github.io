@@ -162,5 +162,57 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrjb50xwfh8i.mp4"
     }
+  },
+  {
+    "id": "sh_mrkofmtr4bhu",
+    "status": "draft",
+    "createdAt": "2026-07-14T13:18:16.911Z",
+    "theme": "Economia",
+    "title": "Aumento de etanol na gasolina: o que muda para o seu bolso",
+    "hook": "Você sabia que o governo pode aumentar a mistura de etanol na gasolina de 30% para 32%?",
+    "script": "O Conselho Nacional de Política Energética pode decidir sobre o aumento da mistura de etanol na gasolina. Isso significa que os preços dos combustíveis podem ser afetados. Com mais etanol na gasolina, os preços podem cair, mas também pode haver impacto no desempenho dos carros. Você precisa saber o que isso significa para o seu bolso. Fonte: G1.",
+    "tags": [
+      "economia",
+      "combustíveis"
+    ],
+    "captionKeywords": [
+      "etanol",
+      "gasolina",
+      "preços"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/14/conselho-pode-votar-aumento-de-etanol-na-gasolina-de-30percent-para-32percent-nesta-terca.ghtml",
+    "rationale": "O aumento da mistura de etanol na gasolina é uma notícia relevante para o público brasileiro, especialmente para aqueles que dirigem carros. Isso pode afetar os preços dos combustíveis e o desempenho dos veículos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrkofmtr4bhu.mp4"
+    }
+  },
+  {
+    "id": "sh_mrkog0qk3pmf",
+    "status": "draft",
+    "createdAt": "2026-07-14T13:18:16.911Z",
+    "theme": "Finanças",
+    "title": "O que a queda do dólar significa para o seu dinheiro",
+    "hook": "O dólar está caindo! Mas o que isso significa para o seu bolso?",
+    "script": "O dólar está operando em queda, o que pode afetar os preços dos produtos importados e os investimentos em moeda estrangeira. Isso pode ser bom para alguns, mas não para todos. Você precisa entender como a queda do dólar pode impactar o seu dinheiro. Fonte: G1.",
+    "tags": [
+      "finanças",
+      "dólar"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "preços",
+      "investimentos"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/14/dolar-ibovespa.ghtml",
+    "rationale": "A queda do dólar é uma notícia relevante para o público brasileiro, especialmente para aqueles que investem em moeda estrangeira ou compram produtos importados. Isso pode afetar os preços e o valor do dinheiro.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrkog0qk3pmf.mp4"
+    }
   }
 ]
