@@ -214,5 +214,61 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrkog0qk3pmf.mp4"
     }
+  },
+  {
+    "id": "sh_mrm407dld9i5",
+    "status": "draft",
+    "createdAt": "2026-07-15T13:21:57.081Z",
+    "theme": "Economia e Finanças",
+    "title": "Tarifaço de Trump: O que significa para o seu bolso?",
+    "hook": "Trump pode aplicar novas taxas ao Brasil! Você sabe o que isso significa para a sua economia?",
+    "script": "Os Estados Unidos decidem hoje se aplicam novas taxas ao Brasil. Isso pode afetar a economia brasileira e, consequentemente, o seu bolso. Com base em informações do G1, as taxas podem aumentar o custo de produtos importados, o que pode levar a uma inflação maior. Além disso, o dólar pode subir, tornando mais caro para os brasileiros viajarem ou comprar produtos importados. Segundo o G1, o governo brasileiro considera essas taxas 'injustas'. Você acha que o tarifaço de Trump vai afetar sua economia?",
+    "tags": [
+      "economia",
+      "finanças",
+      "política"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "Trump",
+      "economia",
+      "Brasil"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/15/tarifaco-de-trump-eua-definem-nesta-quarta-se-aplicam-novas-taxas-ao-brasil.ghtml",
+    "rationale": "Esse tema é relevante para o público brasileiro que se interessa por economia e finanças, pois o tarifaço de Trump pode ter um impacto direto na economia do país e no bolso dos cidadãos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrm407dld9i5.mp4"
+    }
+  },
+  {
+    "id": "sh_mrm40nzjkk54",
+    "status": "draft",
+    "createdAt": "2026-07-15T13:21:57.081Z",
+    "theme": "Economia e Finanças",
+    "title": "Ibovespa em alta: O que isso significa para os investidores?",
+    "hook": "O Ibovespa está em alta! Você sabe o que isso significa para os investidores?",
+    "script": "O Ibovespa está em alta, com um aumento de 0,5% nas negociações. De acordo com o Money Times, isso pode ser um sinal de que a economia brasileira está se recuperando. No entanto, é importante lembrar que o mercado de ações pode ser volátil e que os investidores devem ter cuidado ao investir. Segundo o Money Times, os investidores devem aproveitar as oportunidades de investimento, mas também devem estar preparados para os riscos. Você acha que o Ibovespa continuará em alta?",
+    "tags": [
+      "economia",
+      "finanças",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "investidores",
+      "economia",
+      "Brasil"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/mini-indice-do-ibovespa-fica-em-alta-e-pode-buscar-180-mil-pontos-diz-btg-mini-dolar-cai-124/",
+    "rationale": "Esse tema é relevante para o público brasileiro que se interessa por economia e finanças, pois o Ibovespa é um indicador importante da economia brasileira e pode afetar os investidores.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrm40nzjkk54.mp4"
+    }
   }
 ]
