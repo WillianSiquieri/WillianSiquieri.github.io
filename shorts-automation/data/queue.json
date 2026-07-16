@@ -270,5 +270,60 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrm40nzjkk54.mp4"
     }
+  },
+  {
+    "id": "sh_mrnjomk5ab9m",
+    "status": "draft",
+    "createdAt": "2026-07-16T13:28:36.917Z",
+    "theme": "Economia",
+    "title": "Tarifaço dos EUA: o que isso significa para o seu bolso?",
+    "hook": "Você sabia que os EUA acabam de impor uma tarifa de 25% sobre produtos brasileiros?",
+    "script": "O governo dos EUA confirmou a aplicação de uma tarifa de 25% sobre produtos brasileiros. Isso significa que itens como petróleo, café, carne, aeronaves e celulose ficaram de fora da tarifa, mas outros produtos serão afetados. O que isso significa para o seu bolso? Com essa tarifa, os preços dos produtos importados podem aumentar, afetando a inflação e o poder de compra dos brasileiros. Além disso, a tarifa também pode afetar as exportações brasileiras, o que pode ter um impacto negativo na economia do país. Fonte: G1.",
+    "tags": [
+      "economia",
+      "política",
+      "comércio exterior"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "EUA",
+      "Brasil",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/agronegocios/noticia/2026/07/16/eua-anunciam-tarifa-de-25percent-veja-itens-afetados-ou-isentos.ghtml",
+    "rationale": "Esse tema é relevante para o usuário que se interessa por economia e finanças, pois explica o impacto da tarifa sobre o bolso dos brasileiros e a economia do país.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrnjomk5ab9m.mp4"
+    }
+  },
+  {
+    "id": "sh_mrnjp2w477e5",
+    "status": "draft",
+    "createdAt": "2026-07-16T13:28:36.917Z",
+    "theme": "Finanças",
+    "title": "Educação financeira: por que é importante para você?",
+    "hook": "Você sabe como gerenciar suas finanças de forma eficaz?",
+    "script": "O Senado Federal aprovou um projeto de lei que insere educação financeira na grade curricular dos ensinos fundamental e médio. Isso significa que os jovens brasileiros terão a oportunidade de aprender sobre finanças e economia pessoal desde cedo. Mas por que é importante ter educação financeira? Com conhecimento financeiro, você pode tomar decisões informadas sobre suas finanças, evitar dívidas e alcançar seus objetivos financeiros. Além disso, a educação financeira também pode ajudar a prevenir erros com cartão de crédito e outros produtos financeiros. Fonte: G1.",
+    "tags": [
+      "finanças",
+      "educação",
+      "economia"
+    ],
+    "captionKeywords": [
+      "educação financeira",
+      "finanças",
+      "economia pessoal"
+    ],
+    "sourceLink": "https://g1.globo.com/politica/noticia/2026/07/16/senado-aprova-inclusao-de-educacao-financeira-nos-curriculos-dos-ensinos-fundamental-e-medio.ghtml",
+    "rationale": "Esse tema é relevante para o usuário que se interessa por finanças e economia, pois explica a importância da educação financeira para o bem-estar financeiro e apresenta uma solução para prevenir erros financeiros.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrnjp2w477e5.mp4"
+    }
   }
 ]
