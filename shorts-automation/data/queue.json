@@ -325,5 +325,61 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrnjp2w477e5.mp4"
     }
+  },
+  {
+    "id": "sh_mroylb50aq79",
+    "status": "draft",
+    "createdAt": "2026-07-17T13:13:42.564Z",
+    "theme": "Economia",
+    "title": "Tarifaço: o que a nova tarifa de 25% dos EUA sobre produtos brasileiros significa para o seu bolso",
+    "hook": "Trump aplicou uma tarifa de 25% sobre produtos brasileiros. Isso afeta você?",
+    "script": "Os EUA aplicaram uma tarifa de 25% sobre produtos brasileiros. Isso significa que os preços podem aumentar. O governo brasileiro está preparado para negociar. O que isso pode significar para a sua carteira? De acordo com o G1, o Brasil pode perder R$ 13,2 bilhões em exportações.",
+    "tags": [
+      "economia",
+      "tarifa",
+      "eua",
+      "brasil"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "eua",
+      "brasil",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/16/antes-da-nova-tarifa-brasil-ja-havia-perdido-r-132-bilhoes-em-exportacoes-para-os-eua-diz-cni.ghtml",
+    "rationale": "O tema da tarifa de 25% dos EUA sobre produtos brasileiros é relevante para o público brasileiro, pois pode impactar a economia e os preços dos produtos. O gancho forte nos primeiros 3 segundos chama a atenção do usuário e a pergunta no final do script encoraja o engajamento.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mroylb50aq79.mp4"
+    }
+  },
+  {
+    "id": "sh_mroylmkai308",
+    "status": "draft",
+    "createdAt": "2026-07-17T13:13:42.564Z",
+    "theme": "Finanças",
+    "title": "Dólar em alta: como a valorização do dólar afeta a sua carteira",
+    "hook": "O dólar está em alta. Isso afeta o seu dinheiro?",
+    "script": "O dólar está em alta em relação ao real. Isso pode afetar os preços de produtos importados e as viagens ao exterior. Se você tem investimentos em dólar, pode ser um bom momento. De acordo com o G1, o dólar abriu a sessão em alta, com um avanço de 0,25% perto das 9h. O que você pode fazer para proteger o seu dinheiro?",
+    "tags": [
+      "finanças",
+      "dólar",
+      "valorização"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "valorização",
+      "carteira"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/17/dolar-ibovespa.ghtml",
+    "rationale": "O tema da valorização do dólar é relevante para o público brasileiro, pois pode impactar a economia e as finanças pessoais. O gancho forte nos primeiros 3 segundos chama a atenção do usuário e a pergunta no final do script encoraja o engajamento.",
+    "video": {
+      "rendered": true,
+      "durationSec": 24,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mroylmkai308.mp4"
+    }
   }
 ]
