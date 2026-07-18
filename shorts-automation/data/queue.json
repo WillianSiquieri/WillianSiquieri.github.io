@@ -381,5 +381,62 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mroylmkai308.mp4"
     }
+  },
+  {
+    "id": "sh_mrqdj8r36xf8",
+    "status": "draft",
+    "createdAt": "2026-07-18T12:59:46.575Z",
+    "theme": "Economia",
+    "title": "Tarifaço: O que isso significa para o seu bolso?",
+    "hook": "Preparar-se para o aumento dos preços!",
+    "script": "O Tarifaço aplicado pelos EUA pode afetar diretamente o seu bolso. Com a tarifa adicional de 25% sobre produtos brasileiros, os preços de itens como carne bovina, café e aviões podem subir. Isso pode aumentar a inflação e afetar a economia pessoal de muitos brasileiros. Segundo o G1, o governo brasileiro está preparando um programa para diversificar o mercado e reduzir a dependência de exportações para os EUA. Mas o que isso significa para você? Deixe um comentário abaixo!",
+    "tags": [
+      "economia",
+      "política",
+      "inflação"
+    ],
+    "captionKeywords": [
+      "Tarifaço",
+      "EUA",
+      "Brasil",
+      "inflação",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/18/tarifaco-brasil-avalia-estrategias-para-evitar-tiro-no-pe-em-reciprocidade-contra-eua.ghtml",
+    "rationale": "Esse tema foi escolhido por ser relevante para o público brasileiro e ter um impacto direto na economia pessoal. A notícia é recente e vem de uma fonte confiável, o que garante a precisão dos dados.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrqdj8r36xf8.mp4"
+    }
+  },
+  {
+    "id": "sh_mrqdjk9n80dt",
+    "status": "draft",
+    "createdAt": "2026-07-18T12:59:46.575Z",
+    "theme": "Investimentos",
+    "title": "Ações ligadas à IA saltam 20% no 1º semestre",
+    "hook": "O setor de tecnologia está em alta!",
+    "script": "As ações ligadas à inteligência artificial (IA) saltaram 20% no primeiro semestre de 2026. Isso é um sinal de que o setor de tecnologia está em alta e pode ser uma boa opção de investimento. Segundo o Money Times, as gigantes do setor de tecnologia, como a Meta e a Anthropic, estão negociando acordos para alugar capacidade de processamento computacional. Mas será que isso é um bom momento para investir em ações de IA? Deixe um comentário abaixo!",
+    "tags": [
+      "investimentos",
+      "tecnologia",
+      "IA"
+    ],
+    "captionKeywords": [
+      "Ações",
+      "IA",
+      "Tecnologia",
+      "Investimentos"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/acoes-ligadas-a-ia-saltam-20-no-1o-semestre-mas-sustentabilidade-do-rali-e-incerta-apsa/",
+    "rationale": "Esse tema foi escolhido por ser relevante para o público que se interessa por investimentos e finanças. A notícia é recente e vem de uma fonte confiável, o que garante a precisão dos dados.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrqdjk9n80dt.mp4"
+    }
   }
 ]
