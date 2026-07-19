@@ -438,5 +438,60 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrqdjk9n80dt.mp4"
     }
+  },
+  {
+    "id": "sh_mrrt1ypu1qal",
+    "status": "draft",
+    "createdAt": "2026-07-19T13:02:00.450Z",
+    "theme": "Finanças Pessoais",
+    "title": "O que o Tarifaço dos EUA significa para o seu bolso?",
+    "hook": "Você sabia que o tarifaço dos EUA pode afetar sua renda?",
+    "script": "O tarifaço dos EUA sobre produtos brasileiros pode aumentar os preços dos produtos importados. Isso significa que você pode pagar mais caro por produtos como eletrônicos e automóveis. Além disso, a crise econômica pode afetar a renda dos brasileiros. Segundo a G1, o governo brasileiro está avaliando a adoção da Lei da Reciprocidade para proteger setores atingidos.",
+    "tags": [
+      "finanças",
+      "economia",
+      "tarifaço"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "EUA",
+      "Brasil",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/19/eua-condicionaram-reducao-de-tarifaco-a-concessoes-para-empresas-americanas-veja-setores-cobicados.ghtml",
+    "rationale": "Esse tema é relevante para o nicho de finanças e economia, e o usuário pode se interessar em saber como o tarifaço afeta sua renda e como pode se proteger.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrrt1ypu1qal.mp4"
+    }
+  },
+  {
+    "id": "sh_mrrt2audkuoz",
+    "status": "draft",
+    "createdAt": "2026-07-19T13:02:00.450Z",
+    "theme": "Investimentos",
+    "title": "O que os fundos imobiliários podem oferecer aos investidores?",
+    "hook": "Você está procurando por uma opção de investimento segura e rentável?",
+    "script": "Os fundos imobiliários podem ser uma boa opção para investidores que buscam rentabilidade e segurança. Segundo o Money Times, alguns fundos imobiliários têm registrado retornos de até 13 vezes superior ao do IFIX, principal índice da indústria na bolsa brasileira. Além disso, os fundos imobiliários podem oferecer uma diversificação para a carteira de investimentos.",
+    "tags": [
+      "investimentos",
+      "fundos imobiliários",
+      "economia"
+    ],
+    "captionKeywords": [
+      "fundos imobiliários",
+      "investimentos",
+      "rentabilidade"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/mxrf11-hgru11-e-mais-veja-os-fundos-imobiliarios-com-os-maiores-retornos-de-2026-igdl/",
+    "rationale": "Esse tema é relevante para o nicho de finanças e economia, e o usuário pode se interessar em saber mais sobre as opções de investimento disponíveis e como podem se beneficiar delas.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrrt2audkuoz.mp4"
+    }
   }
 ]
