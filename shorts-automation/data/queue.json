@@ -493,5 +493,61 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrrt2audkuoz.mp4"
     }
+  },
+  {
+    "id": "sh_mrtac76t4z31",
+    "status": "draft",
+    "createdAt": "2026-07-20T13:53:37.637Z",
+    "theme": "Economia",
+    "title": "Tarifaço dos EUA: o que significa para o seu bolso?",
+    "hook": "Os EUA impuseram tarifas sobre produtos brasileiros. Você sabe como isso afeta o seu dinheiro?",
+    "script": "Os EUA decidiram impor tarifas sobre produtos brasileiros. Isso significa que os produtos brasileiros ficarão mais caros nos EUA. Mas o que isso significa para o seu bolso? De acordo com a G1, as tarifas podem aumentar os preços dos produtos no Brasil. Além disso, a instabilidade econômica pode afetar o valor do dólar e, consequentemente, o seu dinheiro. É importante stay por dentro das notícias econômicas para entender como elas afetam a sua vida financeira. E você, como acha que as tarifas dos EUA vão afetar a sua economia?",
+    "tags": [
+      "economia",
+      "tarifas",
+      "EUA",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "EUA",
+      "Brasil",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/20/tarifas-de-trump-nao-vao-funcionar-e-fortalecerao-lula-diz-nobel-de-economia.ghtml",
+    "rationale": "O tema das tarifas dos EUA é relevante para o nicho de finanças e economia, e o usuário demonstrou interesse em temas relacionados à economia pessoal.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrtac76t4z31.mp4"
+    }
+  },
+  {
+    "id": "sh_mrtacnx8d9ms",
+    "status": "draft",
+    "createdAt": "2026-07-20T13:53:37.637Z",
+    "theme": "Investimentos",
+    "title": "Tesouro Direto: como investir com segurança?",
+    "hook": "Você sabe como investir no Tesouro Direto sem errar? Descubra como!",
+    "script": "O Tesouro Direto é uma opção de investimento segura e rentável. Mas, como investir sem errar? De acordo com a InfoMoney, é importante entender os diferentes tipos de títulos e como eles funcionam. Além disso, é fundamental definir seus objetivos financeiros e escolher o investimento certo para você. O Tesouro Direto oferece opções de investimento com diferentes prazos e rendimentos. E você, já investiu no Tesouro Direto? Qual é o seu maior desafio ao investir?",
+    "tags": [
+      "investimentos",
+      "Tesouro Direto",
+      "segurança"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "investimentos",
+      "segurança"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/tesouro-direto-prefixados-sobem-com-mercado-de-olho-na-tensao-eua-e-ira/",
+    "rationale": "O tema do Tesouro Direto é relevante para o nicho de finanças e economia, e o usuário demonstrou interesse em temas relacionados a investimentos seguros.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrtacnx8d9ms.mp4"
+    }
   }
 ]
