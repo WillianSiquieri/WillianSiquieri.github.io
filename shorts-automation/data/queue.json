@@ -549,5 +549,59 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrtacnx8d9ms.mp4"
     }
+  },
+  {
+    "id": "sh_mruopjaui7wx",
+    "status": "draft",
+    "createdAt": "2026-07-21T13:23:40.662Z",
+    "theme": "Economia",
+    "title": "O que a queda do dólar significa para o seu bolso?",
+    "hook": "Dólar em queda! O que isso significa para você?",
+    "script": "O dólar abriu a sessão em queda, com recuo de 0,14%. Isso pode afetar a economia e o seu bolso. A queda do dólar pode significar preços mais baixos para produtos importados, o que pode ser benéfico para você. No entanto, também pode afetar a exportação de produtos brasileiros. Quais são as implicações disso para a sua carteira?",
+    "tags": [
+      "economia",
+      "dólar",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "finanças"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/21/dolar-ibovespa.ghtml",
+    "rationale": "A notícia é relevante para o nicho de finanças e economia, e o tema da queda do dólar é importante para o público brasileiro. O script explica de forma clara e concisa o que a queda do dólar significa para o bolso do espectador.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mruopjaui7wx.mp4"
+    }
+  },
+  {
+    "id": "sh_mruopucqexvz",
+    "status": "draft",
+    "createdAt": "2026-07-21T13:23:40.662Z",
+    "theme": "Finanças",
+    "title": "Governo distribuirá R$ 13 bilhões do lucro do FGTS a 138 milhões de trabalhadores",
+    "hook": "Você está entre os 138 milhões de trabalhadores que receberão uma parte do lucro do FGTS?",
+    "script": "O governo deve distribuir R$ 13,04 bilhões do lucro do FGTS a 138 milhões de trabalhadores até o final de agosto. Isso significa que você pode receber uma parte desse valor. Quanto você pode receber e como isso pode afetar a sua economia?",
+    "tags": [
+      "FGTS",
+      "lucro",
+      "trabalhadores"
+    ],
+    "captionKeywords": [
+      "FGTS",
+      "lucro",
+      "trabalhadores"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/21/governo-deve-distribuir-r-13-bilhoes-do-lucro-do-fgts-a-138-milhoes-de-trabalhadores-ate-agosto-entenda.ghtml",
+    "rationale": "A notícia é relevante para o nicho de finanças e é importante para o público brasileiro, especialmente para os trabalhadores que podem receber uma parte do lucro do FGTS. O script explica de forma clara e concisa o que a distribuição do lucro do FGTS significa para o bolso do espectador.",
+    "video": {
+      "rendered": true,
+      "durationSec": 17,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mruopucqexvz.mp4"
+    }
   }
 ]
