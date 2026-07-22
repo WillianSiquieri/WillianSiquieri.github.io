@@ -603,5 +603,59 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mruopucqexvz.mp4"
     }
+  },
+  {
+    "id": "sh_mrw4b1wdgbcy",
+    "status": "draft",
+    "createdAt": "2026-07-22T13:28:04.957Z",
+    "theme": "Finanças Pessoais",
+    "title": "Como definir um orçamento realista para viagens",
+    "hook": "Você está pronto para viajar sem se preocupar com o orçamento?",
+    "script": "Se você está planejando uma viagem, é importante definir um orçamento realista. Isso ajudará a evitar problemas financeiros no futuro. De acordo com o InfoMoney, passeios que saem muito do que o viajante pode pagar trazem outros problemas financeiros. Então, como definir um orçamento realista? Primeiro, calcule todos os custos, incluindo passagem, hospedagem e alimentação. Em seguida, defina um valor máximo que você está disposto a gastar. Lembre-se de sempre ter um buffer para imprevistos. Com um orçamento realista, você pode aproveitar sua viagem sem se preocupar com o dinheiro. Qual é o seu maior desafio ao planejar um orçamento para viagens?",
+    "tags": [
+      "finanças",
+      "viagens",
+      "orçamento"
+    ],
+    "captionKeywords": [
+      "orçamento realista",
+      "viagens",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/como-definir-orcamento-realista-viagem/",
+    "rationale": "Esse tema é relevante para o nicho de finanças e economia, e o usuário pode se identificar com a necessidade de definir um orçamento realista para viagens. O script é direto e didático, e a pergunta no final engage o usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 39,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrw4b1wdgbcy.mp4"
+    }
+  },
+  {
+    "id": "sh_mrw4bnql9ij0",
+    "status": "draft",
+    "createdAt": "2026-07-22T13:28:04.957Z",
+    "theme": "Investimentos",
+    "title": "O que é o Ibovespa e como ele afeta o seu dinheiro",
+    "hook": "Você sabe como o Ibovespa pode afetar o seu patrimônio?",
+    "script": "O Ibovespa é o principal índice da bolsa de valores brasileira. De acordo com o Money Times, o Ibovespa avança com a Vale, apesar do 'tarifaço'. Mas o que isso significa para o seu dinheiro? O Ibovespa é um indicador da saúde da economia brasileira, e suas variações podem afetar o valor dos investimentos. Se você tem ações ou fundos de investimento, é importante entender como o Ibovespa funciona. Além disso, o Ibovespa também pode influenciar a taxa de juros e a inflação. Então, como você pode se proteger ou aproveitar as variações do Ibovespa? Qual é a sua estratégia de investimento?",
+    "tags": [
+      "investimentos",
+      "bolsa de valores",
+      "economia"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "investimentos",
+      "bolsa de valores"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/ibovespa-5-coisas-22-7-26-lils/",
+    "rationale": "Esse tema é relevante para o nicho de finanças e economia, e o usuário pode se interessar em entender como o Ibovespa afeta o seu patrimônio. O script é direto e didático, e a pergunta no final engage o usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 39,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrw4bnql9ij0.mp4"
+    }
   }
 ]
