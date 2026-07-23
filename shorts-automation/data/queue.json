@@ -657,5 +657,57 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrw4bnql9ij0.mp4"
     }
+  },
+  {
+    "id": "sh_mrxk70tn87nm",
+    "status": "draft",
+    "createdAt": "2026-07-23T13:40:36.971Z",
+    "theme": "Petróleo e Ibovespa",
+    "title": "Petróleo ultrapassa US$ 100: O que isso significa para o seu bolso?",
+    "hook": "O petróleo está mais caro do que nunca! Como isso afeta o Ibovespa e o seu dinheiro?",
+    "script": "O preço do petróleo Brent ultrapassou os US$ 100. Isso acontece devido a ataques a petroleiros na Arábia Saudita e tensões no Oriente Médio. Com o petróleo mais caro, as ações das empresas de energia, como a Petrobras, tendem a subir. Já o Ibovespa pode cair devido à escalada das tensões geopolíticas. Fonte: InfoMoney. E você, como vê o impacto desse aumento no seu orçamento?",
+    "tags": [
+      "finanças",
+      "mercado"
+    ],
+    "captionKeywords": [
+      "petróleo",
+      "Ibovespa",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/petroleo-abertura-fechamento-ira-eua-23072026/",
+    "rationale": "Esse tema é relevante porque o aumento do preço do petróleo pode afetar a economia Brasileira e, consequentemente, o bolso do usuário. Além disso, o Ibovespa é um índice importante para o mercado de ações brasileiro.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrxk70tn87nm.mp4"
+    }
+  },
+  {
+    "id": "sh_mrxk7hwp9ibl",
+    "status": "draft",
+    "createdAt": "2026-07-23T13:40:36.971Z",
+    "theme": "Dólar em alta",
+    "title": "Dólar dispara: O que isso significa para sua carteira?",
+    "hook": "O dólar está em alta! Como isso afeta suas compras e investimentos?",
+    "script": "O dólar está operando em alta devido à escalada das tensões no Oriente Médio. Isso pode afetar as exportações brasileiras e os preços dos produtos importados. Se você tem planos de viajar ou fazer compras online, pode sentir o impacto dessa alta. Já para os investidores, uma alta do dólar pode significar maiores custos para as empresas que importam produtos. Fonte: G1. E você, como está se preparando para essa flutuação do dólar?",
+    "tags": [
+      "finanças",
+      "câmbio"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "compras"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/23/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é importante porque a variação do dólar pode afetar diretamente o cotidiano e os investimentos dos usuários, especialmente aqueles que realizam compras online ou têm planos de viagem internacional.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mrxk7hwp9ibl.mp4"
+    }
   }
 ]
