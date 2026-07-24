@@ -709,5 +709,58 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mrxk7hwp9ibl.mp4"
     }
+  },
+  {
+    "id": "sh_mryz209pksd5",
+    "status": "draft",
+    "createdAt": "2026-07-24T13:24:23.389Z",
+    "theme": "Tarifaço dos EUA",
+    "title": "Nova tarifa dos EUA: o que muda para o Brasil?",
+    "hook": "Você sabia que os EUA acabam de aplicar uma nova tarifa sobre produtos brasileiros?",
+    "script": "Os EUA anunciaram uma tarifa de 12,5% sobre cerca de 3 mil produtos brasileiros, incluindo café e petróleo. Isso pode aumentar o preço desses produtos para os consumidores americanos e afetar as exportações brasileiras. Segundo a Câmara de Comércio dos EUA, isso pode impactar negativamente a economia brasileira. Fonte: G1.",
+    "tags": [
+      "economia",
+      "política"
+    ],
+    "captionKeywords": [
+      "tarifa",
+      "EUA",
+      "Brasil",
+      "comércio"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/23/tarifaco-de-trump-veja-os-principais-itens-isentos-da-nova-tarifa-de-ate-125percent-sobre-trabalho-forcado.ghtml",
+    "rationale": "Esse tema é relevante porque afeta a economia brasileira e pode ter um impacto significativo no bolso dos consumidores. Além disso, é um tema atual e importante que precisa ser explicado de forma clara e didática.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mryz209pksd5.mp4"
+    }
+  },
+  {
+    "id": "sh_mryz2c8a9m92",
+    "status": "draft",
+    "createdAt": "2026-07-24T13:24:23.389Z",
+    "theme": "Finanças Pessoais",
+    "title": "3 erros comuns que você pode estar cometendo com o seu cartão de crédito",
+    "hook": "Você está usando o seu cartão de crédito de forma segura?",
+    "script": "Muitas pessoas cometem erros com o seu cartão de crédito que podem levar a problemas financeiros. Por exemplo, não pagar a fatura em dia, fazer compras excessivas e não verificar os juros. É importante estar atento a esses erros e mudar os hábitos para evitar problemas. Fonte: Money Times.",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "cartão de crédito",
+      "finanças pessoais",
+      "erros"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/3-erros-comuns-com carte de-credito/",
+    "rationale": "Esse tema é relevante porque ajuda as pessoas a entender melhor como usar o seu cartão de crédito de forma segura e evitar problemas financeiros. Além disso, é um tema que interessa a muitas pessoas e pode ser explicado de forma clara e didática.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mryz2c8a9m92.mp4"
+    }
   }
 ]
