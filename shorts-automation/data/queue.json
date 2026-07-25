@@ -762,5 +762,60 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_mryz2c8a9m92.mp4"
     }
+  },
+  {
+    "id": "sh_ms0dyut7h32g",
+    "status": "draft",
+    "createdAt": "2026-07-25T13:09:36.763Z",
+    "theme": "Economia e Finanças",
+    "title": "Tarifaço dos EUA: Como Isso Afeta o Seu Bolso?",
+    "hook": "Os EUA impuseram uma tarifa de 12,5% sobre produtos brasileiros!",
+    "script": "A tarifa de 12,5% imposta pelos EUA sobre produtos brasileiros pode aumentar os preços de itens como carne, soja e outros produtos agrícolas. Isso pode afetar diretamente o seu bolso, aumentando a inflação e reduzindo o poder de compra. De acordo com o governo, 47,3% das exportações brasileiras são atingidas por essas tarifas. Fonte: G1 - Economia. Como você acha que isso afetará a sua rotina de compras?",
+    "tags": [
+      "economia",
+      "finanças",
+      "política"
+    ],
+    "captionKeywords": [
+      "tarifaço",
+      "EUA",
+      "Brasil",
+      "inflação"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/24/governo-estima-que-473percent-das-exportacoes-brasileiras-sao-atingidas-por-tarifas-dos-eua.ghtml",
+    "rationale": "Esse tema é relevante porque afeta diretamente a economia e o bolso dos brasileiros, tornando-se um assunto de grande interesse e preocupação.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms0dyut7h32g.mp4"
+    }
+  },
+  {
+    "id": "sh_ms0dz8rmdand",
+    "status": "draft",
+    "createdAt": "2026-07-25T13:09:36.763Z",
+    "theme": "Economia Pessoal",
+    "title": "Aluguel no Rio: Por Que o Preço Está Subindo?",
+    "hook": "O aluguel no Rio aumentou 18% em um ano!",
+    "script": "O aluguel no Rio de Janeiro subiu 18% em apenas um ano, de acordo com o Secovi Rio. Isso se deve à redução de 30,4% no número de ofertas de aluguel tradicional na cidade. Se você está procurando um lugar para morar, é importante entender o que está por trás desse aumento. Fonte: InfoMoney. O que você faria para lidar com essa alta nos preços de aluguel?",
+    "tags": [
+      "economia pessoal",
+      "imóveis",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "aluguel",
+      "Rio de Janeiro",
+      "preços"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/aluguel-no-rio-sobe-18-em-um-ano-veja-o-que-esta-por-tras-da-alta/",
+    "rationale": "Esse tema é importante porque afeta muitas pessoas que estão procurando um lugar para morar, especialmente em cidades grandes como o Rio de Janeiro.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms0dz8rmdand.mp4"
+    }
   }
 ]
