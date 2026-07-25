@@ -817,5 +817,65 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_ms0dz8rmdand.mp4"
     }
+  },
+  {
+    "id": "sh_ms112tj6j0qy",
+    "status": "draft",
+    "createdAt": "2026-07-25T23:56:32.898Z",
+    "theme": "Economia",
+    "title": "Nova Tarifa dos EUA: O que Isso Significa para o Seu Bolso?",
+    "hook": "Os EUA impuseram uma nova tarifa de 12,5% sobre produtos brasileiros. Isso pode afetar o seu orçamento!",
+    "script": "Os EUA justificaram a nova tarifa com o suposto trabalho forçado no Brasil. Mas o que isso significa para o consumo e a economia brasileira? Com a tarifa, os preços de produtos importados podem subir, impactando o seu bolso. Além disso, a medida pode afetar a produção nacional e o emprego. De acordo com a fonte do G1, o setor produtivo pede negociação e rapidez para resolver a questão. Qual é o seu maior desafio financeiro com essa nova tarifa?",
+    "tags": [
+      "economia",
+      "finanças",
+      "tarifa"
+    ],
+    "captionKeywords": [
+      "tarifa dos EUA",
+      "economia brasileira",
+      "orçamento"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/24/brasil-precisa-agir-com-firmeza-setor-produtivo-pede-negociacao-e-rapidez-apos-nova-tarifa-de-ate-375percent.ghtml",
+    "rationale": "O tema é relevante para o nicho de finanças e economia, e a notícia é recente e impactante. O hook é forte e a pergunta no final engaja o usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms112tj6j0qy.mp4"
+    },
+    "youtubeId": "naKl-YYFqT8",
+    "previewUrl": "https://youtube.com/shorts/naKl-YYFqT8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms113d4z3386",
+    "status": "draft",
+    "createdAt": "2026-07-25T23:56:32.898Z",
+    "theme": "Investimentos",
+    "title": "O Que é o Tesouro Direto e Como Ele Pode Afectar a Sua Economia?",
+    "hook": "Você sabia que o Tesouro Direto pode ser uma opção segura para investir? ",
+    "script": "O Tesouro Direto é um investimento em títulos públicos emitidos pelo governo brasileiro. Ele oferece uma rentabilidade fixa e é considerado uma opção segura. No entanto, é importante entender como ele funciona e como pode afetar a sua economia. De acordo com a fonte do G1, o Tesouro Direto pode ser uma boa opção para quem busca uma rentabilidade estável. Qual é o seu maior desafio ao investir no Tesouro Direto?",
+    "tags": [
+      "finanças",
+      "investimentos",
+      "Tesouro Direto"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "investimentos",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/24/governo-anuncia-liberacao-de-r-57-bilhoes-em-gastos-no-orcamento-de-2026.ghtml",
+    "rationale": "O tema é relevante para o nicho de finanças e economia, e o vídeo pode educar os usuários sobre uma opção de investimento segura.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms113d4z3386.mp4"
+    },
+    "youtubeId": "JTMuoRHAjOs",
+    "previewUrl": "https://youtube.com/shorts/JTMuoRHAjOs",
+    "privacyStatus": "unlisted"
   }
 ]
