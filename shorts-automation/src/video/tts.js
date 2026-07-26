@@ -5,7 +5,7 @@
 //
 // Retorna { audioPath, durationSec } ou null se não foi possível produzir áudio.
 import { spawn } from 'node:child_process';
-import { writeFile } from 'node:fs/promises';
+import { writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { log, warn } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
@@ -52,12 +52,21 @@ function ttsPiper(text, outPath) {
 }
 
 // edge-tts: vozes neurais da Microsoft, gratuitas e sem chave de API.
+// Com saveSubtitles, grava <outPath>.json com o tempo (ms) de cada palavra,
+// usado para legendas sincronizadas na montagem do vídeo.
 async function ttsEdge(text, outPath, cfg) {
   const { EdgeTTS } = await import('node-edge-tts');
   const voice = cfg.voice && /Neural$/.test(cfg.voice) ? cfg.voice : 'pt-BR-AntonioNeural';
-  const tts = new EdgeTTS({ voice });
+  const tts = new EdgeTTS({ voice, saveSubtitles: true, rate: cfg.rate || 'default' });
   await tts.ttsPromise(text, outPath);
-  return outPath;
+  let cues = null;
+  try {
+    const raw = await readFile(outPath + '.json', 'utf8');
+    cues = JSON.parse(raw).filter((c) => c.part && Number.isFinite(c.start) && Number.isFinite(c.end));
+  } catch {
+    /* sem legendas — segue sem sincronia por palavra */
+  }
+  return { audioPath: outPath, cues };
 }
 
 async function ttsSilent(text, outPath) {
@@ -71,19 +80,22 @@ export async function synthesize(text, workDir, cfg = {}) {
   const provider = cfg.provider === 'auto' ? autoProvider() : cfg.provider || autoProvider();
   const out = join(workDir, `narration.${provider === 'piper' ? 'wav' : 'mp3'}`);
   try {
-    let audioPath = null;
-    if (provider === 'elevenlabs') audioPath = await ttsElevenLabs(text, out, cfg);
-    else if (provider === 'edge') audioPath = await ttsEdge(text, out, cfg);
-    else if (provider === 'piper') audioPath = await ttsPiper(text, out);
-    else audioPath = await ttsSilent(text, join(workDir, 'narration.mp3'));
+    let result = null; // { audioPath, cues? }
+    if (provider === 'elevenlabs') result = { audioPath: await ttsElevenLabs(text, out, cfg) };
+    else if (provider === 'edge') result = await ttsEdge(text, out, cfg);
+    else if (provider === 'piper') result = { audioPath: await ttsPiper(text, out) };
+    else result = { audioPath: await ttsSilent(text, join(workDir, 'narration.mp3')) };
 
-    if (!audioPath) return null;
-    log(`TTS (${provider}) → ${audioPath}`);
-    return { audioPath, provider, durationSec: estimateDuration(text) };
+    if (!result?.audioPath) return null;
+    const cues = result.cues && result.cues.length ? result.cues : null;
+    // Duração real vem do último word boundary; senão, estimativa.
+    const durationSec = cues ? Math.max(8, Math.ceil(cues[cues.length - 1].end / 1000) + 1) : estimateDuration(text);
+    log(`TTS (${provider}) → ${result.audioPath}${cues ? ` (${cues.length} palavras sincronizadas)` : ''}`);
+    return { audioPath: result.audioPath, provider, durationSec, cues };
   } catch (err) {
     warn(`TTS provider "${provider}" falhou (${err.message}); tentando trilha silenciosa.`);
     const fallback = await ttsSilent(text, join(workDir, 'narration.mp3'));
-    return fallback ? { audioPath: fallback, provider: 'silent', durationSec: estimateDuration(text) } : null;
+    return fallback ? { audioPath: fallback, provider: 'silent', durationSec: estimateDuration(text), cues: null } : null;
   }
 }
 
