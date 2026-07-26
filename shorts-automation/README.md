@@ -84,6 +84,13 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 - Opcional (offline): `PIPER_MODEL`.
 - Se o edge-tts falhar (rede), o vídeo sai com trilha silenciosa como fallback.
 
+### 3. Fundo em vídeo (b-roll) — Pexels grátis
+- `PEXELS_API_KEY` — https://www.pexels.com/api/ (grátis). Com ela, o fundo passa a
+  ser um **vídeo real** relacionado ao tema (escurecido, com a legenda por cima),
+  o que deixa o Short com cara profissional. Sem ela, usa um fundo gradiente.
+- Controle em `config/config.json → video.backgroundStyle`: `auto` (b-roll se houver
+  chave), `gradient` (força gradiente) ou `stock` (força b-roll).
+
 ### 3. YouTube (publicar + medir performance)
 1. No [Google Cloud Console](https://console.cloud.google.com): crie um projeto,
    ative **YouTube Data API v3** e **YouTube Analytics API**.

@@ -7,7 +7,7 @@
     "width": 1080,
     "height": 1920,
     "targetDurationSec": 45,
-    "backgroundStyle": "gradient",
+    "backgroundStyle": "auto",
     "categoryId": "25"
   },
   "tts": {

@@ -11,6 +11,7 @@ import { join } from 'node:path';
 import { log, warn } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
 import { synthesize } from './tts.js';
+import { fetchBroll } from './broll.js';
 
 // --- Legendas -------------------------------------------------------------
 
@@ -132,17 +133,33 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const assPath = join(dir, 'subs.ass');
   await writeFile(assPath, buildAss(chunks, { width, height }), 'utf8');
 
-  // 3) Comando: fonte de fundo (lavfi) + vinheta + legendas queimadas (.ass)
-  const args = ['-f', 'lavfi', '-i', backgroundSource(width, height, durationSec)];
-  if (tts?.audioPath) args.push('-i', tts.audioPath);
-  args.push(
-    '-vf', `vignette=PI/5,ass=${assPath}`,
-    '-t', String(durationSec),
-    '-r', '30',
-    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'veryfast'
-  );
-  if (tts?.audioPath) args.push('-c:a', 'aac', '-b:a', '160k', '-shortest');
-  args.push('-y', outPath);
+  // 3) Fundo: b-roll de vídeo (Pexels) quando disponível; senão gradiente.
+  const style = config.video?.backgroundStyle || 'auto';
+  let brollPath = null;
+  if (style === 'stock' || style === 'auto') {
+    brollPath = await fetchBroll(draft, join(dir, 'broll.mp4'), width, height);
+  }
+
+  let args;
+  if (brollPath) {
+    // Cobre 9:16, escurece (scrim) para a legenda saltar, e queima o .ass.
+    const vf =
+      `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height},setsar=1,` +
+      `eq=brightness=-0.16:saturation=1.05,` +
+      `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.32:t=fill,` +
+      `ass=${assPath}`;
+    args = ['-stream_loop', '-1', '-i', brollPath];
+    if (tts?.audioPath) args.push('-i', tts.audioPath);
+    args.push('-vf', vf, '-t', String(durationSec), '-r', '30', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'veryfast');
+    if (tts?.audioPath) args.push('-map', '0:v:0', '-map', '1:a:0', '-c:a', 'aac', '-b:a', '160k', '-shortest');
+    args.push('-y', outPath);
+  } else {
+    args = ['-f', 'lavfi', '-i', backgroundSource(width, height, durationSec)];
+    if (tts?.audioPath) args.push('-i', tts.audioPath);
+    args.push('-vf', `vignette=PI/5,ass=${assPath}`, '-t', String(durationSec), '-r', '30', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'veryfast');
+    if (tts?.audioPath) args.push('-c:a', 'aac', '-b:a', '160k', '-shortest');
+    args.push('-y', outPath);
+  }
 
   try {
     await run(args);
