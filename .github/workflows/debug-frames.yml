@@ -1,0 +1,38 @@
+name: Debug · Extrair frames
+
+# Ferramenta de depuração: extrai frames PNG dos previews em data/previews/
+# para inspeção visual das legendas/fundo. Commita em data/previews/_frames/.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Extrair frames
+        run: |
+          cd shorts-automation
+          rm -rf data/previews/_frames && mkdir -p data/previews/_frames
+          for f in data/previews/*.mp4; do
+            [ -e "$f" ] || continue
+            name=$(basename "$f" .mp4)
+            dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")
+            for p in 0.20 0.45 0.70 0.90; do
+              t=$(awk -v d="$dur" -v p="$p" 'BEGIN{printf "%.2f", d*p}')
+              ffmpeg -y -ss "$t" -i "$f" -frames:v 1 "data/previews/_frames/${name}_p${p}.png"
+            done
+          done
+          ls -la data/previews/_frames
+      - name: Commit frames
+        run: |
+          git config user.name "shorts-bot"
+          git config user.email "actions@github.com"
+          git add shorts-automation/data/previews/_frames
+          git diff --staged --quiet || git commit -m "debug: frames para inspeção"
+          git push
