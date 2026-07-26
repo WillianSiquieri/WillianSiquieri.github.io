@@ -111,7 +111,7 @@ async function main() {
       entry.video = { rendered: asm.rendered, durationSec: asm.durationSec, ttsProvider: asm.ttsProvider, previewFile: asm.previewFile || null };
 
       // Upload de preview (não listado) quando há vídeo e credenciais.
-      if (asm.rendered && youtubeReady()) {
+      if (asm.rendered && youtubeReady() && !argFlag('no-upload')) {
         try {
           const privacy = settings.mode === 'auto' ? 'public' : 'unlisted';
           const up = await uploadShort(entry, asm.videoPath, { privacyStatus: privacy, categoryId: config.video?.categoryId });

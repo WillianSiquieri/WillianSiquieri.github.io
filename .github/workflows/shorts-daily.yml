@@ -11,6 +11,16 @@ on:
         description: 'Quantos shorts gerar (sobrescreve a config)'
         required: false
         default: ''
+      force:
+        description: 'Gerar mesmo com o modo pausado'
+        type: boolean
+        required: false
+        default: false
+      no_upload:
+        description: 'Não enviar ao YouTube (só render/preview, para testes)'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -50,7 +60,9 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
           ARGS=""
-          if [ -n "${{ github.event.inputs.count }}" ]; then ARGS="--count=${{ github.event.inputs.count }}"; fi
+          if [ -n "${{ github.event.inputs.count }}" ]; then ARGS="$ARGS --count=${{ github.event.inputs.count }}"; fi
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          if [ "${{ github.event.inputs.no_upload }}" = "true" ]; then ARGS="$ARGS --no-upload"; fi
           node src/cycle.js $ARGS
 
       - name: Commitar estado atualizado
