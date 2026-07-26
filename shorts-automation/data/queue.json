@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "sh_ms1327ys9qxx",
+    "status": "draft",
+    "createdAt": "2026-07-26T00:52:04.180Z",
+    "theme": "Economia",
+    "title": "Tarifa dos EUA: o que é e como afeta o seu bolso",
+    "hook": "Você sabia que as novas tarifas dos EUA vão aumentar o preço de produtos importados no Brasil?",
+    "script": "As tarifas são impostos sobre produtos importados. Agora, os EUA aplicaram uma tarifa de 12,5% sobre produtos brasileiros. Isso significa que os preços de produtos importados, como eletrônicos e carros, podem subir. E você, como isso vai afetar o seu bolso?",
+    "tags": [
+      "economia",
+      "finanças",
+      "tarifa"
+    ],
+    "captionKeywords": [
+      "tarifa",
+      "EUA",
+      "produto importado",
+      "preço"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/25/alvo-de-tarifaco-brasil-e-ha-decadas-fonte-de-superavit-recorde-para-os-eua.ghtml",
+    "rationale": "Esse tema é relevante para o usuário porque afeta diretamente o seu bolso. A tarifa dos EUA pode aumentar o preço de produtos importados, o que pode ter um impacto significativo na economia brasileira.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms1327ys9qxx.mp4"
+    }
+  }
+]
