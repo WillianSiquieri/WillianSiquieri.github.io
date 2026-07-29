@@ -26,5 +26,57 @@
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_ms1327ys9qxx.mp4"
     }
+  },
+  {
+    "id": "sh_ms5huzloiz4t",
+    "status": "draft",
+    "createdAt": "2026-07-29T02:57:25.692Z",
+    "theme": "Economia",
+    "title": "IPCA-15: prévia da inflação sobe 0,06% em julho",
+    "hook": "Inflação volta a subir!",
+    "script": "A prévia da inflação, o IPCA-15, subiu 0,06% em julho. Isso significa que os preços continuam aumentando. Energia elétrica foi um dos principais responsáveis pelo aumento. Como isso afeta o seu bolso?",
+    "tags": [
+      "economia",
+      "inflação"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "IPCA-15",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/28/ipca-15-previa-da-inflacao-julho.ghtml",
+    "rationale": "Esse tema é relevante porque a inflação afeta diretamente o bolso dos brasileiros. A notícia é recente e importante para entender como a economia está se comportando.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms5huzloiz4t.mp4"
+    }
+  },
+  {
+    "id": "sh_ms5hvem165f0",
+    "status": "draft",
+    "createdAt": "2026-07-29T02:57:25.692Z",
+    "theme": "Finanças",
+    "title": "Consello autoriza pagamento de R$ 13 bilhões do lucro do FGTS a 138 milhões de trabalhadores",
+    "hook": "Você vai receber dinheiro do FGTS!",
+    "script": "O Conselho Curador do FGTS autorizou o pagamento de R$ 13 bilhões para 138 milhões de trabalhadores. Isso significa que você pode receber uma parte desse dinheiro. Quanto você acha que vai receber?",
+    "tags": [
+      "finanças",
+      "FGTS"
+    ],
+    "captionKeywords": [
+      "FGTS",
+      "lucro",
+      "pagamento"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/28/conselho-autoriza-pagamento-de-r-13-bilhoes-do-lucro-do-fgts-a-138-milhoes-de-trabalhadores.ghtml",
+    "rationale": "Esse tema é interessante porque muitos brasileiros têm dinheiro no FGTS e podem receber uma parte do lucro. A notícia é recente e importante para entender como o FGTS está se comportando.",
+    "video": {
+      "rendered": true,
+      "durationSec": 16,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms5hvem165f0.mp4"
+    }
   }
 ]
