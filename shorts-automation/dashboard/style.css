@@ -125,6 +125,19 @@ textarea { resize: vertical; }
 .short .no-preview { padding: 10px 16px; font-size: .8rem; color: var(--muted); }
 .short .actions { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border); margin-top: auto; flex-wrap: wrap; }
 .short .fb { width: 100%; margin-top: 8px; }
+
+/* Feedback: campo + microfone */
+.fb-row { display: flex; gap: 8px; width: 100%; align-items: stretch; }
+.short .actions .fb-row { flex-basis: 100%; margin-top: 8px; }
+.fb-row textarea { flex: 1; margin: 0; }
+.mic {
+  flex: 0 0 auto; width: 44px; display: grid; place-items: center;
+  background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+  border-radius: 9px; cursor: pointer; font-size: 1.05rem; transition: filter .15s;
+}
+.mic:hover { filter: brightness(1.2); }
+.mic.rec { background: var(--accent); border-color: var(--accent); color: #fff; animation: mic-pulse 1s infinite; }
+@keyframes mic-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
 .short .stats { display: flex; gap: 14px; padding: 12px 16px; border-top: 1px solid var(--border); }
 .short .stat b { display: block; font-size: 1.1rem; }
 .short .stat span { color: var(--muted); font-size: .72rem; }

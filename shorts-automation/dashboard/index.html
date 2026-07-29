@@ -69,7 +69,10 @@
     <section id="tab-feedback" class="tab-panel">
       <div class="card">
         <label for="global-feedback">Feedback geral para a IA</label>
-        <textarea id="global-feedback" rows="3" placeholder="Ex.: 'Os últimos shorts ficaram genéricos, quero mais análise e menos manchete crua.'"></textarea>
+        <div class="fb-row">
+          <textarea id="global-feedback" rows="3" placeholder="Ex.: 'Os últimos shorts ficaram genéricos, quero mais análise e menos manchete crua.' (texto ou voz)"></textarea>
+          <button class="mic" id="mic-global" title="Gravar feedback por voz" aria-label="Gravar feedback por voz">🎤</button>
+        </div>
         <button class="btn" id="btn-add-feedback">Enviar feedback</button>
       </div>
       <ul id="feedback-log" class="feedback-log"></ul>
