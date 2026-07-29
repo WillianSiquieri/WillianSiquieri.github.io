@@ -57,5 +57,63 @@
     "youtubeId": "Y2ZEzUD_Sjw",
     "previewUrl": "https://youtube.com/shorts/Y2ZEzUD_Sjw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms65atze6cvh",
+    "status": "draft",
+    "createdAt": "2026-07-29T13:53:36.074Z",
+    "theme": "Economia",
+    "title": "Dólar em queda e Ibovespa em baixa",
+    "hook": "Dólar cai 0,13% e Ibovespa opera em baixa. O que isso significa para o seu bolso?",
+    "script": "O dólar está cotado a R$ 5,1151, com uma queda de 0,13%. Já o Ibovespa opera em baixa, influenciado pela decisão de juros dos EUA. Isso pode afetar o valor do seu dinheiro. Se você tem investimentos em dólar ou em ações, é importante ficar atento. O que você acha que vai acontecer com o dólar e o Ibovespa nos próximos dias?",
+    "tags": [
+      "finanças",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "Ibovespa",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/29/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é relevante porque o dólar e o Ibovespa são indicadores importantes da economia brasileira. A variação desses indicadores pode afetar o valor do dinheiro e os investimentos das pessoas. Além disso, a decisão de juros dos EUA pode ter um impacto significativo na economia global.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms65atze6cvh.mp4"
+    },
+    "youtubeId": "xdvHhUvxjnw",
+    "previewUrl": "https://youtube.com/shorts/xdvHhUvxjnw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms65bhbha69y",
+    "status": "draft",
+    "createdAt": "2026-07-29T13:53:36.074Z",
+    "theme": "Economia",
+    "title": "FGTS distribuirá lucro de R$ 13 bilhões",
+    "hook": "Você vai receber parte do lucro do FGTS? Descubra agora!",
+    "script": "O FGTS vai distribuir um lucro de R$ 13 bilhões para os trabalhadores. Isso significa que você pode receber um valor extra em sua conta. O lucro será pago starting em 31 de julho. Você tem direito a receber parte desse lucro? Qual é o seu plano para usar o dinheiro?",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "FGTS",
+      "lucro",
+      "trabalhador"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/29/fgts-lucro-veja-quem-tem-direito-e-como-consultar-valor.ghtml",
+    "rationale": "Esse tema é relevante porque o FGTS é um fundo importante para os trabalhadores brasileiros. A distribuição do lucro do FGTS pode ser um benefício significativo para muitas pessoas. Além disso, é uma oportunidade para explicar como o FGTS funciona e como os trabalhadores podem se beneficiar dele.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms65bhbha69y.mp4"
+    },
+    "youtubeId": "6S5lWumfu1k",
+    "previewUrl": "https://youtube.com/shorts/6S5lWumfu1k",
+    "privacyStatus": "unlisted"
   }
 ]
