@@ -1,1 +1,61 @@
-[]
+[
+  {
+    "id": "sh_ms5i1kdd492w",
+    "status": "draft",
+    "createdAt": "2026-07-29T03:02:32.545Z",
+    "theme": "Economia",
+    "title": "Inflação sobe 0,06% em julho",
+    "hook": "Preços aumentam novamente!",
+    "script": "A prévia da inflação, o IPCA-15, subiu 0,06% em julho. Isso significa que os preços continuam aumentando. A energia elétrica foi um dos principais motivos para esse aumento. E você, está preparado para lidar com essa alta?",
+    "tags": [
+      "economia",
+      "inflação"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "IPCA-15",
+      "preços",
+      "energia elétrica"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/28/ipca-15-previa-da-inflacao-julho.ghtml",
+    "rationale": "O tema da inflação é sempre relevante para o público brasileiro, especialmente quando os preços sobem. Essa notícia explica de forma simples o que aconteceu e como isso afeta o bolso do espectador.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms5i1kdd492w.mp4"
+    },
+    "youtubeId": "n1CrKJwImU0",
+    "previewUrl": "https://youtube.com/shorts/n1CrKJwImU0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms5i226e5lrf",
+    "status": "draft",
+    "createdAt": "2026-07-29T03:02:32.545Z",
+    "theme": "Finanças",
+    "title": "Lucro do FGTS: você vai receber?",
+    "hook": "Você vai receber dinheiro do FGTS!",
+    "script": "O Conselho Curador do FGTS autorizou o pagamento de R$ 13 bilhões do lucro do FGTS a 138 milhões de trabalhadores. Isso significa que muitas pessoas vão receber dinheiro extra. E você, vai receber parte desse lucro? Vai saber quanto é o seu?",
+    "tags": [
+      "finanças",
+      "FGTS"
+    ],
+    "captionKeywords": [
+      "FGTS",
+      "lucro",
+      "pagamento"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/28/conselho-autoriza-pagamento-de-r-13-bilhoes-do-lucro-do-fgts-a-138-milhoes-de-trabalhadores.ghtml",
+    "rationale": "O tema do FGTS é importante para muitos trabalhadores brasileiros, e a notícia sobre o pagamento do lucro do FGTS é relevante e interessante. A pergunta no final do script envolve o espectador e o motiva a saber mais.",
+    "video": {
+      "rendered": true,
+      "durationSec": 20,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms5i226e5lrf.mp4"
+    },
+    "youtubeId": "Y2ZEzUD_Sjw",
+    "previewUrl": "https://youtube.com/shorts/Y2ZEzUD_Sjw",
+    "privacyStatus": "unlisted"
+  }
+]
