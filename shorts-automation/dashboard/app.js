@@ -172,7 +172,10 @@ function shortCard(d, isPublished) {
          <button class="btn green" data-act="approve" data-id="${d.id}">✅ Aprovar</button>
          <button class="btn danger" data-act="reject" data-id="${d.id}">✕ Rejeitar</button>
          <a class="btn ghost" href="${d.previewUrl || d.sourceLink || '#'}" target="_blank" rel="noopener">↗ Fonte</a>
-         <textarea class="fb" data-fb="${d.id}" rows="1" placeholder="Feedback sobre este short (opcional)..."></textarea>
+         <div class="fb-row">
+           <textarea class="fb" data-fb="${d.id}" rows="1" placeholder="Feedback sobre este short (texto ou voz)..."></textarea>
+           <button class="mic" data-mic="${d.id}" title="Gravar feedback por voz" aria-label="Gravar feedback por voz">🎤</button>
+         </div>
        </div>`;
 
   return `<article class="short" data-card="${d.id}">
@@ -205,6 +208,53 @@ function wireCardEvents() {
   document.querySelectorAll('[data-act]').forEach((btn) => {
     btn.onclick = () => decide(btn.dataset.id, btn.dataset.act);
   });
+  document.querySelectorAll('[data-mic]').forEach((btn) => {
+    btn.onclick = () => dictate(document.querySelector(`[data-fb="${btn.dataset.mic}"]`), btn);
+  });
+}
+
+/* ---------- Ditado por voz (feedback falado) ---------- */
+let activeRec = null;
+function dictate(textarea, btn) {
+  if (!textarea) return;
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    toast('Ditado por voz não suportado neste navegador. Use Chrome ou Edge.', true);
+    return;
+  }
+  // Já gravando → para.
+  if (activeRec) {
+    activeRec.stop();
+    return;
+  }
+  const rec = new SR();
+  rec.lang = 'pt-BR';
+  rec.interimResults = true;
+  rec.continuous = true;
+  const base = textarea.value ? textarea.value.trim() + ' ' : '';
+  let finalText = '';
+  rec.onresult = (e) => {
+    let interim = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const t = e.results[i][0].transcript;
+      if (e.results[i].isFinal) finalText += t + ' ';
+      else interim += t;
+    }
+    textarea.value = base + finalText + interim;
+  };
+  rec.onerror = (e) => toast('Erro no ditado: ' + (e.error || 'desconhecido'), true);
+  rec.onend = () => {
+    activeRec = null;
+    btn.classList.remove('rec');
+    btn.textContent = '🎤';
+    textarea.value = (base + finalText).trim();
+    textarea.focus();
+  };
+  activeRec = rec;
+  btn.classList.add('rec');
+  btn.textContent = '⏺';
+  toast('Gravando… fale o feedback. Clique no microfone de novo para parar.');
+  rec.start();
 }
 
 /* ---------- Ações ---------- */
@@ -270,6 +320,8 @@ document.getElementById('btn-add-feedback').onclick = async () => {
   if (!text) return;
   try { await pushFeedback(text); box.value = ''; toast('Feedback enviado'); await loadAll(); } catch {}
 };
+document.getElementById('mic-global').onclick = (e) =>
+  dictate(document.getElementById('global-feedback'), e.currentTarget);
 document.querySelectorAll('#mode-switch button').forEach((btn) => {
   btn.onclick = () => setMode(btn.dataset.mode);
 });
