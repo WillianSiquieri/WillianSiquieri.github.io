@@ -115,5 +115,61 @@
     "youtubeId": "6S5lWumfu1k",
     "previewUrl": "https://youtube.com/shorts/6S5lWumfu1k",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms7ke96eh8gq",
+    "status": "draft",
+    "createdAt": "2026-07-30T13:43:56.150Z",
+    "theme": "Economia",
+    "title": "Dívida pública federal atinge R$ 9,27 trilhões",
+    "hook": "Sua parcela da dívida pública é de quase R$ 44 mil!",
+    "script": "A dívida pública federal cresceu 2,6% em junho. Isso significa que agora cada brasileiro tem uma parcela de quase R$ 44 mil dessa dívida. O que isso significa para o seu bolso? E como isso pode afetar a economia do país?",
+    "tags": [
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "dívida pública",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/30/divida-publica-sobe-26percent-em-junho-e-atinge-r-927-trilhoes-diz-tesouro-nacional.ghtml",
+    "rationale": "Esse tema é relevante para o usuário porque afeta diretamente a economia do país e pode ter impacto no bolso do consumidor. Além disso, é um assunto de grande interesse público e pode gerar muitas discussões.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms7ke96eh8gq.mp4"
+    },
+    "youtubeId": "7v3D011xKQ0",
+    "previewUrl": "https://youtube.com/shorts/7v3D011xKQ0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms7kemkvurl",
+    "status": "draft",
+    "createdAt": "2026-07-30T13:43:56.150Z",
+    "theme": "Finanças",
+    "title": "FGTS distribuirá lucro de R$ 13 bilhões para trabalhadores",
+    "hook": "Você pode receber uma parte desse lucro!",
+    "script": "O FGTS vai distribuir R$ 13 bilhões de lucro para os trabalhadores. Isso significa que muitas pessoas vão receber um valor extra. Você pode ser uma delas? E o que você faria com esse dinheiro?",
+    "tags": [
+      "finanças",
+      "trabalho"
+    ],
+    "captionKeywords": [
+      "FGTS",
+      "lucro"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/30/fgts-distribuira-lucro-de-r-13-bilhoes-para-trabalhadores-nesta-sexta-veja-quem-podera-sacar-o-valor.ghtml",
+    "rationale": "Esse tema é atraente para o usuário porque é uma notícia positiva que pode afetar diretamente o seu bolso. Além disso, é um assunto de grande interesse para quem está procurando por oportunidades de ganhar dinheiro.",
+    "video": {
+      "rendered": true,
+      "durationSec": 16,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms7kemkvurl.mp4"
+    },
+    "youtubeId": "rxXNXBDSwLw",
+    "previewUrl": "https://youtube.com/shorts/rxXNXBDSwLw",
+    "privacyStatus": "unlisted"
   }
 ]
