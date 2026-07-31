@@ -171,5 +171,65 @@
     "youtubeId": "rxXNXBDSwLw",
     "previewUrl": "https://youtube.com/shorts/rxXNXBDSwLw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms900fpf59cn",
+    "status": "draft",
+    "createdAt": "2026-07-31T13:48:51.459Z",
+    "theme": "Finanças",
+    "title": "Dólar em alta: o que isso significa para o seu bolso?",
+    "hook": "Dólar subiu! Preço das coisas vai aumentar?",
+    "script": "O dólar abriu em alta hoje. Isso significa que as coisas importadas vão ficar mais caras. Você já sentiu o impacto do dólar alto no seu dia a dia? O que você acha que vai acontecer com o seu orçamento?",
+    "tags": [
+      "dólar",
+      "câmbio",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "finanças"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/31/dolar-ibovespa.ghtml",
+    "rationale": "Escolhi este tema porque o dólar em alta afeta diretamente o bolso do brasileiro, especialmente quem compra produtos importados ou viaja para o exterior. A notícia é relevante e atual, e a pergunta no final do script incentiva o engajamento do usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 16,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms900fpf59cn.mp4"
+    },
+    "youtubeId": "SoFhgU8NMHA",
+    "previewUrl": "https://youtube.com/shorts/SoFhgU8NMHA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_ms900toj3eih",
+    "status": "draft",
+    "createdAt": "2026-07-31T13:48:51.459Z",
+    "theme": "Economia",
+    "title": "Rombo das estatais federais: como isso afeta você?",
+    "hook": "Rombo recorde nas estatais! Seu dinheiro está seguro?",
+    "script": "As estatais federais registram um déficit de R$ 7,8 bilhões no primeiro semestre. Isso significa que o governo terá que usar mais dinheiro para cobrir essas perdas. Como isso pode afetar os serviços públicos e a economia como um todo? Você acha que o governo deve priorizar o ajuste fiscal ou investir em serviços públicos?",
+    "tags": [
+      "estatais",
+      "déficit",
+      "economia"
+    ],
+    "captionKeywords": [
+      "estatais",
+      "déficit",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/07/31/rombo-das-estatais-federais-soma-r-78-bilhoes-no-1o-semestre-e-bate-recorde-historico.ghtml",
+    "rationale": "Escolhi este tema porque o rombo das estatais federais é um problema que afeta a economia como um todo e pode ter impacto no bolso do brasileiro. A notícia é relevante e atual, e a pergunta no final do script incentiva o engajamento do usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 23,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_ms900toj3eih.mp4"
+    },
+    "youtubeId": "thrJQOsL97A",
+    "previewUrl": "https://youtube.com/shorts/thrJQOsL97A",
+    "privacyStatus": "unlisted"
   }
 ]
