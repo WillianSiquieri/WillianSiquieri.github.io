@@ -231,5 +231,66 @@
     "youtubeId": "thrJQOsL97A",
     "previewUrl": "https://youtube.com/shorts/thrJQOsL97A",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msadutb64y8",
+    "status": "draft",
+    "createdAt": "2026-08-01T13:04:09.954Z",
+    "theme": "Economia",
+    "title": "Gasolina com 32% de etanol: o que muda para o seu bolso?",
+    "hook": "A gasolina comum agora tem 32% de etanol!",
+    "script": "A partir de agora, a gasolina comum vendida nos postos brasileiros tem 32% de etanol. Isso pode afetar o desempenho do seu carro e seu bolso. Peças do carro podem sofrer desgaste com a nova mistura. O que você acha? Vai sentir o impacto no seu orçamento?",
+    "tags": [
+      "economia",
+      "gasolina",
+      "etanol"
+    ],
+    "captionKeywords": [
+      "gasolina",
+      "etanol",
+      "carro",
+      "desgaste"
+    ],
+    "sourceLink": "https://g1.globo.com/carros/noticia/2026/08/01/gasolina-e32-etanol.ghtml",
+    "rationale": "Esse tema é relevante porque afeta diretamente o bolso dos brasileiros e é uma notícia recente. A explicação é simples e fácil de entender, sem economês.",
+    "video": {
+      "rendered": true,
+      "durationSec": 20,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msadutb64y8.mp4"
+    },
+    "youtubeId": "Zo70xJG0eKU",
+    "previewUrl": "https://youtube.com/shorts/Zo70xJG0eKU",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msadvo2qapi1",
+    "status": "draft",
+    "createdAt": "2026-08-01T13:04:09.954Z",
+    "theme": "Economia",
+    "title": "Bolsa Família: calendário de pagamentos em agosto",
+    "hook": "Os pagamentos do Bolsa Família começam no dia 18 de agosto!",
+    "script": "Quem recebe o Bolsa Família, fique atento! Os pagamentos de agosto começam no dia 18 e vão até o dia 29. Você está preparado para receber? O que você planeja fazer com o dinheiro?",
+    "tags": [
+      "economia",
+      "Bolsa Família",
+      "pagamentos"
+    ],
+    "captionKeywords": [
+      "Bolsa Família",
+      "pagamentos",
+      "agosto"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/01/bolsa-familia-2026-veja-calendario-de-pagamentos-em-agosto.ghtml",
+    "rationale": "Esse tema é importante porque afeta muitas famílias brasileiras e é uma notícia útil. A explicação é simples e direta, sem promessas de retorno.",
+    "video": {
+      "rendered": true,
+      "durationSec": 15,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msadvo2qapi1.mp4"
+    },
+    "youtubeId": "UKlF3eT0Ka4",
+    "previewUrl": "https://youtube.com/shorts/UKlF3eT0Ka4",
+    "privacyStatus": "unlisted"
   }
 ]
