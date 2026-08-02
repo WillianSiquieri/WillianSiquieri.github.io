@@ -292,5 +292,63 @@
     "youtubeId": "UKlF3eT0Ka4",
     "previewUrl": "https://youtube.com/shorts/UKlF3eT0Ka4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msbtdgjjhtji",
+    "status": "draft",
+    "createdAt": "2026-08-02T13:06:20.287Z",
+    "theme": "Economia",
+    "title": "Desenrola 2.0: Programa de renegociação de dívidas é prorrogado",
+    "hook": "Até 31 de agosto, você pode renegociar suas dívidas!",
+    "script": "O programa Desenrola 2.0 foi prorrogado. Isso significa que você tem mais tempo para renegociar suas dívidas. Até 31 de agosto, você pode tentar reduzir suas contas em atraso. O que você acha, vai aproveitar essa chance?",
+    "tags": [
+      "economia",
+      "dívidas",
+      "renegociação"
+    ],
+    "captionKeywords": [
+      "Desenrola 2.0",
+      "renegociação de dívidas"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/desenrola-2-0-programa-de-renegociacao-de-dividas-e-prorrogado-ate-31-de-agosto/",
+    "rationale": "Esse tema é relevante para o usuário porque está relacionado a economia e finanças pessoais, e a prorrogação do programa pode afetar o bolso dos espectadores.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msbtdgjjhtji.mp4"
+    },
+    "youtubeId": "iJ-JB7zyL0c",
+    "previewUrl": "https://youtube.com/shorts/iJ-JB7zyL0c",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msbtdwgu8p5q",
+    "status": "draft",
+    "createdAt": "2026-08-02T13:06:20.287Z",
+    "theme": "Economia",
+    "title": "Receita Federal emite o primeiro CNPJ alfanumérico do Brasil",
+    "hook": "Um novo capítulo para as empresas do Brasil!",
+    "script": "A Receita Federal emitiu o primeiro CNPJ alfanumérico do Brasil. Isso muda o jeito como as empresas são identificadas. Como isso pode afetar os negócios e a economia? O que você acha, é um passo para a modernização?",
+    "tags": [
+      "economia",
+      "empresas",
+      "CNPJ"
+    ],
+    "captionKeywords": [
+      "CNPJ alfanumérico",
+      "Receita Federal"
+    ],
+    "sourceLink": "https://g1.globo.com/empreendedorismo/noticia/2026/08/01/receita-federal-emite-o-primeiro-cnpj-alfanumerico-do-brasil-entenda-o-que-muda.ghtml",
+    "rationale": "Esse tema é relevante para o usuário porque está relacionado a economia e empresas, e a mudança no CNPJ pode ter impacto no mercado e na forma como as empresas operam.",
+    "video": {
+      "rendered": true,
+      "durationSec": 17,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msbtdwgu8p5q.mp4"
+    },
+    "youtubeId": "P5xcMK3APNk",
+    "previewUrl": "https://youtube.com/shorts/P5xcMK3APNk",
+    "privacyStatus": "unlisted"
   }
 ]
