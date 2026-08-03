@@ -350,5 +350,65 @@
     "youtubeId": "P5xcMK3APNk",
     "previewUrl": "https://youtube.com/shorts/P5xcMK3APNk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msdbldsu9hcx",
+    "status": "draft",
+    "createdAt": "2026-08-03T14:24:09.246Z",
+    "theme": "Dólar",
+    "title": "Dólar cai: o que isso significa para o seu bolso?",
+    "hook": "Dólar em queda!",
+    "script": "O dólar abriu em queda hoje, com um recuo de 0,08%. Isso pode ser bom para quem precisa comprar dólares, mas afeta a exportação de produtos brasileiros. Se você tem planos de viajar para o exterior, pode ser um bom momento para comprar dólares. Mas e se você é exportador? O que isso significa para o seu negócio?",
+    "tags": [
+      "dólar",
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "câmbio",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/03/dolar-ibovespa.ghtml",
+    "rationale": "O tema do dólar é sempre relevante para o público brasileiro, especialmente para aqueles que têm planos de viagem ou negócios que dependem do câmbio. A notícia sobre a queda do dólar pode ser um bom gancho para iniciar uma discussão sobre o impacto do câmbio na economia e nos bolso dos brasileiros.",
+    "video": {
+      "rendered": true,
+      "durationSec": 24,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msdbldsu9hcx.mp4"
+    },
+    "youtubeId": "m97T43RYNx4",
+    "previewUrl": "https://youtube.com/shorts/m97T43RYNx4",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msdblvna70rj",
+    "status": "draft",
+    "createdAt": "2026-08-03T14:24:09.246Z",
+    "theme": "Investimentos",
+    "title": "Qual é o melhor investimento para agosto?",
+    "hook": "Otimismo no mercado!",
+    "script": "O Ibovespa inicia o mês em ligeira alta, com um otimismo no exterior. Isso pode ser um bom sinal para os investidores. Qual é o melhor investimento para agosto? Devemos apostar em ações, renda fixa ou outro tipo de investimento? O que você acha?",
+    "tags": [
+      "investimentos",
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "investimentos",
+      "ibovespa",
+      "economia"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/ibovespa-5-coisas-3-8-26-apsa/",
+    "rationale": "O tema dos investimentos é sempre relevante para o público que busca entender como multiplicar seu dinheiro. A notícia sobre o otimismo no mercado pode ser um bom gancho para iniciar uma discussão sobre as melhores opções de investimento para o mês de agosto.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msdblvna70rj.mp4"
+    },
+    "youtubeId": "p8ycz50eYZc",
+    "previewUrl": "https://youtube.com/shorts/p8ycz50eYZc",
+    "privacyStatus": "unlisted"
   }
 ]
