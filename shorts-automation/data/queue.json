@@ -410,5 +410,65 @@
     "youtubeId": "p8ycz50eYZc",
     "previewUrl": "https://youtube.com/shorts/p8ycz50eYZc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msepzn49eo18",
+    "status": "draft",
+    "createdAt": "2026-08-04T13:54:55.305Z",
+    "theme": "Economia",
+    "title": "Dólar em alta: o que isso significa para o seu bolso?",
+    "hook": "Dólar subindo!",
+    "script": "O dólar está em alta novamente. Isso significa que importar produtos dos EUA vai ficar mais caro. Preços de itens como eletrônicos e carros podem subir. E você, como vai se proteger contra essa alta?",
+    "tags": [
+      "dólar",
+      "inflação",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "inflação"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/04/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é relevante para o usuário porque afeta diretamente o seu bolso. A alta do dólar pode influenciar os preços de itens importados, o que pode ser um problema para muitas pessoas.",
+    "video": {
+      "rendered": true,
+      "durationSec": 16,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msepzn49eo18.mp4"
+    },
+    "youtubeId": "n-dyb82fUjo",
+    "previewUrl": "https://youtube.com/shorts/n-dyb82fUjo",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msepzycyuek",
+    "status": "draft",
+    "createdAt": "2026-08-04T13:54:55.305Z",
+    "theme": "Investimentos",
+    "title": "Ibovespa: o que a alta do índice significa para os investidores?",
+    "hook": "Ibovespa dispara!",
+    "script": "O Ibovespa está em alta novamente. Isso significa que as ações das empresas brasileiras estão valendo mais. Se você é investidor, isso pode ser uma boa notícia. Mas, e se você não é investidor? Deve começar a investir agora?",
+    "tags": [
+      "Ibovespa",
+      "investimentos",
+      "economia"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "investimentos",
+      "aças"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-04082026/",
+    "rationale": "Esse tema é relevante para o usuário porque é sobre investimentos, um tema importante para quem quer crescer seu patrimônio. A alta do Ibovespa pode ser uma oportunidade para os investidores, mas também pode ser um desafio para quem está começando a investir.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msepzycyuek.mp4"
+    },
+    "youtubeId": "iA2kR182T6I",
+    "previewUrl": "https://youtube.com/shorts/iA2kR182T6I",
+    "privacyStatus": "unlisted"
   }
 ]
