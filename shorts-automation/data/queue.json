@@ -470,5 +470,64 @@
     "youtubeId": "iA2kR182T6I",
     "previewUrl": "https://youtube.com/shorts/iA2kR182T6I",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msg5bnle516c",
+    "status": "draft",
+    "createdAt": "2026-08-05T13:51:56.210Z",
+    "theme": "Economia",
+    "title": "Nova parceria entre Caixa e iFood facilita acesso a crédito para entregadores",
+    "hook": "Crédito mais fácil para entregadores!",
+    "script": "Nova parceria entre Caixa e iFood facilita acesso a crédito para entregadores. Com isso, você pode ter mais chances de obter crédito com juros reduzidos. O histórico de ganhos na plataforma será compartilhado com o banco para análise de crédito. Isso significa mais oportunidades para você? ",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "crédito",
+      "entregadores",
+      "Caixa",
+      "iFood"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/nova-parceria-entre-caixa-e-ifood-facilita-acesso-a-credito-para-entregadores/",
+    "rationale": "Esse tema é interessante porque afeta diretamente o bolso dos entregadores, que são uma parte importante da economia brasileira. Além disso, a parceria entre Caixa e iFood pode ser um exemplo de como as empresas estão se adaptando para atender às necessidades dos trabalhadores.",
+    "video": {
+      "rendered": true,
+      "durationSec": 20,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msg5bnle516c.mp4"
+    },
+    "youtubeId": "BFoyh0T6390",
+    "previewUrl": "https://youtube.com/shorts/BFoyh0T6390",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msg5bzz3cn46",
+    "status": "draft",
+    "createdAt": "2026-08-05T13:51:56.210Z",
+    "theme": "Economia",
+    "title": "Banco Central deve cortar juro básico da economia pela 4º vez seguida",
+    "hook": "Juros mais baixos no horizonte!",
+    "script": "O Banco Central deve cortar o juro básico da economia pela 4º vez seguida. Isso pode significar que você pagará menos juros nos seus empréstimos e cartões de crédito. Mas, também pode afetar a economia de outras maneiras. Você acha que isso é bom para o Brasil? ",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "juros",
+      "Banco Central",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/05/banco-central-deve-cortar-juro-basico-da-economia-pela-4o-vez-seguida-para-14percent-ao-ano.ghtml",
+    "rationale": "Esse tema é relevante porque o corte dos juros básicos da economia pode ter um impacto significativo na economia brasileira e nos bolsos dos cidadãos. Além disso, é uma notícia atual e importante que pode afetar as decisões financeiras das pessoas.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msg5bzz3cn46.mp4"
+    },
+    "youtubeId": "bTRin1s1Iuw",
+    "previewUrl": "https://youtube.com/shorts/bTRin1s1Iuw",
+    "privacyStatus": "unlisted"
   }
 ]
