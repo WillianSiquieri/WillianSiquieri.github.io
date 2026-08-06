@@ -529,5 +529,63 @@
     "youtubeId": "bTRin1s1Iuw",
     "previewUrl": "https://youtube.com/shorts/bTRin1s1Iuw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mshkncox7rn5",
+    "status": "draft",
+    "createdAt": "2026-08-06T13:48:42.368Z",
+    "theme": "Finanças",
+    "title": "Dólar cai após corte na Selic",
+    "hook": "Dólar em queda!",
+    "script": "O dólar abriu a sessão em queda, com um recuo de 0,24%. Isso acontece após o corte na taxa Selic. Você sabia que a taxa Selic influencia o preço do dólar? Com a Selic em 14%, o dólar pode continuar caindo. Isso significa que viajar para o exterior pode ficar mais barato. E você, planeja viajar para o exterior agora que o dólar está caindo?",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "Selic",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/06/dolar-ibovespa.ghtml",
+    "rationale": "O tema é relevante para o usuário, que se interessa por finanças e economia. A notícia sobre a queda do dólar é interessante e pode afetar o bolso do espectador, especialmente se ele planeja viajar para o exterior.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mshkncox7rn5.mp4"
+    },
+    "youtubeId": "olk726A_px0",
+    "previewUrl": "https://youtube.com/shorts/olk726A_px0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mshknv0tjstg",
+    "status": "draft",
+    "createdAt": "2026-08-06T13:48:42.368Z",
+    "theme": "Economia",
+    "title": "Selic em 14%: o que isso significa para você?",
+    "hook": "Juros mais baixos!",
+    "script": "A taxa Selic foi reduzida para 14%. Isso significa que os juros dos empréstimos podem ficar mais baixos. Você sabia que a Selic influencia os juros dos empréstimos? Com a Selic em 14%, você pode conseguir empréstimos mais baratos. Isso é bom para quem precisa comprar uma casa ou um carro. E você, vai aproveitar a oportunidade de empréstimos mais baratos?",
+    "tags": [
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "Selic",
+      "juros",
+      "empréstimos"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/05/selic-copom-reduz-taxa-basica-de-juros-para-14percent-ao-ano.ghtml",
+    "rationale": "O tema é relevante para o usuário, que se interessa por economia e finanças. A notícia sobre a redução da taxa Selic é interessante e pode afetar o bolso do espectador, especialmente se ele precisa de empréstimos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mshknv0tjstg.mp4"
+    },
+    "youtubeId": "52GSXd9DMpc",
+    "previewUrl": "https://youtube.com/shorts/52GSXd9DMpc",
+    "privacyStatus": "unlisted"
   }
 ]
