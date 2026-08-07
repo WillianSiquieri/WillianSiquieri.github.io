@@ -587,5 +587,65 @@
     "youtubeId": "52GSXd9DMpc",
     "previewUrl": "https://youtube.com/shorts/52GSXd9DMpc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msixv98ejlm2",
+    "status": "draft",
+    "createdAt": "2026-08-07T12:46:32.318Z",
+    "theme": "Economia",
+    "title": "Dólar cai após dados de emprego nos EUA",
+    "hook": "Dólar abaixo de R$ 5,10!",
+    "script": "O dólar caiu abaixo de R$ 5,10 após a divulgação dos dados de emprego nos EUA. Isso significa que viajar para o exterior pode ficar mais barato. Além disso, o dólar mais baixo pode ajudar a reduzir a inflação no Brasil. Você acha que o dólar vai continuar caindo?",
+    "tags": [
+      "economia",
+      "dólar",
+      "notícias"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "emprego"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-07082026/",
+    "rationale": "Esse tema é relevante porque o dólar é uma moeda importante para a economia brasileira e pode afetar o poder de compra dos consumidores.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msixv98ejlm2.mp4"
+    },
+    "youtubeId": "VuYIxIDJt7g",
+    "previewUrl": "https://youtube.com/shorts/VuYIxIDJt7g",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msixvpo6ge11",
+    "status": "draft",
+    "createdAt": "2026-08-07T12:46:32.318Z",
+    "theme": "Finanças",
+    "title": "Petrobras tem lucro recorde no 2º trimestre",
+    "hook": "Petrobras fatura R$ 52,4 bilhões!",
+    "script": "A Petrobras registrou um lucro líquido de R$ 52,4 bilhões no segundo trimestre, um aumento de 96,8% em relação ao mesmo período do ano passado. Isso pode significar um aumento nos dividendos para os acionistas. Você é um investidor da Petrobras? O que você acha sobre o desempenho da empresa?",
+    "tags": [
+      "finanças",
+      "Petrobras",
+      "notícias"
+    ],
+    "captionKeywords": [
+      "Petrobras",
+      "lucro",
+      "finanças"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/06/lucro-petrobras-2o-trimestre.ghtml",
+    "rationale": "Esse tema é relevante porque a Petrobras é uma das maiores empresas do Brasil e seu desempenho pode afetar a economia do país.",
+    "video": {
+      "rendered": true,
+      "durationSec": 23,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msixvpo6ge11.mp4"
+    },
+    "youtubeId": "81djNcEe0Gk",
+    "previewUrl": "https://youtube.com/shorts/81djNcEe0Gk",
+    "privacyStatus": "unlisted"
   }
 ]
