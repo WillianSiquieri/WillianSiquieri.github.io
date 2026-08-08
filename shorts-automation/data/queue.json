@@ -647,5 +647,64 @@
     "youtubeId": "81djNcEe0Gk",
     "previewUrl": "https://youtube.com/shorts/81djNcEe0Gk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mskcu1v67ydj",
+    "status": "draft",
+    "createdAt": "2026-08-08T12:33:16.530Z",
+    "theme": "Economia",
+    "title": "El Niño pode pressionar inflação dos alimentos em 2027",
+    "hook": "Preços podem subir!",
+    "script": "O El Niño pode trazer chuvas fortes e enchentes. Isso pode afetar a produção de alimentos e aumentar os preços. Feijão e arroz podem ser os mais afetados. Seu bolso pode sentir o impacto. O que você pode fazer para se preparar?",
+    "tags": [
+      "economia",
+      "inflação"
+    ],
+    "captionKeywords": [
+      "El Niño",
+      "inflação",
+      "alimentos",
+      "preços"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/agronegocios/noticia/2026/08/08/super-el-nino-deve-pressionar-inflacao-dos-alimentos-em-2027-feijao-e-arroz-lideram-alta.ghtml",
+    "rationale": "A notícia é relevante para o nicho de finanças e economia, e tem um impacto direto no bolso do espectador. A linguagem é simples e fácil de entender.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mskcu1v67ydj.mp4"
+    },
+    "youtubeId": "a8tq-up0W4Q",
+    "previewUrl": "https://youtube.com/shorts/a8tq-up0W4Q",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mskcugxq7w3m",
+    "status": "draft",
+    "createdAt": "2026-08-08T12:33:16.530Z",
+    "theme": "Finanças",
+    "title": "Reforma tributária: novo imposto sobre consumo começa em 2027",
+    "hook": "Novo imposto a caminho!",
+    "script": "A reforma tributária traz um novo imposto sobre consumo. Isso pode afetar o seu orçamento. O que você precisa saber sobre essa mudança e como se preparar?",
+    "tags": [
+      "finanças",
+      "imposto"
+    ],
+    "captionKeywords": [
+      "reforma tributária",
+      "imposto",
+      "consumo"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/08/reforma-tributaria-cobranca-de-novos-impostos-sobre-consumo-comeca-em-2027-veja-como-vai-funcionar-e-o-que-falta-definir.ghtml",
+    "rationale": "A notícia é relevante para o nicho de finanças e economia, e tem um impacto direto no bolso do espectador. A linguagem é simples e fácil de entender.",
+    "video": {
+      "rendered": true,
+      "durationSec": 12,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mskcugxq7w3m.mp4"
+    },
+    "youtubeId": "GDjwqIXTTBM",
+    "previewUrl": "https://youtube.com/shorts/GDjwqIXTTBM",
+    "privacyStatus": "unlisted"
   }
 ]
