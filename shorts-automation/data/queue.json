@@ -706,5 +706,65 @@
     "youtubeId": "GDjwqIXTTBM",
     "previewUrl": "https://youtube.com/shorts/GDjwqIXTTBM",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mslse3icg7if",
+    "status": "draft",
+    "createdAt": "2026-08-09T12:36:32.196Z",
+    "theme": "Economia",
+    "title": "Taxa das blusinhas: o que muda para o seu bolso?",
+    "hook": "Você sabia que a 'taxa das blusinhas' pode voltar em setembro?",
+    "script": "A 'taxa das blusinhas' era uma cobrança extra em itens como roupas e calçados. Ela foi suspensa, mas pode voltar em setembro se uma medida provisória não for aprovada. Isso significa que você pode pagar mais caro por esses itens novamente. Como isso afeta o seu orçamento?",
+    "tags": [
+      "economia",
+      "imposto",
+      "consumidor"
+    ],
+    "captionKeywords": [
+      "taxa das blusinhas",
+      "imposto",
+      "orçamento"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/09/taxa-das-blusinhas-se-medida-provisoria-nao-for-aprovada-taxacao-volta-no-comeco-de-setembro.ghtml",
+    "rationale": "O tema é relevante para o público brasileiro, que está sempre atento a mudanças nos preços e impostos. A notícia é recente e tem impacto direto no bolso do consumidor.",
+    "video": {
+      "rendered": true,
+      "durationSec": 20,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mslse3icg7if.mp4"
+    },
+    "youtubeId": "JXKs8N2rAgY",
+    "previewUrl": "https://youtube.com/shorts/JXKs8N2rAgY",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mslsefzgvsh",
+    "status": "draft",
+    "createdAt": "2026-08-09T12:36:32.196Z",
+    "theme": "Economia",
+    "title": "Selic a 14%: o que muda para você?",
+    "hook": "A Selic está em 14%! Mas o que isso significa para o seu dinheiro?",
+    "script": "A Selic é a taxa básica de juros da economia brasileira. Com a Selic em 14%, os juros dos empréstimos podem aumentar, mas os rendimentos das aplicações fixas também podem subir. Isso pode afetar sua capacidade de pagar contas, tomar empréstimos ou investir. Como você planeja se adaptar a essa mudança?",
+    "tags": [
+      "economia",
+      "juros",
+      "investimento"
+    ],
+    "captionKeywords": [
+      "Selic",
+      "juros",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/g1-explica/noticia/2026/08/08/selic-a-14percent-o-que-muda-na-sua-prestacao-no-seu-cartao-e-no-seu-dinheiro-guardado-entenda.ghtml",
+    "rationale": "A Selic é um tema fundamental na economia brasileira, e sua variação tem impacto direto no dia a dia das pessoas. A notícia é recente e ajuda a explicar de forma clara como a mudança na Selic pode afetar o bolso do consumidor.",
+    "video": {
+      "rendered": true,
+      "durationSec": 23,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mslsefzgvsh.mp4"
+    },
+    "youtubeId": "lnw7cfDsY2A",
+    "previewUrl": "https://youtube.com/shorts/lnw7cfDsY2A",
+    "privacyStatus": "unlisted"
   }
 ]
