@@ -766,5 +766,65 @@
     "youtubeId": "lnw7cfDsY2A",
     "previewUrl": "https://youtube.com/shorts/lnw7cfDsY2A",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msn8fxapauit",
+    "status": "draft",
+    "createdAt": "2026-08-10T12:53:37.489Z",
+    "theme": "Economia",
+    "title": "Dólar estável com dados de inflação no radar",
+    "hook": "Dólar está estável. O que isso significa para o seu bolso?",
+    "script": "O dólar está estável em relação ao real. Isso ocorre porque os investidores estão com os olhos nos dados de inflação. Se a inflação subir, o dólar pode subir também. E isso pode afetar o preço das coisas que você compra. Você acha que o dólar vai subir ou descer nas próximas semanas?",
+    "tags": [
+      "economia",
+      "dólar",
+      "inflação"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "inflação",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-10082026/",
+    "rationale": "Essa notícia é relevante porque o dólar está estável e isso pode afetar a economia e o bolso dos brasileiros.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msn8fxapauit.mp4"
+    },
+    "youtubeId": "AvBIYp1uots",
+    "previewUrl": "https://youtube.com/shorts/AvBIYp1uots",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msn8ge84fejx",
+    "status": "draft",
+    "createdAt": "2026-08-10T12:53:37.489Z",
+    "theme": "Investimentos",
+    "title": "Banco Central endurece regras para criptoativos",
+    "hook": "Banco Central endurece regras para criptoativos. Isso vai afetar o seu investimento?",
+    "script": "O Banco Central endureceu as regras para criptoativos. Isso significa que as transferências acima de US$ 10 mil terão que ser retidas por 24 horas. Essa mudança pode afetar os investidores que operam com criptoativos. Você investe em criptoativos? O que você acha sobre essa mudança?",
+    "tags": [
+      "investimentos",
+      "Banco Central",
+      "criptoativos"
+    ],
+    "captionKeywords": [
+      "Banco Central",
+      "criptoativos",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/banco-central-endurece-regras-para-criptoativos-e-exige-retencao-de-24-horas-em-transferencias-acima-de-r-10-mil-rens/",
+    "rationale": "Essa notícia é relevante porque o Banco Central está endurecendo as regras para criptoativos e isso pode afetar os investidores que operam com esses ativos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msn8ge84fejx.mp4"
+    },
+    "youtubeId": "LrktRJK5DrE",
+    "previewUrl": "https://youtube.com/shorts/LrktRJK5DrE",
+    "privacyStatus": "unlisted"
   }
 ]
