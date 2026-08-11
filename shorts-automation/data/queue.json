@@ -826,5 +826,63 @@
     "youtubeId": "LrktRJK5DrE",
     "previewUrl": "https://youtube.com/shorts/LrktRJK5DrE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msonp7ag77a5",
+    "status": "draft",
+    "createdAt": "2026-08-11T12:48:30.760Z",
+    "theme": "Inflação",
+    "title": "Inflação sobe 0,07% em julho",
+    "hook": "Alerta sobre o seu bolso!",
+    "script": "A inflação subiu 0,07% em julho. Isso afeta o seu dinheiro. Com essa alta, o poder de compra diminui. O que você pode fazer para proteger seu bolso?",
+    "tags": [
+      "finanças",
+      "economia"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "economia",
+      "bolso"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/11/ipca-inflacao-julho.ghtml",
+    "rationale": "A inflação é um tema relevante para o público brasileiro, pois afeta diretamente o bolso das pessoas. Essa notícia é importante para que as pessoas entendam como a inflação pode impactar suas finanças e tomem decisões informadas.",
+    "video": {
+      "rendered": true,
+      "durationSec": 15,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msonp7ag77a5.mp4"
+    },
+    "youtubeId": "KCbJkrE2lkg",
+    "previewUrl": "https://youtube.com/shorts/KCbJkrE2lkg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msonpq346oq7",
+    "status": "draft",
+    "createdAt": "2026-08-11T12:48:30.760Z",
+    "theme": "Dinheiro Esquecido",
+    "title": "R$ 5,1 bilhões em dinheiro esquecido",
+    "hook": "Você tem dinheiro esquecido?",
+    "script": "Existem R$ 5,1 bilhões em dinheiro esquecido nas instituições financeiras. Isso pode ser seu! Você já conferiu se tem dinheiro esquecido? O que você faria com esse dinheiro extra?",
+    "tags": [
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "dinheiro esquecido",
+      "banco",
+      "finanças"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/11/dinheiro-esquecido-bc-atualiza-balanco-e-diz-que-r-51-bilhoes-podem-ser-resgatados-2266-milhoes-de-pessoas-tem-direito.ghtml",
+    "rationale": "A notícia sobre o dinheiro esquecido é interessante porque pode afetar diretamente o bolso das pessoas. Muitas pessoas podem ter dinheiro esquecido sem saber e essa notícia pode incentivá-las a conferir suas contas e reivindicar o que é seu.",
+    "video": {
+      "rendered": true,
+      "durationSec": 15,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msonpq346oq7.mp4"
+    },
+    "youtubeId": "5npYkR5g1TE",
+    "previewUrl": "https://youtube.com/shorts/5npYkR5g1TE",
+    "privacyStatus": "unlisted"
   }
 ]
