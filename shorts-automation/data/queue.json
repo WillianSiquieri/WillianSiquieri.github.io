@@ -884,5 +884,66 @@
     "youtubeId": "5npYkR5g1TE",
     "previewUrl": "https://youtube.com/shorts/5npYkR5g1TE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msq3bb3a2k7b",
+    "status": "draft",
+    "createdAt": "2026-08-12T12:53:22.534Z",
+    "theme": "Economia",
+    "title": "Dólar: entenda o que faz o preço subir ou cair",
+    "hook": "O dólar está em queda!",
+    "script": "O dólar abriu em queda, com inflação dos EUA e Oriente Médio no foco. Isso pode afetar o seu bolso. Quando o dólar cai, as importações ficam mais baratas. Mas, e as exportações? Quem lucra e quem perde com a queda do dólar?",
+    "tags": [
+      "dólar",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "importações",
+      "exportações"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/12/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é relevante para o usuário, pois o dólar é uma moeda importante para a economia brasileira. A queda do dólar pode afetar as importações e exportações, o que pode ter impacto no bolso do espectador.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msq3bb3a2k7b.mp4"
+    },
+    "youtubeId": "YWmsjhkv7qg",
+    "previewUrl": "https://youtube.com/shorts/YWmsjhkv7qg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msq3bq765b4e",
+    "status": "draft",
+    "createdAt": "2026-08-12T12:53:22.534Z",
+    "theme": "Economia",
+    "title": "Inflação dos EUA sobe 0,1% em julho",
+    "hook": "A inflação nos EUA subiu!",
+    "script": "A inflação nos EUA subiu 0,1% em julho. Isso pode afetar a economia global. Quais são as consequências para o Brasil e para o seu bolso? A alta inflação pode levar a juros mais altos e reduzir o poder de compra.",
+    "tags": [
+      "inflação",
+      "EUA",
+      "economia"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "EUA",
+      "economia",
+      "juros"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/inflacao-ao-consumidor-cpi-dos-eua-julho-2026/",
+    "rationale": "Esse tema é relevante para o usuário, pois a inflação nos EUA pode afetar a economia global e, consequentemente, a economia brasileira. A alta inflação pode ter impacto no bolso do espectador, reduzindo o poder de compra.",
+    "video": {
+      "rendered": true,
+      "durationSec": 18,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msq3bq765b4e.mp4"
+    },
+    "youtubeId": "fnMt4ZaS8a0",
+    "previewUrl": "https://youtube.com/shorts/fnMt4ZaS8a0",
+    "privacyStatus": "unlisted"
   }
 ]
