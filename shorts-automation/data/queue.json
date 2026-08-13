@@ -945,5 +945,65 @@
     "youtubeId": "fnMt4ZaS8a0",
     "previewUrl": "https://youtube.com/shorts/fnMt4ZaS8a0",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msrit1qpd1gf",
+    "status": "draft",
+    "createdAt": "2026-08-13T12:54:50.641Z",
+    "theme": "Economia",
+    "title": "Dólar hoje: entenda o que afeta o preço",
+    "hook": "Dólar em alta! Mas por quê?",
+    "script": "O dólar subiu 0,07% hoje. Isso acontece quando a economia dos EUA está forte ou quando há tensão no Oriente Médio. Se você vai viajar ou precisa comprar dólar, é bom saber o que está acontecendo. O preço do dólar pode afetar seu bolso, especialmente se você tem dívidas em dólar ou precisa comprar produtos importados. Qual é o seu plano para lidar com a flutuação do dólar?",
+    "tags": [
+      "dólar",
+      "câmbio",
+      "economia"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "economia",
+      "preço"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/13/dolar-ibovespa.ghtml",
+    "rationale": "Esse tema é relevante porque o dólar é uma moeda importante para a economia brasileira e pode afetar o preço de produtos importados e a viagem internacional.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msrit1qpd1gf.mp4"
+    },
+    "youtubeId": "q_l8e94yxUI",
+    "previewUrl": "https://youtube.com/shorts/q_l8e94yxUI",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msritopsbew0",
+    "status": "draft",
+    "createdAt": "2026-08-13T12:54:50.641Z",
+    "theme": "Finanças",
+    "title": "Ibovespa: o que está movendo o mercado?",
+    "hook": "Ibovespa em alta! Entenda o que está acontecendo",
+    "script": "O Ibovespa fechou em alta ontem. Isso pode ser um bom sinal para a economia brasileira. Mas o que está por trás disso? É a confiança dos investidores ou algo mais? Se você tem dinheiro aplicado na bolsa, é importante entender o que está acontecendo. Qual é o seu próximo passo em relação às suas aplicações?",
+    "tags": [
+      "Ibovespa",
+      "bolsa",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "bolsa",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-13082026/",
+    "rationale": "Esse tema é relevante porque o Ibovespa é um indicador importante da economia brasileira e pode afetar as aplicações financeiras dos investidores.",
+    "video": {
+      "rendered": true,
+      "durationSec": 23,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msritopsbew0.mp4"
+    },
+    "youtubeId": "gqpS3G_06Hw",
+    "previewUrl": "https://youtube.com/shorts/gqpS3G_06Hw",
+    "privacyStatus": "unlisted"
   }
 ]
