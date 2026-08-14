@@ -1005,5 +1005,65 @@
     "youtubeId": "gqpS3G_06Hw",
     "previewUrl": "https://youtube.com/shorts/gqpS3G_06Hw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mssy36r54bjn",
+    "status": "draft",
+    "createdAt": "2026-08-14T12:50:24.113Z",
+    "theme": "Economia",
+    "title": "Dólar hoje: o que a queda significa para o seu bolso",
+    "hook": "Dólar em queda! Quer saber como isso afeta você?",
+    "script": "O dólar abriu em baixa hoje. Isso pode ajudar a reduzir os preços de produtos importados. Se você está planejando uma viagem para o exterior, pode ser um bom momento para comprar dólares. Mas, se você é importador, a queda do dólar pode aumentar seus lucros.",
+    "tags": [
+      "dólar",
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "câmbio",
+      "economia"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/14/dolar-ibovespa.ghtml",
+    "rationale": "A variação do dólar é um tema de grande interesse para o público brasileiro, pois afeta diretamente a economia e o poder de compra. A notícia é recente e relevante, e o formato de explicação simples e direta atende às necessidades do usuário.",
+    "video": {
+      "rendered": true,
+      "durationSec": 19,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mssy36r54bjn.mp4"
+    },
+    "youtubeId": "BGBvJw04SJg",
+    "previewUrl": "https://youtube.com/shorts/BGBvJw04SJg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mssy3mnaaldf",
+    "status": "draft",
+    "createdAt": "2026-08-14T12:50:24.113Z",
+    "theme": "Economia",
+    "title": "Desemprego cai: o que isso significa para você",
+    "hook": "Desemprego em queda! É um sinal de que a economia está melhorando?",
+    "script": "A taxa de desemprego caiu para 5,4% no segundo trimestre. Isso pode ser um sinal de que a economia está se recuperando. Se você está procurando emprego, pode ser um bom momento para encontrar uma vaga. Mas, se você é empregador, pode ter que lidar com uma competição maior por funcionários.",
+    "tags": [
+      "desemprego",
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "desemprego",
+      "economia",
+      "emprego"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/14/desemprego-estados-pnad.ghtml",
+    "rationale": "A taxa de desemprego é um indicador importante da saúde econômica do país, e a notícia de sua queda é relevante para o público brasileiro. O formato de explicação simples e direta atende às necessidades do usuário, que busca entender como a economia afeta seu bolso.",
+    "video": {
+      "rendered": true,
+      "durationSec": 22,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mssy3mnaaldf.mp4"
+    },
+    "youtubeId": "JotFwYZOcMw",
+    "previewUrl": "https://youtube.com/shorts/JotFwYZOcMw",
+    "privacyStatus": "unlisted"
   }
 ]
