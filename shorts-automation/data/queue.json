@@ -1065,5 +1065,63 @@
     "youtubeId": "JotFwYZOcMw",
     "previewUrl": "https://youtube.com/shorts/JotFwYZOcMw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msuckovw5mw",
+    "status": "draft",
+    "createdAt": "2026-08-15T12:23:41.564Z",
+    "theme": "Economia",
+    "title": "Petrobras Encontra Petróleo na Foz do Amazonas",
+    "hook": "Petróleo na Amazônia!",
+    "script": "A Petrobras encontrou sinais de petróleo na Foz do Amazonas. Isso pode aumentar a produção de petróleo no Brasil. O que isso significa para o seu bolso?",
+    "tags": [
+      "Economia",
+      "Petrobras"
+    ],
+    "captionKeywords": [
+      "Petrobras",
+      "Foz do Amazonas",
+      "Petróleo"
+    ],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/08/14/petrobras-anuncia-descoberta-de-hidrocarbonetos-em-poco-exploratorio-na-foz-do-amazonas.ghtml",
+    "rationale": "A notícia é relevante para o público brasileiro, pois a descoberta de petróleo pode afetar a economia do país e os preços dos combustíveis.",
+    "video": {
+      "rendered": true,
+      "durationSec": 12,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msuckovw5mw.mp4"
+    },
+    "youtubeId": "6f8TEdko1lk",
+    "previewUrl": "https://youtube.com/shorts/6f8TEdko1lk",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msucl2d88323",
+    "status": "draft",
+    "createdAt": "2026-08-15T12:23:41.564Z",
+    "theme": "Finanças",
+    "title": "Abono Salarial PIS/Pasep 2026",
+    "hook": "Receba seu abono!",
+    "script": "O pagamento do abono salarial PIS/Pasep 2026 começa neste sábado. Quem tem direito e como receber? O que você vai fazer com o seu abono?",
+    "tags": [
+      "Finanças",
+      "Abono Salarial"
+    ],
+    "captionKeywords": [
+      "Abono Salarial",
+      "PIS/Pasep",
+      "2026"
+    ],
+    "sourceLink": "https://g1.globo.com/trabalho-e-carreira/noticia/2026/08/15/abono-salarial-pispasep-2026-paga-ultimo-lote-neste-sabado-veja-quem-recebe.ghtml",
+    "rationale": "A notícia é importante para os trabalhadores brasileiros, pois o abono salarial é um benefício que pode ser usado para melhorar a situação financeira.",
+    "video": {
+      "rendered": true,
+      "durationSec": 12,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msucl2d88323.mp4"
+    },
+    "youtubeId": "Ph31DDYPH90",
+    "previewUrl": "https://youtube.com/shorts/Ph31DDYPH90",
+    "privacyStatus": "unlisted"
   }
 ]
