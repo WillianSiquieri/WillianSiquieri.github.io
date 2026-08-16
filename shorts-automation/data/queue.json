@@ -1123,5 +1123,63 @@
     "youtubeId": "Ph31DDYPH90",
     "previewUrl": "https://youtube.com/shorts/Ph31DDYPH90",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msvs1xpab5to",
+    "status": "draft",
+    "createdAt": "2026-08-16T12:24:46.558Z",
+    "theme": "Economia",
+    "title": "Renda recorde, mas inflação alta",
+    "hook": "Sua renda aumentou, mas o bolso não!",
+    "script": "A renda no Brasil está no maior patamar da história, mas a inflação e juros altos estão espremendo o bolso das famílias. Isso significa que, apesar de ganhar mais, você pode estar comprando menos. O que isso significa para o seu orçamento? Qual é o seu maior desafio financeiro atualmente?",
+    "tags": [
+      "economia",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "inflação",
+      "juros",
+      "renda"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/inadimplencia-inflacao-juros-altos-renda-recorde/",
+    "rationale": "Esse tema é relevante porque explica como a inflação e juros altos afetam o bolso das pessoas, mesmo com a renda em alta. Isso pode ajudar os espectadores a entender melhor a situação econômica atual e como lidar com ela.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msvs1xpab5to.mp4"
+    },
+    "youtubeId": "WCalvrKUaQ4",
+    "previewUrl": "https://youtube.com/shorts/WCalvrKUaQ4",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msvs2cvfcfow",
+    "status": "draft",
+    "createdAt": "2026-08-16T12:24:46.558Z",
+    "theme": "Investimentos",
+    "title": "Dividendos: o que é e como funcionam",
+    "hook": "Ganhe dinheiro sem fazer nada!",
+    "script": "Você sabia que pode ganhar dinheiro sem precisar trabalhar? Isso é possível através de dividendos, que são pagamentos feitos pelas empresas aos seus acionistas. Mas como funcionam os dividendos e como você pode começar a recebê-los? Qual é o seu objetivo de investimento para os próximos anos?",
+    "tags": [
+      "finanças",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "dividendos",
+      "investimentos",
+      "ações"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/dividendos-da-semana-14-8-26-apsa/",
+    "rationale": "Esse tema é interessante porque explica de forma simples o que são dividendos e como funcionam, o que pode atrair os espectadores que estão começando a se interessar por investimentos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 21,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msvs2cvfcfow.mp4"
+    },
+    "youtubeId": "F5qL_6-Zh18",
+    "previewUrl": "https://youtube.com/shorts/F5qL_6-Zh18",
+    "privacyStatus": "unlisted"
   }
 ]
