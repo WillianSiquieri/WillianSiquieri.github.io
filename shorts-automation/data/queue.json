@@ -1181,5 +1181,72 @@
     "youtubeId": "F5qL_6-Zh18",
     "previewUrl": "https://youtube.com/shorts/F5qL_6-Zh18",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msx7ot9xhkac",
+    "status": "draft",
+    "createdAt": "2026-08-17T12:30:14.325Z",
+    "theme": "Dólar hoje recua com exterior e prévia do PIB no radar",
+    "title": "Dólar hoje recua com exterior e prévia do PIB no radar",
+    "hook": "Você viu isso? Dólar hoje recua com exterior e prévia do PIB no radar",
+    "script": "Dólar hoje recua com exterior e prévia do PIB no radar. Banco Central realizará hoje dois leilões de venda de dólares com compromisso de recompra no valor total de até US$ 1 bilhão The post Dólar hoje recua com exterior e prévia do PIB no radar appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Dólar",
+      "recua",
+      "exterior",
+      "prévia",
+      "radar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-17082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msx7ot9xhkac.mp4"
+    },
+    "youtubeId": "AwOfDYHznpo",
+    "previewUrl": "https://youtube.com/shorts/AwOfDYHznpo",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msx7p9t2koa2",
+    "status": "draft",
+    "createdAt": "2026-08-17T12:30:14.325Z",
+    "theme": "&#8220;Brasil precisa acelerar reação às tarifas americanas…",
+    "title": "&#8220;Brasil precisa acelerar reação às tarifas americanas&#8221;, diz Amorim",
+    "hook": "Você viu isso? &#8220;Brasil precisa acelerar reação às tarifas americanas&#8221;, diz Amorim",
+    "script": "&#8220;Brasil precisa acelerar reação às tarifas americanas&#8221;, diz Amorim. Assessor de Lula afirma que período de negociação já foi longo e defende que governo esteja preparado para adotar contramedidas The post &#8220;Brasil precisa acelerar reação às tarifas americanas&#8221;, diz Amorim app… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "&#8220;Brasil",
+      "precisa",
+      "acelerar",
+      "reação",
+      "tarifas",
+      "americanas&#8221;,"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/brasil-precisa-acelerar-reacao-as-tarifas-americanas-diz-amorim/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msx7p9t2koa2.mp4"
+    },
+    "youtubeId": "Szjh-3j9BCY",
+    "previewUrl": "https://youtube.com/shorts/Szjh-3j9BCY",
+    "privacyStatus": "unlisted"
   }
 ]
