@@ -1248,5 +1248,73 @@
     "youtubeId": "Szjh-3j9BCY",
     "previewUrl": "https://youtube.com/shorts/Szjh-3j9BCY",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msyn6mc68ctk",
+    "status": "draft",
+    "createdAt": "2026-08-18T12:31:45.558Z",
+    "theme": "Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que…",
+    "title": "Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que pode destravar valor para ação",
+    "hook": "Você viu isso? Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que pode destravar valor…",
+    "script": "Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que pode destravar valor para ação. Em relatório, JPMorgan argumenta que a exposição da mineradora ao metal não está refletida adequadamente no preço das ações The post Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que pode destravar valor para a… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Vale:",
+      "&#8220;cobre",
+      "escondido&#8221;",
+      "VALE3",
+      "destravar",
+      "valor"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/vale-o-cobre-escondido-na-tese-de-vale3-que-pode-destravar-valor-para-acao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msyn6mc68ctk.mp4"
+    },
+    "youtubeId": "Xxy1oZclo7c",
+    "previewUrl": "https://youtube.com/shorts/Xxy1oZclo7c",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_msyn7cyc8361",
+    "status": "draft",
+    "createdAt": "2026-08-18T12:31:45.558Z",
+    "theme": "Dólar hoje sobe com tensão no Oriente Médio e juros no radar",
+    "title": "Dólar hoje sobe com tensão no Oriente Médio e juros no radar",
+    "hook": "Você viu isso? Dólar hoje sobe com tensão no Oriente Médio e juros no radar",
+    "script": "Dólar hoje sobe com tensão no Oriente Médio e juros no radar. Combinação de incertezas geopolíticas e expectativas para a política monetária mantém os investidores mais cautelosos The post Dólar hoje sobe com tensão no Oriente Médio e juros no radar appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Dólar",
+      "tensão",
+      "Oriente",
+      "Médio",
+      "juros",
+      "radar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-18082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_msyn7cyc8361.mp4"
+    },
+    "youtubeId": "-aHZxOrLzKg",
+    "previewUrl": "https://youtube.com/shorts/-aHZxOrLzKg",
+    "privacyStatus": "unlisted"
   }
 ]
