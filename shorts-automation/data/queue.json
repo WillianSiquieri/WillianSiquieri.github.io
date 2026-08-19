@@ -1316,5 +1316,73 @@
     "youtubeId": "-aHZxOrLzKg",
     "previewUrl": "https://youtube.com/shorts/-aHZxOrLzKg",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt02neth5f6r",
+    "status": "draft",
+    "createdAt": "2026-08-19T12:32:29.381Z",
+    "theme": "Agência da ONU afirma ter encontrado &#8216;toneladas de ma…",
+    "title": "Agência da ONU afirma ter encontrado &#8216;toneladas de material nuclear&#8217; na Síria",
+    "hook": "Você viu isso? Agência da ONU afirma ter encontrado &#8216;toneladas de material nuclear&#8217…",
+    "script": "Agência da ONU afirma ter encontrado &#8216;toneladas de material nuclear&#8217; na Síria. Agência anunciou que foi confirmada a existência várias toneladas de urânio metálico natural na Síria The post Agência da ONU afirma ter encontrado &#8216;toneladas de material nuclear&#8217; na Síria appeared first on… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Agência",
+      "afirma",
+      "encontrado",
+      "&#8216;toneladas",
+      "material",
+      "nuclear&#8217;"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/agencia-da-onu-afirma-ter-encontrado-toneladas-de-material-nuclear-na-siria/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt02neth5f6r.mp4"
+    },
+    "youtubeId": "rSMdAVA4tq0",
+    "previewUrl": "https://youtube.com/shorts/rSMdAVA4tq0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt02obwx5qis",
+    "status": "draft",
+    "createdAt": "2026-08-19T12:32:29.381Z",
+    "theme": "Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro…",
+    "title": "Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro se ele impedisse eleição",
+    "hook": "Você viu isso? Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro se ele impedisse el…",
+    "script": "Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro se ele impedisse eleição. Durante as investigações, o tenente confirmou à PF que Bolsonaro apresentou o esboço de um decreto para impor um estado de exceção no País The post Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro se ele impe… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "ex-comandante",
+      "ameaçou",
+      "prender",
+      "Bolsonaro",
+      "impedisse",
+      "eleição"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/quem-e-o-ex-comandante-da-fab-que-ameacou-prender-bolsonaro-se-ele-impedisse-eleicao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt02obwx5qis.mp4"
+    },
+    "youtubeId": "jDiyfV5nmQY",
+    "previewUrl": "https://youtube.com/shorts/jDiyfV5nmQY",
+    "privacyStatus": "unlisted"
   }
 ]
