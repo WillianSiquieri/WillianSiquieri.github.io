@@ -1384,5 +1384,73 @@
     "youtubeId": "jDiyfV5nmQY",
     "previewUrl": "https://youtube.com/shorts/jDiyfV5nmQY",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt1i4sfp7jc9",
+    "status": "draft",
+    "createdAt": "2026-08-20T12:33:40.597Z",
+    "theme": "Walmart registra vendas abaixo do esperado à medida que con…",
+    "title": "Walmart registra vendas abaixo do esperado à medida que consumidores reduzem gastos",
+    "hook": "Você viu isso? Walmart registra vendas abaixo do esperado à medida que consumidores reduzem ga…",
+    "script": "Walmart registra vendas abaixo do esperado à medida que consumidores reduzem gastos. A ‌maior varejista do mundo, no entanto, elevou ligeiramente suas metas anuais pela primeira vez neste ano The post Walmart registra vendas abaixo do esperado à medida que consumidores reduzem gastos appeared first on I… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Walmart",
+      "registra",
+      "vendas",
+      "abaixo",
+      "esperado",
+      "medida"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/walmart-registra-vendas-abaixo-do-esperado-a-medida-que-consumidores-reduzem-gastos/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt1i4sfp7jc9.mp4"
+    },
+    "youtubeId": "3O1C_NnOgWU",
+    "previewUrl": "https://youtube.com/shorts/3O1C_NnOgWU",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt1i5b8kcdxb",
+    "status": "draft",
+    "createdAt": "2026-08-20T12:33:40.597Z",
+    "theme": "Dólar recupera terreno após cair na véspera com anúncio de…",
+    "title": "Dólar recupera terreno após cair na véspera com anúncio de recompra de Treasuries",
+    "hook": "Você viu isso? Dólar recupera terreno após cair na véspera com anúncio de recompra de Treasuri…",
+    "script": "Dólar recupera terreno após cair na véspera com anúncio de recompra de Treasuries. Divisa americana caiu quase 1% na sessão anterior The post Dólar recupera terreno após cair na véspera com anúncio de recompra de Treasuries appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Dólar",
+      "recupera",
+      "terreno",
+      "véspera",
+      "anúncio",
+      "recompra"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-20082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt1i5b8kcdxb.mp4"
+    },
+    "youtubeId": "FDiScWaKhPg",
+    "previewUrl": "https://youtube.com/shorts/FDiScWaKhPg",
+    "privacyStatus": "unlisted"
   }
 ]
