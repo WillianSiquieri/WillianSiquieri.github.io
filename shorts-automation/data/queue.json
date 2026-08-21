@@ -1452,5 +1452,73 @@
     "youtubeId": "FDiScWaKhPg",
     "previewUrl": "https://youtube.com/shorts/FDiScWaKhPg",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt2xjo0e1tsu",
+    "status": "draft",
+    "createdAt": "2026-08-21T12:32:55.118Z",
+    "theme": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar…",
+    "title": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta sexta",
+    "hook": "Você viu isso? Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta sexta",
+    "script": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta sexta. Índices futuros dos EUA avançam juntos The post Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta sexta appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "Vivo:",
+      "Confira",
+      "movimenta",
+      "Bolsa,",
+      "Dólar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-21082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt2xjo0e1tsu.mp4"
+    },
+    "youtubeId": "q3jchqa3kQs",
+    "previewUrl": "https://youtube.com/shorts/q3jchqa3kQs",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt2xk93pd77z",
+    "status": "draft",
+    "createdAt": "2026-08-21T12:32:55.118Z",
+    "theme": "Axia chega a acordo com União e Piauí sobre ação no STF env…",
+    "title": "Axia chega a acordo com União e Piauí sobre ação no STF envolvendo venda da Cepisa",
+    "hook": "Você viu isso? Axia chega a acordo com União e Piauí sobre ação no STF envolvendo venda da Cep…",
+    "script": "Axia chega a acordo com União e Piauí sobre ação no STF envolvendo venda da Cepisa. O acordo prevê o pagamento pela Axia de duas parcelas de R$ 650 milhões The post Axia chega a acordo com União e Piauí sobre ação no STF envolvendo venda da Cepisa appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "chega",
+      "acordo",
+      "União",
+      "Piauí",
+      "sobre",
+      "envolvendo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/axia-chega-a-acordo-com-uniao-e-piaui-sobre-acao-no-stf-envolvendo-venda-da-cepisa/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt2xk93pd77z.mp4"
+    },
+    "youtubeId": "xO32166-6s8",
+    "previewUrl": "https://youtube.com/shorts/xO32166-6s8",
+    "privacyStatus": "unlisted"
   }
 ]
