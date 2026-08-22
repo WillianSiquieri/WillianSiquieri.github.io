@@ -1520,5 +1520,72 @@
     "youtubeId": "xO32166-6s8",
     "previewUrl": "https://youtube.com/shorts/xO32166-6s8",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt4coxd3ktry",
+    "status": "draft",
+    "createdAt": "2026-08-22T12:24:40.935Z",
+    "theme": "Move Brasil: veja quais carros é possível comprar após teto…",
+    "title": "Move Brasil: veja quais carros é possível comprar após teto subir para R$ 200 mil",
+    "hook": "Você viu isso? Move Brasil: veja quais carros é possível comprar após teto subir para R$ 200 m…",
+    "script": "Move Brasil: veja quais carros é possível comprar após teto subir para R$ 200 mil. O governo federal ampliou os limites de financiamento dentro do programa The post Move Brasil: veja quais carros é possível comprar após teto subir para R$ 200 mil appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Brasil:",
+      "quais",
+      "carros",
+      "possível",
+      "comprar",
+      "subir"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/move-brasil-veja-quais-carros-entram-apos-teto-de-credito-subir-para-r-200-mil/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt4coxd3ktry.mp4"
+    },
+    "youtubeId": "ljdojgBkYIA",
+    "previewUrl": "https://youtube.com/shorts/ljdojgBkYIA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt4cphfgflgp",
+    "status": "draft",
+    "createdAt": "2026-08-22T12:24:40.935Z",
+    "theme": "Lula: Brasil não vai depender nem da China, nem dos EUA par…",
+    "title": "Lula: Brasil não vai depender nem da China, nem dos EUA para fazer sua IA",
+    "hook": "Você viu isso? Lula: Brasil não vai depender nem da China, nem dos EUA para fazer sua IA",
+    "script": "Lula: Brasil não vai depender nem da China, nem dos EUA para fazer sua IA. Ele deu a declaração durante o ato de lançamento da campanha de Patrus Ananias (PT) ao governo de Minas Gerais, em Belo Horizonte The post Lula: Brasil não vai depender nem da China, nem dos EUA para fazer sua IA appear… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Lula:",
+      "Brasil",
+      "depender",
+      "China,",
+      "fazer"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/lula-brasil-nao-vai-depender-nem-da-china-nem-dos-eua-para-fazer-sua-ia/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt4cphfgflgp.mp4"
+    },
+    "youtubeId": "wn9o481gqJk",
+    "previewUrl": "https://youtube.com/shorts/wn9o481gqJk",
+    "privacyStatus": "unlisted"
   }
 ]
