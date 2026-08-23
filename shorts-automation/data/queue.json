@@ -1587,5 +1587,72 @@
     "youtubeId": "wn9o481gqJk",
     "previewUrl": "https://youtube.com/shorts/wn9o481gqJk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt5s5mo6k92p",
+    "status": "draft",
+    "createdAt": "2026-08-23T12:25:20.646Z",
+    "theme": "Zema defende nova reforma da Previdência com ajuste pela ex…",
+    "title": "Zema defende nova reforma da Previdência com ajuste pela expectativa de vida",
+    "hook": "Você viu isso? Zema defende nova reforma da Previdência com ajuste pela expectativa de vida",
+    "script": "Zema defende nova reforma da Previdência com ajuste pela expectativa de vida. Zema se reuniu com pessoas que tiveram descontos indevidos de aposentadorias e pensões do INSS The post Zema defende nova reforma da Previdência com ajuste pela expectativa de vida appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "defende",
+      "reforma",
+      "Previdência",
+      "ajuste",
+      "expectativa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/zema-defende-nova-reforma-da-previdencia-com-ajuste-pela-expectativa-de-vida/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt5s5mo6k92p.mp4"
+    },
+    "youtubeId": "jRL4guCie48",
+    "previewUrl": "https://youtube.com/shorts/jRL4guCie48",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt5s5z5iarey",
+    "status": "draft",
+    "createdAt": "2026-08-23T12:25:20.646Z",
+    "theme": "De psicóloga a sócia: como Aline Rosa construiu uma carteir…",
+    "title": "De psicóloga a sócia: como Aline Rosa construiu uma carteira de R$ 300 milhões",
+    "hook": "Você viu isso? De psicóloga a sócia: como Aline Rosa construiu uma carteira de R$ 300 milhões",
+    "script": "De psicóloga a sócia: como Aline Rosa construiu uma carteira de R$ 300 milhões. Ela deixou o consultório, começou como caixa de banco e participou da construção da operação da Monte Bravo em Goiânia; hoje, aos 38 anos, é sócia da empresa, acompanha cerca de R$ 300 milhões e mira R$ 500 milhões The… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "psicóloga",
+      "sócia:",
+      "Aline",
+      "construiu",
+      "carteira",
+      "milhões"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/advisor/de-psicologa-a-socia-como-aline-rosa-construiu-uma-carteira-de-r-300-milhoes/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt5s5z5iarey.mp4"
+    },
+    "youtubeId": "Jgs4kGpVNQo",
+    "previewUrl": "https://youtube.com/shorts/Jgs4kGpVNQo",
+    "privacyStatus": "unlisted"
   }
 ]
