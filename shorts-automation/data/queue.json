@@ -1654,5 +1654,73 @@
     "youtubeId": "Jgs4kGpVNQo",
     "previewUrl": "https://youtube.com/shorts/Jgs4kGpVNQo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt77ydff2zby",
+    "status": "draft",
+    "createdAt": "2026-08-24T12:35:22.107Z",
+    "theme": "São Paulo segue mais bolsonarista? Flávio lidera, mas vanta…",
+    "title": "São Paulo segue mais bolsonarista? Flávio lidera, mas vantagem diminuiu desde 2022",
+    "hook": "Você viu isso? São Paulo segue mais bolsonarista? Flávio lidera, mas vantagem diminuiu desde 2…",
+    "script": "São Paulo segue mais bolsonarista? Flávio lidera, mas vantagem diminuiu desde 2022. Real Time Big Data mostra senador com 38% no primeiro turno e 49% no segundo turno entre eleitores do estado The post São Paulo segue mais bolsonarista? Flávio lidera, mas vantagem diminuiu desde 2022 appeared first on… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Paulo",
+      "segue",
+      "bolsonarista?",
+      "Flávio",
+      "lidera,",
+      "vantagem"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/sao-paulo-segue-mais-bolsonarista-flavio-lidera-mas-vantagem-diminuiu-desde-2022/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt77ydff2zby.mp4"
+    },
+    "youtubeId": "UWJfp_uwGlo",
+    "previewUrl": "https://youtube.com/shorts/UWJfp_uwGlo",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt77ywapfvyc",
+    "status": "draft",
+    "createdAt": "2026-08-24T12:35:22.107Z",
+    "theme": "Dólar hoje sobe com cenário político e tensões no Oriente M…",
+    "title": "Dólar hoje sobe com cenário político e tensões no Oriente Médio no radar",
+    "hook": "Você viu isso? Dólar hoje sobe com cenário político e tensões no Oriente Médio no radar",
+    "script": "Dólar hoje sobe com cenário político e tensões no Oriente Médio no radar. Disputa eleitoral acirrada adiciona volatilidade após pesquisas apontarem empate técnico em um eventual segundo turno para as eleições presidenciais The post Dólar hoje sobe com cenário político e tensões no Oriente Méd… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Dólar",
+      "cenário",
+      "político",
+      "tensões",
+      "Oriente",
+      "Médio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-24082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt77ywapfvyc.mp4"
+    },
+    "youtubeId": "YiK9kpQsCnA",
+    "previewUrl": "https://youtube.com/shorts/YiK9kpQsCnA",
+    "privacyStatus": "unlisted"
   }
 ]
