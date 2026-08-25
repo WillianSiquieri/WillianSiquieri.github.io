@@ -1722,5 +1722,73 @@
     "youtubeId": "YiK9kpQsCnA",
     "previewUrl": "https://youtube.com/shorts/YiK9kpQsCnA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt8ndaelltf",
+    "status": "draft",
+    "createdAt": "2026-08-25T12:34:38.445Z",
+    "theme": "Fila do INSS: Tribunal de Contas da União coloca benefícios…",
+    "title": "Fila do INSS: Tribunal de Contas da União coloca benefícios em lista de ‘alto risco’",
+    "hook": "Você viu isso? Fila do INSS: Tribunal de Contas da União coloca benefícios em lista de ‘alto r…",
+    "script": "Fila do INSS: Tribunal de Contas da União coloca benefícios em lista de ‘alto risco’. Técnicos do órgão afirmam que melhora na lista de espera ainda não se mostra suficiente The post Fila do INSS: Tribunal de Contas da União coloca benefícios em lista de ‘alto risco’ appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "INSS:",
+      "Tribunal",
+      "Contas",
+      "União",
+      "coloca",
+      "benefícios"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/fila-do-inss-tribunal-de-contas-da-uniao-coloca-beneficios-em-lista-de-alto-risco/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt8ndaelltf.mp4"
+    },
+    "youtubeId": "HViGj68UrcE",
+    "previewUrl": "https://youtube.com/shorts/HViGj68UrcE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mt8ndy16gb48",
+    "status": "draft",
+    "createdAt": "2026-08-25T12:34:38.445Z",
+    "theme": "Minério de ferro recua conforme custos do coque sobem e red…",
+    "title": "Minério de ferro recua conforme custos do coque sobem e reduzem margens das usinas",
+    "hook": "Você viu isso? Minério de ferro recua conforme custos do coque sobem e reduzem margens das usi…",
+    "script": "Minério de ferro recua conforme custos do coque sobem e reduzem margens das usinas. A referência de minério de ferro para setembro na Bolsa de Cingapura registrava queda de 0,39%, para US$97,05 por tonelada The post Minério de ferro recua conforme custos do coque sobem e reduzem margens das usinas appe… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Minério",
+      "ferro",
+      "recua",
+      "conforme",
+      "custos",
+      "coque"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/minerio-de-ferro-recua-conforme-custos-do-coque-sobem-e-reduzem-margens-das-usinas/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mt8ndy16gb48.mp4"
+    },
+    "youtubeId": "4IZUpTLJcZo",
+    "previewUrl": "https://youtube.com/shorts/4IZUpTLJcZo",
+    "privacyStatus": "unlisted"
   }
 ]
