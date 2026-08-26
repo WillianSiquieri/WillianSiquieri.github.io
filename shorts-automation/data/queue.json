@@ -1790,5 +1790,72 @@
     "youtubeId": "4IZUpTLJcZo",
     "previewUrl": "https://youtube.com/shorts/4IZUpTLJcZo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mta2x80s2der",
+    "status": "draft",
+    "createdAt": "2026-08-26T12:37:48.891Z",
+    "theme": "Jornada de 40 horas pode elevar custos de empresas em quase…",
+    "title": "Jornada de 40 horas pode elevar custos de empresas em quase 7%, aponta estudo",
+    "hook": "Você viu isso? Jornada de 40 horas pode elevar custos de empresas em quase 7%, aponta estudo",
+    "script": "Jornada de 40 horas pode elevar custos de empresas em quase 7%, aponta estudo. Levantamento da Íntegra Associados estima que 23,4 milhões de empregos formais seriam alcançados pela redução da jornada The post Jornada de 40 horas pode elevar custos de empresas em quase 7%, aponta estudo appeared fi… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Jornada",
+      "horas",
+      "elevar",
+      "custos",
+      "empresas",
+      "quase"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/jornada-de-40-horas-pode-elevar-custos-de-empresas-em-quase-7-aponta-estudo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mta2x80s2der.mp4"
+    },
+    "youtubeId": "Co7XL1W-yGA",
+    "previewUrl": "https://youtube.com/shorts/Co7XL1W-yGA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mta2xqb6foz8",
+    "status": "draft",
+    "createdAt": "2026-08-26T12:37:48.891Z",
+    "theme": "Quaest: Aziz tem 26% das intenções de voto no AM; vice-lide…",
+    "title": "Quaest: Aziz tem 26% das intenções de voto no AM; vice-liderança tem empate triplo",
+    "hook": "Você viu isso? Quaest: Aziz tem 26% das intenções de voto no AM; vice-liderança tem empate tri…",
+    "script": "Quaest: Aziz tem 26% das intenções de voto no AM; vice-liderança tem empate triplo. Roberto Cidade (União Brasil) ,Maria do Carmo Seffair (PL) e David Almeida (Avante) empatam tecnicamente no segundo lugar da disputa The post Quaest: Aziz tem 26% das intenções de voto no AM; vice-liderança tem empate t… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Quaest:",
+      "intenções",
+      "vice-liderança",
+      "empate",
+      "triplo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/quaest-aziz-tem-26-das-intencoes-de-voto-no-am-vice-lideranca-tem-empate-triplo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mta2xqb6foz8.mp4"
+    },
+    "youtubeId": "1rT9yfUpdPo",
+    "previewUrl": "https://youtube.com/shorts/1rT9yfUpdPo",
+    "privacyStatus": "unlisted"
   }
 ]
