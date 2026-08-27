@@ -1857,5 +1857,73 @@
     "youtubeId": "1rT9yfUpdPo",
     "previewUrl": "https://youtube.com/shorts/1rT9yfUpdPo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtc1jinl2htu",
+    "status": "draft",
+    "createdAt": "2026-08-27T21:34:42.225Z",
+    "theme": "Nasdaq sobe com previsão da Nvidia; investidores aguardam d…",
+    "title": "Nasdaq sobe com previsão da Nvidia; investidores aguardam discurso de Warsh",
+    "hook": "Você viu isso? Nasdaq sobe com previsão da Nvidia; investidores aguardam discurso de Warsh",
+    "script": "Nasdaq sobe com previsão da Nvidia; investidores aguardam discurso de Warsh. A empresa mais valiosa do mundo projetou crescimento de 70% na receita no próximo ano fiscal The post Nasdaq sobe com previsão da Nvidia; investidores aguardam discurso de Warsh appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Nasdaq",
+      "previsão",
+      "Nvidia;",
+      "investidores",
+      "aguardam",
+      "discurso"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bolsas-de-ny-abertura-fechamento-27082026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtc1jinl2htu.mp4"
+    },
+    "youtubeId": "m3JyQcFHvH8",
+    "previewUrl": "https://youtube.com/shorts/m3JyQcFHvH8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtc1k3fxfumx",
+    "status": "draft",
+    "createdAt": "2026-08-27T21:34:42.225Z",
+    "theme": "Família de Lito Sousa pede restrição de visitas para preser…",
+    "title": "Família de Lito Sousa pede restrição de visitas para preservar tratamento",
+    "hook": "Você viu isso? Família de Lito Sousa pede restrição de visitas para preservar tratamento",
+    "script": "Família de Lito Sousa pede restrição de visitas para preservar tratamento. Diagnosticado com uma doença neurodegenerativa rara, criador do canal Aviões e Músicas tem recebido grande número de visitantes; familiares afirmam que o fluxo passou a prejudicar seu descanso e cuidados médicos The pos… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Família",
+      "Sousa",
+      "restrição",
+      "visitas",
+      "preservar",
+      "tratamento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/familia-de-lito-sousa-pede-restricao-de-visitas-para-preservar-tratamento/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtc1k3fxfumx.mp4"
+    },
+    "youtubeId": "xIgOM98Foro",
+    "previewUrl": "https://youtube.com/shorts/xIgOM98Foro",
+    "privacyStatus": "unlisted"
   }
 ]
