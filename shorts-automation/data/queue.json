@@ -1925,5 +1925,73 @@
     "youtubeId": "xIgOM98Foro",
     "previewUrl": "https://youtube.com/shorts/xIgOM98Foro",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtdh4o5qz02",
+    "status": "draft",
+    "createdAt": "2026-08-28T21:38:49.550Z",
+    "theme": "Vale se depara com escassez de engenheiros enquanto foca no…",
+    "title": "Vale se depara com escassez de engenheiros enquanto foca novos projetos, diz CEO",
+    "hook": "Você viu isso? Vale se depara com escassez de engenheiros enquanto foca novos projetos, diz CEO",
+    "script": "Vale se depara com escassez de engenheiros enquanto foca novos projetos, diz CEO. Ainda neste mês, em evento em Brasília, Pimenta disse que o Brasil deveria voltar a realizar megaprojetos de mineração, de US$15 bilhões a US$20 bilhões The post Vale se depara com escassez de engenheiros enquanto foca… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "depara",
+      "escassez",
+      "engenheiros",
+      "enquanto",
+      "novos",
+      "projetos,"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/vale-se-depara-com-escassez-de-engenheiros-enquanto-foca-novos-projetos-diz-ceo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtdh4o5qz02.mp4"
+    },
+    "youtubeId": "r1lTbZK5btU",
+    "previewUrl": "https://youtube.com/shorts/r1lTbZK5btU",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtdh5aga2f7q",
+    "status": "draft",
+    "createdAt": "2026-08-28T21:38:49.550Z",
+    "theme": "TRF-4 pune Eduardo Appio e determina perda de cargo após su…",
+    "title": "TRF-4 pune Eduardo Appio e determina perda de cargo após suposto furto de champanhe",
+    "hook": "Você viu isso? TRF-4 pune Eduardo Appio e determina perda de cargo após suposto furto de champ…",
+    "script": "TRF-4 pune Eduardo Appio e determina perda de cargo após suposto furto de champanhe. Por 14 votos a 2, desembargadores afastaram juiz ligado à Lava Jato; punição será analisada pelo Conselho Nacional de Justiça The post TRF-4 pune Eduardo Appio e determina perda de cargo após suposto furto de champanhe… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "TRF-4",
+      "Eduardo",
+      "Appio",
+      "determina",
+      "perda",
+      "cargo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/trf-4-pune-eduardo-appio-e-determina-perda-de-cargo-apos-suposto-furto-de-champanhe/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtdh5aga2f7q.mp4"
+    },
+    "youtubeId": "YS4GiOydw4o",
+    "previewUrl": "https://youtube.com/shorts/YS4GiOydw4o",
+    "privacyStatus": "unlisted"
   }
 ]
