@@ -1993,5 +1993,73 @@
     "youtubeId": "YS4GiOydw4o",
     "previewUrl": "https://youtube.com/shorts/YS4GiOydw4o",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtekivc67cq8",
+    "status": "draft",
+    "createdAt": "2026-08-29T16:01:37.062Z",
+    "theme": "Após remédios para obesidade, medicamentos contra calvície…",
+    "title": "Após remédios para obesidade, medicamentos contra calvície viram aposta nos EUA",
+    "hook": "Você viu isso? Após remédios para obesidade, medicamentos contra calvície viram aposta nos EUA",
+    "script": "Após remédios para obesidade, medicamentos contra calvície viram aposta nos EUA. A promessa de tratamentos inovadores fez as ações da Veradermics Inc., negociadas sob o código “MANE”, dispararem quase 500% The post Após remédios para obesidade, medicamentos contra calvície viram aposta nos EUA appea… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "remédios",
+      "obesidade,",
+      "medicamentos",
+      "contra",
+      "calvície",
+      "viram"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/apos-remedios-para-obesidade-medicamentos-contra-calvicie-viram-aposta-nos-eua/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtekivc67cq8.mp4"
+    },
+    "youtubeId": "v4QuBbpVTrE",
+    "previewUrl": "https://youtube.com/shorts/v4QuBbpVTrE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtekji5f7avo",
+    "status": "draft",
+    "createdAt": "2026-08-29T16:01:37.062Z",
+    "theme": "Reconstrução do Nepal após enchentes pode custar até R$ 26…",
+    "title": "Reconstrução do Nepal após enchentes pode custar até R$ 26 bi; mortos chegam a 676",
+    "hook": "Você viu isso? Reconstrução do Nepal após enchentes pode custar até R$ 26 bi; mortos chegam a…",
+    "script": "Reconstrução do Nepal após enchentes pode custar até R$ 26 bi; mortos chegam a 676. O desastre foi provocado pelo colapso de uma geleira ocorrido na quarta-feira (26), que desencadeou uma inundação repentina e destruiu cidades The post Reconstrução do Nepal após enchentes pode custar até R$ 26 bi; mort… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Reconstrução",
+      "Nepal",
+      "enchentes",
+      "custar",
+      "mortos",
+      "chegam"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/mortos-por-enchentes-no-nepal-chegam-a-676-reconstrucao-pode-custar-ate-r-26-bi/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtekji5f7avo.mp4"
+    },
+    "youtubeId": "Q02iqjea07Q",
+    "previewUrl": "https://youtube.com/shorts/Q02iqjea07Q",
+    "privacyStatus": "unlisted"
   }
 ]
