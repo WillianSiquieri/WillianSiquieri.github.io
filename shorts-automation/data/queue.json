@@ -2061,5 +2061,73 @@
     "youtubeId": "Q02iqjea07Q",
     "previewUrl": "https://youtube.com/shorts/Q02iqjea07Q",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtfzl22ngm7i",
+    "status": "draft",
+    "createdAt": "2026-08-30T15:50:59.519Z",
+    "theme": "O império da faxina: como a Maria Brasileira virou uma rede…",
+    "title": "O império da faxina: como a Maria Brasileira virou uma rede que vai faturar R$ 231 mi",
+    "hook": "Você viu isso? O império da faxina: como a Maria Brasileira virou uma rede que vai faturar R$…",
+    "script": "O império da faxina: como a Maria Brasileira virou uma rede que vai faturar R$ 231 mi. De Lins para o Brasil: Felipe Buranello transformou uma dor cotidiana em um negócio de 525 franquias, 10 mil profissionais e faturamento bilionário — sem nunca ter recebido um centavo de investidor externo. The post O i… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "império",
+      "faxina:",
+      "Maria",
+      "Brasileira",
+      "virou",
+      "faturar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/o-imperio-da-faxina-como-a-maria-brasileira-virou-uma-rede-que-vai-faturar-r-231-mi/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtfzl22ngm7i.mp4"
+    },
+    "youtubeId": "0PzfF6Xtfcw",
+    "previewUrl": "https://youtube.com/shorts/0PzfF6Xtfcw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtfzltw1cnzn",
+    "status": "draft",
+    "createdAt": "2026-08-30T15:50:59.519Z",
+    "theme": "Quina acumula e prêmio do próximo concurso vai a R$ 10 milh…",
+    "title": "Quina acumula e prêmio do próximo concurso vai a R$ 10 milhões",
+    "hook": "Você viu isso? Quina acumula e prêmio do próximo concurso vai a R$ 10 milhões",
+    "script": "Quina acumula e prêmio do próximo concurso vai a R$ 10 milhões. Próximo sorteio está marcado para segunda-feira, 31 de agosto The post Quina acumula e prêmio do próximo concurso vai a R$ 10 milhões appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Quina",
+      "acumula",
+      "prêmio",
+      "próximo",
+      "concurso",
+      "milhões"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/quina-acumula-e-premio-do-proximo-concurso-vai-a-r-10-milhoes/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtfzltw1cnzn.mp4"
+    },
+    "youtubeId": "VD6Zxm_GzU4",
+    "previewUrl": "https://youtube.com/shorts/VD6Zxm_GzU4",
+    "privacyStatus": "unlisted"
   }
 ]
