@@ -2129,5 +2129,73 @@
     "youtubeId": "VD6Zxm_GzU4",
     "previewUrl": "https://youtube.com/shorts/VD6Zxm_GzU4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mthkvt15k5wc",
+    "status": "draft",
+    "createdAt": "2026-08-31T18:34:59.129Z",
+    "theme": "Proteção, diversificação e reserva de valor: o papel do our…",
+    "title": "Proteção, diversificação e reserva de valor: o papel do ouro na sua carteira",
+    "hook": "Você viu isso? Proteção, diversificação e reserva de valor: o papel do ouro na sua carteira",
+    "script": "Proteção, diversificação e reserva de valor: o papel do ouro na sua carteira. Em meio a incertezas econômicas e geopolíticas, o metal voltou ao centro das atenções de investidores que buscam equilibrar risco e preservação patrimonial The post Proteção, diversificação e reserva de valor: o papel d… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Proteção,",
+      "diversificação",
+      "reserva",
+      "valor:",
+      "papel",
+      "carteira"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/protecao-diversificacao-e-reserva-de-valor-o-papel-do-ouro-na-sua-carteira/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mthkvt15k5wc.mp4"
+    },
+    "youtubeId": "H2kqnRjoQmI",
+    "previewUrl": "https://youtube.com/shorts/H2kqnRjoQmI",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mthkwe3q3yff",
+    "status": "draft",
+    "createdAt": "2026-08-31T18:34:59.129Z",
+    "theme": "Bolsas da Europa fecham na maioria em queda com avanço do p…",
+    "title": "Bolsas da Europa fecham na maioria em queda com avanço do petróleo",
+    "hook": "Você viu isso? Bolsas da Europa fecham na maioria em queda com avanço do petróleo",
+    "script": "Bolsas da Europa fecham na maioria em queda com avanço do petróleo. Escalada das tensões entre Estados Unidos e Irã impulsionam petróleo e ações de energia The post Bolsas da Europa fecham na maioria em queda com avanço do petróleo appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Bolsas",
+      "Europa",
+      "fecham",
+      "maioria",
+      "queda",
+      "avanço"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bolsas-da-europa-fecham-na-maioria-em-queda-com-avanco-do-petroleo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mthkwe3q3yff.mp4"
+    },
+    "youtubeId": "y6CKix64aso",
+    "previewUrl": "https://youtube.com/shorts/y6CKix64aso",
+    "privacyStatus": "unlisted"
   }
 ]
