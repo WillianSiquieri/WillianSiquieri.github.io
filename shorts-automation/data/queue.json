@@ -2197,5 +2197,73 @@
     "youtubeId": "y6CKix64aso",
     "previewUrl": "https://youtube.com/shorts/y6CKix64aso",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtiukp2k4mg0",
+    "status": "draft",
+    "createdAt": "2026-09-01T15:54:03.116Z",
+    "theme": "Starmer renuncia ao Parlamento e diz que irá focar em &#821…",
+    "title": "Starmer renuncia ao Parlamento e diz que irá focar em &#8216;assuntos internacionais&#821…",
+    "hook": "Você viu isso? Starmer renuncia ao Parlamento e diz que irá focar em &#8216;assuntos internaci…",
+    "script": "Starmer renuncia ao Parlamento e diz que irá focar em &#8216;assuntos internacionais&#8217;. Após quase dois anos no poder, ele renunciou em 22 de junho, depois de se tornar impopular tanto nacionalmente quanto dentro de seu próprio partido The post Starmer renuncia ao Parlamento e diz que irá focar em &#8216;a… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Starmer",
+      "renuncia",
+      "Parlamento",
+      "focar",
+      "&#8216;assuntos",
+      "internacionais&#8217;"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/starmer-renuncia-ao-parlamento-e-diz-que-ira-focar-em-assuntos-internacionais/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtiukp2k4mg0.mp4"
+    },
+    "youtubeId": "fKDhLWfMi0o",
+    "previewUrl": "https://youtube.com/shorts/fKDhLWfMi0o",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtiuleee406w",
+    "status": "draft",
+    "createdAt": "2026-09-01T15:54:03.116Z",
+    "theme": "Xi Jinping defende mundo multipolar e critica retomada do p…",
+    "title": "Xi Jinping defende mundo multipolar e critica retomada do protecionismo",
+    "hook": "Você viu isso? Xi Jinping defende mundo multipolar e critica retomada do protecionismo",
+    "script": "Xi Jinping defende mundo multipolar e critica retomada do protecionismo. Xi avaliou que a ascensão do chamado Sul Global vem alterando o equilíbrio internacional e que o movimento rumo à multipolaridade é \"irreversível\" The post Xi Jinping defende mundo multipolar e critica retomada do prote… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Jinping",
+      "defende",
+      "mundo",
+      "multipolar",
+      "critica",
+      "retomada"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/xi-jinping-defende-mundo-multipolar-e-critica-retomada-do-protecionismo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtiuleee406w.mp4"
+    },
+    "youtubeId": "xtpmqmEZXjo",
+    "previewUrl": "https://youtube.com/shorts/xtpmqmEZXjo",
+    "privacyStatus": "unlisted"
   }
 ]
