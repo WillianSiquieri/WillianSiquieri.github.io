@@ -2333,5 +2333,73 @@
     "youtubeId": "BWzjUQ1C46s",
     "previewUrl": "https://youtube.com/shorts/BWzjUQ1C46s",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtlotds3l5it",
+    "status": "draft",
+    "createdAt": "2026-09-03T15:36:09.219Z",
+    "theme": "Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para…",
+    "title": "Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para 12ª alta seguida",
+    "hook": "Você viu isso? Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para 12ª alta seguida",
+    "script": "Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para 12ª alta seguida. Bolsas dos EUA operam com ganhos após dados de auxílio-desemprego The post Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para 12ª alta seguida appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "Vivo:",
+      "Bolsa",
+      "reduz",
+      "ganhos,",
+      "caminha"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-03092026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtlotds3l5it.mp4"
+    },
+    "youtubeId": "f5yfOfbmDKI",
+    "previewUrl": "https://youtube.com/shorts/f5yfOfbmDKI",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtloty0s23kh",
+    "status": "draft",
+    "createdAt": "2026-09-03T15:36:09.219Z",
+    "theme": "Ibovespa opera em alta pela 12ª sessão com alívio em Treasu…",
+    "title": "Ibovespa opera em alta pela 12ª sessão com alívio em Treasury e eleição do radar",
+    "hook": "Você viu isso? Ibovespa opera em alta pela 12ª sessão com alívio em Treasury e eleição do radar",
+    "script": "Ibovespa opera em alta pela 12ª sessão com alívio em Treasury e eleição do radar. Nos Estados Unidos, o rendimento do Treasury de dez anos recuava a 4,76%, de 4,794% na véspera The post Ibovespa opera em alta pela 12ª sessão com alívio em Treasury e eleição do radar appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "opera",
+      "sessão",
+      "alívio",
+      "Treasury",
+      "eleição"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-abertura-fechamento-03092026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtloty0s23kh.mp4"
+    },
+    "youtubeId": "q_S14N9tezs",
+    "previewUrl": "https://youtube.com/shorts/q_S14N9tezs",
+    "privacyStatus": "unlisted"
   }
 ]
