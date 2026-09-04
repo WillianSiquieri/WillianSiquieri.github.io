@@ -2401,5 +2401,73 @@
     "youtubeId": "q_S14N9tezs",
     "previewUrl": "https://youtube.com/shorts/q_S14N9tezs",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtn47lnx2q",
+    "status": "draft",
+    "createdAt": "2026-09-04T15:34:53.037Z",
+    "theme": "Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridad…",
+    "title": "Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridade está acima da Constituição&#…",
+    "hook": "Você viu isso? Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridade está acima da Cons…",
+    "script": "Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridade está acima da Constituição&#8221;. Presidente do STF também reforçou promessa de encerrar o inquérito das fake news, utilizado por Moraes nesta semana The post Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridade está acima da Constituição&#8221;… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Lula,",
+      "Fachin",
+      "afirma",
+      "&#8220;nenhuma",
+      "autoridade",
+      "acima"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/ao-lado-de-lula-fachin-afirma-que-nenhuma-autoridade-esta-acima-da-constituicao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtn47lnx2q.mp4"
+    },
+    "youtubeId": "ykAJs-SekKM",
+    "previewUrl": "https://youtube.com/shorts/ykAJs-SekKM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtn48cfm3dqp",
+    "status": "draft",
+    "createdAt": "2026-09-04T15:34:53.037Z",
+    "theme": "Poucos terrenos, Selic e ciclo longo: por que novos shoppin…",
+    "title": "Poucos terrenos, Selic e ciclo longo: por que novos shoppings são raros no Brasil?",
+    "hook": "Você viu isso? Poucos terrenos, Selic e ciclo longo: por que novos shoppings são raros no Bras…",
+    "script": "Poucos terrenos, Selic e ciclo longo: por que novos shoppings são raros no Brasil?. Diferentemente de um galpão logístico ou de um prédio corporativo, um shopping center não é um ativo facilmente replicável, diz gestor do HGBS11 The post Poucos terrenos, Selic e ciclo longo: por que novos shoppings são… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Poucos",
+      "terrenos,",
+      "Selic",
+      "ciclo",
+      "longo:",
+      "novos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/poucos-terrenos-selic-e-ciclo-longo-por-que-novos-shoppings-sao-raros-no-brasil/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtn48cfm3dqp.mp4"
+    },
+    "youtubeId": "GWdGCzdOeOE",
+    "previewUrl": "https://youtube.com/shorts/GWdGCzdOeOE",
+    "privacyStatus": "unlisted"
   }
 ]
