@@ -2469,5 +2469,72 @@
     "youtubeId": "GWdGCzdOeOE",
     "previewUrl": "https://youtube.com/shorts/GWdGCzdOeOE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtoh1pmeeo8o",
+    "status": "draft",
+    "createdAt": "2026-09-05T14:21:59.414Z",
+    "theme": "Carlos Alberto Parreira recebe alta após 80 dias internado…",
+    "title": "Carlos Alberto Parreira recebe alta após 80 dias internado no Rio",
+    "hook": "Você viu isso? Carlos Alberto Parreira recebe alta após 80 dias internado no Rio",
+    "script": "Carlos Alberto Parreira recebe alta após 80 dias internado no Rio. Técnico do tetracampeonato mundial de 1994 deixou hospital neste sábado e seguirá com acompanhamento domiciliar e ambulatorial The post Carlos Alberto Parreira recebe alta após 80 dias internado no Rio appeared first on… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Carlos",
+      "Alberto",
+      "Parreira",
+      "recebe",
+      "internado"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/esportes/carlos-alberto-parreira-alta-hospital-80-dias/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtoh1pmeeo8o.mp4"
+    },
+    "youtubeId": "812jcD2MJgQ",
+    "previewUrl": "https://youtube.com/shorts/812jcD2MJgQ",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtoh2eb4gm8q",
+    "status": "draft",
+    "createdAt": "2026-09-05T14:21:59.414Z",
+    "theme": "Após 10 anos parado, Teleférico do Alemão entra na reta fin…",
+    "title": "Após 10 anos parado, Teleférico do Alemão entra na reta final da recuperação",
+    "hook": "Você viu isso? Após 10 anos parado, Teleférico do Alemão entra na reta final da recuperação",
+    "script": "Após 10 anos parado, Teleférico do Alemão entra na reta final da recuperação. Troca dos cabos começa na próxima semana; testes seguem até junho, mas reabertura ainda não tem data The post Após 10 anos parado, Teleférico do Alemão entra na reta final da recuperação appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "parado,",
+      "Teleférico",
+      "Alemão",
+      "entra",
+      "final",
+      "recuperação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/apos-10-anos-parado-teleferico-do-alemao-entra-na-reta-final-da-recuperacao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtoh2eb4gm8q.mp4"
+    },
+    "youtubeId": "oLXbDgrbzmE",
+    "previewUrl": "https://youtube.com/shorts/oLXbDgrbzmE",
+    "privacyStatus": "unlisted"
   }
 ]
