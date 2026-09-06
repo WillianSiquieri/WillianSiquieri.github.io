@@ -2536,5 +2536,73 @@
     "youtubeId": "oLXbDgrbzmE",
     "previewUrl": "https://youtube.com/shorts/oLXbDgrbzmE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtpxamyzl20b",
+    "status": "draft",
+    "createdAt": "2026-09-06T14:44:35.914Z",
+    "theme": "Loteria Federal: confira o resultado do concurso 6098-4 sor…",
+    "title": "Loteria Federal: confira o resultado do concurso 6098-4 sorteado neste domingo (6)",
+    "hook": "Você viu isso? Loteria Federal: confira o resultado do concurso 6098-4 sorteado neste domingo…",
+    "script": "Loteria Federal: confira o resultado do concurso 6098-4 sorteado neste domingo (6). Os sorteios da Loteria Federal acontecem às quartas-feiras, a partir das 20h; e aos domingos, a partir das 11h The post Loteria Federal: confira o resultado do concurso 6098-4 sorteado neste domingo (6) appeared first o… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Loteria",
+      "Federal:",
+      "confira",
+      "resultado",
+      "concurso",
+      "6098-4"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/loteria-federal-confira-o-resultado-do-concurso-6098-4-sorteado-neste-domingo-6/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtpxamyzl20b.mp4"
+    },
+    "youtubeId": "3ejPpid4oDc",
+    "previewUrl": "https://youtube.com/shorts/3ejPpid4oDc",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtpxb4pkgksw",
+    "status": "draft",
+    "createdAt": "2026-09-06T14:44:35.914Z",
+    "theme": "Quina hoje: ninguém acerta as dezenas e prêmio acumula para…",
+    "title": "Quina hoje: ninguém acerta as dezenas e prêmio acumula para R$ 18,5 milhões",
+    "hook": "Você viu isso? Quina hoje: ninguém acerta as dezenas e prêmio acumula para R$ 18,5 milhões",
+    "script": "Quina hoje: ninguém acerta as dezenas e prêmio acumula para R$ 18,5 milhões. O próximo sorteio da Quina acontecerá na terça-feira, 8 de setembro The post Quina hoje: ninguém acerta as dezenas e prêmio acumula para R$ 18,5 milhões appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Quina",
+      "hoje:",
+      "ninguém",
+      "acerta",
+      "dezenas",
+      "prêmio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/quina-concurso-7111-numeros-sorteados-rateio-premio-16-milhoes/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtpxb4pkgksw.mp4"
+    },
+    "youtubeId": "KUSupBASNBQ",
+    "previewUrl": "https://youtube.com/shorts/KUSupBASNBQ",
+    "privacyStatus": "unlisted"
   }
 ]
