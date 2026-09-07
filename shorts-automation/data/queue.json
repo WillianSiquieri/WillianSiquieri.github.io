@@ -2604,5 +2604,73 @@
     "youtubeId": "KUSupBASNBQ",
     "previewUrl": "https://youtube.com/shorts/KUSupBASNBQ",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtrhlpk169cj",
+    "status": "draft",
+    "createdAt": "2026-09-07T17:00:50.977Z",
+    "theme": "Eleição será 50% construção e 50% destruição do adversário,…",
+    "title": "Eleição será 50% construção e 50% destruição do adversário, prevê marqueteiro",
+    "hook": "Você viu isso? Eleição será 50% construção e 50% destruição do adversário, prevê marqueteiro",
+    "script": "Eleição será 50% construção e 50% destruição do adversário, prevê marqueteiro. Campanhas de Lula e Flávio devem dividir esforços entre vender seus candidatos e aumentar a rejeição do rival, avalia especialista The post Eleição será 50% construção e 50% destruição do adversário, prevê marqueteiro a… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Eleição",
+      "construção",
+      "destruição",
+      "adversário,",
+      "prevê",
+      "marqueteiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/eleicao-sera-50-construcao-e-50-destruicao-do-adversario-preve-marqueteiro/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtrhlpk169cj.mp4"
+    },
+    "youtubeId": "jn0-wJgN46I",
+    "previewUrl": "https://youtube.com/shorts/jn0-wJgN46I",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtrhme3zjd2d",
+    "status": "draft",
+    "createdAt": "2026-09-07T17:00:50.977Z",
+    "theme": "Nepal concentra esforços para encontrar 900 trabalhadores d…",
+    "title": "Nepal concentra esforços para encontrar 900 trabalhadores de usinas hidrelétricas",
+    "hook": "Você viu isso? Nepal concentra esforços para encontrar 900 trabalhadores de usinas hidrelétric…",
+    "script": "Nepal concentra esforços para encontrar 900 trabalhadores de usinas hidrelétricas. Os resgates ‌trouxeram um vislumbre de esperança enquanto o Nepal completava o 13º dia após o desastre The post Nepal concentra esforços para encontrar 900 trabalhadores de usinas hidrelétricas appeared first on InfoMon… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Nepal",
+      "concentra",
+      "esforços",
+      "encontrar",
+      "trabalhadores",
+      "usinas"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/nepal-concentra-esforcos-para-encontrar-900-trabalhadores-de-usinas-hidreletricas/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtrhme3zjd2d.mp4"
+    },
+    "youtubeId": "-IcCsTBjNHQ",
+    "previewUrl": "https://youtube.com/shorts/-IcCsTBjNHQ",
+    "privacyStatus": "unlisted"
   }
 ]
