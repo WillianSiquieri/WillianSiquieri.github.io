@@ -2672,5 +2672,73 @@
     "youtubeId": "-IcCsTBjNHQ",
     "previewUrl": "https://youtube.com/shorts/-IcCsTBjNHQ",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtsug2gsftx8",
+    "status": "draft",
+    "createdAt": "2026-09-08T15:48:08.956Z",
+    "theme": "Mentorias, networking e acesso a fundadores e CEOs: o que e…",
+    "title": "Mentorias, networking e acesso a fundadores e CEOs: o que esperar da B55 Conference",
+    "hook": "Você viu isso? Mentorias, networking e acesso a fundadores e CEOs: o que esperar da B55 Confer…",
+    "script": "Mentorias, networking e acesso a fundadores e CEOs: o que esperar da B55 Conference. Evento em São Paulo reunirá mais de 3 mil empreendedores e algumas das principais lideranças empresariais do país The post Mentorias, networking e acesso a fundadores e CEOs: o que esperar da B55 Conference appeared fir… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Mentorias,",
+      "networking",
+      "acesso",
+      "fundadores",
+      "CEOs:",
+      "esperar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/mentorias-networking-e-acesso-a-fundadores-e-ceos-o-que-esperar-da-b55-conference/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtsug2gsftx8.mp4"
+    },
+    "youtubeId": "sdKRRsgglXw",
+    "previewUrl": "https://youtube.com/shorts/sdKRRsgglXw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtsugntm8i2a",
+    "status": "draft",
+    "createdAt": "2026-09-08T15:48:08.956Z",
+    "theme": "Participação de veículos elétricos nas vendas no Brasil che…",
+    "title": "Participação de veículos elétricos nas vendas no Brasil chega a 10,4%, diz Anfavea",
+    "hook": "Você viu isso? Participação de veículos elétricos nas vendas no Brasil chega a 10,4%, diz Anfa…",
+    "script": "Participação de veículos elétricos nas vendas no Brasil chega a 10,4%, diz Anfavea. Foram 27,3 mil veículos vendidos com essa tecnologia, das 275,1 mil unidades totais do setor em agosto; quando somados os dados de híbridos e híbridos plug-in, a categoria de “eletrificados” já representa 24,4% do merca… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Participação",
+      "veículos",
+      "elétricos",
+      "vendas",
+      "Brasil",
+      "chega"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/participacao-de-veiculos-eletricos-nas-vendas-no-brasil-chega-a-104-diz-anfavea/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 34,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtsugntm8i2a.mp4"
+    },
+    "youtubeId": "osQL1zrJKVo",
+    "previewUrl": "https://youtube.com/shorts/osQL1zrJKVo",
+    "privacyStatus": "unlisted"
   }
 ]
