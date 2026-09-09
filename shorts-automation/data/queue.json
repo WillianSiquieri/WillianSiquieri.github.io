@@ -2740,5 +2740,73 @@
     "youtubeId": "osQL1zrJKVo",
     "previewUrl": "https://youtube.com/shorts/osQL1zrJKVo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtu9qnxzcwhe",
+    "status": "draft",
+    "createdAt": "2026-09-09T15:44:03.767Z",
+    "theme": "Mendonça procura Fachin após Dino reintegrar chefe da PF e…",
+    "title": "Mendonça procura Fachin após Dino reintegrar chefe da PF e cobra resposta do STF",
+    "hook": "Você viu isso? Mendonça procura Fachin após Dino reintegrar chefe da PF e cobra resposta do STF",
+    "script": "Mendonça procura Fachin após Dino reintegrar chefe da PF e cobra resposta do STF. Ministro considera decisão do colega ilegal, mas não pretende contestá-la nos autos; avaliação na Corte é de que crise exige intervenção da Presidência The post Mendonça procura Fachin após Dino reintegrar chefe da PF e… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Mendonça",
+      "procura",
+      "Fachin",
+      "reintegrar",
+      "chefe",
+      "cobra"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/mendonca-procura-fachin-apos-dino-reintegrar-chefe-da-pf-e-cobra-resposta-do-stf/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtu9qnxzcwhe.mp4"
+    },
+    "youtubeId": "n5Pty58mECg",
+    "previewUrl": "https://youtube.com/shorts/n5Pty58mECg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtu9r9bx7ou2",
+    "status": "draft",
+    "createdAt": "2026-09-09T15:44:03.767Z",
+    "theme": "Partido Novo chama Dino de &#8220;terrivelmente soviético&#…",
+    "title": "Partido Novo chama Dino de &#8220;terrivelmente soviético&#8221; após decisão a favor de…",
+    "hook": "Você viu isso? Partido Novo chama Dino de &#8220;terrivelmente soviético&#8221; após decisão a…",
+    "script": "Partido Novo chama Dino de &#8220;terrivelmente soviético&#8221; após decisão a favor de Andrei. Ministro revogou, na manhã desta quarta-feira, a decisão de André Mendonça que afastava o diretor-geral da Polícia Federal do cargo The post Partido Novo chama Dino de &#8220;terrivelmente soviético&#8221; após decisão… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Partido",
+      "chama",
+      "&#8220;terrivelmente",
+      "soviético&#8221;",
+      "decisão",
+      "favor"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/partido-novo-chama-dino-de-terrivelmente-sovietico-apos-decisao-a-favor-de-andrei/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtu9r9bx7ou2.mp4"
+    },
+    "youtubeId": "GcyMj6oiFug",
+    "previewUrl": "https://youtube.com/shorts/GcyMj6oiFug",
+    "privacyStatus": "unlisted"
   }
 ]
