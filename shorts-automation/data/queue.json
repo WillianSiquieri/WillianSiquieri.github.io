@@ -2808,5 +2808,71 @@
     "youtubeId": "GcyMj6oiFug",
     "previewUrl": "https://youtube.com/shorts/GcyMj6oiFug",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtvp0mq3bccp",
+    "status": "draft",
+    "createdAt": "2026-09-10T15:39:29.163Z",
+    "theme": "The Economist vê risco à democracia em desgaste do STF após…",
+    "title": "The Economist vê risco à democracia em desgaste do STF após caso Master",
+    "hook": "Você viu isso? The Economist vê risco à democracia em desgaste do STF após caso Master",
+    "script": "The Economist vê risco à democracia em desgaste do STF após caso Master. Revista britânica afirma que suspeitas envolvendo Moraes e disputa com Mendonça ampliam desconfiança na Corte e podem ter reflexos na eleição The post The Economist vê risco à democracia em desgaste do STF após caso Mas… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Economist",
+      "risco",
+      "democracia",
+      "desgaste",
+      "Master"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/the-economist-ve-risco-a-democracia-em-desgaste-do-stf-apos-caso-master/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtvp0mq3bccp.mp4"
+    },
+    "youtubeId": "Clt2gjY3J2Q",
+    "previewUrl": "https://youtube.com/shorts/Clt2gjY3J2Q",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtvp18dx21rn",
+    "status": "draft",
+    "createdAt": "2026-09-10T15:39:29.163Z",
+    "theme": "O que fez Ibovespa sair de queda para alta de mais de 1%? C…",
+    "title": "O que fez Ibovespa sair de queda para alta de mais de 1%? Cenário eleitoral explica",
+    "hook": "Você viu isso? O que fez Ibovespa sair de queda para alta de mais de 1%? Cenário eleitoral exp…",
+    "script": "O que fez Ibovespa sair de queda para alta de mais de 1%? Cenário eleitoral explica. A nova pesquisa AtlasIntel/Bloomberg está programada para esta quinta-feira e gera especulações entre investidores The post O que fez Ibovespa sair de queda para alta de mais de 1%? Cenário eleitoral explica appeared fi… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "queda",
+      "Cenário",
+      "eleitoral",
+      "explica"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/o-que-fez-ibovespa-sair-de-queda-para-alta-de-mais-de-1-cenario-eleitoral-explica/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtvp18dx21rn.mp4"
+    },
+    "youtubeId": "ZTn2lJ7ov94",
+    "previewUrl": "https://youtube.com/shorts/ZTn2lJ7ov94",
+    "privacyStatus": "unlisted"
   }
 ]
