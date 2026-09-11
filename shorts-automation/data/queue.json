@@ -2874,5 +2874,73 @@
     "youtubeId": "ZTn2lJ7ov94",
     "previewUrl": "https://youtube.com/shorts/ZTn2lJ7ov94",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtx4hgwlddz5",
+    "status": "draft",
+    "createdAt": "2026-09-11T15:40:15.189Z",
+    "theme": "Nivaldo da Batata: polícia investiga morte de vereador atin…",
+    "title": "Nivaldo da Batata: polícia investiga morte de vereador atingido por tubérculo",
+    "hook": "Você viu isso? Nivaldo da Batata: polícia investiga morte de vereador atingido por tubérculo",
+    "script": "Nivaldo da Batata: polícia investiga morte de vereador atingido por tubérculo. Político faleceu um dia após o aniversário de 63 anos; a suspeita é de rompimento de um cabo de aço que sustentava a carga suspensa The post Nivaldo da Batata: polícia investiga morte de vereador atingido por tubérculo… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Nivaldo",
+      "Batata:",
+      "polícia",
+      "investiga",
+      "morte",
+      "vereador"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/nivaldo-da-batata-policia-investiga-morte-de-vereador-atingido-por-tuberculo/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtx4hgwlddz5.mp4"
+    },
+    "youtubeId": "0_nA7LqXqf0",
+    "previewUrl": "https://youtube.com/shorts/0_nA7LqXqf0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtx4i113gqsb",
+    "status": "draft",
+    "createdAt": "2026-09-11T15:40:15.189Z",
+    "theme": "Princesa Astrid, da Noruega, morre aos 94 anos, dois dias a…",
+    "title": "Princesa Astrid, da Noruega, morre aos 94 anos, dois dias após funeral do rei",
+    "hook": "Você viu isso? Princesa Astrid, da Noruega, morre aos 94 anos, dois dias após funeral do rei",
+    "script": "Princesa Astrid, da Noruega, morre aos 94 anos, dois dias após funeral do rei. O irmão de Astrid, Harald, faleceu ​no mês passado, aos 89 ​anos, após mais de 35 anos no trono, ‌e a ​princesa fez sua última aparição pública ⁠no ​funeral ​dele, na quarta-feira The post Princesa Astrid, da Noruega, m… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Princesa",
+      "Astrid,",
+      "Noruega,",
+      "morre",
+      "anos,",
+      "funeral"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/princesa-astrid-da-noruega-morre-aos-94-anos-dois-dias-apos-funeral-do-rei/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtx4i113gqsb.mp4"
+    },
+    "youtubeId": "81jnIEA-pFA",
+    "previewUrl": "https://youtube.com/shorts/81jnIEA-pFA",
+    "privacyStatus": "unlisted"
   }
 ]
