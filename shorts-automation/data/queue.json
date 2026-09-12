@@ -2942,5 +2942,73 @@
     "youtubeId": "81jnIEA-pFA",
     "previewUrl": "https://youtube.com/shorts/81jnIEA-pFA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtyi1n2hbxho",
+    "status": "draft",
+    "createdAt": "2026-09-12T14:47:37.481Z",
+    "theme": "Como fundadores de empresas chinesas de chips se tornaram b…",
+    "title": "Como fundadores de empresas chinesas de chips se tornaram bilionários sem gerar lucro",
+    "hook": "Você viu isso? Como fundadores de empresas chinesas de chips se tornaram bilionários sem gerar…",
+    "script": "Como fundadores de empresas chinesas de chips se tornaram bilionários sem gerar lucro. As ações da Enflame dispararam 234% em seu primeiro dia de negociação na sexta-feira em Xangai, elevando a fortuna individual de Zhao e Zhang para US$ 2,5 bilhões cada The post Como fundadores de empresas chinesas de ch… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "fundadores",
+      "empresas",
+      "chinesas",
+      "chips",
+      "tornaram",
+      "bilionários"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/como-fundadores-de-empresas-chinesas-de-chips-se-tornaram-bilionarios-sem-gerar-lucro/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtyi1n2hbxho.mp4"
+    },
+    "youtubeId": "_ZkvpkzYmKI",
+    "previewUrl": "https://youtube.com/shorts/_ZkvpkzYmKI",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtyi2aexetoz",
+    "status": "draft",
+    "createdAt": "2026-09-12T14:47:37.481Z",
+    "theme": "Governo do Iraque confirma que ataques a oleoduto Saudita p…",
+    "title": "Governo do Iraque confirma que ataques a oleoduto Saudita partiram de seu território",
+    "hook": "Você viu isso? Governo do Iraque confirma que ataques a oleoduto Saudita partiram de seu terri…",
+    "script": "Governo do Iraque confirma que ataques a oleoduto Saudita partiram de seu território. A Arábia Saudita fechou o importante oleoduto transnacional nesta sexta, 11, dizendo que foi uma \"medida de precaução\" The post Governo do Iraque confirma que ataques a oleoduto Saudita partiram de seu território appear… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Governo",
+      "Iraque",
+      "confirma",
+      "ataques",
+      "oleoduto",
+      "Saudita"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/governo-do-iraque-confirma-que-ataques-a-oleoduto-saudita-partiram-de-seu-territorio/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtyi2aexetoz.mp4"
+    },
+    "youtubeId": "PD2u6cK3EaM",
+    "previewUrl": "https://youtube.com/shorts/PD2u6cK3EaM",
+    "privacyStatus": "unlisted"
   }
 ]
