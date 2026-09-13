@@ -3010,5 +3010,73 @@
     "youtubeId": "PD2u6cK3EaM",
     "previewUrl": "https://youtube.com/shorts/PD2u6cK3EaM",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtzyv051kf4e",
+    "status": "draft",
+    "createdAt": "2026-09-13T15:26:07.477Z",
+    "theme": "Claudio Castro acionou Mendonça antes de voto sobre soltura…",
+    "title": "Claudio Castro acionou Mendonça antes de voto sobre soltura de Sérgio Cabral",
+    "hook": "Você viu isso? Claudio Castro acionou Mendonça antes de voto sobre soltura de Sérgio Cabral",
+    "script": "Claudio Castro acionou Mendonça antes de voto sobre soltura de Sérgio Cabral. Conversa obtida pela PF ocorreu 28 dias antes de ministro votar pela revogação da prisão preventiva do ex-governador; ambos negam tratativa sobre o mérito The post Claudio Castro acionou Mendonça antes de voto sobre sol… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Claudio",
+      "Castro",
+      "acionou",
+      "Mendonça",
+      "antes",
+      "sobre"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/claudio-castro-acionou-mendonca-antes-de-voto-sobre-soltura-de-sergio-cabral/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtzyv051kf4e.mp4"
+    },
+    "youtubeId": "GOiKp7HY3ic",
+    "previewUrl": "https://youtube.com/shorts/GOiKp7HY3ic",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mtzyvik13rsm",
+    "status": "draft",
+    "createdAt": "2026-09-13T15:26:07.477Z",
+    "theme": "Dino: inquérito aponta desvio de emendas em SP e menciona l…",
+    "title": "Dino: inquérito aponta desvio de emendas em SP e menciona ligação entre PCC e Frias",
+    "hook": "Você viu isso? Dino: inquérito aponta desvio de emendas em SP e menciona ligação entre PCC e F…",
+    "script": "Dino: inquérito aponta desvio de emendas em SP e menciona ligação entre PCC e Frias. Frias é roteirista e produtor-executivo do filme \"Dark Horse\", que conta a história do ex-presidente Jair Bolsonaro (PL) The post Dino: inquérito aponta desvio de emendas em SP e menciona ligação entre PCC e Frias appea… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Dino:",
+      "inquérito",
+      "aponta",
+      "desvio",
+      "emendas",
+      "menciona"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/dino-inquerito-aponta-desvio-de-emendas-em-sp-e-menciona-ligacao-entre-pcc-e-frias/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mtzyvik13rsm.mp4"
+    },
+    "youtubeId": "tkMcTsxluXU",
+    "previewUrl": "https://youtube.com/shorts/tkMcTsxluXU",
+    "privacyStatus": "unlisted"
   }
 ]
