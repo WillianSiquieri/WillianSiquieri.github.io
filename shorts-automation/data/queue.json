@@ -3146,5 +3146,73 @@
     "youtubeId": "etT5voqiW6w",
     "previewUrl": "https://youtube.com/shorts/etT5voqiW6w",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu2v0dqp35jr",
+    "status": "draft",
+    "createdAt": "2026-09-15T16:01:38.449Z",
+    "theme": "Minério a US$ 95 desafia setor em meio à alta dos fretes: V…",
+    "title": "Minério a US$ 95 desafia setor em meio à alta dos fretes: VALE3 e CMIN3 sob pressão?",
+    "hook": "Você viu isso? Minério a US$ 95 desafia setor em meio à alta dos fretes: VALE3 e CMIN3 sob pre…",
+    "script": "Minério a US$ 95 desafia setor em meio à alta dos fretes: VALE3 e CMIN3 sob pressão?. Commodity recua com o agravamento da crise de rentabilidade das siderúrgicas chinesas, enquanto fretes elevados começam a retirar oferta de produtores brasileiros The post Minério a US$ 95 desafia setor em meio à alta d… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Minério",
+      "desafia",
+      "setor",
+      "fretes:",
+      "VALE3",
+      "CMIN3"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/minerio-a-us-95-desafia-setor-em-meio-a-alta-dos-fretes-vale3-e-cmin3-sob-pressao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu2v0dqp35jr.mp4"
+    },
+    "youtubeId": "-bBpBF8Qpk8",
+    "previewUrl": "https://youtube.com/shorts/-bBpBF8Qpk8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu2v0wgu384l",
+    "status": "draft",
+    "createdAt": "2026-09-15T16:01:38.449Z",
+    "theme": "Superávit comercial do Brasil deve superar US$90 bi em 2026…",
+    "title": "Superávit comercial do Brasil deve superar US$90 bi em 2026, diz Márcio Rosa",
+    "hook": "Você viu isso? Superávit comercial do Brasil deve superar US$90 bi em 2026, diz Márcio Rosa",
+    "script": "Superávit comercial do Brasil deve superar US$90 bi em 2026, diz Márcio Rosa. O Mdic revê ​suas ⁠estimativas trimestralmente The post Superávit comercial do Brasil deve superar US$90 bi em 2026, diz Márcio Rosa appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Superávit",
+      "comercial",
+      "Brasil",
+      "superar",
+      "US$90",
+      "2026,"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/superavit-comercial-do-brasil-deve-superar-us90-bi-em-2026-diz-marcio-rosa/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu2v0wgu384l.mp4"
+    },
+    "youtubeId": "l5d1wiwcLUQ",
+    "previewUrl": "https://youtube.com/shorts/l5d1wiwcLUQ",
+    "privacyStatus": "unlisted"
   }
 ]
