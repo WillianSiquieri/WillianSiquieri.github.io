@@ -3214,5 +3214,73 @@
     "youtubeId": "l5d1wiwcLUQ",
     "previewUrl": "https://youtube.com/shorts/l5d1wiwcLUQ",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu4a715xcf1",
+    "status": "draft",
+    "createdAt": "2026-09-16T15:54:29.157Z",
+    "theme": "Microsoft critica abordagem da Anthropic em relação à consc…",
+    "title": "Microsoft critica abordagem da Anthropic em relação à consciência da IA",
+    "hook": "Você viu isso? Microsoft critica abordagem da Anthropic em relação à consciência da IA",
+    "script": "Microsoft critica abordagem da Anthropic em relação à consciência da IA. Chefe de IA da Microsoft critica abordagem da Anthropic em relação à consciência da IA The post Microsoft critica abordagem da Anthropic em relação à consciência da IA appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Microsoft",
+      "critica",
+      "abordagem",
+      "Anthropic",
+      "relação",
+      "consciência"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/microsoft-critica-abordagem-da-anthropic-em-relacao-a-consciencia-da-ia/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu4a715xcf1.mp4"
+    },
+    "youtubeId": "BHs0ogmr1R0",
+    "previewUrl": "https://youtube.com/shorts/BHs0ogmr1R0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu4a7r1aim2w",
+    "status": "draft",
+    "createdAt": "2026-09-16T15:54:29.157Z",
+    "theme": "Nvidia, Google e Emerald AI lançam aliança para flexibiliza…",
+    "title": "Nvidia, Google e Emerald AI lançam aliança para flexibilizar energia em data centers",
+    "hook": "Você viu isso? Nvidia, Google e Emerald AI lançam aliança para flexibilizar energia em data ce…",
+    "script": "Nvidia, Google e Emerald AI lançam aliança para flexibilizar energia em data centers. A iniciativa busca acelerar a conexão de novas instalações de IA ao sistema elétrico dos Estados Unidos The post Nvidia, Google e Emerald AI lançam aliança para flexibilizar energia em data centers appeared first on Inf… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Nvidia,",
+      "Google",
+      "Emerald",
+      "lançam",
+      "aliança",
+      "flexibilizar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/nvidia-google-e-emerald-ai-lancam-alianca-para-flexibilizar-energia-em-data-centers/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu4a7r1aim2w.mp4"
+    },
+    "youtubeId": "azZ64lIHecQ",
+    "previewUrl": "https://youtube.com/shorts/azZ64lIHecQ",
+    "privacyStatus": "unlisted"
   }
 ]
