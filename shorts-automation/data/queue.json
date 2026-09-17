@@ -3282,5 +3282,73 @@
     "youtubeId": "azZ64lIHecQ",
     "previewUrl": "https://youtube.com/shorts/azZ64lIHecQ",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu5pv3cn9w8t",
+    "status": "draft",
+    "createdAt": "2026-09-17T16:00:52.151Z",
+    "theme": "Redesenho de distritos muda mapas da Câmara para 34,8 milhõ…",
+    "title": "Redesenho de distritos muda mapas da Câmara para 34,8 milhões e gera alerta",
+    "hook": "Você viu isso? Redesenho de distritos muda mapas da Câmara para 34,8 milhões e gera alerta",
+    "script": "Redesenho de distritos muda mapas da Câmara para 34,8 milhões e gera alerta. O estudo também estima que cerca de um quinto da população mora hoje em distritos onde mais de um quarto dos eleitores é \"novo\" em relação ao ciclo anterior The post Redesenho de distritos muda mapas da Câmara para 34,8… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Redesenho",
+      "distritos",
+      "mapas",
+      "Câmara",
+      "milhões",
+      "alerta"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/redesenho-de-distritos-muda-mapas-da-camara-para-348-milhoes-e-gera-alerta/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu5pv3cn9w8t.mp4"
+    },
+    "youtubeId": "YL334gVhTWo",
+    "previewUrl": "https://youtube.com/shorts/YL334gVhTWo",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu5pvntf5q89",
+    "status": "draft",
+    "createdAt": "2026-09-17T16:00:52.151Z",
+    "theme": "Nicole Bahls compra carro de mais de R$ 1 milhão por causa…",
+    "title": "Nicole Bahls compra carro de mais de R$ 1 milhão por causa da maçaneta; entenda",
+    "hook": "Você viu isso? Nicole Bahls compra carro de mais de R$ 1 milhão por causa da maçaneta; entenda",
+    "script": "Nicole Bahls compra carro de mais de R$ 1 milhão por causa da maçaneta; entenda. A apresentadora mostrou nas redes sociais seu novo Range Rover Sport 2026 The post Nicole Bahls compra carro de mais de R$ 1 milhão por causa da maçaneta; entenda appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Nicole",
+      "Bahls",
+      "compra",
+      "carro",
+      "milhão",
+      "causa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/nicole-bahls-compra-carro-de-mais-de-r-1-milhao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu5pvntf5q89.mp4"
+    },
+    "youtubeId": "Bz1pQNfwSps",
+    "previewUrl": "https://youtube.com/shorts/Bz1pQNfwSps",
+    "privacyStatus": "unlisted"
   }
 ]
