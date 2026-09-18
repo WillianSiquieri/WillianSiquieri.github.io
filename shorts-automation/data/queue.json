@@ -3350,5 +3350,72 @@
     "youtubeId": "Bz1pQNfwSps",
     "previewUrl": "https://youtube.com/shorts/Bz1pQNfwSps",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu74en1a5xgl",
+    "status": "draft",
+    "createdAt": "2026-09-18T15:35:44.926Z",
+    "theme": "Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de op…",
+    "title": "Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de opções",
+    "hook": "Você viu isso? Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de opções",
+    "script": "Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de opções. Bolsas dos EUA operam sem força The post Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de opções appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "Vivo:",
+      "Bolsa",
+      "vencimento",
+      "opções"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-18092026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 24,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu74en1a5xgl.mp4"
+    },
+    "youtubeId": "8iT7Xjyk5BU",
+    "previewUrl": "https://youtube.com/shorts/8iT7Xjyk5BU",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu74f2ylefzc",
+    "status": "draft",
+    "createdAt": "2026-09-18T15:35:44.926Z",
+    "theme": "Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destac…",
+    "title": "Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destaca como preferida do setor",
+    "hook": "Você viu isso? Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destaca como preferida do…",
+    "script": "Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destaca como preferida do setor. Os analistas ressaltaram preferência no setor após revisar para cima as estimativas de resultados e geração de caixa The post Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destaca como preferida do setor appeared… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Yduqs:",
+      "valuation",
+      "atrativo,",
+      "eleva",
+      "preço-alvo",
+      "destaca"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/yduqs-yduq3-bradesco-bbi-ve-valuation-atrativo-eleva-preco-alvo-e-destaca-como-preferida-do-setor/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu74f2ylefzc.mp4"
+    },
+    "youtubeId": "mZl6UoySsxk",
+    "previewUrl": "https://youtube.com/shorts/mZl6UoySsxk",
+    "privacyStatus": "unlisted"
   }
 ]
