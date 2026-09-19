@@ -3417,5 +3417,71 @@
     "youtubeId": "mZl6UoySsxk",
     "previewUrl": "https://youtube.com/shorts/mZl6UoySsxk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu8iwup7lerk",
+    "status": "draft",
+    "createdAt": "2026-09-19T15:09:35.467Z",
+    "theme": "Sonha com um iPhone 18? Veja quanto guardar por mês",
+    "title": "Sonha com um iPhone 18? Veja quanto guardar por mês",
+    "hook": "Você viu isso? Sonha com um iPhone 18? Veja quanto guardar por mês",
+    "script": "Sonha com um iPhone 18? Veja quanto guardar por mês. Com preços entre R$ 12 mil e R$ 22 mil, novos iPhones exigem planejamento para a troca pesar menos no bolso The post Sonha com um iPhone 18? Veja quanto guardar por mês appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Sonha",
+      "iPhone",
+      "quanto",
+      "guardar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/iphone-18/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu8iwup7lerk.mp4"
+    },
+    "youtubeId": "Iepbu4WP6xE",
+    "previewUrl": "https://youtube.com/shorts/Iepbu4WP6xE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu8ixeuq44eg",
+    "status": "draft",
+    "createdAt": "2026-09-19T15:09:35.467Z",
+    "theme": "Durigan: “reajuste do Bolsa Família foi pela inflação, não…",
+    "title": "Durigan: “reajuste do Bolsa Família foi pela inflação, não foi real”",
+    "hook": "Você viu isso? Durigan: “reajuste do Bolsa Família foi pela inflação, não foi real”",
+    "script": "Durigan: “reajuste do Bolsa Família foi pela inflação, não foi real”. Em entrevista à CNN, ministro da Fazenda reafirmou que reajuste busca recompor poder de compra; segundo ele, prioridade fiscal não se altera The post Durigan: “reajuste do Bolsa Família foi pela inflação, não foi real”… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Durigan:",
+      "“reajuste",
+      "Bolsa",
+      "Família",
+      "inflação,",
+      "real”"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/durigan-reajuste-do-bolsa-familia-foi-pela-inflacao-nao-foi-real/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu8ixeuq44eg.mp4"
+    },
+    "youtubeId": "20RWg9Pne9g",
+    "previewUrl": "https://youtube.com/shorts/20RWg9Pne9g",
+    "privacyStatus": "unlisted"
   }
 ]
