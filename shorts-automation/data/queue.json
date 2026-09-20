@@ -3483,5 +3483,72 @@
     "youtubeId": "20RWg9Pne9g",
     "previewUrl": "https://youtube.com/shorts/20RWg9Pne9g",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu9yimm22h1q",
+    "status": "draft",
+    "createdAt": "2026-09-20T15:14:11.834Z",
+    "theme": "Trump diz que transformará projeto de &#8220;Arco do Triunf…",
+    "title": "Trump diz que transformará projeto de &#8220;Arco do Triunfo dos EUA&#8221; em complexo m…",
+    "hook": "Você viu isso? Trump diz que transformará projeto de &#8220;Arco do Triunfo dos EUA&#8221; em…",
+    "script": "Trump diz que transformará projeto de &#8220;Arco do Triunfo dos EUA&#8221; em complexo militar. A ideia parece ser a mais recente tentativa de Trump de vender a ideia de construir um arco imponente, o que gerou questionamentos The post Trump diz que transformará projeto de &#8220;Arco do Triunfo dos EUA&#8221; em… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Trump",
+      "transformará",
+      "projeto",
+      "&#8220;Arco",
+      "Triunfo",
+      "EUA&#8221;"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/trump-diz-que-transformara-projeto-de-arco-do-triunfo-dos-eua-em-complexo-militar/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu9yimm22h1q.mp4"
+    },
+    "youtubeId": "WO81rfa9v9Y",
+    "previewUrl": "https://youtube.com/shorts/WO81rfa9v9Y",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mu9yjd4e9e1v",
+    "status": "draft",
+    "createdAt": "2026-09-20T15:14:11.834Z",
+    "theme": "TSE suspende campanha de Deltan ao Senado pelo Paraná",
+    "title": "TSE suspende campanha de Deltan ao Senado pelo Paraná",
+    "hook": "Você viu isso? TSE suspende campanha de Deltan ao Senado pelo Paraná",
+    "script": "TSE suspende campanha de Deltan ao Senado pelo Paraná. Deltan é alvo de ações de outros candidatos que disputam uma cadeira no Senado e que contestam sua elegibilidade The post TSE suspende campanha de Deltan ao Senado pelo Paraná appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "suspende",
+      "campanha",
+      "Deltan",
+      "Senado",
+      "Paraná"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/tse-suspende-campanha-de-deltan-ao-senado-pelo-parana/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mu9yjd4e9e1v.mp4"
+    },
+    "youtubeId": "AmKnEx4_JqM",
+    "previewUrl": "https://youtube.com/shorts/AmKnEx4_JqM",
+    "privacyStatus": "unlisted"
   }
 ]
