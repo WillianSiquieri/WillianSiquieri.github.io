@@ -3550,5 +3550,72 @@
     "youtubeId": "AmKnEx4_JqM",
     "previewUrl": "https://youtube.com/shorts/AmKnEx4_JqM",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mubj2fxk7jcs",
+    "status": "draft",
+    "createdAt": "2026-09-21T17:37:14.792Z",
+    "theme": "A Black Friday já não é mais em novembro — e a &#8216;culpa…",
+    "title": "A Black Friday já não é mais em novembro — e a &#8216;culpa&#8217; é do consumidor",
+    "hook": "Você viu isso? A Black Friday já não é mais em novembro — e a &#8216;culpa&#8217; é do consumi…",
+    "script": "A Black Friday já não é mais em novembro — e a &#8216;culpa&#8217; é do consumidor. Metade dos brasileiros começa a pesquisar ofertas com mais de um mês de antecedência. Só 20% vão comprar tudo na sexta-feira The post A Black Friday já não é mais em novembro — e a &#8216;culpa&#8217; é do consumidor ap… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Black",
+      "Friday",
+      "novembro",
+      "&#8216;culpa&#8217;",
+      "consumidor"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/a-black-friday-ja-nao-e-mais-em-novembro-e-a-culpa-e-do-consumidor/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mubj2fxk7jcs.mp4"
+    },
+    "youtubeId": "yGT8SR-41uo",
+    "previewUrl": "https://youtube.com/shorts/yGT8SR-41uo",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mubj35p13yk8",
+    "status": "draft",
+    "createdAt": "2026-09-21T17:37:14.792Z",
+    "theme": "Implantação global de energia renovável precisa dobrar para…",
+    "title": "Implantação global de energia renovável precisa dobrar para atingir meta de 2030",
+    "hook": "Você viu isso? Implantação global de energia renovável precisa dobrar para atingir meta de 2030",
+    "script": "Implantação global de energia renovável precisa dobrar para atingir meta de 2030. Relatório do setor mostrou que ainda é preciso acelerar ⁠as ‌instalações para cerca de 1.200 GW, em média, a cada ⁠ano até 2030 The post Implantação global de energia renovável precisa dobrar para atingir meta de 2030 a… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Implantação",
+      "global",
+      "energia",
+      "renovável",
+      "precisa",
+      "dobrar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/implantacao-global-de-energia-renovavel-precisa-dobrar-para-atingir-meta-de-2030/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mubj35p13yk8.mp4"
+    },
+    "youtubeId": "dO_oVJTgRyc",
+    "previewUrl": "https://youtube.com/shorts/dO_oVJTgRyc",
+    "privacyStatus": "unlisted"
   }
 ]
