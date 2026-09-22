@@ -3617,5 +3617,72 @@
     "youtubeId": "dO_oVJTgRyc",
     "previewUrl": "https://youtube.com/shorts/dO_oVJTgRyc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mucv6xkiju6l",
+    "status": "draft",
+    "createdAt": "2026-09-22T16:04:25.842Z",
+    "theme": "Membro do Fed vê risco maior de inflação acima de 2% e defe…",
+    "title": "Membro do Fed vê risco maior de inflação acima de 2% e defende juros mais restritivos",
+    "hook": "Você viu isso? Membro do Fed vê risco maior de inflação acima de 2% e defende juros mais restr…",
+    "script": "Membro do Fed vê risco maior de inflação acima de 2% e defende juros mais restritivos. Collins afirmou que os riscos de alta para a inflação aumentaram, enquanto as condições do mercado de trabalho parecem \"um pouco mais fortes\" The post Membro do Fed vê risco maior de inflação acima de 2% e defende juros… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Membro",
+      "risco",
+      "maior",
+      "inflação",
+      "acima",
+      "defende"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/membro-do-fed-ve-risco-maior-de-inflacao-acima-de-2-e-defende-juros-mais-restritivos/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mucv6xkiju6l.mp4"
+    },
+    "youtubeId": "hXZG0blm-wQ",
+    "previewUrl": "https://youtube.com/shorts/hXZG0blm-wQ",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mucv7l4o2u6w",
+    "status": "draft",
+    "createdAt": "2026-09-22T16:04:25.842Z",
+    "theme": "Lula é aplaudido quatro vezes durante discurso na ONU",
+    "title": "Lula é aplaudido quatro vezes durante discurso na ONU",
+    "hook": "Você viu isso? Lula é aplaudido quatro vezes durante discurso na ONU",
+    "script": "Lula é aplaudido quatro vezes durante discurso na ONU. Presidente criticou aumento nos conflitos internacionais, defendeu o Tribunal Penal Internacional e também reforçou o direito a soberania dos países The post Lula é aplaudido quatro vezes durante discurso na ONU appeare… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "aplaudido",
+      "quatro",
+      "vezes",
+      "durante",
+      "discurso"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/lula-e-aplaudido-quatro-vezes-durante-discurso-na-onu/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mucv7l4o2u6w.mp4"
+    },
+    "youtubeId": "gm37BIGU5Gc",
+    "previewUrl": "https://youtube.com/shorts/gm37BIGU5Gc",
+    "privacyStatus": "unlisted"
   }
 ]
