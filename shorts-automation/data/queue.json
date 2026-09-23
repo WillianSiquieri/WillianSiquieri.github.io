@@ -3684,5 +3684,73 @@
     "youtubeId": "gm37BIGU5Gc",
     "previewUrl": "https://youtube.com/shorts/gm37BIGU5Gc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mueaa4f9byu0",
+    "status": "draft",
+    "createdAt": "2026-09-23T15:54:35.109Z",
+    "theme": "Bancos entram na reta final da eleição divididos entre &#82…",
+    "title": "Bancos entram na reta final da eleição divididos entre &#8220;alívio&#8221; e riscos de c…",
+    "hook": "Você viu isso? Bancos entram na reta final da eleição divididos entre &#8220;alívio&#8221; e r…",
+    "script": "Bancos entram na reta final da eleição divididos entre &#8220;alívio&#8221; e riscos de crédito. JPMorgan vê maior potencial de valorização em corretoras e empresas ligadas ao mercado de capitais, enquanto mantém preferência por Itaú entre os bancos tradicionais The post Bancos entram na reta final da eleição divid… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Bancos",
+      "entram",
+      "final",
+      "eleição",
+      "divididos",
+      "entre"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bancos-entram-na-reta-final-da-eleicao-divididos-entre-alivio-e-riscos-de-credito/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mueaa4f9byu0.mp4"
+    },
+    "youtubeId": "46TAvSou350",
+    "previewUrl": "https://youtube.com/shorts/46TAvSou350",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mueaasslkay9",
+    "status": "draft",
+    "createdAt": "2026-09-23T15:54:35.109Z",
+    "theme": "Falha em GPS no Embraer E2 afeta voos da Azul: há impacto p…",
+    "title": "Falha em GPS no Embraer E2 afeta voos da Azul: há impacto para ações das companhias?",
+    "hook": "Você viu isso? Falha em GPS no Embraer E2 afeta voos da Azul: há impacto para ações das compan…",
+    "script": "Falha em GPS no Embraer E2 afeta voos da Azul: há impacto para ações das companhias?. Analistas veem impacto operacional mais imediato para a companhia aérea do que para a Embraer, mas sem grandes variações na Bolsa The post Falha em GPS no Embraer E2 afeta voos da Azul: há impacto para ações das companh… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Falha",
+      "Embraer",
+      "afeta",
+      "Azul:",
+      "impacto",
+      "ações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/falha-em-gps-no-embraer-e2-afeta-voos-da-azul-ha-impacto-para-acoes-das-companhias/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mueaasslkay9.mp4"
+    },
+    "youtubeId": "fYvvfi5wDuo",
+    "previewUrl": "https://youtube.com/shorts/fYvvfi5wDuo",
+    "privacyStatus": "unlisted"
   }
 ]
