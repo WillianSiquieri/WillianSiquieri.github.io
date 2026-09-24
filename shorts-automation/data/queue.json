@@ -3752,5 +3752,73 @@
     "youtubeId": "fYvvfi5wDuo",
     "previewUrl": "https://youtube.com/shorts/fYvvfi5wDuo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mufqiw1tdzlm",
+    "status": "draft",
+    "createdAt": "2026-09-24T16:17:04.193Z",
+    "theme": "Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, el…",
+    "title": "Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, eleições e exterior no radar",
+    "hook": "Você viu isso? Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, eleições e exterior no…",
+    "script": "Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, eleições e exterior no radar. Bolsas dos EUA recuam com Treasuries ampliando ganhos The post Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, eleições e exterior no radar appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "Vivo:",
+      "Bolsa",
+      "política",
+      "monetária,",
+      "eleições"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-24092026/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mufqiw1tdzlm.mp4"
+    },
+    "youtubeId": "4afKRhqQOks",
+    "previewUrl": "https://youtube.com/shorts/4afKRhqQOks",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mufqjfgszh6",
+    "status": "draft",
+    "createdAt": "2026-09-24T16:17:04.193Z",
+    "theme": "Premiê diz que Canadá se preparou até para &#8220;risco ext…",
+    "title": "Premiê diz que Canadá se preparou até para &#8220;risco extremo&#8221; de ação militar do…",
+    "hook": "Você viu isso? Premiê diz que Canadá se preparou até para &#8220;risco extremo&#8221; de ação…",
+    "script": "Premiê diz que Canadá se preparou até para &#8220;risco extremo&#8221; de ação militar dos EUA. Em uma ampla entrevista, o primeiro-ministro do Canadá, Mark Carney, descreveu sua relação com o presidente Donald Trump como tensa e em constante evolução The post Premiê diz que Canadá se preparou até para &#8220;risc… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Premiê",
+      "Canadá",
+      "preparou",
+      "&#8220;risco",
+      "extremo&#8221;",
+      "militar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/global/premie-diz-que-canada-se-preparou-ate-para-risco-extremo-de-acao-militar-dos-eua/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mufqjfgszh6.mp4"
+    },
+    "youtubeId": "TDrB02vHMU4",
+    "previewUrl": "https://youtube.com/shorts/TDrB02vHMU4",
+    "privacyStatus": "unlisted"
   }
 ]
