@@ -3820,5 +3820,73 @@
     "youtubeId": "TDrB02vHMU4",
     "previewUrl": "https://youtube.com/shorts/TDrB02vHMU4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muh5yz5cdwgw",
+    "status": "draft",
+    "createdAt": "2026-09-25T16:17:15.120Z",
+    "theme": "É preciso entender se IA está se tornando grande demais par…",
+    "title": "É preciso entender se IA está se tornando grande demais para falir, diz membro do Fed",
+    "hook": "Você viu isso? É preciso entender se IA está se tornando grande demais para falir, diz membro…",
+    "script": "É preciso entender se IA está se tornando grande demais para falir, diz membro do Fed. Presidente fez referência à ​necessidade de resgates públicos de grandes ⁠instituições financeiras ​durante a crise financeira de 2007 a 2009 The post É preciso entender se IA está se tornando grande demais para falir,… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "preciso",
+      "entender",
+      "tornando",
+      "grande",
+      "demais",
+      "falir,"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/e-preciso-entender-se-ia-esta-se-tornando-grande-demais-para-falir-diz-membro-do-fed/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muh5yz5cdwgw.mp4"
+    },
+    "youtubeId": "D2PSWA-pYIc",
+    "previewUrl": "https://youtube.com/shorts/D2PSWA-pYIc",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muh5zeu32xqr",
+    "status": "draft",
+    "createdAt": "2026-09-25T16:17:15.120Z",
+    "theme": "Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeir…",
+    "title": "Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeira Nossa Senhora Aparecida",
+    "hook": "Você viu isso? Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeira Nossa Senhora Apar…",
+    "script": "Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeira Nossa Senhora Aparecida. Nas redes, senador aproveitou o episódio para criticar Lula e afirmar que o petista \"quer se meter até nas regras da Igreja Católica\" The post Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeira Nossa Senhora A… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Entenda",
+      "polêmica",
+      "envolvendo",
+      "Flávio",
+      "Bolsonaro",
+      "padroeira"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/entenda-a-polemica-envolvendo-flavio-bolsonaro-e-a-padroeira-nossa-senhora-aparecida/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muh5zeu32xqr.mp4"
+    },
+    "youtubeId": "l2Cy7rzF-tc",
+    "previewUrl": "https://youtube.com/shorts/l2Cy7rzF-tc",
+    "privacyStatus": "unlisted"
   }
 ]
