@@ -3888,5 +3888,72 @@
     "youtubeId": "l2Cy7rzF-tc",
     "previewUrl": "https://youtube.com/shorts/l2Cy7rzF-tc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muijrd2d722f",
+    "status": "draft",
+    "createdAt": "2026-09-26T15:31:00.709Z",
+    "theme": "Após onda de frio, Calor pode superar 40°c em oito estados…",
+    "title": "Após onda de frio, Calor pode superar 40°c em oito estados até quarta-feira (30)",
+    "hook": "Você viu isso? Após onda de frio, Calor pode superar 40°c em oito estados até quarta-feira (30)",
+    "script": "Após onda de frio, Calor pode superar 40°c em oito estados até quarta-feira (30). O instituto informa que até terça-feira, 29, está vigente um alerta vermelho para onda de calor, que é caracterizada pela persistência de temperaturas máximas pelo menos 5°C acima da média durante cinco dias consecutivo… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "frio,",
+      "Calor",
+      "superar",
+      "estados",
+      "quarta-feira"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/apos-onda-de-frio-calor-pode-superar-40c-em-oito-estados-ate-quarta-feira-30/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muijrd2d722f.mp4"
+    },
+    "youtubeId": "GvmySGqAod0",
+    "previewUrl": "https://youtube.com/shorts/GvmySGqAod0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muijrzhqbvy5",
+    "status": "draft",
+    "createdAt": "2026-09-26T15:31:00.709Z",
+    "theme": "A empresa que vendeu nuvem antes de o mercado saber que pre…",
+    "title": "A empresa que vendeu nuvem antes de o mercado saber que precisava",
+    "hook": "Você viu isso? A empresa que vendeu nuvem antes de o mercado saber que precisava",
+    "script": "A empresa que vendeu nuvem antes de o mercado saber que precisava. Ricardo Brandão identificou na computação em nuvem uma oportunidade que o mercado brasileiro ainda não enxergava; agora, vê na IA uma curva parecida The post A empresa que vendeu nuvem antes de o mercado saber que preci… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "empresa",
+      "vendeu",
+      "nuvem",
+      "antes",
+      "mercado",
+      "saber"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/a-empresa-que-vendeu-nuvem-antes-de-o-mercado-saber-que-precisava/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muijrzhqbvy5.mp4"
+    },
+    "youtubeId": "I6Ullcr3dqc",
+    "previewUrl": "https://youtube.com/shorts/I6Ullcr3dqc",
+    "privacyStatus": "unlisted"
   }
 ]
