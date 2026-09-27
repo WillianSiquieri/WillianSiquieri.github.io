@@ -3955,5 +3955,72 @@
     "youtubeId": "I6Ullcr3dqc",
     "previewUrl": "https://youtube.com/shorts/I6Ullcr3dqc",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muk0ms0dv0d",
+    "status": "draft",
+    "createdAt": "2026-09-27T16:11:06.445Z",
+    "theme": "O segredo para viver mais é mais simples do que parece — ve…",
+    "title": "O segredo para viver mais é mais simples do que parece — veja a recomendação",
+    "hook": "Você viu isso? O segredo para viver mais é mais simples do que parece — veja a recomendação",
+    "script": "O segredo para viver mais é mais simples do que parece — veja a recomendação. Especialista em longevidade mostra dados The post O segredo para viver mais é mais simples do que parece — veja a recomendação appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "segredo",
+      "viver",
+      "simples",
+      "parece",
+      "recomendação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/saude/o-segredo-para-viver-mais-e-mais-simples-do-que-parece-veja-a-recomendacao/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 24,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muk0ms0dv0d.mp4"
+    },
+    "youtubeId": "AbdjSC3dasg",
+    "previewUrl": "https://youtube.com/shorts/AbdjSC3dasg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muk0nas3bxlq",
+    "status": "draft",
+    "createdAt": "2026-09-27T16:11:06.445Z",
+    "theme": "Após rejeitar proposta do Irã, Trump sinaliza nova rodada d…",
+    "title": "Após rejeitar proposta do Irã, Trump sinaliza nova rodada de negociações",
+    "hook": "Você viu isso? Após rejeitar proposta do Irã, Trump sinaliza nova rodada de negociações",
+    "script": "Após rejeitar proposta do Irã, Trump sinaliza nova rodada de negociações. Conversas indiretas podem ser retomadas já na segunda-feira; Ormuz e programa nuclear seguem no centro do impasse The post Após rejeitar proposta do Irã, Trump sinaliza nova rodada de negociações appeared first on InfoM… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "rejeitar",
+      "proposta",
+      "Trump",
+      "sinaliza",
+      "rodada",
+      "negociações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/trump-negociacoes-ira-proposta-ormuz/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muk0nas3bxlq.mp4"
+    },
+    "youtubeId": "kWXK2Q4sBMQ",
+    "previewUrl": "https://youtube.com/shorts/kWXK2Q4sBMQ",
+    "privacyStatus": "unlisted"
   }
 ]
