@@ -4022,5 +4022,72 @@
     "youtubeId": "kWXK2Q4sBMQ",
     "previewUrl": "https://youtube.com/shorts/kWXK2Q4sBMQ",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mulmawg9fmrv",
+    "status": "draft",
+    "createdAt": "2026-09-28T19:05:30.057Z",
+    "theme": "Real Time Big Data: Cleitinho lidera com 38% em Minas; Patr…",
+    "title": "Real Time Big Data: Cleitinho lidera com 38% em Minas; Patrus tem 20%",
+    "hook": "Você viu isso? Real Time Big Data: Cleitinho lidera com 38% em Minas; Patrus tem 20%",
+    "script": "Real Time Big Data: Cleitinho lidera com 38% em Minas; Patrus tem 20%. Considerando apenas os votos válidos, Cleitinho tem 41% e Patrus, 22% The post Real Time Big Data: Cleitinho lidera com 38% em Minas; Patrus tem 20% appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Data:",
+      "Cleitinho",
+      "lidera",
+      "Minas;",
+      "Patrus"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/real-time-big-data-cleitinho-lidera-com-38-em-minas-patrus-tem-20/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mulmawg9fmrv.mp4"
+    },
+    "youtubeId": "Ag7pI0Ihixs",
+    "previewUrl": "https://youtube.com/shorts/Ag7pI0Ihixs",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mulmbgdfjhnd",
+    "status": "draft",
+    "createdAt": "2026-09-28T19:05:30.057Z",
+    "theme": "Gov.br apresenta instabilidade e usuários relatam falhas de…",
+    "title": "Gov.br apresenta instabilidade e usuários relatam falhas de acesso nesta segunda (28)",
+    "hook": "Você viu isso? Gov.br apresenta instabilidade e usuários relatam falhas de acesso nesta segund…",
+    "script": "Gov.br apresenta instabilidade e usuários relatam falhas de acesso nesta segunda (28). Pico de reclamações ocorreu durante a tarde, enquanto a causa do problema ainda não havia sido informada The post Gov.br apresenta instabilidade e usuários relatam falhas de acesso nesta segunda (28) appeared first on I… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Gov.br",
+      "apresenta",
+      "instabilidade",
+      "usuários",
+      "relatam",
+      "falhas"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/gov-br-apresenta-instabilidade/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mulmbgdfjhnd.mp4"
+    },
+    "youtubeId": "NB2y3nI7dz4",
+    "previewUrl": "https://youtube.com/shorts/NB2y3nI7dz4",
+    "privacyStatus": "unlisted"
   }
 ]
