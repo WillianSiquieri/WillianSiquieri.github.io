@@ -4089,5 +4089,71 @@
     "youtubeId": "NB2y3nI7dz4",
     "previewUrl": "https://youtube.com/shorts/NB2y3nI7dz4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mumy7tqwhexp",
+    "status": "draft",
+    "createdAt": "2026-09-29T17:26:48.152Z",
+    "theme": "Trump diz que parceria com Xi em IA prejudicaria as empresa…",
+    "title": "Trump diz que parceria com Xi em IA prejudicaria as empresas dos EUA",
+    "hook": "Você viu isso? Trump diz que parceria com Xi em IA prejudicaria as empresas dos EUA",
+    "script": "Trump diz que parceria com Xi em IA prejudicaria as empresas dos EUA. “Estamos à frente da China e de todos os outros, e quero que continue assim”, disse Trump The post Trump diz que parceria com Xi em IA prejudicaria as empresas dos EUA appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Trump",
+      "parceria",
+      "prejudicaria",
+      "empresas"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/trump-diz-que-parceria-com-xi-em-ia-prejudicaria-as-empresas-dos-eua/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mumy7tqwhexp.mp4"
+    },
+    "youtubeId": "bxj1aW6GM0c",
+    "previewUrl": "https://youtube.com/shorts/bxj1aW6GM0c",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mumy8cm6gvqm",
+    "status": "draft",
+    "createdAt": "2026-09-29T17:26:48.152Z",
+    "theme": "Clima, e não o preço, será fator determinante para produção…",
+    "title": "Clima, e não o preço, será fator determinante para produção de açúcar brasileiro",
+    "hook": "Você viu isso? Clima, e não o preço, será fator determinante para produção de açúcar brasileiro",
+    "script": "Clima, e não o preço, será fator determinante para produção de açúcar brasileiro. Mais chuvas do que o normal provavelmente ‌impedirá que usinas aumentem a produção de açúcar The post Clima, e não o preço, será fator determinante para produção de açúcar brasileiro appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Clima,",
+      "preço,",
+      "fator",
+      "determinante",
+      "produção",
+      "açúcar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/clima-e-nao-o-preco-sera-fator-determinante-para-producao-de-acucar-brasileiro/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mumy8cm6gvqm.mp4"
+    },
+    "youtubeId": "b_2QhTN5CWU",
+    "previewUrl": "https://youtube.com/shorts/b_2QhTN5CWU",
+    "privacyStatus": "unlisted"
   }
 ]
