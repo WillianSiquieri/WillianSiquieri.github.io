@@ -4155,5 +4155,71 @@
     "youtubeId": "b_2QhTN5CWU",
     "previewUrl": "https://youtube.com/shorts/b_2QhTN5CWU",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muodm6hu53ps",
+    "status": "draft",
+    "createdAt": "2026-09-30T17:25:38.274Z",
+    "theme": "Black Friday do TikTok Shop terá até 70% off de outubro a d…",
+    "title": "Black Friday do TikTok Shop terá até 70% off de outubro a dezembro; confira",
+    "hook": "Você viu isso? Black Friday do TikTok Shop terá até 70% off de outubro a dezembro; confira",
+    "script": "Black Friday do TikTok Shop terá até 70% off de outubro a dezembro; confira. Plataforma agora também de e-commerce promete expansão interativa das compras online The post Black Friday do TikTok Shop terá até 70% off de outubro a dezembro; confira appeared first on InfoMoney . Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "Black",
+      "Friday",
+      "TikTok",
+      "outubro",
+      "dezembro;",
+      "confira"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/black-friday-tiktok-shop-tera-outubro-dezembro/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muodm6hu53ps.mp4"
+    },
+    "youtubeId": "nW1kJ98Zy4w",
+    "previewUrl": "https://youtube.com/shorts/nW1kJ98Zy4w",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muodmryugeyo",
+    "status": "draft",
+    "createdAt": "2026-09-30T17:25:38.274Z",
+    "theme": "Lula confirma que não vai ao debate da Globo na quinta-feir…",
+    "title": "Lula confirma que não vai ao debate da Globo na quinta-feira (1)",
+    "hook": "Você viu isso? Lula confirma que não vai ao debate da Globo na quinta-feira (1)",
+    "script": "Lula confirma que não vai ao debate da Globo na quinta-feira (1). Presidente deve repetir estratégia adotada durante debate da Band, quando concedeu entrevista exclusiva para a Record The post Lula confirma que não vai ao debate da Globo na quinta-feira (1) appeared first on InfoMoney… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "confirma",
+      "debate",
+      "Globo",
+      "quinta-feira"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/lula-confirma-que-nao-vai-ao-debate-da-globo-na-quinta-feira-1/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muodmryugeyo.mp4"
+    },
+    "youtubeId": "N84Lb2r0adA",
+    "previewUrl": "https://youtube.com/shorts/N84Lb2r0adA",
+    "privacyStatus": "unlisted"
   }
 ]
