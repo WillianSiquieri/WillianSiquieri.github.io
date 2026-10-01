@@ -1,0 +1,14 @@
+{
+  "mode": "approval",
+  "postsPerDay": 3,
+  "pricing": {
+    "spreadPercent": 30,
+    "rounding": "psychological"
+  },
+  "preferences": {
+    "guidance": "Tom simpático e vendedor, sem exageros. Descreva a peça (tipo, cor, tecido/caimento quando der para inferir) de forma atraente, cite tamanho quando informado, destaque o preço final com clareza e feche com uma chamada para o direct/WhatsApp. Use 4 a 8 hashtags de moda/venda em português. Nada de promessas falsas.",
+    "likedThemes": [],
+    "dislikedThemes": []
+  },
+  "updatedAt": "2026-07-12T00:00:00.000Z"
+}
