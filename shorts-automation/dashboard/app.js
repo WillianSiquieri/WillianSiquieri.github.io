@@ -40,8 +40,18 @@ async function readFile(key) {
   return res.ok ? res.json() : (key === 'config' || key === 'settings' ? {} : []);
 }
 
-async function writeFile(key, value, message) {
-  if (!isConnected()) { toast('Conecte um token do GitHub para salvar.', true); throw new Error('offline'); }
+// Traduz o erro da API do GitHub em algo acionável.
+function ghErrorMessage(status, body) {
+  const extra = body?.message ? ` (${body.message})` : '';
+  if (status === 401) return 'Token inválido ou expirado — gere um novo em 🔌 Conectar.';
+  if (status === 403)
+    return 'Token sem permissão de escrita. Ele precisa de "Contents: Read and write" neste repositório' + extra;
+  if (status === 404) return 'Repositório ou branch não encontrado — ou o token não tem acesso a este repo.';
+  return `Erro ${status} ao salvar${extra}`;
+}
+
+async function writeFile(key, value, message, _retry = 0) {
+  if (!isConnected()) throw new Error('Conecte um token do GitHub para salvar (🔌 Conectar).');
   // Garante sha atual.
   if (!shaCache[key]) await readFile(key);
   const url = `https://api.github.com/repos/${conn.repo}/contents/${REPO_DIR}/${FILES[key]}`;
@@ -52,9 +62,24 @@ async function writeFile(key, value, message) {
     branch: conn.branch || 'master',
   };
   const res = await fetch(url, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
-  if (!res.ok) { toast('Erro ao salvar: ' + res.status, true); throw new Error('write failed'); }
-  const j = await res.json();
-  shaCache[key] = j.content.sha;
+  if (res.ok) {
+    const j = await res.json();
+    shaCache[key] = j.content.sha;
+    return;
+  }
+  let errBody = null;
+  try { errBody = await res.json(); } catch { /* resposta sem JSON */ }
+
+  // Conflito de versão: o robô commitou enquanto você revisava. Recarrega o sha
+  // e tenta de novo — quem chama já releu os dados frescos antes de montar o valor.
+  if ((res.status === 409 || res.status === 422) && _retry < 1) {
+    delete shaCache[key];
+    await readFile(key);
+    return writeFile(key, value, message, _retry + 1);
+  }
+  const err = new Error(ghErrorMessage(res.status, errBody));
+  err.status = res.status;
+  throw err;
 }
 
 function ghHeaders() {
@@ -143,6 +168,12 @@ function renderPublished() {
 }
 
 function renderFeedback() {
+  // Restaura rascunho pendente do feedback geral.
+  const box = document.getElementById('global-feedback');
+  const draft = getFbDraft('_global');
+  if (box && draft && !box.value) box.value = draft;
+  if (box && !box.oninput) box.oninput = () => saveFbDraft('_global', box.value.trim());
+
   const log = [...state.feedback].reverse();
   document.getElementById('feedback-log').innerHTML = log
     .map((f) => `<li><div>${escapeHtml(f.text)}</div><div class="when">${new Date(f.at).toLocaleString('pt-BR')}${f.targetTitle ? ' · sobre: ' + escapeHtml(f.targetTitle) : ''}</div></li>`)
@@ -211,6 +242,13 @@ function wireCardEvents() {
   document.querySelectorAll('[data-mic]').forEach((btn) => {
     btn.onclick = () => dictate(document.querySelector(`[data-fb="${btn.dataset.mic}"]`), btn);
   });
+  // Restaura o que ficou pendente (ex.: falha ao salvar) e guarda a cada digitação/ditado.
+  document.querySelectorAll('[data-fb]').forEach((box) => {
+    const id = box.dataset.fb;
+    const draft = getFbDraft(id);
+    if (draft && !box.value) box.value = draft;
+    box.oninput = () => saveFbDraft(id, box.value.trim());
+  });
 }
 
 /* ---------- Ditado por voz (feedback falado) ---------- */
@@ -257,25 +295,54 @@ function dictate(textarea, btn) {
   rec.start();
 }
 
+/* ---------- Rascunhos de feedback (sobrevivem a erro de rede/token) ---------- */
+const FB_KEY = 'sa_fb_drafts';
+function loadFbDrafts() {
+  try { return JSON.parse(localStorage.getItem(FB_KEY) || '{}'); } catch { return {}; }
+}
+function saveFbDraft(id, text) {
+  const d = loadFbDrafts();
+  if (text) d[id] = text; else delete d[id];
+  try { localStorage.setItem(FB_KEY, JSON.stringify(d)); } catch { /* storage cheio/bloqueado */ }
+}
+function getFbDraft(id) { return loadFbDrafts()[id] || ''; }
+
 /* ---------- Ações ---------- */
 async function decide(id, act) {
-  const idx = state.queue.findIndex((q) => q.id === id);
-  if (idx === -1) return;
   const fbBox = document.querySelector(`[data-fb="${id}"]`);
-  const fbText = fbBox?.value?.trim();
-  state.queue[idx].status = act === 'approve' ? 'approved' : 'rejected';
-  state.queue[idx].decidedAt = new Date().toISOString();
+  const fbText = (fbBox?.value || '').trim();
+  // Guarda ANTES de tentar salvar: se der erro, o que você ditou não se perde.
+  if (fbText) saveFbDraft(id, fbText);
+
+  const local = state.queue.find((q) => q.id === id);
+  const title = local?.title || id;
+
   try {
-    await writeFile('queue', state.queue, `painel: ${act} "${state.queue[idx].title}"`);
-    if (fbText) await pushFeedback(fbText, state.queue[idx].title);
+    // Relê a fila do servidor para não sobrescrever shorts gerados nesse meio-tempo.
+    const fresh = await readFile('queue');
+    const i = fresh.findIndex((q) => q.id === id);
+    if (i === -1) { toast('Esse short não está mais na fila.', true); await loadAll(); return; }
+    fresh[i].status = act === 'approve' ? 'approved' : 'rejected';
+    fresh[i].decidedAt = new Date().toISOString();
+    if (act === 'reject' && fbText) fresh[i].rejectReason = fbText;
+
+    await writeFile('queue', fresh, `painel: ${act} "${title}"`);
+    if (fbText) await pushFeedback(fbText, title);
+    saveFbDraft(id, ''); // só limpa depois que tudo gravou
     toast(act === 'approve' ? 'Aprovado ✅' : 'Rejeitado ✕');
     await loadAll();
-  } catch { /* toast já exibido */ }
+  } catch (e) {
+    if (fbBox) fbBox.value = fbText; // mantém o texto na tela
+    toast((e.message || 'Falha ao salvar') + ' — seu feedback foi guardado, tente de novo.', true);
+  }
 }
 
 async function pushFeedback(text, targetTitle) {
-  state.feedback.push({ at: new Date().toISOString(), text, targetTitle: targetTitle || null });
-  await writeFile('feedback', state.feedback, 'painel: novo feedback');
+  // Relê antes de gravar para não descartar feedbacks enviados de outro lugar.
+  const fresh = await readFile('feedback');
+  fresh.push({ at: new Date().toISOString(), text, targetTitle: targetTitle || null });
+  await writeFile('feedback', fresh, 'painel: novo feedback');
+  state.feedback = fresh;
 }
 
 async function saveSettings() {
@@ -284,14 +351,14 @@ async function saveSettings() {
   state.settings.preferences.guidance = document.getElementById('guidance').value;
   state.settings.updatedAt = new Date().toISOString();
   try { await writeFile('settings', state.settings, 'painel: configurações'); toast('Configurações salvas'); }
-  catch {}
+  catch (e) { toast(e.message || 'Falha ao salvar configurações', true); }
 }
 
 async function setMode(mode) {
   state.settings.mode = mode;
   state.settings.updatedAt = new Date().toISOString();
   try { await writeFile('settings', state.settings, `painel: modo ${mode}`); renderMode(); toast('Modo: ' + mode); }
-  catch {}
+  catch (e) { toast(e.message || 'Falha ao mudar o modo', true); }
 }
 
 /* ---------- Utils ---------- */
@@ -318,7 +385,16 @@ document.getElementById('btn-add-feedback').onclick = async () => {
   const box = document.getElementById('global-feedback');
   const text = box.value.trim();
   if (!text) return;
-  try { await pushFeedback(text); box.value = ''; toast('Feedback enviado'); await loadAll(); } catch {}
+  saveFbDraft('_global', text);
+  try {
+    await pushFeedback(text);
+    saveFbDraft('_global', '');
+    box.value = '';
+    toast('Feedback enviado');
+    await loadAll();
+  } catch (e) {
+    toast((e.message || 'Falha ao enviar') + ' — seu texto foi guardado.', true);
+  }
 };
 document.getElementById('mic-global').onclick = (e) =>
   dictate(document.getElementById('global-feedback'), e.currentTarget);
@@ -343,13 +419,35 @@ document.getElementById('btn-connect').onclick = () => {
   modal.classList.remove('hidden');
 };
 document.getElementById('btn-settings').onclick = () => document.getElementById('per-day').scrollIntoView({ behavior: 'smooth' });
+// Confere na hora se o token serve para escrever neste repositório.
+async function checkConn() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${conn.repo}`, { headers: ghHeaders() });
+    if (res.status === 401) return 'Token inválido ou expirado.';
+    if (res.status === 404) return 'Repositório não encontrado, ou o token não tem acesso a ele.';
+    if (!res.ok) return `Erro ${res.status} ao validar o token.`;
+    const j = await res.json();
+    if (!j.permissions?.push) {
+      return 'Token conectado, mas SEM permissão de escrita — precisa de "Contents: Read and write".';
+    }
+    return null;
+  } catch {
+    return 'Não foi possível falar com o GitHub (rede/bloqueio).';
+  }
+}
+
 document.getElementById('btn-save-connect').onclick = async () => {
   conn.repo = document.getElementById('cfg-repo').value.trim();
   conn.branch = document.getElementById('cfg-branch').value.trim() || 'master';
   conn.token = document.getElementById('cfg-token').value.trim();
   saveConn(conn);
+  const problem = await checkConn();
+  if (problem) {
+    toast(problem, true);
+    return; // mantém o modal aberto para você corrigir
+  }
   modal.classList.add('hidden');
-  toast('Conectado');
+  toast('Conectado — token com permissão de escrita ✅');
   await loadAll();
 };
 document.getElementById('btn-disconnect').onclick = async () => {
