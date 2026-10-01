@@ -1184,7 +1184,7 @@
   },
   {
     "id": "sh_msx7ot9xhkac",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-17T12:30:14.325Z",
     "theme": "Dólar hoje recua com exterior e prévia do PIB no radar",
     "title": "Dólar hoje recua com exterior e prévia do PIB no radar",
@@ -1213,11 +1213,13 @@
     },
     "youtubeId": "AwOfDYHznpo",
     "previewUrl": "https://youtube.com/shorts/AwOfDYHznpo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.185Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_msx7p9t2koa2",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-17T12:30:14.325Z",
     "theme": "&#8220;Brasil precisa acelerar reação às tarifas americanas…",
     "title": "&#8220;Brasil precisa acelerar reação às tarifas americanas&#8221;, diz Amorim",
@@ -1247,11 +1249,13 @@
     },
     "youtubeId": "Szjh-3j9BCY",
     "previewUrl": "https://youtube.com/shorts/Szjh-3j9BCY",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_msyn6mc68ctk",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-18T12:31:45.558Z",
     "theme": "Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que…",
     "title": "Vale: o &#8220;cobre escondido&#8221; na tese de VALE3 que pode destravar valor para ação",
@@ -1281,11 +1285,13 @@
     },
     "youtubeId": "Xxy1oZclo7c",
     "previewUrl": "https://youtube.com/shorts/Xxy1oZclo7c",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_msyn7cyc8361",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-18T12:31:45.558Z",
     "theme": "Dólar hoje sobe com tensão no Oriente Médio e juros no radar",
     "title": "Dólar hoje sobe com tensão no Oriente Médio e juros no radar",
@@ -1315,11 +1321,13 @@
     },
     "youtubeId": "-aHZxOrLzKg",
     "previewUrl": "https://youtube.com/shorts/-aHZxOrLzKg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt02neth5f6r",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-19T12:32:29.381Z",
     "theme": "Agência da ONU afirma ter encontrado &#8216;toneladas de ma…",
     "title": "Agência da ONU afirma ter encontrado &#8216;toneladas de material nuclear&#8217; na Síria",
@@ -1349,11 +1357,13 @@
     },
     "youtubeId": "rSMdAVA4tq0",
     "previewUrl": "https://youtube.com/shorts/rSMdAVA4tq0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt02obwx5qis",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-19T12:32:29.381Z",
     "theme": "Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro…",
     "title": "Quem é o ex-comandante da FAB que ameaçou prender Bolsonaro se ele impedisse eleição",
@@ -1383,11 +1393,13 @@
     },
     "youtubeId": "jDiyfV5nmQY",
     "previewUrl": "https://youtube.com/shorts/jDiyfV5nmQY",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt1i4sfp7jc9",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-20T12:33:40.597Z",
     "theme": "Walmart registra vendas abaixo do esperado à medida que con…",
     "title": "Walmart registra vendas abaixo do esperado à medida que consumidores reduzem gastos",
@@ -1417,11 +1429,13 @@
     },
     "youtubeId": "3O1C_NnOgWU",
     "previewUrl": "https://youtube.com/shorts/3O1C_NnOgWU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt1i5b8kcdxb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-20T12:33:40.597Z",
     "theme": "Dólar recupera terreno após cair na véspera com anúncio de…",
     "title": "Dólar recupera terreno após cair na véspera com anúncio de recompra de Treasuries",
@@ -1451,11 +1465,13 @@
     },
     "youtubeId": "FDiScWaKhPg",
     "previewUrl": "https://youtube.com/shorts/FDiScWaKhPg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt2xjo0e1tsu",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-21T12:32:55.118Z",
     "theme": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar…",
     "title": "Ibovespa Hoje Ao Vivo: Confira o que movimenta Bolsa, Dólar e Juros nesta sexta",
@@ -1485,11 +1501,13 @@
     },
     "youtubeId": "q3jchqa3kQs",
     "previewUrl": "https://youtube.com/shorts/q3jchqa3kQs",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt2xk93pd77z",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-21T12:32:55.118Z",
     "theme": "Axia chega a acordo com União e Piauí sobre ação no STF env…",
     "title": "Axia chega a acordo com União e Piauí sobre ação no STF envolvendo venda da Cepisa",
@@ -1519,11 +1537,13 @@
     },
     "youtubeId": "xO32166-6s8",
     "previewUrl": "https://youtube.com/shorts/xO32166-6s8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt4coxd3ktry",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-22T12:24:40.935Z",
     "theme": "Move Brasil: veja quais carros é possível comprar após teto…",
     "title": "Move Brasil: veja quais carros é possível comprar após teto subir para R$ 200 mil",
@@ -1553,11 +1573,13 @@
     },
     "youtubeId": "ljdojgBkYIA",
     "previewUrl": "https://youtube.com/shorts/ljdojgBkYIA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt4cphfgflgp",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-22T12:24:40.935Z",
     "theme": "Lula: Brasil não vai depender nem da China, nem dos EUA par…",
     "title": "Lula: Brasil não vai depender nem da China, nem dos EUA para fazer sua IA",
@@ -1586,11 +1608,13 @@
     },
     "youtubeId": "wn9o481gqJk",
     "previewUrl": "https://youtube.com/shorts/wn9o481gqJk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt5s5mo6k92p",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-23T12:25:20.646Z",
     "theme": "Zema defende nova reforma da Previdência com ajuste pela ex…",
     "title": "Zema defende nova reforma da Previdência com ajuste pela expectativa de vida",
@@ -1619,11 +1643,13 @@
     },
     "youtubeId": "jRL4guCie48",
     "previewUrl": "https://youtube.com/shorts/jRL4guCie48",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt5s5z5iarey",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-23T12:25:20.646Z",
     "theme": "De psicóloga a sócia: como Aline Rosa construiu uma carteir…",
     "title": "De psicóloga a sócia: como Aline Rosa construiu uma carteira de R$ 300 milhões",
@@ -1653,11 +1679,13 @@
     },
     "youtubeId": "Jgs4kGpVNQo",
     "previewUrl": "https://youtube.com/shorts/Jgs4kGpVNQo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt77ydff2zby",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-24T12:35:22.107Z",
     "theme": "São Paulo segue mais bolsonarista? Flávio lidera, mas vanta…",
     "title": "São Paulo segue mais bolsonarista? Flávio lidera, mas vantagem diminuiu desde 2022",
@@ -1687,11 +1715,13 @@
     },
     "youtubeId": "UWJfp_uwGlo",
     "previewUrl": "https://youtube.com/shorts/UWJfp_uwGlo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt77ywapfvyc",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-24T12:35:22.107Z",
     "theme": "Dólar hoje sobe com cenário político e tensões no Oriente M…",
     "title": "Dólar hoje sobe com cenário político e tensões no Oriente Médio no radar",
@@ -1721,11 +1751,13 @@
     },
     "youtubeId": "YiK9kpQsCnA",
     "previewUrl": "https://youtube.com/shorts/YiK9kpQsCnA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt8ndaelltf",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-25T12:34:38.445Z",
     "theme": "Fila do INSS: Tribunal de Contas da União coloca benefícios…",
     "title": "Fila do INSS: Tribunal de Contas da União coloca benefícios em lista de ‘alto risco’",
@@ -1755,11 +1787,13 @@
     },
     "youtubeId": "HViGj68UrcE",
     "previewUrl": "https://youtube.com/shorts/HViGj68UrcE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mt8ndy16gb48",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-25T12:34:38.445Z",
     "theme": "Minério de ferro recua conforme custos do coque sobem e red…",
     "title": "Minério de ferro recua conforme custos do coque sobem e reduzem margens das usinas",
@@ -1789,11 +1823,13 @@
     },
     "youtubeId": "4IZUpTLJcZo",
     "previewUrl": "https://youtube.com/shorts/4IZUpTLJcZo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mta2x80s2der",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-26T12:37:48.891Z",
     "theme": "Jornada de 40 horas pode elevar custos de empresas em quase…",
     "title": "Jornada de 40 horas pode elevar custos de empresas em quase 7%, aponta estudo",
@@ -1823,11 +1859,13 @@
     },
     "youtubeId": "Co7XL1W-yGA",
     "previewUrl": "https://youtube.com/shorts/Co7XL1W-yGA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mta2xqb6foz8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-26T12:37:48.891Z",
     "theme": "Quaest: Aziz tem 26% das intenções de voto no AM; vice-lide…",
     "title": "Quaest: Aziz tem 26% das intenções de voto no AM; vice-liderança tem empate triplo",
@@ -1856,11 +1894,13 @@
     },
     "youtubeId": "1rT9yfUpdPo",
     "previewUrl": "https://youtube.com/shorts/1rT9yfUpdPo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtc1jinl2htu",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-27T21:34:42.225Z",
     "theme": "Nasdaq sobe com previsão da Nvidia; investidores aguardam d…",
     "title": "Nasdaq sobe com previsão da Nvidia; investidores aguardam discurso de Warsh",
@@ -1890,11 +1930,13 @@
     },
     "youtubeId": "m3JyQcFHvH8",
     "previewUrl": "https://youtube.com/shorts/m3JyQcFHvH8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtc1k3fxfumx",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-27T21:34:42.225Z",
     "theme": "Família de Lito Sousa pede restrição de visitas para preser…",
     "title": "Família de Lito Sousa pede restrição de visitas para preservar tratamento",
@@ -1924,11 +1966,13 @@
     },
     "youtubeId": "xIgOM98Foro",
     "previewUrl": "https://youtube.com/shorts/xIgOM98Foro",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtdh4o5qz02",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-28T21:38:49.550Z",
     "theme": "Vale se depara com escassez de engenheiros enquanto foca no…",
     "title": "Vale se depara com escassez de engenheiros enquanto foca novos projetos, diz CEO",
@@ -1958,11 +2002,13 @@
     },
     "youtubeId": "r1lTbZK5btU",
     "previewUrl": "https://youtube.com/shorts/r1lTbZK5btU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtdh5aga2f7q",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-28T21:38:49.550Z",
     "theme": "TRF-4 pune Eduardo Appio e determina perda de cargo após su…",
     "title": "TRF-4 pune Eduardo Appio e determina perda de cargo após suposto furto de champanhe",
@@ -1992,11 +2038,13 @@
     },
     "youtubeId": "YS4GiOydw4o",
     "previewUrl": "https://youtube.com/shorts/YS4GiOydw4o",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtekivc67cq8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-29T16:01:37.062Z",
     "theme": "Após remédios para obesidade, medicamentos contra calvície…",
     "title": "Após remédios para obesidade, medicamentos contra calvície viram aposta nos EUA",
@@ -2026,11 +2074,13 @@
     },
     "youtubeId": "v4QuBbpVTrE",
     "previewUrl": "https://youtube.com/shorts/v4QuBbpVTrE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtekji5f7avo",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-29T16:01:37.062Z",
     "theme": "Reconstrução do Nepal após enchentes pode custar até R$ 26…",
     "title": "Reconstrução do Nepal após enchentes pode custar até R$ 26 bi; mortos chegam a 676",
@@ -2060,11 +2110,13 @@
     },
     "youtubeId": "Q02iqjea07Q",
     "previewUrl": "https://youtube.com/shorts/Q02iqjea07Q",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtfzl22ngm7i",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-30T15:50:59.519Z",
     "theme": "O império da faxina: como a Maria Brasileira virou uma rede…",
     "title": "O império da faxina: como a Maria Brasileira virou uma rede que vai faturar R$ 231 mi",
@@ -2094,11 +2146,13 @@
     },
     "youtubeId": "0PzfF6Xtfcw",
     "previewUrl": "https://youtube.com/shorts/0PzfF6Xtfcw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtfzltw1cnzn",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-30T15:50:59.519Z",
     "theme": "Quina acumula e prêmio do próximo concurso vai a R$ 10 milh…",
     "title": "Quina acumula e prêmio do próximo concurso vai a R$ 10 milhões",
@@ -2128,11 +2182,13 @@
     },
     "youtubeId": "VD6Zxm_GzU4",
     "previewUrl": "https://youtube.com/shorts/VD6Zxm_GzU4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mthkvt15k5wc",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-31T18:34:59.129Z",
     "theme": "Proteção, diversificação e reserva de valor: o papel do our…",
     "title": "Proteção, diversificação e reserva de valor: o papel do ouro na sua carteira",
@@ -2162,11 +2218,13 @@
     },
     "youtubeId": "H2kqnRjoQmI",
     "previewUrl": "https://youtube.com/shorts/H2kqnRjoQmI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mthkwe3q3yff",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-31T18:34:59.129Z",
     "theme": "Bolsas da Europa fecham na maioria em queda com avanço do p…",
     "title": "Bolsas da Europa fecham na maioria em queda com avanço do petróleo",
@@ -2196,11 +2254,13 @@
     },
     "youtubeId": "y6CKix64aso",
     "previewUrl": "https://youtube.com/shorts/y6CKix64aso",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtiukp2k4mg0",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-01T15:54:03.116Z",
     "theme": "Starmer renuncia ao Parlamento e diz que irá focar em &#821…",
     "title": "Starmer renuncia ao Parlamento e diz que irá focar em &#8216;assuntos internacionais&#821…",
@@ -2230,11 +2290,13 @@
     },
     "youtubeId": "fKDhLWfMi0o",
     "previewUrl": "https://youtube.com/shorts/fKDhLWfMi0o",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtiuleee406w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-01T15:54:03.116Z",
     "theme": "Xi Jinping defende mundo multipolar e critica retomada do p…",
     "title": "Xi Jinping defende mundo multipolar e critica retomada do protecionismo",
@@ -2264,11 +2326,13 @@
     },
     "youtubeId": "xtpmqmEZXjo",
     "previewUrl": "https://youtube.com/shorts/xtpmqmEZXjo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtk9vdeb4q0d",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-02T15:50:01.619Z",
     "theme": "Assessores de Trump buscam evitar escalada da guerra com Ir…",
     "title": "Assessores de Trump buscam evitar escalada da guerra com Irã até eleições de novembro",
@@ -2298,11 +2362,13 @@
     },
     "youtubeId": "_3HPSvYJRdM",
     "previewUrl": "https://youtube.com/shorts/_3HPSvYJRdM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtk9w03n26wb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-02T15:50:01.619Z",
     "theme": "Google escapa de tentativa de divisão e evita venda de negó…",
     "title": "Google escapa de tentativa de divisão e evita venda de negócio bilionário de anúncios",
@@ -2332,11 +2398,13 @@
     },
     "youtubeId": "BWzjUQ1C46s",
     "previewUrl": "https://youtube.com/shorts/BWzjUQ1C46s",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtlotds3l5it",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-03T15:36:09.219Z",
     "theme": "Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para…",
     "title": "Ibovespa Hoje Ao Vivo: Bolsa reduz ganhos, mas caminha para 12ª alta seguida",
@@ -2366,11 +2434,13 @@
     },
     "youtubeId": "f5yfOfbmDKI",
     "previewUrl": "https://youtube.com/shorts/f5yfOfbmDKI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtloty0s23kh",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-03T15:36:09.219Z",
     "theme": "Ibovespa opera em alta pela 12ª sessão com alívio em Treasu…",
     "title": "Ibovespa opera em alta pela 12ª sessão com alívio em Treasury e eleição do radar",
@@ -2400,11 +2470,13 @@
     },
     "youtubeId": "q_S14N9tezs",
     "previewUrl": "https://youtube.com/shorts/q_S14N9tezs",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtn47lnx2q",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-04T15:34:53.037Z",
     "theme": "Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridad…",
     "title": "Ao lado de Lula, Fachin afirma que &#8220;nenhuma autoridade está acima da Constituição&#…",
@@ -2434,11 +2506,13 @@
     },
     "youtubeId": "ykAJs-SekKM",
     "previewUrl": "https://youtube.com/shorts/ykAJs-SekKM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtn48cfm3dqp",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-04T15:34:53.037Z",
     "theme": "Poucos terrenos, Selic e ciclo longo: por que novos shoppin…",
     "title": "Poucos terrenos, Selic e ciclo longo: por que novos shoppings são raros no Brasil?",
@@ -2468,11 +2542,13 @@
     },
     "youtubeId": "GWdGCzdOeOE",
     "previewUrl": "https://youtube.com/shorts/GWdGCzdOeOE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtoh1pmeeo8o",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-05T14:21:59.414Z",
     "theme": "Carlos Alberto Parreira recebe alta após 80 dias internado…",
     "title": "Carlos Alberto Parreira recebe alta após 80 dias internado no Rio",
@@ -2501,11 +2577,13 @@
     },
     "youtubeId": "812jcD2MJgQ",
     "previewUrl": "https://youtube.com/shorts/812jcD2MJgQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtoh2eb4gm8q",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-05T14:21:59.414Z",
     "theme": "Após 10 anos parado, Teleférico do Alemão entra na reta fin…",
     "title": "Após 10 anos parado, Teleférico do Alemão entra na reta final da recuperação",
@@ -2535,11 +2613,13 @@
     },
     "youtubeId": "oLXbDgrbzmE",
     "previewUrl": "https://youtube.com/shorts/oLXbDgrbzmE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtpxamyzl20b",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-06T14:44:35.914Z",
     "theme": "Loteria Federal: confira o resultado do concurso 6098-4 sor…",
     "title": "Loteria Federal: confira o resultado do concurso 6098-4 sorteado neste domingo (6)",
@@ -2569,11 +2649,13 @@
     },
     "youtubeId": "3ejPpid4oDc",
     "previewUrl": "https://youtube.com/shorts/3ejPpid4oDc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtpxb4pkgksw",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-06T14:44:35.914Z",
     "theme": "Quina hoje: ninguém acerta as dezenas e prêmio acumula para…",
     "title": "Quina hoje: ninguém acerta as dezenas e prêmio acumula para R$ 18,5 milhões",
@@ -2603,11 +2685,13 @@
     },
     "youtubeId": "KUSupBASNBQ",
     "previewUrl": "https://youtube.com/shorts/KUSupBASNBQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtrhlpk169cj",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-07T17:00:50.977Z",
     "theme": "Eleição será 50% construção e 50% destruição do adversário,…",
     "title": "Eleição será 50% construção e 50% destruição do adversário, prevê marqueteiro",
@@ -2637,11 +2721,13 @@
     },
     "youtubeId": "jn0-wJgN46I",
     "previewUrl": "https://youtube.com/shorts/jn0-wJgN46I",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtrhme3zjd2d",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-07T17:00:50.977Z",
     "theme": "Nepal concentra esforços para encontrar 900 trabalhadores d…",
     "title": "Nepal concentra esforços para encontrar 900 trabalhadores de usinas hidrelétricas",
@@ -2671,11 +2757,13 @@
     },
     "youtubeId": "-IcCsTBjNHQ",
     "previewUrl": "https://youtube.com/shorts/-IcCsTBjNHQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtsug2gsftx8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-08T15:48:08.956Z",
     "theme": "Mentorias, networking e acesso a fundadores e CEOs: o que e…",
     "title": "Mentorias, networking e acesso a fundadores e CEOs: o que esperar da B55 Conference",
@@ -2705,11 +2793,13 @@
     },
     "youtubeId": "sdKRRsgglXw",
     "previewUrl": "https://youtube.com/shorts/sdKRRsgglXw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtsugntm8i2a",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-08T15:48:08.956Z",
     "theme": "Participação de veículos elétricos nas vendas no Brasil che…",
     "title": "Participação de veículos elétricos nas vendas no Brasil chega a 10,4%, diz Anfavea",
@@ -2739,11 +2829,13 @@
     },
     "youtubeId": "osQL1zrJKVo",
     "previewUrl": "https://youtube.com/shorts/osQL1zrJKVo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtu9qnxzcwhe",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-09T15:44:03.767Z",
     "theme": "Mendonça procura Fachin após Dino reintegrar chefe da PF e…",
     "title": "Mendonça procura Fachin após Dino reintegrar chefe da PF e cobra resposta do STF",
@@ -2773,11 +2865,13 @@
     },
     "youtubeId": "n5Pty58mECg",
     "previewUrl": "https://youtube.com/shorts/n5Pty58mECg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtu9r9bx7ou2",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-09T15:44:03.767Z",
     "theme": "Partido Novo chama Dino de &#8220;terrivelmente soviético&#…",
     "title": "Partido Novo chama Dino de &#8220;terrivelmente soviético&#8221; após decisão a favor de…",
@@ -2807,11 +2901,13 @@
     },
     "youtubeId": "GcyMj6oiFug",
     "previewUrl": "https://youtube.com/shorts/GcyMj6oiFug",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtvp0mq3bccp",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-10T15:39:29.163Z",
     "theme": "The Economist vê risco à democracia em desgaste do STF após…",
     "title": "The Economist vê risco à democracia em desgaste do STF após caso Master",
@@ -2840,11 +2936,13 @@
     },
     "youtubeId": "Clt2gjY3J2Q",
     "previewUrl": "https://youtube.com/shorts/Clt2gjY3J2Q",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtvp18dx21rn",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-10T15:39:29.163Z",
     "theme": "O que fez Ibovespa sair de queda para alta de mais de 1%? C…",
     "title": "O que fez Ibovespa sair de queda para alta de mais de 1%? Cenário eleitoral explica",
@@ -2873,11 +2971,13 @@
     },
     "youtubeId": "ZTn2lJ7ov94",
     "previewUrl": "https://youtube.com/shorts/ZTn2lJ7ov94",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtx4hgwlddz5",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-11T15:40:15.189Z",
     "theme": "Nivaldo da Batata: polícia investiga morte de vereador atin…",
     "title": "Nivaldo da Batata: polícia investiga morte de vereador atingido por tubérculo",
@@ -2907,11 +3007,13 @@
     },
     "youtubeId": "0_nA7LqXqf0",
     "previewUrl": "https://youtube.com/shorts/0_nA7LqXqf0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtx4i113gqsb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-11T15:40:15.189Z",
     "theme": "Princesa Astrid, da Noruega, morre aos 94 anos, dois dias a…",
     "title": "Princesa Astrid, da Noruega, morre aos 94 anos, dois dias após funeral do rei",
@@ -2941,11 +3043,13 @@
     },
     "youtubeId": "81jnIEA-pFA",
     "previewUrl": "https://youtube.com/shorts/81jnIEA-pFA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtyi1n2hbxho",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-12T14:47:37.481Z",
     "theme": "Como fundadores de empresas chinesas de chips se tornaram b…",
     "title": "Como fundadores de empresas chinesas de chips se tornaram bilionários sem gerar lucro",
@@ -2975,11 +3079,13 @@
     },
     "youtubeId": "_ZkvpkzYmKI",
     "previewUrl": "https://youtube.com/shorts/_ZkvpkzYmKI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtyi2aexetoz",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-12T14:47:37.481Z",
     "theme": "Governo do Iraque confirma que ataques a oleoduto Saudita p…",
     "title": "Governo do Iraque confirma que ataques a oleoduto Saudita partiram de seu território",
@@ -3009,11 +3115,13 @@
     },
     "youtubeId": "PD2u6cK3EaM",
     "previewUrl": "https://youtube.com/shorts/PD2u6cK3EaM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtzyv051kf4e",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-13T15:26:07.477Z",
     "theme": "Claudio Castro acionou Mendonça antes de voto sobre soltura…",
     "title": "Claudio Castro acionou Mendonça antes de voto sobre soltura de Sérgio Cabral",
@@ -3043,11 +3151,13 @@
     },
     "youtubeId": "GOiKp7HY3ic",
     "previewUrl": "https://youtube.com/shorts/GOiKp7HY3ic",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mtzyvik13rsm",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-13T15:26:07.477Z",
     "theme": "Dino: inquérito aponta desvio de emendas em SP e menciona l…",
     "title": "Dino: inquérito aponta desvio de emendas em SP e menciona ligação entre PCC e Frias",
@@ -3077,11 +3187,13 @@
     },
     "youtubeId": "tkMcTsxluXU",
     "previewUrl": "https://youtube.com/shorts/tkMcTsxluXU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu1ihzc7dpmo",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-14T17:23:38.407Z",
     "theme": "FII TRXF11 anuncia compra de dois ativos corporativos em SP…",
     "title": "FII TRXF11 anuncia compra de dois ativos corporativos em SP por R$ 340,3 milhões",
@@ -3111,11 +3223,13 @@
     },
     "youtubeId": "XsevEvmlqqg",
     "previewUrl": "https://youtube.com/shorts/XsevEvmlqqg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu1iigus7u66",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-14T17:23:38.407Z",
     "theme": "Copom não fará pausa e deve cortar juro a 13,25% em 2026, a…",
     "title": "Copom não fará pausa e deve cortar juro a 13,25% em 2026, avalia XP",
@@ -3145,11 +3259,13 @@
     },
     "youtubeId": "etT5voqiW6w",
     "previewUrl": "https://youtube.com/shorts/etT5voqiW6w",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu2v0dqp35jr",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-15T16:01:38.449Z",
     "theme": "Minério a US$ 95 desafia setor em meio à alta dos fretes: V…",
     "title": "Minério a US$ 95 desafia setor em meio à alta dos fretes: VALE3 e CMIN3 sob pressão?",
@@ -3179,11 +3295,13 @@
     },
     "youtubeId": "-bBpBF8Qpk8",
     "previewUrl": "https://youtube.com/shorts/-bBpBF8Qpk8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu2v0wgu384l",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-15T16:01:38.449Z",
     "theme": "Superávit comercial do Brasil deve superar US$90 bi em 2026…",
     "title": "Superávit comercial do Brasil deve superar US$90 bi em 2026, diz Márcio Rosa",
@@ -3213,11 +3331,13 @@
     },
     "youtubeId": "l5d1wiwcLUQ",
     "previewUrl": "https://youtube.com/shorts/l5d1wiwcLUQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu4a715xcf1",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-16T15:54:29.157Z",
     "theme": "Microsoft critica abordagem da Anthropic em relação à consc…",
     "title": "Microsoft critica abordagem da Anthropic em relação à consciência da IA",
@@ -3247,11 +3367,13 @@
     },
     "youtubeId": "BHs0ogmr1R0",
     "previewUrl": "https://youtube.com/shorts/BHs0ogmr1R0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu4a7r1aim2w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-16T15:54:29.157Z",
     "theme": "Nvidia, Google e Emerald AI lançam aliança para flexibiliza…",
     "title": "Nvidia, Google e Emerald AI lançam aliança para flexibilizar energia em data centers",
@@ -3281,11 +3403,13 @@
     },
     "youtubeId": "azZ64lIHecQ",
     "previewUrl": "https://youtube.com/shorts/azZ64lIHecQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu5pv3cn9w8t",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-17T16:00:52.151Z",
     "theme": "Redesenho de distritos muda mapas da Câmara para 34,8 milhõ…",
     "title": "Redesenho de distritos muda mapas da Câmara para 34,8 milhões e gera alerta",
@@ -3315,11 +3439,13 @@
     },
     "youtubeId": "YL334gVhTWo",
     "previewUrl": "https://youtube.com/shorts/YL334gVhTWo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu5pvntf5q89",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-17T16:00:52.151Z",
     "theme": "Nicole Bahls compra carro de mais de R$ 1 milhão por causa…",
     "title": "Nicole Bahls compra carro de mais de R$ 1 milhão por causa da maçaneta; entenda",
@@ -3349,11 +3475,13 @@
     },
     "youtubeId": "Bz1pQNfwSps",
     "previewUrl": "https://youtube.com/shorts/Bz1pQNfwSps",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu74en1a5xgl",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-18T15:35:44.926Z",
     "theme": "Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de op…",
     "title": "Ibovespa Hoje Ao Vivo: Bolsa cai em dia de vencimento de opções",
@@ -3382,11 +3510,13 @@
     },
     "youtubeId": "8iT7Xjyk5BU",
     "previewUrl": "https://youtube.com/shorts/8iT7Xjyk5BU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu74f2ylefzc",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-18T15:35:44.926Z",
     "theme": "Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destac…",
     "title": "Yduqs: BBI vê valuation atrativo, eleva preço-alvo e destaca como preferida do setor",
@@ -3416,11 +3546,13 @@
     },
     "youtubeId": "mZl6UoySsxk",
     "previewUrl": "https://youtube.com/shorts/mZl6UoySsxk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu8iwup7lerk",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-19T15:09:35.467Z",
     "theme": "Sonha com um iPhone 18? Veja quanto guardar por mês",
     "title": "Sonha com um iPhone 18? Veja quanto guardar por mês",
@@ -3448,11 +3580,13 @@
     },
     "youtubeId": "Iepbu4WP6xE",
     "previewUrl": "https://youtube.com/shorts/Iepbu4WP6xE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu8ixeuq44eg",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-19T15:09:35.467Z",
     "theme": "Durigan: “reajuste do Bolsa Família foi pela inflação, não…",
     "title": "Durigan: “reajuste do Bolsa Família foi pela inflação, não foi real”",
@@ -3482,11 +3616,13 @@
     },
     "youtubeId": "20RWg9Pne9g",
     "previewUrl": "https://youtube.com/shorts/20RWg9Pne9g",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu9yimm22h1q",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-20T15:14:11.834Z",
     "theme": "Trump diz que transformará projeto de &#8220;Arco do Triunf…",
     "title": "Trump diz que transformará projeto de &#8220;Arco do Triunfo dos EUA&#8221; em complexo m…",
@@ -3516,11 +3652,13 @@
     },
     "youtubeId": "WO81rfa9v9Y",
     "previewUrl": "https://youtube.com/shorts/WO81rfa9v9Y",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mu9yjd4e9e1v",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-20T15:14:11.834Z",
     "theme": "TSE suspende campanha de Deltan ao Senado pelo Paraná",
     "title": "TSE suspende campanha de Deltan ao Senado pelo Paraná",
@@ -3549,11 +3687,13 @@
     },
     "youtubeId": "AmKnEx4_JqM",
     "previewUrl": "https://youtube.com/shorts/AmKnEx4_JqM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mubj2fxk7jcs",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-21T17:37:14.792Z",
     "theme": "A Black Friday já não é mais em novembro — e a &#8216;culpa…",
     "title": "A Black Friday já não é mais em novembro — e a &#8216;culpa&#8217; é do consumidor",
@@ -3582,11 +3722,13 @@
     },
     "youtubeId": "yGT8SR-41uo",
     "previewUrl": "https://youtube.com/shorts/yGT8SR-41uo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mubj35p13yk8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-21T17:37:14.792Z",
     "theme": "Implantação global de energia renovável precisa dobrar para…",
     "title": "Implantação global de energia renovável precisa dobrar para atingir meta de 2030",
@@ -3616,11 +3758,13 @@
     },
     "youtubeId": "dO_oVJTgRyc",
     "previewUrl": "https://youtube.com/shorts/dO_oVJTgRyc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mucv6xkiju6l",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-22T16:04:25.842Z",
     "theme": "Membro do Fed vê risco maior de inflação acima de 2% e defe…",
     "title": "Membro do Fed vê risco maior de inflação acima de 2% e defende juros mais restritivos",
@@ -3650,11 +3794,13 @@
     },
     "youtubeId": "hXZG0blm-wQ",
     "previewUrl": "https://youtube.com/shorts/hXZG0blm-wQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mucv7l4o2u6w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-22T16:04:25.842Z",
     "theme": "Lula é aplaudido quatro vezes durante discurso na ONU",
     "title": "Lula é aplaudido quatro vezes durante discurso na ONU",
@@ -3683,11 +3829,13 @@
     },
     "youtubeId": "gm37BIGU5Gc",
     "previewUrl": "https://youtube.com/shorts/gm37BIGU5Gc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mueaa4f9byu0",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-23T15:54:35.109Z",
     "theme": "Bancos entram na reta final da eleição divididos entre &#82…",
     "title": "Bancos entram na reta final da eleição divididos entre &#8220;alívio&#8221; e riscos de c…",
@@ -3717,11 +3865,13 @@
     },
     "youtubeId": "46TAvSou350",
     "previewUrl": "https://youtube.com/shorts/46TAvSou350",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mueaasslkay9",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-23T15:54:35.109Z",
     "theme": "Falha em GPS no Embraer E2 afeta voos da Azul: há impacto p…",
     "title": "Falha em GPS no Embraer E2 afeta voos da Azul: há impacto para ações das companhias?",
@@ -3751,11 +3901,13 @@
     },
     "youtubeId": "fYvvfi5wDuo",
     "previewUrl": "https://youtube.com/shorts/fYvvfi5wDuo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mufqiw1tdzlm",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-24T16:17:04.193Z",
     "theme": "Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, el…",
     "title": "Ibovespa Hoje Ao Vivo: Bolsa cai com política monetária, eleições e exterior no radar",
@@ -3785,11 +3937,13 @@
     },
     "youtubeId": "4afKRhqQOks",
     "previewUrl": "https://youtube.com/shorts/4afKRhqQOks",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mufqjfgszh6",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-24T16:17:04.193Z",
     "theme": "Premiê diz que Canadá se preparou até para &#8220;risco ext…",
     "title": "Premiê diz que Canadá se preparou até para &#8220;risco extremo&#8221; de ação militar do…",
@@ -3819,11 +3973,13 @@
     },
     "youtubeId": "TDrB02vHMU4",
     "previewUrl": "https://youtube.com/shorts/TDrB02vHMU4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muh5yz5cdwgw",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-25T16:17:15.120Z",
     "theme": "É preciso entender se IA está se tornando grande demais par…",
     "title": "É preciso entender se IA está se tornando grande demais para falir, diz membro do Fed",
@@ -3853,11 +4009,13 @@
     },
     "youtubeId": "D2PSWA-pYIc",
     "previewUrl": "https://youtube.com/shorts/D2PSWA-pYIc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muh5zeu32xqr",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-25T16:17:15.120Z",
     "theme": "Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeir…",
     "title": "Entenda a polêmica envolvendo Flávio Bolsonaro e a padroeira Nossa Senhora Aparecida",
@@ -3887,11 +4045,13 @@
     },
     "youtubeId": "l2Cy7rzF-tc",
     "previewUrl": "https://youtube.com/shorts/l2Cy7rzF-tc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muijrd2d722f",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-26T15:31:00.709Z",
     "theme": "Após onda de frio, Calor pode superar 40°c em oito estados…",
     "title": "Após onda de frio, Calor pode superar 40°c em oito estados até quarta-feira (30)",
@@ -3920,11 +4080,13 @@
     },
     "youtubeId": "GvmySGqAod0",
     "previewUrl": "https://youtube.com/shorts/GvmySGqAod0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muijrzhqbvy5",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-26T15:31:00.709Z",
     "theme": "A empresa que vendeu nuvem antes de o mercado saber que pre…",
     "title": "A empresa que vendeu nuvem antes de o mercado saber que precisava",
@@ -3954,11 +4116,13 @@
     },
     "youtubeId": "I6Ullcr3dqc",
     "previewUrl": "https://youtube.com/shorts/I6Ullcr3dqc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muk0ms0dv0d",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-27T16:11:06.445Z",
     "theme": "O segredo para viver mais é mais simples do que parece — ve…",
     "title": "O segredo para viver mais é mais simples do que parece — veja a recomendação",
@@ -3987,11 +4151,13 @@
     },
     "youtubeId": "AbdjSC3dasg",
     "previewUrl": "https://youtube.com/shorts/AbdjSC3dasg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muk0nas3bxlq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-27T16:11:06.445Z",
     "theme": "Após rejeitar proposta do Irã, Trump sinaliza nova rodada d…",
     "title": "Após rejeitar proposta do Irã, Trump sinaliza nova rodada de negociações",
@@ -4021,11 +4187,13 @@
     },
     "youtubeId": "kWXK2Q4sBMQ",
     "previewUrl": "https://youtube.com/shorts/kWXK2Q4sBMQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mulmawg9fmrv",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-28T19:05:30.057Z",
     "theme": "Real Time Big Data: Cleitinho lidera com 38% em Minas; Patr…",
     "title": "Real Time Big Data: Cleitinho lidera com 38% em Minas; Patrus tem 20%",
@@ -4054,11 +4222,13 @@
     },
     "youtubeId": "Ag7pI0Ihixs",
     "previewUrl": "https://youtube.com/shorts/Ag7pI0Ihixs",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mulmbgdfjhnd",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-28T19:05:30.057Z",
     "theme": "Gov.br apresenta instabilidade e usuários relatam falhas de…",
     "title": "Gov.br apresenta instabilidade e usuários relatam falhas de acesso nesta segunda (28)",
@@ -4088,11 +4258,13 @@
     },
     "youtubeId": "NB2y3nI7dz4",
     "previewUrl": "https://youtube.com/shorts/NB2y3nI7dz4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mumy7tqwhexp",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-29T17:26:48.152Z",
     "theme": "Trump diz que parceria com Xi em IA prejudicaria as empresa…",
     "title": "Trump diz que parceria com Xi em IA prejudicaria as empresas dos EUA",
@@ -4120,11 +4292,13 @@
     },
     "youtubeId": "bxj1aW6GM0c",
     "previewUrl": "https://youtube.com/shorts/bxj1aW6GM0c",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mumy8cm6gvqm",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-29T17:26:48.152Z",
     "theme": "Clima, e não o preço, será fator determinante para produção…",
     "title": "Clima, e não o preço, será fator determinante para produção de açúcar brasileiro",
@@ -4154,11 +4328,13 @@
     },
     "youtubeId": "b_2QhTN5CWU",
     "previewUrl": "https://youtube.com/shorts/b_2QhTN5CWU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muodm6hu53ps",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-30T17:25:38.274Z",
     "theme": "Black Friday do TikTok Shop terá até 70% off de outubro a d…",
     "title": "Black Friday do TikTok Shop terá até 70% off de outubro a dezembro; confira",
@@ -4188,11 +4364,13 @@
     },
     "youtubeId": "nW1kJ98Zy4w",
     "previewUrl": "https://youtube.com/shorts/nW1kJ98Zy4w",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muodmryugeyo",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-09-30T17:25:38.274Z",
     "theme": "Lula confirma que não vai ao debate da Globo na quinta-feir…",
     "title": "Lula confirma que não vai ao debate da Globo na quinta-feira (1)",
@@ -4220,11 +4398,13 @@
     },
     "youtubeId": "N84Lb2r0adA",
     "previewUrl": "https://youtube.com/shorts/N84Lb2r0adA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mupulc7odz4a",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-01T18:08:38.676Z",
     "theme": "Lula reeleito deve evitar ajuste fiscal, mas dólar não vai…",
     "title": "Lula reeleito deve evitar ajuste fiscal, mas dólar não vai a R$ 6, diz gestor",
@@ -4254,11 +4434,13 @@
     },
     "youtubeId": "LXv0SLslwO4",
     "previewUrl": "https://youtube.com/shorts/LXv0SLslwO4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_mupulx2lbuex",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-01T18:08:38.676Z",
     "theme": "&#8220;O futuro da agricultura não será só de ideias que tr…",
     "title": "&#8220;O futuro da agricultura não será só de ideias que tranquilizam&#8221;, diz VP da C…",
@@ -4288,7 +4470,9 @@
     },
     "youtubeId": "CxWsqktIYrg",
     "previewUrl": "https://youtube.com/shorts/CxWsqktIYrg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-01T23:40:17.188Z",
+    "rejectReason": "roteiro mock (falha do Groq 17/08-01/10)"
   },
   {
     "id": "sh_muq63hbh2g16",
