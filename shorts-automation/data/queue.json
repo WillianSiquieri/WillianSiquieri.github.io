@@ -4221,5 +4221,73 @@
     "youtubeId": "N84Lb2r0adA",
     "previewUrl": "https://youtube.com/shorts/N84Lb2r0adA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mupulc7odz4a",
+    "status": "draft",
+    "createdAt": "2026-10-01T18:08:38.676Z",
+    "theme": "Lula reeleito deve evitar ajuste fiscal, mas dólar não vai…",
+    "title": "Lula reeleito deve evitar ajuste fiscal, mas dólar não vai a R$ 6, diz gestor",
+    "hook": "Você viu isso? Lula reeleito deve evitar ajuste fiscal, mas dólar não vai a R$ 6, diz gestor",
+    "script": "Lula reeleito deve evitar ajuste fiscal, mas dólar não vai a R$ 6, diz gestor. Alfredo Menezes, da Armor Capital, diz que já viu \"várias vezes falarem que Brasil ia quebrar\", mas que \"quando a coisa aperta o governo faz a lição de casa” - enquanto isso, espera alocar no exterior The post Lula reel… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "reeleito",
+      "evitar",
+      "ajuste",
+      "fiscal,",
+      "dólar",
+      "gestor"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/lula-reeleito-deve-evitar-ajuste-fiscal-mas-dolar-nao-vai-a-r-6-diz-gestor/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mupulc7odz4a.mp4"
+    },
+    "youtubeId": "LXv0SLslwO4",
+    "previewUrl": "https://youtube.com/shorts/LXv0SLslwO4",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mupulx2lbuex",
+    "status": "draft",
+    "createdAt": "2026-10-01T18:08:38.676Z",
+    "theme": "&#8220;O futuro da agricultura não será só de ideias que tr…",
+    "title": "&#8220;O futuro da agricultura não será só de ideias que tranquilizam&#8221;, diz VP da C…",
+    "hook": "Você viu isso? &#8220;O futuro da agricultura não será só de ideias que tranquilizam&#8221;, d…",
+    "script": "&#8220;O futuro da agricultura não será só de ideias que tranquilizam&#8221;, diz VP da Corteva. Brook Cunningham trata atual momento do agronegócio como \"novo normal\" em meio a restrições de crédito e incertezas The post &#8220;O futuro da agricultura não será só de ideias que tranquilizam&#8221;, diz VP da Cortev… Isso importa porque afeta o dia a dia de muita gente. O que você acha disso? Comente aqui embaixo!",
+    "tags": [
+      "atualidades",
+      "noticias",
+      "brasil",
+      "shorts"
+    ],
+    "captionKeywords": [
+      "&#8220;O",
+      "futuro",
+      "agricultura",
+      "ideias",
+      "tranquilizam&#8221;,",
+      "Corteva"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/o-futuro-da-agricultura-nao-sera-so-de-ideias-que-tranquilizam-diz-vp-da-corteva/",
+    "rationale": "[mock] gerado sem IA — configure GEMINI_API_KEY para roteiros reais e gratuitos.",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mupulx2lbuex.mp4"
+    },
+    "youtubeId": "CxWsqktIYrg",
+    "previewUrl": "https://youtube.com/shorts/CxWsqktIYrg",
+    "privacyStatus": "unlisted"
   }
 ]
