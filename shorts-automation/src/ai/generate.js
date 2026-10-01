@@ -186,9 +186,41 @@ async function generateWithGemini(opts) {
 
 // Groq (free tier): endpoint compatível com OpenAI, hospeda Llama 3.3 70B.
 // Alternativa confiável quando o free tier do Gemini não tem quota.
-async function generateWithGroq(opts) {
-  const { llm, count } = opts;
-  const model = llm?.groqModel || 'llama-3.3-70b-versatile';
+// A Groq descontinua modelos com frequência (um modelo fixo quebrou silenciosamente
+// por 2 meses). Por isso consultamos /models e escolhemos o melhor disponível.
+let groqModelCache = null;
+
+async function groqAvailableModels() {
+  if (groqModelCache) return groqModelCache;
+  const res = await fetch('https://api.groq.com/openai/v1/models', {
+    headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}` },
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!res.ok) throw new Error(`Groq /models HTTP ${res.status}`);
+  const data = await res.json();
+  groqModelCache = (data.data || [])
+    .map((m) => m.id)
+    .filter((id) => id && !/whisper|tts|guard|embed|moderation|vision/i.test(id));
+  return groqModelCache;
+}
+
+// Ordena por adequação a roteiro: preferidos primeiro, depois modelos grandes.
+function rankGroqModels(ids, preferred = []) {
+  const score = (id) => {
+    const i = preferred.indexOf(id);
+    if (i !== -1) return 1000 - i;
+    let s = 0;
+    if (/versatile/i.test(id)) s += 50;
+    if (/70b|120b|k2|maverick|large/i.test(id)) s += 40;
+    if (/instruct/i.test(id)) s += 20;
+    if (/instant|8b|mini|small|preview/i.test(id)) s -= 25;
+    return s;
+  };
+  return [...ids].sort((a, b) => score(b) - score(a));
+}
+
+async function groqComplete(model, opts) {
+  const { count } = opts;
   const sys =
     SYSTEM +
     `\n\nResponda APENAS com um objeto JSON no formato ` +
@@ -216,8 +248,36 @@ async function generateWithGroq(opts) {
   }
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content || '';
-  if (!text) throw new Error('Groq retornou resposta vazia');
+  if (!text) throw new Error('resposta vazia');
   return (JSON.parse(text).shorts || []).slice(0, count);
+}
+
+async function generateWithGroq(opts) {
+  const { llm } = opts;
+  const preferred = [llm?.groqModel, ...(llm?.groqModels || [])].filter(Boolean);
+
+  // Lista real de modelos disponíveis na conta (à prova de descontinuação).
+  let candidates = [];
+  try {
+    candidates = rankGroqModels(await groqAvailableModels(), preferred);
+  } catch (e) {
+    warn(`Não foi possível listar modelos da Groq (${e.message}); usando preferidos.`);
+    candidates = preferred;
+  }
+  if (!candidates.length) throw new Error('nenhum modelo Groq disponível');
+
+  let lastErr;
+  for (const model of candidates.slice(0, 3)) {
+    try {
+      const shorts = await groqComplete(model, opts);
+      log(`Groq OK com modelo ${model}`);
+      return shorts;
+    } catch (e) {
+      lastErr = e;
+      warn(`Groq modelo ${model} falhou (${e.message}); tentando próximo…`);
+    }
+  }
+  throw lastErr || new Error('Groq indisponível');
 }
 
 // Fallback sem IA: transforma manchetes diretamente em drafts simples.
@@ -255,16 +315,30 @@ export async function generateShorts(opts) {
     warn('Nenhum item de notícia disponível — nada a gerar.');
     return [];
   }
+  // Por padrão NÃO caímos no mock: publicar roteiro de template é pior que
+  // não publicar nada (e mascara falhas silenciosas da IA por semanas).
+  const allowMock = llm?.allowMockFallback === true;
+  const tag = (drafts, aiProvider) => drafts.map((d) => ({ ...d, aiProvider }));
+
   const provider = pickProvider(llm);
   if (RUNNERS[provider]) {
     try {
       log(`Gerando shorts com ${LABELS[provider]}…`);
-      return await RUNNERS[provider](opts);
+      return tag(await RUNNERS[provider](opts), provider);
     } catch (err) {
-      warn(`Falha no provedor "${provider}", usando fallback mock:`, err.message);
-      return generateMock(opts);
+      warn(`FALHA no provedor "${provider}": ${err.message}`);
+      if (!allowMock) {
+        warn('Gerador mock desabilitado (llm.allowMockFallback=false) — nenhum short será gerado neste ciclo.');
+        return [];
+      }
+      warn('Usando fallback mock (qualidade baixa).');
+      return tag(generateMock(opts), 'mock');
     }
   }
-  log('Sem chave de IA (GROQ/GEMINI/ANTHROPIC) — usando gerador mock.');
-  return generateMock(opts);
+  if (!allowMock) {
+    warn('Sem chave de IA (GROQ/GEMINI/ANTHROPIC) — nenhum short será gerado. Configure uma chave.');
+    return [];
+  }
+  log('Sem chave de IA — usando gerador mock.');
+  return tag(generateMock(opts), 'mock');
 }

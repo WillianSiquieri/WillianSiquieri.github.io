@@ -67,6 +67,7 @@ jobs:
           node src/cycle.js $ARGS
 
       - name: Commitar estado atualizado
+        if: always()
         run: |
           git config user.name "shorts-bot"
           git config user.email "actions@github.com"

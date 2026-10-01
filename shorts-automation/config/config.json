@@ -16,7 +16,8 @@
   },
   "llm": {
     "provider": "auto",
-    "groqModel": "llama-3.3-70b-versatile",
+    "allowMockFallback": false,
+    "groqModels": ["llama-3.3-70b-versatile", "llama-3.1-70b-versatile"],
     "geminiModels": ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
     "anthropicModel": "claude-opus-4-8"
   },

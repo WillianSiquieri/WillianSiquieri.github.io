@@ -103,6 +103,7 @@ async function main() {
       captionKeywords: d.captionKeywords || [],
       sourceLink: d.sourceLink,
       rationale: d.rationale,
+      aiProvider: d.aiProvider || 'desconhecido',
       video: { rendered: false },
     };
 
@@ -142,6 +143,14 @@ async function main() {
   }
 
   log(`Ciclo concluído: ${stillDraft.length} em fila, ${publishedNow.length} publicados automaticamente.`);
+
+  // Havia notícias disponíveis mas nada foi gerado → a IA falhou.
+  // Sai com erro para o workflow ficar VERMELHO e a falha não passar despercebida
+  // (foi exatamente assim que o Groq quebrou por 2 meses sem ninguém notar).
+  if (fresh.length > 0 && drafts.length === 0) {
+    warn('ALERTA: havia notícias disponíveis mas nenhum short foi gerado — verifique a chave/modelo da IA.');
+    process.exitCode = 1;
+  }
 }
 
 main().catch((e) => {

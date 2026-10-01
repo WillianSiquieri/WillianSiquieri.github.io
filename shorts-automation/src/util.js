@@ -25,13 +25,35 @@ export function makeId(prefix = 'sh') {
 }
 
 // Remove tags HTML e normaliza espaços — usado ao limpar descrições de RSS.
-export function stripHtml(s = '') {
+// Decodifica entidades HTML (nomeadas e numéricas) — feeds costumam trazer
+// &#8220; &#8217; &amp; etc., que apareciam cru no roteiro e na legenda.
+const NAMED_ENTITIES = {
+  nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'",
+  ldquo: '“', rdquo: '”', lsquo: '‘', rsquo: '’', hellip: '…',
+  ndash: '–', mdash: '—', aacute: 'á', eacute: 'é', iacute: 'í',
+  oacute: 'ó', uacute: 'ú', atilde: 'ã', otilde: 'õ', ccedil: 'ç',
+};
+
+export function decodeEntities(s = '') {
   return String(s)
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&([a-z]+);/gi, (m, name) => NAMED_ENTITIES[name.toLowerCase()] ?? m);
+}
+
+// Remove o rodapé que feeds WordPress anexam ao resumo.
+export function stripFeedBoilerplate(s = '') {
+  return String(s)
+    .replace(/\s*The post .*? appeared first on .*?\.?\s*$/i, '')
+    .replace(/\s*O post .*? apareceu primeiro em .*?\.?\s*$/i, '')
+    .replace(/\s*(Leia mais|Continue lendo|Read more)\b.*$/i, '')
+    .trim();
+}
+
+export function stripHtml(s = '') {
+  return stripFeedBoilerplate(
+    decodeEntities(String(s).replace(/<[^>]*>/g, ' '))
+  )
     .replace(/\s+/g, ' ')
     .trim();
 }
