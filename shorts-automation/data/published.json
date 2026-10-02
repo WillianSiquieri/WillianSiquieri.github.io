@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "id": "sh_muq63hbh2g16",
+    "status": "published",
+    "createdAt": "2026-10-01T23:30:40.877Z",
+    "theme": "Juros futuros sob pressão com a eleição",
+    "title": "Por que os juros futuros subiram antes das urnas?",
+    "hook": "Os juros dispararam e seu bolso sente o impacto agora!",
+    "script": "Os contratos de juros futuros fecharam em forte alta nesta quinta, sinalizando cautela dos investidores com a eleição chegando. Quando o mercado acha que a política pode mudar a taxa Selic, ele antecipa risco e eleva os juros. Para quem tem dívida atrelada ao CDI, como CDBs ou empréstimos, isso significa custos maiores. Já quem investe em renda fixa, pode ganhar mais rendimento, mas com mais volatilidade. Em resumo, a eleição está mexendo nos juros e, consequentemente, no seu custo de crédito e nos retornos da sua carteira. Você já sente essa mudança no seu dia a dia?",
+    "tags": [
+      "#Juros",
+      "#Economia",
+      "#Investimentos",
+      "#Eleição2026",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "juros futuros",
+      "eleição 2026",
+      "custo de crédito",
+      "renda fixa",
+      "investimento"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/juros-futuros-1-10-26-apsa/",
+    "rationale": "Tema diretamente ligado ao mercado financeiro, com efeito claro no bolso do investidor e de quem tem dívidas, atendendo ao nicho de finanças e economia sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "decidedAt": "2026-10-02T01:54:02.428Z",
+    "privacyStatus": "public",
+    "publishedAt": "2026-10-02T01:54:20.376Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
+  }
+]
