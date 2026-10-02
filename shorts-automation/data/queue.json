@@ -1184,7 +1184,7 @@
   },
   {
     "id": "sh_muq63hbh2g16",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-10-01T23:30:40.877Z",
     "theme": "Juros futuros sob pressão com a eleição",
     "title": "Por que os juros futuros subiram antes das urnas?",
@@ -1212,7 +1212,8 @@
       "durationSec": 40,
       "ttsProvider": "edge",
       "previewFile": "data/previews/sh_muq63hbh2g16.mp4"
-    }
+    },
+    "decidedAt": "2026-10-02T01:54:02.428Z"
   },
   {
     "id": "sh_muq647er4h4q",
