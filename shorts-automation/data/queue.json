@@ -367,7 +367,7 @@
   },
   {
     "id": "sh_msepzycyuek",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-04T13:54:55.305Z",
     "theme": "Investimentos",
     "title": "Ibovespa: o que a alta do índice significa para os investidores?",
@@ -393,7 +393,8 @@
     },
     "youtubeId": "iA2kR182T6I",
     "previewUrl": "https://youtube.com/shorts/iA2kR182T6I",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:16.493Z"
   },
   {
     "id": "sh_msg5bnle516c",
