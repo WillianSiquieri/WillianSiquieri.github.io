@@ -459,7 +459,7 @@
   },
   {
     "id": "sh_mshkncox7rn5",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-06T13:48:42.368Z",
     "theme": "Finanças",
     "title": "Dólar cai após corte na Selic",
@@ -484,7 +484,8 @@
     },
     "youtubeId": "olk726A_px0",
     "previewUrl": "https://youtube.com/shorts/olk726A_px0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:26.869Z"
   },
   {
     "id": "sh_mshknv0tjstg",
