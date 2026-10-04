@@ -519,7 +519,7 @@
   },
   {
     "id": "sh_msixv98ejlm2",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-07T12:46:32.318Z",
     "theme": "Economia",
     "title": "Dólar cai após dados de emprego nos EUA",
@@ -545,7 +545,8 @@
     },
     "youtubeId": "VuYIxIDJt7g",
     "previewUrl": "https://youtube.com/shorts/VuYIxIDJt7g",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:36.321Z"
   },
   {
     "id": "sh_msixvpo6ge11",
