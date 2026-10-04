@@ -214,7 +214,7 @@
   },
   {
     "id": "sh_msbtdgjjhtji",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-02T13:06:20.287Z",
     "theme": "Economia",
     "title": "Desenrola 2.0: Programa de renegociação de dívidas é prorrogado",
@@ -239,7 +239,8 @@
     },
     "youtubeId": "iJ-JB7zyL0c",
     "previewUrl": "https://youtube.com/shorts/iJ-JB7zyL0c",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:57.222Z"
   },
   {
     "id": "sh_msbtdwgu8p5q",
