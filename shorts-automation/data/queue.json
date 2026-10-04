@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_ms5i1kdd492w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-29T03:02:32.545Z",
     "theme": "Economia",
     "title": "Inflação sobe 0,06% em julho",
@@ -27,7 +27,9 @@
     },
     "youtubeId": "n1CrKJwImU0",
     "previewUrl": "https://youtube.com/shorts/n1CrKJwImU0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T17:58:51.222Z",
+    "rejectReason": "Muito antigo"
   },
   {
     "id": "sh_ms5i226e5lrf",
