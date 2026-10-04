@@ -274,7 +274,7 @@
   },
   {
     "id": "sh_msdbldsu9hcx",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-03T14:24:09.246Z",
     "theme": "Dólar",
     "title": "Dólar cai: o que isso significa para o seu bolso?",
@@ -300,7 +300,8 @@
     },
     "youtubeId": "m97T43RYNx4",
     "previewUrl": "https://youtube.com/shorts/m97T43RYNx4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:06.074Z"
   },
   {
     "id": "sh_msdblvna70rj",
