@@ -233,28 +233,37 @@ function rankGroqModels(ids, preferred = []) {
   return [...ids].sort((a, b) => score(b) - score(a));
 }
 
-async function groqComplete(model, opts, size) {
+async function groqComplete(model, opts, size, budget) {
   const { count } = opts;
   const sys =
     SYSTEM +
     `\n\nResponda APENAS com um objeto JSON no formato ` +
     `{"shorts":[{"theme","title","hook","script","captionKeywords":[],"tags":[],"sourceLink","rationale"}]} ` +
     `contendo exatamente ${count} itens.`;
+  const user = buildUserPrompt(opts, size);
+  const payload = {
+    model,
+    messages: [
+      { role: 'system', content: sys },
+      { role: 'user', content: user },
+    ],
+    response_format: { type: 'json_object' },
+    temperature: 0.9,
+    // `max_tokens` está deprecado na API da Groq e é IGNORADO por modelos de
+    // raciocínio (gpt-oss): sem este campo a cota reserva o máximo do modelo e
+    // a conta estoura o TPM antes da chamada sair.
+    max_completion_tokens: budget,
+  };
+  // gpt-oss gasta tokens de saída "pensando"; no modo baixo sobra orçamento pro JSON.
+  if (/gpt-oss/i.test(model)) payload.reasoning_effort = 'low';
+
+  const approx = Math.ceil((sys.length + user.length) / 4);
+  log(`Groq → ${model}: ~${approx} tokens de entrada + ${budget} de saída (~${approx + budget} na cota)`);
+
   const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model,
-      messages: [
-        { role: 'system', content: sys },
-        { role: 'user', content: buildUserPrompt(opts, size) },
-      ],
-      response_format: { type: 'json_object' },
-      temperature: 0.9,
-      // Alguns modelos limitam a saída a 1000 tokens/min (OTPM); fica abaixo disso.
-      // Um roteiro de short tem ~200 palavras, então isso é de sobra.
-      max_tokens: Math.min(900, 300 * Math.max(1, count) + 300),
-    }),
+    body: JSON.stringify(payload),
     signal: AbortSignal.timeout(60000),
   });
   if (!res.ok) {
@@ -269,6 +278,12 @@ async function groqComplete(model, opts, size) {
       : inBody
         ? Number(inBody[1]) / (inBody[2].toLowerCase() === 'ms' ? 1000 : 1)
         : 0;
+    // "Limit 8000, Requested 9712" — serve para saber se é cota cheia ou pedido grande.
+    const quota = /Limit (\d+), Requested (\d+)/i.exec(body);
+    if (quota) {
+      err.limit = Number(quota[1]);
+      err.requested = Number(quota[2]);
+    }
     throw err;
   }
   const data = await res.json();
@@ -278,7 +293,7 @@ async function groqComplete(model, opts, size) {
 }
 
 async function generateWithGroq(opts) {
-  const { llm } = opts;
+  const { llm, count } = opts;
   const preferred = [llm?.groqModel, ...(llm?.groqModels || [])].filter(Boolean);
 
   // Lista real de modelos disponíveis na conta (à prova de descontinuação).
@@ -290,13 +305,11 @@ async function generateWithGroq(opts) {
     candidates = preferred;
   }
   if (!candidates.length) throw new Error('nenhum modelo Groq disponível');
+  log(`Groq: ${candidates.length} modelos de texto; tentando ${candidates.slice(0, 2).join(', ')}`);
 
-  // Prompt enxuto e fixo: ~2k tokens por chamada, longe do teto de 8k TPM do free tier.
+  // Prompt enxuto e fixo. Encolher o prompt nunca foi o gargalo: o que estoura a
+  // cota é o orçamento de SAÍDA que a Groq reserva antes de rodar a chamada.
   const SIZE = { maxItems: 8, summaryLen: 60 };
-
-  // O free tier limita *tokens por minuto*, não por requisição. Uma rajada de
-  // tentativas soma tudo no mesmo minuto e estoura a cota — então aqui vai
-  // pouca tentativa e com espera de verdade entre elas.
   const MAX_MODELS = 2;
   const MAX_WAIT = 40; // segundos
 
@@ -304,19 +317,34 @@ async function generateWithGroq(opts) {
   const models = candidates.slice(0, MAX_MODELS);
   for (let i = 0; i < models.length; i++) {
     const model = models[i];
-    for (let attempt = 1; attempt <= 2; attempt++) {
+    // Saída: 1200 tokens cobrem com folga 1 roteiro em JSON.
+    let budget = Math.min(1200, 400 * Math.max(1, count) + 400);
+
+    for (let attempt = 1; attempt <= 3; attempt++) {
       try {
-        const shorts = await groqComplete(model, opts, SIZE);
+        const shorts = await groqComplete(model, opts, SIZE, budget);
         log(`Groq OK com modelo ${model}`);
         return shorts;
       } catch (e) {
         lastErr = e;
-        const rateLimited = e.status === 413 || e.status === 429;
-        if (rateLimited && attempt === 1) {
+        if (attempt === 3) {
+          warn(`Groq modelo ${model} falhou (${e.message})`);
+          break;
+        }
+        // Pedido maior que a cota inteira: esperar não resolve, tem que caber.
+        if (e.requested && e.limit && e.requested > e.limit) {
+          const novo = Math.max(500, Math.floor(budget / 2));
+          if (novo < budget) {
+            warn(`Groq ${model}: pedido de ${e.requested} tokens > cota de ${e.limit}; reduzindo saída para ${novo}.`);
+            budget = novo;
+            continue;
+          }
+        }
+        if (e.status === 413 || e.status === 429) {
           const wait = Math.min(Math.max(e.retryAfter || 20, 5), MAX_WAIT);
-          warn(`Groq ${model}: limite por minuto atingido; aguardando ${Math.round(wait)}s…`);
+          warn(`Groq ${model}: cota por minuto cheia; aguardando ${Math.round(wait)}s…`);
           await sleep(wait * 1000);
-          continue; // mesma chamada, depois da cota renovar
+          continue;
         }
         warn(`Groq modelo ${model} falhou (${e.message})`);
         break;
