@@ -112,6 +112,55 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 
 Sem as chaves do YouTube, o sistema ainda gera e enfileira os shorts — só não publica.
 
+#### Regerar o `YT_REFRESH_TOKEN` pelo OAuth Playground
+
+Use quando a aprovação falhar com `Insufficient Permission`, quando os escopos
+mudarem, ou quando o token for revogado. Não precisa de nada instalado.
+
+**a) Liberar o Playground como destino do login** (uma vez só)
+
+No [Console → APIs e serviços → Credenciais](https://console.cloud.google.com/apis/credentials),
+abra o cliente OAuth do projeto:
+
+- Se o tipo for **Aplicativo da Web**: em *URIs de redirecionamento autorizados*
+  adicione `https://developers.google.com/oauthplayground` e salve.
+- Se for **App para computador**: ele não aceita esse redirect. Crie um cliente novo
+  do tipo *Aplicativo da Web* com esse URI (o *Client ID* e o *Secret* mudam, então
+  atualize também os secrets `YT_CLIENT_ID` e `YT_CLIENT_SECRET`), ou pule o
+  Playground e use `npm run auth` localmente.
+
+Confira em *Tela de permissão OAuth* se o app está **Em produção**. Em **Teste**, o
+Google expira o refresh token em **7 dias** — o pipeline quebra toda semana.
+
+**b) Autorizar**
+
+1. Abra <https://developers.google.com/oauthplayground/>.
+2. Clique na **engrenagem** (canto superior direito) e marque
+   **Use your own OAuth credentials**; cole *Client ID* e *Client secret*.
+   Deixe *OAuth flow* em **Server-side** e **Force prompt** em **Consent screen**
+   (sem isso o Google pode devolver só o access token, sem refresh token).
+3. Em **Step 1**, no campo *Input your own scopes*, cole os três escopos numa linha:
+   ```
+   https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/yt-analytics.readonly
+   ```
+4. **Authorize APIs** → escolha a conta Google **do canal**. Se aparecer a lista de
+   canais, selecione o canal certo — escolher o perfil pessoal aqui é o que já fez
+   os vídeos subirem no canal errado. Aceite as permissões.
+5. Em **Step 2**, clique **Exchange authorization code for tokens** e copie o
+   **`refresh_token`** (começa com `1//`).
+
+**c) Atualizar o secret**
+
+Em *Settings → Secrets and variables → Actions* do repositório, no secret
+**`YT_REFRESH_TOKEN`** clique no lápis, cole o valor novo e **Update secret**.
+O valor antigo não é exibido; sobrescrever é o normal.
+
+**d) Conferir**
+
+Em *Actions → Shorts · Publicar aprovados → Run workflow*. O log deve dizer
+`Aprovado e publicado: <id>` em vez de `Insufficient Permission`. Shorts que já
+estavam aprovados na fila publicam sozinhos — não precisa aprovar de novo.
+
 ## Usar o painel
 
 Publicado em `https://<seu-usuario>.github.io/shorts-automation/dashboard/`.
