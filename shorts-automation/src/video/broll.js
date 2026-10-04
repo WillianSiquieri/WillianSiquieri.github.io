@@ -1,6 +1,7 @@
 // Fundo em vídeo (b-roll) via Pexels Videos API — gratuito, dá aparência real
-// aos Shorts em vez de um gradiente chapado. Escolhe o tema do clipe a partir do
-// assunto do draft. Retorna o caminho do arquivo baixado, ou null (cai no gradiente).
+// aos Shorts em vez de um gradiente chapado. Escolhe os temas dos clipes a partir
+// do assunto do draft e baixa VÁRIOS, para o vídeo alternar imagens em vez de
+// repetir a mesma cena em loop do começo ao fim.
 import { writeFile } from 'node:fs/promises';
 import { log, warn } from '../util.js';
 
@@ -18,52 +19,113 @@ const QUERY_MAP = [
   { re: /tecnologia|intelig[êe]ncia|ia\b|startup/i, q: 'technology data server' },
 ];
 
-function pickQuery(draft) {
+// Buscas genéricas de reforço: entram quando a busca principal não devolve
+// clipes distintos suficientes, mantendo a variedade sem sair do nicho.
+const FALLBACK_QUERIES = [
+  'finance business money',
+  'business people office city',
+  'economy graph data screen',
+];
+
+function pickQueries(draft) {
   const hay = [draft.theme, ...(draft.tags || []), ...(draft.captionKeywords || [])].join(' ');
-  for (const m of QUERY_MAP) if (m.re.test(hay)) return m.q;
-  return 'finance business money';
+  const hits = QUERY_MAP.filter((m) => m.re.test(hay)).map((m) => m.q);
+  // Sem duplicar: temas achados primeiro, genéricos depois.
+  return [...new Set([...hits, ...FALLBACK_QUERIES])];
 }
 
 export function brollAvailable() {
   return Boolean(process.env.PEXELS_API_KEY);
 }
 
-export async function fetchBroll(draft, outPath, width = 1080, height = 1920) {
-  const key = process.env.PEXELS_API_KEY;
-  if (!key) return null;
-  const q = pickQuery(draft);
-  try {
-    const url = `https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&orientation=portrait&size=medium&per_page=20`;
-    const res = await fetch(url, { headers: { Authorization: key }, signal: AbortSignal.timeout(20000) });
-    if (!res.ok) {
-      warn(`Pexels HTTP ${res.status}`);
-      return null;
-    }
-    const data = await res.json();
-    const vids = (data.videos || []).filter((v) => v.video_files?.length);
-    if (!vids.length) {
-      warn(`Pexels sem resultados para "${q}"`);
-      return null;
-    }
-    // Varia o clipe para não repetir sempre o mesmo tema visual.
-    const pick = vids[Math.floor(Math.random() * vids.length)];
-    // Prefere arquivo vertical com resolução perto de 1920 de altura.
-    const file =
-      pick.video_files
-        .filter((f) => (f.height || 0) >= (f.width || 0))
-        .sort((a, b) => Math.abs((a.height || 0) - height) - Math.abs((b.height || 0) - height))[0] ||
-      pick.video_files[0];
-
-    const vres = await fetch(file.link, { signal: AbortSignal.timeout(60000) });
-    if (!vres.ok) {
-      warn(`Download b-roll HTTP ${vres.status}`);
-      return null;
-    }
-    await writeFile(outPath, Buffer.from(await vres.arrayBuffer()));
-    log(`B-roll Pexels ("${q}") → ${file.width}x${file.height}`);
-    return outPath;
-  } catch (e) {
-    warn('Falha no b-roll Pexels (usando gradiente):', e.message);
-    return null;
+async function searchPexels(key, q) {
+  const url = `https://api.pexels.com/videos/search?query=${encodeURIComponent(q)}&orientation=portrait&size=medium&per_page=25`;
+  const res = await fetch(url, { headers: { Authorization: key }, signal: AbortSignal.timeout(20000) });
+  if (!res.ok) {
+    warn(`Pexels HTTP ${res.status} para "${q}"`);
+    return [];
   }
+  const data = await res.json();
+  return (data.videos || []).filter((v) => v.video_files?.length);
+}
+
+// Escolhe o arquivo vertical com altura mais próxima do alvo.
+function bestFile(video, height) {
+  return (
+    video.video_files
+      .filter((f) => (f.height || 0) >= (f.width || 0))
+      .sort((a, b) => Math.abs((a.height || 0) - height) - Math.abs((b.height || 0) - height))[0] ||
+    video.video_files[0]
+  );
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
+ * Baixa até `want` clipes DISTINTOS para o diretório do draft.
+ * Retorna os caminhos baixados (pode vir menos que `want`, ou vazio).
+ */
+export async function fetchBrollClips(draft, dir, want, width = 1080, height = 1920) {
+  const key = process.env.PEXELS_API_KEY;
+  if (!key) return [];
+
+  const queries = pickQueries(draft);
+  const chosen = [];
+  const seen = new Set();
+
+  // Varre as buscas até juntar clipes distintos suficientes.
+  for (const q of queries) {
+    if (chosen.length >= want) break;
+    let vids;
+    try {
+      vids = await searchPexels(key, q);
+    } catch (e) {
+      warn(`Busca de b-roll "${q}" falhou: ${e.message}`);
+      continue;
+    }
+    for (const v of shuffle(vids)) {
+      if (chosen.length >= want) break;
+      if (seen.has(v.id)) continue;
+      seen.add(v.id);
+      chosen.push({ video: v, q });
+    }
+  }
+
+  if (!chosen.length) {
+    warn('Pexels sem resultados — caindo no gradiente.');
+    return [];
+  }
+
+  // Baixa em paralelo: são arquivos pequenos e o ciclo inteiro tem orçamento curto.
+  const results = await Promise.all(
+    chosen.map(async ({ video, q }, i) => {
+      const file = bestFile(video, height);
+      const out = `${dir}/broll-${i}.mp4`;
+      try {
+        const res = await fetch(file.link, { signal: AbortSignal.timeout(60000) });
+        if (!res.ok) {
+          warn(`Download b-roll HTTP ${res.status}`);
+          return null;
+        }
+        await writeFile(out, Buffer.from(await res.arrayBuffer()));
+        return { path: out, q, size: `${file.width}x${file.height}` };
+      } catch (e) {
+        warn(`Download b-roll falhou: ${e.message}`);
+        return null;
+      }
+    })
+  );
+
+  const ok = results.filter(Boolean);
+  if (ok.length) {
+    log(`B-roll Pexels: ${ok.length} clipes [${ok.map((r) => r.q).join(' | ')}]`);
+  }
+  return ok.map((r) => r.path);
 }

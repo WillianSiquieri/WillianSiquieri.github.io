@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { log, warn } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
 import { synthesize } from './tts.js';
-import { fetchBroll } from './broll.js';
+import { fetchBrollClips } from './broll.js';
 
 // --- Legendas -------------------------------------------------------------
 
@@ -110,6 +110,55 @@ function backgroundSource(width, height, durationSec) {
   );
 }
 
+// Quantos cortes um roteiro desta duração pede (e, portanto, quantos clipes
+// distintos vale baixar). Exportado para teste.
+export function segmentCount(durationSec, segmentSec = 5) {
+  return Math.min(Math.max(Math.ceil(durationSec / segmentSec), 2), 10);
+}
+
+/**
+ * Argumentos do ffmpeg para montar o fundo com VÁRIOS clipes alternando.
+ * Um clipe por segmento, corte seco a cada ~segmentSec. Com menos clipes que
+ * segmentos eles se alternam — e a repetição entra espelhada, para não ler como
+ * a mesma cena de novo (feedback: "fica repetindo a mesma imagem").
+ * Função pura, para dar para testar sem rodar o ffmpeg.
+ */
+export function brollRenderArgs({ clips, segments, durationSec, width, height, assPath, audioPath, outPath }) {
+  const segLen = durationSec / segments;
+  const inputs = [];
+  const filters = [];
+  for (let i = 0; i < segments; i++) {
+    const clip = clips[i % clips.length];
+    const volta = Math.floor(i / clips.length); // 0 na 1ª passada, 1 na 2ª…
+    // -stream_loop/-t antes do -i: cada entrada já sai com a duração do segmento,
+    // repetindo sozinha se o clipe for mais curto. Dispensa ffprobe.
+    inputs.push('-stream_loop', '-1', '-t', segLen.toFixed(3), '-i', clip);
+    filters.push(
+      `[${i}:v]scale=${width}:${height}:force_original_aspect_ratio=increase,` +
+        `crop=${width}:${height},setsar=1,fps=30` +
+        (volta % 2 === 1 ? ',hflip' : '') +
+        `,setpts=PTS-STARTPTS[v${i}]`
+    );
+  }
+  const refs = Array.from({ length: segments }, (_, i) => `[v${i}]`).join('');
+  // Escurece (scrim) para a legenda saltar, e queima o .ass sobre a sequência.
+  filters.push(
+    `${refs}concat=n=${segments}:v=1:a=0[bg]`,
+    `[bg]eq=brightness=-0.16:saturation=1.05,` +
+      `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.32:t=fill,` +
+      `ass=${assPath}[vout]`
+  );
+
+  const args = [...inputs];
+  if (audioPath) args.push('-i', audioPath);
+  args.push('-filter_complex', filters.join(';'), '-map', '[vout]');
+  if (audioPath) args.push('-map', `${segments}:a:0`);
+  args.push('-t', String(durationSec), '-r', '30', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'veryfast');
+  if (audioPath) args.push('-c:a', 'aac', '-b:a', '160k', '-shortest');
+  args.push('-y', outPath);
+  return args;
+}
+
 // --- Montagem -------------------------------------------------------------
 
 export async function assembleVideo(draft, { config, workDir, previewDir }) {
@@ -135,24 +184,26 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
 
   // 3) Fundo: b-roll de vídeo (Pexels) quando disponível; senão gradiente.
   const style = config.video?.backgroundStyle || 'auto';
-  let brollPath = null;
+  const segments = segmentCount(durationSec, config.video?.brollSegmentSec || 5);
+  const maxClips = config.video?.brollMaxClips || 6;
+  let brollPaths = [];
   if (style === 'stock' || style === 'auto') {
-    brollPath = await fetchBroll(draft, join(dir, 'broll.mp4'), width, height);
+    brollPaths = await fetchBrollClips(draft, dir, Math.min(segments, maxClips), width, height);
   }
 
   let args;
-  if (brollPath) {
-    // Cobre 9:16, escurece (scrim) para a legenda saltar, e queima o .ass.
-    const vf =
-      `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height},setsar=1,` +
-      `eq=brightness=-0.16:saturation=1.05,` +
-      `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.32:t=fill,` +
-      `ass=${assPath}`;
-    args = ['-stream_loop', '-1', '-i', brollPath];
-    if (tts?.audioPath) args.push('-i', tts.audioPath);
-    args.push('-vf', vf, '-t', String(durationSec), '-r', '30', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-preset', 'veryfast');
-    if (tts?.audioPath) args.push('-map', '0:v:0', '-map', '1:a:0', '-c:a', 'aac', '-b:a', '160k', '-shortest');
-    args.push('-y', outPath);
+  if (brollPaths.length) {
+    log(`Fundo: ${segments} cortes de ~${(durationSec / segments).toFixed(1)}s com ${brollPaths.length} clipes`);
+    args = brollRenderArgs({
+      clips: brollPaths,
+      segments,
+      durationSec,
+      width,
+      height,
+      assPath,
+      audioPath: tts?.audioPath || null,
+      outPath,
+    });
   } else {
     args = ['-f', 'lavfi', '-i', backgroundSource(width, height, durationSec)];
     if (tts?.audioPath) args.push('-i', tts.audioPath);

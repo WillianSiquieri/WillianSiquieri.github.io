@@ -147,6 +147,18 @@ textarea { resize: vertical; }
 .status-approved { background: #14331f; color: var(--green); }
 .status-rejected { background: #331414; color: #f87171; }
 
+/* Decisão tomada no painel que o YouTube recusou (ex.: escopo do token). */
+.card-error {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #7f1d1d;
+  background: #2a1212;
+  color: #fca5a5;
+  font-size: .78rem;
+  line-height: 1.4;
+}
+
 /* Feedback log */
 .feedback-log { list-style: none; padding: 0; }
 .feedback-log li { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; }
