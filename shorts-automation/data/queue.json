@@ -704,7 +704,7 @@
   },
   {
     "id": "sh_msn8fxapauit",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-10T12:53:37.489Z",
     "theme": "Economia",
     "title": "Dólar estável com dados de inflação no radar",
@@ -730,7 +730,8 @@
     },
     "youtubeId": "AvBIYp1uots",
     "previewUrl": "https://youtube.com/shorts/AvBIYp1uots",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:57.718Z"
   },
   {
     "id": "sh_msn8ge84fejx",
