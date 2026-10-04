@@ -489,7 +489,7 @@
   },
   {
     "id": "sh_mshknv0tjstg",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-06T13:48:42.368Z",
     "theme": "Economia",
     "title": "Selic em 14%: o que isso significa para você?",
@@ -514,7 +514,8 @@
     },
     "youtubeId": "52GSXd9DMpc",
     "previewUrl": "https://youtube.com/shorts/52GSXd9DMpc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:31.193Z"
   },
   {
     "id": "sh_msixv98ejlm2",
