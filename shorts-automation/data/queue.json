@@ -218,7 +218,7 @@
   },
   {
     "id": "sh_msucl2d88323",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-15T12:23:41.564Z",
     "theme": "Finanças",
     "title": "Abono Salarial PIS/Pasep 2026",
@@ -243,6 +243,7 @@
     },
     "youtubeId": "Ph31DDYPH90",
     "previewUrl": "https://youtube.com/shorts/Ph31DDYPH90",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:55.994Z"
   }
 ]
