@@ -398,7 +398,7 @@
   },
   {
     "id": "sh_msg5bnle516c",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-05T13:51:56.210Z",
     "theme": "Economia",
     "title": "Nova parceria entre Caixa e iFood facilita acesso a crédito para entregadores",
@@ -424,7 +424,8 @@
     },
     "youtubeId": "BFoyh0T6390",
     "previewUrl": "https://youtube.com/shorts/BFoyh0T6390",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:19.631Z"
   },
   {
     "id": "sh_msg5bzz3cn46",
