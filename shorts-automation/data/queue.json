@@ -183,7 +183,7 @@
   },
   {
     "id": "sh_msadvo2qapi1",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-01T13:04:09.954Z",
     "theme": "Economia",
     "title": "Bolsa Família: calendário de pagamentos em agosto",
@@ -209,7 +209,8 @@
     },
     "youtubeId": "UKlF3eT0Ka4",
     "previewUrl": "https://youtube.com/shorts/UKlF3eT0Ka4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:54.064Z"
   },
   {
     "id": "sh_msbtdgjjhtji",
