@@ -89,7 +89,7 @@
   },
   {
     "id": "sh_ms900fpf59cn",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-31T13:48:51.459Z",
     "theme": "Finanças",
     "title": "Dólar em alta: o que isso significa para o seu bolso?",
@@ -115,7 +115,8 @@
     },
     "youtubeId": "SoFhgU8NMHA",
     "previewUrl": "https://youtube.com/shorts/SoFhgU8NMHA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:37.391Z"
   },
   {
     "id": "sh_ms900toj3eih",
