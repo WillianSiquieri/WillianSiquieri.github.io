@@ -796,7 +796,7 @@
   },
   {
     "id": "sh_msonpq346oq7",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-11T12:48:30.760Z",
     "theme": "Dinheiro Esquecido",
     "title": "R$ 5,1 bilhões em dinheiro esquecido",
@@ -821,7 +821,8 @@
     },
     "youtubeId": "5npYkR5g1TE",
     "previewUrl": "https://youtube.com/shorts/5npYkR5g1TE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:02:25.394Z"
   },
   {
     "id": "sh_msq3bb3a2k7b",
