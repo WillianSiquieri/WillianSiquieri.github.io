@@ -642,7 +642,7 @@
   },
   {
     "id": "sh_mslse3icg7if",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-09T12:36:32.196Z",
     "theme": "Economia",
     "title": "Taxa das blusinhas: o que muda para o seu bolso?",
@@ -668,7 +668,8 @@
     },
     "youtubeId": "JXKs8N2rAgY",
     "previewUrl": "https://youtube.com/shorts/JXKs8N2rAgY",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:49.586Z"
   },
   {
     "id": "sh_mslsefzgvsh",
