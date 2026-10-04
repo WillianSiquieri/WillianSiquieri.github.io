@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_muu635jcksnm",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-04T18:41:30.312Z",
     "theme": "Eleição no Brasil e seu impacto na economia da América Latina",
     "title": "Como a eleição brasileira pode mexer no seu bolso",
@@ -31,6 +31,8 @@
     },
     "youtubeId": "g4Qs9zZdYws",
     "previewUrl": "https://youtube.com/shorts/g4Qs9zZdYws",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:46:17.358Z",
+    "rejectReason": "ainda tá tendo repetição de imagem aí tá repetindo essa mesma esse mesmo pequeno vídeo duas vezes e nao é isso que queremos"
   }
 ]
