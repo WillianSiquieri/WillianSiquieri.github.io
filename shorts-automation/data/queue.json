@@ -151,7 +151,7 @@
   },
   {
     "id": "sh_msadutb64y8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-01T13:04:09.954Z",
     "theme": "Economia",
     "title": "Gasolina com 32% de etanol: o que muda para o seu bolso?",
@@ -178,7 +178,8 @@
     },
     "youtubeId": "Zo70xJG0eKU",
     "previewUrl": "https://youtube.com/shorts/Zo70xJG0eKU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:50.690Z"
   },
   {
     "id": "sh_msadvo2qapi1",
