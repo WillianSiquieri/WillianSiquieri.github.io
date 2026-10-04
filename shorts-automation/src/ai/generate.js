@@ -49,10 +49,17 @@ function outputToolSchema(count) {
   };
 }
 
-function buildUserPrompt({ items, preferences, topPerformers, count, niche }) {
+// O free tier da Groq limita ~8k tokens por minuto, então o prompt precisa ser
+// enxuto. `size` permite encolher ainda mais caso a API responda 413.
+function buildUserPrompt({ items, preferences, topPerformers, count, niche }, size = {}) {
+  const maxItems = size.maxItems ?? 15;
+  const summaryLen = size.summaryLen ?? 90;
   const headlines = items
-    .slice(0, 40)
-    .map((it, i) => `${i + 1}. [${it.sourceLabel}] ${it.title} — ${truncate(it.summary, 160)} (${it.link})`)
+    .slice(0, maxItems)
+    .map((it, i) => {
+      const resumo = summaryLen > 0 ? ` — ${truncate(it.summary, summaryLen)}` : '';
+      return `${i + 1}. [${it.sourceLabel}] ${it.title}${resumo} (${it.link})`;
+    })
     .join('\n');
 
   const liked = (preferences?.likedThemes || []).join(', ') || '(nenhum ainda)';
@@ -190,6 +197,11 @@ async function generateWithGemini(opts) {
 // por 2 meses). Por isso consultamos /models e escolhemos o melhor disponível.
 let groqModelCache = null;
 
+// Modelos que NÃO servem para gerar texto (áudio, imagem, moderação...).
+const GROQ_NOT_TEXT = /whisper|tts|speech|audio|orpheus|playai|guard|embed|moderation|rerank|vision|ocr|image|diffus/i;
+// Famílias conhecidas de modelos de texto — preferidas na escolha.
+const GROQ_TEXT_FAMILY = /llama|gpt-oss|qwen|kimi|mixtral|mistral|gemma|deepseek|compound/i;
+
 async function groqAvailableModels() {
   if (groqModelCache) return groqModelCache;
   const res = await fetch('https://api.groq.com/openai/v1/models', {
@@ -198,9 +210,11 @@ async function groqAvailableModels() {
   });
   if (!res.ok) throw new Error(`Groq /models HTTP ${res.status}`);
   const data = await res.json();
-  groqModelCache = (data.data || [])
-    .map((m) => m.id)
-    .filter((id) => id && !/whisper|tts|guard|embed|moderation|vision/i.test(id));
+  const ids = (data.data || []).map((m) => m.id).filter((id) => id && !GROQ_NOT_TEXT.test(id));
+  // Se houver modelos de família conhecida, usa só eles: evita cair num modelo
+  // de áudio/experimental que aceita a chamada mas não gera roteiro.
+  const known = ids.filter((id) => GROQ_TEXT_FAMILY.test(id));
+  groqModelCache = known.length ? known : ids;
   return groqModelCache;
 }
 
@@ -219,7 +233,7 @@ function rankGroqModels(ids, preferred = []) {
   return [...ids].sort((a, b) => score(b) - score(a));
 }
 
-async function groqComplete(model, opts) {
+async function groqComplete(model, opts, size) {
   const { count } = opts;
   const sys =
     SYSTEM +
@@ -233,11 +247,12 @@ async function groqComplete(model, opts) {
       model,
       messages: [
         { role: 'system', content: sys },
-        { role: 'user', content: buildUserPrompt(opts) },
+        { role: 'user', content: buildUserPrompt(opts, size) },
       ],
       response_format: { type: 'json_object' },
       temperature: 0.9,
-      max_tokens: 4096,
+      // Reservado para a resposta também conta no limite por minuto: pede só o necessário.
+      max_tokens: Math.min(4096, 700 * Math.max(1, count) + 400),
     }),
     signal: AbortSignal.timeout(60000),
   });
@@ -266,15 +281,29 @@ async function generateWithGroq(opts) {
   }
   if (!candidates.length) throw new Error('nenhum modelo Groq disponível');
 
+  // Tamanhos de prompt: começa enxuto e encolhe se a API reclamar de tamanho (413).
+  const SIZES = [
+    { maxItems: 15, summaryLen: 90 },
+    { maxItems: 8, summaryLen: 60 },
+    { maxItems: 5, summaryLen: 0 },
+  ];
+
   let lastErr;
   for (const model of candidates.slice(0, 3)) {
-    try {
-      const shorts = await groqComplete(model, opts);
-      log(`Groq OK com modelo ${model}`);
-      return shorts;
-    } catch (e) {
-      lastErr = e;
-      warn(`Groq modelo ${model} falhou (${e.message}); tentando próximo…`);
+    for (const size of SIZES) {
+      try {
+        const shorts = await groqComplete(model, opts, size);
+        log(`Groq OK com modelo ${model} (${size.maxItems} manchetes)`);
+        return shorts;
+      } catch (e) {
+        lastErr = e;
+        if (e.status === 413) {
+          warn(`Groq ${model}: prompt grande demais com ${size.maxItems} manchetes; encolhendo…`);
+          continue; // tenta o mesmo modelo com prompt menor
+        }
+        warn(`Groq modelo ${model} falhou (${e.message}); tentando próximo…`);
+        break; // outro tipo de erro: troca de modelo
+      }
     }
   }
   throw lastErr || new Error('Groq indisponível');
