@@ -378,8 +378,98 @@ function toast(msg, err) {
   t.classList.remove('hidden');
 }
 
+/* ---------- Geração sob demanda ---------- */
+const GEN_WORKFLOW = 'shorts-daily.yml';
+
+function genBusy(busy, label) {
+  const btn = document.getElementById('btn-generate');
+  if (!btn) return;
+  btn.disabled = busy;
+  btn.textContent = label || '✨ Gerar short agora';
+}
+
+// Dispara o ciclo de geração (1 short) e acompanha até terminar.
+async function generateNow() {
+  if (!isConnected()) {
+    toast('Conecte um token do GitHub para gerar (🔌 Conectar).', true);
+    return;
+  }
+  genBusy(true, '⏳ Iniciando…');
+  const startedAt = Date.now();
+  try {
+    const url = `https://api.github.com/repos/${conn.repo}/actions/workflows/${GEN_WORKFLOW}/dispatches`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
+      // force=true para funcionar mesmo com a geração pausada; sem no_upload,
+      // então segue o fluxo normal: sobe como não listado e entra em aprovação.
+      body: JSON.stringify({ ref: conn.branch || 'master', inputs: { count: '1', force: 'true' } }),
+    });
+    if (!res.ok) {
+      let body = null;
+      try { body = await res.json(); } catch { /* sem JSON */ }
+      if (res.status === 403) {
+        throw new Error('Token sem permissão de Actions — edite o token e marque "Actions: Read and write".');
+      }
+      if (res.status === 404) throw new Error('Workflow não encontrado ou token sem acesso a Actions.');
+      throw new Error(`Erro ${res.status}${body?.message ? ': ' + body.message : ''}`);
+    }
+    toast('Geração iniciada — leva cerca de 2 minutos.');
+    await watchGeneration(startedAt);
+  } catch (e) {
+    toast(e.message || 'Falha ao iniciar a geração', true);
+    genBusy(false);
+  }
+}
+
+// Acompanha o run no GitHub Actions até concluir e recarrega a fila.
+async function watchGeneration(startedAt) {
+  let runId = null;
+  for (let i = 0; i < 60; i++) {
+    await new Promise((r) => setTimeout(r, 5000));
+    try {
+      if (!runId) {
+        const r = await fetch(
+          `https://api.github.com/repos/${conn.repo}/actions/workflows/${GEN_WORKFLOW}/runs?event=workflow_dispatch&per_page=1`,
+          { headers: ghHeaders(), cache: 'no-store' }
+        );
+        if (r.ok) {
+          const run = (await r.json()).workflow_runs?.[0];
+          // Só aceita um run começado a partir do clique (margem de 1 min).
+          if (run && new Date(run.created_at).getTime() >= startedAt - 60000) {
+            runId = run.id;
+            genBusy(true, '⏳ Gerando…');
+          }
+        }
+        continue;
+      }
+      const r = await fetch(`https://api.github.com/repos/${conn.repo}/actions/runs/${runId}`, {
+        headers: ghHeaders(), cache: 'no-store',
+      });
+      if (!r.ok) continue;
+      const run = await r.json();
+      if (run.status !== 'completed') {
+        genBusy(true, '⏳ Gerando…');
+        continue;
+      }
+      genBusy(false);
+      if (run.conclusion === 'success') {
+        toast('Short gerado ✅ — está na fila de aprovação.');
+        shaCache.queue = null; // força releitura
+        await loadAll();
+      } else {
+        toast('A geração falhou — confira os logs em Actions no GitHub.', true);
+      }
+      return;
+    } catch { /* rede instável: tenta de novo no próximo ciclo */ }
+  }
+  genBusy(false);
+  toast('Ainda processando — clique em ↻ Atualizar daqui a pouco.', true);
+}
+
 /* ---------- Eventos globais ---------- */
 document.getElementById('btn-refresh').onclick = () => loadAll();
+document.getElementById('btn-generate').onclick = generateNow;
 document.getElementById('btn-save-settings').onclick = saveSettings;
 document.getElementById('btn-add-feedback').onclick = async () => {
   const box = document.getElementById('global-feedback');
@@ -436,6 +526,16 @@ async function checkConn() {
   }
 }
 
+// Actions é opcional: só o botão "Gerar short agora" depende dela.
+async function canUseActions() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${conn.repo}/actions/workflows?per_page=1`, {
+      headers: ghHeaders(), cache: 'no-store',
+    });
+    return res.ok;
+  } catch { return false; }
+}
+
 document.getElementById('btn-save-connect').onclick = async () => {
   conn.repo = document.getElementById('cfg-repo').value.trim();
   conn.branch = document.getElementById('cfg-branch').value.trim() || 'master';
@@ -447,7 +547,11 @@ document.getElementById('btn-save-connect').onclick = async () => {
     return; // mantém o modal aberto para você corrigir
   }
   modal.classList.add('hidden');
-  toast('Conectado — token com permissão de escrita ✅');
+  if (await canUseActions()) {
+    toast('Conectado — escrita e geração sob demanda liberadas ✅');
+  } else {
+    toast('Conectado, mas sem permissão de Actions: o botão "Gerar short agora" não vai funcionar.', true);
+  }
   await loadAll();
 };
 document.getElementById('btn-disconnect').onclick = async () => {
