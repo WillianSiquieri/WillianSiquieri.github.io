@@ -253,6 +253,31 @@ function wireCardEvents() {
 
 /* ---------- Ditado por voz (feedback falado) ---------- */
 let activeRec = null;
+// Rede de segurança para texto ditado que já veio em escada (igual a
+// collapseRepeats em src/util.js — o painel é estático e não importa do Node).
+function collapseRepeats(text, maxLen = 600) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= 400) return t;
+  const words = t.split(' ');
+  const out = [];
+  let i = 0;
+  while (i < words.length) {
+    let rep = 0;
+    for (let k = Math.min(out.length, words.length - i); k >= 1; k--) {
+      let same = true;
+      for (let j = 0; j < k; j++) {
+        if (out[out.length - k + j] !== words[i + j]) { same = false; break; }
+      }
+      if (same) { rep = k; break; }
+    }
+    if (rep) i += rep;
+    else out.push(words[i++]);
+  }
+  const s = out.join(' ');
+  if (s.length < t.length) return collapseRepeats(s, maxLen);
+  return s.length > maxLen ? s.slice(0, maxLen).replace(/\s\S*$/, '') + '…' : s;
+}
+
 function dictate(textarea, btn) {
   if (!textarea) return;
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -270,22 +295,23 @@ function dictate(textarea, btn) {
   rec.interimResults = true;
   rec.continuous = true;
   const base = textarea.value ? textarea.value.trim() + ' ' : '';
-  let finalText = '';
+  // Guarda o texto POR ÍNDICE de resultado, nunca concatenando: o navegador
+  // reemite o mesmo trecho várias vezes enquanto refina, e concatenar gerava
+  // uma escada ("Esse / Esse é / Esse é um / ...") de dezenas de KB.
+  const parts = [];
+  const join = () => parts.filter(Boolean).join(' ').replace(/\s+/g, ' ');
   rec.onresult = (e) => {
-    let interim = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
-      const t = e.results[i][0].transcript;
-      if (e.results[i].isFinal) finalText += t + ' ';
-      else interim += t;
+      parts[i] = e.results[i][0].transcript.trim();
     }
-    textarea.value = base + finalText + interim;
+    textarea.value = (base + join()).trim();
   };
   rec.onerror = (e) => toast('Erro no ditado: ' + (e.error || 'desconhecido'), true);
   rec.onend = () => {
     activeRec = null;
     btn.classList.remove('rec');
     btn.textContent = '🎤';
-    textarea.value = (base + finalText).trim();
+    textarea.value = collapseRepeats((base + join()).trim());
     textarea.focus();
   };
   activeRec = rec;
@@ -324,7 +350,7 @@ async function decide(id, act) {
     if (i === -1) { toast('Esse short não está mais na fila.', true); await loadAll(); return; }
     fresh[i].status = act === 'approve' ? 'approved' : 'rejected';
     fresh[i].decidedAt = new Date().toISOString();
-    if (act === 'reject' && fbText) fresh[i].rejectReason = fbText;
+    if (act === 'reject' && fbText) fresh[i].rejectReason = collapseRepeats(fbText);
 
     await writeFile('queue', fresh, `painel: ${act} "${title}"`);
     if (fbText) await pushFeedback(fbText, title);
@@ -340,7 +366,8 @@ async function decide(id, act) {
 async function pushFeedback(text, targetTitle) {
   // Relê antes de gravar para não descartar feedbacks enviados de outro lugar.
   const fresh = await readFile('feedback');
-  fresh.push({ at: new Date().toISOString(), text, targetTitle: targetTitle || null });
+  // Último filtro: o que for gravado aqui entra no prompt da IA no próximo ciclo.
+  fresh.push({ at: new Date().toISOString(), text: collapseRepeats(text), targetTitle: targetTitle || null });
   await writeFile('feedback', fresh, 'painel: novo feedback');
   state.feedback = fresh;
 }

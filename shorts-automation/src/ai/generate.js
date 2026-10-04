@@ -62,9 +62,11 @@ function buildUserPrompt({ items, preferences, topPerformers, count, niche }, si
     })
     .join('\n');
 
-  const liked = (preferences?.likedThemes || []).join(', ') || '(nenhum ainda)';
-  const disliked = (preferences?.dislikedThemes || []).join(', ') || '(nenhum ainda)';
-  const guidance = preferences?.guidance || '(sem orientação específica)';
+  // Tetos rígidos: o prompt precisa caber na cota da IA sempre, mesmo que um
+  // arquivo de estado cresça por bug (já aconteceu: feedback de voz com 20 KB).
+  const liked = truncate((preferences?.likedThemes || []).join(', '), 300) || '(nenhum ainda)';
+  const disliked = truncate((preferences?.dislikedThemes || []).join(', '), 300) || '(nenhum ainda)';
+  const guidance = truncate(preferences?.guidance || '', 2000) || '(sem orientação específica)';
 
   const performers = (topPerformers || [])
     .slice(0, 5)
@@ -307,9 +309,6 @@ async function generateWithGroq(opts) {
   if (!candidates.length) throw new Error('nenhum modelo Groq disponível');
   log(`Groq: ${candidates.length} modelos de texto; tentando ${candidates.slice(0, 2).join(', ')}`);
 
-  // Prompt enxuto e fixo. Encolher o prompt nunca foi o gargalo: o que estoura a
-  // cota é o orçamento de SAÍDA que a Groq reserva antes de rodar a chamada.
-  const SIZE = { maxItems: 8, summaryLen: 60 };
   const MAX_MODELS = 2;
   const MAX_WAIT = 40; // segundos
 
@@ -319,24 +318,31 @@ async function generateWithGroq(opts) {
     const model = models[i];
     // Saída: 1200 tokens cobrem com folga 1 roteiro em JSON.
     let budget = Math.min(1200, 400 * Math.max(1, count) + 400);
+    let size = { maxItems: 8, summaryLen: 60 };
 
-    for (let attempt = 1; attempt <= 3; attempt++) {
+    for (let attempt = 1; attempt <= 4; attempt++) {
       try {
-        const shorts = await groqComplete(model, opts, SIZE, budget);
+        const shorts = await groqComplete(model, opts, size, budget);
         log(`Groq OK com modelo ${model}`);
         return shorts;
       } catch (e) {
         lastErr = e;
-        if (attempt === 3) {
+        if (attempt === 4) {
           warn(`Groq modelo ${model} falhou (${e.message})`);
           break;
         }
         // Pedido maior que a cota inteira: esperar não resolve, tem que caber.
+        // Corta primeiro a saída reservada, depois o próprio prompt.
         if (e.requested && e.limit && e.requested > e.limit) {
-          const novo = Math.max(500, Math.floor(budget / 2));
-          if (novo < budget) {
-            warn(`Groq ${model}: pedido de ${e.requested} tokens > cota de ${e.limit}; reduzindo saída para ${novo}.`);
-            budget = novo;
+          const menorBudget = Math.max(500, Math.floor(budget / 2));
+          if (menorBudget < budget) {
+            warn(`Groq ${model}: pedido de ${e.requested} > cota de ${e.limit}; saída para ${menorBudget}.`);
+            budget = menorBudget;
+            continue;
+          }
+          if (size.maxItems > 4) {
+            size = { maxItems: 4, summaryLen: 0 };
+            warn(`Groq ${model}: pedido de ${e.requested} > cota de ${e.limit}; prompt para 4 manchetes sem resumo.`);
             continue;
           }
         }

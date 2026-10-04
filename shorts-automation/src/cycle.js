@@ -20,7 +20,7 @@ import { generateShorts } from './ai/generate.js';
 import { assembleVideo } from './video/assemble.js';
 import { uploadShort, youtubeReady } from './youtube/upload.js';
 import { refreshAnalytics, topPerformers } from './youtube/analytics.js';
-import { log, warn, makeId, argFlag } from './util.js';
+import { log, warn, makeId, argFlag, collapseRepeats } from './util.js';
 
 function usedKeys(queue, published) {
   const keys = new Set();
@@ -34,9 +34,13 @@ function usedKeys(queue, published) {
 // Deriva as preferências efetivas combinando settings + feedback recente.
 function effectivePreferences(settings, feedback) {
   const p = settings.preferences || {};
+  // collapseRepeats defende o prompt: um feedback ditado por voz já chegou com
+  // 20 KB de texto em escada e estourou a cota de tokens da IA.
   const recent = feedback
-    .slice(-15)
-    .map((f) => `- ${f.text}`)
+    .slice(-8)
+    .map((f) => collapseRepeats(f.text, 400))
+    .filter((t) => t)
+    .map((t) => `- ${t}`)
     .join('\n');
   return {
     ...p,
