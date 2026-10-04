@@ -612,7 +612,7 @@
   },
   {
     "id": "sh_mskcugxq7w3m",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-08T12:33:16.530Z",
     "theme": "Finanças",
     "title": "Reforma tributária: novo imposto sobre consumo começa em 2027",
@@ -637,7 +637,8 @@
     },
     "youtubeId": "GDjwqIXTTBM",
     "previewUrl": "https://youtube.com/shorts/GDjwqIXTTBM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:46.567Z"
   },
   {
     "id": "sh_mslse3icg7if",
