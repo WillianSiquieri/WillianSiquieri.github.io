@@ -37,7 +37,7 @@
   },
   {
     "id": "sh_muu6aenjbr23",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-10-04T18:47:08.719Z",
     "theme": "PF apreende R$ 789 mil e conduz 59 pessoas no dia da eleição – impacto nos mercados",
     "title": "Eleição e dinheiro: Por que a polícia apreendeu quase R$ 800 mil?",
@@ -71,6 +71,7 @@
     },
     "youtubeId": "kE356KBvNFo",
     "previewUrl": "https://youtube.com/shorts/kE356KBvNFo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:49:41.688Z"
   }
 ]
