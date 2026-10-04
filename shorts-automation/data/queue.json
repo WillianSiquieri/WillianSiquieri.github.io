@@ -550,7 +550,7 @@
   },
   {
     "id": "sh_msixvpo6ge11",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-07T12:46:32.318Z",
     "theme": "Finanças",
     "title": "Petrobras tem lucro recorde no 2º trimestre",
@@ -576,7 +576,8 @@
     },
     "youtubeId": "81djNcEe0Gk",
     "previewUrl": "https://youtube.com/shorts/81djNcEe0Gk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:39.929Z"
   },
   {
     "id": "sh_mskcu1v67ydj",
