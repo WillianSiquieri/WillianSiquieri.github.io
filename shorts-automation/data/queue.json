@@ -37,5 +37,42 @@
     "previewUrl": "https://youtube.com/shorts/kE356KBvNFo",
     "privacyStatus": "unlisted",
     "decidedAt": "2026-10-04T18:49:41.688Z"
+  },
+  {
+    "id": "sh_muu6pydwk3r7",
+    "status": "draft",
+    "createdAt": "2026-10-04T18:59:14.132Z",
+    "theme": "Eleição 2026 – horário de fechamento das urnas e impacto no mercado",
+    "title": "Por que o horário de fechamento das urnas pode mexer com seu bolso?",
+    "hook": "Você sabia que quem chega na fila às 17h ainda pode votar? E isso pode mudar a bolsa!",
+    "script": "Nas eleições, as seções fecham às 17h, horário de Brasília. Mas se você ainda estiver na fila, seu voto conta. Essa regra cria incerteza nos resultados finais, porque cada voto a mais pode virar ponto de virada. Quando o placar fica apertado, investidores ficam nervosos e o mercado reage – juros sobem, dólar pode oscilar, e a bolsa fica volátil. Ou seja, a hora que a urna fecha pode mexer direto no seu bolso, influenciando custos de empréstimos e o valor dos seus investimentos. Fique de olho nos resultados e ajuste sua estratégia de acordo.",
+    "tags": [
+      "#Eleicoes2026",
+      "#MercadoFinanceiro",
+      "#Bolsa",
+      "#Dólar",
+      "#Juros",
+      "#Investimentos"
+    ],
+    "captionKeywords": [
+      "eleição 2026",
+      "horário das urnas",
+      "bolsa",
+      "dólar",
+      "juros",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/eleitores-que-estiverem-na-fila-as-17h-ainda-podem-votar-entenda/",
+    "rationale": "A notícia tem alta relevância para o público de finanças porque conecta um detalhe do processo eleitoral ao comportamento do mercado, oferecendo explicação direta do impacto no bolso do investidor, em formato curto e dinâmico.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muu6pydwk3r7.mp4"
+    },
+    "youtubeId": "4T-fLH4bAXk",
+    "previewUrl": "https://youtube.com/shorts/4T-fLH4bAXk",
+    "privacyStatus": "unlisted"
   }
 ]
