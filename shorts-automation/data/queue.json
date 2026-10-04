@@ -34,5 +34,43 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-10-04T18:46:17.358Z",
     "rejectReason": "ainda tá tendo repetição de imagem aí tá repetindo essa mesma esse mesmo pequeno vídeo duas vezes e nao é isso que queremos"
+  },
+  {
+    "id": "sh_muu6aenjbr23",
+    "status": "draft",
+    "createdAt": "2026-10-04T18:47:08.719Z",
+    "theme": "PF apreende R$ 789 mil e conduz 59 pessoas no dia da eleição – impacto nos mercados",
+    "title": "Eleição e dinheiro: Por que a polícia apreendeu quase R$ 800 mil?",
+    "hook": "R$ 789 mil confiscados na eleição! O que isso significa para o seu bolso?",
+    "script": "A Polícia Federal prendeu 59 pessoas e apreendeu quase 800 mil reais no dia da votação. Todo esse dinheiro estava ligado a supostos esquemas de compra de votos e financiamento ilegal. Quando o governo investiga esse tipo de prática, os investidores ficam cautelosos: risco aumenta, e a bolsa pode oscilar. Se o mercado percebe instabilidade política, o dólar costuma subir, encarecendo importações e elevando a inflação. Para quem tem dívida atrelada ao dólar, isso pode significar juros mais altos no futuro. Já quem investe em renda fixa, pode ver a taxa Selic subir para conter a turbulência. Em resumo, a ação da PF sinaliza que a política está sob lupa, e isso costuma refletir direto nos preços dos ativos. Fique de olho nas notícias e ajuste sua carteira conforme o risco aumenta.",
+    "tags": [
+      "#Eleição2026",
+      "#MercadoFinanceiro",
+      "#Dólar",
+      "#Investimento",
+      "#PolíciaFederal"
+    ],
+    "captionKeywords": [
+      "eleição",
+      "polícia federal",
+      "apreensão",
+      "mercado financeiro",
+      "dólar",
+      "inflação",
+      "investimento",
+      "risco"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/eleicoes-2026-apuracao-exterior-primeiro-turno-3/",
+    "rationale": "A notícia tem relevância direta para finanças: a apreensão de dinheiro na eleição gera incerteza política, que afeta taxa de juros, dólar e bolsa. O tema permite explicar de forma simples como esses fatores podem impactar o bolso do espectador, alinhado ao nicho e ao estilo de roteiro curto e objetivo, sem repetir imagens nem terminar com pergunta.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 55,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muu6aenjbr23.mp4"
+    },
+    "youtubeId": "kE356KBvNFo",
+    "previewUrl": "https://youtube.com/shorts/kE356KBvNFo",
+    "privacyStatus": "unlisted"
   }
 ]
