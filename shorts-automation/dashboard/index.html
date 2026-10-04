@@ -48,6 +48,10 @@
         <label for="guidance">Orientação de estilo / temas (vira instrução para a IA)</label>
         <textarea id="guidance" rows="2" placeholder="Ex.: tom direto, foco em economia, evitar fofoca de celebridades..."></textarea>
       </div>
+      <div class="control-group">
+        <label>Sob demanda</label>
+        <button class="btn" id="btn-generate" title="Gera 1 short agora e manda para a fila de aprovação">✨ Gerar short agora</button>
+      </div>
       <button class="btn" id="btn-save-settings">Salvar configurações</button>
     </section>
 
@@ -89,7 +93,7 @@
       <input id="cfg-repo" placeholder="williansiquieri/williansiquieri.github.io" />
       <label>Branch</label>
       <input id="cfg-branch" placeholder="master" />
-      <label>GitHub token (fine-grained, escopo Contents: Read/Write)</label>
+      <label>GitHub token (fine-grained) — permissões: <strong>Contents: Read and write</strong> e <strong>Actions: Read and write</strong> (esta última só para o botão "Gerar short agora")</label>
       <input id="cfg-token" type="password" placeholder="github_pat_..." />
       <div class="modal-actions">
         <button class="btn ghost" id="btn-disconnect">Desconectar</button>
