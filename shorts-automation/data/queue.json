@@ -429,7 +429,7 @@
   },
   {
     "id": "sh_msg5bzz3cn46",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-05T13:51:56.210Z",
     "theme": "Economia",
     "title": "Banco Central deve cortar juro básico da economia pela 4º vez seguida",
@@ -454,7 +454,8 @@
     },
     "youtubeId": "bTRin1s1Iuw",
     "previewUrl": "https://youtube.com/shorts/bTRin1s1Iuw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:23.800Z"
   },
   {
     "id": "sh_mshkncox7rn5",
