@@ -188,7 +188,7 @@
   },
   {
     "id": "sh_msuckovw5mw",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-15T12:23:41.564Z",
     "theme": "Economia",
     "title": "Petrobras Encontra Petróleo na Foz do Amazonas",
@@ -213,7 +213,8 @@
     },
     "youtubeId": "6f8TEdko1lk",
     "previewUrl": "https://youtube.com/shorts/6f8TEdko1lk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:52.536Z"
   },
   {
     "id": "sh_msucl2d88323",
