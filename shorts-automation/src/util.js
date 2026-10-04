@@ -63,6 +63,35 @@ export function truncate(s = '', n = 280) {
   return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
 }
 
+// O ditado por voz do navegador entrega resultados parciais em "escada"
+// ("Esse / Esse é / Esse é um / ..."). Se forem concatenados em vez de
+// substituídos, uma frase de 200 chars vira um texto de 20 KB — que depois
+// entope o prompt da IA. Isto desfaz a escada colapsando blocos de palavras
+// que repetem o que já veio imediatamente antes.
+export function collapseRepeats(text, maxLen = 600) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= 400) return t; // texto normal: não mexe
+  const words = t.split(' ');
+  const out = [];
+  let i = 0;
+  while (i < words.length) {
+    let rep = 0;
+    for (let k = Math.min(out.length, words.length - i); k >= 1; k--) {
+      let same = true;
+      for (let j = 0; j < k; j++) {
+        if (out[out.length - k + j] !== words[i + j]) { same = false; break; }
+      }
+      if (same) { rep = k; break; }
+    }
+    if (rep) i += rep; // bloco repetido: pula
+    else out.push(words[i++]);
+  }
+  const s = out.join(' ');
+  // Cada passada pode expor uma escada nova; repete até estabilizar.
+  if (s.length < t.length) return collapseRepeats(s, maxLen);
+  return s.length > maxLen ? s.slice(0, maxLen).replace(/\s\S*$/, '') + '…' : s;
+}
+
 // Lê uma flag de linha de comando: --count=3 -> 3, --mock -> true
 export function argFlag(name, fallback = undefined) {
   const hit = process.argv.find((a) => a === `--${name}` || a.startsWith(`--${name}=`));
