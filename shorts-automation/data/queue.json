@@ -157,7 +157,7 @@
   },
   {
     "id": "sh_mssy3mnaaldf",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-14T12:50:24.113Z",
     "theme": "Economia",
     "title": "Desemprego cai: o que isso significa para você",
@@ -183,7 +183,8 @@
     },
     "youtubeId": "JotFwYZOcMw",
     "previewUrl": "https://youtube.com/shorts/JotFwYZOcMw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:29.896Z"
   },
   {
     "id": "sh_msuckovw5mw",
