@@ -33,7 +33,7 @@
   },
   {
     "id": "sh_ms5i226e5lrf",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-29T03:02:32.545Z",
     "theme": "Finanças",
     "title": "Lucro do FGTS: você vai receber?",
@@ -58,7 +58,8 @@
     },
     "youtubeId": "Y2ZEzUD_Sjw",
     "previewUrl": "https://youtube.com/shorts/Y2ZEzUD_Sjw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T17:59:15.706Z"
   },
   {
     "id": "sh_ms65atze6cvh",
