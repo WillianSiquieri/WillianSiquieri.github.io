@@ -251,14 +251,24 @@ async function groqComplete(model, opts, size) {
       ],
       response_format: { type: 'json_object' },
       temperature: 0.9,
-      // Reservado para a resposta também conta no limite por minuto: pede só o necessário.
-      max_tokens: Math.min(4096, 700 * Math.max(1, count) + 400),
+      // Alguns modelos limitam a saída a 1000 tokens/min (OTPM); fica abaixo disso.
+      // Um roteiro de short tem ~200 palavras, então isso é de sobra.
+      max_tokens: Math.min(900, 300 * Math.max(1, count) + 300),
     }),
     signal: AbortSignal.timeout(60000),
   });
   if (!res.ok) {
-    const err = new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+    const body = (await res.text()).slice(0, 400);
+    const err = new Error(`HTTP ${res.status}: ${body.slice(0, 200)}`);
     err.status = res.status;
+    // A Groq diz quanto esperar, no header ou no próprio texto ("try again in 12.5s").
+    const header = Number(res.headers.get('retry-after'));
+    const inBody = /try again in ([\d.]+)\s*(ms|s)/i.exec(body);
+    err.retryAfter = Number.isFinite(header) && header > 0
+      ? header
+      : inBody
+        ? Number(inBody[1]) / (inBody[2].toLowerCase() === 'ms' ? 1000 : 1)
+        : 0;
     throw err;
   }
   const data = await res.json();
@@ -281,30 +291,39 @@ async function generateWithGroq(opts) {
   }
   if (!candidates.length) throw new Error('nenhum modelo Groq disponível');
 
-  // Tamanhos de prompt: começa enxuto e encolhe se a API reclamar de tamanho (413).
-  const SIZES = [
-    { maxItems: 15, summaryLen: 90 },
-    { maxItems: 8, summaryLen: 60 },
-    { maxItems: 5, summaryLen: 0 },
-  ];
+  // Prompt enxuto e fixo: ~2k tokens por chamada, longe do teto de 8k TPM do free tier.
+  const SIZE = { maxItems: 8, summaryLen: 60 };
+
+  // O free tier limita *tokens por minuto*, não por requisição. Uma rajada de
+  // tentativas soma tudo no mesmo minuto e estoura a cota — então aqui vai
+  // pouca tentativa e com espera de verdade entre elas.
+  const MAX_MODELS = 2;
+  const MAX_WAIT = 40; // segundos
 
   let lastErr;
-  for (const model of candidates.slice(0, 3)) {
-    for (const size of SIZES) {
+  const models = candidates.slice(0, MAX_MODELS);
+  for (let i = 0; i < models.length; i++) {
+    const model = models[i];
+    for (let attempt = 1; attempt <= 2; attempt++) {
       try {
-        const shorts = await groqComplete(model, opts, size);
-        log(`Groq OK com modelo ${model} (${size.maxItems} manchetes)`);
+        const shorts = await groqComplete(model, opts, SIZE);
+        log(`Groq OK com modelo ${model}`);
         return shorts;
       } catch (e) {
         lastErr = e;
-        if (e.status === 413) {
-          warn(`Groq ${model}: prompt grande demais com ${size.maxItems} manchetes; encolhendo…`);
-          continue; // tenta o mesmo modelo com prompt menor
+        const rateLimited = e.status === 413 || e.status === 429;
+        if (rateLimited && attempt === 1) {
+          const wait = Math.min(Math.max(e.retryAfter || 20, 5), MAX_WAIT);
+          warn(`Groq ${model}: limite por minuto atingido; aguardando ${Math.round(wait)}s…`);
+          await sleep(wait * 1000);
+          continue; // mesma chamada, depois da cota renovar
         }
-        warn(`Groq modelo ${model} falhou (${e.message}); tentando próximo…`);
-        break; // outro tipo de erro: troca de modelo
+        warn(`Groq modelo ${model} falhou (${e.message})`);
+        break;
       }
     }
+    // Pausa antes de trocar de modelo: a cota de tokens/min é da conta, não do modelo.
+    if (i < models.length - 1) await sleep(15000);
   }
   throw lastErr || new Error('Groq indisponível');
 }
