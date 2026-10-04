@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_ms65atze6cvh",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-29T13:53:36.074Z",
     "theme": "Economia",
     "title": "Dólar em queda e Ibovespa em baixa",
@@ -26,7 +26,8 @@
     },
     "youtubeId": "xdvHhUvxjnw",
     "previewUrl": "https://youtube.com/shorts/xdvHhUvxjnw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:25.132Z"
   },
   {
     "id": "sh_ms7ke96eh8gq",
