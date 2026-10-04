@@ -305,7 +305,7 @@
   },
   {
     "id": "sh_msdblvna70rj",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-03T14:24:09.246Z",
     "theme": "Investimentos",
     "title": "Qual é o melhor investimento para agosto?",
@@ -331,7 +331,8 @@
     },
     "youtubeId": "p8ycz50eYZc",
     "previewUrl": "https://youtube.com/shorts/p8ycz50eYZc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:09.119Z"
   },
   {
     "id": "sh_msepzn49eo18",
