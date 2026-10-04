@@ -32,7 +32,7 @@
   },
   {
     "id": "sh_msq3bq765b4e",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-12T12:53:22.534Z",
     "theme": "Economia",
     "title": "Inflação dos EUA sobe 0,1% em julho",
@@ -59,7 +59,8 @@
     },
     "youtubeId": "fnMt4ZaS8a0",
     "previewUrl": "https://youtube.com/shorts/fnMt4ZaS8a0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:13.165Z"
   },
   {
     "id": "sh_msrit1qpd1gf",
