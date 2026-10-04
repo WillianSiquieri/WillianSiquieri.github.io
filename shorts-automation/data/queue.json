@@ -30,7 +30,7 @@
   },
   {
     "id": "sh_ms7ke96eh8gq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-30T13:43:56.150Z",
     "theme": "Economia",
     "title": "Dívida pública federal atinge R$ 9,27 trilhões",
@@ -54,7 +54,8 @@
     },
     "youtubeId": "7v3D011xKQ0",
     "previewUrl": "https://youtube.com/shorts/7v3D011xKQ0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:19.141Z"
   },
   {
     "id": "sh_ms7kemkvurl",
