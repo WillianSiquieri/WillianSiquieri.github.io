@@ -92,7 +92,7 @@
   },
   {
     "id": "sh_ms65bhbha69y",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-29T13:53:36.074Z",
     "theme": "Economia",
     "title": "FGTS distribuirá lucro de R$ 13 bilhões",
@@ -117,7 +117,8 @@
     },
     "youtubeId": "6S5lWumfu1k",
     "previewUrl": "https://youtube.com/shorts/6S5lWumfu1k",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T17:59:20.912Z"
   },
   {
     "id": "sh_ms7ke96eh8gq",
