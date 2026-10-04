@@ -64,7 +64,7 @@
   },
   {
     "id": "sh_msrit1qpd1gf",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-13T12:54:50.641Z",
     "theme": "Economia",
     "title": "Dólar hoje: entenda o que afeta o preço",
@@ -90,7 +90,8 @@
     },
     "youtubeId": "q_l8e94yxUI",
     "previewUrl": "https://youtube.com/shorts/q_l8e94yxUI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:20.695Z"
   },
   {
     "id": "sh_msritopsbew0",
