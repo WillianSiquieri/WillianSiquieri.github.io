@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_msq3bb3a2k7b",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-12T12:53:22.534Z",
     "theme": "Economia",
     "title": "Dólar: entenda o que faz o preço subir ou cair",
@@ -27,7 +27,8 @@
     },
     "youtubeId": "YWmsjhkv7qg",
     "previewUrl": "https://youtube.com/shorts/YWmsjhkv7qg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:02:54.642Z"
   },
   {
     "id": "sh_msq3bq765b4e",
