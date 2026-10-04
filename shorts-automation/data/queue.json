@@ -766,7 +766,7 @@
   },
   {
     "id": "sh_msonp7ag77a5",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-11T12:48:30.760Z",
     "theme": "Inflação",
     "title": "Inflação sobe 0,07% em julho",
@@ -791,7 +791,8 @@
     },
     "youtubeId": "KCbJkrE2lkg",
     "previewUrl": "https://youtube.com/shorts/KCbJkrE2lkg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:02:15.507Z"
   },
   {
     "id": "sh_msonpq346oq7",
