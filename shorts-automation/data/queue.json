@@ -120,7 +120,7 @@
   },
   {
     "id": "sh_ms900toj3eih",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-07-31T13:48:51.459Z",
     "theme": "Economia",
     "title": "Rombo das estatais federais: como isso afeta você?",
@@ -146,7 +146,8 @@
     },
     "youtubeId": "thrJQOsL97A",
     "previewUrl": "https://youtube.com/shorts/thrJQOsL97A",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:00:45.808Z"
   },
   {
     "id": "sh_msadutb64y8",
