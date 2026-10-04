@@ -425,7 +425,14 @@ async function generateNow() {
 // Acompanha o run no GitHub Actions até concluir e recarrega a fila.
 async function watchGeneration(startedAt) {
   let runId = null;
-  for (let i = 0; i < 60; i++) {
+  // Um ciclo leva ~1-2 min, mas a instalação do ffmpeg no runner às vezes
+  // arrasta (já levou 18 min num mirror lento). Acompanha por até 20 min.
+  const MAX_POLLS = 240;
+  const elapsed = () => {
+    const s = Math.round((Date.now() - startedAt) / 1000);
+    return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m${String(s % 60).padStart(2, '0')}s`;
+  };
+  for (let i = 0; i < MAX_POLLS; i++) {
     await new Promise((r) => setTimeout(r, 5000));
     try {
       if (!runId) {
@@ -438,9 +445,9 @@ async function watchGeneration(startedAt) {
           // Só aceita um run começado a partir do clique (margem de 1 min).
           if (run && new Date(run.created_at).getTime() >= startedAt - 60000) {
             runId = run.id;
-            genBusy(true, '⏳ Gerando…');
           }
         }
+        genBusy(true, `⏳ Gerando… ${elapsed()}`);
         continue;
       }
       const r = await fetch(`https://api.github.com/repos/${conn.repo}/actions/runs/${runId}`, {
@@ -449,12 +456,12 @@ async function watchGeneration(startedAt) {
       if (!r.ok) continue;
       const run = await r.json();
       if (run.status !== 'completed') {
-        genBusy(true, '⏳ Gerando…');
+        genBusy(true, `⏳ Gerando… ${elapsed()}`);
         continue;
       }
       genBusy(false);
       if (run.conclusion === 'success') {
-        toast('Short gerado ✅ — está na fila de aprovação.');
+        toast(`Short gerado em ${elapsed()} ✅ — está na fila de aprovação.`);
         shaCache.queue = null; // força releitura
         await loadAll();
       } else {
@@ -464,7 +471,7 @@ async function watchGeneration(startedAt) {
     } catch { /* rede instável: tenta de novo no próximo ciclo */ }
   }
   genBusy(false);
-  toast('Ainda processando — clique em ↻ Atualizar daqui a pouco.', true);
+  toast(`Já são ${elapsed()} e o run não terminou — clique em ↻ Atualizar daqui a pouco.`, true);
 }
 
 /* ---------- Eventos globais ---------- */
