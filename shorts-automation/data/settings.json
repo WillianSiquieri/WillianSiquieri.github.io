@@ -2,12 +2,12 @@
   "mode": "approval",
   "shortsPerDay": 2,
   "preferences": {
-    "guidance": "Nicho: finanças e economia para brasileiros. Estilo dos roteiros: frases CURTAS e faladas (feitas para legenda em tela), gancho forte em 3 segundos, linguagem simples e nativa, sem economês nem promessa de retorno. Explique o que a notícia significa para o bolso do espectador. Videos relevantes para cada tema, sem repeticao.",
+    "guidance": "Nicho: finanças e economia para brasileiros. Estilo dos roteiros: frases CURTAS e faladas (feitas para legenda em tela), gancho forte em 3 segundos, linguagem simples e nativa, sem economês nem promessa de retorno. Explique o que a notícia significa para o bolso do espectador. Videos relevantes para cada tema, sem repeticao de imagens.",
     "likedThemes": [],
     "dislikedThemes": [
       "fofoca de celebridades",
       "esquemas de enriquecimento rápido"
     ]
   },
-  "updatedAt": "2026-10-04T18:05:47.279Z"
+  "updatedAt": "2026-10-04T18:16:13.573Z"
 }
