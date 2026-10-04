@@ -673,7 +673,7 @@
   },
   {
     "id": "sh_mslsefzgvsh",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-09T12:36:32.196Z",
     "theme": "Economia",
     "title": "Selic a 14%: o que muda para você?",
@@ -699,7 +699,8 @@
     },
     "youtubeId": "lnw7cfDsY2A",
     "previewUrl": "https://youtube.com/shorts/lnw7cfDsY2A",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:52.427Z"
   },
   {
     "id": "sh_msn8fxapauit",
