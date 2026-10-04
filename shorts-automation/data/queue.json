@@ -95,7 +95,7 @@
   },
   {
     "id": "sh_msritopsbew0",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-13T12:54:50.641Z",
     "theme": "Finanças",
     "title": "Ibovespa: o que está movendo o mercado?",
@@ -121,7 +121,8 @@
     },
     "youtubeId": "gqpS3G_06Hw",
     "previewUrl": "https://youtube.com/shorts/gqpS3G_06Hw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:23.688Z"
   },
   {
     "id": "sh_mssy36r54bjn",
