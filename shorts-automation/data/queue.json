@@ -735,7 +735,7 @@
   },
   {
     "id": "sh_msn8ge84fejx",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-10T12:53:37.489Z",
     "theme": "Investimentos",
     "title": "Banco Central endurece regras para criptoativos",
@@ -761,7 +761,8 @@
     },
     "youtubeId": "LrktRJK5DrE",
     "previewUrl": "https://youtube.com/shorts/LrktRJK5DrE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:02:07.777Z"
   },
   {
     "id": "sh_msonp7ag77a5",
