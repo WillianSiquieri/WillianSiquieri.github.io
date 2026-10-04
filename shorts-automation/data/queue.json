@@ -581,7 +581,7 @@
   },
   {
     "id": "sh_mskcu1v67ydj",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-08T12:33:16.530Z",
     "theme": "Economia",
     "title": "El Niño pode pressionar inflação dos alimentos em 2027",
@@ -607,7 +607,8 @@
     },
     "youtubeId": "a8tq-up0W4Q",
     "previewUrl": "https://youtube.com/shorts/a8tq-up0W4Q",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:43.206Z"
   },
   {
     "id": "sh_mskcugxq7w3m",
