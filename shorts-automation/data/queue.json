@@ -244,7 +244,7 @@
   },
   {
     "id": "sh_msbtdwgu8p5q",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-02T13:06:20.287Z",
     "theme": "Economia",
     "title": "Receita Federal emite o primeiro CNPJ alfanumérico do Brasil",
@@ -269,7 +269,8 @@
     },
     "youtubeId": "P5xcMK3APNk",
     "previewUrl": "https://youtube.com/shorts/P5xcMK3APNk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:01:00.672Z"
   },
   {
     "id": "sh_msdbldsu9hcx",
