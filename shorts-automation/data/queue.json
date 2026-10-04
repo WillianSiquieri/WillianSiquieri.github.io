@@ -126,7 +126,7 @@
   },
   {
     "id": "sh_mssy36r54bjn",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-08-14T12:50:24.113Z",
     "theme": "Economia",
     "title": "Dólar hoje: o que a queda significa para o seu bolso",
@@ -152,7 +152,8 @@
     },
     "youtubeId": "BGBvJw04SJg",
     "previewUrl": "https://youtube.com/shorts/BGBvJw04SJg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-10-04T18:03:26.821Z"
   },
   {
     "id": "sh_mssy3mnaaldf",
