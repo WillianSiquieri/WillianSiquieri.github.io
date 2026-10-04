@@ -8,6 +8,8 @@
     "height": 1920,
     "targetDurationSec": 45,
     "backgroundStyle": "auto",
+    "brollSegmentSec": 5,
+    "brollMaxClips": 6,
     "categoryId": "25"
   },
   "tts": {

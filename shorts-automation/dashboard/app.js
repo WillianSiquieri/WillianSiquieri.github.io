@@ -223,6 +223,7 @@ function shortCard(d, isPublished) {
       <button class="toggle" data-toggle>ver mais</button>
       <div class="meta">${(d.tags || []).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join('')}</div>
       ${d.rationale ? `<div class="meta"><span class="muted small">💡 ${escapeHtml(d.rationale)}</span></div>` : ''}
+      ${d.publishError ? `<div class="card-error">⚠ A decisão não foi aplicada no YouTube: ${escapeHtml(d.publishError)}</div>` : ''}
     </div>
     ${stats}
   </article>`;

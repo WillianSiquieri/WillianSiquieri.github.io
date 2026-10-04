@@ -8,9 +8,13 @@ import { google } from 'googleapis';
 import { createServer } from 'node:http';
 import { warn } from '../util.js';
 
+// ATENÇÃO: `youtube.upload` só permite ENVIAR. Tornar público (videos.update) e
+// apagar um rejeitado (videos.delete) exigem o escopo `youtube` — sem ele o
+// upload funciona e a aprovação falha com "Insufficient Permission".
+// Ao mudar esta lista, o YT_REFRESH_TOKEN tem de ser gerado de novo.
 const SCOPES = [
+  'https://www.googleapis.com/auth/youtube',
   'https://www.googleapis.com/auth/youtube.upload',
-  'https://www.googleapis.com/auth/youtube.readonly',
   'https://www.googleapis.com/auth/yt-analytics.readonly',
 ];
 

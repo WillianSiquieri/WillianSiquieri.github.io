@@ -102,6 +102,14 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
    Autorize no navegador e copie o `YT_REFRESH_TOKEN` impresso.
 4. Salve `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` como secrets.
 
+> **Escopo:** autorize na conta **do canal** (não no perfil pessoal) e aceite os três
+> escopos pedidos. `youtube.upload` sozinho só permite **enviar** — tornar público
+> (`videos.update`) e apagar um rejeitado (`videos.delete`) exigem o escopo
+> `https://www.googleapis.com/auth/youtube`. Com o token errado o upload funciona e a
+> aprovação falha com **`Insufficient Permission`**: o vídeo fica para sempre *não
+> listado*. Se mudar a lista de escopos em `src/youtube/auth.js`, **gere o token de novo**
+> — um refresh token antigo carrega os escopos de quando foi criado.
+
 Sem as chaves do YouTube, o sistema ainda gera e enfileira os shorts — só não publica.
 
 ## Usar o painel
