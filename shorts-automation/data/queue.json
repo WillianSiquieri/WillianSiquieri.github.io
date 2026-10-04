@@ -1,41 +1,5 @@
 [
   {
-    "id": "sh_muu635jcksnm",
-    "status": "rejected",
-    "createdAt": "2026-10-04T18:41:30.312Z",
-    "theme": "Eleição no Brasil e seu impacto na economia da América Latina",
-    "title": "Como a eleição brasileira pode mexer no seu bolso",
-    "hook": "A escolha do presidente pode mudar a taxa de juros que você paga!",
-    "script": "A eleição está chegando e o mercado já sente o efeito. Se um candidato prometer cortar gastos, a expectativa é de juros mais baixos. Isso significa crédito mais barato e financiamento de carro ou casa com parcelas menores. Por outro lado, se houver risco de instabilidade, os investidores pedem segurança: os juros sobem, o crédito encarece e o dólar pode subir, inflacionando tudo. Em resumo, o resultado das urnas pode mudar o custo do seu dinheiro nos próximos meses. Fique de olho nas propostas e no que o mercado está falando antes de fechar seu próximo contrato.",
-    "tags": [
-      "#Eleição2024",
-      "#Economia",
-      "#Juros",
-      "#FinançasPessoais"
-    ],
-    "captionKeywords": [
-      "eleição",
-      "juros",
-      "dólar",
-      "crédito",
-      "bolso"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/politica/eleicao-no-brasil-vai-ditar-futuro-da-america-latina-diz-the-new-york-times/",
-    "rationale": "Escolhi a manchete sobre a eleição brasileira e seu impacto na América Latina porque conecta diretamente política à economia doméstica, tema central do canal. O roteiro é curto, com frases rápidas, evita repetição de imagens e não termina com pergunta, atendendo ao feedback recente.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 39,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_muu635jcksnm.mp4"
-    },
-    "youtubeId": "g4Qs9zZdYws",
-    "previewUrl": "https://youtube.com/shorts/g4Qs9zZdYws",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-10-04T18:46:17.358Z",
-    "rejectReason": "ainda tá tendo repetição de imagem aí tá repetindo essa mesma esse mesmo pequeno vídeo duas vezes e nao é isso que queremos"
-  },
-  {
     "id": "sh_muu6aenjbr23",
     "status": "approved",
     "createdAt": "2026-10-04T18:47:08.719Z",
