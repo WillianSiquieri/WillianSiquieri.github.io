@@ -76,5 +76,77 @@
     "youtubeId": "4T-fLH4bAXk",
     "previewUrl": "https://youtube.com/shorts/4T-fLH4bAXk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muwyw8suh3t7",
+    "status": "draft",
+    "createdAt": "2026-10-06T17:43:29.165Z",
+    "theme": "ETF de Brasil levanta US$ 700 milhões em NY",
+    "title": "Por que o ETF Brasil bombou e o que isso significa para seu dinheiro",
+    "hook": "Um dia, um fundo brasileiro captou 700 milhões de dólares – veja por quê isso pode impactar seu bolso!",
+    "script": "O ETF Brasil, negociado em Nova York, recebeu US$ 700 milhões em um único dia – recorde histórico. Mas o que é um ETF? É um fundo que reúne várias ações e permite comprar tudo de uma vez, como se fosse uma única ação. Esse fluxo de dinheiro indica confiança internacional na economia brasileira, o que pode elevar a demanda por reais e impulsionar a bolsa local. Para o investidor comum, significa mais opções para diversificar sem precisar escolher ações individuais. Se a tendência continuar, o preço das cotas pode subir, gerando valorização para quem já possui ou decidir comprar. Fique de olho nos relatórios de fluxo de caixa e nas recomendações de corretoras para aproveitar essa onda.",
+    "tags": [
+      "#ETF",
+      "#Investimento",
+      "#BolsaBrasil",
+      "#Finanças",
+      "#Dinheiro"
+    ],
+    "captionKeywords": [
+      "ETF Brasil",
+      "investimento",
+      "bolsa",
+      "dinheiro",
+      "recorde",
+      "NY"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/etf-de-brasil-em-ny-capta-us-700-milhoes-em-um-dia-maior-valor-da-historia/",
+    "rationale": "Alta relevância de mercado, traz aprendizado prático de investimento coletivo e tem impacto direto no bolso do espectador, alinhado ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 48,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muwyw8suh3t7.mp4"
+    },
+    "youtubeId": "wTViHGWwlKA",
+    "previewUrl": "https://youtube.com/shorts/wTViHGWwlKA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muwyx3y72udl",
+    "status": "draft",
+    "createdAt": "2026-10-06T17:43:29.165Z",
+    "theme": "JPMorgan reavalia Banco do Brasil e Bradesco",
+    "title": "JPMorgan muda a aposta: Banco do Brasil à venda, Bradesco em alta",
+    "hook": "A maior corretora do mundo acabou de mudar a nota de duas das maiores bancos brasileiras – descubra o que isso pode mudar no seu portfólio!",
+    "script": "A JPMorgan baixou a recomendação do Banco do Brasil para \"venda\" e elevou o Bradesco para \"compra\" depois de um rali nas ações. Por que isso importa? Quando um analista global altera o preço‑alvo, investidores institucionais costumam seguir, gerando fluxo de compra ou venda. A queda do Banco do Brasil pode puxar o preço das suas ações para baixo, abrindo oportunidade de compra com desconto. Já o Bradesco, com alta de dividendos e boa gestão de crédito, pode oferecer retorno mais estável. Para quem tem dinheiro investido, vale revisar a alocação: reduzir exposição ao Banco do Brasil e considerar aumentar a posição no Bradesco, sempre alinhado ao seu perfil de risco.",
+    "tags": [
+      "#Ações",
+      "#BancoDoBrasil",
+      "#Bradesco",
+      "#Investimento",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "JPMorgan",
+      "Banco do Brasil",
+      "Bradesco",
+      "ações",
+      "investimento",
+      "preço-alvo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bbas3-bbdc4-jpmorgan-rebaixa-banco-do-brasil-para-venda-e-eleva-bradesco-a-compra-apos-rali-acoes-reagem/",
+    "rationale": "Tema quente de análise de bancos, traz orientação prática de ajuste de carteira, alto potencial de engajamento para investidores de varejo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muwyx3y72udl.mp4"
+    },
+    "youtubeId": "233S_jJWtS8",
+    "previewUrl": "https://youtube.com/shorts/233S_jJWtS8",
+    "privacyStatus": "unlisted"
   }
 ]
