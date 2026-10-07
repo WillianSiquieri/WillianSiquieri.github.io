@@ -148,5 +148,72 @@
     "youtubeId": "233S_jJWtS8",
     "previewUrl": "https://youtube.com/shorts/233S_jJWtS8",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muyfhiw93s2t",
+    "status": "draft",
+    "createdAt": "2026-10-07T18:15:42.057Z",
+    "theme": "Juros nos EUA e impacto no Brasil",
+    "title": "Fed aumenta juros: o que isso muda no seu bolso?",
+    "hook": "O Fed acabou de subir a taxa e o seu dinheiro sente agora!",
+    "script": "O Federal Reserve dos EUA aumentou a taxa básica em 0,25 ponto. Por quê? Para conter a inflação nos EUA. Mas isso tem efeito direto aqui. Quando os juros norte-americanos sobem, o dólar costuma se fortalecer. Com o dólar mais caro, produtos importados ficam mais caros e a inflação pode subir no Brasil. Além disso, os investimentos em renda fixa atrelados ao CDI ficam menos atraentes frente aos títulos americanos, o que pode pressionar a alta dos juros internos. Em resumo: seu cartão de crédito pode ficar mais caro, o preço da gasolina pode subir e a rentabilidade da poupança pode ficar ainda menor. Fique de olho nas próximas decisões do Fed para ajustar seu orçamento.",
+    "tags": [
+      "#Finanças",
+      "#Economia",
+      "#Juros",
+      "#Fed"
+    ],
+    "captionKeywords": [
+      "Fed",
+      "juros",
+      "dólar",
+      "inflação",
+      "bolso"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/ata-federal-reserve-07102026/",
+    "rationale": "Tema atual com repercussão direta no bolso dos brasileiros e alta potencial de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 50,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muyfhiw93s2t.mp4"
+    },
+    "youtubeId": "WmvQsefcQ7Q",
+    "previewUrl": "https://youtube.com/shorts/WmvQsefcQ7Q",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muyfigc09nkl",
+    "status": "draft",
+    "createdAt": "2026-10-07T18:15:42.057Z",
+    "theme": "Erros comuns ao começar a investir em ações",
+    "title": "5 erros que você NÃO pode cometer ao investir em ações",
+    "hook": "Você vai perder dinheiro se cair nesses 5 erros de iniciante!",
+    "script": "Erro 1: acreditar que ação sobe sempre – o mercado oscila, não existe garantia. Erro 2: colocar todo o dinheiro em uma única ação – diversificação reduz risco. Erro 3: não estudar a empresa – entender receita, dívida e perspectiva é essencial. Erro 4: seguir dica de amigo sem análise – hype pode ser armadilha. Erro 5: ignorar custos – corretagem, taxa de custódia e impostos diminuem seu ganho. Evite esses deslizes e aumente suas chances de retorno consistente. Lembre-se: investir é maratona, não corrida de 100 metros.",
+    "tags": [
+      "#Investimentos",
+      "#Ações",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "investir",
+      "ações",
+      "erros",
+      "dinheiro",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/os-5-erros-mais-comuns-de-quem-comeca-a-investir-em-acoes/",
+    "rationale": "Conteúdo prático, direto ao ponto e relevante para iniciantes, garantindo alta retenção e compartilhamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 41,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muyfigc09nkl.mp4"
+    },
+    "youtubeId": "za4lEq1Q02o",
+    "previewUrl": "https://youtube.com/shorts/za4lEq1Q02o",
+    "privacyStatus": "unlisted"
   }
 ]
