@@ -215,5 +215,71 @@
     "youtubeId": "za4lEq1Q02o",
     "previewUrl": "https://youtube.com/shorts/za4lEq1Q02o",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muzuyusi9w0f",
+    "status": "draft",
+    "createdAt": "2026-10-08T18:16:51.042Z",
+    "theme": "IPO bilionário de empresa de IA apoiada pela Nvidia",
+    "title": "IPO de IA trava: o que isso significa para seu bolso?",
+    "hook": "O IPO de IA que prometia bilhões acabou parando de repente!",
+    "script": "A empresa de IA apoiada pela Nvidia abriu capital com expectativa de valuation de bilhões. Mas, poucos dias depois, a demanda esfriou e o IPO foi suspenso. Para o investidor, isso mostra o risco de hype em tecnologia. Quando o mercado perde o entusiasmo, o preço da ação despenca e o dinheiro que você poderia ter colocado lá fica em espera. Fique de olho em sinais de demanda real antes de embarcar em IPOs de moda. Avalie a solidez do negócio, não só o nome dos investidores.",
+    "tags": [
+      "#IPO",
+      "#InteligênciaArtificial",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "IPO",
+      "IA",
+      "Nvidia",
+      "investimento",
+      "mercado"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ipo-bilionario-de-empresa-de-ia-apoiada-pela-nvidia-trava-e-liga-alerta-no-mercado/",
+    "rationale": "Alto potencial de engajamento por hype de IA e risco de investimento, conecta diretamente ao público que acompanha ações e tecnologia.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muzuyusi9w0f.mp4"
+    },
+    "youtubeId": "Q1n_dZMymYw",
+    "previewUrl": "https://youtube.com/shorts/Q1n_dZMymYw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_muzuzhvsk2w8",
+    "status": "draft",
+    "createdAt": "2026-10-08T18:16:51.042Z",
+    "theme": "IPCA pode romper meta em setembro",
+    "title": "IPCA acima da meta: como isso afeta seu dinheiro?",
+    "hook": "O IPCA pode ter quebrado a meta e seu salário pode ser o próximo a sentir!",
+    "script": "Economistas alertam que o IPCA de setembro pode superar a meta de inflação. Quando a inflação acelera, o poder de compra da sua renda diminui. Isso significa que o preço dos alimentos, combustíveis e serviços pode subir mais rápido que seu salário. Para proteger seu bolso, revise gastos, busque investimentos que superem a inflação e renegocie dívidas com juros altos. Ficar atento à inflação ajuda a manter seu dinheiro rendendo de verdade.",
+    "tags": [
+      "#Inflação",
+      "#IPCA",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "IPCA",
+      "inflação",
+      "bolso",
+      "economia",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/ipca-deve-mostrar-reaceleracao-em-setembro-teto-da-meta-pode-ter-sido-rompido-no-mes/",
+    "rationale": "Tema direto ao impacto no consumidor, fácil de explicar e muito relevante para finanças pessoais, gerando alto interesse.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_muzuzhvsk2w8.mp4"
+    },
+    "youtubeId": "Wa2pCEfoMQw",
+    "previewUrl": "https://youtube.com/shorts/Wa2pCEfoMQw",
+    "privacyStatus": "unlisted"
   }
 ]
