@@ -38,7 +38,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-10-04T18:49:41.688Z",
     "publishError": "o YT_REFRESH_TOKEN não tem o escopo de escrita (https://www.googleapis.com/auth/youtube). Gere o token de novo na conta do canal e atualize o secret — o upload funciona com youtube.upload, mas tornar público não.",
-    "publishErrorAt": "2026-10-08T22:49:42.758Z"
+    "publishErrorAt": "2026-10-09T04:25:03.288Z"
   },
   {
     "id": "sh_muu6pydwk3r7",
