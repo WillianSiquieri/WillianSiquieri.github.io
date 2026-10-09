@@ -281,5 +281,69 @@
     "youtubeId": "Wa2pCEfoMQw",
     "previewUrl": "https://youtube.com/shorts/Wa2pCEfoMQw",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv19fya27gkg",
+    "status": "draft",
+    "createdAt": "2026-10-09T17:49:49.514Z",
+    "theme": "Bitcoin testa US$ 80 mil",
+    "title": "BTC tenta R$ 400 mil: o que isso significa pro seu bolso?",
+    "hook": "Bitcoin bate a marca de US$ 80 mil e o mercado ferve!",
+    "script": "O Bitcoin chegou a 80 mil dólares. Mas atenção: a alta vem com correção. Quando o preço cai, quem compra barato pode ganhar. Para quem investe, isso significa risco maior, mas também oportunidade de entrada. Se o BTC recuar, pense em diversificar e não colocar tudo numa moeda. Avalie seu perfil e limite de perda antes de comprar. Lembre-se: criptomoeda é volátil, não é garantia de lucro imediato.",
+    "tags": [
+      "#Bitcoin",
+      "#Investimento",
+      "#Cripto"
+    ],
+    "captionKeywords": [
+      "Bitcoin",
+      "US$80mil",
+      "correção",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bitcoin-btc-80-mil-correcao-recuperacao/",
+    "rationale": "Alta relevância e impacto direto nos investidores de cripto, explicando risco e oportunidade em linguagem simples.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv19fya27gkg.mp4"
+    },
+    "youtubeId": "FoSBYJlr0ME",
+    "previewUrl": "https://youtube.com/shorts/FoSBYJlr0ME",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv19gnsbbpwb",
+    "status": "draft",
+    "createdAt": "2026-10-09T17:49:49.514Z",
+    "theme": "Frete de petróleo EUA-China supera custo de lançar foguete",
+    "title": "Por que o frete de petróleo está mais caro que um foguete?",
+    "hook": "Frete de petróleo agora custa mais que lançar um foguete ao espaço!",
+    "script": "O custo do frete de petróleo dos EUA para a China ultrapassou US$ 150 mil por barril, mais caro que um lançamento espacial. Isso acontece porque há falta de petroleiros e rotas mais longas. Para o consumidor, o preço da gasolina pode subir ainda mais. Investidores de energia devem ficar de olho: empresas de transporte marítimo podem ganhar, mas refinarias sentem a pressão. Avalie como isso afeta seu orçamento e seus investimentos em energia.",
+    "tags": [
+      "#Energia",
+      "#Mercado",
+      "#Investimentos"
+    ],
+    "captionKeywords": [
+      "frete de petróleo",
+      "custo",
+      "energia",
+      "gasolina"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/frete-de-petroleo-dos-eua-para-china-ja-custa-mais-do-que-lancar-um-foguete-ao-espaco/",
+    "rationale": "Tema atual, ligação direta ao preço dos combustíveis e oportunidades de investimento, atendendo ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv19gnsbbpwb.mp4"
+    },
+    "youtubeId": "K4C_M5S37-8",
+    "previewUrl": "https://youtube.com/shorts/K4C_M5S37-8",
+    "privacyStatus": "unlisted"
   }
 ]
