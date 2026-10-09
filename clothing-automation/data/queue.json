@@ -3670,5 +3670,136 @@
     "instagram": {
       "published": false
     }
+  },
+  {
+    "id": "cl_mv198k9cl7ix",
+    "status": "draft",
+    "createdAt": "2026-10-09T17:44:04.752Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1791567844751_0",
+      "receivedAt": "2026-10-09T17:44:04.751Z",
+      "caption": "Vestido midi floral, tecido viscose, tam M. R$ 79,90"
+    },
+    "images": [
+      "data/media/cl_mv198k9cl7ix_1.svg"
+    ],
+    "basePrice": 79.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 103.9,
+    "product": {
+      "title": "Vestido Midi Floral",
+      "description": "Vestido midi com estampa floral vibrante, confeccionado em viscose leve que garante caimento fluido e conforto ao longo do dia. Ideal para looks casuais ou ocasiões especiais, disponível no tamanho M.",
+      "category": "vestido",
+      "size": "M",
+      "color": "floral multicolorido"
+    },
+    "caption": "🌸 Elegância em cada detalhe! Esse vestido midi floral em viscose cai leve e confortável. Tamanho M, perfeito para o seu dia a dia. 👗 Chama no direct ou WhatsApp e garanta o seu!\nTam: M · floral multicolorido\n💰 R$ 103,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #vestidomidi #floral #viscose #lookdodia #estilocasal #verão2026 #bazardawilli",
+    "hashtags": [
+      "modafeminina",
+      "vestidomidi",
+      "floral",
+      "viscose",
+      "lookdodia",
+      "estilocasal",
+      "verão2026",
+      "bazardawilli"
+    ],
+    "rationale": "A descrição destaca tipo, estampa, tecido e caimento, atendendo ao pedido de ser atraente e honesta. O título resume a peça. O caption tem 3 linhas, usa emojis moderados e inclui chamada para direct/WhatsApp, sem mencionar preço. As hashtags foram escolhidas entre 4 e 8, sem o símbolo '#', focando em moda feminina, estilo da peça e a loja.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mv198lj75kb2",
+    "status": "draft",
+    "createdAt": "2026-10-09T17:44:04.752Z",
+    "vendor": {
+      "number": "5511999990002",
+      "name": "Fornecedora Bruna"
+    },
+    "source": {
+      "messageId": "mock_1791567844751_1",
+      "receivedAt": "2026-10-09T17:43:04.751Z",
+      "caption": "Blusa cropped canelada branca, tam P/M. 49,90"
+    },
+    "images": [
+      "data/media/cl_mv198lj75kb2_1.svg"
+    ],
+    "basePrice": 49.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 64.9,
+    "product": {
+      "title": "Blusa Cropped Canelada Branca",
+      "description": "Blusa cropped em tecido canelado, cor branca, com caimento leve e estruturado que valoriza a silhueta. Ideal para compor looks frescos e elegantes, seja no dia a dia ou em ocasiões especiais. Disponível nos tamanhos P e M.",
+      "category": "blusa cropped",
+      "size": "P/M",
+      "color": "branco"
+    },
+    "caption": "Blusa cropped em tecido canelado, super fresca e elegante 🌿\nO branco combina com tudo e o caimento leve valoriza o visual\nGaranta a sua por direct ou WhatsApp!\nTam: P/M · branco\n💰 R$ 64,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #lookscasuais #blusacropped #branco #tendência #estiloelegante #bazardawilli",
+    "hashtags": [
+      "modafeminina",
+      "lookscasuais",
+      "blusacropped",
+      "branco",
+      "tendência",
+      "estiloelegante",
+      "bazardawilli"
+    ],
+    "rationale": "A descrição destaca o tipo de peça, cor e tecido canelado, além do caimento, atendendo ao pedido de ser atraente e honesta. O título resume a peça para fácil identificação. O caption tem 3 linhas, usa emojis moderados, não menciona preço e inclui chamada para contato via direct/WhatsApp. As hashtags foram escolhidas entre 4 e 8, em português, sem o símbolo #, focando em moda feminina, estilo e a loja.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mv198mo87o6h",
+    "status": "draft",
+    "createdAt": "2026-10-09T17:44:04.752Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1791567844751_2",
+      "receivedAt": "2026-10-09T17:42:04.751Z",
+      "caption": "Calça jeans wide leg, cintura alta, tam 40. R$ 119,90"
+    },
+    "images": [
+      "data/media/cl_mv198mo87o6h_1.svg"
+    ],
+    "basePrice": 119.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 155.9,
+    "product": {
+      "title": "Calça Jeans Wide Leg Cintura Alta",
+      "description": "Calça jeans de corte wide leg, com cintura alta que modela o corpo e garante conforto. Confeccionada em denim de peso médio com lavagem clássica azul escura, oferece um caimento fluido e leve. Ideal para compor looks descolados ou mais elegantes, combinando perfeitamente com blusas cropped ou camisas soltas.",
+      "category": "Calça Jeans",
+      "size": "40",
+      "color": "Azul"
+    },
+    "caption": "Chegou a calça jeans wide leg que é puro estilo! 🌟 Cintura alta e caimento livre para arrasar no visual. 📩 Chama no direct ou WhatsApp e garanta a sua!\nTam: 40 · Azul\n💰 R$ 155,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #wideleg #jeans #cinturalta #lookdodia #tendência #bazardawilli #shoppingonline",
+    "hashtags": [
+      "modafeminina",
+      "wideleg",
+      "jeans",
+      "cinturalta",
+      "lookdodia",
+      "tendência",
+      "bazardawilli",
+      "shoppingonline"
+    ],
+    "rationale": "A descrição destaca tipo, corte, cintura alta, tecido e cor inferida (azul) de forma atrativa e honesta. O título resume a peça para fácil identificação. A legenda curta segue o tom simpático e vendedor, inclui emojis moderados e chamada para contato sem mencionar preço. As hashtags foram selecionadas para alcançar público interessado em moda feminina, denim e a loja específica, mantendo o limite de 4 a 8 palavras.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
   }
 ]
