@@ -345,5 +345,75 @@
     "youtubeId": "K4C_M5S37-8",
     "previewUrl": "https://youtube.com/shorts/K4C_M5S37-8",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv2mkp6edvbb",
+    "status": "draft",
+    "createdAt": "2026-10-10T16:45:12.182Z",
+    "theme": "Títulos do Tesouro sobem 13% em uma semana",
+    "title": "Por que os títulos do Tesouro dispararam e o que isso muda no seu bolso?",
+    "hook": "Em menos de 7 dias, os títulos do Tesouro subiram até 13% – descubra o que isso significa pra você!",
+    "script": "Os títulos do Tesouro são títulos públicos que pagam juros. Essa semana eles subiram 13%, o maior salto da história recente. Por quê? A taxa Selic caiu, então os títulos antigos, que pagam juros mais altos, ficaram mais valiosos. Se você tem títulos ou pensa em comprar, pode vender agora e ganhar a diferença. Mas atenção: se mantiver o título até o vencimento, o retorno volta ao padrão da taxa atual. Então, quem já tem, pode lucrar vendendo; quem quer começar, aproveita juros atrativos antes que a taxa suba novamente.",
+    "tags": [
+      "#TesouroDireto",
+      "#Investimento",
+      "#FinançasPessoais",
+      "#Juros",
+      "#Economia"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "títulos públicos",
+      "juros",
+      "investimento",
+      "Selic"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/titulos-do-tesouro-disparam-ate-13-em-uma-semana-e-batem-ibovespa/",
+    "rationale": "Alta relevância para investidores brasileiros, explica impacto direto no bolso e oferece ação prática sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv2mkp6edvbb.mp4"
+    },
+    "youtubeId": "bhcmYGjF5ZE",
+    "previewUrl": "https://youtube.com/shorts/bhcmYGjF5ZE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv2mljaj99yb",
+    "status": "draft",
+    "createdAt": "2026-10-10T16:45:12.182Z",
+    "theme": "Desmentido: diarista e manicure não precisam abrir CNPJ agora",
+    "title": "Vídeo viral diz que diarista precisa de CNPJ – é verdade?",
+    "hook": "Você viu o vídeo que afirma que diaristas e manicures terão que abrir CNPJ? Vamos esclarecer agora!",
+    "script": "Um vídeo circulou nas redes dizendo que quem trabalha como diarista ou manicure terá que abrir CNPJ e emitir nota fiscal. O Ministério da Fazenda, através do ministro Dario Durigan, desmentiu a informação. Não há mudança na lei que obrigue esses profissionais a formalizar o negócio agora. O que muda é que, se você já tem CNPJ, pode emitir nota para ter mais segurança e facilitar a declaração de imposto. Mas a obrigação não foi criada. Então, continue trabalhando como sempre, mas se quiser formalizar, pode ser vantajoso para crédito e benefícios.",
+    "tags": [
+      "#Finanças",
+      "#DicasFiscais",
+      "#Desinformação",
+      "#TrabalhoInformal",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "CNPJ",
+      "diarista",
+      "manicure",
+      "nota fiscal",
+      "desinformação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/e-falso-video-que-diz-que-diarista-e-manicure-terao-que-abrir-cnpj-e-emitir-nf/",
+    "rationale": "Desmistifica fake news que pode gerar preocupação financeira, alinhado ao nicho de finanças pessoais e economia prática.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv2mljaj99yb.mp4"
+    },
+    "youtubeId": "-A0tqqCowH8",
+    "previewUrl": "https://youtube.com/shorts/-A0tqqCowH8",
+    "privacyStatus": "unlisted"
   }
 ]
