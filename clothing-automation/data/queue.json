@@ -3930,5 +3930,136 @@
     "instagram": {
       "published": false
     }
+  },
+  {
+    "id": "cl_mv1tydqnce9v",
+    "status": "draft",
+    "createdAt": "2026-10-10T03:24:01.679Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1791602641679_0",
+      "receivedAt": "2026-10-10T03:24:01.679Z",
+      "caption": "Vestido midi floral, tecido viscose, tam M. R$ 79,90"
+    },
+    "images": [
+      "data/media/cl_mv1tydqnce9v_1.svg"
+    ],
+    "basePrice": 79.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 103.9,
+    "product": {
+      "title": "Vestido Midi Floral em Viscose",
+      "description": "Vestido midi com delicado estampa floral em tons multicoloridos, confeccionado em viscose leve que garante um caimento fluido e confortável. Modelo tamanho M, ideal para looks elegantes do dia a dia ou ocasiões especiais. Preço final: R$ 79,90.",
+      "category": "vestido",
+      "size": "M",
+      "color": "floral multicolorido"
+    },
+    "caption": "🌸 Elegância e frescor em um só vestido! O midi floral em viscose desliza suavemente, perfeito para arrasar em qualquer ocasião.\n💬 Quer garantir o seu? Chama no direct ou no WhatsApp!\nTam: M · floral multicolorido\n💰 R$ 103,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #vestidomidi #floral #viscose #lookdodia #tendencias #shoponline #bazarwilli",
+    "hashtags": [
+      "modafeminina",
+      "vestidomidi",
+      "floral",
+      "viscose",
+      "lookdodia",
+      "tendencias",
+      "shoponline",
+      "bazarwilli"
+    ],
+    "rationale": "A descrição destaca tipo, estampa, tecido e caimento, inclui tamanho e preço fora da legenda conforme solicitado. A legenda tem 2 linhas, usa emojis moderados e finaliza com chamada para direct/WhatsApp. As hashtags são relevantes e dentro do limite de 4 a 8, sem o símbolo #.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mv1tyf2j8fnn",
+    "status": "draft",
+    "createdAt": "2026-10-10T03:24:01.679Z",
+    "vendor": {
+      "number": "5511999990002",
+      "name": "Fornecedora Bruna"
+    },
+    "source": {
+      "messageId": "mock_1791602641679_1",
+      "receivedAt": "2026-10-10T03:23:01.679Z",
+      "caption": "Blusa cropped canelada branca, tam P/M. 49,90"
+    },
+    "images": [
+      "data/media/cl_mv1tyf2j8fnn_1.svg"
+    ],
+    "basePrice": 49.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 64.9,
+    "product": {
+      "title": "Blusa Cropped Canelada Branca",
+      "description": "Blusa cropped em tecido canelado, com caimento leve e estruturado que valoriza a silhueta. A cor branca traz frescor e versatilidade, combinando fácil com calças, saias ou shorts. Disponível nos tamanhos P e M, ideal para montar looks modernos e descontraídos.",
+      "category": "Blusa",
+      "size": "P/M",
+      "color": "Branca"
+    },
+    "caption": "Blusa cropped em tecido canelado, perfeita para looks frescos e cheios de estilo. 🌿\nDisponível nos tamanhos P e M.\nQuer garantir a sua? Chama no direct ou no WhatsApp! 📲\nTam: P/M · Branca\n💰 R$ 64,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #blusacropped #lookverao #estilocasuall #tendencia2024 #compraonline #bazardawilli",
+    "hashtags": [
+      "modafeminina",
+      "blusacropped",
+      "lookverao",
+      "estilocasuall",
+      "tendencia2024",
+      "compraonline",
+      "bazardawilli"
+    ],
+    "rationale": "Criei um título direto e atraente, descrevi a peça destacando tipo, cor e o tecido canelado que permite inferir o caimento. O tamanho informado foi mantido. A legenda tem 3 linhas, usa emojis moderados, não menciona preço e finaliza com chamada para contato via direct/WhatsApp. As hashtags foram escolhidas entre 4 e 8, sem o símbolo '#', focando em moda feminina, tipo de peça e tendências, incluindo a marca da loja.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mv1tyg617k0e",
+    "status": "draft",
+    "createdAt": "2026-10-10T03:24:01.679Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1791602641679_2",
+      "receivedAt": "2026-10-10T03:22:01.679Z",
+      "caption": "Calça jeans wide leg, cintura alta, tam 40. R$ 119,90"
+    },
+    "images": [
+      "data/media/cl_mv1tyg617k0e_1.svg"
+    ],
+    "basePrice": 119.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 155.9,
+    "product": {
+      "title": "Calça Jeans Wide Leg Cintura Alta",
+      "description": "Calça jeans de corte amplo (wide leg) com cintura alta, confeccionada em denim de toque macio e leve elasticidade, garantindo conforto e caimento fluido. Ideal para compor looks casuais ou mais arrumados, valorizando a silhueta.",
+      "category": "Calça",
+      "size": "40",
+      "color": "Azul"
+    },
+    "caption": "Chegou a tendência do momento! 🌟 Calça jeans wide leg, cintura alta, conforto e estilo em um só look. Disponível no tamanho 40. Garanta a sua por direct ou WhatsApp!\nTam: 40 · Azul\n💰 R$ 155,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #calçajeans #wideleg #cinturalta #estilosa #bazardawilli #lookdodia #tamanhocomforto",
+    "hashtags": [
+      "modafeminina",
+      "calçajeans",
+      "wideleg",
+      "cinturalta",
+      "estilosa",
+      "bazardawilli",
+      "lookdodia",
+      "tamanhocomforto"
+    ],
+    "rationale": "O título destaca as principais características da peça. A descrição detalha tipo, corte, cintura, tecido e caimento de forma atrativa e honesta. A categoria, tamanho e cor foram preenchidos conforme informação da fornecedora e inferência padrão de jeans azul. A legenda tem 3 linhas, usa emojis moderados e inclui chamada para direct/WhatsApp, sem mencionar preço. As hashtags foram escolhidas para alcançar público interessado em moda feminina, calças jeans e a loja Bazar da Willi.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
   }
 ]
