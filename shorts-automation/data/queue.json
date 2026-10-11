@@ -415,5 +415,75 @@
     "youtubeId": "-A0tqqCowH8",
     "previewUrl": "https://youtube.com/shorts/-A0tqqCowH8",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv42x4ok1961",
+    "status": "draft",
+    "createdAt": "2026-10-11T17:10:32.180Z",
+    "theme": "Política fiscal e impacto no bolso",
+    "title": "Fim da escala 6×1: o que isso muda no seu salário?",
+    "hook": "A mudança da escala 6×1 pode chegar ao seu contracheque já nesta semana!",
+    "script": "Lula anunciou que vai votar o fim da escala 6×1 na quarta. Essa regra obriga quem ganha até 2 salários mínimos a pagar 100% do INSS. Se acabar, a contribuição cai para 7,5% a 14%, dependendo da faixa. Resultado? Mais dinheiro no salário líquido e menos pressão sobre a folha de pagamento das empresas. Mas atenção: o governo pode compensar com aumento de outros tributos. Fique de olho nas próximas notícias para saber se seu bolso vai ganhar ou perder.",
+    "tags": [
+      "#Finanças",
+      "#Economia",
+      "#PolíticaFiscal",
+      "#INSS",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "escala 6x1",
+      "INSS",
+      "salário líquido",
+      "política fiscal",
+      "Lula"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/lula-vamos-votar-fim-da-escala-6x1-na-quarta-feira-ja-esta-conversado/",
+    "rationale": "Tema direto ao bolso do brasileiro, ligado a política fiscal, gera alto engajamento e conecta com o nicho de finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv42x4ok1961.mp4"
+    },
+    "youtubeId": "RIulf7uMsDw",
+    "previewUrl": "https://youtube.com/shorts/RIulf7uMsDw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv42xzr47ylf",
+    "status": "draft",
+    "createdAt": "2026-10-11T17:10:32.180Z",
+    "theme": "Geopolítica e preço do petróleo",
+    "title": "Ataques dos houthis: risco de alta no preço da bomba",
+    "hook": "Cada ataque dos houthis pode fazer o preço da gasolina subir ainda mais!",
+    "script": "Os houthis intensificaram os ataques à Arábia Saudita, incluindo o principal aeroporto de Riad. A região produz mais de 10% do petróleo mundial. Quando a oferta fica ameaçada, o preço do barril sobe. Isso reflete direto no preço da gasolina e do diesel no Brasil, que já estão em alta. Se a tensão continuar, podemos ver mais aumentos nos postos e nas contas de energia. Acompanhe o mercado para ajustar seu orçamento e considerar alternativas como transporte coletivo ou carro híbrido.",
+    "tags": [
+      "#Petróleo",
+      "#Geopolítica",
+      "#Investimentos",
+      "#PreçoDaGasolina",
+      "#Economia"
+    ],
+    "captionKeywords": [
+      "houthis",
+      "preço do petróleo",
+      "gasolina",
+      "geopolítica",
+      "Brasil"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/ataques-dos-houthis-a-arabia-saudita-aumentam-risco-de-ampliacao-da-guerra/",
+    "rationale": "Conecta um conflito internacional ao impacto direto nos custos de energia do consumidor, tema de alto interesse para finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 34,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mv42xzr47ylf.mp4"
+    },
+    "youtubeId": "72LgJlRGVQA",
+    "previewUrl": "https://youtube.com/shorts/72LgJlRGVQA",
+    "privacyStatus": "unlisted"
   }
 ]
