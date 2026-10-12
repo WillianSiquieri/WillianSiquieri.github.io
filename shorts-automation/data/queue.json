@@ -485,5 +485,73 @@
     "youtubeId": "72LgJlRGVQA",
     "previewUrl": "https://youtube.com/shorts/72LgJlRGVQA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv5py2fycq2d",
+    "status": "draft",
+    "createdAt": "2026-10-12T20:42:53.278Z",
+    "theme": "Dólar em alta de 18 meses",
+    "title": "Por que o dólar está no pico de 18 meses?",
+    "hook": "O dólar bate a maior cotação em 18 meses e isso mexe com o seu bolso agora!",
+    "script": "O dólar subiu porque a inflação nos EUA está alta e a tensão no Golfo deixa os investidores nervosos. Quando o dólar sobe, tudo fica mais caro: viagem, eletrônicos importados e até a conta de luz, que tem energia gerada no exterior. Para quem tem dívida em dólar, como alguns financiamentos, o custo aumenta. A dica? Fique de olho no câmbio e evite comprar em dólares até a estabilidade voltar. Se precisar converter, escolha o melhor momento e considere alternativas como cartões que dão cashback em reais.",
+    "tags": [
+      "#dólar",
+      "#economia",
+      "#finançaspessoais",
+      "#câmbio"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "cotação",
+      "inflação EUA",
+      "tensão no Golfo",
+      "impacto no bolso"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-mantem-maior-cotacao-em-18-meses-diante-de-tensoes-no-golfo-e-inflacao-nos-eua/",
+    "rationale": "Alta relevância e impacto direto no bolso do brasileiro, tema quente e fácil de conectar com finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv5py2fycq2d.mp4"
+    },
+    "youtubeId": "1q_sGdHlF6Q",
+    "previewUrl": "https://youtube.com/shorts/1q_sGdHlF6Q",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv5pyo1pk1qs",
+    "status": "draft",
+    "createdAt": "2026-10-12T20:42:53.278Z",
+    "theme": "Bolsas de Nova York sem direção",
+    "title": "Mercado volátil: o que significa a falta de direção nas bolsas de NY?",
+    "hook": "As bolsas de NY fecharam sem rumo e o seu dinheiro pode sentir o efeito!",
+    "script": "Hoje a liquidez ficou baixa e a geopolítica mexeu nos preços. Quando o mercado não tem direção, os índices balançam sem tendência clara. Isso aumenta o risco de perdas rápidas, principalmente para quem compra e vende no mesmo dia. Para investidores de longo prazo, a dica é manter a carteira diversificada e evitar decisões impulsivas. Se o seu objetivo é proteger o patrimônio, prefira ativos mais estáveis como fundos de renda fixa ou títulos públicos. Lembre‑se: volatilidade é parte do jogo, mas a estratégia correta protege seu bolso.",
+    "tags": [
+      "#bolsas",
+      "#investimento",
+      "#volatilidade",
+      "#mercadofinanceiro"
+    ],
+    "captionKeywords": [
+      "bolsas NY",
+      "volatilidade",
+      "liquidez",
+      "geopolítica",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bolsas-de-ny-fecham-sem-direcao-em-dia-de-liquidez-reduzida-e-geopolitica-no-radar/",
+    "rationale": "Tema de alta procura, explica de forma prática como a volatilidade afeta investidores e dá conselho acionável, alinhado ao nicho de finanças sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 34,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv5pyo1pk1qs.mp4"
+    },
+    "youtubeId": "QtVjrfsoAz0",
+    "previewUrl": "https://youtube.com/shorts/QtVjrfsoAz0",
+    "privacyStatus": "unlisted"
   }
 ]
