@@ -553,5 +553,79 @@
     "youtubeId": "QtVjrfsoAz0",
     "previewUrl": "https://youtube.com/shorts/QtVjrfsoAz0",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv7160sdjkab",
+    "status": "draft",
+    "createdAt": "2026-10-13T18:44:46.333Z",
+    "theme": "Previsão de dólar da Goldman Sachs e impacto no bolso brasileiro",
+    "title": "Dólar a R$4,70 em 3 meses? O que isso significa pra você",
+    "hook": "Em três meses, o dólar pode chegar a R$4,70. Já imaginou o efeito no sua conta?",
+    "script": "A Goldman Sachs acabou de cortar a projeção do dólar. Antes, esperavam R$5,00; agora, R$4,70 em até 90 dias. Por que isso importa? Primeiro, produtos importados ficam mais baratos – aquele smartphone ou roupa de grife sai menos caro. Segundo, viagens ao exterior custam menos, mas o preço dos combustíveis pode subir, já que o petróleo é cotado em dólar. Terceiro, empresas que dependem de insumos importados podem melhorar a margem, o que pode refletir em dividendos maiores. Por outro lado, exportadores ganham mais, pois recebem em dólares que valem mais em reais. Para o investidor, é hora de rever a carteira: vale considerar ativos atrelados ao dólar ou proteger posições em reais. Fique de olho nas próximas notas do BC e nas decisões do COPOM, que podem mudar essa tendência rapidamente.",
+    "tags": [
+      "#Dólar",
+      "#Finanças",
+      "#Investimentos",
+      "#Economia",
+      "#GoldmanSachs"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "Goldman Sachs",
+      "real",
+      "investimento",
+      "bolso",
+      "importação",
+      "exportação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/goldman-sachs-corta-estimativas-para-o-dolar-e-projeta-real-a-r-470-em-tres-meses/",
+    "rationale": "Alta relevância para o público brasileiro, afeta diretamente custos de consumo e investimentos. Tema atual, fácil de explicar em linguagem simples e conecta com decisões financeiras do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 51,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv7160sdjkab.mp4"
+    },
+    "youtubeId": "eU_c9XeLj_c",
+    "previewUrl": "https://youtube.com/shorts/eU_c9XeLj_c",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv716or06g6j",
+    "status": "draft",
+    "createdAt": "2026-10-13T18:44:46.333Z",
+    "theme": "Novas regras do Prospera MEI: Pix, perdão de dívida e benefícios para microempreendedores",
+    "title": "Prospera MEI chegou – o que muda no seu dia a dia",
+    "hook": "Microempreendedor, seu Pix agora é liberado e ainda pode perdoar dívidas! Quer saber como?",
+    "script": "O governo lançou o Prospera MEI, um pacote de 10 medidas para quem tem CNPJ de microempresa. Primeiro, o Pix MEI: você pode receber pagamentos instantâneos sem precisar de conta bancária tradicional, facilitando vendas e serviços. Segundo, perdão de dívidas: multas e juros de até R$ 5 mil podem ser apagados, aliviando o caixa. Terceiro, acesso a linhas de crédito com juros menores, usando o histórico de pagamentos como garantia. Também tem apoio para formalizar funcionários, treinamento gratuito e simplificação na emissão de notas fiscais. O que isso significa para o seu bolso? Mais fluxo de caixa, menos burocracia e a chance de reinvestir na própria empresa. Se você ainda não está no MEI, vale a pena se cadastrar e aproveitar esses benefícios antes que acabem.",
+    "tags": [
+      "#MEI",
+      "#FinançasPessoais",
+      "#Empreendedorismo",
+      "#Pix",
+      "#ProsperaMEI"
+    ],
+    "captionKeywords": [
+      "MEI",
+      "Prospera MEI",
+      "Pix",
+      "perdão de dívida",
+      "microempreendedor",
+      "crédito",
+      "financeiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/pix-mei-perdao-de-divida-e-mais-o-que-muda-para-microempreendedor-com-prospera-mei/",
+    "rationale": "Tema direto ao ponto para microempreendedores, público-alvo do canal. Informação prática que pode melhorar o fluxo de caixa e decisões de negócios, com linguagem curta e sem repetições de imagem.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 48,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv716or06g6j.mp4"
+    },
+    "youtubeId": "EzeyXLPOYEI",
+    "previewUrl": "https://youtube.com/shorts/EzeyXLPOYEI",
+    "privacyStatus": "unlisted"
   }
 ]
