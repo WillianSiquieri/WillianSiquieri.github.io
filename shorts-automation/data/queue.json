@@ -627,5 +627,73 @@
     "youtubeId": "EzeyXLPOYEI",
     "previewUrl": "https://youtube.com/shorts/EzeyXLPOYEI",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv8bdp078cah",
+    "status": "draft",
+    "createdAt": "2026-10-14T16:18:26.647Z",
+    "theme": "Farmácia Popular e o impacto no bolso do brasileiro",
+    "title": "Por que a Farmácia Popular é a medida mais aprovada e como isso afeta seu dinheiro?",
+    "hook": "Você sabia que 89% dos brasileiros aprovam a Farmácia Popular?",
+    "script": "A Farmácia Popular garante remédios grátis ou com até 90% de desconto. Isso significa menos gasto mensal com saúde. Para quem tem pressão alta, diabetes ou colesterol, o alívio no orçamento pode chegar a R$ 100 por mês. O governo ainda paga parte ao farmacêutico, então o preço nas prateleiras não sobe. Mas atenção: o programa tem limite de compra e exige receita. Se você ainda não aproveita, cadastre-se no site do Ministério da Saúde e economize já!",
+    "tags": [
+      "#Finanças",
+      "#Saúde",
+      "#EconomiaDoméstica",
+      "#FarmáciaPopular"
+    ],
+    "captionKeywords": [
+      "FarmáciaPopular",
+      "economia",
+      "saúde",
+      "desconto",
+      "dinheiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/farmacia-popular-e-a-medida-mais-aprovada-do-governo-lula-aponta-atlasintel/",
+    "rationale": "Alta aprovação popular gera engajamento; tema direto ao bolso do espectador, sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv8bdp078cah.mp4"
+    },
+    "youtubeId": "Tt7upbjoV7o",
+    "previewUrl": "https://youtube.com/shorts/Tt7upbjoV7o",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv8bebdo5t72",
+    "status": "draft",
+    "createdAt": "2026-10-14T16:18:26.647Z",
+    "theme": "Juros globais em alta: o que fazer com seus investimentos",
+    "title": "Juros globais dispararam – Como proteger seu patrimônio agora?",
+    "hook": "Os juros dos EUA subiram de novo e seu dinheiro pode perder valor!",
+    "script": "Quando os juros americanos sobem, o dólar fica mais caro e os títulos internacionais rendem mais. Isso puxa a taxa Selic para cima, encarecendo empréstimos e financiamentos. Para quem tem renda fixa, a dica é buscar títulos atrelados ao CDI ou a índices de inflação, que acompanham a alta. Já na bolsa, setores como energia e bancos tendem a se beneficiar. E se você tem dívida, aproveite a oportunidade para renegociar antes que o custo do crédito aumente ainda mais.",
+    "tags": [
+      "#Juros",
+      "#Investimentos",
+      "#Economia",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "JurosGlobais",
+      "Investimento",
+      "Dívida",
+      "Bolsa",
+      "RendaFixa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/juros-globais-disparam-pelo-mundo-o-que-fazer-agora/",
+    "rationale": "Tema quente com impacto direto nos investimentos e nas dívidas do público, gerando alta relevância e retenção.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv8bebdo5t72.mp4"
+    },
+    "youtubeId": "RMZX7SgM8D4",
+    "previewUrl": "https://youtube.com/shorts/RMZX7SgM8D4",
+    "privacyStatus": "unlisted"
   }
 ]
