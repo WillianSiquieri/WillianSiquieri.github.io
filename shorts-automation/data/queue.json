@@ -695,5 +695,69 @@
     "youtubeId": "RMZX7SgM8D4",
     "previewUrl": "https://youtube.com/shorts/RMZX7SgM8D4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv9qdqic8kvw",
+    "status": "draft",
+    "createdAt": "2026-10-15T16:06:09.012Z",
+    "theme": "Superendividamento no Brasil",
+    "title": "5 sinais de que seu orçamento está fora de controle",
+    "hook": "Seu salário não rende? Veja os 5 sinais de superendividamento em 3 segundos!",
+    "script": "O bolso aperta e o crédito parece a única saída. Primeiro sinal: você usa cartão de crédito todo mês e ainda paga juros. Segundo: parcelas que aumentam e você não consegue quitar. Terceiro: compras por impulso, mesmo sem ter dinheiro. Quarto: contas atrasadas, multas acumulando. E quinto: falta de reserva para emergências. Quando esses sinais aparecem, o risco de ficar preso na dívida sobe muito. A solução começa cortando gastos desnecessários e renegociando dívidas com juros menores. Se organize, ajuste seu orçamento e busque ajuda profissional se precisar. Seu futuro financeiro depende das escolhas de hoje.",
+    "tags": [
+      "#FinançasPessoais",
+      "#Dívida",
+      "#Orçamento"
+    ],
+    "captionKeywords": [
+      "superendividamento",
+      "orçamento",
+      "dívida",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/advisor/superendividamento-cinco-sinais-de-que-as-contas-nao-fecham-mais/",
+    "rationale": "Tema atual e de alto impacto para o público brasileiro, oferece valor prático imediato e evita repetição de imagens ao focar em dicas claras.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv9qdqic8kvw.mp4"
+    },
+    "youtubeId": "tZeXnLzG6Zc",
+    "previewUrl": "https://youtube.com/shorts/tZeXnLzG6Zc",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mv9qej1m2idx",
+    "status": "draft",
+    "createdAt": "2026-10-15T16:06:09.012Z",
+    "theme": "Queda das ações de IA",
+    "title": "Ações de IA despencam US$ 1 trilhão: o que isso significa para seu investimento?",
+    "hook": "Um trilhão de dólares evaporou das ações de IA – descubra o que isso muda no seu bolso!",
+    "script": "Nas últimas semanas, as ações de empresas de inteligência artificial perderam quase US$ 1 trilhão em valor de mercado. O motivo? Resultados abaixo das expectativas, alta nos custos de chips e medo de regulação. Para quem investe, a queda pode parecer assustadora, mas traz oportunidades. Se você tem ações dessas empresas, avalie a saúde financeira: dívida alta, dependência de poucos clientes ou lucro ainda negativo são alertas. Caso ainda acredite no longo prazo, pode ser hora de comprar mais barato, mas só se o risco estiver dentro do seu perfil. Se a volatilidade te incomoda, considere reduzir a exposição e diversificar. Lembre‑se: mercado sobe e desce, mas seu plano financeiro deve ser consistente.",
+    "tags": [
+      "#Investimentos",
+      "#BolsaDeValores",
+      "#IA"
+    ],
+    "captionKeywords": [
+      "ações IA",
+      "investimento",
+      "bolsa",
+      "volatilidade"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/acoes-de-ia-tombam-us-1-tri-na-semana-hora-de-comprar-ou-de-fugir/",
+    "rationale": "Assunto quente que liga tecnologia a finanças, gera engajamento e permite explicação prática sem necessidade de perguntas finais, atendendo ao pedido de variação visual.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 43,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mv9qej1m2idx.mp4"
+    },
+    "youtubeId": "n6xqs5ZmLzI",
+    "previewUrl": "https://youtube.com/shorts/n6xqs5ZmLzI",
+    "privacyStatus": "unlisted"
   }
 ]
