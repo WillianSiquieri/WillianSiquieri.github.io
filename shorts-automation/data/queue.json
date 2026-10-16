@@ -759,5 +759,72 @@
     "youtubeId": "n6xqs5ZmLzI",
     "previewUrl": "https://youtube.com/shorts/n6xqs5ZmLzI",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvb5dwie4dsq",
+    "status": "draft",
+    "createdAt": "2026-10-16T15:53:57.206Z",
+    "theme": "Queda histórica da bolsa brasileira",
+    "title": "Por que a bolsa caiu 28 anos? O que isso muda no seu bolso",
+    "hook": "A bolsa despencou como nunca nos últimos 28 anos!",
+    "script": "A B3 registrou a maior queda da história. O índice abriu forte, mas vendedores entraram em massa. O medo de juros altos e incerteza política acelerou a liquidação. Resultado: menos dinheiro circulando, crédito mais caro e risco de investimentos. Se você tem renda fixa, pode ver a taxa subir. Na bolsa, quem tem carteira diversificada pode achar oportunidade, mas o risco está maior. Fique de olho nos próximos movimentos para proteger seu patrimônio.",
+    "tags": [
+      "#bolsa",
+      "#investimentos",
+      "#economia",
+      "#finanças"
+    ],
+    "captionKeywords": [
+      "queda bolsa",
+      "B3",
+      "investimentos",
+      "juros altos",
+      "risco"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/maior-queda-em-28-anos-o-que-fez-uma-das-piores-bolsas-do-mundo-desabar-ainda-mais/",
+    "rationale": "Tema de alta relevância e impacto direto no bolso do investidor, com narrativa curta e explicativa.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvb5dwie4dsq.mp4"
+    },
+    "youtubeId": "xD5SlOo0EJw",
+    "previewUrl": "https://youtube.com/shorts/xD5SlOo0EJw",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvb5eati8pkz",
+    "status": "draft",
+    "createdAt": "2026-10-16T15:53:57.206Z",
+    "theme": "Ibovespa sobe após queda e foco nas pesquisas eleitorais",
+    "title": "Ibovespa volta a subir: entenda o que isso significa para seu dinheiro",
+    "hook": "A bolsa subiu de novo e o motivo pode mudar seu investimento!",
+    "script": "Depois de forte queda, o Ibovespa recuperou pontos, puxado por pesquisas eleitorais que dão sinal de estabilidade. Quando a gente vê a bolsa reagindo a notícias políticas, é sinal de que o mercado está tentando prever a política econômica. Para o investidor, isso pode indicar oportunidades de compra, mas também alerta para volatilidade. Se você tem ações, acompanhe os setores mais sensíveis, como bancos e energia. Ajuste sua carteira conforme a confiança dos investidores.",
+    "tags": [
+      "#Ibovespa",
+      "#eleicoes",
+      "#mercado"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "eleições",
+      "bolsa",
+      "investimentos",
+      "volatilidade"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-sobe-apos-recentes-quedas-atento-a-pesquisas-eleitorais-mas-cautela-segue/",
+    "rationale": "Aborda a recuperação da bolsa ligada à política, tema quente e útil para quem acompanha o mercado, com script conciso e sem repetição de imagens.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvb5eati8pkz.mp4"
+    },
+    "youtubeId": "oJ-NwuWWLVA",
+    "previewUrl": "https://youtube.com/shorts/oJ-NwuWWLVA",
+    "privacyStatus": "unlisted"
   }
 ]
