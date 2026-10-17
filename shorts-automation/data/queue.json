@@ -826,5 +826,77 @@
     "youtubeId": "oJ-NwuWWLVA",
     "previewUrl": "https://youtube.com/shorts/oJ-NwuWWLVA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvcific565r",
+    "status": "draft",
+    "createdAt": "2026-10-17T14:46:53.333Z",
+    "theme": "Política e Mercado",
+    "title": "Eleição à vista: como a disputa entre Flávio e Lula afeta seu bolso",
+    "hook": "A pesquisa Ipespe acabou de mudar a conta do seu dinheiro!",
+    "script": "A pesquisa Ipespe mostrou Flávio com 51,2% e Lula com 48,8%. A vantagem do senador caiu 3 pontos. Quando a corrida aperta, os investidores ficam nervosos. O mercado de ações costuma reagir: ações de empresas ligadas ao governo podem subir ou cair. Os juros futuros também entram em cena – risco político aumenta o custo do crédito. Para o investidor comum, isso significa atenção ao custo do financiamento e à volatilidade da bolsa. Se você tem dívida, pode sentir o efeito nos juros do cartão ou do empréstimo. E quem acompanha a bolsa deve observar os setores que mais sentem a política. Fique de olho nos próximos índices antes de decidir onde aplicar seu dinheiro.",
+    "tags": [
+      "#eleição2024",
+      "#finanças",
+      "#investimentos",
+      "#mercado"
+    ],
+    "captionKeywords": [
+      "eleição",
+      "Flávio",
+      "Lula",
+      "Ipespe",
+      "mercado financeiro",
+      "juros futuros",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/pesquisa-ipespe-flavio-tem-512-e-lula-488-vantagem-de-senador-cai-3-pontos/",
+    "rationale": "Tema de alta relevância política com impacto direto nos juros e bolsa, perfeito para explicar ao público como a disputa eleitoral pode mexer no bolso.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvcific565r.mp4"
+    },
+    "youtubeId": "sEQr0QRFQIE",
+    "previewUrl": "https://youtube.com/shorts/sEQr0QRFQIE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvcigdsp7ib0",
+    "status": "draft",
+    "createdAt": "2026-10-17T14:46:53.333Z",
+    "theme": "Economia Global",
+    "title": "China x Europa: o que a fala do presidente do BC alemão significa para o real",
+    "hook": "A China está mudando o jogo do euro – e isso pode mexer no seu dinheiro!",
+    "script": "Joachim Nagel, presidente do Banco Central da Alemanha, disse que a China é parceira-chave e concorrente da Europa. Essa dualidade afeta a taxa de câmbio: o euro pode perder força frente ao dólar e ao real se a China impulsionar sua economia. Para quem investe em moeda estrangeira, a volatilidade pode abrir oportunidades ou risco de perda. Além disso, empresas europeias que dependem de exportação para a China podem ver receitas oscilar, impactando suas ações na bolsa. No Brasil, o real pode sofrer pressão se o euro cair, influenciando importações e preços de produtos importados. Fique atento ao câmbio e ajuste sua carteira de acordo com o cenário global.",
+    "tags": [
+      "#economia",
+      "#câmbio",
+      "#investimentos",
+      "#China"
+    ],
+    "captionKeywords": [
+      "China",
+      "Europa",
+      "Banco Central Alemanha",
+      "câmbio",
+      "real",
+      "euro",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/presidente-do-bc-da-alemanha-diz-que-china-e-parceira-chave-e-concorrente-da-europa/",
+    "rationale": "Notícia sobre a China e Europa tem repercussão direta no câmbio e nos investimentos, permitindo explicar ao público como movimentos globais afetam o real e a carteira de investimentos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvcigdsp7ib0.mp4"
+    },
+    "youtubeId": "3ym2TwIyDjA",
+    "previewUrl": "https://youtube.com/shorts/3ym2TwIyDjA",
+    "privacyStatus": "unlisted"
   }
 ]
