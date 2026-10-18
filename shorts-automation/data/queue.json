@@ -898,5 +898,77 @@
     "youtubeId": "3ym2TwIyDjA",
     "previewUrl": "https://youtube.com/shorts/3ym2TwIyDjA",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvdyrxsvgbrg",
+    "status": "draft",
+    "createdAt": "2026-10-18T15:12:13.279Z",
+    "theme": "Mercados latino-americanos após a euforia eleitoral",
+    "title": "Por que as bolsas da América Latina caíram depois da eleição?",
+    "hook": "A euforia acabou e os mercados despencaram!",
+    "script": "A eleição gerou hype: investidores compraram tudo, esperando mudança. Mas, quando os resultados vieram, a incerteza subiu. Na prática, isso significa menos dinheiro entrando nos fundos e nas ações. O real enfraquece, o dólar sobe, e o custo dos empréstimos aumenta. Para o seu bolso, isso pode significar juros maiores no crédito e menos rentabilidade nos investimentos em renda variável. Fique de olho nas notícias e ajuste sua carteira antes que a volatilidade atrapalhe seus planos.",
+    "tags": [
+      "#MercadoFinanceiro",
+      "#BolsaLatAm",
+      "#Investimento",
+      "#Juros",
+      "#Dólar"
+    ],
+    "captionKeywords": [
+      "mercado",
+      "bolsa",
+      "euforia eleitoral",
+      "América Latina",
+      "investimentos",
+      "juros",
+      "dólar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/apos-a-euforia-eleitoral-mercados-da-america-latina-enfrentam-a-realidade/",
+    "rationale": "Conecta a notícia política com impacto direto nos juros, dólar e rentabilidade, tema central do canal e com alto engajamento potencial.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvdyrxsvgbrg.mp4"
+    },
+    "youtubeId": "Tht8GK6Cv4E",
+    "previewUrl": "https://youtube.com/shorts/Tht8GK6Cv4E",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvdysfrp4rv",
+    "status": "draft",
+    "createdAt": "2026-10-18T15:12:13.279Z",
+    "theme": "Mega‑Sena 3071: prêmio de R$ 171 milhões",
+    "title": "O que um prêmio de R$ 171 mi pode fazer na sua vida financeira?",
+    "hook": "Um prêmio de 171 milhões está na mesa!",
+    "script": "A Mega‑Sena 3071 pagou R$ 171 milhões. Não é só sorte: o efeito no mercado é real. Quando milhões são distribuídos, há mais consumo, mais investimento em negócios e mais impostos que alimentam a saúde e a educação. Mas, para quem não ganhou, a lição é simples: não baseie seu futuro em loteria. Foque em renda fixa, diversificação e controle de gastos. Cada real que você investe hoje rende mais do que um bilhete de loteria.",
+    "tags": [
+      "#MegaSena",
+      "#FinançasPessoais",
+      "#Investimento",
+      "#Economia"
+    ],
+    "captionKeywords": [
+      "Mega‑Sena",
+      "prêmio",
+      "finanças pessoais",
+      "investimento",
+      "consumo",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/consumo/mega-sena-hoje-concurso-3071-confira-o-resultado-sorteado-neste-domingo-18/",
+    "rationale": "Transforma a notícia de grande prêmio em lições práticas de finanças pessoais, alinhado ao nicho e evita sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvdysfrp4rv.mp4"
+    },
+    "youtubeId": "RXaziO__dYo",
+    "previewUrl": "https://youtube.com/shorts/RXaziO__dYo",
+    "privacyStatus": "unlisted"
   }
 ]
