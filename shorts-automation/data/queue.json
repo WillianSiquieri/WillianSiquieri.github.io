@@ -970,5 +970,75 @@
     "youtubeId": "RXaziO__dYo",
     "previewUrl": "https://youtube.com/shorts/RXaziO__dYo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvfkhbg782t6",
+    "status": "draft",
+    "createdAt": "2026-10-19T18:07:35.479Z",
+    "theme": "Renda extra sem mudar a rotina",
+    "title": "Como gerar renda extra mensal sem sair do emprego",
+    "hook": "Quer ganhar dinheiro extra sem mudar sua rotina?",
+    "script": "A InfoMoney lançou uma série grátis que ensina a investir com poucos minutos por dia. Primeiro passo: abra uma conta em corretora que não cobre taxa de custódia. Depois, escolha fundos de renda fixa com liquidez diária – eles rendem mais que a poupança e você pode resgatar a qualquer hora. Em seguida, direcione parte do seu salário para um ETF de dividendos; ele paga parcelas todo mês e não exige acompanhamento diário. Por fim, automatize aportes mensais: programa a corretora para transferir um valor fixo todo dia 10. Resultado: renda extra que entra direto na conta, sem precisar de horas extras no trabalho. Comece hoje, ajuste o valor que cabe no seu bolso e veja a diferença no próximo contracheque.",
+    "tags": [
+      "finanças",
+      "investimentos",
+      "rendaextra",
+      "educaçãofinanceira",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "renda extra",
+      "investimento fácil",
+      "dinheiro extra",
+      "ETF dividendos",
+      "fundos de renda fixa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/como-buscar-uma-renda-extra-mensal-sem-mudar-sua-rotina-de-trabalho/",
+    "rationale": "Tema de alta demanda – renda extra é sempre buscado. Conteúdo prático, direto ao ponto, sem repetir imagens e sem perguntas finais, atendendo ao feedback.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvfkhbg782t6.mp4"
+    },
+    "youtubeId": "6TXneDXxnF0",
+    "previewUrl": "https://youtube.com/shorts/6TXneDXxnF0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvfki3747p45",
+    "status": "draft",
+    "createdAt": "2026-10-19T18:07:35.479Z",
+    "theme": "Ibovespa em 205 mil: o que isso significa para você",
+    "title": "Ibovespa cai, mas ainda está em 205 mil – entenda o impacto no seu bolso",
+    "hook": "Ibovespa despencou e ficou em 205 mil – será que isso afeta seu dinheiro?",
+    "script": "Hoje a bolsa brasileira teve queda curta e fechou em 205 mil pontos. A baixa vem da mistura de resultados corporativos e nervosismo com a eleição. Para o investidor comum, isso significa duas coisas: 1) ações mais baratas – oportunidades de comprar empresas boas a preço de desconto; 2) maior volatilidade – seu portfólio pode oscilar mais nos próximos dias. Se você tem fundos de investimento, verifique se eles estão alinhados ao seu perfil de risco; talvez seja hora de rebalancear, vendendo o que está muito exposto a quedas e reforçando setores mais estáveis, como consumo básico. Lembre-se: o mercado sobe e desce, mas o objetivo é manter o plano de longo prazo.",
+    "tags": [
+      "bolsa",
+      "Ibovespa",
+      "economia",
+      "investimentos",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "bolsa",
+      "investimento",
+      "volatilidade",
+      "eleições"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-19102026/",
+    "rationale": "Notícia atual de mercado, relevante para o público que acompanha bolsa. Script curto, linguagem simples, sem repetição de imagens e sem pergunta final, conforme orientações.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 43,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvfki3747p45.mp4"
+    },
+    "youtubeId": "JQS6EvrZI6A",
+    "previewUrl": "https://youtube.com/shorts/JQS6EvrZI6A",
+    "privacyStatus": "unlisted"
   }
 ]
