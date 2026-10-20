@@ -1040,5 +1040,75 @@
     "youtubeId": "JQS6EvrZI6A",
     "previewUrl": "https://youtube.com/shorts/JQS6EvrZI6A",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvgvp3siid6w",
+    "status": "draft",
+    "createdAt": "2026-10-20T16:09:20.754Z",
+    "theme": "Ibovespa dispara acima de 208 mil pontos com foco nas eleições",
+    "title": "Por que o Ibovespa subiu 2% hoje?",
+    "hook": "O índice bate 208 mil e a gente explica o que isso muda no seu bolso!",
+    "script": "Ibovespa chegou a 208.200 pontos, a maior alta da semana. Por quê? As pesquisas mostram que o eleitorado está dividindo apoio entre os candidatos, e o mercado interpreta isso como menor risco de choque econômico. Quando a bolsa sobe, fundos de investimento e previdências que seguem o índice também sobem, aumentando o valor da sua cota. Mas atenção: a alta pode ser volátil até o dia da votação. Se você tem dinheiro em ações ou ETFs, acompanha o movimento e pensa em proteger parte da carteira com ativos de renda fixa. Lembre-se: mercado sobe e desce, então diversificar continua sendo a melhor estratégia.",
+    "tags": [
+      "#Ibovespa",
+      "#BolsaDeValores",
+      "#Eleições2026",
+      "#Investimento",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "eleições",
+      "bolsa",
+      "investimento",
+      "diversificação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-20102026/",
+    "rationale": "Alta do Ibovespa ligada às eleições gera grande curiosidade; conecta diretamente ao impacto no bolso do investidor, tema quente e sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvgvp3siid6w.mp4"
+    },
+    "youtubeId": "06PO6GBkJnQ",
+    "previewUrl": "https://youtube.com/shorts/06PO6GBkJnQ",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvgvpv6r8rdq",
+    "status": "draft",
+    "createdAt": "2026-10-20T16:09:20.754Z",
+    "theme": "Ação da Wiz despenca mais de 20% após venda de participação na Inter Seguros",
+    "title": "Wiz cai 20%: o que isso significa pra você?",
+    "hook": "A Wiz perdeu 20% em minutos – descubra por que isso pode afetar seu portfólio!",
+    "script": "A Wiz (WIZC3) registrou queda de 21% depois que anunciou a venda da sua participação na Inter Seguros. A operação gera lucro imediato para a empresa, mas reduz a perspectiva de crescimento futuro, o que assustou investidores. Quando uma ação despenca, fundos que têm a ação em carteira também sentem a queda, diminuindo o valor da cota. Se você tem exposição a ações de tecnologia ou a fundos setoriais, pode sentir esse impacto no extrato. Estratégia: reavaliar o peso da ação no portfólio e, se necessário, rebalancear para reduzir risco. Lembre‑se que volatilidade faz parte do mercado de ações.",
+    "tags": [
+      "#Wiz",
+      "#Ações",
+      "#MercadoFinanceiro",
+      "#Investimento",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "Wiz",
+      "queda de ação",
+      "inter seguros",
+      "rebalanceamento",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/wiz-wizc3-desaba-mais-de-20-apos-vender-sua-participacao-na-inter-seguros-entenda/",
+    "rationale": "Queda brusca de ação de empresa conhecida gera alto engajamento; explicação prática do efeito no portfólio do investidor, alinhado ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvgvpv6r8rdq.mp4"
+    },
+    "youtubeId": "fCNkBe2-gJU",
+    "previewUrl": "https://youtube.com/shorts/fCNkBe2-gJU",
+    "privacyStatus": "unlisted"
   }
 ]
