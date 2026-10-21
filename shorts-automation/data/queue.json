@@ -1110,5 +1110,73 @@
     "youtubeId": "fCNkBe2-gJU",
     "previewUrl": "https://youtube.com/shorts/fCNkBe2-gJU",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvibp4424f45",
+    "status": "draft",
+    "createdAt": "2026-10-21T16:25:01.202Z",
+    "theme": "MEI e perdão de dívidas",
+    "title": "Perdão de dívidas para MEI: o que muda no seu bolso?",
+    "hook": "Atenção, microempreendedores! Seu débito pode sumir agora!",
+    "script": "O governo acabou de sancionar a lei que perdoa dívidas dos MEIs. Se você tem pendências com a Receita, o valor será apagado e você volta a operar sem restrição. O limite de faturamento também aumenta, permitindo até R$ 180 mil por ano. Isso significa mais crédito, menos juros e a chance de investir no seu negócio. Mas atenção: o perdão não cobre multas por atraso de contribuições. Regularize o que for possível e aproveite a nova margem de faturamento. Seu fluxo de caixa pode melhorar já nos próximos meses.",
+    "tags": [
+      "#MEI",
+      "#FinançasPessoais",
+      "#Empreendedorismo",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "MEI",
+      "perdão de dívida",
+      "boleto",
+      "crédito",
+      "negócio próprio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/lula-sanciona-lei-complementar-dos-meis-com-perdao-de-dividas/",
+    "rationale": "Tema direto ao público de microempreendedores, alto impacto no bolso e fácil de explicar em 30‑40 s.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvibp4424f45.mp4"
+    },
+    "youtubeId": "GhvcLbPlazM",
+    "previewUrl": "https://youtube.com/shorts/GhvcLbPlazM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvibpnj0hinb",
+    "status": "draft",
+    "createdAt": "2026-10-21T16:25:01.202Z",
+    "theme": "Ibovespa em queda por eleição",
+    "title": "Por que o Ibovespa despencou antes da votação?",
+    "hook": "A bolsa está caindo e a culpa pode ser a eleição!",
+    "script": "O Ibovespa recuou mais de 1 % nesta manhã. O motivo? Incerteza política. As eleições deixam investidores nervosos porque o resultado pode mudar a política econômica: taxa de juros, reforma fiscal, investimentos públicos. Quando o futuro parece incerto, a gente busca segurança e vende ações, puxando o índice para baixo. Para o investidor comum, isso pode abrir oportunidades de compra a preços menores, mas também aumenta a volatilidade. Fique de olho nas notícias e ajuste sua carteira conforme seu perfil de risco.",
+    "tags": [
+      "#Ibovespa",
+      "#MercadoFinanceiro",
+      "#Eleição2026",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "eleição",
+      "volatilidade",
+      "investimentos",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-21102026/",
+    "rationale": "Conecta evento político a movimentação da bolsa, tema que já gerou engajamento e tem relevância para investidores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvibpnj0hinb.mp4"
+    },
+    "youtubeId": "5HZD081Up0s",
+    "previewUrl": "https://youtube.com/shorts/5HZD081Up0s",
+    "privacyStatus": "unlisted"
   }
 ]
