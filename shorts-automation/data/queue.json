@@ -1178,5 +1178,72 @@
     "youtubeId": "5HZD081Up0s",
     "previewUrl": "https://youtube.com/shorts/5HZD081Up0s",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvjr5tska515",
+    "status": "draft",
+    "createdAt": "2026-10-22T16:25:41.396Z",
+    "theme": "SoftBank perde metade do valor de mercado com temores sobre IA",
+    "title": "SoftBank despenca 50%: o que isso significa para o seu dinheiro?",
+    "hook": "A SoftBank, gigante da tecnologia, perdeu metade do valor em poucos meses!",
+    "script": "A SoftBank caiu 50% desde o pico. O motivo? investidores assustados com o impacto da IA nos lucros. Quando uma empresa grande perde valor, os fundos que têm suas ações sofrem. Se você tem exposição a fundos de tecnologia ou ETFs, sente a queda no bolso. Por outro lado, a queda cria oportunidade: comprar ações baratas pode valer a pena, mas só se você entende o risco. Avalie seu perfil antes de entrar.",
+    "tags": [
+      "#SoftBank",
+      "#IA",
+      "#Investimento",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "SoftBank",
+      "IA",
+      "ações",
+      "investimento",
+      "queda de mercado"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/softbank-perde-metade-do-valor-de-mercado-desde-pico-com-temores-sobre-ia/",
+    "rationale": "Tema quente de tecnologia e IA, impacto direto em fundos e carteira dos investidores brasileiros.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvjr5tska515.mp4"
+    },
+    "youtubeId": "Ac4BhxDpGS8",
+    "previewUrl": "https://youtube.com/shorts/Ac4BhxDpGS8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvjr6ci2ke2w",
+    "status": "draft",
+    "createdAt": "2026-10-22T16:25:41.396Z",
+    "theme": "Fundos de dividendos sobem com medo da eleição",
+    "title": "Eleição e dividendos: por que os fundos estão subindo?",
+    "hook": "Eleição chegando e os fundos de dividendos dispararam até 15%!",
+    "script": "Com a eleição, investidores temem volatilidade na bolsa. Para proteger o bolso, migram para fundos de dividendos, que pagam parte dos lucros todo mês. Esses fundos subiram até 15% porque oferecem renda constante, mesmo quando o mercado oscila. Se você quer um “colchão” no investimento, pense em alocar parte em fundos que pagam dividendos. Lembre‑se: dividendos não são garantidos, escolha fundos com histórico sólido e diversificação.",
+    "tags": [
+      "#Dividendos",
+      "#Investimento",
+      "#Eleição2024",
+      "#RendaPassiva"
+    ],
+    "captionKeywords": [
+      "fundos de dividendos",
+      "eleição",
+      "renda passiva",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/receio-com-eleicao-fundos-de-dividendos-sobem-ate-15-e-oferecem-colchao-na-bolsa/",
+    "rationale": "Conecta evento político ao comportamento de investimentos, oferecendo dica prática ao público de finanças sem usar perguntas finais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 25,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvjr6ci2ke2w.mp4"
+    },
+    "youtubeId": "2cI_zGn5qVg",
+    "previewUrl": "https://youtube.com/shorts/2cI_zGn5qVg",
+    "privacyStatus": "unlisted"
   }
 ]
