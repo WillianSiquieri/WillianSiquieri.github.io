@@ -1245,5 +1245,74 @@
     "youtubeId": "2cI_zGn5qVg",
     "previewUrl": "https://youtube.com/shorts/2cI_zGn5qVg",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvl675urjal6",
+    "status": "draft",
+    "createdAt": "2026-10-23T16:14:24.099Z",
+    "theme": "Petrobras mantém boa relação risco-retorno mesmo após alta abrupta",
+    "title": "Petrobras: Por que a ação ainda vale a pena?",
+    "hook": "A Petrobras disparou, mas ainda pode ser seu próximo bom negócio!",
+    "script": "A ação da Petrobras subiu de forma brusca nos últimos dias. Analistas do Bradesco BBI dizem que, apesar da alta, o risco ainda está controlado. Por quê? Porque a empresa tem fluxo de caixa forte, dividendos consistentes e a cotação ainda está abaixo do valor justo. Para o investidor, isso significa oportunidade de comprar barato e ganhar com a recuperação dos preços do petróleo. Mas atenção: sempre avalie seu perfil antes de entrar.",
+    "tags": [
+      "#Petrobras",
+      "#Ações",
+      "#Investimento",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "Petrobras",
+      "ação",
+      "investimento",
+      "risco",
+      "retorno",
+      "dividendos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/petrobras-petr3petr4-acoes-seguem-com-boa-relacao-risco-retorno-mesmo-apos-disparada-diz-bradesco-bbi/",
+    "rationale": "Alta relevância para investidores de bolsa, tema atual e com potencial de engajamento por falar de risco-retorno de uma ação conhecida.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 28,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvl675urjal6.mp4"
+    },
+    "youtubeId": "gvCn_rPOfIU",
+    "previewUrl": "https://youtube.com/shorts/gvCn_rPOfIU",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvl67jjg808f",
+    "status": "draft",
+    "createdAt": "2026-10-23T16:14:24.099Z",
+    "theme": "Ibovespa após o 2º turno: rumo a 230 mil ou queda?",
+    "title": "Ibovespa: 230 mil está ao alcance?",
+    "hook": "A bolsa pode quebrar a marca dos 230 mil ainda nesta semana!",
+    "script": "Depois do segundo turno das eleições, o Ibovespa oscila entre 200 e 230 mil pontos. Analistas apontam que o resultado pode definir a direção da taxa Selic e, consequentemente, o custo do crédito. Se o mercado acreditar em estabilidade, a bolsa tende a subir. Se houver dúvidas sobre políticas fiscais, pode recuar. Para o seu bolso, isso afeta o custo dos empréstimos e o rendimento da sua carteira de renda variável. Fique de olho nos indicadores e ajuste sua estratégia.",
+    "tags": [
+      "#Ibovespa",
+      "#Eleicoes2022",
+      "#Investimento",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "eleições",
+      "bolsa",
+      "taxa Selic",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-apos-segundo-turno-230-mil-200-mil/",
+    "rationale": "Tema quente ligado à política e à bolsa, com impacto direto nas finanças pessoais dos espectadores, ideal para gerar engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvl67jjg808f.mp4"
+    },
+    "youtubeId": "cvoxQVrATDY",
+    "previewUrl": "https://youtube.com/shorts/cvoxQVrATDY",
+    "privacyStatus": "unlisted"
   }
 ]
