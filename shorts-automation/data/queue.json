@@ -1314,5 +1314,73 @@
     "youtubeId": "cvoxQVrATDY",
     "previewUrl": "https://youtube.com/shorts/cvoxQVrATDY",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvmje09zc367",
+    "status": "draft",
+    "createdAt": "2026-10-24T15:11:24.647Z",
+    "theme": "Safra de soja 2026/27 e impacto nos preços da commodity",
+    "title": "Safra recorde de soja pode mexer no preço do seu prato",
+    "hook": "A soja brasileira vai bater 184 milhões de toneladas! E o que isso significa pra sua conta?",
+    "script": "A previsão do USDA indica 184 milhões de toneladas de soja até 2026/27, a maior já registrada. Mais produção = oferta maior. Quando a oferta sobe, os preços tendem a cair, pelo menos no curto prazo. Isso pode baixar o preço dos alimentos que usam soja – óleo, farelo e até carne bovina, que depende de ração. Para quem investe em commodities, a queda pode significar oportunidade de comprar contratos futuros a preços mais baixos. Mas atenção: se a demanda internacional crescer, a queda pode ser menor. Fique de olho nos relatórios de exportação e nos contratos de soja na B3. Se o preço cair, pode ser hora de repensar a carteira de investimentos em agronegócio.",
+    "tags": [
+      "#soja",
+      "#commodities",
+      "#investimentos",
+      "#agronegócio"
+    ],
+    "captionKeywords": [
+      "soja",
+      "preço da soja",
+      "commodity",
+      "investimento agronegócio",
+      "USDA"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/adido-do-usda-preve-safra-de-soja-brasileira-de-184-mi-t-para-2026-27/",
+    "rationale": "Tema relevante para finanças porque afeta preços de alimentos e oportunidades de investimento em commodities agrícolas.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvmje09zc367.mp4"
+    },
+    "youtubeId": "ozEp1lRjYnM",
+    "previewUrl": "https://youtube.com/shorts/ozEp1lRjYnM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvmjev2k77wv",
+    "status": "draft",
+    "createdAt": "2026-10-24T15:11:24.647Z",
+    "theme": "Financiamento da Azul para combustível de aviação",
+    "title": "Azul investe R$2 bi em combustível de aviação – o que isso muda pra você?",
+    "hook": "A Azul vai injetar R$2 bilhões em combustível de aviação. Vai isso subir o preço da passagem?",
+    "script": "A Azul anunciou até R$2 bilhões em financiamento para comprar combustível de aviação. O objetivo: garantir preço estável e reduzir custos operacionais. Quando a companhia tem combustível garantido, ela pode oferecer tarifas mais competitivas e evitar surpresas de preço. Para o passageiro, isso pode significar passagens mais baratas ou menos variação de preço em períodos de alta demanda. Para investidores, a estratégia pode melhorar a margem da companhia e fortalecer o fluxo de caixa, refletindo positivamente nas ações da Azul. Fique atento aos comunicados de resultados e ao desempenho da ação NAFT3 na B3.",
+    "tags": [
+      "#Azul",
+      "#aviação",
+      "#investimentos",
+      "#bolsa"
+    ],
+    "captionKeywords": [
+      "Azul",
+      "combustível de aviação",
+      "passagens aéreas",
+      "investimento",
+      "ações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/azul-anuncia-financiamento-de-ate-r2-bi-para-combustivel-de-aviacao/",
+    "rationale": "Tema de grande interesse para o público que acompanha finanças, pois liga investimento da empresa a possíveis impactos nas tarifas aéreas e no valor das ações.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvmjev2k77wv.mp4"
+    },
+    "youtubeId": "fiM4YVF2IuE",
+    "previewUrl": "https://youtube.com/shorts/fiM4YVF2IuE",
+    "privacyStatus": "unlisted"
   }
 ]
