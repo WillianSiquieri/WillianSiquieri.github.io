@@ -1382,5 +1382,76 @@
     "youtubeId": "fiM4YVF2IuE",
     "previewUrl": "https://youtube.com/shorts/fiM4YVF2IuE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvnz8c59dlzx",
+    "status": "draft",
+    "createdAt": "2026-10-25T15:22:40.125Z",
+    "theme": "Eleição 2024: Como a disputa Lula x Flávio pode mexer no seu bolso",
+    "title": "Eleição, juros e bolsa: o que muda para você?",
+    "hook": "A disputa Lula vs Flávio pode mudar a taxa de juros em 24 horas!",
+    "script": "Lula e Flávio vão ao segundo turno. Cada candidato tem política econômica diferente. Lula promete manter juros altos para controlar a inflação. Flávio quer reduzir a taxa para estimular crédito. Quando o mercado sente a aposta, os juros futuros sobem ou caem instantaneamente. Se a aposta for Lula, os juros tendem a subir, encarecendo empréstimos e financiamentos. Se for Flávio, a expectativa é de queda, o que pode baratear o crédito e impulsionar a bolsa. Fique de olho no indicador Selic e nos contratos de financiamento que você tem. A decisão dos eleitores pode alterar o custo do seu dinheiro ainda nesta semana.",
+    "tags": [
+      "#Eleição2024",
+      "#Juros",
+      "#Bolsa",
+      "#FinançasPessoais",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "eleição 2024",
+      "juros futuros",
+      "bolsa",
+      "Lula",
+      "Flávio",
+      "custo do dinheiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/flavio-e-lula-disputam-presidencia-em-eleicao-que-pode-ser-definida-pela-abstencao/",
+    "rationale": "Relaciona a disputa presidencial com variações de juros e bolsa, tema de alto interesse para investidores e finanças pessoais, mantendo foco no impacto direto no bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvnz8c59dlzx.mp4"
+    },
+    "youtubeId": "IJPY8Lbh_p8",
+    "previewUrl": "https://youtube.com/shorts/IJPY8Lbh_p8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvnz8yg5gy34",
+    "status": "draft",
+    "createdAt": "2026-10-25T15:22:40.125Z",
+    "theme": "Cancelamento de voos no dia da votação: o que isso significa para o seu orçamento de viagem",
+    "title": "Voos cancelados na eleição: prejuízo ou oportunidade?",
+    "hook": "Voos cancelados no dia da votação podem virar dor de cabeça ou chance de economizar!",
+    "script": "No dia da eleição, a ANAC recebeu alerta de cancelamentos de voos. A medida foi tomada por questões de segurança e logística. Para quem já tinha passagem, o risco é de perda de valor ou necessidade de reembolso. Se o voo for reprogramado, pode surgir tarifa mais baixa – as companhias às vezes oferecem descontos para preencher assentos vazios. Por outro lado, quem ainda não comprou pode aproveitar a queda de preços pós‑eleição, quando a demanda diminui. Fique atento ao seu e‑mail e ao status da reserva. Cancelamentos inesperados podem virar oportunidade de economizar na próxima viagem.",
+    "tags": [
+      "#Viagem",
+      "#Economia",
+      "#ANAC",
+      "#Eleição2024",
+      "#DicasFinanceiras"
+    ],
+    "captionKeywords": [
+      "cancelamento de voos",
+      "ANAC",
+      "eleição",
+      "economia de viagem",
+      "tarifas aéreas"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/mpor-aciona-anac-apos-noticias-sobre-cancelamentos-de-voos-em-dia-de-votacao/",
+    "rationale": "Conecta um evento político (cancelamento de voos) ao impacto direto no orçamento de viagem dos espectadores, oferecendo dicas práticas e mantendo o foco em finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvnz8yg5gy34.mp4"
+    },
+    "youtubeId": "UdjX95-xD6w",
+    "previewUrl": "https://youtube.com/shorts/UdjX95-xD6w",
+    "privacyStatus": "unlisted"
   }
 ]
