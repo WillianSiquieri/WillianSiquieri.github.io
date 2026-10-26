@@ -1453,5 +1453,75 @@
     "youtubeId": "UdjX95-xD6w",
     "previewUrl": "https://youtube.com/shorts/UdjX95-xD6w",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvpkeeejj4ma",
+    "status": "draft",
+    "createdAt": "2026-10-26T18:03:01.099Z",
+    "theme": "Dólar dispara acima de R$5,50 após reeleição de Lula",
+    "title": "Por que o dólar subiu 10% agora?",
+    "hook": "O dólar acabou de passar dos R$5,50 – e isso mexe direto no seu bolso!",
+    "script": "O dólar subiu mais de 10% depois da reeleição de Lula. Por quê? Os investidores temem que o déficit fiscal aumente, o que pressiona a moeda. Quando o dólar sobe, tudo fica mais caro: importados, passagem aérea, até a conta de luz que tem energia importada. Seu salário rende menos, a inflação pode acelerar. Fique de olho na cotação, porque ela afeta desde a compra do pão até o custo do seu carro. Se quiser proteger o patrimônio, considere aplicar em ativos que se beneficiam de alta cambial, como ouro ou fundos de renda fixa atrelados ao dólar.",
+    "tags": [
+      "#dolar",
+      "#economia",
+      "#investimentos",
+      "#inflação",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "reeleição",
+      "inflação",
+      "investimentos",
+      "câmbio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-26102026-2/",
+    "rationale": "Alta relevância para o público brasileiro, impacto direto no custo de vida e oportunidade de explicar estratégias de proteção cambial em poucos segundos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvpkeeejj4ma.mp4"
+    },
+    "youtubeId": "zglNvU-3uO8",
+    "previewUrl": "https://youtube.com/shorts/zglNvU-3uO8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvpkf63ri552",
+    "status": "draft",
+    "createdAt": "2026-10-26T18:03:01.099Z",
+    "theme": "Os 3 testes fiscais que Lula precisa passar segundo a UBS",
+    "title": "Os 3 desafios fiscais que Lula tem que vencer",
+    "hook": "Lula tem três provas difíceis para ganhar a confiança dos investidores – veja o que são!",
+    "script": "A UBS apontou três testes que o governo Lula deve passar para estabilizar o mercado. Primeiro: equilibrar as contas públicas, reduzindo o déficit fiscal. Segundo: garantir transparência nos gastos, evitando surpresas nos relatórios. Terceiro: avançar em reformas estruturais, como a tributária, para melhorar a confiança dos investidores. Cada um desses passos afeta a taxa de juros, o crédito disponível e o valor do seu investimento. Se o governo cumprir, a taxa Selic pode cair e você paga menos juros no cartão ou no financiamento. Fique atento às notícias de política fiscal, porque elas determinam o ritmo do seu dinheiro.",
+    "tags": [
+      "#Lula",
+      "#UBS",
+      "#fiscal",
+      "#economia",
+      "#investimentos"
+    ],
+    "captionKeywords": [
+      "Lula",
+      "UBS",
+      "teste fiscal",
+      "taxa de juros",
+      "reforma tributária"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/tres-testes-fiscais-lula-mercado-ubs/",
+    "rationale": "Tema ligado à política fiscal, essencial para investidores e poupadores; oferece explicação prática de como decisões do governo influenciam juros e crédito, atendendo ao nicho do canal.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvpkf63ri552.mp4"
+    },
+    "youtubeId": "ZsBAIG6kmnk",
+    "previewUrl": "https://youtube.com/shorts/ZsBAIG6kmnk",
+    "privacyStatus": "unlisted"
   }
 ]
