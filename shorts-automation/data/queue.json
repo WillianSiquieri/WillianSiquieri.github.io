@@ -1523,5 +1523,73 @@
     "youtubeId": "ZsBAIG6kmnk",
     "previewUrl": "https://youtube.com/shorts/ZsBAIG6kmnk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvqxzfddafkj",
+    "status": "draft",
+    "createdAt": "2026-10-27T17:11:03.313Z",
+    "theme": "Suzano (SUZB3) sobe com dólar alto – o que isso significa para o seu bolso?",
+    "title": "Suzano sobe com dólar alto: entenda o impacto nos seus investimentos",
+    "hook": "Dólar em alta fez a Suzano disparar – descubra o que isso muda pra você!",
+    "script": "A Suzano subiu porque o real está fraco e o dólar alto deixa o papel mais barato para quem compra papel no exterior. Isso aumenta a receita da empresa, mas também traz risco: se o dólar cair, as ações podem perder força. Para quem investe, a alta indica oportunidade de compra, mas é preciso acompanhar a cotação do dólar. Se você tem dinheiro na bolsa, fique de olho na variação cambial antes de decidir vender ou comprar mais ações da Suzano.",
+    "tags": [
+      "#Suzano",
+      "#Dólar",
+      "#Investimentos",
+      "#BolsaDeValores"
+    ],
+    "captionKeywords": [
+      "Suzano",
+      "dólar alto",
+      "ações",
+      "investimento",
+      "câmbio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/suzano-suzb3-sobe-com-dolar-alto-mas-o-que-esperar-das-acoes-daqui-para-frente/",
+    "rationale": "Tema financeiro com alta relevância e ligação direta ao bolso do investidor brasileiro, ideal para explicação rápida e prática.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 31,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvqxzfddafkj.mp4"
+    },
+    "youtubeId": "3RLUUttfwok",
+    "previewUrl": "https://youtube.com/shorts/3RLUUttfwok",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvqxzuhf7ip0",
+    "status": "draft",
+    "createdAt": "2026-10-27T17:11:03.313Z",
+    "theme": "Queda na demanda por empréstimos na zona do euro – reflexos para o Brasil",
+    "title": "EUA? Não, é a Europa! Por que os bancos europeus estão concedendo menos empréstimos?",
+    "hook": "Os bancos da zona do euro estão dizendo ‘não’ a novos empréstimos – veja como isso afeta a economia brasileira!",
+    "script": "Na Europa, bancos apertaram o crédito porque a economia está desacelerando e o risco de inadimplência subiu. Essa restrição reduz investimentos e consumo lá, o que enfraquece a demanda por exportações brasileiras, principalmente commodities. Para o investidor, menos crédito externo pode significar pressão sobre a taxa de câmbio e menor fluxo de capital. Fique atento ao dólar e ao cenário de crédito global, pois isso pode impactar seu poder de compra e suas aplicações no exterior.",
+    "tags": [
+      "#Euro",
+      "#Crédito",
+      "#Economia",
+      "#Dólar"
+    ],
+    "captionKeywords": [
+      "zona do euro",
+      "crédito bancário",
+      "economia global",
+      "dólar",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/bancos-da-zona-do-euro-relatam-queda-na-demanda-por-emprestimos/",
+    "rationale": "Notícia internacional de crédito com implicações claras para a economia e finanças brasileiras, trazendo valor direto ao público-alvo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvqxzuhf7ip0.mp4"
+    },
+    "youtubeId": "cYMgYP4o-0A",
+    "previewUrl": "https://youtube.com/shorts/cYMgYP4o-0A",
+    "privacyStatus": "unlisted"
   }
 ]
