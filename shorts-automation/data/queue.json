@@ -1591,5 +1591,69 @@
     "youtubeId": "cYMgYP4o-0A",
     "previewUrl": "https://youtube.com/shorts/cYMgYP4o-0A",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvsennp2hpf7",
+    "status": "draft",
+    "createdAt": "2026-10-28T17:45:33.878Z",
+    "theme": "Comportamento financeiro",
+    "title": "Por que seu cérebro quer gastar agora?",
+    "hook": "Seu cérebro está sabotando sua poupança!",
+    "script": "A dopamina é o químico da recompensa. Quando você pensa em comprar algo, o cérebro libera dopamina e cria sensação de prazer imediato. Por isso, gastamos antes de pensar no futuro. O efeito é ainda maior quando o consumo é fácil, como apps de delivery ou compras com um clique. A solução? Troque o prazer imediato por recompensas planejadas. Defina metas curtas, como guardar 5% do salário antes de gastar. Cada vez que cumprir, seu cérebro libera dopamina novamente, mas agora associada à conquista de um objetivo. Assim, você treina o cérebro a valorizar a poupança. Resultado: menos compras por impulso e mais dinheiro no bolso no fim do mês.",
+    "tags": [
+      "#Finanças",
+      "#PsicologiaFinanceira",
+      "#Dopamina"
+    ],
+    "captionKeywords": [
+      "dopamina",
+      "gastar agora",
+      "poupar",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/por-que-o-cerebro-prefere-gastar-agora-a-poupar-para-o-futuro-veja-papel-da-dopamina/",
+    "rationale": "Tema de alta relevância para o público brasileiro, explica comportamento de consumo e oferece dica prática para melhorar a gestão do dinheiro, sem usar linguagem complexa.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvsennp2hpf7.mp4"
+    },
+    "youtubeId": "dTbJYGaptAQ",
+    "previewUrl": "https://youtube.com/shorts/dTbJYGaptAQ",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvseoezn662f",
+    "status": "draft",
+    "createdAt": "2026-10-28T17:45:33.878Z",
+    "theme": "Impostos e combustível",
+    "title": "Aumento do ICMS na gasolina: o que muda no seu bolso?",
+    "hook": "Seu combustível vai ficar mais caro a partir de 2027!",
+    "script": "Estados aprovaram aumento do ICMS sobre gasolina, diesel e GLP. As novas alíquotas entram em vigor em fevereiro de 2027, mas o impacto já começa a ser sentido nos preços nas bombas. Cada ponto percentual a mais no ICMS pode elevar o preço da gasolina em até R$0,30 por litro. Para quem dirige muito, isso significa centenas de reais a mais por ano. A dica: aproveite para planejar rotas mais curtas, usar aplicativos de carona ou considerar veículos mais econômicos. Também vale ficar de olho em promoções e postos que repassam o aumento de forma menor. Reduzir o consumo agora diminui o gasto futuro.",
+    "tags": [
+      "#Economia",
+      "#Impostos",
+      "#Combustível"
+    ],
+    "captionKeywords": [
+      "ICMS",
+      "gasolina",
+      "aumento de impostos",
+      "custo de vida"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/estados-aprovam-aumento-do-icms-sobre-gasolina-diesel-e-gas-de-cozinha/",
+    "rationale": "Assunto direto ao bolso do brasileiro, explica o aumento de imposto e traz dicas práticas de economia, alinhado ao nicho de finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvseoezn662f.mp4"
+    },
+    "youtubeId": "dP34pP-3WM4",
+    "previewUrl": "https://youtube.com/shorts/dP34pP-3WM4",
+    "privacyStatus": "unlisted"
   }
 ]
