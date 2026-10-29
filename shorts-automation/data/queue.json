@@ -1655,5 +1655,69 @@
     "youtubeId": "dP34pP-3WM4",
     "previewUrl": "https://youtube.com/shorts/dP34pP-3WM4",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvtucuwk5f46",
+    "status": "draft",
+    "createdAt": "2026-10-29T17:52:50.036Z",
+    "theme": "Tesouro Direto – Taxas em alta pós‑eleição",
+    "title": "Por que as taxas do Tesouro subiram ao maior nível desde a última eleição?",
+    "hook": "⚡️ Taxas do Tesouro disparando! O que isso significa pra você?",
+    "script": "A taxa dos títulos prefixados do Tesouro subiu pela segunda vez seguida. Isso acontece porque o mercado espera mais juros altos depois da eleição. Quando a taxa sobe, o preço dos títulos cai – o que pode ser bom pra quem quer comprar agora, mas pior pra quem já tem. Em termos de bolso, renda fixa rende mais, mas a volatilidade aumenta. Se você pensa em proteger seu dinheiro, atenção: títulos mais longos tendem a ser mais sensíveis às mudanças de juros. Avalie seu horizonte e o risco que aceita antes de mudar de posição.",
+    "tags": [
+      "#TesouroDireto",
+      "#JurosAltos",
+      "#InvestimentoBrasil"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "taxas de juros",
+      "renda fixa",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/tesouro-direto-abertura-fechamento-29102026/",
+    "rationale": "Alta nas taxas do Tesouro impacta diretamente quem investe em renda fixa, tema quente para o público que busca proteger o dinheiro após a eleição.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvtucuwk5f46.mp4"
+    },
+    "youtubeId": "Ac4x4Y4a4So",
+    "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvtudivjgvrh",
+    "status": "draft",
+    "createdAt": "2026-10-29T17:52:50.036Z",
+    "theme": "Dólar forte pós‑eleição e oportunidades em exportadoras",
+    "title": "Dólar em alta: quais ações de exportadoras podem valer a pena agora?",
+    "hook": "🚀 Dólar subindo! Veja quais empresas podem lucrar com isso!",
+    "script": "Com o real mais fraco e o dólar em alta, as exportadoras ganham margem. Isso significa que ações de empresas que vendem produtos fora do Brasil tendem a subir. Setores como agronegócio, mineração e energia são os mais beneficiados. Para o investidor, pode ser uma chance de diversificar a carteira com papéis que acompanham a valorização do dólar. Mas lembre‑se: a força do dólar também encarece produtos importados, afetando o consumo interno. Avalie seu perfil e considere o risco cambial antes de comprar.",
+    "tags": [
+      "#Dólar",
+      "#Exportadoras",
+      "#BolsaBrasil"
+    ],
+    "captionKeywords": [
+      "dólar alto",
+      "exportadoras",
+      "ações",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-forte-apos-eleicao-coloca-exportadoras-no-radar-quais-sao-as-acoes-preferidas/",
+    "rationale": "A variação cambial afeta o bolso de todos e abre oportunidades claras de investimento, alinhado ao interesse do canal em finanças práticas.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvtudivjgvrh.mp4"
+    },
+    "youtubeId": "dwpeovjzG7k",
+    "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
+    "privacyStatus": "unlisted"
   }
 ]
