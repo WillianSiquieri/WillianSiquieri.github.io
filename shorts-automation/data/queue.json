@@ -1719,5 +1719,71 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvv95msyg9cs",
+    "status": "draft",
+    "createdAt": "2026-10-30T17:34:53.362Z",
+    "theme": "Fundos Imobiliários",
+    "title": "ALZR11 vende imóvel para Coca‑Cola FEMSA e gera lucro de R$ 140 mi",
+    "hook": "Você sabia que um FII pode ganhar quase 30% de lucro em uma única venda?",
+    "script": "O fundo ALZR11 acabou de vender um prédio alugado à Coca‑Cola FEMSA por 140 milhões de reais. A compra original foi feita há poucos anos por cerca de 110 milhões. Resultado: lucro estimado de quase 30%, que vai direto para o caixa do fundo. Para o investidor, isso significa potencial de valorização das cotas e maior capacidade de pagar dividendos. Fique de olho nos relatórios de resultados, porque esses ganhos podem refletir em rendimentos maiores no seu próximo extrato.",
+    "tags": [
+      "#FII",
+      "#InvestimentoImobiliario",
+      "#Bolsa"
+    ],
+    "captionKeywords": [
+      "ALZR11",
+      "FII",
+      "CocaColaFEMSA",
+      "lucro",
+      "dividendos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/fii-alzr11-vende-imovel-locado-a-coca-cola-femsa-por-r-140-mi-veja-lucro-estimado/",
+    "rationale": "Tema de alta relevância para investidores de FIIs, demonstra como operações de ativos podem gerar ganhos reais para o bolso do espectador, sem sensacionalismo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvv95msyg9cs.mp4"
+    },
+    "youtubeId": "zD0xYhpHftQ",
+    "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvv967pzblq8",
+    "status": "draft",
+    "createdAt": "2026-10-30T17:34:53.362Z",
+    "theme": "Criptomoedas e Segurança",
+    "title": "Binance Brasil garante segurança dos fundos, mas saques ainda parados",
+    "hook": "Seu dinheiro na Binance está seguro, mas você ainda não pode retirar?",
+    "script": "A Binance Brasil afirmou que os ativos dos clientes permanecem segregados e totalmente protegidos, mesmo com a suspensão dos saques. A empresa reforçou que está trabalhando com autoridades para regularizar a situação. Enquanto isso, seu saldo continua intocado, mas você precisa aguardar a reabertura dos saques para movimentar o dinheiro. Para quem investe em cripto, isso serve de alerta: escolha plataformas que ofereçam transparência e tenha sempre parte dos ativos em carteira própria, fora das exchanges.",
+    "tags": [
+      "#Cripto",
+      "#BinanceBrasil",
+      "#SegurançaFinanceira"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "cripto",
+      "segurança",
+      "saques suspensos",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/bitcoin-hoje-cai-ataque-hacker-binance-30102026-2/",
+    "rationale": "Aborda preocupação real dos investidores de criptomoedas, explicando o impacto da notícia no acesso ao dinheiro e oferecendo dica prática de segurança, alinhado ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvv967pzblq8.mp4"
+    },
+    "youtubeId": "yiXMfufXTMs",
+    "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
+    "privacyStatus": "unlisted"
   }
 ]
