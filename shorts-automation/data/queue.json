@@ -1785,5 +1785,72 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvwmlqxfkjui",
+    "status": "draft",
+    "createdAt": "2026-10-31T16:39:06.387Z",
+    "theme": "Cripto e Segurança Financeira",
+    "title": "Binance repõe 90% dos ativos após hack de US$6,3 bi",
+    "hook": "A Binance foi hackeada e perdeu 6,3 bilhões de dólares – e já está devolvendo 90% do seu dinheiro!",
+    "script": "A Binance sofreu o maior roubo da história das criptomoedas: 6,3 bilhões de dólares sumiram num ataque. Mas a corretora agiu rápido. Usou seu fundo de emergência, recursos próprios e seguros para repor 90% dos ativos em menos de 24 horas. O que isso significa para você? Primeiro, mostra que plataformas grandes têm reservas para proteger os usuários. Segundo, reforça a importância de diversificar: não coloque todo o seu capital numa única exchange. Por fim, o mercado de cripto pode ficar mais volátil enquanto investidores avaliam a segurança das plataformas. Fique de olho nas notícias e nunca deixe grandes valores sem proteção extra, como carteiras frias.",
+    "tags": [
+      "#Binance",
+      "#Cripto",
+      "#SegurançaFinanceira",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "hack",
+      "cripto",
+      "segurança",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/binance-repoe-90-ativos-hack-us-63-bi-saques/",
+    "rationale": "Alta relevância para o público de finanças, tema atual e explica diretamente o impacto no bolso e na estratégia de investimento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 41,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvwmlqxfkjui.mp4"
+    },
+    "youtubeId": "vC4-JNgRzXc",
+    "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvwmm82heiop",
+    "status": "draft",
+    "createdAt": "2026-10-31T16:39:06.387Z",
+    "theme": "Política e Mercado Financeiro",
+    "title": "Simone Tebet no radar de Lula para o STF: o que isso pode mudar nos investimentos?",
+    "hook": "Lula pode indicar Simone Tebet para o STF – e isso pode mexer nos juros e no dólar!",
+    "script": "Um colunista revelou que o presidente Lula tem Simone Tebet entre os nomes para o Supremo Tribunal Federal. Por que isso importa para seu dinheiro? O STF decide questões como a constitucionalidade de reformas fiscais e políticas de juros. Se um nome mais alinhado ao governo for indicado, pode haver mais estabilidade nas decisões sobre a política monetária. Isso tende a reduzir a volatilidade do dólar e dos juros futuros, beneficiando quem tem dívida atrelada a essas taxas. Por outro lado, opositores podem pressionar por decisões mais conservadoras, aumentando a incerteza. Fique atento: mudanças no STF podem refletir direto nos custos dos seus empréstimos e na rentabilidade da sua carteira.",
+    "tags": [
+      "#Política",
+      "#Economia",
+      "#Investimentos"
+    ],
+    "captionKeywords": [
+      "Simone Tebet",
+      "STF",
+      "Lula",
+      "juros",
+      "dólar"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/simone-tebet-estaria-entre-nomes-considerados-por-lula-para-o-stf-diz-colunista/",
+    "rationale": "Conecta política com indicadores financeiros, tema de interesse do nicho e oferece explicação clara do impacto no bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvwmm82heiop.mp4"
+    },
+    "youtubeId": "eO7IvcimwRE",
+    "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
+    "privacyStatus": "unlisted"
   }
 ]
