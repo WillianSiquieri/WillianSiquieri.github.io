@@ -17,7 +17,8 @@
   },
   "tts": {
     "provider": "auto",
-    "voice": "pt-BR-AntonioNeural"
+    "voice": "pt-BR-AntonioNeural",
+    "allowSilent": false
   },
   "llm": {
     "provider": "auto",

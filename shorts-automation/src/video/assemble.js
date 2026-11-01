@@ -167,7 +167,12 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
 
   // 1) Narração (com timing de palavras quando o provider suporta).
   const tts = await synthesize(draft.script, dir, config.tts || {});
-  const durationSec = tts?.durationSec || config.video?.targetDurationSec || 45;
+  // Sem voz não há short: renderizar um vídeo mudo só gasta tempo e entope a fila.
+  if (!tts?.audioPath) {
+    warn(`Sem narração para ${draft.id} — short descartado.`);
+    return { rendered: false, audioPath: null, durationSec: 0, reason: 'tts-failed' };
+  }
+  const durationSec = tts.durationSec || config.video?.targetDurationSec || 45;
 
   if (!(await hasFfmpeg())) {
     warn('ffmpeg ausente — vídeo não renderizado (roteiro/áudio prontos).');

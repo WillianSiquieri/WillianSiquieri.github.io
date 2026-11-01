@@ -82,7 +82,15 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
   (ex.: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaNeural`).
 - Opcional (pago, premium): `ELEVENLABS_API_KEY` (+ `ELEVENLABS_VOICE_ID`).
 - Opcional (offline): `PIPER_MODEL`.
-- Se o edge-tts falhar (rede), o vídeo sai com trilha silenciosa como fallback.
+- **Se o TTS falhar, o short é descartado** — sem voz não vai pro ar, e o ciclo
+  termina em vermelho. Não existe mais o fallback silencioso automático: ele
+  rendeu dias de vídeos mudos no canal com o workflow verde. Para reativá-lo,
+  `tts.allowSilent: true`.
+- **`node-edge-tts` tem de ficar atualizado.** A Microsoft muda o endpoint e o
+  esquema do token `Sec-MS-GEC` sem aviso, e a versão antiga passa a tomar **403**.
+  Já aconteceu: o endpoint saiu de `speech.platform.bing.com` para
+  `api.msedgeservices.com` e a 1.2.10 (travada no `package-lock.json`) quebrou.
+  O `^` no `package.json` não protege — `npm ci` obedece ao lockfile.
 
 ### 3. Fundo em vídeo (b-roll) — Pexels grátis
 - `PEXELS_API_KEY` — https://www.pexels.com/api/ (grátis). Com ela, o fundo passa a

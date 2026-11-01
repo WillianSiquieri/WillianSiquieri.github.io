@@ -253,7 +253,7 @@
   },
   {
     "id": "sh_mvy3bmkrb8ua",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-01T17:14:53.835Z",
     "theme": "Manipulação de fundos na bolsa de Istambul e risco para investidores",
     "title": "CEO da Bolsa de Istambul preso: o que isso significa para o seu bolso?",
@@ -284,6 +284,8 @@
     },
     "youtubeId": "PmjqsDyqZIA",
     "previewUrl": "https://youtube.com/shorts/PmjqsDyqZIA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "bug do pipeline: ficou sem narracao (edge-tts fora do ar); nao e critica de conteudo",
+    "decidedAt": "2026-11-01T17:22:22.123Z"
   }
 ]

@@ -93,7 +93,14 @@ export async function synthesize(text, workDir, cfg = {}) {
     log(`TTS (${provider}) → ${result.audioPath}${cues ? ` (${cues.length} palavras sincronizadas)` : ''}`);
     return { audioPath: result.audioPath, provider, durationSec, cues };
   } catch (err) {
-    warn(`TTS provider "${provider}" falhou (${err.message}); tentando trilha silenciosa.`);
+    // Um short sem narração não serve para nada, e a trilha silenciosa escondia
+    // a falha: o vídeo era renderizado, subia no YouTube e o run ficava verde.
+    // Só cai no silêncio se alguém pedir explicitamente (tts.allowSilent).
+    if (!cfg.allowSilent) {
+      warn(`TTS provider "${provider}" falhou (${err.message}) — short descartado (sem voz não vai pro ar).`);
+      return null;
+    }
+    warn(`TTS provider "${provider}" falhou (${err.message}); caindo em trilha silenciosa (tts.allowSilent=true).`);
     const fallback = await ttsSilent(text, join(workDir, 'narration.mp3'));
     return fallback ? { audioPath: fallback, provider: 'silent', durationSec: estimateDuration(text), cues: null } : null;
   }

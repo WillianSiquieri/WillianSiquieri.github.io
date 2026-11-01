@@ -92,6 +92,7 @@ async function main() {
   const mock = Boolean(argFlag('mock'));
   const now = new Date().toISOString();
   const newEntries = [];
+  const descartados = [];
 
   for (const d of drafts) {
     const id = makeId();
@@ -113,6 +114,14 @@ async function main() {
 
     if (!mock) {
       const asm = await assembleVideo(entry, { config, workDir, previewDir });
+      // Montagem abortada (ex.: TTS fora do ar) → não entra na fila. Um short sem
+      // voz não é revisável, e deixá-lo passar foi o que encheu o canal de vídeos
+      // mudos por dias com o run verde.
+      if (!asm.rendered && asm.reason) {
+        warn(`Short ${id} descartado na montagem (${asm.reason}).`);
+        descartados.push(`${id}: ${asm.reason}`);
+        continue;
+      }
       entry.video = { rendered: asm.rendered, durationSec: asm.durationSec, ttsProvider: asm.ttsProvider, previewFile: asm.previewFile || null };
 
       // Upload de preview (não listado) quando há vídeo e credenciais.
@@ -153,6 +162,12 @@ async function main() {
   // (foi exatamente assim que o Groq quebrou por 2 meses sem ninguém notar).
   if (fresh.length > 0 && drafts.length === 0) {
     warn('ALERTA: havia notícias disponíveis mas nenhum short foi gerado — verifique a chave/modelo da IA.');
+    process.exitCode = 1;
+  }
+
+  // Roteiro pronto que não virou vídeo também é falha: vermelho no workflow.
+  if (descartados.length) {
+    warn(`ALERTA: ${descartados.length} short(s) descartados na montagem:\n  - ${descartados.join('\n  - ')}`);
     process.exitCode = 1;
   }
 }
