@@ -1,5 +1,5 @@
 {
-  "mode": "paused",
+  "mode": "approval",
   "shortsPerDay": 2,
   "preferences": {
     "guidance": "Nicho: finanças e economia para brasileiros. Estilo dos roteiros: frases CURTAS e faladas (feitas para legenda em tela), gancho forte em 3 segundos, linguagem simples e nativa, sem economês nem promessa de retorno. Explique o que a notícia significa para o bolso do espectador. Videos relevantes para cada tema, sem repeticao de imagens.",
@@ -9,5 +9,5 @@
       "esquemas de enriquecimento rápido"
     ]
   },
-  "updatedAt": "2026-11-01T17:36:01.503Z"
+  "updatedAt": "2026-11-01T17:36:05.200Z"
 }
