@@ -252,5 +252,40 @@
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
     "publishErrorAt": "2026-11-01T17:26:03.371Z"
+  },
+  {
+    "id": "sh_mvy3qudbl8e1",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:26:43.775Z",
+    "theme": "Mercado Internacional",
+    "title": "Eleição nos EUA pode puxar S&P 500 9% para baixo – o que isso significa para o seu bolso",
+    "hook": "A eleição americana pode derrubar a bolsa em 9% e mexer no seu dinheiro hoje!",
+    "script": "A corrida presidencial nos EUA está quente. Analistas da Morgan Stanley apontam que o S&P 500 pode cair até 9% até o fim de 2024. Por quê? Incerteza sobre políticas fiscais e monetárias. Para quem investe em ações americanas ou fundos indexados, isso pode significar perdas imediatas. Mas a queda também cria oportunidades de compra a preços mais baixos, se você tem horizonte de longo prazo. No Brasil, o efeito se sente no dólar: ele tende a subir quando a bolsa cai, encarecendo importações e aumentando a dívida externa. Fique de olho nos custos de empréstimos – juros atrelados ao dólar podem subir. Ajuste seu portfólio: diversifique, proteja parte em ativos de renda fixa e evite exposição excessiva ao mercado americano agora.",
+    "tags": [
+      "#Finanças",
+      "#Mercado",
+      "#EUA",
+      "#Investimento",
+      "#Dólar"
+    ],
+    "captionKeywords": [
+      "eleição EUA",
+      "S&P 500",
+      "queda bolsa",
+      "impacto dólar",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/sp-500-pode-cair-9-com-eleicoes-nos-eua-morgan-stanley-ve-potencial-de-compra/",
+    "rationale": "Escolhi a manchete sobre a possível queda de 9% no S&P 500 por ser diretamente ligada a mercados globais, dólar e impacto no bolso do investidor brasileiro, alinhado ao nicho de finanças e economia, com alto potencial de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 54,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy3qudbl8e1.mp4"
+    },
+    "youtubeId": "MxC-eaYLvFk",
+    "previewUrl": "https://youtube.com/shorts/MxC-eaYLvFk",
+    "privacyStatus": "unlisted"
   }
 ]
