@@ -252,5 +252,21 @@
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
     "publishErrorAt": "2026-11-01T17:23:04.863Z"
+  },
+  {
+    "id": "sh_mvy3mleq1t20",
+    "status": "rejected",
+    "createdAt": "2026-11-01T17:23:25.538Z",
+    "title": "[orfao do run #133] short cujo estado nao foi commitado",
+    "theme": "desconhecido",
+    "tags": [],
+    "youtubeId": "qu-qePD4fuI",
+    "privacyStatus": "unlisted",
+    "rejectReason": "orfao: o run #133 subiu o video mas perdeu o push do estado (corrida entre os dois workflows); nao e critica de conteudo",
+    "decidedAt": "2026-11-01T17:25:26.519Z",
+    "video": {
+      "rendered": true,
+      "previewFile": null
+    }
   }
 ]
