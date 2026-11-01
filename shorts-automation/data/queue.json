@@ -213,5 +213,40 @@
     "decidedAt": "2026-11-01T05:29:26.342Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
     "publishErrorAt": "2026-11-01T05:30:11.578Z"
+  },
+  {
+    "id": "sh_mvxe7u0o9rar",
+    "status": "draft",
+    "createdAt": "2026-11-01T05:32:06.456Z",
+    "theme": "Comércio internacional e impacto nos mercados",
+    "title": "G20: Livre comércio versus barreiras ambientais – o que isso muda no seu bolso?",
+    "hook": "O G20 acabou de discutir livre comércio e barreiras verdes – e isso pode mexer com a sua carteira!",
+    "script": "O ministro da Argentina defendeu o livre comércio no G20. Ele diz que barreiras ambientais são obstáculos para exportações. Quando o comércio flui, as empresas brasileiras exportam mais, aumentam a receita e podem subir seus dividendos. Por outro lado, restrições ambientais podem encarecer insumos importados, pressionar a inflação e elevar a taxa de juros. Juros mais altos = crédito mais caro e menor consumo. Fique de olho nas decisões do G20: elas podem mudar o câmbio, o preço da soja e até o valor das ações que você tem na bolsa. Tudo isso afeta diretamente o seu poder de compra.",
+    "tags": [
+      "economia",
+      "mercado",
+      "comércio internacional",
+      "investimentos",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "G20",
+      "livre comércio",
+      "barreiras ambientais",
+      "impactos econômicos",
+      "bolso brasileiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/ministro-argentino-defende-livre-comercio-e-critica-barreiras-ambientais-no-g20/",
+    "rationale": "Escolhi a notícia do G20 porque traz discussão direta sobre livre comércio e barreiras ambientais, temas que influenciam exportações, inflação e juros – fatores que afetam o bolso do investidor brasileiro. O conteúdo permite explicar de forma simples o efeito nas finanças pessoais, mantendo o estilo curto e sem repetição de imagens.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvxe7u0o9rar.mp4"
+    },
+    "youtubeId": "vsxEuizECd4",
+    "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
+    "privacyStatus": "unlisted"
   }
 ]
