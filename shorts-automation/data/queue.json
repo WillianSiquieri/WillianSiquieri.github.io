@@ -250,5 +250,40 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T17:14:07.030Z",
     "rejectReason": "Nao esta saindo o audio"
+  },
+  {
+    "id": "sh_mvy3bmkrb8ua",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:14:53.835Z",
+    "theme": "Manipulação de fundos na bolsa de Istambul e risco para investidores",
+    "title": "CEO da Bolsa de Istambul preso: o que isso significa para o seu bolso?",
+    "hook": "Um CEO de bolsa foi preso e isso pode mexer com o seu dinheiro!",
+    "script": "A justiça turca deteve o presidente da Borsa Istanbul por suspeita de manipular fundos. A investigação aponta que ele teria usado informações privilegiadas para movimentar bilhões em ações e derivados. Para quem investe em ETFs ou fundos internacionais, isso é alerta vermelho: fraudes podem desvalorizar ativos e gerar perdas inesperadas. Fique de olho nas notícias da bolsa onde tem investimento e diversifique sua carteira para reduzir o risco de um único mercado. Se o mercado turco oscilar, o impacto pode chegar até fundos de índice globais que você possui. A dica de hoje: acompanhe sempre a governança das bolsas onde seu dinheiro está investido e evite colocar tudo em um só lugar.",
+    "tags": [
+      "#Finanças",
+      "#Investimento",
+      "#Bolsa",
+      "#MercadoFinanceiro",
+      "#Diversificação"
+    ],
+    "captionKeywords": [
+      "bolsa de Istambul",
+      "manipulação de fundos",
+      "investimento seguro",
+      "riscos de mercado",
+      "diversificação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ceo-da-bolsa-de-valores-de-istanbul-e-detido-em-investigacao-sobre-fundos/",
+    "rationale": "Tema relevante ao nicho de finanças, traz impacto direto ao investidor e tem potencial de engajamento ao conectar notícia internacional com prática de diversificação de carteira.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 43,
+      "ttsProvider": "silent",
+      "previewFile": "data/previews/sh_mvy3bmkrb8ua.mp4"
+    },
+    "youtubeId": "PmjqsDyqZIA",
+    "previewUrl": "https://youtube.com/shorts/PmjqsDyqZIA",
+    "privacyStatus": "unlisted"
   }
 ]
