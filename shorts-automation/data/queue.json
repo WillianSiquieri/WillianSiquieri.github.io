@@ -252,5 +252,40 @@
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
     "publishErrorAt": "2026-11-01T17:46:27.977Z"
+  },
+  {
+    "id": "sh_mvy4rnoy6lr7",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:55:21.394Z",
+    "theme": "Binance retoma saques após ataque hacker",
+    "title": "Binance volta a liberar saques: o que isso muda no seu bolso?",
+    "hook": "A Binance acabou de liberar os saques de novo – e isso pode afetar seu dinheiro agora!",
+    "script": "A Binance sofreu um ataque hacker que parou os saques por dias. Hoje, a corretora anunciou que a retirada de fundos voltou ao normal. Para quem tem criptos na plataforma, isso significa que você pode movimentar seu dinheiro novamente, sem esperar mais. Mas atenção: depois de um ataque, as exchanges costumam reforçar a segurança, o que pode gerar taxas de retirada mais altas. Fique de olho nas tarifas antes de puxar seu saldo. E lembre‑se: diversificar entre diferentes wallets ainda é a melhor proteção contra imprevistos.",
+    "tags": [
+      "#Binance",
+      "#Criptomoedas",
+      "#Finanças",
+      "#Investimento",
+      "#SegurançaDigital"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "saques",
+      "hack",
+      "criptomoedas",
+      "segurança"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/apos-ataque-hacker-binance-retoma-saques-em-fase-inicial-neste-domingo-lmrs/",
+    "rationale": "Tema diretamente ligado a cripto e finanças, alta relevância para o público brasileiro, impacto imediato no bolso dos investidores e boa oportunidade de gerar engajamento sem necessidade de perguntas finais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy4rnoy6lr7.mp4"
+    },
+    "youtubeId": "ow2xSj3zMBE",
+    "previewUrl": "https://youtube.com/shorts/ow2xSj3zMBE",
+    "privacyStatus": "unlisted"
   }
 ]
