@@ -65,7 +65,7 @@
   },
   {
     "id": "sh_mvv95msyg9cs",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-30T17:34:53.362Z",
     "theme": "Fundos Imobiliários",
     "title": "ALZR11 vende imóvel para Coca‑Cola FEMSA e gera lucro de R$ 140 mi",
@@ -94,7 +94,8 @@
     },
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:37.622Z"
   },
   {
     "id": "sh_mvv967pzblq8",
