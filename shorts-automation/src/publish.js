@@ -49,16 +49,32 @@ function explique(e) {
 }
 
 async function main() {
-  const [queue, published] = await Promise.all([store.queue(), store.published()]);
+  const [config, queue, published] = await Promise.all([store.config(), store.queue(), store.published()]);
   const auth = getAuth();
   const youtube = auth ? google.youtube({ version: 'v3', auth }) : null;
   const now = new Date().toISOString();
 
+  // Notícia financeira envelhece rápido: um short que ficou dias sem decisão não
+  // vale mais publicar, e deixá-lo na fila só faz a revisão virar um mutirão.
+  // 0 desliga a expiração.
+  const maxAgeDays = config.queue?.maxAgeDays ?? 5;
+  const limite = maxAgeDays > 0 ? Date.now() - maxAgeDays * 86400000 : null;
+  const expirou = (d) =>
+    limite !== null &&
+    d.status !== 'approved' &&
+    d.createdAt &&
+    new Date(d.createdAt).getTime() < limite;
+
   const remaining = [];
   const newlyPublished = [];
   const falhas = [];
+  let expirados = 0;
 
-  for (const d of queue) {
+  for (const d0 of queue) {
+    // Expirado conta como rejeitado: apaga o não listado do canal e sai da fila.
+    const d = expirou(d0) ? { ...d0, status: 'rejected', rejectReason: `expirou sem revisão (mais de ${maxAgeDays} dias na fila)`, decidedAt: now } : d0;
+    if (d !== d0) expirados++;
+
     if (d.status === 'approved') {
       if (youtube && d.youtubeId) {
         try {
@@ -87,7 +103,7 @@ async function main() {
         continue;
       }
       await dropPreview(d);
-      log(`Rejeitado e descartado: ${d.id}`);
+      log(`Rejeitado e descartado: ${d.id}${d !== d0 ? ' (expirado)' : ''}`);
       // não entra em lugar nenhum — sai da fila
     } else {
       remaining.push(d);
@@ -96,6 +112,7 @@ async function main() {
 
   await store.saveQueue(remaining);
   if (newlyPublished.length) await store.savePublished([...published, ...newlyPublished]);
+  if (expirados) log(`${expirados} short(s) expiraram sem revisão (limite: ${maxAgeDays} dias).`);
   log(`Publicação: ${newlyPublished.length} publicados, ${remaining.length} restantes na fila.`);
 
   // Sai com erro para o workflow ficar vermelho: uma decisão do painel que não

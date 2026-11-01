@@ -2,6 +2,9 @@
   "channelName": "Minuto Financeiro",
   "niche": "Finanças, economia e investimentos para o público brasileiro — explicar de forma simples o que move o dinheiro (mercado, juros, dólar, bolsa, cripto, economia pessoal)",
   "language": "pt-BR",
+  "queue": {
+    "maxAgeDays": 5
+  },
   "video": {
     "type": "faceless",
     "width": 1080,
@@ -19,15 +22,56 @@
   "llm": {
     "provider": "auto",
     "allowMockFallback": false,
-    "groqModels": ["llama-3.3-70b-versatile", "llama-3.1-70b-versatile"],
-    "geminiModels": ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
+    "groqModels": [
+      "llama-3.3-70b-versatile",
+      "llama-3.1-70b-versatile"
+    ],
+    "geminiModels": [
+      "gemini-2.0-flash",
+      "gemini-2.0-flash-lite"
+    ],
     "anthropicModel": "claude-opus-4-8"
   },
   "sources": [
-    { "id": "infomoney", "type": "rss", "url": "https://www.infomoney.com.br/feed/", "label": "InfoMoney", "enabled": true, "weight": 1 },
-    { "id": "moneytimes", "type": "rss", "url": "https://www.moneytimes.com.br/feed/", "label": "Money Times", "enabled": true, "weight": 1 },
-    { "id": "g1-economia", "type": "rss", "url": "https://g1.globo.com/rss/g1/economia/", "label": "G1 - Economia", "enabled": true, "weight": 1 },
-    { "id": "exame-invest", "type": "rss", "url": "https://exame.com/invest/feed/", "label": "Exame Invest", "enabled": true, "weight": 1 },
-    { "id": "seudinheiro", "type": "rss", "url": "https://www.seudinheiro.com/feed/", "label": "Seu Dinheiro", "enabled": true, "weight": 1 }
+    {
+      "id": "infomoney",
+      "type": "rss",
+      "url": "https://www.infomoney.com.br/feed/",
+      "label": "InfoMoney",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "moneytimes",
+      "type": "rss",
+      "url": "https://www.moneytimes.com.br/feed/",
+      "label": "Money Times",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "g1-economia",
+      "type": "rss",
+      "url": "https://g1.globo.com/rss/g1/economia/",
+      "label": "G1 - Economia",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "exame-invest",
+      "type": "rss",
+      "url": "https://exame.com/invest/feed/",
+      "label": "Exame Invest",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "seudinheiro",
+      "type": "rss",
+      "url": "https://www.seudinheiro.com/feed/",
+      "label": "Seu Dinheiro",
+      "enabled": true,
+      "weight": 1
+    }
   ]
 }

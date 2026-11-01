@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_muu6pydwk3r7",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-04T18:59:14.132Z",
     "theme": "Eleição 2026 – horário de fechamento das urnas e impacto no mercado",
     "title": "Por que o horário de fechamento das urnas pode mexer com seu bolso?",
@@ -34,11 +34,13 @@
     },
     "youtubeId": "4T-fLH4bAXk",
     "previewUrl": "https://youtube.com/shorts/4T-fLH4bAXk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muwyw8suh3t7",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-06T17:43:29.165Z",
     "theme": "ETF de Brasil levanta US$ 700 milhões em NY",
     "title": "Por que o ETF Brasil bombou e o que isso significa para seu dinheiro",
@@ -70,11 +72,13 @@
     },
     "youtubeId": "wTViHGWwlKA",
     "previewUrl": "https://youtube.com/shorts/wTViHGWwlKA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muwyx3y72udl",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-06T17:43:29.165Z",
     "theme": "JPMorgan reavalia Banco do Brasil e Bradesco",
     "title": "JPMorgan muda a aposta: Banco do Brasil à venda, Bradesco em alta",
@@ -106,11 +110,13 @@
     },
     "youtubeId": "233S_jJWtS8",
     "previewUrl": "https://youtube.com/shorts/233S_jJWtS8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muyfhiw93s2t",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-07T18:15:42.057Z",
     "theme": "Juros nos EUA e impacto no Brasil",
     "title": "Fed aumenta juros: o que isso muda no seu bolso?",
@@ -140,11 +146,13 @@
     },
     "youtubeId": "WmvQsefcQ7Q",
     "previewUrl": "https://youtube.com/shorts/WmvQsefcQ7Q",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muyfigc09nkl",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-07T18:15:42.057Z",
     "theme": "Erros comuns ao começar a investir em ações",
     "title": "5 erros que você NÃO pode cometer ao investir em ações",
@@ -173,11 +181,13 @@
     },
     "youtubeId": "za4lEq1Q02o",
     "previewUrl": "https://youtube.com/shorts/za4lEq1Q02o",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muzuyusi9w0f",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-08T18:16:51.042Z",
     "theme": "IPO bilionário de empresa de IA apoiada pela Nvidia",
     "title": "IPO de IA trava: o que isso significa para seu bolso?",
@@ -206,11 +216,13 @@
     },
     "youtubeId": "Q1n_dZMymYw",
     "previewUrl": "https://youtube.com/shorts/Q1n_dZMymYw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_muzuzhvsk2w8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-08T18:16:51.042Z",
     "theme": "IPCA pode romper meta em setembro",
     "title": "IPCA acima da meta: como isso afeta seu dinheiro?",
@@ -239,11 +251,13 @@
     },
     "youtubeId": "Wa2pCEfoMQw",
     "previewUrl": "https://youtube.com/shorts/Wa2pCEfoMQw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv19fya27gkg",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-09T17:49:49.514Z",
     "theme": "Bitcoin testa US$ 80 mil",
     "title": "BTC tenta R$ 400 mil: o que isso significa pro seu bolso?",
@@ -271,11 +285,13 @@
     },
     "youtubeId": "FoSBYJlr0ME",
     "previewUrl": "https://youtube.com/shorts/FoSBYJlr0ME",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv19gnsbbpwb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-09T17:49:49.514Z",
     "theme": "Frete de petróleo EUA-China supera custo de lançar foguete",
     "title": "Por que o frete de petróleo está mais caro que um foguete?",
@@ -303,11 +319,13 @@
     },
     "youtubeId": "K4C_M5S37-8",
     "previewUrl": "https://youtube.com/shorts/K4C_M5S37-8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv2mkp6edvbb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-10T16:45:12.182Z",
     "theme": "Títulos do Tesouro sobem 13% em uma semana",
     "title": "Por que os títulos do Tesouro dispararam e o que isso muda no seu bolso?",
@@ -338,11 +356,13 @@
     },
     "youtubeId": "bhcmYGjF5ZE",
     "previewUrl": "https://youtube.com/shorts/bhcmYGjF5ZE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv2mljaj99yb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-10T16:45:12.182Z",
     "theme": "Desmentido: diarista e manicure não precisam abrir CNPJ agora",
     "title": "Vídeo viral diz que diarista precisa de CNPJ – é verdade?",
@@ -373,11 +393,13 @@
     },
     "youtubeId": "-A0tqqCowH8",
     "previewUrl": "https://youtube.com/shorts/-A0tqqCowH8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv42x4ok1961",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-11T17:10:32.180Z",
     "theme": "Política fiscal e impacto no bolso",
     "title": "Fim da escala 6×1: o que isso muda no seu salário?",
@@ -408,11 +430,13 @@
     },
     "youtubeId": "RIulf7uMsDw",
     "previewUrl": "https://youtube.com/shorts/RIulf7uMsDw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv42xzr47ylf",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-11T17:10:32.180Z",
     "theme": "Geopolítica e preço do petróleo",
     "title": "Ataques dos houthis: risco de alta no preço da bomba",
@@ -443,11 +467,13 @@
     },
     "youtubeId": "72LgJlRGVQA",
     "previewUrl": "https://youtube.com/shorts/72LgJlRGVQA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv5py2fycq2d",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-12T20:42:53.278Z",
     "theme": "Dólar em alta de 18 meses",
     "title": "Por que o dólar está no pico de 18 meses?",
@@ -477,11 +503,13 @@
     },
     "youtubeId": "1q_sGdHlF6Q",
     "previewUrl": "https://youtube.com/shorts/1q_sGdHlF6Q",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv5pyo1pk1qs",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-12T20:42:53.278Z",
     "theme": "Bolsas de Nova York sem direção",
     "title": "Mercado volátil: o que significa a falta de direção nas bolsas de NY?",
@@ -511,11 +539,13 @@
     },
     "youtubeId": "QtVjrfsoAz0",
     "previewUrl": "https://youtube.com/shorts/QtVjrfsoAz0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv7160sdjkab",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-13T18:44:46.333Z",
     "theme": "Previsão de dólar da Goldman Sachs e impacto no bolso brasileiro",
     "title": "Dólar a R$4,70 em 3 meses? O que isso significa pra você",
@@ -548,11 +578,13 @@
     },
     "youtubeId": "eU_c9XeLj_c",
     "previewUrl": "https://youtube.com/shorts/eU_c9XeLj_c",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv716or06g6j",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-13T18:44:46.333Z",
     "theme": "Novas regras do Prospera MEI: Pix, perdão de dívida e benefícios para microempreendedores",
     "title": "Prospera MEI chegou – o que muda no seu dia a dia",
@@ -585,11 +617,13 @@
     },
     "youtubeId": "EzeyXLPOYEI",
     "previewUrl": "https://youtube.com/shorts/EzeyXLPOYEI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv8bdp078cah",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-14T16:18:26.647Z",
     "theme": "Farmácia Popular e o impacto no bolso do brasileiro",
     "title": "Por que a Farmácia Popular é a medida mais aprovada e como isso afeta seu dinheiro?",
@@ -619,11 +653,13 @@
     },
     "youtubeId": "Tt7upbjoV7o",
     "previewUrl": "https://youtube.com/shorts/Tt7upbjoV7o",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv8bebdo5t72",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-14T16:18:26.647Z",
     "theme": "Juros globais em alta: o que fazer com seus investimentos",
     "title": "Juros globais dispararam – Como proteger seu patrimônio agora?",
@@ -653,11 +689,13 @@
     },
     "youtubeId": "RMZX7SgM8D4",
     "previewUrl": "https://youtube.com/shorts/RMZX7SgM8D4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv9qdqic8kvw",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-15T16:06:09.012Z",
     "theme": "Superendividamento no Brasil",
     "title": "5 sinais de que seu orçamento está fora de controle",
@@ -685,11 +723,13 @@
     },
     "youtubeId": "tZeXnLzG6Zc",
     "previewUrl": "https://youtube.com/shorts/tZeXnLzG6Zc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mv9qej1m2idx",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-15T16:06:09.012Z",
     "theme": "Queda das ações de IA",
     "title": "Ações de IA despencam US$ 1 trilhão: o que isso significa para seu investimento?",
@@ -717,11 +757,13 @@
     },
     "youtubeId": "n6xqs5ZmLzI",
     "previewUrl": "https://youtube.com/shorts/n6xqs5ZmLzI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvb5dwie4dsq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-16T15:53:57.206Z",
     "theme": "Queda histórica da bolsa brasileira",
     "title": "Por que a bolsa caiu 28 anos? O que isso muda no seu bolso",
@@ -751,11 +793,13 @@
     },
     "youtubeId": "xD5SlOo0EJw",
     "previewUrl": "https://youtube.com/shorts/xD5SlOo0EJw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvb5eati8pkz",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-16T15:53:57.206Z",
     "theme": "Ibovespa sobe após queda e foco nas pesquisas eleitorais",
     "title": "Ibovespa volta a subir: entenda o que isso significa para seu dinheiro",
@@ -784,11 +828,13 @@
     },
     "youtubeId": "oJ-NwuWWLVA",
     "previewUrl": "https://youtube.com/shorts/oJ-NwuWWLVA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvcific565r",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-17T14:46:53.333Z",
     "theme": "Política e Mercado",
     "title": "Eleição à vista: como a disputa entre Flávio e Lula afeta seu bolso",
@@ -820,11 +866,13 @@
     },
     "youtubeId": "sEQr0QRFQIE",
     "previewUrl": "https://youtube.com/shorts/sEQr0QRFQIE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvcigdsp7ib0",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-17T14:46:53.333Z",
     "theme": "Economia Global",
     "title": "China x Europa: o que a fala do presidente do BC alemão significa para o real",
@@ -856,11 +904,13 @@
     },
     "youtubeId": "3ym2TwIyDjA",
     "previewUrl": "https://youtube.com/shorts/3ym2TwIyDjA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvdyrxsvgbrg",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-18T15:12:13.279Z",
     "theme": "Mercados latino-americanos após a euforia eleitoral",
     "title": "Por que as bolsas da América Latina caíram depois da eleição?",
@@ -893,11 +943,13 @@
     },
     "youtubeId": "Tht8GK6Cv4E",
     "previewUrl": "https://youtube.com/shorts/Tht8GK6Cv4E",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvdysfrp4rv",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-18T15:12:13.279Z",
     "theme": "Mega‑Sena 3071: prêmio de R$ 171 milhões",
     "title": "O que um prêmio de R$ 171 mi pode fazer na sua vida financeira?",
@@ -928,11 +980,13 @@
     },
     "youtubeId": "RXaziO__dYo",
     "previewUrl": "https://youtube.com/shorts/RXaziO__dYo",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvfkhbg782t6",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-19T18:07:35.479Z",
     "theme": "Renda extra sem mudar a rotina",
     "title": "Como gerar renda extra mensal sem sair do emprego",
@@ -963,11 +1017,13 @@
     },
     "youtubeId": "6TXneDXxnF0",
     "previewUrl": "https://youtube.com/shorts/6TXneDXxnF0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvfki3747p45",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-19T18:07:35.479Z",
     "theme": "Ibovespa em 205 mil: o que isso significa para você",
     "title": "Ibovespa cai, mas ainda está em 205 mil – entenda o impacto no seu bolso",
@@ -998,11 +1054,13 @@
     },
     "youtubeId": "JQS6EvrZI6A",
     "previewUrl": "https://youtube.com/shorts/JQS6EvrZI6A",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvgvp3siid6w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-20T16:09:20.754Z",
     "theme": "Ibovespa dispara acima de 208 mil pontos com foco nas eleições",
     "title": "Por que o Ibovespa subiu 2% hoje?",
@@ -1033,11 +1091,13 @@
     },
     "youtubeId": "06PO6GBkJnQ",
     "previewUrl": "https://youtube.com/shorts/06PO6GBkJnQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvgvpv6r8rdq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-20T16:09:20.754Z",
     "theme": "Ação da Wiz despenca mais de 20% após venda de participação na Inter Seguros",
     "title": "Wiz cai 20%: o que isso significa pra você?",
@@ -1068,11 +1128,13 @@
     },
     "youtubeId": "fCNkBe2-gJU",
     "previewUrl": "https://youtube.com/shorts/fCNkBe2-gJU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvibp4424f45",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-21T16:25:01.202Z",
     "theme": "MEI e perdão de dívidas",
     "title": "Perdão de dívidas para MEI: o que muda no seu bolso?",
@@ -1102,11 +1164,13 @@
     },
     "youtubeId": "GhvcLbPlazM",
     "previewUrl": "https://youtube.com/shorts/GhvcLbPlazM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvibpnj0hinb",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-21T16:25:01.202Z",
     "theme": "Ibovespa em queda por eleição",
     "title": "Por que o Ibovespa despencou antes da votação?",
@@ -1136,11 +1200,13 @@
     },
     "youtubeId": "5HZD081Up0s",
     "previewUrl": "https://youtube.com/shorts/5HZD081Up0s",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvjr5tska515",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-22T16:25:41.396Z",
     "theme": "SoftBank perde metade do valor de mercado com temores sobre IA",
     "title": "SoftBank despenca 50%: o que isso significa para o seu dinheiro?",
@@ -1170,11 +1236,13 @@
     },
     "youtubeId": "Ac4BhxDpGS8",
     "previewUrl": "https://youtube.com/shorts/Ac4BhxDpGS8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvjr6ci2ke2w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-22T16:25:41.396Z",
     "theme": "Fundos de dividendos sobem com medo da eleição",
     "title": "Eleição e dividendos: por que os fundos estão subindo?",
@@ -1203,11 +1271,13 @@
     },
     "youtubeId": "2cI_zGn5qVg",
     "previewUrl": "https://youtube.com/shorts/2cI_zGn5qVg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvl675urjal6",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-23T16:14:24.099Z",
     "theme": "Petrobras mantém boa relação risco-retorno mesmo após alta abrupta",
     "title": "Petrobras: Por que a ação ainda vale a pena?",
@@ -1238,11 +1308,13 @@
     },
     "youtubeId": "gvCn_rPOfIU",
     "previewUrl": "https://youtube.com/shorts/gvCn_rPOfIU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvl67jjg808f",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-23T16:14:24.099Z",
     "theme": "Ibovespa após o 2º turno: rumo a 230 mil ou queda?",
     "title": "Ibovespa: 230 mil está ao alcance?",
@@ -1272,11 +1344,13 @@
     },
     "youtubeId": "cvoxQVrATDY",
     "previewUrl": "https://youtube.com/shorts/cvoxQVrATDY",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvmje09zc367",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-24T15:11:24.647Z",
     "theme": "Safra de soja 2026/27 e impacto nos preços da commodity",
     "title": "Safra recorde de soja pode mexer no preço do seu prato",
@@ -1306,11 +1380,13 @@
     },
     "youtubeId": "ozEp1lRjYnM",
     "previewUrl": "https://youtube.com/shorts/ozEp1lRjYnM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvmjev2k77wv",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-24T15:11:24.647Z",
     "theme": "Financiamento da Azul para combustível de aviação",
     "title": "Azul investe R$2 bi em combustível de aviação – o que isso muda pra você?",
@@ -1340,11 +1416,13 @@
     },
     "youtubeId": "fiM4YVF2IuE",
     "previewUrl": "https://youtube.com/shorts/fiM4YVF2IuE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvnz8c59dlzx",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-25T15:22:40.125Z",
     "theme": "Eleição 2024: Como a disputa Lula x Flávio pode mexer no seu bolso",
     "title": "Eleição, juros e bolsa: o que muda para você?",
@@ -1376,11 +1454,13 @@
     },
     "youtubeId": "IJPY8Lbh_p8",
     "previewUrl": "https://youtube.com/shorts/IJPY8Lbh_p8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvnz8yg5gy34",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-25T15:22:40.125Z",
     "theme": "Cancelamento de voos no dia da votação: o que isso significa para o seu orçamento de viagem",
     "title": "Voos cancelados na eleição: prejuízo ou oportunidade?",
@@ -1411,11 +1491,13 @@
     },
     "youtubeId": "UdjX95-xD6w",
     "previewUrl": "https://youtube.com/shorts/UdjX95-xD6w",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvpkeeejj4ma",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-26T18:03:01.099Z",
     "theme": "Dólar dispara acima de R$5,50 após reeleição de Lula",
     "title": "Por que o dólar subiu 10% agora?",
@@ -1446,11 +1528,13 @@
     },
     "youtubeId": "zglNvU-3uO8",
     "previewUrl": "https://youtube.com/shorts/zglNvU-3uO8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvpkf63ri552",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-26T18:03:01.099Z",
     "theme": "Os 3 testes fiscais que Lula precisa passar segundo a UBS",
     "title": "Os 3 desafios fiscais que Lula tem que vencer",
@@ -1481,11 +1565,13 @@
     },
     "youtubeId": "ZsBAIG6kmnk",
     "previewUrl": "https://youtube.com/shorts/ZsBAIG6kmnk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvqxzfddafkj",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-27T17:11:03.313Z",
     "theme": "Suzano (SUZB3) sobe com dólar alto – o que isso significa para o seu bolso?",
     "title": "Suzano sobe com dólar alto: entenda o impacto nos seus investimentos",
@@ -1515,11 +1601,13 @@
     },
     "youtubeId": "3RLUUttfwok",
     "previewUrl": "https://youtube.com/shorts/3RLUUttfwok",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvqxzuhf7ip0",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-27T17:11:03.313Z",
     "theme": "Queda na demanda por empréstimos na zona do euro – reflexos para o Brasil",
     "title": "EUA? Não, é a Europa! Por que os bancos europeus estão concedendo menos empréstimos?",
@@ -1549,11 +1637,13 @@
     },
     "youtubeId": "cYMgYP4o-0A",
     "previewUrl": "https://youtube.com/shorts/cYMgYP4o-0A",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvsennp2hpf7",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-28T17:45:33.878Z",
     "theme": "Comportamento financeiro",
     "title": "Por que seu cérebro quer gastar agora?",
@@ -1581,11 +1671,13 @@
     },
     "youtubeId": "dTbJYGaptAQ",
     "previewUrl": "https://youtube.com/shorts/dTbJYGaptAQ",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvseoezn662f",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-28T17:45:33.878Z",
     "theme": "Impostos e combustível",
     "title": "Aumento do ICMS na gasolina: o que muda no seu bolso?",
@@ -1613,7 +1705,9 @@
     },
     "youtubeId": "dP34pP-3WM4",
     "previewUrl": "https://youtube.com/shorts/dP34pP-3WM4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "rejectReason": "descartado em lote: notícia antiga demais para publicar (gerado antes de 29/10)",
+    "decidedAt": "2026-11-01T05:25:41.493Z"
   },
   {
     "id": "sh_mvtucuwk5f46",
