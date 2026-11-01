@@ -87,6 +87,47 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:31:49.841Z"
+    "analyticsUpdatedAt": "2026-11-01T17:32:15.092Z"
+  },
+  {
+    "id": "sh_mvy3u1evjgwr",
+    "status": "published",
+    "createdAt": "2026-11-01T17:29:12.871Z",
+    "theme": "Manipulação de fundos na bolsa de Istambul",
+    "title": "CEO da Bolsa de Istambul preso: o que isso significa para seus investimentos?",
+    "hook": "Um CEO de bolsa foi detido e os mercados já sentem o choque!",
+    "script": "A justiça prendeu o CEO da Borsa Istanbul por suspeita de manipular fundos. Ele teria usado informações privilegiadas para inflar preços e lucrar à custa de investidores. Com a notícia, as ações turcas caíram cerca de 3% em poucos minutos. O que isso traz para o seu bolso? Primeiro, aumenta a percepção de risco em mercados emergentes – investidores podem fugir para ativos mais seguros, como dólar ou ouro. Segundo, reforça a importância de diversificar: não coloque tudo em uma única bolsa. E por fim, mostra que a regulação está ficando mais rígida, o que pode proteger quem investe de fraudes. Fique de olho nas notícias e ajuste sua carteira se precisar.",
+    "tags": [
+      "#bolsa",
+      "#investimentos",
+      "#manipulação",
+      "#mercadosEmergentes"
+    ],
+    "captionKeywords": [
+      "bolsa de istambul",
+      "manipulação de fundos",
+      "investimento seguro",
+      "diversificação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ceo-da-bolsa-de-valores-de-istanbul-e-detido-em-investigacao-sobre-fundos/",
+    "rationale": "Tema de alto impacto financeiro, fácil de conectar ao bolso do investidor e gera engajamento por envolver risco de mercado.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "xXVCsxG07M0",
+    "previewUrl": "https://youtube.com/shorts/xXVCsxG07M0",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-01T17:31:56.254Z",
+    "publishedAt": "2026-11-01T17:32:12.782Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-01T17:32:15.092Z"
   }
 ]

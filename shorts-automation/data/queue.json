@@ -32,7 +32,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:44.368Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvtudivjgvrh",
@@ -67,7 +67,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:40.823Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvv95msyg9cs",
@@ -103,7 +103,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:37.622Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvv967pzblq8",
@@ -139,7 +139,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:34.188Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvwmlqxfkjui",
@@ -176,7 +176,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:30.831Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvwmm82heiop",
@@ -212,7 +212,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:26.342Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvxe7u0o9rar",
@@ -251,41 +251,7 @@
     "decidedAt": "2026-11-01T17:14:07.030Z",
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-01T17:31:47.873Z"
-  },
-  {
-    "id": "sh_mvy3u1evjgwr",
-    "status": "approved",
-    "createdAt": "2026-11-01T17:29:12.871Z",
-    "theme": "Manipulação de fundos na bolsa de Istambul",
-    "title": "CEO da Bolsa de Istambul preso: o que isso significa para seus investimentos?",
-    "hook": "Um CEO de bolsa foi detido e os mercados já sentem o choque!",
-    "script": "A justiça prendeu o CEO da Borsa Istanbul por suspeita de manipular fundos. Ele teria usado informações privilegiadas para inflar preços e lucrar à custa de investidores. Com a notícia, as ações turcas caíram cerca de 3% em poucos minutos. O que isso traz para o seu bolso? Primeiro, aumenta a percepção de risco em mercados emergentes – investidores podem fugir para ativos mais seguros, como dólar ou ouro. Segundo, reforça a importância de diversificar: não coloque tudo em uma única bolsa. E por fim, mostra que a regulação está ficando mais rígida, o que pode proteger quem investe de fraudes. Fique de olho nas notícias e ajuste sua carteira se precisar.",
-    "tags": [
-      "#bolsa",
-      "#investimentos",
-      "#manipulação",
-      "#mercadosEmergentes"
-    ],
-    "captionKeywords": [
-      "bolsa de istambul",
-      "manipulação de fundos",
-      "investimento seguro",
-      "diversificação"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mercados/ceo-da-bolsa-de-valores-de-istanbul-e-detido-em-investigacao-sobre-fundos/",
-    "rationale": "Tema de alto impacto financeiro, fácil de conectar ao bolso do investidor e gera engajamento por envolver risco de mercado.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 47,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_mvy3u1evjgwr.mp4"
-    },
-    "youtubeId": "xXVCsxG07M0",
-    "previewUrl": "https://youtube.com/shorts/xXVCsxG07M0",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T17:31:56.254Z"
+    "publishErrorAt": "2026-11-01T17:32:12.782Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
