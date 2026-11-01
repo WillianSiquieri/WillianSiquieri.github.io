@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: shorts-publish
+  group: shorts-state
   cancel-in-progress: false
 
 jobs:
@@ -53,4 +53,12 @@ jobs:
           git config user.email "actions@github.com"
           git add data/
           git diff --staged --quiet || git commit -m "publicar aprovados + atualizar analytics"
+          # Os dois workflows escrevem em data/ e podem rodar juntos. Sem rebase,
+          # um push perdido descartava o estado e deixava vídeo órfão no YouTube.
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "push recusado (tentativa $i) — rebase e tenta de novo"
+            git pull --rebase --autostash origin master || exit 1
+            sleep $((i * 3))
+          done
           git push
