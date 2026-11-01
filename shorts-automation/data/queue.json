@@ -131,7 +131,7 @@
   },
   {
     "id": "sh_mvwmlqxfkjui",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-31T16:39:06.387Z",
     "theme": "Cripto e Segurança Financeira",
     "title": "Binance repõe 90% dos ativos após hack de US$6,3 bi",
@@ -161,7 +161,8 @@
     },
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:30.831Z"
   },
   {
     "id": "sh_mvwmm82heiop",
