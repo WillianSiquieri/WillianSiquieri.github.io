@@ -255,7 +255,7 @@
   },
   {
     "id": "sh_mvy4rnoy6lr7",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-01T17:55:21.394Z",
     "theme": "Binance retoma saques após ataque hacker",
     "title": "Binance volta a liberar saques: o que isso muda no seu bolso?",
@@ -286,6 +286,8 @@
     },
     "youtubeId": "ow2xSj3zMBE",
     "previewUrl": "https://youtube.com/shorts/ow2xSj3zMBE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T18:07:03.796Z",
+    "rejectReason": "Binance é uma palavra que tem que ser falada em ingles"
   }
 ]
