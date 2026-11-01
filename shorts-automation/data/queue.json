@@ -165,7 +165,7 @@
   },
   {
     "id": "sh_mvwmm82heiop",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-31T16:39:06.387Z",
     "theme": "Política e Mercado Financeiro",
     "title": "Simone Tebet no radar de Lula para o STF: o que isso pode mudar nos investimentos?",
@@ -194,6 +194,7 @@
     },
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:26.342Z"
   }
 ]
