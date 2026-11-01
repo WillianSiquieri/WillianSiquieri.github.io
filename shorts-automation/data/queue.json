@@ -32,7 +32,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:44.368Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvtudivjgvrh",
@@ -67,7 +67,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:40.823Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvv95msyg9cs",
@@ -103,7 +103,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:37.622Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvv967pzblq8",
@@ -139,7 +139,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:34.188Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvwmlqxfkjui",
@@ -176,7 +176,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:30.831Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvwmm82heiop",
@@ -212,7 +212,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:26.342Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   },
   {
     "id": "sh_mvxe7u0o9rar",
@@ -251,40 +251,6 @@
     "decidedAt": "2026-11-01T17:14:07.030Z",
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-01T17:32:12.782Z"
-  },
-  {
-    "id": "sh_mvy3v2lc1fkx",
-    "status": "approved",
-    "createdAt": "2026-11-01T17:29:12.871Z",
-    "theme": "Risco político e a prisão de Bolsonaro",
-    "title": "Bolsonaro na mira: como a política pode mexer no seu dinheiro?",
-    "hook": "A derrota de Flávio pode mudar o destino de Bolsonaro – e o seu dinheiro também!",
-    "script": "O STF agora decide entre revisão criminal ou lei da dosimetria para libertar o ex‑presidente. Essas decisões são mais que política: afetam a confiança nos mercados. Se Bolsonaro voltar à presidência ou ficar preso, há risco de instabilidade econômica, o que costuma desvalorizar o real e subir o dólar. Para quem tem investimentos em renda fixa ou importações, isso pode significar juros mais altos e custos maiores. A dica? Mantenha parte da carteira em ativos protegidos contra inflação, como títulos atrelados ao IPCA, e acompanhe o andamento no STF. Assim, você reduz o impacto de uma crise política no seu bolso.",
-    "tags": [
-      "#politica",
-      "#economia",
-      "#investimentos",
-      "#bolsa"
-    ],
-    "captionKeywords": [
-      "Bolsonaro",
-      "risco político",
-      "dólar",
-      "investimentos seguros"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/politica/apos-derrota-de-flavio-quais-caminhos-podem-tirar-bolsonaro-da-prisao/",
-    "rationale": "Conexão direta entre eventos políticos e finanças pessoais, tema relevante para o público que busca entender como a política afeta seus investimentos.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 44,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_mvy3v2lc1fkx.mp4"
-    },
-    "youtubeId": "LHBTuybDsSk",
-    "previewUrl": "https://youtube.com/shorts/LHBTuybDsSk",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T17:32:24.660Z"
+    "publishErrorAt": "2026-11-01T17:32:39.356Z"
   }
 ]

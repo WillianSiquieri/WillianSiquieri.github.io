@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:32:15.092Z"
+    "analyticsUpdatedAt": "2026-11-01T17:32:41.917Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -128,6 +128,47 @@
     "comments": 0,
     "score": 0,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:32:15.092Z"
+    "analyticsUpdatedAt": "2026-11-01T17:32:41.918Z"
+  },
+  {
+    "id": "sh_mvy3v2lc1fkx",
+    "status": "published",
+    "createdAt": "2026-11-01T17:29:12.871Z",
+    "theme": "Risco político e a prisão de Bolsonaro",
+    "title": "Bolsonaro na mira: como a política pode mexer no seu dinheiro?",
+    "hook": "A derrota de Flávio pode mudar o destino de Bolsonaro – e o seu dinheiro também!",
+    "script": "O STF agora decide entre revisão criminal ou lei da dosimetria para libertar o ex‑presidente. Essas decisões são mais que política: afetam a confiança nos mercados. Se Bolsonaro voltar à presidência ou ficar preso, há risco de instabilidade econômica, o que costuma desvalorizar o real e subir o dólar. Para quem tem investimentos em renda fixa ou importações, isso pode significar juros mais altos e custos maiores. A dica? Mantenha parte da carteira em ativos protegidos contra inflação, como títulos atrelados ao IPCA, e acompanhe o andamento no STF. Assim, você reduz o impacto de uma crise política no seu bolso.",
+    "tags": [
+      "#politica",
+      "#economia",
+      "#investimentos",
+      "#bolsa"
+    ],
+    "captionKeywords": [
+      "Bolsonaro",
+      "risco político",
+      "dólar",
+      "investimentos seguros"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/apos-derrota-de-flavio-quais-caminhos-podem-tirar-bolsonaro-da-prisao/",
+    "rationale": "Conexão direta entre eventos políticos e finanças pessoais, tema relevante para o público que busca entender como a política afeta seus investimentos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "LHBTuybDsSk",
+    "previewUrl": "https://youtube.com/shorts/LHBTuybDsSk",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-01T17:32:24.660Z",
+    "publishedAt": "2026-11-01T17:32:39.356Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-01T17:32:41.918Z"
   }
 ]
