@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:32:41.917Z"
+    "analyticsUpdatedAt": "2026-11-01T17:37:31.240Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -123,12 +123,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-01T17:31:56.254Z",
     "publishedAt": "2026-11-01T17:32:12.782Z",
-    "views": 0,
+    "views": 1,
     "likes": 0,
     "comments": 0,
-    "score": 0,
+    "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:32:41.918Z"
+    "analyticsUpdatedAt": "2026-11-01T17:37:31.240Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -164,11 +164,11 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-01T17:32:24.660Z",
     "publishedAt": "2026-11-01T17:32:39.356Z",
-    "views": 0,
+    "views": 1,
     "likes": 0,
     "comments": 0,
-    "score": 0,
+    "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-01T17:32:41.918Z"
+    "analyticsUpdatedAt": "2026-11-01T17:37:31.240Z"
   }
 ]

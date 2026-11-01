@@ -252,5 +252,39 @@
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
     "publishErrorAt": "2026-11-01T17:32:39.356Z"
+  },
+  {
+    "id": "sh_mvy44sby45wt",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:37:34.318Z",
+    "theme": "Binance registra saídas líquidas de US$3,64 bi após retomada de saques",
+    "title": "Por que a Binance está perdendo bilhões e o que isso significa para o seu bolso",
+    "hook": "A Binance acabou de perder US$3,64 bilhões em saques – e isso pode mudar sua forma de investir!",
+    "script": "A Binance anunciou que, nos últimos dias, clientes sacaram US$3,64 bilhões. Isso representa 2,1% dos US$171 bilhões que a exchange controla. Por que tanta gente está retirando dinheiro? Primeiro, o medo de um novo ataque hacker que abalou a confiança. Segundo, a expectativa de queda nos preços das criptomoedas, levando investidores a proteger o capital. Para você, isso significa cautela: se ainda não diversificou, talvez seja hora de repensar a exposição em cripto e reservar parte em ativos mais seguros, como renda fixa ou fundos de baixo risco. Lembre-se: grandes saídas podem sinalizar volatilidade nos mercados, então fique de olho nas próximas notícias antes de decidir comprar ou vender.",
+    "tags": [
+      "#Binance",
+      "#Criptomoedas",
+      "#Investimento",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "saques",
+      "cripto",
+      "investimento",
+      "volatilidade"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/binance-registra-saidas-liquidas-de-us364-bi-apos-retomada-de-saques/",
+    "rationale": "Escolhi a notícia da Binance porque traz um impacto direto nos investidores de cripto, tema central do canal de finanças. O gancho forte capta atenção nos primeiros segundos, o script é curto, direto e explica a repercussão para o bolso do espectador, evitando repetição de imagens e perguntas finais que o usuário criticou.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 52,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy44sby45wt.mp4"
+    },
+    "youtubeId": "EKyx1FwF-XI",
+    "previewUrl": "https://youtube.com/shorts/EKyx1FwF-XI",
+    "privacyStatus": "unlisted"
   }
 ]
