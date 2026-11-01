@@ -287,5 +287,71 @@
     "youtubeId": "MxC-eaYLvFk",
     "previewUrl": "https://youtube.com/shorts/MxC-eaYLvFk",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvy3u1evjgwr",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:29:12.871Z",
+    "theme": "Manipulação de fundos na bolsa de Istambul",
+    "title": "CEO da Bolsa de Istambul preso: o que isso significa para seus investimentos?",
+    "hook": "Um CEO de bolsa foi detido e os mercados já sentem o choque!",
+    "script": "A justiça prendeu o CEO da Borsa Istanbul por suspeita de manipular fundos. Ele teria usado informações privilegiadas para inflar preços e lucrar à custa de investidores. Com a notícia, as ações turcas caíram cerca de 3% em poucos minutos. O que isso traz para o seu bolso? Primeiro, aumenta a percepção de risco em mercados emergentes – investidores podem fugir para ativos mais seguros, como dólar ou ouro. Segundo, reforça a importância de diversificar: não coloque tudo em uma única bolsa. E por fim, mostra que a regulação está ficando mais rígida, o que pode proteger quem investe de fraudes. Fique de olho nas notícias e ajuste sua carteira se precisar.",
+    "tags": [
+      "#bolsa",
+      "#investimentos",
+      "#manipulação",
+      "#mercadosEmergentes"
+    ],
+    "captionKeywords": [
+      "bolsa de istambul",
+      "manipulação de fundos",
+      "investimento seguro",
+      "diversificação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ceo-da-bolsa-de-valores-de-istanbul-e-detido-em-investigacao-sobre-fundos/",
+    "rationale": "Tema de alto impacto financeiro, fácil de conectar ao bolso do investidor e gera engajamento por envolver risco de mercado.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy3u1evjgwr.mp4"
+    },
+    "youtubeId": "xXVCsxG07M0",
+    "previewUrl": "https://youtube.com/shorts/xXVCsxG07M0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mvy3v2lc1fkx",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:29:12.871Z",
+    "theme": "Risco político e a prisão de Bolsonaro",
+    "title": "Bolsonaro na mira: como a política pode mexer no seu dinheiro?",
+    "hook": "A derrota de Flávio pode mudar o destino de Bolsonaro – e o seu dinheiro também!",
+    "script": "O STF agora decide entre revisão criminal ou lei da dosimetria para libertar o ex‑presidente. Essas decisões são mais que política: afetam a confiança nos mercados. Se Bolsonaro voltar à presidência ou ficar preso, há risco de instabilidade econômica, o que costuma desvalorizar o real e subir o dólar. Para quem tem investimentos em renda fixa ou importações, isso pode significar juros mais altos e custos maiores. A dica? Mantenha parte da carteira em ativos protegidos contra inflação, como títulos atrelados ao IPCA, e acompanhe o andamento no STF. Assim, você reduz o impacto de uma crise política no seu bolso.",
+    "tags": [
+      "#politica",
+      "#economia",
+      "#investimentos",
+      "#bolsa"
+    ],
+    "captionKeywords": [
+      "Bolsonaro",
+      "risco político",
+      "dólar",
+      "investimentos seguros"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/apos-derrota-de-flavio-quais-caminhos-podem-tirar-bolsonaro-da-prisao/",
+    "rationale": "Conexão direta entre eventos políticos e finanças pessoais, tema relevante para o público que busca entender como a política afeta seus investimentos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy3v2lc1fkx.mp4"
+    },
+    "youtubeId": "LHBTuybDsSk",
+    "previewUrl": "https://youtube.com/shorts/LHBTuybDsSk",
+    "privacyStatus": "unlisted"
   }
 ]
