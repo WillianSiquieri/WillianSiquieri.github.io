@@ -252,5 +252,40 @@
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
     "publishErrorAt": "2026-11-01T17:40:12.694Z"
+  },
+  {
+    "id": "sh_mvy4cut049of",
+    "status": "draft",
+    "createdAt": "2026-11-01T17:43:50.772Z",
+    "theme": "Cripto e Binance",
+    "title": "Binance retoma saques após ataque hacker: o que isso muda no seu bolso?",
+    "hook": "A Binance voltou a liberar saques e o seu dinheiro pode estar em risco novamente!",
+    "script": "Em menos de 24 horas, a Binance reabre os saques depois de um ataque hacker que parou tudo. Mas o que isso significa pra você? Primeiro: a confiança na maior exchange do mundo ficou abalada, o que pode puxar o preço das criptos para baixo. Segundo: quem tem fundos na Binance pode enfrentar atrasos ou limites nos próximos dias. Terceiro: se a exchange perder liquidez, os spreads aumentam e comprar ou vender fica mais caro. Fique de olho nas notícias, considere diversificar e, se possível, retire o que não pretende usar imediatamente. Assim, você protege seu capital de imprevistos como esse.",
+    "tags": [
+      "#Binance",
+      "#Cripto",
+      "#Investimento",
+      "#Finanças",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "saques",
+      "hack",
+      "cripto",
+      "investimento"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/apos-ataque-hacker-binance-retoma-saques-em-fase-inicial-neste-domingo-lmrs/",
+    "rationale": "Escolhi a notícia da Binance porque traz impacto direto no bolso dos investidores de criptomoedas, tem alta relevância e permite explicar de forma prática como eventos de segurança afetam preços, liquidez e estratégias pessoais, tudo dentro do nicho de finanças e economia para brasileiros.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 43,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mvy4cut049of.mp4"
+    },
+    "youtubeId": "g6iM4CuVmrM",
+    "previewUrl": "https://youtube.com/shorts/g6iM4CuVmrM",
+    "privacyStatus": "unlisted"
   }
 ]
