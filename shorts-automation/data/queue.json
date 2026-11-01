@@ -98,7 +98,7 @@
   },
   {
     "id": "sh_mvv967pzblq8",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-30T17:34:53.362Z",
     "theme": "Criptomoedas e Segurança",
     "title": "Binance Brasil garante segurança dos fundos, mas saques ainda parados",
@@ -127,7 +127,8 @@
     },
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:34.188Z"
   },
   {
     "id": "sh_mvwmlqxfkjui",
