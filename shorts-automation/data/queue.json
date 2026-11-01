@@ -1,7 +1,7 @@
 [
   {
     "id": "sh_mvtucuwk5f46",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-29T17:52:50.036Z",
     "theme": "Tesouro Direto – Taxas em alta pós‑eleição",
     "title": "Por que as taxas do Tesouro subiram ao maior nível desde a última eleição?",
@@ -29,7 +29,8 @@
     },
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:44.368Z"
   },
   {
     "id": "sh_mvtudivjgvrh",
