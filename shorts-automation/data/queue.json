@@ -255,7 +255,7 @@
   },
   {
     "id": "sh_mvy3v2lc1fkx",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-01T17:29:12.871Z",
     "theme": "Risco político e a prisão de Bolsonaro",
     "title": "Bolsonaro na mira: como a política pode mexer no seu dinheiro?",
@@ -284,6 +284,7 @@
     },
     "youtubeId": "LHBTuybDsSk",
     "previewUrl": "https://youtube.com/shorts/LHBTuybDsSk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T17:32:24.660Z"
   }
 ]
