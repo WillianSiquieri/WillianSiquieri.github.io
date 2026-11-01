@@ -122,6 +122,15 @@ Publicado em `https://<seu-usuario>.github.io/shorts-automation/dashboard/`.
   **modo** (pausar/retomar), ajustar **shorts/dia** e enviar **feedback** — tudo
   isso grava nos JSON e o motor obedece no próximo ciclo.
 
+### Validade da fila
+
+Notícia financeira envelhece rápido, e fila parada vira mutirão de revisão. Um short
+que passa de `queue.maxAgeDays` dias (padrão **5**) sem decisão é **rejeitado
+automaticamente** na próxima rodada de publicação: sai da fila e o vídeo não listado
+é apagado do canal. Aprovados nunca expiram — eles ficam esperando até publicar.
+
+Ponha `0` em `config/config.json → queue.maxAgeDays` para desligar.
+
 ### Preview dos shorts pendentes
 
 Cada short na fila mostra um player para você assistir antes de aprovar:
