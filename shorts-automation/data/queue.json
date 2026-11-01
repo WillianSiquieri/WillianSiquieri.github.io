@@ -255,7 +255,7 @@
   },
   {
     "id": "sh_mvy44sby45wt",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-01T17:37:34.318Z",
     "theme": "Binance registra saídas líquidas de US$3,64 bi após retomada de saques",
     "title": "Por que a Binance está perdendo bilhões e o que isso significa para o seu bolso",
@@ -285,6 +285,7 @@
     },
     "youtubeId": "EKyx1FwF-XI",
     "previewUrl": "https://youtube.com/shorts/EKyx1FwF-XI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T17:39:58.898Z"
   }
 ]
