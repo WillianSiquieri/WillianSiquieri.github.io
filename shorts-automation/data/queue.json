@@ -216,7 +216,7 @@
   },
   {
     "id": "sh_mvxe7u0o9rar",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-01T05:32:06.456Z",
     "theme": "Comércio internacional e impacto nos mercados",
     "title": "G20: Livre comércio versus barreiras ambientais – o que isso muda no seu bolso?",
@@ -247,6 +247,8 @@
     },
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T17:14:07.030Z",
+    "rejectReason": "Nao esta saindo o audio"
   }
 ]
