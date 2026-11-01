@@ -30,7 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:44.368Z"
+    "decidedAt": "2026-11-01T05:29:44.368Z",
+    "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   },
   {
     "id": "sh_mvtudivjgvrh",
@@ -63,7 +65,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:40.823Z"
+    "decidedAt": "2026-11-01T05:29:40.823Z",
+    "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   },
   {
     "id": "sh_mvv95msyg9cs",
@@ -97,7 +101,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:37.622Z"
+    "decidedAt": "2026-11-01T05:29:37.622Z",
+    "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   },
   {
     "id": "sh_mvv967pzblq8",
@@ -131,7 +137,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:34.188Z"
+    "decidedAt": "2026-11-01T05:29:34.188Z",
+    "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   },
   {
     "id": "sh_mvwmlqxfkjui",
@@ -166,7 +174,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:30.831Z"
+    "decidedAt": "2026-11-01T05:29:30.831Z",
+    "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   },
   {
     "id": "sh_mvwmm82heiop",
@@ -200,6 +210,8 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:26.342Z"
+    "decidedAt": "2026-11-01T05:29:26.342Z",
+    "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
+    "publishErrorAt": "2026-11-01T05:30:11.578Z"
   }
 ]
