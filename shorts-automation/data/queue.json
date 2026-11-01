@@ -33,7 +33,7 @@
   },
   {
     "id": "sh_mvtudivjgvrh",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-10-29T17:52:50.036Z",
     "theme": "Dólar forte pós‑eleição e oportunidades em exportadoras",
     "title": "Dólar em alta: quais ações de exportadoras podem valer a pena agora?",
@@ -61,7 +61,8 @@
     },
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-01T05:29:40.823Z"
   },
   {
     "id": "sh_mvv95msyg9cs",
