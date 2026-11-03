@@ -82,12 +82,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-01T17:31:30.998Z",
     "publishedAt": "2026-11-01T17:31:47.873Z",
-    "views": 196,
+    "views": 212,
     "likes": 12,
     "comments": 0,
-    "score": 556,
+    "score": 572,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-03T00:27:36.838Z"
+    "analyticsUpdatedAt": "2026-11-03T13:33:42.489Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -123,12 +123,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-01T17:31:56.254Z",
     "publishedAt": "2026-11-01T17:32:12.782Z",
-    "views": 43,
+    "views": 48,
     "likes": 2,
     "comments": 0,
-    "score": 103,
+    "score": 108,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-03T00:27:36.838Z"
+    "analyticsUpdatedAt": "2026-11-03T13:33:42.489Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -164,12 +164,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-01T17:32:24.660Z",
     "publishedAt": "2026-11-01T17:32:39.356Z",
-    "views": 1139,
-    "likes": 25,
+    "views": 1201,
+    "likes": 30,
     "comments": 2,
-    "score": 1989,
+    "score": 2201,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-03T00:27:36.838Z"
+    "analyticsUpdatedAt": "2026-11-03T13:33:42.489Z"
   },
   {
     "id": "sh_mvy44sby45wt",
@@ -211,6 +211,6 @@
     "comments": 0,
     "score": 2,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-03T00:27:36.838Z"
+    "analyticsUpdatedAt": "2026-11-03T13:33:42.489Z"
   }
 ]
