@@ -394,5 +394,73 @@
     "youtubeId": "sZ2RKNweWZ0",
     "previewUrl": "https://youtube.com/shorts/sZ2RKNweWZ0",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw2hukglh460",
+    "status": "draft",
+    "createdAt": "2026-11-04T19:12:36.885Z",
+    "theme": "Tesouro Direto com taxas em queda",
+    "title": "Tesouro Direto barato: o que isso muda no seu bolso?",
+    "hook": "A taxa do Tesouro Direto acabou de despencar!",
+    "script": "O Tesouro Direto suspendeu a venda por alguns minutos, mas voltou com as taxas mais baixas do ano. Isso significa que o rendimento dos títulos públicos ficou menor, mas o risco também diminuiu. Para quem quer segurança, ainda vale a pena, mas o ganho real pode ser menor que a inflação. Se você ainda não tem título, aproveite a oportunidade para comparar com a poupança e outros investimentos de renda fixa. Lembre-se: taxa baixa = menor retorno, mas também menor volatilidade.",
+    "tags": [
+      "#TesouroDireto",
+      "#RendaFixa",
+      "#Investimentos",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "taxas",
+      "renda fixa",
+      "investimento",
+      "dinheiro"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/tesouro-direto-abertura-fechamento-04112026/",
+    "rationale": "Alta relevância para investidores brasileiros, tema de renda fixa atrai grande parte da audiência do canal e tem impacto direto no bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw2hukglh460.mp4"
+    },
+    "youtubeId": "j1H34TlJSLA",
+    "previewUrl": "https://youtube.com/shorts/j1H34TlJSLA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw2hv0k27hkw",
+    "status": "draft",
+    "createdAt": "2026-11-04T19:12:36.885Z",
+    "theme": "Eleições nos EUA e efeito global",
+    "title": "Eleições americanas: como elas mexem no seu dinheiro?",
+    "hook": "A escolha nos EUA pode mexer na sua conta bancária!",
+    "script": "As eleições nos Estados Unidos criam a chamada \"onda azul\" nos mercados. Quando o dólar sobe, produtos importados ficam mais caros no Brasil e a moeda local pode desvalorizar. Isso afeta a inflação, o custo do crédito e até o preço das ações de empresas exportadoras. Fique de olho no dólar e nos indicadores de inflação nos próximos dias. Diversificar investimentos e manter uma reserva de emergência são estratégias simples para proteger seu patrimônio contra a volatilidade externa.",
+    "tags": [
+      "#EleiçõesEUA",
+      "#Dólar",
+      "#MercadoFinanceiro",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "Eleições EUA",
+      "dólar",
+      "inflação",
+      "bolsa",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/do-ira-ao-comercio-como-as-eleicoes-nos-eua-afetam-o-restante-do-mundo/",
+    "rationale": "Tema com forte conexão internacional e impacto direto na economia doméstica, seguindo o estilo de vídeos de risco político que já tiveram boa performance no canal.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw2hv0k27hkw.mp4"
+    },
+    "youtubeId": "XVyIRGu1qu8",
+    "previewUrl": "https://youtube.com/shorts/XVyIRGu1qu8",
+    "privacyStatus": "unlisted"
   }
 ]
