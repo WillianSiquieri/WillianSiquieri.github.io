@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-04T13:43:26.971Z",
+    "decidedAt": "2026-11-04T23:09:38.695Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z",
+    "publishErrorAt": "2026-11-04T23:09:38.695Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-04T13:43:26.971Z",
+    "decidedAt": "2026-11-04T23:09:38.695Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z",
+    "publishErrorAt": "2026-11-04T23:09:38.695Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,10 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:37.622Z",
+    "decidedAt": "2026-11-04T23:09:38.695Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z"
+    "publishErrorAt": "2026-11-04T23:09:38.695Z",
+    "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
     "id": "sh_mvv967pzblq8",
@@ -139,9 +140,10 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-01T05:29:34.188Z",
+    "decidedAt": "2026-11-04T23:09:38.695Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z"
+    "publishErrorAt": "2026-11-04T23:09:38.695Z",
+    "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
     "id": "sh_mvwmlqxfkjui",
@@ -178,7 +180,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:30.831Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z"
+    "publishErrorAt": "2026-11-04T23:09:38.695Z"
   },
   {
     "id": "sh_mvwmm82heiop",
@@ -214,7 +216,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-01T05:29:26.342Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z"
+    "publishErrorAt": "2026-11-04T23:09:38.695Z"
   },
   {
     "id": "sh_mvxe7u0o9rar",
@@ -253,7 +255,7 @@
     "decidedAt": "2026-11-01T17:14:07.030Z",
     "rejectReason": "Nao esta saindo o audio",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-04T13:43:26.971Z"
+    "publishErrorAt": "2026-11-04T23:09:38.695Z"
   },
   {
     "id": "sh_mvzrdfvv63a4",
