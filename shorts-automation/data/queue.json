@@ -608,5 +608,75 @@
     "youtubeId": "HOxySsHw0Eo",
     "previewUrl": "https://youtube.com/shorts/HOxySsHw0Eo",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw6nzpko5x3l",
+    "status": "draft",
+    "createdAt": "2026-11-07T17:15:39.192Z",
+    "theme": "Dólar pós-eleição no Brasil",
+    "title": "Por que o dólar subiu 10% depois da eleição e o que isso faz com o seu bolso",
+    "hook": "O dólar disparou 10% na noite da eleição – e sua conta bancária sente o efeito agora!",
+    "script": "A eleição acabou e o real perdeu força. O dólar subiu 10% em poucas horas, batendo R$5,20. Por que isso aconteceu? Os investidores temem instabilidade política e buscam proteção no dólar. Bancos estrangeiros já apontam alta ainda maior. Para você, isso significa contas de importação mais caras, viagem ao exterior mais cara e até o preço da gasolina subindo. Mas tem um lado bom: quem tem dívida em real pode pagar menos se o dólar cair. Fique de olho nas taxas e evite compras em moeda forte agora. Ajuste seu orçamento e pense em proteger parte do seu dinheiro em ativos menos voláteis.",
+    "tags": [
+      "#dólar",
+      "#economia",
+      "#eleição2022",
+      "#finançaspessoais",
+      "#mercado"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "eleição",
+      "bolso",
+      "real",
+      "investimentos"
+    ],
+    "sourceLink": "httpshttps://www.infomoney.com.br/mercados/dolar-pos-eleicao-lula-bancos-estrangeiros-projecoes/",
+    "rationale": "Alta relevância para o público brasileiro, impacto direto no custo de vida e nas finanças pessoais, segue estilo rápido e explicativo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw6nzpko5x3l.mp4"
+    },
+    "youtubeId": "QAZuzezhRU8",
+    "previewUrl": "https://youtube.com/shorts/QAZuzezhRU8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw6o0jzudcr",
+    "status": "draft",
+    "createdAt": "2026-11-07T17:15:39.192Z",
+    "theme": "Restrição ao comércio terrestre iraniano pelos EUA",
+    "title": "Efeito das sanções dos EUA ao Irã: como isso pode mexer no preço do petróleo e no seu bolso",
+    "hook": "Os EUA vão bloquear o transporte terrestre iraniano – e o preço da bomba pode mudar agora!",
+    "script": "Forças armadas dos EUA anunciaram nova medida para impedir o comércio terrestre do Irã. O foco: impedir que tecnologia avançada e componentes críticos cheguem ao país. Por que isso importa para você? O Irã é um grande produtor de petróleo. Se a restrição apertar a produção, o preço do barril pode subir. Mais caro nos postos, mais caro no diesel da frota. Também pode afetar moedas de mercados emergentes ligados ao petróleo. Fique atento ao preço da gasolina nas próximas semanas e ajuste seu orçamento de transporte. Diversificar investimentos em energia ou em ativos menos sensíveis ao petróleo pode ser uma estratégia.",
+    "tags": [
+      "#sanções",
+      "#Irã",
+      "#petróleo",
+      "#finanças",
+      "#mercado"
+    ],
+    "captionKeywords": [
+      "sanções",
+      "Irã",
+      "petróleo",
+      "preço da gasolina",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/forcas-armadas-dos-eua-buscam-restringir-comercio-terrestre-iraniano/",
+    "rationale": "Tema de geopolítica com impacto direto nos preços de energia, assunto que já gerou engajamento em vídeos de risco político e mercado internacional.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw6o0jzudcr.mp4"
+    },
+    "youtubeId": "OGruc0jQXaE",
+    "previewUrl": "https://youtube.com/shorts/OGruc0jQXaE",
+    "privacyStatus": "unlisted"
   }
 ]
