@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z",
+    "publishErrorAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,80 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-07T12:22:58.250Z",
+    "decidedAt": "2026-11-07T21:24:27.786Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-07T12:22:58.250Z"
-  },
-  {
-    "id": "sh_mvzrdfvv63a4",
-    "status": "draft",
-    "createdAt": "2026-11-02T21:15:55.435Z",
-    "theme": "Cripto & Segurança",
-    "title": "Hackers norte-coreanos usam IA e roubam US$ 6,3 bi da Binance",
-    "hook": "Um ataque de IA que pode mexer no seu saldo de cripto!",
-    "script": "A Coreia do Norte está treinando hackers com inteligência artificial. O alvo? A Binance, maior exchange do mundo. Eles usaram IA para burlar sistemas de segurança e conseguiram roubar cerca de US$ 6,3 bilhões. O que isso significa pra você? Mais vulnerabilidade nos serviços de cripto e risco de perdas inesperadas. Fique de olho nas notícias, use autenticação de dois fatores e nunca deixe grandes quantias em exchanges. Segurança começa com você.",
-    "tags": [
-      "#Cripto",
-      "#Segurança",
-      "#Binance",
-      "#Hackers",
-      "#InteligenciaArtificial"
-    ],
-    "captionKeywords": [
-      "Binance",
-      "hackers",
-      "IA",
-      "cripto",
-      "segurança"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mundo/coreia-do-norte-turbina-hackers-com-ia-roubo-de-us-63-bi-da-binance-e-so-o-comeco/",
-    "rationale": "Alta relevância para investidores de cripto, tema atual e risco direto ao bolso do público. Texto curto, ritmo rápido e foco na prática de segurança.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 36,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_mvzrdfvv63a4.mp4"
-    },
-    "youtubeId": "eb4TaYcnV6g",
-    "previewUrl": "https://youtube.com/shorts/eb4TaYcnV6g",
-    "privacyStatus": "unlisted"
-  },
-  {
-    "id": "sh_mvzre4g1jokh",
-    "status": "draft",
-    "createdAt": "2026-11-02T21:15:55.435Z",
-    "theme": "Economia Global",
-    "title": "El Niño pode acelerar a inflação nos EUA em 2027",
-    "hook": "Um fenômeno climático que pode subir os preços da sua conta de luz!",
-    "script": "Um estudo do Fed de San Francisco alerta: o El Niño pode elevar a inflação nos EUA em 2027. O calor extremo aumenta a demanda por energia, eleva o preço dos alimentos e pressiona cadeias de suprimentos. Para o investidor brasileiro, isso pode significar dólar mais caro e commodities em alta. Fique atento à política monetária americana e ajuste sua carteira: diversifique e considere ativos que se beneficiam de alta de preços. Entender o clima ajuda a proteger seu dinheiro.",
-    "tags": [
-      "#Economia",
-      "#Inflação",
-      "#ElNiño",
-      "#Dólar",
-      "#Investimento"
-    ],
-    "captionKeywords": [
-      "El Niño",
-      "inflação",
-      "EUA",
-      "dólar",
-      "investimento"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mundo/el-nino-representa-risco-significativo-de-aumento-da-inflacao-em-2027-nos-eua/",
-    "rationale": "Conecta evento climático a impactos financeiros concretos, explicando de forma simples como isso afeta o bolso do espectador e oferecendo orientação prática.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 33,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_mvzre4g1jokh.mp4"
-    },
-    "youtubeId": "ELptB2wMjq8",
-    "previewUrl": "https://youtube.com/shorts/ELptB2wMjq8",
-    "privacyStatus": "unlisted"
+    "publishErrorAt": "2026-11-07T21:24:27.786Z"
   },
   {
     "id": "sh_mw11teetjku8",
