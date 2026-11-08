@@ -608,5 +608,73 @@
     "youtubeId": "OGruc0jQXaE",
     "previewUrl": "https://youtube.com/shorts/OGruc0jQXaE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw83vv1mgvnw",
+    "status": "draft",
+    "createdAt": "2026-11-08T17:28:19.690Z",
+    "theme": "Mercado de Commodities",
+    "title": "Ataque dos Houthis à Aramco: risco ao preço do petróleo e ao seu bolso",
+    "hook": "O que um ataque a um prédio na Arábia Saudita pode fazer ao preço da bomba que você enche o carro?",
+    "script": "Os houthis acertaram a sede da Aramco em Riad. A Aramco é a maior produtora de petróleo do mundo. Quando a produção ou a segurança de um player tão grande é ameaçada, o preço do barril costuma subir. Mais caro o barril, maior o custo do combustível nas bombas e no avião. Além disso, o índice de energia da bolsa reage instantaneamente, puxando alta nas ações de energia e pressionando os fundos que têm petróleo na carteira. Para o investidor, isso significa: fique de olho nos contratos futuros de petróleo, avalie se tem exposição exagerada a energia e considere proteger seu portfólio com ativos menos voláteis. O impacto pode ser rápido, mas costuma se normalizar quando a situação se estabiliza.",
+    "tags": [
+      "#Petróleo",
+      "#MercadoFinanceiro",
+      "#Investimento",
+      "#Bolsa"
+    ],
+    "captionKeywords": [
+      "preço do petróleo",
+      "Aramco",
+      "houthis",
+      "bolsa de valores",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ataque-de-houthis-causa-danos-a-predio-da-aramco-no-distrito-financeiro-de-riad/",
+    "rationale": "Tema de alto impacto nos mercados globais, directly ligado ao preço de combustível e à bolsa, gera engajamento e traz dicas práticas de como proteger o bolso.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 46,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw83vv1mgvnw.mp4"
+    },
+    "youtubeId": "JxTH1MwhJ4k",
+    "previewUrl": "https://youtube.com/shorts/JxTH1MwhJ4k",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw83wmdd6x3w",
+    "status": "draft",
+    "createdAt": "2026-11-08T17:28:19.690Z",
+    "theme": "M&A e Mercado de Cimento",
+    "title": "CSN vende unidade de cimento à chinesa Huaxin: o que isso muda para o investidor brasileiro?",
+    "hook": "Uma venda de R$12,7 bilhões pode mudar a sua carteira de investimentos?",
+    "script": "A CSN fechou acordo de R$12,7 bi para vender sua unidade de cimento à chinesa Huaxin. Essa operação traz mais capital para a CSN investir em áreas como aço e energia, onde a empresa tem maior margem. Para o investidor, a venda significa: potencial aumento de dividendos da CSN, já que o negócio de cimento tem margens menores, e maior foco nos negócios mais rentáveis. Além disso, a entrada de capital chinês no Brasil pode fortalecer a relação comercial e influenciar o câmbio, beneficiando exportadores. Fique atento ao relatório de resultados da CSN nos próximos trimestres; se a margem melhorar, pode ser sinal de compra de ações ou de fundos que a incluam.",
+    "tags": [
+      "#Ações",
+      "#Investimento",
+      "#CSN",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "CSN",
+      "M&A",
+      "cimento",
+      "investimento Brasil",
+      "ações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/csn-fecha-acordo-de-r127-bi-para-vender-unidade-de-cimento-a-chinesa-huaxin/",
+    "rationale": "Notícia de M&A envolvendo uma grande empresa brasileira, com efeitos claros no fluxo de caixa, dividendos e no cenário cambial, alinhada ao nicho de finanças e economia para o público brasileiro.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 46,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw83wmdd6x3w.mp4"
+    },
+    "youtubeId": "4ipNxkpeEUE",
+    "previewUrl": "https://youtube.com/shorts/4ipNxkpeEUE",
+    "privacyStatus": "unlisted"
   }
 ]
