@@ -606,5 +606,76 @@
     "youtubeId": "4ipNxkpeEUE",
     "previewUrl": "https://youtube.com/shorts/4ipNxkpeEUE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw9snjgyikz2",
+    "status": "draft",
+    "createdAt": "2026-11-09T21:49:28.018Z",
+    "theme": "Ibovespa em alta apesar de queda nas commodities",
+    "title": "Por que o Ibovespa subiu 2,2% hoje?",
+    "hook": "Ibovespa disparou 2,2% mesmo com petróleo em baixa – quer saber o porquê?",
+    "script": "O índice bateu 2,2% de alta nesta segunda. Enquanto as commodities caíam, o mercado externo subiu e o Vale liderou a alta. A razão? Investidores buscaram ações defensivas e dólar mais barato, R$ 5,50. Resultado: seu portfólio pode ganhar mais com ações de bancos e mineração, mesmo se o preço do petróleo estiver caindo. Fique de olho nas próximas sessões, porque a tendência pode mudar rápido.",
+    "tags": [
+      "#Ibovespa",
+      "#MercadoFinanceiro",
+      "#Investimento",
+      "#BolsaDeValores",
+      "#Dólar"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "alta",
+      "commodities",
+      "dólar",
+      "Vale",
+      "investimento"
+    ],
+    "sourceLink": "httpshttps://www.infomoney.com.br/mercados/por-que-o-ibovespa-sobe-1-nesta-2a-mesmo-com-queda-de-commodities-e-cautela-fiscal/",
+    "rationale": "Alta no principal índice brasileiro gera curiosidade e impacto direto no bolso dos investidores domésticos. Tema alinhado ao estilo rápido e explicativo, com relevância imediata.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw9snjgyikz2.mp4"
+    },
+    "youtubeId": "6iSK-qy3Bzk",
+    "previewUrl": "https://youtube.com/shorts/6iSK-qy3Bzk",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mw9snzop7om1",
+    "status": "draft",
+    "createdAt": "2026-11-09T21:49:28.018Z",
+    "theme": "Auxílio \"Gás do Povo\" prorrogado até 2031",
+    "title": "Gás do Povo: o que muda com a prorrogação até 2031?",
+    "hook": "O governo acabou de estender o Gás do Povo até 2031 – veja como isso afeta sua conta de luz!",
+    "script": "O programa que subsidia o gás de cozinha agora vai até 2031. São cerca de 15 milhões de famílias que vão continuar pagando menos. Para quem não tem direito, o governo pode ampliar o cadastro nos próximos anos, aumentando a demanda e pressionando o preço do gás. No seu bolso, isso significa economia nas despesas mensais e menos pressão inflacionária nas compras de alimentos. Mas fique atento: se a demanda subir, o preço do gás pode subir também, impactando a conta de energia.",
+    "tags": [
+      "#GásDoPovo",
+      "#PolíticaSocial",
+      "#EconomiaDoméstica",
+      "#Inflação",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "Gás do Povo",
+      "auxílio",
+      "economia doméstica",
+      "preço do gás",
+      "inflação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/gas-do-povo-governo-federal-prorroga-vigencia-do-auxilio-ate-2031/",
+    "rationale": "Anúncio de política pública tem alto engajamento e explicação direta do impacto no orçamento familiar, atendendo ao foco do canal em finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mw9snzop7om1.mp4"
+    },
+    "youtubeId": "H7z4tLkZAkE",
+    "previewUrl": "https://youtube.com/shorts/H7z4tLkZAkE",
+    "privacyStatus": "unlisted"
   }
 ]
