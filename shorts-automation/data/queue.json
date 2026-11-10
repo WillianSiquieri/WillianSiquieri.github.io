@@ -609,5 +609,77 @@
     "youtubeId": "H7z4tLkZAkE",
     "previewUrl": "https://youtube.com/shorts/H7z4tLkZAkE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwb2ek8wbsdz",
+    "status": "draft",
+    "createdAt": "2026-11-10T19:10:11.456Z",
+    "theme": "Ibovespa recua em linha com queda nos EUA e dólar dispara",
+    "title": "Por que a Bolsa brasileira está caindo agora?",
+    "hook": "Seu dinheiro está sentindo o efeito da alta do dólar?",
+    "script": "A bolsa brasileira (Ibovespa) caiu hoje, seguindo a tendência das bolsas americanas. Por quê? O CPI dos EUA veio acima do esperado, sinalizando inflação mais alta e forçando o Federal Reserve a pensar em juros ainda maiores. Isso fez o dólar subir, e um dólar forte encarece tudo importado, desde eletrônicos até combustíveis. Quando o dólar sobe, as empresas que dependem de importação perdem margem e suas ações caem. Para o investidor, isso pode ser um sinal de oportunidade: setores mais defensivos, como energia e utilities, tendem a resistir melhor. Mas atenção: volatilidade alta pode machucar quem tenta entrar e sair rápido. Avalie seu perfil e mantenha a calma.",
+    "tags": [
+      "#Ibovespa",
+      "#Dólar",
+      "#Investimento",
+      "#MercadoFinanceiro",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "dólar",
+      "CPI",
+      "inflação",
+      "investimento",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-10112026/",
+    "rationale": "Tema atual com forte impacto direto no bolso dos brasileiros, fácil de conectar ao cotidiano e com alto potencial de engajamento, seguindo o estilo de vídeos que explicam o que a notícia significa para o investidor.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 49,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwb2ek8wbsdz.mp4"
+    },
+    "youtubeId": "NLIzDdEaFL0",
+    "previewUrl": "https://youtube.com/shorts/NLIzDdEaFL0",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwb2fl9vapsy",
+    "status": "draft",
+    "createdAt": "2026-11-10T19:10:11.456Z",
+    "theme": "Bolsa brasileira está barata novamente: oportunidade ou armadilha?",
+    "title": "A Bolsa está barata ou é cilada?",
+    "hook": "Aproveite a queda ou caia na armadilha?",
+    "script": "A Valoração da Bolsa brasileira chegou a níveis de desconto histórico. Isso acontece quando os investidores ficam pessimistas, puxando os preços das ações para baixo. Um preço baixo pode ser oportunidade: empresas boas ficam mais baratas, aumentando o potencial de retorno a longo prazo. Mas nem tudo é ouro – o risco de \"value trap\" existe, onde ações parecem baratas, mas a empresa tem problemas estruturais que impedem a recuperação. Para decidir, analise fundamentos: lucro consistente, dívida controlada e boas perspectivas de mercado. Se os números forem sólidos, a queda pode ser sua entrada. Se houver sinais de fraqueza, talvez seja melhor esperar. Sempre diversifique para reduzir risco.",
+    "tags": [
+      "#BolsaBarata",
+      "#Investimento",
+      "#Ações",
+      "#Finanças",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "Bolsa barata",
+      "value trap",
+      "investimento",
+      "ações",
+      "desconto",
+      "mercado"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bolsa-brasileira-esta-barata-de-novo-mas-sera-oportunidade-ou-armadilha-de-valor/",
+    "rationale": "Aborda uma preocupação recorrente dos investidores – se a queda é oportunidade ou risco – e oferece orientação prática, alinhada ao nicho de finanças pessoais e ao formato de Shorts de 30‑50 segundos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 49,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwb2fl9vapsy.mp4"
+    },
+    "youtubeId": "Z-vnn1JPn-g",
+    "previewUrl": "https://youtube.com/shorts/Z-vnn1JPn-g",
+    "privacyStatus": "unlisted"
   }
 ]
