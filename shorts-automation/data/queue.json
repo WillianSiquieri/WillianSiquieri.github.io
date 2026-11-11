@@ -609,5 +609,75 @@
     "youtubeId": "Z-vnn1JPn-g",
     "previewUrl": "https://youtube.com/shorts/Z-vnn1JPn-g",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwchpu1p6261",
+    "status": "draft",
+    "createdAt": "2026-11-11T19:06:37.789Z",
+    "theme": "Hapvida: ação sobe antes do balanço – o que isso indica para seu investimento",
+    "title": "Hapvida dispara antes do resultado: alerta para seu bolso",
+    "hook": "A ação da Hapvida subiu 15% em poucos minutos – descubra por que isso pode afetar seu dinheiro agora!",
+    "script": "A Hapvida anunciou resultados amanhã. Investidores já estão apostando na surpresa, por isso a ação disparou. Quando o mercado espera lucro acima do esperado, o preço sobe antes do relatório. Mas atenção: se o resultado ficar abaixo, a queda pode ser ainda maior. O que isso significa para você? Se tem ação na carteira, fique de olho no próximo anúncio e ajuste sua posição. E se ainda não tem, pense se vale entrar agora ou esperar a divulgação.",
+    "tags": [
+      "#Hapvida",
+      "#Ações",
+      "#Investimento",
+      "#BolsaDeValores",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "Hapvida",
+      "ações",
+      "balanço",
+      "investimento",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/hapvida-hapv3-acao-sobe-forte-em-sessao-antes-da-divulgacao-do-balanco-veja-o-que-esperar/",
+    "rationale": "Alta relevância para investidores brasileiros, tema de mercado com impacto direto no bolso, curto e objetivo, evita repetições de imagens.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwchpu1p6261.mp4"
+    },
+    "youtubeId": "eKLCpO-FQis",
+    "previewUrl": "https://youtube.com/shorts/eKLCpO-FQis",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwchqe4x4waz",
+    "status": "draft",
+    "createdAt": "2026-11-11T19:06:37.789Z",
+    "theme": "Ibovespa em alta: fiscal, balanços e influência externa",
+    "title": "Ibovespa sobe: o que a combinação de fiscal e resultados internacionais muda no seu investimento",
+    "hook": "Hoje o Ibovespa subiu 1,2% – veja como a política fiscal e os balanços globais podem mexer no seu dinheiro!",
+    "script": "A bolsa brasileira ganhou força graças a notícias fiscais positivas e resultados de empresas internacionais. Quando o governo sinaliza controle de gastos, a confiança sobe e a bolsa reage. Além disso, os balanços de grandes companhias dão suporte ao otimismo. Para o investidor, isso pode abrir oportunidades de compra em setores que antes estavam em baixa. Mas lembre‑se: alta rápida pode ser seguida de correção, então diversifique e acompanhe os indicadores. Aproveite a tendência, mas não se esqueça de analisar o risco.",
+    "tags": [
+      "#Ibovespa",
+      "#Bolsa",
+      "#Finanças",
+      "#Economia",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "bolsa",
+      "fiscal",
+      "balanços",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-11112026/",
+    "rationale": "Tema quente com impacto imediato no bolso dos brasileiros, fácil de explicar em linguagem simples, permite variação de imagens sem repetição.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwchqe4x4waz.mp4"
+    },
+    "youtubeId": "10VSWN5MGNE",
+    "previewUrl": "https://youtube.com/shorts/10VSWN5MGNE",
+    "privacyStatus": "unlisted"
   }
 ]
