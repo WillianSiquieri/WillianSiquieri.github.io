@@ -436,7 +436,7 @@
   },
   {
     "id": "sh_mwb2fl9vapsy",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-10T19:10:11.456Z",
     "theme": "Bolsa brasileira está barata novamente: oportunidade ou armadilha?",
     "title": "A Bolsa está barata ou é cilada?",
@@ -468,6 +468,7 @@
     },
     "youtubeId": "Z-vnn1JPn-g",
     "previewUrl": "https://youtube.com/shorts/Z-vnn1JPn-g",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:43:57.250Z"
   }
 ]
