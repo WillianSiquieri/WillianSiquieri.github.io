@@ -261,7 +261,7 @@
   },
   {
     "id": "sh_mw83vv1mgvnw",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-08T17:28:19.690Z",
     "theme": "Mercado de Commodities",
     "title": "Ataque dos Houthis à Aramco: risco ao preço do petróleo e ao seu bolso",
@@ -291,7 +291,8 @@
     },
     "youtubeId": "JxTH1MwhJ4k",
     "previewUrl": "https://youtube.com/shorts/JxTH1MwhJ4k",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:46:16.078Z"
   },
   {
     "id": "sh_mw83wmdd6x3w",
