@@ -609,5 +609,71 @@
     "youtubeId": "10VSWN5MGNE",
     "previewUrl": "https://youtube.com/shorts/10VSWN5MGNE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwdxu89jfry",
+    "status": "draft",
+    "createdAt": "2026-11-12T19:25:42.871Z",
+    "theme": "Investimentos em IA",
+    "title": "Gestoras apostam em IA apesar da queda da Nvidia",
+    "hook": "A Nvidia despencou, mas as gestoras ainda veem ouro na inteligência artificial!",
+    "script": "A Nvidia sofreu uma correção forte, gerando medo no mercado. Mesmo assim, grandes gestoras brasileiras mantêm suas posições em ações de IA. Por quê? Elas acreditam que a inteligência artificial ainda tem um horizonte de crescimento de 10 a 15 anos. Ou seja, a volatilidade de curto prazo não muda o potencial de longo prazo. Para o seu bolso, isso significa: se você pensa em investir, pode considerar fundos que já têm exposição a IA, mas faça isso com prazo de vários anos e sem esperar retorno imediato.",
+    "tags": [
+      "#Investimento",
+      "#InteligenciaArtificial",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "IA",
+      "Nvidia",
+      "gestoras",
+      "ações",
+      "investimento longo prazo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/gestoras-apostam-acoes-inteligencia-artificial-nvidia/",
+    "rationale": "Tema quente (IA) com impacto direto nos investimentos; conecta correção de mercado ao horizonte de longo prazo, alinhado ao interesse do público por finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwdxu89jfry.mp4"
+    },
+    "youtubeId": "RME1dnEKhnE",
+    "previewUrl": "https://youtube.com/shorts/RME1dnEKhnE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwdxv0cyj40q",
+    "status": "draft",
+    "createdAt": "2026-11-12T19:25:42.871Z",
+    "theme": "Financiamento climático",
+    "title": "BNDES lança pacote de R$ 39 bilhões para projetos verdes",
+    "hook": "R$ 39 bi para o clima: veja como isso pode mexer no seu dinheiro!",
+    "script": "O BNDES anunciou um fundo de até 39 bilhões de reais para financiar projetos de energia limpa e tecnologia verde. O dinheiro vem de recursos internacionais e será distribuído em linhas de crédito com juros abaixo do mercado. Para quem tem empresa ou pensa em investir em energia solar, biomassa ou reciclagem, surgem oportunidades de financiamento barato e com prazos maiores. No curto prazo, isso pode gerar mais empregos no setor e, no longo prazo, reduzir a conta de energia das famílias.",
+    "tags": [
+      "#Clima",
+      "#InvestimentoVerde",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "BNDES",
+      "clima",
+      "financiamento verde",
+      "energia limpa",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/cop31-bndes-anuncia-pacote-com-potencial-de-captar-r-39-bi-para-projetos-climaticos/",
+    "rationale": "Assunto atual e relevante, com implicações diretas para investidores e empresas brasileiras, além de conectar política pública ao bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": "data/previews/sh_mwdxv0cyj40q.mp4"
+    },
+    "youtubeId": "1NWOZ2xBW0k",
+    "previewUrl": "https://youtube.com/shorts/1NWOZ2xBW0k",
+    "privacyStatus": "unlisted"
   }
 ]
