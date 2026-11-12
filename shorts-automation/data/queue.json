@@ -365,7 +365,7 @@
   },
   {
     "id": "sh_mw9snzop7om1",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-09T21:49:28.018Z",
     "theme": "Auxílio \"Gás do Povo\" prorrogado até 2031",
     "title": "Gás do Povo: o que muda com a prorrogação até 2031?",
@@ -396,6 +396,7 @@
     },
     "youtubeId": "H7z4tLkZAkE",
     "previewUrl": "https://youtube.com/shorts/H7z4tLkZAkE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:44:56.853Z"
   }
 ]
