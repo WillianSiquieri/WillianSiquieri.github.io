@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 578,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -128,7 +128,7 @@
     "comments": 0,
     "score": 109,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -169,7 +169,7 @@
     "comments": 2,
     "score": 2172,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mvy44sby45wt",
@@ -211,7 +211,7 @@
     "comments": 0,
     "score": 3,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mwdxu89jfry",
@@ -252,7 +252,7 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mwdxv0cyj40q",
@@ -293,7 +293,7 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   },
   {
     "id": "sh_mwchpu1p6261",
@@ -336,6 +336,50 @@
     "comments": 0,
     "score": 0,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
+  },
+  {
+    "id": "sh_mwb2fl9vapsy",
+    "status": "published",
+    "createdAt": "2026-11-10T19:10:11.456Z",
+    "theme": "Bolsa brasileira está barata novamente: oportunidade ou armadilha?",
+    "title": "A Bolsa está barata ou é cilada?",
+    "hook": "Aproveite a queda ou caia na armadilha?",
+    "script": "A Valoração da Bolsa brasileira chegou a níveis de desconto histórico. Isso acontece quando os investidores ficam pessimistas, puxando os preços das ações para baixo. Um preço baixo pode ser oportunidade: empresas boas ficam mais baratas, aumentando o potencial de retorno a longo prazo. Mas nem tudo é ouro – o risco de \"value trap\" existe, onde ações parecem baratas, mas a empresa tem problemas estruturais que impedem a recuperação. Para decidir, analise fundamentos: lucro consistente, dívida controlada e boas perspectivas de mercado. Se os números forem sólidos, a queda pode ser sua entrada. Se houver sinais de fraqueza, talvez seja melhor esperar. Sempre diversifique para reduzir risco.",
+    "tags": [
+      "#BolsaBarata",
+      "#Investimento",
+      "#Ações",
+      "#Finanças",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "Bolsa barata",
+      "value trap",
+      "investimento",
+      "ações",
+      "desconto",
+      "mercado"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/bolsa-brasileira-esta-barata-de-novo-mas-sera-oportunidade-ou-armadilha-de-valor/",
+    "rationale": "Aborda uma preocupação recorrente dos investidores – se a queda é oportunidade ou risco – e oferece orientação prática, alinhada ao nicho de finanças pessoais e ao formato de Shorts de 30‑50 segundos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 49,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "Z-vnn1JPn-g",
+    "previewUrl": "https://youtube.com/shorts/Z-vnn1JPn-g",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-12T23:43:57.250Z",
+    "publishedAt": "2026-11-12T23:44:10.704Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-12T23:44:13.548Z"
   }
 ]
