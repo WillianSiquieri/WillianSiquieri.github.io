@@ -542,7 +542,7 @@
   },
   {
     "id": "sh_mwdxv0cyj40q",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-12T19:25:42.871Z",
     "theme": "Financiamento climático",
     "title": "BNDES lança pacote de R$ 39 bilhões para projetos verdes",
@@ -571,6 +571,7 @@
     },
     "youtubeId": "1NWOZ2xBW0k",
     "previewUrl": "https://youtube.com/shorts/1NWOZ2xBW0k",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:42:22.626Z"
   }
 ]
