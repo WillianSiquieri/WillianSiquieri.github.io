@@ -507,7 +507,7 @@
   },
   {
     "id": "sh_mwchqe4x4waz",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-11T19:06:37.789Z",
     "theme": "Ibovespa em alta: fiscal, balanços e influência externa",
     "title": "Ibovespa sobe: o que a combinação de fiscal e resultados internacionais muda no seu investimento",
@@ -538,6 +538,7 @@
     },
     "youtubeId": "10VSWN5MGNE",
     "previewUrl": "https://youtube.com/shorts/10VSWN5MGNE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:42:43.016Z"
   }
 ]
