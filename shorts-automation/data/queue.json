@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:34.675Z",
+    "decidedAt": "2026-11-12T23:45:29.971Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-12T23:44:34.675Z"
+    "publishErrorAt": "2026-11-12T23:45:29.971Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -328,43 +328,6 @@
     "privacyStatus": "unlisted"
   },
   {
-    "id": "sh_mw9snjgyikz2",
-    "status": "rejected",
-    "createdAt": "2026-11-09T21:49:28.018Z",
-    "theme": "Ibovespa em alta apesar de queda nas commodities",
-    "title": "Por que o Ibovespa subiu 2,2% hoje?",
-    "hook": "Ibovespa disparou 2,2% mesmo com petróleo em baixa – quer saber o porquê?",
-    "script": "O índice bateu 2,2% de alta nesta segunda. Enquanto as commodities caíam, o mercado externo subiu e o Vale liderou a alta. A razão? Investidores buscaram ações defensivas e dólar mais barato, R$ 5,50. Resultado: seu portfólio pode ganhar mais com ações de bancos e mineração, mesmo se o preço do petróleo estiver caindo. Fique de olho nas próximas sessões, porque a tendência pode mudar rápido.",
-    "tags": [
-      "#Ibovespa",
-      "#MercadoFinanceiro",
-      "#Investimento",
-      "#BolsaDeValores",
-      "#Dólar"
-    ],
-    "captionKeywords": [
-      "Ibovespa",
-      "alta",
-      "commodities",
-      "dólar",
-      "Vale",
-      "investimento"
-    ],
-    "sourceLink": "httpshttps://www.infomoney.com.br/mercados/por-que-o-ibovespa-sobe-1-nesta-2a-mesmo-com-queda-de-commodities-e-cautela-fiscal/",
-    "rationale": "Alta no principal índice brasileiro gera curiosidade e impacto direto no bolso dos investidores domésticos. Tema alinhado ao estilo rápido e explicativo, com relevância imediata.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 32,
-      "ttsProvider": "edge",
-      "previewFile": "data/previews/sh_mw9snjgyikz2.mp4"
-    },
-    "youtubeId": "6iSK-qy3Bzk",
-    "previewUrl": "https://youtube.com/shorts/6iSK-qy3Bzk",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:45:04.093Z"
-  },
-  {
     "id": "sh_mw9snzop7om1",
     "status": "rejected",
     "createdAt": "2026-11-09T21:49:28.018Z",
@@ -398,6 +361,8 @@
     "youtubeId": "H7z4tLkZAkE",
     "previewUrl": "https://youtube.com/shorts/H7z4tLkZAkE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-12T23:44:56.853Z"
+    "decidedAt": "2026-11-12T23:44:56.853Z",
+    "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
+    "publishErrorAt": "2026-11-12T23:45:29.971Z"
   }
 ]
