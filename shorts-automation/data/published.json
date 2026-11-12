@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 578,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T19:29:35.439Z"
+    "analyticsUpdatedAt": "2026-11-12T23:41:39.630Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -128,7 +128,7 @@
     "comments": 0,
     "score": 109,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T19:29:35.440Z"
+    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -169,7 +169,7 @@
     "comments": 2,
     "score": 2172,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T19:29:35.440Z"
+    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
   },
   {
     "id": "sh_mvy44sby45wt",
@@ -211,6 +211,47 @@
     "comments": 0,
     "score": 3,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T19:29:35.440Z"
+    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
+  },
+  {
+    "id": "sh_mwdxu89jfry",
+    "status": "published",
+    "createdAt": "2026-11-12T19:25:42.871Z",
+    "theme": "Investimentos em IA",
+    "title": "Gestoras apostam em IA apesar da queda da Nvidia",
+    "hook": "A Nvidia despencou, mas as gestoras ainda veem ouro na inteligência artificial!",
+    "script": "A Nvidia sofreu uma correção forte, gerando medo no mercado. Mesmo assim, grandes gestoras brasileiras mantêm suas posições em ações de IA. Por quê? Elas acreditam que a inteligência artificial ainda tem um horizonte de crescimento de 10 a 15 anos. Ou seja, a volatilidade de curto prazo não muda o potencial de longo prazo. Para o seu bolso, isso significa: se você pensa em investir, pode considerar fundos que já têm exposição a IA, mas faça isso com prazo de vários anos e sem esperar retorno imediato.",
+    "tags": [
+      "#Investimento",
+      "#InteligenciaArtificial",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "IA",
+      "Nvidia",
+      "gestoras",
+      "ações",
+      "investimento longo prazo"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/gestoras-apostam-acoes-inteligencia-artificial-nvidia/",
+    "rationale": "Tema quente (IA) com impacto direto nos investimentos; conecta correção de mercado ao horizonte de longo prazo, alinhado ao interesse do público por finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "RME1dnEKhnE",
+    "previewUrl": "https://youtube.com/shorts/RME1dnEKhnE",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-12T23:41:19.121Z",
+    "publishedAt": "2026-11-12T23:41:36.558Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
   }
 ]
