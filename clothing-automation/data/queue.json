@@ -21717,5 +21717,135 @@
     "instagram": {
       "published": false
     }
+  },
+  {
+    "id": "cl_mwdmtctjephv",
+    "status": "draft",
+    "createdAt": "2026-11-12T14:17:06.343Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1794493026342_0",
+      "receivedAt": "2026-11-12T14:17:06.342Z",
+      "caption": "Vestido midi floral, tecido viscose, tam M. R$ 79,90"
+    },
+    "images": [
+      "data/media/cl_mwdmtctjephv_1.svg"
+    ],
+    "basePrice": 79.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 103.9,
+    "product": {
+      "title": "Vestido Midi Floral",
+      "description": "Um vestido midi com delicada estampa floral em tons de rosa, verde e branco. Confeccionado em viscose leve, garante caimento fluido e conforto para o dia a dia ou ocasiões especiais. Modelo tamanho M, perfeito para valorizar a silhueta.",
+      "category": "vestido",
+      "size": "M",
+      "color": "floral multicolor"
+    },
+    "caption": "✨ Vestido midi floral em viscose, leve e elegante. Ideal para um look fresco e cheio de charme! 🌸\nGaranta o seu por R$79,90 – fale no direct ou WhatsApp agora mesmo.\nTam: M · floral multicolor\n💰 R$ 103,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #vestidomidi #floral #lookdodia #estilosa #comprasonline #bazarwilli",
+    "hashtags": [
+      "modafeminina",
+      "vestidomidi",
+      "floral",
+      "lookdodia",
+      "estilosa",
+      "comprasonline",
+      "bazarwilli"
+    ],
+    "rationale": "A descrição destaca tipo, estampa, tecido e caimento, oferecendo detalhes úteis ao cliente. O título resume a peça. A legenda curta segue o tom simpático, menciona o preço (conforme orientação) e inclui chamada para direct/WhatsApp, usando emojis moderados. As hashtags foram escolhidas para alcançar público interessado em moda feminina, vestidos midi e compras online.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mwdmtdxpkju3",
+    "status": "draft",
+    "createdAt": "2026-11-12T14:17:06.343Z",
+    "vendor": {
+      "number": "5511999990002",
+      "name": "Fornecedora Bruna"
+    },
+    "source": {
+      "messageId": "mock_1794493026342_1",
+      "receivedAt": "2026-11-12T14:16:06.342Z",
+      "caption": "Blusa cropped canelada branca, tam P/M. 49,90"
+    },
+    "images": [
+      "data/media/cl_mwdmtdxpkju3_1.svg"
+    ],
+    "basePrice": 49.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 64.9,
+    "product": {
+      "title": "Blusa Cropped Canelada Branca",
+      "description": "Blusa cropped em malha canelada, cor branca, com caimento leve que modela o corpo. Disponível nos tamanhos P e M, combina com jeans, saias ou shorts para um look casual ou mais arrumado. Preço R$49,90.",
+      "category": "Blusa",
+      "size": "P/M",
+      "color": "Branca"
+    },
+    "caption": "✨ Blusa cropped canelada branca, super versátil!\nCombine com jeans ou saia e arrase no visual.\n📩 Envie um direct ou WhatsApp para garantir a sua!\nTam: P/M · Branca\n💰 R$ 64,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #blusacropped #lookcasual #estiloelegante #tendencia2024 #comprasonline #bazarwilli #roupasfemininas",
+    "hashtags": [
+      "modafeminina",
+      "blusacropped",
+      "lookcasual",
+      "estiloelegante",
+      "tendencia2024",
+      "comprasonline",
+      "bazarwilli",
+      "roupasfemininas"
+    ],
+    "rationale": "A descrição destaca tipo, cor, tecido e caimento, além do tamanho e preço, sem exageros. A legenda tem 3 linhas curtas, emojis moderados e chamada clara para contato via direct/WhatsApp, conforme pedido. Foram incluídas 8 hashtags relevantes em português, sem o símbolo '#', para ampliar o alcance no Instagram.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
+  },
+  {
+    "id": "cl_mwdmtfmzdk3d",
+    "status": "draft",
+    "createdAt": "2026-11-12T14:17:06.343Z",
+    "vendor": {
+      "number": "5511999990001",
+      "name": "Fornecedora Ana"
+    },
+    "source": {
+      "messageId": "mock_1794493026342_2",
+      "receivedAt": "2026-11-12T14:15:06.342Z",
+      "caption": "Calça jeans wide leg, cintura alta, tam 40. R$ 119,90"
+    },
+    "images": [
+      "data/media/cl_mwdmtfmzdk3d_1.svg"
+    ],
+    "basePrice": 119.9,
+    "spreadPercent": 30,
+    "rounding": "psychological",
+    "price": 155.9,
+    "product": {
+      "title": "Calça Jeans Wide Leg Cintura Alta",
+      "description": "Calça jeans de corte wide leg com cintura alta, que valoriza a silhueta e garante conforto. Lavagem clássica azul escuro com leve desbotado, tecido denim de boa estrutura e leve elasticidade para liberdade de movimento. Ideal para compor looks casuais ou mais arrumados.",
+      "category": "Calça Jeans",
+      "size": "40",
+      "color": "Azul"
+    },
+    "caption": "✨ Look elegante e confortável com nossa calça wide leg de cintura alta! Perfeita para arrasar no dia a dia. 📩 Envie um direct ou WhatsApp e garanta a sua!\nTam: 40 · Azul\n💰 R$ 155,90\nChama no direct 💬 ou WhatsApp para comprar\n\n#modafeminina #jeanswideleg #cinturaalta #lookcasual #tendencia2024 #bazarwilli #comprasonline",
+    "hashtags": [
+      "modafeminina",
+      "jeanswideleg",
+      "cinturaalta",
+      "lookcasual",
+      "tendencia2024",
+      "bazarwilli",
+      "comprasonline"
+    ],
+    "rationale": "A descrição destaca tipo, corte, cintura alta, cor e tecido inferidos a partir da informação da fornecedora, mantendo um tom atraente e honesto. O título resume a peça para fácil identificação. O caption tem 2 linhas, usa emojis moderados, não inclui preço e termina com chamada para direct/WhatsApp. As hashtags foram escolhidas para alcançar público interessado em moda feminina, jeans wide leg e vendas no Instagram, respeitando o limite de 4 a 8 palavras sem o símbolo #.",
+    "aiProvider": "groq",
+    "instagram": {
+      "published": false
+    }
   }
 ]
