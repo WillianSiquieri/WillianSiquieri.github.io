@@ -295,7 +295,7 @@
   },
   {
     "id": "sh_mw83wmdd6x3w",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-08T17:28:19.690Z",
     "theme": "M&A e Mercado de Cimento",
     "title": "CSN vende unidade de cimento à chinesa Huaxin: o que isso muda para o investidor brasileiro?",
@@ -325,7 +325,9 @@
     },
     "youtubeId": "4ipNxkpeEUE",
     "previewUrl": "https://youtube.com/shorts/4ipNxkpeEUE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:45:55.695Z",
+    "rejectReason": "pesquisar se esse nome da empresa chinesa realmente se pronuncia assim porque senão fica estranho de ouvir o na no texto quando falado"
   },
   {
     "id": "sh_mw9snzop7om1",
