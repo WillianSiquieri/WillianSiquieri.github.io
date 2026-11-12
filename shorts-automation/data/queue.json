@@ -542,7 +542,7 @@
   },
   {
     "id": "sh_mwdxu89jfry",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-12T19:25:42.871Z",
     "theme": "Investimentos em IA",
     "title": "Gestoras apostam em IA apesar da queda da Nvidia",
@@ -571,7 +571,8 @@
     },
     "youtubeId": "RME1dnEKhnE",
     "previewUrl": "https://youtube.com/shorts/RME1dnEKhnE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:41:19.121Z"
   },
   {
     "id": "sh_mwdxv0cyj40q",
