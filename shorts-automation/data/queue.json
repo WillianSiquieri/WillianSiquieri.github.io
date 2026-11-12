@@ -472,7 +472,7 @@
   },
   {
     "id": "sh_mwchpu1p6261",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-11T19:06:37.789Z",
     "theme": "Hapvida: ação sobe antes do balanço – o que isso indica para seu investimento",
     "title": "Hapvida dispara antes do resultado: alerta para seu bolso",
@@ -503,6 +503,7 @@
     },
     "youtubeId": "eKLCpO-FQis",
     "previewUrl": "https://youtube.com/shorts/eKLCpO-FQis",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:43:24.536Z"
   }
 ]
