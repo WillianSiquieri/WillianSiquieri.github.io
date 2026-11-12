@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 578,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:41:39.630Z"
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -128,7 +128,7 @@
     "comments": 0,
     "score": 109,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -169,7 +169,7 @@
     "comments": 2,
     "score": 2172,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
   },
   {
     "id": "sh_mvy44sby45wt",
@@ -211,7 +211,7 @@
     "comments": 0,
     "score": 3,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
   },
   {
     "id": "sh_mwdxu89jfry",
@@ -247,11 +247,52 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-12T23:41:19.121Z",
     "publishedAt": "2026-11-12T23:41:36.558Z",
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "score": 1,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
+  },
+  {
+    "id": "sh_mwdxv0cyj40q",
+    "status": "published",
+    "createdAt": "2026-11-12T19:25:42.871Z",
+    "theme": "Financiamento climático",
+    "title": "BNDES lança pacote de R$ 39 bilhões para projetos verdes",
+    "hook": "R$ 39 bi para o clima: veja como isso pode mexer no seu dinheiro!",
+    "script": "O BNDES anunciou um fundo de até 39 bilhões de reais para financiar projetos de energia limpa e tecnologia verde. O dinheiro vem de recursos internacionais e será distribuído em linhas de crédito com juros abaixo do mercado. Para quem tem empresa ou pensa em investir em energia solar, biomassa ou reciclagem, surgem oportunidades de financiamento barato e com prazos maiores. No curto prazo, isso pode gerar mais empregos no setor e, no longo prazo, reduzir a conta de energia das famílias.",
+    "tags": [
+      "#Clima",
+      "#InvestimentoVerde",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "BNDES",
+      "clima",
+      "financiamento verde",
+      "energia limpa",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/cop31-bndes-anuncia-pacote-com-potencial-de-captar-r-39-bi-para-projetos-climaticos/",
+    "rationale": "Assunto atual e relevante, com implicações diretas para investidores e empresas brasileiras, além de conectar política pública ao bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "1NWOZ2xBW0k",
+    "previewUrl": "https://youtube.com/shorts/1NWOZ2xBW0k",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-12T23:42:22.626Z",
+    "publishedAt": "2026-11-12T23:42:38.499Z",
     "views": 0,
     "likes": 0,
     "comments": 0,
     "score": 0,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:41:39.631Z"
+    "analyticsUpdatedAt": "2026-11-12T23:42:41.064Z"
   }
 ]
