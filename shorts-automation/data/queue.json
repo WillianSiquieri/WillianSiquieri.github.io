@@ -329,7 +329,7 @@
   },
   {
     "id": "sh_mw9snjgyikz2",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-09T21:49:28.018Z",
     "theme": "Ibovespa em alta apesar de queda nas commodities",
     "title": "Por que o Ibovespa subiu 2,2% hoje?",
@@ -361,7 +361,8 @@
     },
     "youtubeId": "6iSK-qy3Bzk",
     "previewUrl": "https://youtube.com/shorts/6iSK-qy3Bzk",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:45:04.093Z"
   },
   {
     "id": "sh_mw9snzop7om1",
