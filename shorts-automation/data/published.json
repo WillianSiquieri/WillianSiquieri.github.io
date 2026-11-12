@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 578,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.631Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   },
   {
     "id": "sh_mvy3u1evjgwr",
@@ -128,7 +128,7 @@
     "comments": 0,
     "score": 109,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.632Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -169,7 +169,7 @@
     "comments": 2,
     "score": 2172,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.632Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   },
   {
     "id": "sh_mvy44sby45wt",
@@ -211,7 +211,7 @@
     "comments": 0,
     "score": 3,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.632Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   },
   {
     "id": "sh_mwdxu89jfry",
@@ -252,7 +252,7 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.632Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   },
   {
     "id": "sh_mwdxv0cyj40q",
@@ -288,11 +288,54 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-12T23:42:22.626Z",
     "publishedAt": "2026-11-12T23:42:38.499Z",
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "score": 1,
+    "publishError": null,
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
+  },
+  {
+    "id": "sh_mwchpu1p6261",
+    "status": "published",
+    "createdAt": "2026-11-11T19:06:37.789Z",
+    "theme": "Hapvida: ação sobe antes do balanço – o que isso indica para seu investimento",
+    "title": "Hapvida dispara antes do resultado: alerta para seu bolso",
+    "hook": "A ação da Hapvida subiu 15% em poucos minutos – descubra por que isso pode afetar seu dinheiro agora!",
+    "script": "A Hapvida anunciou resultados amanhã. Investidores já estão apostando na surpresa, por isso a ação disparou. Quando o mercado espera lucro acima do esperado, o preço sobe antes do relatório. Mas atenção: se o resultado ficar abaixo, a queda pode ser ainda maior. O que isso significa para você? Se tem ação na carteira, fique de olho no próximo anúncio e ajuste sua posição. E se ainda não tem, pense se vale entrar agora ou esperar a divulgação.",
+    "tags": [
+      "#Hapvida",
+      "#Ações",
+      "#Investimento",
+      "#BolsaDeValores",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "Hapvida",
+      "ações",
+      "balanço",
+      "investimento",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/hapvida-hapv3-acao-sobe-forte-em-sessao-antes-da-divulgacao-do-balanco-veja-o-que-esperar/",
+    "rationale": "Alta relevância para investidores brasileiros, tema de mercado com impacto direto no bolso, curto e objetivo, evita repetições de imagens.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "ttsProvider": "edge",
+      "previewFile": null
+    },
+    "youtubeId": "eKLCpO-FQis",
+    "previewUrl": "https://youtube.com/shorts/eKLCpO-FQis",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-12T23:43:24.536Z",
+    "publishedAt": "2026-11-12T23:43:39.500Z",
     "views": 0,
     "likes": 0,
     "comments": 0,
     "score": 0,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-12T23:43:00.632Z"
+    "analyticsUpdatedAt": "2026-11-12T23:43:42.475Z"
   }
 ]
