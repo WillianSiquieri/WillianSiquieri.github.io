@@ -400,7 +400,7 @@
   },
   {
     "id": "sh_mwb2ek8wbsdz",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-10T19:10:11.456Z",
     "theme": "Ibovespa recua em linha com queda nos EUA e dólar dispara",
     "title": "Por que a Bolsa brasileira está caindo agora?",
@@ -432,6 +432,7 @@
     },
     "youtubeId": "NLIzDdEaFL0",
     "previewUrl": "https://youtube.com/shorts/NLIzDdEaFL0",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-12T23:44:18.340Z"
   }
 ]
