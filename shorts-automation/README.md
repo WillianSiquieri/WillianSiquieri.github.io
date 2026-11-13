@@ -200,6 +200,11 @@ Por isso a variação é parte do motor, não enfeite:
 - **B-roll** busca vários registros visuais por tema (pessoas, cidade, mercado,
   escritório), não só gráfico e dinheiro, e distribui os clipes em round-robin
   entre as buscas em vez de esgotar a primeira.
+- **Convite para se inscrever** entra em parte dos shorts, não em todos
+  (`cta.subscribeRate`, padrão 0.4). O texto vem da IA amarrado ao assunto
+  daquele vídeo, nunca uma fórmula pronta; quais shorts o recebem sai de um hash
+  do id, estável e espalhado. `0` desliga, `1` põe em todos — mas pedir inscrição
+  em todo vídeo é justamente o tipo de fórmula que a política pune.
 
 ### Validade da fila
 

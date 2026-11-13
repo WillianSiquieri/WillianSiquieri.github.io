@@ -161,19 +161,44 @@ export function brollRenderArgs({ clips, segments, durationSec, width, height, a
 
 // --- Montagem -------------------------------------------------------------
 
+// Pedir inscrição em TODO vídeo cansa e vira fórmula — exatamente o que a
+// política de "conteúdo produzido em massa" pune. Aqui o convite entra numa
+// fração dos shorts (config.cta.subscribeRate), sorteada pelo id: estável para
+// o mesmo short e espalhada entre shorts. O texto em si vem da IA, amarrado ao
+// assunto daquele vídeo, então dois convites nunca saem iguais.
+export function wantsCta(id, rate = 0.4) {
+  if (!(rate > 0)) return false;
+  if (rate >= 1) return true;
+  let h = 2166136261;
+  const s = `cta:${id}`;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (Math.abs(h) % 1000) / 1000 < rate;
+}
+
 // O `hook` era gerado pela IA e nunca chegava ao vídeo: só o `script` ia para o
 // TTS. O espectador abria ouvindo lide de jornal em vez do gancho escrito para
 // ele — e nos Shorts os 2 primeiros segundos decidem o swipe. Aqui o hook volta
 // para a narração, sem duplicar se o modelo já o repetiu no script.
-export function narrationText(draft) {
+export function narrationText(draft, cfg = {}) {
   const hook = String(draft.hook || '').trim();
   const script = String(draft.script || '').trim();
-  if (!hook) return script;
-  if (!script) return hook;
   const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').replace(/\s+/g, ' ').trim();
-  const inicio = norm(hook).split(' ').slice(0, 5).join(' ');
-  if (inicio && norm(script).startsWith(inicio)) return script; // já começa pelo gancho
-  return `${hook.replace(/\s*$/, '')} ${script}`;
+
+  let base;
+  if (!hook) base = script;
+  else if (!script) base = hook;
+  else {
+    const inicio = norm(hook).split(' ').slice(0, 5).join(' ');
+    base = inicio && norm(script).startsWith(inicio) ? script : `${hook.replace(/\s*$/, '')} ${script}`;
+  }
+
+  const cta = String(draft.cta || '').trim();
+  if (!cta || !wantsCta(draft.id, cfg.subscribeRate ?? 0.4)) return base;
+  if (norm(base).includes(norm(cta))) return base; // o modelo já colou no script
+  return `${base.replace(/\s*$/, '')} ${cta}`;
 }
 
 export async function assembleVideo(draft, { config, workDir, previewDir }) {
@@ -183,7 +208,9 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   // 1) Narração (com timing de palavras quando o provider suporta).
   // A voz/entonação variam por short, derivadas do id (estável e espalhado).
   const ttsCfg = { ...(config.tts || {}), variant: variantFor(draft.id, config.tts || {}) };
-  const tts = await synthesize(narrationText(draft), dir, ttsCfg);
+  const narracao = narrationText(draft, config.cta || {});
+  const comCta = narracao !== narrationText({ ...draft, cta: '' }, config.cta || {});
+  const tts = await synthesize(narracao, dir, ttsCfg);
   // Sem voz não há short: renderizar um vídeo mudo só gasta tempo e entope a fila.
   if (!tts?.audioPath) {
     warn(`Sem narração para ${draft.id} — short descartado.`);
@@ -200,7 +227,7 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const outPath = join(dir, 'short.mp4');
 
   // 2) Legendas → arquivo .ass
-  const chunks = tts?.cues ? chunksFromCues(tts.cues) : chunksFromScript(narrationText(draft), durationSec);
+  const chunks = tts?.cues ? chunksFromCues(tts.cues) : chunksFromScript(narracao, durationSec);
   const assPath = join(dir, 'subs.ass');
   await writeFile(assPath, buildAss(chunks, { width, height }), 'utf8');
 
@@ -254,7 +281,7 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
     }
 
     return { rendered: true, videoPath: outPath, previewFile, audioPath: tts?.audioPath || null, durationSec,
-      ttsProvider: tts?.provider, ttsVoice: tts?.voice || null, ttsRate: tts?.rate || null,
+      ttsProvider: tts?.provider, ttsVoice: tts?.voice || null, ttsRate: tts?.rate || null, comCta,
       brollClips: brollPaths.length, cortes: brollPaths.length ? segments : 0 };
   } catch (err) {
     warn('Falha ao renderizar vídeo:', err.message);

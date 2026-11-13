@@ -5,6 +5,9 @@
   "queue": {
     "maxAgeDays": 5
   },
+  "cta": {
+    "subscribeRate": 0.4
+  },
   "video": {
     "type": "faceless",
     "width": 1080,
