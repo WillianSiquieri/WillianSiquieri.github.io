@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mweadr9cl3as",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-13T01:16:49.344Z",
     "theme": "Ajuste fiscal do Governo Lula aprovado no Senado",
     "title": "Senado aprova ajuste fiscal: quem ganha e quem perde?",
@@ -369,7 +369,8 @@
     },
     "youtubeId": "B3_Y0cpBQ0U",
     "previewUrl": "https://youtube.com/shorts/B3_Y0cpBQ0U",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T13:04:45.042Z"
   },
   {
     "id": "sh_mweaelr64eai",
