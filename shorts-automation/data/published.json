@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 431,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": 44.7,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 91,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": 49.9,
     "avgViewSec": 23
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2214,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": 61.1,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 4,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -394,8 +394,55 @@
     "comments": 0,
     "score": 1,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T13:05:04.263Z",
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z",
     "avgViewPct": null,
     "avgViewSec": null
+  },
+  {
+    "id": "sh_mweaelr64eai",
+    "status": "published",
+    "createdAt": "2026-11-13T01:16:49.344Z",
+    "theme": "Resultados do 3T da Marisa Lojas (AMAR3)",
+    "title": "Marisa registra prejuízo no 3T: quem sai no prejuízo e quem pode se beneficiar?",
+    "hook": "A Marisa acabou de divulgar prejuízo de quase R$ 53 milhões!",
+    "script": "No terceiro trimestre, a rede de lojas fechou com prejuízo líquido de R$ 52,9 milhões, apesar de melhorar a operação. Quem perde? Investidores de curto prazo que esperavam dividendos, já que a ação pode cair. Também consumidores que dependem de promoções da Marisa, pois a empresa pode reduzir ofertas. Quem ganha? concorrentes como Renner e C&A, que podem capturar clientes insatisfeitos. E os acionistas de longo prazo? Eles podem ver a queda como oportunidade de comprar a preço baixo, esperando recuperação. Então, qual lado você está: vendendo agora ou esperando a volta?",
+    "tags": [
+      "#Ações",
+      "#MercadoFinanceiro",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Marisa",
+      "prejuízo",
+      "ações",
+      "retalho",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/marisa-lojas-amar3-resultados-terceiro-trimestre-2026/",
+    "rationale": "Notícia de empresa listada, traz impacto direto para investidores e consumidores, permite separar claramente ganhadores e perdedores, seguindo o formato pedido e variando ritmo e estrutura.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "previewFile": null,
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "Lb6u6ife-GE",
+    "previewUrl": "https://youtube.com/shorts/Lb6u6ife-GE",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-13T13:05:33.403Z",
+    "publishedAt": "2026-11-13T13:05:48.792Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "avgViewPct": null,
+    "avgViewSec": null,
+    "analyticsUpdatedAt": "2026-11-13T13:05:52.290Z"
   }
 ]
