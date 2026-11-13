@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z",
+    "publishErrorAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:12:47.705Z",
+    "decidedAt": "2026-11-13T17:13:30.096Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z"
+    "publishErrorAt": "2026-11-13T17:13:30.096Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -294,7 +294,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:46:16.078Z",
     "publishError": "não foi possível apagar JxTH1MwhJ4k do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z"
+    "publishErrorAt": "2026-11-13T17:13:30.096Z"
   },
   {
     "id": "sh_mw9snzop7om1",
@@ -332,48 +332,6 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
-    "publishErrorAt": "2026-11-13T17:12:47.705Z"
-  },
-  {
-    "id": "sh_mwf06b7dhi8r",
-    "status": "approved",
-    "createdAt": "2026-11-13T13:17:25.248Z",
-    "theme": "Queda no preço do minério de ferro em Dalian",
-    "title": "Ferro barato na China: quem sai na frente?",
-    "hook": "O minério de ferro despencou quase 3% na bolsa de Dalian.",
-    "script": "Esta semana o contrato de ferro em Dalian caiu 2,83%, o maior recuo da temporada. O motivo? Estoques chineses em alta e demanda menor da siderurgia. Quem ganha? Fabricantes de aço que importam ferro barato, reduzindo custos de produção. Quem perde? Exportadores brasileiros que veem preço internacional cair, reduzindo receitas. Se você tem investimentos em mineradoras ou siderúrgicas, fique de olho nas margens e ajuste sua exposição conforme o preço do ferro mudar.",
-    "cta": "Se acompanha o preço das commodities e quer ajustar sua carteira, se inscreve agora.",
-    "tags": [
-      "#Ferro",
-      "#Commodities",
-      "#China",
-      "#Investimentos",
-      "#Mercado"
-    ],
-    "captionKeywords": [
-      "minério de ferro",
-      "Dalian",
-      "commodities",
-      "preço",
-      "investimento"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mercados/minerio-de-ferro-tem-queda-semanal-em-dalian-com-estoques-portuarios-em-alta/",
-    "rationale": "Notícia de mercado de commodities com impacto direto nos investidores de mineração e siderurgia, permitindo uma explicação objetiva de vencedores e perdedores.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 35,
-      "previewFile": "data/previews/sh_mwf06b7dhi8r.mp4",
-      "ttsProvider": "edge",
-      "ttsVoice": "pt-BR-ThalitaNeural",
-      "ttsRate": "+6%",
-      "comCta": false,
-      "brollClips": 6,
-      "cortes": 7
-    },
-    "youtubeId": "tP-6b0tE2-E",
-    "previewUrl": "https://youtube.com/shorts/tP-6b0tE2-E",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:13:13.362Z"
+    "publishErrorAt": "2026-11-13T17:13:30.096Z"
   }
 ]

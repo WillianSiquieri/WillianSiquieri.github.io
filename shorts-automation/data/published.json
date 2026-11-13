@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 431,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": 44.7,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 91,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": 49.9,
     "avgViewSec": 23
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2214,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": 61.1,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 4,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -394,7 +394,7 @@
     "comments": 0,
     "score": 3,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z",
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -443,7 +443,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z"
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z"
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -545,6 +545,57 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T17:12:50.857Z"
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z"
+  },
+  {
+    "id": "sh_mwf06b7dhi8r",
+    "status": "published",
+    "createdAt": "2026-11-13T13:17:25.248Z",
+    "theme": "Queda no preço do minério de ferro em Dalian",
+    "title": "Ferro barato na China: quem sai na frente?",
+    "hook": "O minério de ferro despencou quase 3% na bolsa de Dalian.",
+    "script": "Esta semana o contrato de ferro em Dalian caiu 2,83%, o maior recuo da temporada. O motivo? Estoques chineses em alta e demanda menor da siderurgia. Quem ganha? Fabricantes de aço que importam ferro barato, reduzindo custos de produção. Quem perde? Exportadores brasileiros que veem preço internacional cair, reduzindo receitas. Se você tem investimentos em mineradoras ou siderúrgicas, fique de olho nas margens e ajuste sua exposição conforme o preço do ferro mudar.",
+    "cta": "Se acompanha o preço das commodities e quer ajustar sua carteira, se inscreve agora.",
+    "tags": [
+      "#Ferro",
+      "#Commodities",
+      "#China",
+      "#Investimentos",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "minério de ferro",
+      "Dalian",
+      "commodities",
+      "preço",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/minerio-de-ferro-tem-queda-semanal-em-dalian-com-estoques-portuarios-em-alta/",
+    "rationale": "Notícia de mercado de commodities com impacto direto nos investidores de mineração e siderurgia, permitindo uma explicação objetiva de vencedores e perdedores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": null,
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "tP-6b0tE2-E",
+    "previewUrl": "https://youtube.com/shorts/tP-6b0tE2-E",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-13T17:13:13.362Z",
+    "publishedAt": "2026-11-13T17:13:30.096Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "avgViewPct": null,
+    "avgViewSec": null,
+    "analyticsUpdatedAt": "2026-11-13T17:13:33.461Z"
   }
 ]
