@@ -337,7 +337,7 @@
   },
   {
     "id": "sh_mwfcfmv03zb5",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-13T19:02:02.364Z",
     "theme": "Resultados da Cyrela (CYRE3) no 3º trimestre",
     "title": "Cyrela vê ações subirem 4% após resultados: quem ganha e quem perde?",
@@ -371,7 +371,8 @@
       "comCta": false,
       "brollClips": 6,
       "cortes": 9
-    }
+    },
+    "decidedAt": "2026-11-13T23:13:51.893Z"
   },
   {
     "id": "sh_mwfcgdkyagl9",
