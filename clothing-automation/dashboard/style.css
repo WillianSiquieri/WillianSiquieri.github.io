@@ -121,6 +121,8 @@ textarea { resize: vertical; }
 .post .toggle { background: none; border: none; color: var(--accent); cursor: pointer; font-size: .8rem; padding: 4px 0; }
 .post .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .tag { background: var(--panel-2); border: 1px solid var(--border); border-radius: 999px; padding: 2px 9px; font-size: .72rem; color: var(--muted); }
+.tag.ai { border-color: var(--accent-2); color: var(--accent-2); }
+.tag.ai.warn { border-color: var(--amber); color: var(--amber); }
 
 /* Galeria de imagens */
 .post .preview { position: relative; aspect-ratio: 4/5; background: #000; overflow: hidden; }

@@ -35,6 +35,10 @@ export const queue = () => readJson(join(DATA, 'queue.json'), []);
 export const published = () => readJson(join(DATA, 'published.json'), []);
 export const feedback = () => readJson(join(DATA, 'feedback.json'), []);
 
+// Cursor da fonte Telegram (offset do getUpdates), versionado como o resto do estado.
+export const telegram = async () => (await readJson(join(DATA, 'telegram.json'), { offset: 0 })).offset || 0;
+export const saveTelegram = (offset) => writeJson(join(DATA, 'telegram.json'), { offset, updatedAt: new Date().toISOString() });
+
 export const saveSettings = (v) => writeJson(join(DATA, 'settings.json'), v);
 export const saveQueue = (v) => writeJson(join(DATA, 'queue.json'), v);
 export const savePublished = (v) => writeJson(join(DATA, 'published.json'), v);

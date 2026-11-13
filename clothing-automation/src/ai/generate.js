@@ -9,12 +9,17 @@ import { join } from 'node:path';
 import { ROOT, log, warn, truncate } from '../util.js';
 
 const SYSTEM = `Você é um redator de e-commerce de moda que escreve posts de venda para o Instagram, em português do Brasil.
-A partir da mensagem de uma fornecedora (e, quando disponível, a foto da peça), você:
-- Descreve a roupa de forma atraente e honesta (tipo de peça, cor, tecido/caimento quando der para inferir).
+A partir da FOTO da peça (e da mensagem que veio junto, quando houver), você:
+- Descreve a roupa de forma atraente e honesta: tipo de peça, cor, estampa, tecido/caimento e detalhes visíveis na foto.
 - Escreve uma legenda curta e vendedora (2 a 4 linhas), com emojis com moderação.
-- NÃO inclui o preço na legenda (o preço é adicionado pelo sistema depois).
+- NÃO inclui o preço na legenda (o preço é calculado e adicionado pelo sistema depois).
 - Sugere de 4 a 8 hashtags de moda/venda em português (sem o #, só as palavras).
-- Respeita as preferências e o feedback do usuário.`;
+- Respeita as preferências e o feedback do usuário.
+
+IMPORTANTE: a mensagem que acompanha a foto normalmente traz APENAS o preço de custo
+(ex.: "79,90"). Ela não descreve a peça — quem descreve é você, olhando a foto.
+Nunca repita o preço de custo na legenda e nunca invente detalhes que não dá para ver
+(composição exata do tecido, medidas, marca). Se algo não dá para afirmar, omita.`;
 
 const FIELDS_DESC = {
   title: 'Nome curto da peça (ex.: "Vestido midi floral").',
@@ -34,8 +39,9 @@ function buildUserPrompt({ item, preferences, storeName, niche }) {
   return `LOJA: ${storeName || ''}
 NICHO: ${niche || 'moda / revenda de roupas'}
 
-MENSAGEM DA FORNECEDORA (${item.vendorName || item.from}):
-"${item.caption || '(sem texto — descreva a peça pela foto)'}"
+MENSAGEM QUE VEIO COM A FOTO:
+"${item.caption || '(nada além da foto)'}"
+(normalmente é só o preço de custo — descreva a peça olhando a FOTO)
 
 ORIENTAÇÃO/ESTILO DO USUÁRIO:
 ${guidance}
@@ -264,23 +270,34 @@ async function groqComplete(model, opts) {
 
 /* ---------- Mock ---------- */
 function generateMock({ item }) {
-  const caption = (item.caption || '').replace(/r\$\s*[\d.,]+/gi, '').trim();
-  const title = truncate(caption || 'Peça nova', 40);
+  // A legenda recebida costuma conter SÓ o preço de custo — remove qualquer
+  // valor para não vazar no anúncio (o cycle ainda aplica stripCostPrice depois).
+  const caption = (item.caption || '')
+    .replace(/r\$\s*[\d.,]+/gi, ' ')
+    .replace(/\b\d+[.,]\d{1,2}\b/g, ' ')
+    .replace(/\b\d+\b/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+  const title = truncate(caption || 'Novidade que acabou de chegar', 40);
   return {
     title,
     description: caption || 'Peça linda que acabou de chegar.',
     category: '',
-    size: (item.caption.match(/tam\w*\.?\s*([\w/]+)/i) || [])[1] || '',
+    size: (String(item.caption || '').match(/tam\w*\.?\s*([\w/]+)/i) || [])[1] || '',
     color: '',
     captionBody: `✨ ${title} ✨\nAcabou de chegar e é perfeita pra compor vários looks. Poucas unidades!`,
     hashtags: ['moda', 'lookdodia', 'novidades', 'modafeminina', 'vendas'],
-    rationale: '[mock] gerado sem IA — configure GROQ/GEMINI/ANTHROPIC para legendas reais.',
+    rationale: '[mock] gerado sem IA — configure GEMINI_API_KEY para descrição a partir da foto.',
   };
 }
 
-function pickProvider(llm) {
+// Escolhe o provedor. Com foto disponível, prioriza quem ENXERGA a imagem:
+// a legenda agora nasce da foto, e um modelo só-texto inventaria a descrição a
+// partir de uma mensagem que contém apenas o preço.
+function pickProvider(llm, hasImage) {
   const p = llm?.provider || 'auto';
   if (p !== 'auto') return p;
+  if (hasImage && process.env.GEMINI_API_KEY) return 'gemini';
   if (process.env.GROQ_API_KEY) return 'groq';
   if (process.env.GEMINI_API_KEY) return 'gemini';
   if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
@@ -297,7 +314,13 @@ const LABELS = { groq: 'Groq (grátis)', gemini: 'Gemini (grátis, com visão)',
 export async function generatePost(opts) {
   const { llm } = opts;
   const allowMock = llm?.allowMockFallback === true;
-  const provider = pickProvider(llm);
+  const hasImage = Boolean(opts.item?.localImages?.length);
+  const provider = pickProvider(llm, hasImage);
+
+  // Hoje apenas o provedor Gemini envia a imagem junto do prompt.
+  if (hasImage && provider !== 'gemini') {
+    warn(`Provedor "${provider}" não enxerga a foto — a descrição sairá só do texto. Configure GEMINI_API_KEY para descrição pela imagem.`);
+  }
 
   if (RUNNERS[provider]) {
     try {

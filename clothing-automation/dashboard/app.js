@@ -121,7 +121,7 @@ function renderKpis() {
 function renderSettings() {
   const pricing = state.settings.pricing || {};
   document.getElementById('spread').value = pricing.spreadPercent ?? 30;
-  document.getElementById('rounding').value = pricing.rounding || 'psychological';
+  document.getElementById('rounding').value = pricing.rounding || 'nine99';
   document.getElementById('per-day').value = state.settings.postsPerDay ?? 3;
   document.getElementById('guidance').value = state.settings.preferences?.guidance || '';
 }
@@ -206,6 +206,7 @@ function postCard(d, isPublished) {
       <div class="caption" data-caption>${escapeHtml(d.caption || '')}</div>
       <button class="toggle" data-toggle>ver mais</button>
       <div class="meta">${(d.hashtags || []).slice(0, 8).map((t) => `<span class="tag">#${escapeHtml(t)}</span>`).join('')}</div>
+      ${d.aiProvider ? `<div class="meta"><span class="tag ai ${d.aiProvider === 'mock' ? 'warn' : ''}">🤖 ${escapeHtml(d.aiProvider)}</span></div>` : ''}
       ${d.rationale ? `<div class="meta"><span class="muted small">💡 ${escapeHtml(d.rationale)}</span></div>` : ''}
     </div>
     ${stats}

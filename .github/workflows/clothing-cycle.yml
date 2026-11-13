@@ -40,7 +40,8 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          WHATSAPP_PROVIDER: ${{ secrets.WHATSAPP_PROVIDER }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          SOURCE_PROVIDER: ${{ secrets.SOURCE_PROVIDER }}
           WHATSAPP_INBOX_URL: ${{ secrets.WHATSAPP_INBOX_URL }}
           WHATSAPP_INBOX_TOKEN: ${{ secrets.WHATSAPP_INBOX_TOKEN }}
         run: |

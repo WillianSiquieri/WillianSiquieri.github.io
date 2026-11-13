@@ -36,22 +36,38 @@ function brToNumber(raw) {
   return parseFloat(s);
 }
 
-// Aplica o spread percentual sobre o preço base e arredonda.
-export function applySpread(base, spreadPercent = 0, rounding = 'psychological') {
+// Aplica o spread percentual sobre o preço base e arredonda (sempre para cima).
+export function applySpread(base, spreadPercent = 0, rounding = 'nine99') {
   const raw = Number(base) * (1 + Number(spreadPercent || 0) / 100);
   return roundPrice(raw, rounding);
 }
 
-// Modos de arredondamento:
-//   none          -> 2 casas exatas
-//   integer       -> inteiro mais próximo
-//   psychological  -> termina em ,90 (sobe para o próximo x9,90 quando preciso)
-export function roundPrice(v, mode = 'psychological') {
+// Modos de arredondamento (todos para CIMA — nunca abaixo da margem pedida):
+//   nine99         -> sobe até o próximo valor terminado em 9,99 (9,99 / 19,99 / 109,99)
+//   cents99        -> mantém os reais e põe os centavos em ,99
+//   psychological  -> termina em ,90
+//   integer        -> inteiro mais próximo
+//   none           -> 2 casas exatas
+export function roundPrice(v, mode = 'nine99') {
   v = Number(v);
   if (!Number.isFinite(v)) return 0;
   if (mode === 'none') return round2(v);
   if (mode === 'integer') return Math.round(v);
-  // psychological
+
+  if (mode === 'nine99') {
+    // Menor inteiro n terminado em 9 tal que n,99 >= v.
+    const min = Math.ceil(round2(v - 0.99));
+    const n = min + (((9 - (min % 10)) % 10) + 10) % 10;
+    return round2(Math.max(n, 9) + 0.99);
+  }
+
+  if (mode === 'cents99') {
+    let c = Math.floor(v) + 0.99;
+    if (round2(c) < round2(v)) c = Math.floor(v) + 1.99;
+    return round2(c);
+  }
+
+  // psychological: termina em ,90
   const floorInt = Math.floor(v);
   let cand = floorInt + 0.9;
   if (cand < v) cand = floorInt + 1 + 0.9;
