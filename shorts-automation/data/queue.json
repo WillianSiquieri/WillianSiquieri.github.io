@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z",
+    "publishErrorAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:51.147Z",
+    "decidedAt": "2026-11-13T17:11:48.494Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z"
+    "publishErrorAt": "2026-11-13T17:11:48.494Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -294,7 +294,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:46:16.078Z",
     "publishError": "não foi possível apagar JxTH1MwhJ4k do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z"
+    "publishErrorAt": "2026-11-13T17:11:48.494Z"
   },
   {
     "id": "sh_mw9snzop7om1",
@@ -332,49 +332,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
-    "publishErrorAt": "2026-11-13T17:10:51.147Z"
-  },
-  {
-    "id": "sh_mwf04gaog4iu",
-    "status": "approved",
-    "createdAt": "2026-11-13T13:17:25.248Z",
-    "theme": "Ações da Microsoft caem por apagão global de serviços",
-    "title": "Microsoft fora do ar: quem ganha e quem perde?",
-    "hook": "A Microsoft acabou de perder mais de 1% nas bolsas.",
-    "script": "Um apagão global tirou o Outlook, Teams e o Copilot do ar. Investidores vendem as ações porque temem perdas de produtividade. Quem sai ganhando? Empresas concorrentes de produtividade, como Google Workspace, que podem captar usuários frustrados. Quem perde? Profissionais que dependem desses apps e os fundos que tinham Microsoft como peso‑pesado. No seu portfólio, isso pode significar revisão de exposição a tecnologia. Avalie se ainda quer essa fatia de risco.",
-    "cta": "Se quiser entender como proteger seus investimentos quando grandes tech falham, se inscreve aí.",
-    "tags": [
-      "#Microsoft",
-      "#Ações",
-      "#Tech",
-      "#Investimento",
-      "#MercadoFinanceiro"
-    ],
-    "captionKeywords": [
-      "Microsoft",
-      "apagão",
-      "ações",
-      "tecnologia",
-      "investimento"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mercados/acoes-da-microsoft-caem-mais-de-1-em-meio-a-apagao-global-de-servicos-da-empresa/",
-    "rationale": "Notícia atual de grande relevância para investidores de ações de tecnologia, com claro impacto de curto prazo e possibilidade de explicar quem se beneficia e quem sofre, atendendo ao formato \"quem ganha e quem perde\".",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 48,
-      "previewFile": "data/previews/sh_mwf04gaog4iu.mp4",
-      "ttsProvider": "edge",
-      "ttsVoice": "pt-BR-AntonioNeural",
-      "ttsRate": "-4%",
-      "comCta": true,
-      "brollClips": 6,
-      "cortes": 10
-    },
-    "youtubeId": "_3jH40H1Bgg",
-    "previewUrl": "https://youtube.com/shorts/_3jH40H1Bgg",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:11:33.402Z"
+    "publishErrorAt": "2026-11-13T17:11:48.494Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",

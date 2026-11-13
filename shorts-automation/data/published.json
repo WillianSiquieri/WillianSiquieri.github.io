@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 431,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": 44.7,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 91,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": 49.9,
     "avgViewSec": 23
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2214,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": 61.1,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 4,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -389,12 +389,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-12T23:43:57.250Z",
     "publishedAt": "2026-11-12T23:44:10.704Z",
-    "views": 3,
+    "views": 2,
     "likes": 0,
     "comments": 0,
-    "score": 3,
+    "score": 2,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z",
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -436,13 +436,64 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T13:05:33.403Z",
     "publishedAt": "2026-11-13T13:05:48.792Z",
-    "views": 6,
+    "views": 4,
     "likes": 0,
     "comments": 0,
-    "score": 6,
+    "score": 4,
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T17:10:55.146Z"
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z"
+  },
+  {
+    "id": "sh_mwf04gaog4iu",
+    "status": "published",
+    "createdAt": "2026-11-13T13:17:25.248Z",
+    "theme": "Ações da Microsoft caem por apagão global de serviços",
+    "title": "Microsoft fora do ar: quem ganha e quem perde?",
+    "hook": "A Microsoft acabou de perder mais de 1% nas bolsas.",
+    "script": "Um apagão global tirou o Outlook, Teams e o Copilot do ar. Investidores vendem as ações porque temem perdas de produtividade. Quem sai ganhando? Empresas concorrentes de produtividade, como Google Workspace, que podem captar usuários frustrados. Quem perde? Profissionais que dependem desses apps e os fundos que tinham Microsoft como peso‑pesado. No seu portfólio, isso pode significar revisão de exposição a tecnologia. Avalie se ainda quer essa fatia de risco.",
+    "cta": "Se quiser entender como proteger seus investimentos quando grandes tech falham, se inscreve aí.",
+    "tags": [
+      "#Microsoft",
+      "#Ações",
+      "#Tech",
+      "#Investimento",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "Microsoft",
+      "apagão",
+      "ações",
+      "tecnologia",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/acoes-da-microsoft-caem-mais-de-1-em-meio-a-apagao-global-de-servicos-da-empresa/",
+    "rationale": "Notícia atual de grande relevância para investidores de ações de tecnologia, com claro impacto de curto prazo e possibilidade de explicar quem se beneficia e quem sofre, atendendo ao formato \"quem ganha e quem perde\".",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 48,
+      "previewFile": null,
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "_3jH40H1Bgg",
+    "previewUrl": "https://youtube.com/shorts/_3jH40H1Bgg",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-13T17:11:33.402Z",
+    "publishedAt": "2026-11-13T17:11:48.494Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "avgViewPct": null,
+    "avgViewSec": null,
+    "analyticsUpdatedAt": "2026-11-13T17:11:53.956Z"
   }
 ]
