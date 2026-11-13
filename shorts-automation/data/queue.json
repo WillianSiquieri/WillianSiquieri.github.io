@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwf05gbi8z7y",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-13T13:17:25.248Z",
     "theme": "Decreto autoriza aumento de capital da Telebras",
     "title": "Telebras aumenta capital: oportunidade ou risco?",
@@ -373,7 +373,8 @@
     },
     "youtubeId": "9gFNZBXTpJI",
     "previewUrl": "https://youtube.com/shorts/9gFNZBXTpJI",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:12:30.854Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
