@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwf00fxm5xqe",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-13T13:13:48.699Z",
     "theme": "Câmbio",
     "title": "Dólar dispara: maior alta desde junho de 2025",
@@ -368,7 +368,8 @@
     },
     "youtubeId": "EDGDwZRA45I",
     "previewUrl": "https://youtube.com/shorts/EDGDwZRA45I",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:09:23.674Z"
   },
   {
     "id": "sh_mwf012e7c83h",
