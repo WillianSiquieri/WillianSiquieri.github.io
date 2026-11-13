@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mweaelr64eai",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-13T01:16:49.344Z",
     "theme": "Resultados do 3T da Marisa Lojas (AMAR3)",
     "title": "Marisa registra prejuízo no 3T: quem sai no prejuízo e quem pode se beneficiar?",
@@ -369,6 +369,7 @@
     },
     "youtubeId": "Lb6u6ife-GE",
     "previewUrl": "https://youtube.com/shorts/Lb6u6ife-GE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T13:05:33.403Z"
   }
 ]
