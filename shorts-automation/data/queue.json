@@ -333,5 +333,81 @@
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
     "publishErrorAt": "2026-11-13T17:13:30.096Z"
+  },
+  {
+    "id": "sh_mwfcfmv03zb5",
+    "status": "draft",
+    "createdAt": "2026-11-13T19:02:02.364Z",
+    "theme": "Resultados da Cyrela (CYRE3) no 3º trimestre",
+    "title": "Cyrela vê ações subirem 4% após resultados: quem ganha e quem perde?",
+    "hook": "A Cyrela acabou de soltar números que fizeram a bolsa tremer.",
+    "script": "A construtora reportou lucro maior que o esperado no terceiro trimestre. As ações subiram mais de 4% logo após o anúncio. Quem sai ganhando? Investidores de curto prazo que já tinham a ação na carteira, e fundos de renda variável que buscam oportunidades de valorização rápida. Quem perde? Os concorrentes que ainda não entregam resultados consistentes e os compradores de imóveis que agora enfrentam preços possivelmente mais altos nas próximas fases dos empreendimentos. Em resumo, o resultado reforça a confiança no setor de construção, mas pode pressionar o bolso de quem está planejando comprar um apartamento nos próximos meses.",
+    "cta": "Se você quer entender como resultados de empresas podem mexer no seu investimento, se inscreve aí.",
+    "tags": [
+      "#Cyrela",
+      "#Bolsa",
+      "#Investimento",
+      "#Finanças",
+      "#Ações"
+    ],
+    "captionKeywords": [
+      "Cyrela",
+      "ações",
+      "lucro",
+      "construção",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/cyrela-cyre3-acoes-registram-ganhos-apos-resultados-do-3o-tri/",
+    "rationale": "Notícia de alta relevância para investidores, com claro impacto nos papéis e no bolso dos consumidores, encaixa no formato \"quem ganha e quem perde\" e tem potencial de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "previewFile": "data/previews/sh_mwfcfmv03zb5.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 9
+    }
+  },
+  {
+    "id": "sh_mwfcgdkyagl9",
+    "status": "draft",
+    "createdAt": "2026-11-13T19:02:02.364Z",
+    "theme": "Recompras de ações no Brasil",
+    "title": "Recompra de ações: quem realmente se beneficia?",
+    "hook": "Empresas brasileiras estão comprando de volta suas próprias ações – mas o que isso significa para você?",
+    "script": "A prática de recompra de ações tem crescido nos últimos meses. Quando a companhia compra suas próprias ações, o número de ações em circulação diminui, o que costuma elevar o preço das cotas restantes. Quem ganha? Acionistas de longo prazo que já possuem as ações – eles veem valorização sem precisar vender. Também os gestores de fundos que utilizam recompra como sinal de confiança da empresa. Quem perde? Investidores que entram no momento da recompra, esperando retorno rápido, pois o preço pode subir antes que a operação termine, e ainda há risco de a empresa usar caixa que poderia ser investido em expansão. No fim, a recompra pode ser boa para quem já tem participação, mas não é garantia de lucro imediato para quem está comprando agora.",
+    "cta": "Quer saber quando as recompras são realmente vantajosas, se inscreva e acompanhe nossos análises.",
+    "tags": [
+      "#Recompra",
+      "#Ações",
+      "#Investimento",
+      "#MercadoFinanceiro",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "recompra",
+      "ações",
+      "investidor",
+      "bolsa",
+      "Brasil"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/o-que-as-recompras-de-acoes-no-brasil-podem-indicar-para-o-investidor/",
+    "rationale": "Tema atual e técnico que gera curiosidade; permite explicar claramente os ganhadores e perdedores, alinhado ao pedido de variação de estrutura e sem terminar em pergunta.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 46,
+      "previewFile": "data/previews/sh_mwfcgdkyagl9.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
