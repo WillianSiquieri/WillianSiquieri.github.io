@@ -14,11 +14,11 @@
 //      (já com as imagens hospedadas após o commit).
 //   6. Grava tudo em data/queue.json.
 import * as store from './state/store.js';
-import { collectMessages } from './whatsapp/fetch.js';
+import { collectMessages } from './sources/index.js';
 import { downloadImages, dropMedia } from './media.js';
 import { generatePost } from './ai/generate.js';
 import { parsePrice, applySpread } from './pricing.js';
-import { buildCaption } from './caption.js';
+import { buildCaption, stripCostPrice } from './caption.js';
 import { log, warn, makeId, argFlag } from './util.js';
 
 function usedMessageIds(queue, published) {
@@ -49,16 +49,19 @@ async function main() {
     return;
   }
 
-  const mock = Boolean(argFlag('mock'));
-  if (mock) process.env.WHATSAPP_PROVIDER = 'mock';
+  const allowMock = Boolean(argFlag('mock'));
 
   const count = Number(argFlag('count', settings.postsPerDay || 3));
-  const messages = await collectMessages(config.whatsapp || {}, { count: count * 3 });
+  const { messages, commit } = await collectMessages(config, {
+    count: count * 3,
+    allowMock,
+    state: store,
+  });
   const used = usedMessageIds(queue, published);
   const fresh = messages.filter((m) => !used.has(m.messageId)).slice(0, count);
   log(`${messages.length} mensagens elegíveis, ${fresh.length} novas a processar.`);
 
-  const pricing = settings.pricing || { spreadPercent: 30, rounding: 'psychological' };
+  const pricing = settings.pricing || { spreadPercent: 30, rounding: 'nine99' };
   const prefs = effectivePreferences(settings, feedback);
   const now = new Date().toISOString();
   const newEntries = [];
@@ -95,6 +98,11 @@ async function main() {
       aiFailures++;
       continue;
     }
+
+    // O preço de custo nunca entra no anúncio (ver stripCostPrice).
+    post.title = stripCostPrice(post.title, basePrice) || 'Novidade que acabou de chegar';
+    post.description = stripCostPrice(post.description, basePrice);
+    post.captionBody = stripCostPrice(post.captionBody, basePrice);
 
     const size = post.size || '';
     const caption = buildCaption({
@@ -134,6 +142,15 @@ async function main() {
   }
 
   await store.saveQueue([...queue, ...newEntries]);
+
+  // Só agora confirmamos o cursor da fonte: se o processo tivesse morrido antes
+  // daqui, as mensagens voltariam no próximo ciclo em vez de se perderem.
+  try {
+    await commit();
+  } catch (e) {
+    warn('Não foi possível salvar o cursor da fonte:', e.message);
+  }
+
   const autoCount = newEntries.filter((e) => e.status === 'approved').length;
   log(`Ciclo concluído: ${newEntries.length} novos posts (${autoCount} auto-aprovados aguardando publicação).`);
 

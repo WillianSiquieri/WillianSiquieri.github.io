@@ -11,12 +11,14 @@
     "geminiModels": ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
     "anthropicModel": "claude-opus-4-8"
   },
+  "source": {
+    "provider": "auto"
+  },
+  "telegram": {
+    "allowedChatIds": []
+  },
   "whatsapp": {
-    "provider": "auto",
-    "vendors": [
-      { "number": "5511999990001", "name": "Fornecedora Ana", "enabled": true },
-      { "number": "5511999990002", "name": "Fornecedora Bruna", "enabled": true }
-    ]
+    "vendors": []
   },
   "instagram": {
     "maxImagesPerPost": 10

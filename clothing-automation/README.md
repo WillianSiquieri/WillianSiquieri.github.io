@@ -7,46 +7,67 @@ preço, aprovar, dar feedback e acompanhar os resultados.
 Irmão do [`shorts-automation`](../shorts-automation/) — mesmo repositório, mesma
 mecânica (estado em JSON versionado + painel estático + GitHub Actions), outro negócio.
 
-> Estado atual: **fundação funcional (MVP)**. Roda ponta-a-ponta em modo *mock*
-> sem nenhuma chave. Para produção, configure as chaves de API (abaixo).
+> Para testar sem nenhuma chave: `npm run seed` (usa fotos de exemplo e exige
+> `llm.allowMockFallback: true` no `config.json`). Em produção, configure as chaves
+> abaixo — sem elas, o motor **não inventa anúncio**.
 
 ## Como funciona
 
 ```
-Fornecedoras (WhatsApp)  ─▶  Motor pega as fotos + preço  ─▶  IA escreve a legenda
-   (fotos + preço)            (provedor "inbox" ou mock)        (Groq/Gemini/Claude)
-                                        │                             │
-                                        ▼                             ▼
-                             baixa as imagens p/ data/media    preço final = preço da
-                             (hospedadas pelo GitHub Pages)     fornecedora + spread %
-                                        │                             │
-        Painel  ◀── data/*.json (fila, publicados, feedback) ◀────────┤
-     (aprovar /                                                        ▼
-      feedback /                                           Publica no Instagram
-      spread)                                              (Graph API, aprovados)
+Você encaminha a foto  ─▶  bot do Telegram  ─▶  IA descreve a peça OLHANDO A FOTO
+do WhatsApp p/ o bot        (getUpdates)          (Gemini com visão)
+  + preço na legenda              │                        │
+                                  ▼                        ▼
+                     baixa as imagens p/ data/media   preço de venda = custo
+                     (hospedadas pelo GitHub Pages)    + spread %, subindo
+                                  │                     p/ terminar em 9,99
+        Painel  ◀── data/*.json ◀─┤                        │
+     (aprovar /                   └────────────────────────┤
+      feedback /                                           ▼
+      spread)                                   Publica no Instagram
+                                                (Graph API, aprovados)
 ```
+
+O trabalho manual é só este: na foto que a fornecedora mandou → **Compartilhar** →
+**Telegram** → seu bot → escrever o **preço de custo** na legenda → enviar.
+Várias fotos enviadas juntas viram **um único anúncio em carrossel**.
 
 - **Modo `approval`** (padrão): gera os posts e espera você aprovar no painel.
 - **Modo `auto`**: já marca como aprovado e publica sozinho até X posts/dia.
 - **Modo `paused`**: não gera nada.
 
-### Preço com spread
+### Preço: custo + spread, terminando em 9,99
 
-O preço final = **preço que a fornecedora mandou** (extraído do texto do WhatsApp) **+
-um spread percentual** que você configura no painel. O arredondamento é opcional:
-terminar em `,90` (padrão), inteiro, ou exato. Ex.: base R$ 79,90 + 30% → **R$ 103,90**.
+O preço de venda = **preço de custo** (o que você escreveu na legenda) **+ um spread
+percentual** configurável no painel, sempre arredondado **para cima**. Padrão
+`nine99`: sobe até o próximo valor terminado em **9,99**.
+
+| Custo | +30% | Vai ao ar por |
+|---|---|---|
+| R$ 79,90 | 103,87 | **R$ 109,99** |
+| R$ 49,90 | 64,87 | **R$ 69,99** |
+| R$ 119,90 | 155,87 | **R$ 159,99** |
+
+> ⚠️ Como os preços só podem cair em 9,99 / 19,99 / 29,99…, peças **baratas** sobem
+> bastante em termos relativos: custo R$ 10 + 30% = R$ 13 → vai a **R$ 19,99**.
+> Se preferir ficar colado na margem, troque o arredondamento para **"Centavos em
+> ,99"** no painel (R$ 13,00 → R$ 13,99).
+
+O preço de custo **nunca** aparece no anúncio: a instrução da IA proíbe, e o motor
+ainda remove qualquer ocorrência dele do texto antes de publicar.
 
 ## Estrutura
 
 | Caminho | O quê |
 |---|---|
-| `config/config.json` | Loja, fornecedoras (números do WhatsApp), modelo de IA, URL pública |
+| `config/config.json` | Loja, fonte de entrada, allowlist do Telegram, modelo de IA, URL pública |
 | `data/settings.json` | Modo, posts/dia, **spread + arredondamento**, preferências/feedback |
 | `data/queue.json` | Posts gerados aguardando aprovação |
 | `data/published.json` | Publicados + métricas |
 | `data/feedback.json` | Seu feedback (vira instrução para a IA) |
+| `data/telegram.json` | Cursor do Telegram (o que já foi lido) |
 | `data/media/` | Imagens baixadas (servidas publicamente pelo GitHub Pages) |
-| `src/` | Motor: WhatsApp, preço, IA, Instagram, ciclo |
+| `src/` | Motor: fontes, preço, IA, Instagram, ciclo |
 | `dashboard/` | Painel estático (GitHub Pages) |
 | `.github/workflows/` | Ciclo (buscar+gerar) + publicação |
 
@@ -76,9 +97,14 @@ Defina como **GitHub Secrets** (Settings → Secrets → Actions) ou no `.env` l
 
 ### 1. IA da legenda — grátis (defina UMA chave)
 Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
-- `GROQ_API_KEY` — recomendado (grátis): https://console.groq.com/keys
-- `GEMINI_API_KEY` — grátis e **enxerga a foto** para descrever a peça: https://aistudio.google.com/apikey
-- `ANTHROPIC_API_KEY` — alternativa paga (Claude).
+### 1. IA da legenda — grátis (defina UMA chave)
+Como a legenda que você manda tem só o preço, **quem descreve a peça é a IA olhando a
+foto**. Por isso, havendo imagem, o motor prioriza um provedor com visão:
+**Gemini → Groq → Claude**.
+- `GEMINI_API_KEY` — **recomendado**: é o único que hoje enxerga a foto. https://aistudio.google.com/apikey
+- `GROQ_API_KEY` — grátis e rápido, mas **só texto**: sem ver a foto, a descrição fica
+  genérica. Use como reserva. https://console.groq.com/keys
+- `ANTHROPIC_API_KEY` — alternativa paga (Claude), hoje também só texto neste módulo.
 
 > **Sem chave, nada é anunciado — de propósito.** Anunciar uma peça com legenda de
 > template é pior que não anunciar, e mascara falhas da IA por semanas (foi o que
@@ -90,44 +116,45 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 > descontinuação. Cada post registra qual IA o gerou em `aiProvider`.
 > Para testar o pipeline sem chave nenhuma, ligue `allowMockFallback: true`.
 
-### 2. WhatsApp (entrada das fotos)
+### 2. Telegram (entrada das fotos) — grátis, sem servidor
 
-O WhatsApp não deixa um cron "puxar" mensagens direto. O padrão é um provedor
-(Cloud API oficial da Meta, [Z-API](https://z-api.io), [Evolution API](https://evolution-api.com),
-UltraMsg, etc.) que **recebe as mensagens por webhook e as acumula**. O motor então lê
-esse acúmulo por um endpoint HTTP genérico — o provedor **`inbox`**:
+O caminho padrão. Você encaminha a foto do WhatsApp para um bot seu no Telegram, e o
+motor lê pelo `getUpdates` da Bot API — que já é uma caixa de entrada com cursor, então
+**não precisa de webhook, servidor, OAuth nem mensalidade**.
 
-- `WHATSAPP_PROVIDER=inbox`
-- `WHATSAPP_INBOX_URL` — endpoint que devolve as mensagens recebidas em JSON.
-- `WHATSAPP_INBOX_TOKEN` — (opcional) enviado como `Bearer` no header.
+**Criar o bot (2 minutos):**
+1. No Telegram, fale com o **@BotFather** → `/newbot` → escolha nome e usuário.
+2. Ele devolve um token (`123456:ABC-...`). Salve como secret **`TELEGRAM_BOT_TOKEN`**.
+3. Abra uma conversa com o seu bot e mande `/start` (sem isso ele não recebe mensagens).
 
-O endpoint deve devolver um **array** (ou `{ "messages": [...] }`) de objetos. O
-parser é tolerante a nomes de campo; o mínimo é **remetente + imagem(ns)**:
+**Restringir quem pode anunciar (recomendado):** rode o ciclo uma vez e veja no log o
+aviso com o seu chat ID; coloque-o em `config.json`:
 
 ```json
-[
-  {
-    "messageId": "abc123",
-    "from": "5511999990001",
-    "senderName": "Fornecedora Ana",
-    "caption": "Vestido midi floral, tam M. R$ 79,90",
-    "images": ["https://.../foto1.jpg", "https://.../foto2.jpg"],
-    "receivedAt": "2026-07-12T10:00:00Z"
-  }
-]
+"telegram": { "allowedChatIds": [555001] }
 ```
 
-Aliases aceitos: `from`/`phone`/`sender`/`number`/`chatId`; `caption`/`text`/`body`;
-`images`/`media`/`attachments`/`imageUrl`. Só entram no pipeline as mensagens dos
-**números cadastrados** em `config.json → whatsapp.vendors`.
+Sem essa lista, qualquer pessoa que descobrir o usuário do bot consegue enfileirar um
+anúncio. Com ela, mensagens de outros chats são descartadas sem nem baixar a foto.
 
-> Como montar o inbox: aponte o webhook do seu provedor para um pequeno coletor
-> (uma function serverless, um Gist, um bucket, um mini-servidor) que guarde as
-> últimas mensagens em JSON, e coloque essa URL em `WHATSAPP_INBOX_URL`. Qualquer
-> provedor serve — o motor só precisa da lista.
+**No dia a dia:** foto da fornecedora → Compartilhar → Telegram → seu bot → escrever
+**só o preço de custo** na legenda (ex.: `79,90`) → enviar. Fotos enviadas juntas
+(álbum) viram um único anúncio em carrossel, com a legenda da primeira.
 
-Sem provedor configurado, o motor usa **mensagens mock** (fotos de exemplo geradas
-localmente) para você testar o pipeline inteiro.
+> O `data/telegram.json` guarda até onde já foi lido. Ele só avança **depois** que a
+> fila é salva com sucesso — se o ciclo falhar no meio, as mensagens voltam no próximo
+> em vez de se perderem.
+
+**Alternativa (WhatsApp via provedor):** se um dia quiser ligar direto no WhatsApp,
+o provedor `inbox` continua disponível: defina `WHATSAPP_INBOX_URL` apontando para um
+endpoint HTTP que devolva as mensagens em JSON (array ou `{ "messages": [...] }`, com
+no mínimo remetente + imagens; aliases aceitos para `from`/`caption`/`images`). Serve
+para Cloud API, Z-API, Evolution API etc. Restrinja remetentes em
+`config.json → whatsapp.vendors`.
+
+> **Sem fonte configurada, o motor não gera nada** — e isso é de propósito. Antes, ele
+> caía no mock sozinho: rodando de 3 em 3 horas, encheu a fila com **513 peças que não
+> existiam**. Hoje o mock só roda com `--mock` explícito, nunca em produção.
 
 ### 3. Instagram (saída dos posts) — Instagram Graph API
 1. Tenha uma conta **Instagram Business/Creator** ligada a uma **Página do Facebook**.
