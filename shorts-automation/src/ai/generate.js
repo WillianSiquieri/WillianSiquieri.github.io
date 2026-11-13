@@ -10,11 +10,63 @@ Seu trabalho: a partir de manchetes reais, escolher os temas com maior potencial
 engajamento e escrever roteiros curtos (30–50s de narração), em português do Brasil.
 
 Regras do roteiro:
-- Gancho forte nos primeiros 3 segundos.
+- O campo "hook" é a PRIMEIRA FRASE NARRADA. Ele é falado antes do script, então
+  escreva-o como fala, curto, e NÃO repita o hook dentro do script.
 - Linguagem clara, ritmo rápido, frases curtas (feitas para narração/TTS).
 - Informar com precisão; nada de sensacionalismo ou desinformação.
-- Encerrar com uma pergunta ou chamada para engajamento.
-- Respeitar as preferências e o feedback do usuário fornecidos.`;
+- Respeitar as preferências, o formato pedido e o feedback do usuário.
+- Cada short do lote tem de parecer feito por uma pessoa diferente: varie a
+  estrutura, o comprimento das frases e o fecho. Dois roteiros com a mesma forma
+  tiram o canal da monetização (política de "conteúdo produzido em massa").`;
+
+// Formatos que entram em rotação para o canal não virar um molde só. Além de
+// prender mais, isso é requisito de monetização: a política do YouTube recusa
+// canal onde "o conteúdo varia muito pouco a cada vídeo".
+const FORMATOS = [
+  {
+    nome: 'número que choca',
+    estrutura: 'Abra com o número mais impressionante da notícia, sozinho. Depois explique de onde ele vem em 2 frases. Feche dizendo o que muda na prática.',
+    duracao: '25–35s',
+    fecho: 'Feche com uma consequência concreta, SEM pergunta.',
+  },
+  {
+    nome: 'pergunta e resposta direta',
+    estrutura: 'Abra com a pergunta que o espectador faria. Responda na frase seguinte, sem rodeio. Use o resto para justificar.',
+    duracao: '20–30s',
+    fecho: 'Feche com a resposta resumida em menos de 10 palavras.',
+  },
+  {
+    nome: 'mito contra realidade',
+    estrutura: 'Comece com a crença comum ("todo mundo acha que..."). Derrube com o dado real. Explique por que a confusão existe.',
+    duracao: '30–40s',
+    fecho: 'Feche com o que fazer com essa informação.',
+  },
+  {
+    nome: 'antes e depois',
+    estrutura: 'Mostre como era, mostre como ficou, e só então diga o que causou a mudança.',
+    duracao: '30–40s',
+    fecho: 'Feche apontando o próximo marco a observar, com data se houver.',
+  },
+  {
+    nome: 'quem ganha e quem perde',
+    estrutura: 'Diga em uma frase o que aconteceu. Depois separe: quem sai ganhando, quem sai perdendo. Seja específico sobre perfis de pessoas.',
+    duracao: '35–45s',
+    fecho: 'Feche perguntando em qual lado o espectador está.',
+  },
+  {
+    nome: 'linha do tempo rápida',
+    estrutura: 'Narre em passos curtos: o que aconteceu, o que isso desencadeou, o que vem agora. Ritmo de manchete.',
+    duracao: '25–35s',
+    fecho: 'Feche com o que esperar nos próximos dias, sem pergunta.',
+  },
+];
+
+// Rotaciona por dia, para lotes consecutivos não repetirem a forma.
+export function formatoDoDia(d = new Date()) {
+  const dia = Math.floor(d.getTime() / 86400000);
+  return FORMATOS[dia % FORMATOS.length];
+}
+
 
 // Monta o schema de saída estruturada que a Claude deve preencher.
 function outputToolSchema(count) {
@@ -33,8 +85,8 @@ function outputToolSchema(count) {
             properties: {
               theme: { type: 'string', description: 'Tema central em poucas palavras.' },
               title: { type: 'string', description: 'Título do YouTube (<= 90 chars), com apelo.' },
-              hook: { type: 'string', description: 'Primeira frase, o gancho.' },
-              script: { type: 'string', description: 'Roteiro completo da narração, 30–50s.' },
+              hook: { type: 'string', description: 'Primeira frase NARRADA, o gancho. Não repetir no script.' },
+              script: { type: 'string', description: 'Roteiro da narração APÓS o hook, no formato e duração pedidos.' },
               captionKeywords: { type: 'array', items: { type: 'string' }, description: '4–8 termos p/ legenda em tela.' },
               tags: { type: 'array', items: { type: 'string' } },
               sourceLink: { type: 'string' },
@@ -51,7 +103,7 @@ function outputToolSchema(count) {
 
 // O free tier da Groq limita ~8k tokens por minuto, então o prompt precisa ser
 // enxuto. `size` permite encolher ainda mais caso a API responda 413.
-function buildUserPrompt({ items, preferences, topPerformers, count, niche }, size = {}) {
+function buildUserPrompt({ items, preferences, topPerformers, worstPerformers, count, niche }, size = {}) {
   const maxItems = size.maxItems ?? 15;
   const summaryLen = size.summaryLen ?? 90;
   const headlines = items
@@ -68,10 +120,16 @@ function buildUserPrompt({ items, preferences, topPerformers, count, niche }, si
   const disliked = truncate((preferences?.dislikedThemes || []).join(', '), 300) || '(nenhum ainda)';
   const guidance = truncate(preferences?.guidance || '', 2000) || '(sem orientação específica)';
 
-  const performers = (topPerformers || [])
-    .slice(0, 5)
-    .map((p) => `- "${p.title}" → ${p.views ?? 0} views, ${p.likes ?? 0} likes (tema: ${p.theme || '?'})`)
-    .join('\n') || '(sem histórico de performance ainda)';
+  // Números crus em vez de um "score" opaco: a IA precisa ver a diferença entre
+  // muitas views com retenção baixa e poucas views com retenção alta.
+  const linha = (p) => {
+    const ret = Number.isFinite(p.avgViewPct) ? `, ${p.avgViewPct}% de retenção` : '';
+    return `- "${truncate(p.title, 70)}" → ${p.views ?? 0} views, ${p.likes ?? 0} likes${ret} (tema: ${truncate(p.theme || '?', 40)})`;
+  };
+  const melhores = (topPerformers || []).slice(0, 5).map(linha).join('\n') || '(sem histórico ainda)';
+  const piores = (worstPerformers || []).slice(0, 4).map(linha).join('\n') || '(sem histórico ainda)';
+
+  const f = formatoDoDia();
 
   return `NICHO DO CANAL: ${niche}
 
@@ -84,10 +142,20 @@ ${guidance}
 TEMAS QUE O USUÁRIO GOSTA: ${liked}
 TEMAS QUE O USUÁRIO NÃO QUER: ${disliked}
 
-VÍDEOS QUE MAIS PERFORMARAM (priorize temas/formatos parecidos):
-${performers}
+O QUE FUNCIONOU (mire no tipo de assunto, não copie a forma):
+${melhores}
 
-Selecione os ${count} melhores temas dentre as manchetes acima (evite os temas indesejados)
+O QUE NÃO FUNCIONOU (não repita esse tipo de assunto):
+${piores}
+Retenção é o que decide se o YouTube distribui: um vídeo com muitas views e
+retenção baixa performou pior do que parece.
+
+FORMATO DESTE LOTE — "${f.nome}":
+${f.estrutura}
+Duração da narração: ${f.duracao}. ${f.fecho}
+Dentro do lote, varie o comprimento das frases e o ritmo entre os shorts.
+
+Selecione os ${count} melhores temas dentre as manchetes acima (evite os indesejados)
 e entregue os shorts via a ferramenta 'entregar_shorts'.`;
 }
 

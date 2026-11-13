@@ -196,7 +196,7 @@ function shortCard(d, isPublished) {
     ? `<div class="stats">
          <div class="stat"><b>${fmt(d.views || 0)}</b><span>views</span></div>
          <div class="stat"><b>${fmt(d.likes || 0)}</b><span>likes</span></div>
-         <div class="stat"><b>${fmt(d.comments || 0)}</b><span>comentários</span></div>
+         <div class="stat"><b>${Number.isFinite(d.avgViewPct) ? d.avgViewPct + '%' : '—'}</b><span>retenção</span></div>
          <div class="stat"><b>${fmt(d.score || 0)}</b><span>score</span></div>
        </div>`
     : `<div class="actions">

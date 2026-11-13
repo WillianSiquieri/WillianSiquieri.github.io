@@ -10,7 +10,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { log, warn } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
-import { synthesize } from './tts.js';
+import { synthesize, variantFor } from './tts.js';
 import { fetchBrollClips } from './broll.js';
 
 // --- Legendas -------------------------------------------------------------
@@ -161,12 +161,29 @@ export function brollRenderArgs({ clips, segments, durationSec, width, height, a
 
 // --- Montagem -------------------------------------------------------------
 
+// O `hook` era gerado pela IA e nunca chegava ao vídeo: só o `script` ia para o
+// TTS. O espectador abria ouvindo lide de jornal em vez do gancho escrito para
+// ele — e nos Shorts os 2 primeiros segundos decidem o swipe. Aqui o hook volta
+// para a narração, sem duplicar se o modelo já o repetiu no script.
+export function narrationText(draft) {
+  const hook = String(draft.hook || '').trim();
+  const script = String(draft.script || '').trim();
+  if (!hook) return script;
+  if (!script) return hook;
+  const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu, '').replace(/\s+/g, ' ').trim();
+  const inicio = norm(hook).split(' ').slice(0, 5).join(' ');
+  if (inicio && norm(script).startsWith(inicio)) return script; // já começa pelo gancho
+  return `${hook.replace(/\s*$/, '')} ${script}`;
+}
+
 export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const dir = join(workDir, draft.id);
   await mkdir(dir, { recursive: true });
 
   // 1) Narração (com timing de palavras quando o provider suporta).
-  const tts = await synthesize(draft.script, dir, config.tts || {});
+  // A voz/entonação variam por short, derivadas do id (estável e espalhado).
+  const ttsCfg = { ...(config.tts || {}), variant: variantFor(draft.id, config.tts || {}) };
+  const tts = await synthesize(narrationText(draft), dir, ttsCfg);
   // Sem voz não há short: renderizar um vídeo mudo só gasta tempo e entope a fila.
   if (!tts?.audioPath) {
     warn(`Sem narração para ${draft.id} — short descartado.`);
@@ -183,7 +200,7 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const outPath = join(dir, 'short.mp4');
 
   // 2) Legendas → arquivo .ass
-  const chunks = tts?.cues ? chunksFromCues(tts.cues) : chunksFromScript(draft.script, durationSec);
+  const chunks = tts?.cues ? chunksFromCues(tts.cues) : chunksFromScript(narrationText(draft), durationSec);
   const assPath = join(dir, 'subs.ass');
   await writeFile(assPath, buildAss(chunks, { width, height }), 'utf8');
 
@@ -236,7 +253,9 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
       }
     }
 
-    return { rendered: true, videoPath: outPath, previewFile, audioPath: tts?.audioPath || null, durationSec, ttsProvider: tts?.provider };
+    return { rendered: true, videoPath: outPath, previewFile, audioPath: tts?.audioPath || null, durationSec,
+      ttsProvider: tts?.provider, ttsVoice: tts?.voice || null, ttsRate: tts?.rate || null,
+      brollClips: brollPaths.length, cortes: brollPaths.length ? segments : 0 };
   } catch (err) {
     warn('Falha ao renderizar vídeo:', err.message);
     return { rendered: false, audioPath: tts?.audioPath || null, durationSec, reason: err.message };

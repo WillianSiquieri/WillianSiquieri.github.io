@@ -18,6 +18,11 @@
   "tts": {
     "provider": "auto",
     "voice": "pt-BR-AntonioNeural",
+    "voices": [
+      "pt-BR-AntonioNeural",
+      "pt-BR-FranciscaNeural",
+      "pt-BR-ThalitaNeural"
+    ],
     "allowSilent": false
   },
   "llm": {

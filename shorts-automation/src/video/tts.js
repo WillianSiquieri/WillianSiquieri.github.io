@@ -16,6 +16,34 @@ export function estimateDuration(text) {
   return Math.max(8, Math.round(words / 2.6));
 }
 
+// Vozes pt-BR do edge-tts em rotação. Se alguma for descontinuada, o ttsEdge
+// cai na voz padrão e avisa no log — basta remover a linha aqui.
+const VOZES_PADRAO = ['pt-BR-AntonioNeural', 'pt-BR-FranciscaNeural', 'pt-BR-ThalitaNeural'];
+const RITMOS = ['default', '+6%', '+12%', '-4%'];
+const TONS = ['default', '+4Hz', '-4Hz'];
+
+// Hash estável a partir do id do short: o mesmo short sempre soa igual (reler o
+// preview não muda a voz), mas shorts diferentes se espalham pelas combinações.
+function hash(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h);
+}
+
+/** Voz + ritmo + tom para um short, a partir do seu id. */
+export function variantFor(seed, cfg = {}) {
+  const vozes = (cfg.voices?.length ? cfg.voices : VOZES_PADRAO).filter(Boolean);
+  const h = hash(String(seed || 'x'));
+  return {
+    voice: vozes[h % vozes.length],
+    rate: RITMOS[Math.floor(h / 7) % RITMOS.length],
+    pitch: TONS[Math.floor(h / 53) % TONS.length],
+  };
+}
+
 async function ttsElevenLabs(text, outPath, cfg) {
   const voiceId = process.env.ELEVENLABS_VOICE_ID || '21m00Tcm4TlvDq8ikWAM';
   const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
@@ -54,19 +82,43 @@ function ttsPiper(text, outPath) {
 // edge-tts: vozes neurais da Microsoft, gratuitas e sem chave de API.
 // Com saveSubtitles, grava <outPath>.json com o tempo (ms) de cada palavra,
 // usado para legendas sincronizadas na montagem do vídeo.
+//
+// A voz e a entonação variam por short (ver variantFor): canal com a mesma voz
+// em todo vídeo cansa e entra na política de "conteúdo produzido em massa".
 async function ttsEdge(text, outPath, cfg) {
   const { EdgeTTS } = await import('node-edge-tts');
-  const voice = cfg.voice && /Neural$/.test(cfg.voice) ? cfg.voice : 'pt-BR-AntonioNeural';
-  const tts = new EdgeTTS({ voice, saveSubtitles: true, rate: cfg.rate || 'default' });
-  await tts.ttsPromise(text, outPath);
-  let cues = null;
-  try {
-    const raw = await readFile(outPath + '.json', 'utf8');
-    cues = JSON.parse(raw).filter((c) => c.part && Number.isFinite(c.start) && Number.isFinite(c.end));
-  } catch {
-    /* sem legendas — segue sem sincronia por palavra */
+  const padrao = cfg.voice && /Neural$/.test(cfg.voice) ? cfg.voice : 'pt-BR-AntonioNeural';
+  const v = cfg.variant || {};
+  // A voz sorteada primeiro; a padrão como rede de segurança. Se um nome de voz
+  // tiver sido descontinuado, o log diz qual e o short não se perde.
+  const tentativas = [...new Set([v.voice || padrao, padrao])];
+
+  let erro;
+  for (const voice of tentativas) {
+    try {
+      const tts = new EdgeTTS({
+        voice,
+        saveSubtitles: true,
+        rate: v.rate || cfg.rate || 'default',
+        pitch: v.pitch || 'default',
+      });
+      await tts.ttsPromise(text, outPath);
+      let cues = null;
+      try {
+        const raw = await readFile(outPath + '.json', 'utf8');
+        cues = JSON.parse(raw).filter((c) => c.part && Number.isFinite(c.start) && Number.isFinite(c.end));
+      } catch {
+        /* sem legendas — segue sem sincronia por palavra */
+      }
+      return { audioPath: outPath, cues, voice, rate: v.rate || 'default', pitch: v.pitch || 'default' };
+    } catch (e) {
+      erro = e;
+      if (voice !== tentativas[tentativas.length - 1]) {
+        warn(`Voz "${voice}" falhou (${e.message}); tentando a voz padrão.`);
+      }
+    }
   }
-  return { audioPath: outPath, cues };
+  throw erro;
 }
 
 async function ttsSilent(text, outPath) {
@@ -90,8 +142,8 @@ export async function synthesize(text, workDir, cfg = {}) {
     const cues = result.cues && result.cues.length ? result.cues : null;
     // Duração real vem do último word boundary; senão, estimativa.
     const durationSec = cues ? Math.max(8, Math.ceil(cues[cues.length - 1].end / 1000) + 1) : estimateDuration(text);
-    log(`TTS (${provider}) → ${result.audioPath}${cues ? ` (${cues.length} palavras sincronizadas)` : ''}`);
-    return { audioPath: result.audioPath, provider, durationSec, cues };
+    log(`TTS (${provider})${result.voice ? ` [${result.voice} ${result.rate}/${result.pitch}]` : ''} → ${result.audioPath}${cues ? ` (${cues.length} palavras sincronizadas)` : ''}`);
+    return { audioPath: result.audioPath, provider, durationSec, cues, voice: result.voice || null, rate: result.rate || null, pitch: result.pitch || null };
   } catch (err) {
     // Um short sem narração não serve para nada, e a trilha silenciosa escondia
     // a falha: o vídeo era renderizado, subia no YouTube e o run ficava verde.
