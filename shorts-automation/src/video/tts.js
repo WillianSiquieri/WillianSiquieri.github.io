@@ -89,18 +89,25 @@ async function ttsEdge(text, outPath, cfg) {
   const { EdgeTTS } = await import('node-edge-tts');
   const padrao = cfg.voice && /Neural$/.test(cfg.voice) ? cfg.voice : 'pt-BR-AntonioNeural';
   const v = cfg.variant || {};
-  // A voz sorteada primeiro; a padrão como rede de segurança. Se um nome de voz
-  // tiver sido descontinuado, o log diz qual e o short não se perde.
-  const tentativas = [...new Set([v.voice || padrao, padrao])];
+  const escolhida = v.voice || padrao;
+  // A voz sorteada duas vezes antes de desistir dela: o timeout padrão da lib é
+  // de 10s e inclui o handshake, então uma conexão lenta no runner derrubava a
+  // voz e levava a variedade embora. A voz padrão fica como rede de segurança —
+  // se um nome de voz tiver sido descontinuado, o log diz qual e o short não se
+  // perde.
+  const tentativas = escolhida === padrao ? [escolhida, escolhida] : [escolhida, escolhida, padrao];
 
   let erro;
-  for (const voice of tentativas) {
+  for (let i = 0; i < tentativas.length; i++) {
+    const voice = tentativas[i];
+    const ultima = i === tentativas.length - 1;
     try {
       const tts = new EdgeTTS({
         voice,
         saveSubtitles: true,
         rate: v.rate || cfg.rate || 'default',
         pitch: v.pitch || 'default',
+        timeout: cfg.timeoutMs || 30000,
       });
       await tts.ttsPromise(text, outPath);
       let cues = null;
@@ -113,8 +120,9 @@ async function ttsEdge(text, outPath, cfg) {
       return { audioPath: outPath, cues, voice, rate: v.rate || 'default', pitch: v.pitch || 'default' };
     } catch (e) {
       erro = e;
-      if (voice !== tentativas[tentativas.length - 1]) {
-        warn(`Voz "${voice}" falhou (${e.message}); tentando a voz padrão.`);
+      if (!ultima) {
+        const proxima = tentativas[i + 1];
+        warn(`Voz "${voice}" falhou (${e.message}); ${proxima === voice ? 'tentando de novo' : `caindo em "${proxima}"`}.`);
       }
     }
   }
