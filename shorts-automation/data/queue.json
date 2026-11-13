@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z",
+    "publishErrorAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T04:54:35.167Z",
+    "decidedAt": "2026-11-13T13:05:00.061Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z"
+    "publishErrorAt": "2026-11-13T13:05:00.061Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -294,7 +294,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:46:16.078Z",
     "publishError": "não foi possível apagar JxTH1MwhJ4k do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z"
+    "publishErrorAt": "2026-11-13T13:05:00.061Z"
   },
   {
     "id": "sh_mw9snzop7om1",
@@ -332,45 +332,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
-    "publishErrorAt": "2026-11-13T04:54:35.167Z"
-  },
-  {
-    "id": "sh_mweadr9cl3as",
-    "status": "rejected",
-    "createdAt": "2026-11-13T01:16:49.344Z",
-    "theme": "Ajuste fiscal do Governo Lula aprovado no Senado",
-    "title": "Senado aprova ajuste fiscal: quem ganha e quem perde?",
-    "hook": "O Senado acabou de aprovar o ajuste fiscal do governo Lula!",
-    "script": "O texto-base foi aprovado por 45 votos a 31. O objetivo é conter o gasto público e melhorar a confiança dos investidores. Quem ganha? O mercado de renda fixa, porque o risco de calote diminui e os juros podem cair. Também quem tem dívidas grandes, porque taxas menores aliviam o bolso. Quem perde? Quem depende de cargos temporários no setor público, já que o corte de gastos pode reduzir contratações. Também quem aposta em ações de empresas dependentes de estímulos fiscais, pois o ritmo de crescimento pode frear. Agora, pense: seu dinheiro está mais seguro ou mais apertado?",
-    "tags": [
-      "#Finanças",
-      "#Política",
-      "#Investimentos"
-    ],
-    "captionKeywords": [
-      "ajuste fiscal",
-      "Senado",
-      "Lula",
-      "renda fixa",
-      "juros"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/politica/senado-aprova-texto-base-do-ajuste-fiscal-do-governo-lula-por-45-votos-a-31/",
-    "rationale": "Tema de alta relevância macroeconômica, explica impacto direto no bolso e divide claramente ganhadores e perdedores, atendendo ao formato 'quem ganha e quem perde'.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 47,
-      "previewFile": "data/previews/sh_mweadr9cl3as.mp4",
-      "ttsProvider": "edge",
-      "ttsVoice": "pt-BR-AntonioNeural",
-      "ttsRate": "default",
-      "brollClips": 6,
-      "cortes": 10
-    },
-    "youtubeId": "B3_Y0cpBQ0U",
-    "previewUrl": "https://youtube.com/shorts/B3_Y0cpBQ0U",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:04:45.042Z"
+    "publishErrorAt": "2026-11-13T13:05:00.061Z"
   },
   {
     "id": "sh_mweaelr64eai",
