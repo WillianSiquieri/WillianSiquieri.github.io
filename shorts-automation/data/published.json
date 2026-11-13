@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 431,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": 44.7,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 91,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": 49.9,
     "avgViewSec": 23
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2214,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": 61.1,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -394,7 +394,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z",
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -443,7 +443,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z"
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z"
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -545,7 +545,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z"
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
@@ -596,6 +596,52 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:11:57.965Z"
+    "analyticsUpdatedAt": "2026-11-13T23:14:10.299Z"
+  },
+  {
+    "id": "sh_mwfcfmv03zb5",
+    "status": "published",
+    "createdAt": "2026-11-13T19:02:02.364Z",
+    "theme": "Resultados da Cyrela (CYRE3) no 3º trimestre",
+    "title": "Cyrela vê ações subirem 4% após resultados: quem ganha e quem perde?",
+    "hook": "A Cyrela acabou de soltar números que fizeram a bolsa tremer.",
+    "script": "A construtora reportou lucro maior que o esperado no terceiro trimestre. As ações subiram mais de 4% logo após o anúncio. Quem sai ganhando? Investidores de curto prazo que já tinham a ação na carteira, e fundos de renda variável que buscam oportunidades de valorização rápida. Quem perde? Os concorrentes que ainda não entregam resultados consistentes e os compradores de imóveis que agora enfrentam preços possivelmente mais altos nas próximas fases dos empreendimentos. Em resumo, o resultado reforça a confiança no setor de construção, mas pode pressionar o bolso de quem está planejando comprar um apartamento nos próximos meses.",
+    "cta": "Se você quer entender como resultados de empresas podem mexer no seu investimento, se inscreve aí.",
+    "tags": [
+      "#Cyrela",
+      "#Bolsa",
+      "#Investimento",
+      "#Finanças",
+      "#Ações"
+    ],
+    "captionKeywords": [
+      "Cyrela",
+      "ações",
+      "lucro",
+      "construção",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/cyrela-cyre3-acoes-registram-ganhos-apos-resultados-do-3o-tri/",
+    "rationale": "Notícia de alta relevância para investidores, com claro impacto nos papéis e no bolso dos consumidores, encaixa no formato \"quem ganha e quem perde\" e tem potencial de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "previewFile": null,
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 9
+    },
+    "decidedAt": "2026-11-13T23:13:51.893Z",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-13T23:14:07.870Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null
   }
 ]
