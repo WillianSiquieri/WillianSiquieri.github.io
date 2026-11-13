@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwf012e7c83h",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-13T13:13:48.699Z",
     "theme": "Ações e setores",
     "title": "Rumo registra queda de 17% no lucro anual",
@@ -368,7 +368,9 @@
     },
     "youtubeId": "oocQxVXSZZ8",
     "previewUrl": "https://youtube.com/shorts/oocQxVXSZZ8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:10:35.633Z",
+    "rejectReason": "Quem ganha e quem perde em todo video é muito ruim"
   },
   {
     "id": "sh_mwf04gaog4iu",
