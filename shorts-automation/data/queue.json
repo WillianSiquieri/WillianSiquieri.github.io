@@ -441,5 +441,128 @@
     "youtubeId": "oocQxVXSZZ8",
     "previewUrl": "https://youtube.com/shorts/oocQxVXSZZ8",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwf04gaog4iu",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:17:25.248Z",
+    "theme": "Ações da Microsoft caem por apagão global de serviços",
+    "title": "Microsoft fora do ar: quem ganha e quem perde?",
+    "hook": "A Microsoft acabou de perder mais de 1% nas bolsas.",
+    "script": "Um apagão global tirou o Outlook, Teams e o Copilot do ar. Investidores vendem as ações porque temem perdas de produtividade. Quem sai ganhando? Empresas concorrentes de produtividade, como Google Workspace, que podem captar usuários frustrados. Quem perde? Profissionais que dependem desses apps e os fundos que tinham Microsoft como peso‑pesado. No seu portfólio, isso pode significar revisão de exposição a tecnologia. Avalie se ainda quer essa fatia de risco.",
+    "cta": "Se quiser entender como proteger seus investimentos quando grandes tech falham, se inscreve aí.",
+    "tags": [
+      "#Microsoft",
+      "#Ações",
+      "#Tech",
+      "#Investimento",
+      "#MercadoFinanceiro"
+    ],
+    "captionKeywords": [
+      "Microsoft",
+      "apagão",
+      "ações",
+      "tecnologia",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/acoes-da-microsoft-caem-mais-de-1-em-meio-a-apagao-global-de-servicos-da-empresa/",
+    "rationale": "Notícia atual de grande relevância para investidores de ações de tecnologia, com claro impacto de curto prazo e possibilidade de explicar quem se beneficia e quem sofre, atendendo ao formato \"quem ganha e quem perde\".",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 48,
+      "previewFile": "data/previews/sh_mwf04gaog4iu.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "_3jH40H1Bgg",
+    "previewUrl": "https://youtube.com/shorts/_3jH40H1Bgg",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwf05gbi8z7y",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:17:25.248Z",
+    "theme": "Decreto autoriza aumento de capital da Telebras",
+    "title": "Telebras aumenta capital: oportunidade ou risco?",
+    "hook": "A Telebras vai receber quase R$ 250 mi de capital novo.",
+    "script": "O governo assinou um decreto que permite a Telebras captar R$ 246 milhões. O dinheiro deve melhorar a infraestrutura de telecomunicações, principalmente em áreas rurais. Quem ganha? Concessionárias de fibra que podem fechar parcerias, e consumidores que terão mais acesso à internet. Quem perde? Investidores que já tinham ações da Telebras e podem ver diluição do seu percentual. Para quem tem dinheiro guardado, pode ser a hora de avaliar se entra antes da valorização ou espera o mercado absorver o aumento.",
+    "cta": "Quer saber quando vale a pena comprar ações de empresas de infraestrutura, se inscreve aqui.",
+    "tags": [
+      "#Telebras",
+      "#CapitalSocial",
+      "#Infraestrutura",
+      "#Investimentos",
+      "#Bolsa"
+    ],
+    "captionKeywords": [
+      "Telebras",
+      "aumento de capital",
+      "infraestrutura",
+      "investimento",
+      "ações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/decreto-autoriza-aumento-de-capital-social-da-telebras/",
+    "rationale": "Tema de política econômica e bolsa que traz impacto direto ao investidor, permitindo explicar claramente ganhadores e perdedores, conforme o formato exigido.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "previewFile": "data/previews/sh_mwf05gbi8z7y.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 9
+    },
+    "youtubeId": "9gFNZBXTpJI",
+    "previewUrl": "https://youtube.com/shorts/9gFNZBXTpJI",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwf06b7dhi8r",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:17:25.248Z",
+    "theme": "Queda no preço do minério de ferro em Dalian",
+    "title": "Ferro barato na China: quem sai na frente?",
+    "hook": "O minério de ferro despencou quase 3% na bolsa de Dalian.",
+    "script": "Esta semana o contrato de ferro em Dalian caiu 2,83%, o maior recuo da temporada. O motivo? Estoques chineses em alta e demanda menor da siderurgia. Quem ganha? Fabricantes de aço que importam ferro barato, reduzindo custos de produção. Quem perde? Exportadores brasileiros que veem preço internacional cair, reduzindo receitas. Se você tem investimentos em mineradoras ou siderúrgicas, fique de olho nas margens e ajuste sua exposição conforme o preço do ferro mudar.",
+    "cta": "Se acompanha o preço das commodities e quer ajustar sua carteira, se inscreve agora.",
+    "tags": [
+      "#Ferro",
+      "#Commodities",
+      "#China",
+      "#Investimentos",
+      "#Mercado"
+    ],
+    "captionKeywords": [
+      "minério de ferro",
+      "Dalian",
+      "commodities",
+      "preço",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/minerio-de-ferro-tem-queda-semanal-em-dalian-com-estoques-portuarios-em-alta/",
+    "rationale": "Notícia de mercado de commodities com impacto direto nos investidores de mineração e siderurgia, permitindo uma explicação objetiva de vencedores e perdedores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwf06b7dhi8r.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "tP-6b0tE2-E",
+    "previewUrl": "https://youtube.com/shorts/tP-6b0tE2-E",
+    "privacyStatus": "unlisted"
   }
 ]
