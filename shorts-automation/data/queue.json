@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z",
+    "publishErrorAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:09:41.699Z",
+    "decidedAt": "2026-11-13T17:10:51.147Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z"
+    "publishErrorAt": "2026-11-13T17:10:51.147Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -294,7 +294,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:46:16.078Z",
     "publishError": "não foi possível apagar JxTH1MwhJ4k do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z"
+    "publishErrorAt": "2026-11-13T17:10:51.147Z"
   },
   {
     "id": "sh_mw9snzop7om1",
@@ -332,45 +332,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
-    "publishErrorAt": "2026-11-13T17:09:41.699Z"
-  },
-  {
-    "id": "sh_mwf012e7c83h",
-    "status": "rejected",
-    "createdAt": "2026-11-13T13:13:48.699Z",
-    "theme": "Ações e setores",
-    "title": "Rumo registra queda de 17% no lucro anual",
-    "hook": "A Rumo acabou de anunciar lucro 17% menor que o ano passado!",
-    "script": "A ferrovia Rumo divulgou lucro ajustado de R$ 605 milhões no terceiro trimestre, queda anual de 17,4%. Quem ganha? Investidores que já venderam a ação antes da divulgação e quem busca oportunidades em setores mais resilientes. Quem perde? Acionistas da Rumo que esperavam dividendos maiores e quem ainda não diversificou a carteira. A queda sinaliza pressão nos transportes de carga e pode abrir espaço para outras empresas logísticas. Onde você está: mantendo a Rumo ou procurando alternativas?",
-    "tags": [
-      "ações",
-      "bolsa",
-      "logística"
-    ],
-    "captionKeywords": [
-      "Rumo",
-      "lucro",
-      "ações"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/mercados/rumo-rail3-tem-lucro-ajustado-de-r-605-mi-no-3t-queda-anual-de-174/",
-    "rationale": "Resultados corporativos são temas de alta procura e permitem explicação clara de ganhadores e perdedores.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 40,
-      "previewFile": "data/previews/sh_mwf012e7c83h.mp4",
-      "ttsProvider": "edge",
-      "ttsVoice": "pt-BR-AntonioNeural",
-      "ttsRate": "+6%",
-      "comCta": false,
-      "brollClips": 6,
-      "cortes": 8
-    },
-    "youtubeId": "oocQxVXSZZ8",
-    "previewUrl": "https://youtube.com/shorts/oocQxVXSZZ8",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:10:35.633Z",
-    "rejectReason": "Quem ganha e quem perde em todo video é muito ruim"
+    "publishErrorAt": "2026-11-13T17:10:51.147Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
