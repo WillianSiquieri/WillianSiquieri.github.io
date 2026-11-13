@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwezzt7fkp4z",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-13T13:13:48.699Z",
     "theme": "Finanças pessoais",
     "title": "XP lança ferramenta de planejamento direto no app",
@@ -368,7 +368,8 @@
     },
     "youtubeId": "7x2vFM8UGFE",
     "previewUrl": "https://youtube.com/shorts/7x2vFM8UGFE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:08:44.681Z"
   },
   {
     "id": "sh_mwf00fxm5xqe",
