@@ -331,5 +331,79 @@
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
     "publishErrorAt": "2026-11-12T23:46:11.386Z"
+  },
+  {
+    "id": "sh_mweadr9cl3as",
+    "status": "draft",
+    "createdAt": "2026-11-13T01:16:49.344Z",
+    "theme": "Ajuste fiscal do Governo Lula aprovado no Senado",
+    "title": "Senado aprova ajuste fiscal: quem ganha e quem perde?",
+    "hook": "O Senado acabou de aprovar o ajuste fiscal do governo Lula!",
+    "script": "O texto-base foi aprovado por 45 votos a 31. O objetivo é conter o gasto público e melhorar a confiança dos investidores. Quem ganha? O mercado de renda fixa, porque o risco de calote diminui e os juros podem cair. Também quem tem dívidas grandes, porque taxas menores aliviam o bolso. Quem perde? Quem depende de cargos temporários no setor público, já que o corte de gastos pode reduzir contratações. Também quem aposta em ações de empresas dependentes de estímulos fiscais, pois o ritmo de crescimento pode frear. Agora, pense: seu dinheiro está mais seguro ou mais apertado?",
+    "tags": [
+      "#Finanças",
+      "#Política",
+      "#Investimentos"
+    ],
+    "captionKeywords": [
+      "ajuste fiscal",
+      "Senado",
+      "Lula",
+      "renda fixa",
+      "juros"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/senado-aprova-texto-base-do-ajuste-fiscal-do-governo-lula-por-45-votos-a-31/",
+    "rationale": "Tema de alta relevância macroeconômica, explica impacto direto no bolso e divide claramente ganhadores e perdedores, atendendo ao formato 'quem ganha e quem perde'.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "previewFile": "data/previews/sh_mweadr9cl3as.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "B3_Y0cpBQ0U",
+    "previewUrl": "https://youtube.com/shorts/B3_Y0cpBQ0U",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mweaelr64eai",
+    "status": "draft",
+    "createdAt": "2026-11-13T01:16:49.344Z",
+    "theme": "Resultados do 3T da Marisa Lojas (AMAR3)",
+    "title": "Marisa registra prejuízo no 3T: quem sai no prejuízo e quem pode se beneficiar?",
+    "hook": "A Marisa acabou de divulgar prejuízo de quase R$ 53 milhões!",
+    "script": "No terceiro trimestre, a rede de lojas fechou com prejuízo líquido de R$ 52,9 milhões, apesar de melhorar a operação. Quem perde? Investidores de curto prazo que esperavam dividendos, já que a ação pode cair. Também consumidores que dependem de promoções da Marisa, pois a empresa pode reduzir ofertas. Quem ganha? concorrentes como Renner e C&A, que podem capturar clientes insatisfeitos. E os acionistas de longo prazo? Eles podem ver a queda como oportunidade de comprar a preço baixo, esperando recuperação. Então, qual lado você está: vendendo agora ou esperando a volta?",
+    "tags": [
+      "#Ações",
+      "#MercadoFinanceiro",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Marisa",
+      "prejuízo",
+      "ações",
+      "retalho",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/marisa-lojas-amar3-resultados-terceiro-trimestre-2026/",
+    "rationale": "Notícia de empresa listada, traz impacto direto para investidores e consumidores, permite separar claramente ganhadores e perdedores, seguindo o formato pedido e variando ritmo e estrutura.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "previewFile": "data/previews/sh_mweaelr64eai.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "Lb6u6ife-GE",
+    "previewUrl": "https://youtube.com/shorts/Lb6u6ife-GE",
+    "privacyStatus": "unlisted"
   }
 ]
