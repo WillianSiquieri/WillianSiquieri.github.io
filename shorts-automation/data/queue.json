@@ -337,7 +337,7 @@
   },
   {
     "id": "sh_mwfcgdkyagl9",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-13T19:02:02.364Z",
     "theme": "Recompras de ações no Brasil",
     "title": "Recompra de ações: quem realmente se beneficia?",
@@ -371,6 +371,8 @@
       "comCta": false,
       "brollClips": 6,
       "cortes": 10
-    }
+    },
+    "decidedAt": "2026-11-13T23:14:32.979Z",
+    "rejectReason": "todo vídeo tá fazendo esse quem ganha quem perde Isso é muito ruim é muito chato é muito monótono isso tem que mudar o feedback look o feedback loop tem que melhorar"
   }
 ]
