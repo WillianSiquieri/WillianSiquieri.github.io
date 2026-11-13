@@ -30,9 +30,9 @@
     "youtubeId": "Ac4x4Y4a4So",
     "previewUrl": "https://youtube.com/shorts/Ac4x4Y4a4So",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar Ac4x4Y4a4So do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -66,9 +66,9 @@
     "youtubeId": "dwpeovjzG7k",
     "previewUrl": "https://youtube.com/shorts/dwpeovjzG7k",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar dwpeovjzG7k do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -103,9 +103,9 @@
     "youtubeId": "zD0xYhpHftQ",
     "previewUrl": "https://youtube.com/shorts/zD0xYhpHftQ",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar zD0xYhpHftQ do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -140,9 +140,9 @@
     "youtubeId": "yiXMfufXTMs",
     "previewUrl": "https://youtube.com/shorts/yiXMfufXTMs",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar yiXMfufXTMs do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -178,9 +178,9 @@
     "youtubeId": "vC4-JNgRzXc",
     "previewUrl": "https://youtube.com/shorts/vC4-JNgRzXc",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar vC4-JNgRzXc do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -215,9 +215,9 @@
     "youtubeId": "eO7IvcimwRE",
     "previewUrl": "https://youtube.com/shorts/eO7IvcimwRE",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "publishError": "não foi possível apagar eO7IvcimwRE do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z",
+    "publishErrorAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
   },
   {
@@ -254,10 +254,10 @@
     "youtubeId": "vsxEuizECd4",
     "previewUrl": "https://youtube.com/shorts/vsxEuizECd4",
     "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T13:52:07.857Z",
+    "decidedAt": "2026-11-13T17:09:01.575Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)",
     "publishError": "não foi possível apagar vsxEuizECd4 do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z"
+    "publishErrorAt": "2026-11-13T17:09:01.575Z"
   },
   {
     "id": "sh_mw83vv1mgvnw",
@@ -294,7 +294,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:46:16.078Z",
     "publishError": "não foi possível apagar JxTH1MwhJ4k do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z"
+    "publishErrorAt": "2026-11-13T17:09:01.575Z"
   },
   {
     "id": "sh_mw9snzop7om1",
@@ -332,44 +332,7 @@
     "privacyStatus": "unlisted",
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
-    "publishErrorAt": "2026-11-13T13:52:07.857Z"
-  },
-  {
-    "id": "sh_mwezzt7fkp4z",
-    "status": "rejected",
-    "createdAt": "2026-11-13T13:13:48.699Z",
-    "theme": "Finanças pessoais",
-    "title": "XP lança ferramenta de planejamento direto no app",
-    "hook": "A XP acabou de colocar o seu plano financeiro na palma da mão!",
-    "script": "A XP lançou um módulo novo no app. Cliente e assessor conversam em tempo real, criam metas, simulam aportes. Quem ganha? Quem quer organizar o bolso sem contratar consultoria cara. Quem perde? Quem ainda usa planilhas desatualizadas e perde oportunidade de otimizar juros. A praticidade pode reduzir custos e melhorar a disciplina de investimento. E você, já está usando a nova ferramenta da XP?",
-    "tags": [
-      "finanças",
-      "investimento",
-      "tecnologia"
-    ],
-    "captionKeywords": [
-      "XP",
-      "planejamento financeiro",
-      "app"
-    ],
-    "sourceLink": "https://www.infomoney.com.br/advisor/nova-ferramenta-da-xp-conecta-clientes-e-assessores-no-planejamento-financeiro-veja/",
-    "rationale": "Ferramenta nova atrai investidores domésticos, alta relevância e fácil conexão com o bolso do espectador.",
-    "aiProvider": "groq",
-    "video": {
-      "rendered": true,
-      "durationSec": 32,
-      "previewFile": "data/previews/sh_mwezzt7fkp4z.mp4",
-      "ttsProvider": "edge",
-      "ttsVoice": "pt-BR-FranciscaNeural",
-      "ttsRate": "-4%",
-      "comCta": false,
-      "brollClips": 6,
-      "cortes": 7
-    },
-    "youtubeId": "7x2vFM8UGFE",
-    "previewUrl": "https://youtube.com/shorts/7x2vFM8UGFE",
-    "privacyStatus": "unlisted",
-    "decidedAt": "2026-11-13T17:08:44.681Z"
+    "publishErrorAt": "2026-11-13T17:09:01.575Z"
   },
   {
     "id": "sh_mwf00fxm5xqe",
