@@ -106,6 +106,7 @@ async function main() {
       title: d.title,
       hook: d.hook,
       script: d.script,
+      cta: d.cta || '',
       tags: d.tags || [],
       captionKeywords: d.captionKeywords || [],
       sourceLink: d.sourceLink,
@@ -113,6 +114,12 @@ async function main() {
       aiProvider: d.aiProvider || 'desconhecido',
       video: { rendered: false },
     };
+
+    // Canário: já aconteceu duas vezes de a IA preencher um campo novo (hook,
+    // depois cta) e este mapeamento descartá-lo em silêncio — o recurso parecia
+    // implementado e não chegava ao vídeo. Avisa em vez de perder de novo.
+    const perdidos = Object.keys(d).filter((k) => d[k] != null && d[k] !== '' && !(k in entry));
+    if (perdidos.length) warn(`Campos da IA ignorados no draft ${id}: ${perdidos.join(', ')} — mapear em cycle.js.`);
 
     if (!mock) {
       const asm = await assembleVideo(entry, { config, workDir, previewDir });
