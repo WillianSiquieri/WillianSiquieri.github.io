@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwf06b7dhi8r",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-13T13:17:25.248Z",
     "theme": "Queda no preço do minério de ferro em Dalian",
     "title": "Ferro barato na China: quem sai na frente?",
@@ -373,6 +373,7 @@
     },
     "youtubeId": "tP-6b0tE2-E",
     "previewUrl": "https://youtube.com/shorts/tP-6b0tE2-E",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:13:13.362Z"
   }
 ]
