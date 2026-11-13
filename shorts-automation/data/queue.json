@@ -336,7 +336,7 @@
   },
   {
     "id": "sh_mwf04gaog4iu",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-13T13:17:25.248Z",
     "theme": "Ações da Microsoft caem por apagão global de serviços",
     "title": "Microsoft fora do ar: quem ganha e quem perde?",
@@ -373,7 +373,8 @@
     },
     "youtubeId": "_3jH40H1Bgg",
     "previewUrl": "https://youtube.com/shorts/_3jH40H1Bgg",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-13T17:11:33.402Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
