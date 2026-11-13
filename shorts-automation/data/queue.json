@@ -333,5 +333,113 @@
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
     "publishErrorAt": "2026-11-13T13:05:48.792Z"
+  },
+  {
+    "id": "sh_mwezzt7fkp4z",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:13:48.699Z",
+    "theme": "Finanças pessoais",
+    "title": "XP lança ferramenta de planejamento direto no app",
+    "hook": "A XP acabou de colocar o seu plano financeiro na palma da mão!",
+    "script": "A XP lançou um módulo novo no app. Cliente e assessor conversam em tempo real, criam metas, simulam aportes. Quem ganha? Quem quer organizar o bolso sem contratar consultoria cara. Quem perde? Quem ainda usa planilhas desatualizadas e perde oportunidade de otimizar juros. A praticidade pode reduzir custos e melhorar a disciplina de investimento. E você, já está usando a nova ferramenta da XP?",
+    "tags": [
+      "finanças",
+      "investimento",
+      "tecnologia"
+    ],
+    "captionKeywords": [
+      "XP",
+      "planejamento financeiro",
+      "app"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/advisor/nova-ferramenta-da-xp-conecta-clientes-e-assessores-no-planejamento-financeiro-veja/",
+    "rationale": "Ferramenta nova atrai investidores domésticos, alta relevância e fácil conexão com o bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "previewFile": "data/previews/sh_mwezzt7fkp4z.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "7x2vFM8UGFE",
+    "previewUrl": "https://youtube.com/shorts/7x2vFM8UGFE",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwf00fxm5xqe",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:13:48.699Z",
+    "theme": "Câmbio",
+    "title": "Dólar dispara: maior alta desde junho de 2025",
+    "hook": "O dólar acabou de bater a maior alta dos últimos anos!",
+    "script": "O real perdeu força e o dólar subiu mais de 1% hoje, atingindo o nível que não via desde junho de 2025. Quem sai ganhando? Exportadores que recebem em dólar e quem tem dívidas atreladas à moeda estrangeira. Quem perde? Turistas, quem compra produtos importados e quem tem cartão de crédito em dólar. A alta pressiona inflação e pode mudar a estratégia de investimento. E aí, seu dinheiro está do lado que se protege da alta do dólar?",
+    "tags": [
+      "câmbio",
+      "economia",
+      "bolsa"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "câmbio",
+      "inflação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-13112026/",
+    "rationale": "Notícia de alta cambial impacta amplo público, gera engajamento imediato.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "previewFile": "data/previews/sh_mwf00fxm5xqe.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "EDGDwZRA45I",
+    "previewUrl": "https://youtube.com/shorts/EDGDwZRA45I",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwf012e7c83h",
+    "status": "draft",
+    "createdAt": "2026-11-13T13:13:48.699Z",
+    "theme": "Ações e setores",
+    "title": "Rumo registra queda de 17% no lucro anual",
+    "hook": "A Rumo acabou de anunciar lucro 17% menor que o ano passado!",
+    "script": "A ferrovia Rumo divulgou lucro ajustado de R$ 605 milhões no terceiro trimestre, queda anual de 17,4%. Quem ganha? Investidores que já venderam a ação antes da divulgação e quem busca oportunidades em setores mais resilientes. Quem perde? Acionistas da Rumo que esperavam dividendos maiores e quem ainda não diversificou a carteira. A queda sinaliza pressão nos transportes de carga e pode abrir espaço para outras empresas logísticas. Onde você está: mantendo a Rumo ou procurando alternativas?",
+    "tags": [
+      "ações",
+      "bolsa",
+      "logística"
+    ],
+    "captionKeywords": [
+      "Rumo",
+      "lucro",
+      "ações"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/rumo-rail3-tem-lucro-ajustado-de-r-605-mi-no-3t-queda-anual-de-174/",
+    "rationale": "Resultados corporativos são temas de alta procura e permitem explicação clara de ganhadores e perdedores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "previewFile": "data/previews/sh_mwf012e7c83h.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "oocQxVXSZZ8",
+    "previewUrl": "https://youtube.com/shorts/oocQxVXSZZ8",
+    "privacyStatus": "unlisted"
   }
 ]
