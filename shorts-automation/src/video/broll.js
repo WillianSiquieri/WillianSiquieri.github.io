@@ -5,32 +5,39 @@
 import { writeFile } from 'node:fs/promises';
 import { log, warn } from '../util.js';
 
-// Mapeia o assunto do short para uma busca de b-roll (em inglês, onde o acervo é maior).
+// Mapeia o assunto do short para buscas de b-roll (em inglês, onde o acervo é
+// maior). Cada tema tem VÁRIOS registros visuais — não só gráfico e dinheiro —
+// porque seis clipes de cotação subindo e descendo cansam igual a um só em loop.
 const QUERY_MAP = [
-  { re: /d[óo]lar|c[âa]mbio|moeda|real\b/i, q: 'dollar money currency' },
-  { re: /bolsa|ibovespa|a[çc][õo]es|invest|tesouro|fundo|b3\b/i, q: 'stock market trading chart' },
-  { re: /petr[óo]leo|combust[íi]vel|gasolina|energia/i, q: 'oil gas fuel station' },
-  { re: /tarifa|com[ée]rcio|exporta|importa|navio/i, q: 'cargo shipping port container' },
-  { re: /infla[çc][ãa]o|pre[çc]o|supermercado|compras/i, q: 'grocery shopping supermarket' },
-  { re: /juros|selic|banco central|banco/i, q: 'bank finance city building' },
-  { re: /aposentad|previd[êe]ncia|poupan/i, q: 'saving money piggy bank' },
-  { re: /cart[ãa]o|d[íi]vida|cr[ée]dito|financ/i, q: 'credit card payment money' },
-  { re: /im[óo]vel|aluguel|casa|apartamento/i, q: 'real estate city apartment' },
-  { re: /tecnologia|intelig[êe]ncia|ia\b|startup/i, q: 'technology data server' },
+  { re: /d[óo]lar|c[âa]mbio|moeda|real\b/i, qs: ['dollar money currency', 'currency exchange office', 'traveler airport counter', 'hands counting cash'] },
+  { re: /bolsa|ibovespa|a[çc][õo]es|invest|tesouro|fundo|b3\b/i, qs: ['stock market trading chart', 'trader office screens', 'business people meeting', 'skyscraper financial district'] },
+  { re: /petr[óo]leo|combust[íi]vel|gasolina|energia/i, qs: ['oil gas fuel station', 'highway truck traffic', 'power lines energy', 'driver car dashboard'] },
+  { re: /tarifa|com[ée]rcio|exporta|importa|navio/i, qs: ['cargo shipping port container', 'warehouse logistics worker', 'factory production line', 'crane loading dock'] },
+  { re: /infla[çc][ãa]o|pre[çc]o|supermercado|compras/i, qs: ['grocery shopping supermarket', 'price tag shelf', 'family kitchen cooking', 'street market vendor'] },
+  { re: /juros|selic|banco central|banco/i, qs: ['bank finance city building', 'person using atm', 'government building columns', 'calculator desk paperwork'] },
+  { re: /aposentad|previd[êe]ncia|poupan/i, qs: ['saving money piggy bank', 'elderly couple walking', 'retirement home garden', 'hands holding documents'] },
+  { re: /cart[ãa]o|d[íi]vida|cr[ée]dito|financ/i, qs: ['credit card payment money', 'worried person bills', 'online shopping laptop', 'contactless payment store'] },
+  { re: /im[óo]vel|aluguel|casa|apartamento/i, qs: ['real estate city apartment', 'house keys handover', 'construction site building', 'family moving boxes'] },
+  { re: /tecnologia|intelig[êe]ncia|ia\b|startup|cripto|bitcoin/i, qs: ['technology data server', 'developer coding screen', 'smartphone app hands', 'modern office startup'] },
+  { re: /emprego|desemprego|sal[áa]rio|trabalh/i, qs: ['office workers walking', 'job interview handshake', 'factory worker machine', 'commuters subway crowd'] },
+  { re: /pol[íi]tica|elei[çc]|governo|congresso|stf/i, qs: ['government building columns', 'press conference microphones', 'crowd city street protest', 'official documents signing'] },
 ];
 
-// Buscas genéricas de reforço: entram quando a busca principal não devolve
-// clipes distintos suficientes, mantendo a variedade sem sair do nicho.
+// Registros visuais genéricos de reforço: entram quando o tema não rende
+// clipes distintos suficientes, mantendo o nicho sem repetir gráfico/dinheiro.
 const FALLBACK_QUERIES = [
-  'finance business money',
   'business people office city',
+  'person reading newspaper',
+  'city traffic time lapse',
+  'hands using smartphone',
   'economy graph data screen',
+  'crowd walking street brazil',
 ];
 
 function pickQueries(draft) {
-  const hay = [draft.theme, ...(draft.tags || []), ...(draft.captionKeywords || [])].join(' ');
-  const hits = QUERY_MAP.filter((m) => m.re.test(hay)).map((m) => m.q);
-  // Sem duplicar: temas achados primeiro, genéricos depois.
+  const hay = [draft.theme, draft.title, ...(draft.tags || []), ...(draft.captionKeywords || [])].join(' ');
+  const hits = QUERY_MAP.filter((m) => m.re.test(hay)).flatMap((m) => m.qs);
+  // Temas achados primeiro, genéricos depois, sem duplicar.
   return [...new Set([...hits, ...FALLBACK_QUERIES])];
 }
 
@@ -80,22 +87,32 @@ export async function fetchBrollClips(draft, dir, want, width = 1080, height = 1
   const chosen = [];
   const seen = new Set();
 
-  // Varre as buscas até juntar clipes distintos suficientes.
-  for (const q of queries) {
-    if (chosen.length >= want) break;
-    let vids;
-    try {
-      vids = await searchPexels(key, q);
-    } catch (e) {
-      warn(`Busca de b-roll "${q}" falhou: ${e.message}`);
-      continue;
-    }
-    for (const v of shuffle(vids)) {
+  // Busca em paralelo os primeiros termos (um por clipe desejado, com folga),
+  // e depois distribui em ROUND-ROBIN: 1 clipe de cada busca por rodada. Antes o
+  // laço esgotava o primeiro termo e os 6 clipes vinham todos do mesmo visual.
+  const usadas = queries.slice(0, Math.max(want, 4));
+  const resultados = await Promise.all(
+    usadas.map(async (q) => {
+      try {
+        return { q, vids: shuffle(await searchPexels(key, q)) };
+      } catch (e) {
+        warn(`Busca de b-roll "${q}" falhou: ${e.message}`);
+        return { q, vids: [] };
+      }
+    })
+  );
+
+  for (let rodada = 0; chosen.length < want; rodada++) {
+    let achouAlgo = false;
+    for (const { q, vids } of resultados) {
       if (chosen.length >= want) break;
-      if (seen.has(v.id)) continue;
+      const v = vids[rodada];
+      if (!v || seen.has(v.id)) continue;
       seen.add(v.id);
       chosen.push({ video: v, q });
+      achouAlgo = true;
     }
+    if (!achouAlgo) break; // acabaram os resultados de todas as buscas
   }
 
   if (!chosen.length) {

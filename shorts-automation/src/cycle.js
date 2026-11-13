@@ -19,7 +19,7 @@ import { collectItems } from './sources/index.js';
 import { generateShorts } from './ai/generate.js';
 import { assembleVideo } from './video/assemble.js';
 import { uploadShort, youtubeReady } from './youtube/upload.js';
-import { refreshAnalytics, topPerformers } from './youtube/analytics.js';
+import { refreshAnalytics, topPerformers, worstPerformers } from './youtube/analytics.js';
 import { log, warn, makeId, argFlag, collapseRepeats } from './util.js';
 
 function usedKeys(queue, published) {
@@ -69,6 +69,7 @@ async function main() {
     warn('Analytics falhou:', e.message);
   }
   const performers = await topPerformers(5);
+  const piores = await worstPerformers(4);
 
   // Coleta e deduplicação.
   const items = await collectItems(config.sources || []);
@@ -81,6 +82,7 @@ async function main() {
     items: fresh,
     preferences: effectivePreferences(settings, feedback),
     topPerformers: performers,
+    worstPerformers: piores,
     count,
     niche: config.niche,
     llm: config.llm,
@@ -122,7 +124,13 @@ async function main() {
         descartados.push(`${id}: ${asm.reason}`);
         continue;
       }
-      entry.video = { rendered: asm.rendered, durationSec: asm.durationSec, ttsProvider: asm.ttsProvider, previewFile: asm.previewFile || null };
+      // Guarda voz/ritmo/cortes: serve para o painel e para correlacionar
+      // depois qual combinação de voz e formato retém mais.
+      entry.video = {
+        rendered: asm.rendered, durationSec: asm.durationSec, previewFile: asm.previewFile || null,
+        ttsProvider: asm.ttsProvider, ttsVoice: asm.ttsVoice || null, ttsRate: asm.ttsRate || null,
+        brollClips: asm.brollClips ?? null, cortes: asm.cortes ?? null,
+      };
 
       // Upload de preview (não listado) quando há vídeo e credenciais.
       if (asm.rendered && youtubeReady() && !argFlag('no-upload')) {

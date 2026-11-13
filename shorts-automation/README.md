@@ -80,6 +80,10 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 - **Nada a configurar:** por padrão usa **edge-tts** (vozes neurais da Microsoft,
   gratuitas). Troque a voz em `config/config.json → tts.voice`
   (ex.: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaNeural`).
+- **Voz e entonação variam por short.** `tts.voices` lista as vozes em rotação; a
+  escolha (voz + ritmo + tom) sai de um hash do id do short, então é estável para
+  o mesmo vídeo e espalhada entre vídeos diferentes. Se uma voz for descontinuada,
+  o TTS cai em `tts.voice` e o log diz qual falhou — basta removê-la da lista.
 - Opcional (pago, premium): `ELEVENLABS_API_KEY` (+ `ELEVENLABS_VOICE_ID`).
 - Opcional (offline): `PIPER_MODEL`.
 - **Se o TTS falhar, o short é descartado** — sem voz não vai pro ar, e o ciclo
@@ -99,7 +103,7 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 - Controle em `config/config.json → video.backgroundStyle`: `auto` (b-roll se houver
   chave), `gradient` (força gradiente) ou `stock` (força b-roll).
 
-### 3. YouTube (publicar + medir performance)
+### 4. YouTube (publicar + medir performance)
 1. No [Google Cloud Console](https://console.cloud.google.com): crie um projeto,
    ative **YouTube Data API v3** e **YouTube Analytics API**.
 2. Crie credenciais **OAuth 2.0 (App Desktop)** → guarde *Client ID* e *Client Secret*.
@@ -178,6 +182,24 @@ Publicado em `https://<seu-usuario>.github.io/shorts-automation/dashboard/`.
   *Contents: Read/Write* neste repo). Aí você pode **aprovar/rejeitar**, mudar o
   **modo** (pausar/retomar), ajustar **shorts/dia** e enviar **feedback** — tudo
   isso grava nos JSON e o motor obedece no próximo ciclo.
+
+### Variedade não é estética, é elegibilidade
+
+A política de monetização do YouTube recusa canal cujo "conteúdo varia muito pouco
+a cada vídeo" ou que "pareça ser produzido com base em um modelo", e exige que
+conteúdo feito com ferramentas automatizadas ainda "demonstre sua visão criativa".
+Um canal que publica 2 shorts/dia no mesmo molde é exatamente o caso descrito.
+
+Por isso a variação é parte do motor, não enfeite:
+
+- **Formato do roteiro** rotaciona por dia entre seis estruturas (número que choca,
+  pergunta e resposta, mito contra realidade, antes e depois, quem ganha e quem
+  perde, linha do tempo), cada uma com duração e fecho próprios — inclusive fechos
+  sem pergunta.
+- **Voz, ritmo e tom** mudam por short (`tts.voices`).
+- **B-roll** busca vários registros visuais por tema (pessoas, cidade, mercado,
+  escritório), não só gráfico e dinheiro, e distribui os clipes em round-robin
+  entre as buscas em vez de esgotar a primeira.
 
 ### Validade da fila
 
