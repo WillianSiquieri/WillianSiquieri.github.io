@@ -17,7 +17,12 @@ Regras do roteiro:
 - Respeitar as preferências, o formato pedido e o feedback do usuário.
 - Cada short do lote tem de parecer feito por uma pessoa diferente: varie a
   estrutura, o comprimento das frases e o fecho. Dois roteiros com a mesma forma
-  tiram o canal da monetização (política de "conteúdo produzido em massa").`;
+  tiram o canal da monetização (política de "conteúdo produzido em massa").
+- No campo "cta", escreva UMA frase convidando a pessoa a se inscrever no canal,
+  amarrada ao assunto DESTE short (ex.: "Se você quer acompanhar o que o dólar
+  faz com o seu bolso, se inscreve aí."). Nunca repita a frase de outro short e
+  nunca use fórmula pronta tipo "deixe seu like e se inscreva". Escreva sempre,
+  mesmo que o fecho já tenha pergunta: quem decide onde usar é o sistema.`;
 
 // Formatos que entram em rotação para o canal não virar um molde só. Além de
 // prender mais, isso é requisito de monetização: a política do YouTube recusa
@@ -90,6 +95,7 @@ function outputToolSchema(count) {
               captionKeywords: { type: 'array', items: { type: 'string' }, description: '4–8 termos p/ legenda em tela.' },
               tags: { type: 'array', items: { type: 'string' } },
               sourceLink: { type: 'string' },
+              cta: { type: 'string', description: 'Convite curto para se inscrever no canal, escrito com as palavras DESTE roteiro. Uma frase.' },
               rationale: { type: 'string', description: 'Por que esse tema tende a performar.' },
             },
             required: ['theme', 'title', 'hook', 'script', 'tags', 'sourceLink'],
@@ -189,7 +195,7 @@ function geminiSchema() {
         items: {
           type: 'OBJECT',
           properties: {
-            theme: S, title: S, hook: S, script: S,
+            theme: S, title: S, hook: S, script: S, cta: S,
             captionKeywords: { type: 'ARRAY', items: S },
             tags: { type: 'ARRAY', items: S },
             sourceLink: S, rationale: S,
@@ -308,7 +314,7 @@ async function groqComplete(model, opts, size, budget) {
   const sys =
     SYSTEM +
     `\n\nResponda APENAS com um objeto JSON no formato ` +
-    `{"shorts":[{"theme","title","hook","script","captionKeywords":[],"tags":[],"sourceLink","rationale"}]} ` +
+    `{"shorts":[{"theme","title","hook","script","cta","captionKeywords":[],"tags":[],"sourceLink","rationale"}]} ` +
     `contendo exatamente ${count} itens.`;
   const user = buildUserPrompt(opts, size);
   const payload = {

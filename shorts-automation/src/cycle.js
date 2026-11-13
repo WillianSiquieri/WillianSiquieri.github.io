@@ -129,6 +129,7 @@ async function main() {
       entry.video = {
         rendered: asm.rendered, durationSec: asm.durationSec, previewFile: asm.previewFile || null,
         ttsProvider: asm.ttsProvider, ttsVoice: asm.ttsVoice || null, ttsRate: asm.ttsRate || null,
+        comCta: asm.comCta ?? null,
         brollClips: asm.brollClips ?? null, cortes: asm.cortes ?? null,
       };
 
