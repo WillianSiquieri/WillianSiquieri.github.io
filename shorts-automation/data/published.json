@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 431,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": 44.7,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 91,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": 49.9,
     "avgViewSec": 23
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2214,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": 61.1,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -255,12 +255,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-12T23:41:19.121Z",
     "publishedAt": "2026-11-12T23:41:36.558Z",
-    "views": 5,
+    "views": 6,
     "likes": 0,
     "comments": 0,
-    "score": 5,
+    "score": 6,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -298,12 +298,12 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-12T23:42:22.626Z",
     "publishedAt": "2026-11-12T23:42:38.499Z",
-    "views": 5,
+    "views": 7,
     "likes": 0,
     "comments": 0,
-    "score": 5,
+    "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -394,7 +394,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z",
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z",
     "avgViewPct": null,
     "avgViewSec": null
   },
@@ -436,14 +436,14 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T13:05:33.403Z",
     "publishedAt": "2026-11-13T13:05:48.792Z",
-    "views": 9,
+    "views": 10,
     "likes": 0,
     "comments": 0,
-    "score": 9,
+    "score": 10,
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z"
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z"
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -538,14 +538,14 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T17:12:30.854Z",
     "publishedAt": "2026-11-13T17:12:47.705Z",
-    "views": 1,
+    "views": 3,
     "likes": 0,
     "comments": 0,
-    "score": 1,
+    "score": 3,
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z"
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
@@ -596,7 +596,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-13T23:14:52.866Z"
+    "analyticsUpdatedAt": "2026-11-14T04:47:51.027Z"
   },
   {
     "id": "sh_mwfcfmv03zb5",
