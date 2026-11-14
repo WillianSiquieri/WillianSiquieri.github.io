@@ -20,11 +20,20 @@
     <div class="group">
       <button id="btn-undo" title="Desfazer (Ctrl+Z)">↶</button>
       <button id="btn-redo" title="Refazer (Ctrl+Shift+Z)">↷</button>
-      <button id="btn-clear" title="Limpar tudo">🗑️</button>
+      <button id="btn-clear" title="Apagar minhas linhas">🗑️</button>
+      <button id="btn-save" class="sandbox-only" title="Salvar pista (Sandbox)">💾</button>
     </div>
     <div class="group">
+      <button id="btn-menu" title="Menu / fases">☰</button>
       <button id="btn-theme" title="Tema claro/escuro">🌓</button>
     </div>
+  </div>
+
+  <!-- HUD de objetivos -->
+  <div id="hud" class="hud">
+    <span id="hud-level">Fase</span>
+    <span id="hud-stars"></span>
+    <span id="hud-time">⏱ 0.0s</span>
   </div>
 
   <!-- Controles de jogo (inferior) -->
@@ -33,14 +42,44 @@
     <button id="btn-play" class="primary" title="Jogar / Pausar (Espaço)">▶</button>
   </div>
 
-  <div id="hint" class="hint">Desenhe uma ladeira com o dedo ou o mouse e toque em ▶ para deslizar.</div>
+  <div id="hint" class="hint"></div>
+  <div id="toast" class="toast"></div>
+
+  <!-- Menu / seleção de fases -->
+  <div id="menu" class="overlay">
+    <div class="card">
+      <h1>TracePlay</h1>
+      <p class="sub">Desenhe a pista e deslize até a bandeira. 🚩</p>
+      <div id="level-list" class="level-list"></div>
+      <button id="open-sandbox" class="wide">✏️ Modo livre (Sandbox)</button>
+    </div>
+  </div>
+
+  <!-- Vitória -->
+  <div id="win" class="overlay">
+    <div class="card">
+      <h1>Você chegou! 🎉</h1>
+      <p class="big"><span id="win-time">0.0s</span> &nbsp; <span id="win-stars"></span></p>
+      <div class="row">
+        <button id="win-retry">⟲ Repetir</button>
+        <button id="win-menu">☰ Fases</button>
+        <button id="win-next" class="primary-btn">Próxima ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Derrota -->
+  <div id="lose" class="overlay">
+    <div class="card">
+      <h1>Ops, caiu! 🙃</h1>
+      <p class="sub">Ajuste sua pista e tente de novo.</p>
+      <div class="row">
+        <button id="lose-retry" class="primary-btn">⟲ Tentar de novo</button>
+        <button id="lose-menu">☰ Fases</button>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="js/main.js"></script>
-  <script>
-    // Esconde a dica após a primeira interação.
-    const hide = () => { const h = document.getElementById('hint'); if (h) h.style.display = 'none'; };
-    window.addEventListener('pointerdown', hide, { once: true });
-    setTimeout(hide, 7000);
-  </script>
 </body>
 </html>

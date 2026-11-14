@@ -5,11 +5,13 @@
   --line: #1f2430;
   --grid: rgba(0, 0, 0, 0.06);
   --accent: #2e7dff;
+  --fixed: #8a93a6;
   --panel: rgba(255, 255, 255, 0.9);
   --panel-border: rgba(0, 0, 0, 0.08);
   --btn: #ffffff;
   --btn-text: #1f2430;
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --overlay-bg: rgba(20, 28, 40, 0.45);
 }
 
 :root[data-theme="dark"] {
@@ -19,9 +21,11 @@
   --accent: #4f9dff;
   --panel: rgba(26, 32, 42, 0.9);
   --panel-border: rgba(255, 255, 255, 0.1);
+  --fixed: #5b6475;
   --btn: #202733;
   --btn-text: #e8ecf4;
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --overlay-bg: rgba(6, 10, 16, 0.6);
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -126,6 +130,102 @@ button:disabled { opacity: 0.35; cursor: default; }
 /* Durante o play, some com as ferramentas de edição */
 body.playing .toolbar.top .group:first-child,
 body.playing #btn-clear { opacity: 0.4; pointer-events: none; }
+
+/* Botão só aparece no Sandbox */
+.sandbox-only { display: none; }
+body.sandbox .sandbox-only { display: flex; }
+
+/* HUD de objetivos */
+.hud {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 74px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 14px;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  z-index: 8;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+/* Overlays (menu / vitória / derrota) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(4px);
+}
+.overlay.show { display: flex; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 26px 24px;
+  width: min(420px, 92vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.card h1 { margin: 0 0 6px; font-size: 26px; }
+.card .sub { margin: 0 0 18px; opacity: 0.7; font-size: 15px; }
+.card .big { font-size: 22px; font-weight: 700; margin: 6px 0 20px; }
+
+.level-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.level-card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  text-align: left;
+  font-size: 16px;
+}
+.level-card .lv-name { font-weight: 700; }
+.level-card .lv-meta { font-size: 13px; opacity: 0.7; font-weight: 500; }
+.level-card.done { border-color: var(--accent); }
+
+button.wide { width: 100%; height: 50px; border-radius: 14px; font-size: 16px; font-weight: 600; }
+
+.row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.row button { width: auto; height: 46px; padding: 0 16px; border-radius: 12px; font-size: 15px; font-weight: 600; }
+.primary-btn { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 100px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 25;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 .hint {
   position: fixed;

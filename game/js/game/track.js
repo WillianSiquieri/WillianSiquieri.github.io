@@ -19,20 +19,32 @@ export class Track {
     this._dirty = false;
   }
 
-  addSegment(ax, ay, bx, by) {
-    const seg = { id: nextId++, a: { x: ax, y: ay }, b: { x: bx, y: by } };
+  // Remove apenas os segmentos desenhados pelo jogador (mantém os fixos da fase).
+  clearUnlocked() {
+    const removed = this.segments.filter(s => !s.locked);
+    this.segments = this.segments.filter(s => s.locked);
+    this.grid.rebuild(this.segments);
+    return removed;
+  }
+
+  // Segmentos desenhados pelo jogador (para salvar no Sandbox).
+  userSegments() { return this.segments.filter(s => !s.locked); }
+
+  addSegment(ax, ay, bx, by, locked = false) {
+    const seg = { id: nextId++, a: { x: ax, y: ay }, b: { x: bx, y: by }, locked };
     this.segments.push(seg);
     this.grid.insert(seg);
     return seg;
   }
 
   // Remove segmentos cujo ponto mais próximo de (x,y) esteja dentro de `radius`.
+  // Segmentos fixos (locked) das fases nunca são apagados.
   // Retorna os segmentos removidos (para o histórico de desfazer).
   eraseAt(x, y, radius) {
     const removed = [];
     const kept = [];
     for (const s of this.segments) {
-      if (segNearPoint(s, x, y, radius)) removed.push(s);
+      if (!s.locked && segNearPoint(s, x, y, radius)) removed.push(s);
       else kept.push(s);
     }
     if (removed.length) {
