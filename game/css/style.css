@@ -1,0 +1,151 @@
+/* TracePlay — estilo minimalista, responsivo, tema claro/escuro. */
+
+:root {
+  --bg: #f4f6f8;
+  --line: #1f2430;
+  --grid: rgba(0, 0, 0, 0.06);
+  --accent: #2e7dff;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-border: rgba(0, 0, 0, 0.08);
+  --btn: #ffffff;
+  --btn-text: #1f2430;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="dark"] {
+  --bg: #11151c;
+  --line: #e8ecf4;
+  --grid: rgba(255, 255, 255, 0.06);
+  --accent: #4f9dff;
+  --panel: rgba(26, 32, 42, 0.9);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --btn: #202733;
+  --btn-text: #e8ecf4;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--btn-text);
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  display: block;
+  touch-action: none;
+}
+
+/* Barras de ferramentas */
+.toolbar {
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  user-select: none;
+}
+
+.toolbar.top {
+  top: calc(env(safe-area-inset-top, 0px) + 12px);
+  left: 12px;
+  right: 12px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.toolbar .group {
+  display: flex;
+  gap: 6px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.toolbar.bottom {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+  left: 0;
+  right: 0;
+  justify-content: center;
+  gap: 16px;
+}
+
+button {
+  font-size: 20px;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  background: var(--btn);
+  color: var(--btn-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.08s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+button:active { transform: scale(0.92); }
+button:disabled { opacity: 0.35; cursor: default; }
+
+.tool.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.toolbar.bottom button {
+  width: 56px;
+  height: 56px;
+  font-size: 22px;
+  box-shadow: var(--shadow);
+}
+
+.toolbar.bottom .primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  width: 68px;
+  height: 68px;
+  font-size: 26px;
+  border-radius: 50%;
+}
+
+/* Durante o play, some com as ferramentas de edição */
+body.playing .toolbar.top .group:first-child,
+body.playing #btn-clear { opacity: 0.4; pointer-events: none; }
+
+.hint {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: var(--btn-text);
+  box-shadow: var(--shadow);
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  button { width: 44px; height: 44px; font-size: 18px; }
+  .hint { font-size: 14px; }
+}

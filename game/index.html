@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6f8">
+  <title>TracePlay — desenhe e deslize</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- Barra de ferramentas superior -->
+  <div class="toolbar top">
+    <div class="group">
+      <button id="tool-pencil" class="tool active" title="Desenhar (P)">✏️</button>
+      <button id="tool-eraser" class="tool" title="Apagar (E)">🧽</button>
+      <button id="tool-pan" class="tool" title="Mover (H)">✋</button>
+    </div>
+    <div class="group">
+      <button id="btn-undo" title="Desfazer (Ctrl+Z)">↶</button>
+      <button id="btn-redo" title="Refazer (Ctrl+Shift+Z)">↷</button>
+      <button id="btn-clear" title="Limpar tudo">🗑️</button>
+    </div>
+    <div class="group">
+      <button id="btn-theme" title="Tema claro/escuro">🌓</button>
+    </div>
+  </div>
+
+  <!-- Controles de jogo (inferior) -->
+  <div class="toolbar bottom">
+    <button id="btn-reset" title="Reiniciar (R)">⟲</button>
+    <button id="btn-play" class="primary" title="Jogar / Pausar (Espaço)">▶</button>
+  </div>
+
+  <div id="hint" class="hint">Desenhe uma ladeira com o dedo ou o mouse e toque em ▶ para deslizar.</div>
+
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Esconde a dica após a primeira interação.
+    const hide = () => { const h = document.getElementById('hint'); if (h) h.style.display = 'none'; };
+    window.addEventListener('pointerdown', hide, { once: true });
+    setTimeout(hide, 7000);
+  </script>
+</body>
+</html>
