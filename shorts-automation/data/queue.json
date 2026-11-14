@@ -338,7 +338,7 @@
   },
   {
     "id": "sh_mwgooxlg6qq9",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-14T17:32:15.027Z",
     "theme": "Robôs da Tesla e Amazon substituem trabalhadores humanos",
     "title": "Robôs nas fábricas: como a automação pode mexer no seu salário",
@@ -375,6 +375,7 @@
     },
     "youtubeId": "uBdCJXKqljw",
     "previewUrl": "https://youtube.com/shorts/uBdCJXKqljw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-14T22:57:46.753Z"
   }
 ]
