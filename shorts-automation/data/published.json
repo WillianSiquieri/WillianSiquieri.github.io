@@ -85,10 +85,10 @@
     "views": 219,
     "likes": 12,
     "comments": 0,
-    "score": 431,
+    "score": 437,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": 44.7,
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 45.3,
     "avgViewSec": 24
   },
   {
@@ -128,11 +128,11 @@
     "views": 50,
     "likes": 2,
     "comments": 0,
-    "score": 91,
+    "score": 96,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": 49.9,
-    "avgViewSec": 23
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 52.5,
+    "avgViewSec": 24
   },
   {
     "id": "sh_mvy3v2lc1fkx",
@@ -171,10 +171,10 @@
     "views": 1204,
     "likes": 29,
     "comments": 2,
-    "score": 2214,
+    "score": 2217,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": 61.1,
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 61.2,
     "avgViewSec": 26
   },
   {
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -258,11 +258,11 @@
     "views": 6,
     "likes": 0,
     "comments": 0,
-    "score": 6,
+    "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": null,
-    "avgViewSec": null
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 70,
+    "avgViewSec": 25
   },
   {
     "id": "sh_mwdxv0cyj40q",
@@ -303,9 +303,9 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": null,
-    "avgViewSec": null
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 57.3,
+    "avgViewSec": 18
   },
   {
     "id": "sh_mwchpu1p6261",
@@ -346,11 +346,11 @@
     "views": 5,
     "likes": 0,
     "comments": 0,
-    "score": 5,
+    "score": 6,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": null,
-    "avgViewSec": null
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 76.4,
+    "avgViewSec": 25
   },
   {
     "id": "sh_mwb2fl9vapsy",
@@ -392,11 +392,11 @@
     "views": 8,
     "likes": 0,
     "comments": 0,
-    "score": 8,
+    "score": 6,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z",
-    "avgViewPct": null,
-    "avgViewSec": null
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z",
+    "avgViewPct": 45,
+    "avgViewSec": 22
   },
   {
     "id": "sh_mweaelr64eai",
@@ -436,14 +436,14 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T13:05:33.403Z",
     "publishedAt": "2026-11-13T13:05:48.792Z",
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "comments": 0,
-    "score": 13,
+    "score": 14,
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z"
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.564Z"
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -545,7 +545,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.565Z"
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
@@ -589,14 +589,14 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T17:13:13.362Z",
     "publishedAt": "2026-11-13T17:13:30.096Z",
-    "views": 1,
+    "views": 3,
     "likes": 0,
     "comments": 0,
-    "score": 1,
+    "score": 3,
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-14T17:32:09.565Z"
+    "analyticsUpdatedAt": "2026-11-14T21:56:21.938Z"
   },
   {
     "id": "sh_mwfcfmv03zb5",
