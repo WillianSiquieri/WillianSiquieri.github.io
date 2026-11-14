@@ -43,7 +43,7 @@ export class InputManager {
   }
 
   _down(e) {
-    this.canvas.setPointerCapture?.(e.pointerId);
+    try { this.canvas.setPointerCapture?.(e.pointerId); } catch (_) {}
     const p = this._pos(e);
     this.pointers.set(e.pointerId, p);
 

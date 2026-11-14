@@ -56,7 +56,10 @@ html, body {
   gap: 10px;
   align-items: center;
   user-select: none;
+  pointer-events: none; /* só os controles capturam toque, não a faixa inteira */
 }
+.toolbar .group,
+.toolbar.bottom button { pointer-events: auto; }
 
 .toolbar.top {
   top: calc(env(safe-area-inset-top, 0px) + 12px);
@@ -134,6 +137,24 @@ body.playing #btn-clear { opacity: 0.4; pointer-events: none; }
 /* Botão só aparece no Sandbox */
 .sandbox-only { display: none; }
 body.sandbox .sandbox-only { display: flex; }
+
+/* Controles de zoom */
+.zoom-controls {
+  position: fixed;
+  left: 12px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9;
+}
+.zoom-controls button {
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
 
 /* HUD de objetivos */
 .hud {

@@ -10,16 +10,19 @@ import { InputManager } from './ui/input.js';
 import { History } from './ui/history.js';
 import { LEVELS, getLevel, nextLevelId } from './game/levels.js';
 import { getProgress, recordLevelResult, saveSandbox, loadSandbox } from './game/storage.js';
+import { sfx } from './engine/audio.js';
 
 // ---- Parâmetros de física (por passo fixo) ----
 const FIXED_DT = 1 / 60;
 const STEPS_MAX = 5;
-const GRAVITY = 0.4;
-const DAMPING = 0.999;
-const FRICTION = 0.02;
+const GRAVITY = 0.52;        // gravidade um pouco mais forte = descida mais viva
+const DAMPING = 0.9995;      // menos perda de energia no ar (mantém velocidade)
+const FRICTION = 0.008;      // menos atrito com a pista = desliza mais solto
 const CONSTRAINT_ITERS = 4;
 const MIN_STROKE_DIST = 6;
 const ERASE_RADIUS = 16;
+const KICK_VX = 4.0;         // empurrão inicial maior = largada mais rápida
+const ZOOM_STEP = 1.25;      // fator dos botões +/-
 
 // ---- Objetivos ----
 const STAR_RADIUS = 26;
@@ -167,8 +170,21 @@ class Game {
   panByScreen(dx, dy) { this.camera.panByScreen(dx, dy); }
   zoomAt(sx, sy, factor) { this.camera.zoomAt(sx, sy, factor); }
 
+  // Zoom pelos botões +/- (ancorado no centro da tela).
+  zoomInOut(dir) {
+    const factor = dir > 0 ? ZOOM_STEP : 1 / ZOOM_STEP;
+    this.camera.zoomAt(this.camera.vw / 2, this.camera.vh / 2, factor);
+  }
+
+  toggleMute() {
+    const muted = sfx.toggleMute();
+    const b = document.getElementById('btn-mute');
+    if (b) b.textContent = muted ? '🔇' : '🔊';
+    if (!muted) sfx.click();
+  }
+
   // ---------- Controles ----------
-  setTool(tool) { this.tool = tool; this._syncHud(); }
+  setTool(tool) { this.tool = tool; sfx.click(); this._syncHud(); }
 
   _enterEdit(recenter) {
     this.mode = 'edit';
@@ -209,11 +225,12 @@ class Game {
     this.result = null;
     this.rider.start = { ...this.startPoint };
     this.rider.reset();
-    this.rider.kick();
+    this.rider.kick(KICK_VX);
     for (const s of this.stars) s.collected = false;
     this.playTime = 0;
     this.acc = 0;
     this._hideOverlays();
+    sfx.start();
     this._syncHud();
   }
   pause() { this.mode = 'edit'; this._syncHud(); }
@@ -276,7 +293,7 @@ class Game {
     for (const s of this.stars) {
       if (!s.collected) {
         const dx = c.x - s.x, dy = c.y - s.y;
-        if (dx * dx + dy * dy <= STAR_RADIUS * STAR_RADIUS) s.collected = true;
+        if (dx * dx + dy * dy <= STAR_RADIUS * STAR_RADIUS) { s.collected = true; sfx.star(); }
       }
     }
     // Chegada
@@ -294,11 +311,13 @@ class Game {
     const total = this.stars.length;
     const got = this.stars.filter(s => s.collected).length;
     if (this.level) recordLevelResult(this.level.id, this.playTime, got);
+    sfx.win();
     showWin(this, got, total, this.playTime);
   }
   _lose() {
     this.mode = 'edit';
     this.result = 'lost';
+    sfx.lose();
     showLose(this);
   }
 
@@ -554,10 +573,20 @@ function boot() {
   on('btn-menu', () => game.goToMenu());
   on('btn-save', () => game.saveSandboxNow());
   on('open-sandbox', () => game.loadSandboxMode());
+  on('btn-zoom-in', () => game.zoomInOut(1));
+  on('btn-zoom-out', () => game.zoomInOut(-1));
+  on('btn-mute', () => game.toggleMute());
   on('btn-theme', () => {
     const root = document.documentElement;
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
   });
+
+  // Destrava o áudio no primeiro gesto do usuário (política de autoplay).
+  const unlock = () => sfx.unlock();
+  window.addEventListener('pointerdown', unlock, { capture: true });
+  // Estado inicial do botão de mudo.
+  const mb = document.getElementById('btn-mute');
+  if (mb) mb.textContent = sfx.isMuted() ? '🔇' : '🔊';
 
   window.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT') return;
@@ -566,6 +595,8 @@ function boot() {
     else if (e.key === 'p' || e.key === 'P') game.setTool('pencil');
     else if (e.key === 'e' || e.key === 'E') game.setTool('eraser');
     else if (e.key === 'h' || e.key === 'H') game.setTool('pan');
+    else if (e.key === '+' || e.key === '=') game.zoomInOut(1);
+    else if (e.key === '-' || e.key === '_') game.zoomInOut(-1);
     else if ((e.ctrlKey || e.metaKey) && e.key === 'z') { e.preventDefault(); e.shiftKey ? game.redo() : game.undo(); }
     else if ((e.ctrlKey || e.metaKey) && e.key === 'y') { e.preventDefault(); game.redo(); }
   });
