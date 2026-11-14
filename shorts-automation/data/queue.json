@@ -338,7 +338,7 @@
   },
   {
     "id": "sh_mwgoo0mr4z6j",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-14T17:32:15.027Z",
     "theme": "Binance anuncia retomada total dos saques",
     "title": "Binance promete saques liberados na próxima semana – o que isso muda no seu bolso",
@@ -375,7 +375,9 @@
     },
     "youtubeId": "S_J2ZeUy2FM",
     "previewUrl": "https://youtube.com/shorts/S_J2ZeUy2FM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-14T22:56:37.166Z",
+    "rejectReason": "A pronuncia de binance esta errada, precisa ser em ingles"
   },
   {
     "id": "sh_mwgooxlg6qq9",
