@@ -334,5 +334,87 @@
     "decidedAt": "2026-11-12T23:44:56.853Z",
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
     "publishErrorAt": "2026-11-14T12:55:20.462Z"
+  },
+  {
+    "id": "sh_mwgoo0mr4z6j",
+    "status": "draft",
+    "createdAt": "2026-11-14T17:32:15.027Z",
+    "theme": "Binance anuncia retomada total dos saques",
+    "title": "Binance promete saques liberados na próxima semana – o que isso muda no seu bolso",
+    "hook": "Saques bloqueados na Binance? A boa notícia chegou!",
+    "script": "A Binance suspendeu saques em vários momentos este mês, alegando ajustes de segurança. Hoje, a empresa confirmou que tudo volta ao normal até a próxima semana. Isso significa que quem tem criptos guardadas pode movimentar o dinheiro sem esperar mais. Para quem depende de liquidez diária, a pausa gerou ansiedade e até perdas de oportunidades no mercado. Agora, com a retomada, você pode vender, comprar ou transferir suas moedas quando quiser, sem risco de ficar travado novamente. Fique de olho nos comunicados da Binance, pois o processo pode ser em etapas, e acompanhe seu saldo diariamente.",
+    "cta": "Se quiser saber como essas mudanças afetam seu investimento em cripto, se inscreve aí.",
+    "tags": [
+      "#Binance",
+      "#Criptomoedas",
+      "#Finanças",
+      "#Investimentos",
+      "#Saques"
+    ],
+    "captionKeywords": [
+      "Binance",
+      "saques",
+      "cripto",
+      "liquidez",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/binance-preve-retomada-total-dos-saques-ate-a-proxima-semana/",
+    "rationale": "Tema quente no mundo cripto, impacta diretamente a liquidez dos investidores brasileiros, gera alto engajamento e tem conexão clara com finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "previewFile": "data/previews/sh_mwgoo0mr4z6j.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 9
+    },
+    "youtubeId": "S_J2ZeUy2FM",
+    "previewUrl": "https://youtube.com/shorts/S_J2ZeUy2FM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwgooxlg6qq9",
+    "status": "draft",
+    "createdAt": "2026-11-14T17:32:15.027Z",
+    "theme": "Robôs da Tesla e Amazon substituem trabalhadores humanos",
+    "title": "Robôs nas fábricas: como a automação pode mexer no seu salário",
+    "hook": "Já imaginou trabalhar ao lado de um robô que nunca pede aumento?",
+    "script": "Tesla e Amazon estão ampliando o uso de robôs nas linhas de produção e nos armazéns. Esses braços mecânicos trabalham 24 horas, sem férias e sem salário. A consequência? A demanda por mão de obra não qualificada diminui, pressionando salários em setores de logística e manufatura. Por outro lado, cresce a necessidade de profissionais que programem, mantenham e otimizem esses sistemas, gerando vagas mais técnicas e bem pagas. Se você está em um cargo que pode ser automatizado, pense em se especializar em tecnologia ou análise de dados. Nos próximos meses, a tendência de automação deve acelerar, impactando o mercado de trabalho brasileiro.",
+    "cta": "Quer entender como se preparar para a era dos robôs no trabalho? Se inscreve aí.",
+    "tags": [
+      "#Automação",
+      "#Robôs",
+      "#Emprego",
+      "#FinançasPessoais",
+      "#Tecnologia"
+    ],
+    "captionKeywords": [
+      "automação",
+      "robôs",
+      "Tesla",
+      "Amazon",
+      "mercado de trabalho"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/business/global/a-forca-de-trabalho-da-tesla-e-da-amazon-nunca-cansa-nem-pede-salario/",
+    "rationale": "Assunto de grande relevância econômica, relaciona tecnologia e renda, trazendo valor ao público que busca entender como tendências globais afetam suas finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 54,
+      "previewFile": "data/previews/sh_mwgooxlg6qq9.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "uBdCJXKqljw",
+    "previewUrl": "https://youtube.com/shorts/uBdCJXKqljw",
+    "privacyStatus": "unlisted"
   }
 ]
