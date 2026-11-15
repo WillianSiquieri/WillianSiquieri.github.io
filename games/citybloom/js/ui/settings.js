@@ -40,5 +40,11 @@ export function settingsView(game) {
         <button class="chipbtn${getLang() === 'pt' ? ' on' : ''}" data-act="setLang" data-arg="pt">Português</button>
         <button class="chipbtn${getLang() === 'en' ? ' on' : ''}" data-act="setLang" data-arg="en">English</button>
       </div>
+    </div>
+    <div class="setting credits">
+      <label>📜 ${t('credits')}</label>
+      <p>🎵 ${t('creditMusic')}</p>
+      <p>🎻 ${t('creditInstruments')} <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a></p>
+      <p>🧑‍🔧 ${t('creditCharacters')} <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
     </div>`;
 }

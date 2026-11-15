@@ -58,7 +58,8 @@ function inlineRaw(file, x, y, size) {
   const raw = fs.readFileSync(`${RAW}/${file}`, 'utf8').replace(/<\?xml[^>]*>/, '');
   const vb = /viewBox="([^"]+)"/.exec(raw)[1];
   const inner = raw.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
-  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${vb}">${inner}</svg>`;
+  const attrs = /<svg([^>]*)>/.exec(raw)[1].replace(/\s(xmlns(:\w+)?|width|height|viewBox)="[^"]*"/g, '');
+  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${vb}"${attrs}>${inner}</svg>`;
 }
 
 // posição da cabeça em frações da caixa do avatar: topo, largura, centro x

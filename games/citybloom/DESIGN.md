@@ -105,8 +105,11 @@ XP para passar ao próximo nível: `20 + 15 × (nível − 1)^1.4`
 - Recompensa extra ocasional: 🔨 martelo / 📐 trena (ampliar o armazém).
 
 ### Personagens dos pedidos
-Cada pedido vem de um personagem com retrato desenhado por código, profissão e fala
-(PT/EN), e pede principalmente itens ligados à profissão:
+Cada pedido vem de um personagem com retrato ilustrado (estilo **Micah**, de Micah
+Lanier, CC BY 4.0, gerado com DiceBear), com cenário e acessório da profissão, e fala
+(PT/EN); pede principalmente itens ligados à profissão. Os retratos são SVGs estáticos
+em `assets/characters/micah/<id>.svg`, gerados por `tools/citybloom/characters.mjs`
+(raiz do repositório) — o jogo não depende de nada externo.
 
 | Personagem | Profissão | Costuma pedir | Bônus |
 |---|---|---|---|
@@ -129,9 +132,12 @@ os dois são gastos juntos para ampliar o armazém, então nunca falta um deles.
 - **Nome da cidade**: pedido ao começar; renomear tocando no nome (HUD) ou em ⚙️.
 - **Tela de níveis**: tocar no nível mostra os 45 primeiros níveis por fase, XP de
   cada um, total acumulado e o que liberam.
-- **Música de fundo gerada por código** (`js/engine/music.js`): três temas —
-  Manhã calma (piano), Cidade alegre (marimba), Lo-fi (piano elétrico + batida leve) —
-  com melodia que varia; volume e tema em ⚙️; pausa com a aba escondida.
+- **Música de fundo "Bossa da Prefeitura"**: composição original escrita como dados
+  (`js/game/songs.js`) e tocada com **instrumentos reais gravados** (violão nylon,
+  flauta, piano, baixo acústico — soundfont FluidR3_GM, CC BY 3.0) pelo sampler
+  `js/engine/sampler.js` (Web Audio, reverb, mixagem). As amostras (MP3 por nota, em
+  `assets/instruments/`) só são baixadas após o 1º toque. Desligar e volume em ⚙️;
+  pausa com a aba escondida. Créditos e licenças em ⚙️ → Créditos.
 
 ## 9. Monetização (sem custo para começar)
 
@@ -152,8 +158,9 @@ Regra: nunca mostrar anúncio sem o jogador pedir, exceto o intersticial raro.
 - HTML5 Canvas + JavaScript puro (ES modules), **sem build e sem dependências**.
 - Pasta autocontida (`games/citybloom/`) pronta para zipar e enviar aos portais.
 - Visual isométrico **desenhado por código** (`js/engine/iso.js`): sem imagens, leve
-  e com o mesmo visual em qualquer aparelho.
-- Salvamento em `localStorage` (`citybloom.save.v1`) com horário de saída para o
+  e com o mesmo visual em qualquer aparelho. Só retratos e amostras de música são
+  arquivos (`assets/`, ver `assets/CREDITS.md`).
+- Salvamento em `localStorage` (`citybloom.save.v2`) com horário de saída para o
   progresso offline.
 - Modo vitrine para revisar o visual: `index.html?showcase=1`.
 - Recomeçar o jogo do zero (teste): `index.html?reset=1`.
@@ -185,8 +192,13 @@ js/ui/orders.js         quadro de pedidos
 js/ui/fx.js             textos flutuantes e partículas
 js/ui/levels.js         tela de níveis por fase
 js/ui/settings.js       configurações (nome, música, efeitos, idioma)
-js/render/avatars.js    retratos dos personagens dos pedidos
-js/engine/music.js      música de fundo gerada (3 temas)
+js/render/avatars.js    retratos dos personagens dos pedidos (Micah)
+js/engine/music.js      música de fundo (tema, volume, preferências)
+js/engine/sampler.js    toca músicas com amostras de instrumentos reais
+js/game/songs.js        músicas compostas (dados: melodia, acordes, baixo)
+assets/instruments/     amostras MP3 por nota (FluidR3_GM)
+assets/characters/      retratos SVG (micah/ = jogo; lab/ = comparação)
+lab.html                laboratório de músicas e estilos (fora do jogo)
 ```
 
 ## 11. Roteiro

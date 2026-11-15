@@ -220,13 +220,12 @@ export const SPECIAL_DROP_CHANCE = 0.35;
 // Personagens que fazem os pedidos na Prefeitura
 //   likes: itens que costuma pedir (vazio = qualquer um)
 //   coins / xp / size: multiplicadores de recompensa e de tamanho do pedido
-//   look: retrato desenhado por código (js/render/avatars.js)
+//   retrato: assets/characters/micah/<id>.svg (js/render/avatars.js)
 // ---------------------------------------------------------------------------
 export const CLIENTS = [
   {
     id: 'builder', name: { pt: 'Beto', en: 'Bob' }, role: { pt: 'Construtor', en: 'Builder' },
     likes: ['plank', 'brick', 'steel', 'wood'], coins: 1, xp: 1, size: 1.1,
-    look: { bg: '#ffd166', skin: '#e0a676', hair: 'short', hairColor: '#3b2a1e', shirt: '#f08a24', hat: 'hardhat', extra: 'mustache' },
     lines: {
       pt: ['Preciso disso pra obra de hoje!', 'A obra não pode parar!', 'Material bom, prédio forte!'],
       en: ['I need this for today’s job!', 'The site can’t stop!', 'Good materials, strong buildings!'],
@@ -235,7 +234,6 @@ export const CLIENTS = [
   {
     id: 'shop', name: { pt: 'Dona Lúcia', en: 'Ms. Lucy' }, role: { pt: 'Lojista', en: 'Shopkeeper' },
     likes: ['furniture', 'glass', 'plank'], coins: 1.1, xp: 1, size: 1,
-    look: { bg: '#ff9fb2', skin: '#f1c27d', hair: 'bun', hairColor: '#6b3e26', shirt: '#2a9d8f', extra: 'apron' },
     lines: {
       pt: ['Vou reformar a vitrine da loja!', 'Meus clientes vão adorar!', 'Chegou mercadoria nova?'],
       en: ['I’m redoing my shop window!', 'My customers will love it!', 'Any new goods today?'],
@@ -244,7 +242,6 @@ export const CLIENTS = [
   {
     id: 'business', name: { pt: 'Sr. Ricardo', en: 'Mr. Richard' }, role: { pt: 'Empresário', en: 'Businessman' },
     likes: [], coins: 1.3, xp: 1, size: 1.4,
-    look: { bg: '#a0c4ff', skin: '#c68642', hair: 'side', hairColor: '#1f1f1f', shirt: '#2b3a55', extra: 'tie' },
     lines: {
       pt: ['Pago bem por entrega rápida.', 'Negócio fechado?', 'Tenho um grande projeto na cidade.'],
       en: ['I pay well for fast delivery.', 'Do we have a deal?', 'I have a big project in town.'],
@@ -253,7 +250,6 @@ export const CLIENTS = [
   {
     id: 'teacher', name: { pt: 'Profa. Ana', en: 'Ms. Anna' }, role: { pt: 'Professora', en: 'Teacher' },
     likes: ['wood', 'plank', 'glass'], coins: 1, xp: 1.4, size: 0.9,
-    look: { bg: '#caffbf', skin: '#ffdbac', hair: 'long', hairColor: '#a0522d', shirt: '#7b5cd6', extra: 'glasses' },
     lines: {
       pt: ['É para o projeto da escola!', 'As crianças vão construir maquetes!', 'Aprender construindo é o melhor.'],
       en: ['It’s for the school project!', 'The kids will build models!', 'Learning by building is the best.'],
@@ -262,7 +258,6 @@ export const CLIENTS = [
   {
     id: 'chef', name: { pt: 'Chef Marco', en: 'Chef Mark' }, role: { pt: 'Cozinheiro', en: 'Chef' },
     likes: ['wood', 'brick', 'clay'], coins: 1.05, xp: 1.1, size: 1,
-    look: { bg: '#ffe5d9', skin: '#e8b48a', hair: 'short', hairColor: '#2e2e2e', shirt: '#ffffff', hat: 'chef', extra: 'mustache' },
     lines: {
       pt: ['Lenha para o meu forno de pizza!', 'Vou abrir um restaurante novo!', 'Cozinha boa precisa de forno bom.'],
       en: ['Firewood for my pizza oven!', 'I’m opening a new restaurant!', 'A good kitchen needs a good oven.'],
@@ -271,7 +266,6 @@ export const CLIENTS = [
   {
     id: 'architect', name: { pt: 'Júlia', en: 'Julia' }, role: { pt: 'Arquiteta', en: 'Architect' },
     likes: ['glass', 'steel', 'furniture', 'brick'], coins: 1.15, xp: 1.15, size: 1.1,
-    look: { bg: '#bde0fe', skin: '#8d5524', hair: 'curly', hairColor: '#1b1b1b', shirt: '#e63946', extra: 'glasses' },
     lines: {
       pt: ['Meu novo projeto precisa disso.', 'Vidro e aço: o futuro da cidade!', 'Vai ficar lindo, prometo.'],
       en: ['My new design needs this.', 'Glass and steel: the city’s future!', 'It’ll look amazing, I promise.'],
@@ -280,7 +274,6 @@ export const CLIENTS = [
   {
     id: 'neighbor', name: { pt: 'Seu Zé', en: 'Old Joe' }, role: { pt: 'Vizinho', en: 'Neighbor' },
     likes: ['wood', 'clay', 'sand'], coins: 1, xp: 1, size: 0.7,
-    look: { bg: '#e9edc9', skin: '#f1c27d', hair: 'bald', hairColor: '#d9d9d9', shirt: '#6c757d', hat: 'cap', extra: 'mustache' },
     lines: {
       pt: ['Um pouquinho pra arrumar o quintal.', 'Ô vizinho, me ajuda aí?', 'Coisa pequena, pago na hora!'],
       en: ['Just a bit to fix my backyard.', 'Hey neighbor, can you help?', 'Small thing, I’ll pay right away!'],
@@ -289,7 +282,6 @@ export const CLIENTS = [
   {
     id: 'firefighter', name: { pt: 'Rafa', en: 'Rae' }, role: { pt: 'Bombeira', en: 'Firefighter' },
     likes: ['steel', 'brick', 'glass'], coins: 1.1, xp: 1.2, size: 1,
-    look: { bg: '#ffadad', skin: '#d2a679', hair: 'ponytail', hairColor: '#4a2c17', shirt: '#d64933', hat: 'helmet' },
     lines: {
       pt: ['Precisamos reforçar o quartel!', 'Segurança em primeiro lugar.', 'Rápido, é para uma emergência!'],
       en: ['We need to reinforce the station!', 'Safety first.', 'Quick, it’s for an emergency!'],
