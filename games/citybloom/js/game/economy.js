@@ -4,7 +4,7 @@
 
 import {
   ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, SPECIAL_DROP_CHANCE, MAP, CHUNK_PRICE,
-  ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP,
+  ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP, CLIENTS,
 } from './config.js';
 import { makeObject, tileOf, objectAt, countOf, population, happiness } from './state.js';
 
@@ -300,7 +300,10 @@ export function clearObstacle(state, i, j, rand = Math.random) {
   bump(state, 'cleared');
   let drop = null;
   if (rand() < SPECIAL_DROP_CHANCE) {
-    drop = rand() < 0.5 ? 'hammer' : 'tape';
+    // Equilibrado: cai o que o jogador tem menos (os dois são gastos juntos no
+    // armazém). Empate → sorteio. Evita sequências longas só de um item.
+    const h = have(state, 'hammer'), tp = have(state, 'tape');
+    drop = h < tp ? 'hammer' : tp < h ? 'tape' : (rand() < 0.5 ? 'hammer' : 'tape');
     addItems(state, { [drop]: 1 });
   }
   return ok({ drop, xp: ob.xp, ...addXP(state, ob.xp) });
@@ -352,30 +355,52 @@ export function generateOrder(state, rand = Math.random) {
   return o;
 }
 
+// Escolhe o personagem do pedido: só quem pode pedir algo já produzível,
+// preferindo quem ainda não está no quadro.
+function pickClient(state, pool, rand) {
+  const able = CLIENTS.filter(c => !c.likes.length || c.likes.some(k => pool.includes(k)));
+  const onBoard = new Set(state.orders.map(o => o.client));
+  const fresh = able.filter(c => !onBoard.has(c.id));
+  const list = fresh.length ? fresh : able;
+  return list[Math.floor(rand() * list.length)];
+}
+
 function makeOrder(state, rand) {
   const pool = producibleItems(state);
   if (!pool.length) return null;
+  const client = pickClient(state, pool, rand);
+  const liked = client.likes.filter(k => pool.includes(k));
   const kinds = Math.min(pool.length, 1 + Math.floor(rand() * Math.min(3, 1 + state.level / 4)));
   const picked = [];
-  while (picked.length < kinds) {
-    const k = pool[Math.floor(rand() * pool.length)];
+  let guard = 0;
+  while (picked.length < kinds && guard++ < 50) {
+    // 80% das vezes, um item que o personagem costuma pedir
+    const from = liked.length && rand() < 0.8 ? liked : pool;
+    const k = from[Math.floor(rand() * from.length)];
     if (!picked.includes(k)) picked.push(k);
   }
   const items = {};
   let value = 0;
   for (const k of picked) {
     const raw = ITEMS[k].kind === 'raw';
-    const maxQ = Math.max(1, Math.round((raw ? 2 : 1) * (1 + state.level / 4)));
+    const maxQ = Math.max(1, Math.round((raw ? 2 : 1) * (1 + state.level / 4) * client.size));
     const q = 1 + Math.floor(rand() * Math.min(maxQ, raw ? 6 : 4));
     items[k] = q;
     value += ITEMS[k].value * q;
   }
   return {
     id: state.nextOrderId++,
+    client: client.id,
+    line: Math.floor(rand() * client.lines.pt.length),
     items,
-    coins: Math.round(value * 1.4 + 5),
-    xp: Math.max(2, Math.round(value / 3)),
+    coins: Math.round((value * 1.4 + 5) * client.coins),
+    xp: Math.max(2, Math.round(value / 3 * client.xp)),
   };
+}
+
+// Personagem de um pedido (pedidos antigos sem `client` ganham um padrão estável).
+export function clientOf(order) {
+  return CLIENTS.find(c => c.id === order.client) || CLIENTS[order.id % CLIENTS.length];
 }
 
 // Mantém os slots cheios; slots descartados voltam após o cooldown.

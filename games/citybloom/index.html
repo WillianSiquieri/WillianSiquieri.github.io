@@ -13,17 +13,18 @@
   <!-- HUD -->
   <div class="hud">
     <div class="hud-left">
-      <div class="pill level-pill">
+      <button class="pill city-pill" data-act="rename" title="Renomear"><span class="ri">🏙️</span><span id="hud-city"></span><span class="pen">✏️</span></button>
+      <button class="pill level-pill" data-act="levels" title="Níveis">
         <div class="level-top"><span id="hud-phase">🏡</span><span id="hud-level" class="lvl">Nível 1</span></div>
         <div class="xp"><div id="hud-xpbar" class="xp-fill"></div></div>
-      </div>
+      </button>
       <div class="pill res"><span class="ri">🪙</span><span id="hud-coins">0</span></div>
       <div class="pill res"><span class="ri">👥</span><span id="hud-pop">0</span></div>
       <div class="pill res"><span class="ri">⭐</span><span id="hud-happy">0</span></div>
       <div class="pill res"><span class="ri">📦</span><span id="hud-storage">0/50</span></div>
     </div>
     <div class="hud-right">
-      <button id="btn-mute" class="round small" title="Som">🔊</button>
+      <button id="btn-settings" class="round small" data-act="settings" title="Configurações">⚙️</button>
       <button id="btn-lang" class="round small" title="Idioma / Language">EN</button>
     </div>
   </div>
@@ -74,6 +75,17 @@
 
   <!-- Subiu de nível -->
   <div id="modal" class="modal"><div id="modal-body" class="modal-card"></div></div>
+
+  <!-- Nome da cidade -->
+  <div id="namebox" class="modal">
+    <div class="modal-card">
+      <div class="burst">🏙️</div>
+      <h2 id="name-title"></h2>
+      <p id="name-sub" class="muted"></p>
+      <input id="name-input" class="name-input" maxlength="20" autocomplete="off" enterkeyhint="done">
+      <button id="name-btn" class="btn primary" data-act="nameSave"></button>
+    </div>
+  </div>
 
   <div id="toast" class="toast"></div>
 

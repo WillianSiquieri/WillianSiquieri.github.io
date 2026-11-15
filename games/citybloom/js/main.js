@@ -10,10 +10,13 @@ import { Fx } from './ui/fx.js';
 import { panelView } from './ui/panels.js';
 import { buildMenuView } from './ui/build.js';
 import { ordersView } from './ui/orders.js';
+import { levelsView } from './ui/levels.js';
+import { settingsView } from './ui/settings.js';
+import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
 import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness } from './game/state.js';
-import { t, tn, toggleLang, fmtTime, fmtNum } from './i18n.js';
+import { t, tn, toggleLang, setLang, fmtTime, fmtNum } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -57,6 +60,35 @@ class CityGame {
 
     this._loop = this._loop.bind(this);
     requestAnimationFrame(this._loop);
+
+    // Cidade sem nome (jogo novo ou save antigo): pede um nome.
+    if (!this.state.showcase && !this.state.cityName) setTimeout(() => this.openName(false), 700);
+  }
+
+  // ---------------------------------------------------------------- nome da cidade
+  openName(rename) {
+    $('name-title').textContent = t(rename ? 'renameTitle' : 'nameTitle');
+    $('name-sub').textContent = rename ? '' : t('nameSub');
+    $('name-btn').textContent = t(rename ? 'save' : 'nameGo');
+    const inp = $('name-input');
+    inp.value = this.state.cityName || '';
+    inp.placeholder = t('cityNameDefault');
+    $('namebox').classList.add('show');
+    setTimeout(() => inp.focus(), 50);
+  }
+
+  saveName(raw, fromModal) {
+    // remove caracteres de controle e espaços extras; limite de 20
+    const name = String(raw || '').replace(/[\u0000-\u001f\u007f]/g, '').replace(/\s+/g, ' ').trim().slice(0, 20)
+      || (fromModal ? t('cityNameDefault') : '');
+    if (!name) { toast(t('nameEmpty'), true); return false; }
+    this.state.cityName = name;
+    save(this.state);
+    hudKey = '';
+    if (fromModal) $('namebox').classList.remove('show');
+    toast(t('nameSaved', { n: name }));
+    sfx.collect();
+    return true;
   }
 
   now() { return Date.now(); }
@@ -149,6 +181,14 @@ class CityGame {
       } break;
       case 'buildHere': if (tile) { this.buildAt = { i: tile.i, j: tile.j }; this.select(null); this.openSheet('build'); } return;
       case 'orders': this.openSheet('orders'); return;
+      case 'levels': if (!s.showcase) this.openSheet('levels'); return;
+      case 'settings': this.openSheet('settings'); return;
+      case 'rename': if (!s.showcase) this.openName(true); return;
+      case 'nameSave': this.saveName($('name-input').value, true); return;
+      case 'renameSave': if (this.saveName($('set-city').value, false)) this.renderSheet(); return;
+      case 'music': music.setTheme(arg); this.renderSheet(); return;
+      case 'sfx': if ((arg === 'off') !== sfx.muted) sfx.toggleMute(); sfx.click(); this.renderSheet(); return;
+      case 'setLang': setLang(arg); this.refreshTexts(); return;
       case 'whUpgrade': r = E.upgradeWarehouse(s); break;
       case 'deliver': {
         r = E.deliverOrder(s, Number(arg));
@@ -266,7 +306,8 @@ class CityGame {
   // ---------------------------------------------------------------- folhas (menus)
   openSheet(kind) {
     this.sheet = kind;
-    this.renderSheet();
+    $('sheet-body').scrollTop = 0;
+    this.renderSheet(true);
     $('sheet').classList.add('show');
     sfx.click();
   }
@@ -274,13 +315,34 @@ class CityGame {
     this.sheet = null;
     $('sheet').classList.remove('show');
   }
-  renderSheet() {
+  renderSheet(first = false) {
     if (!this.sheet) return;
-    $('sheet-title').textContent = this.sheet === 'build' ? `🔨 ${t('buildTitle')}` : `📋 ${t('ordersTitle')}`;
+    const views = {
+      build: [`🔨 ${t('buildTitle')}`, buildMenuView],
+      orders: [`📋 ${t('ordersTitle')}`, ordersView],
+      levels: [`⭐ ${t('levelsTitle')}`, levelsView],
+      settings: [`⚙️ ${t('settings')}`, settingsView],
+    };
+    const [title, view] = views[this.sheet];
+    $('sheet-title').textContent = title;
     const body = $('sheet-body');
     const scroll = body.scrollTop;
-    body.innerHTML = this.sheet === 'build' ? buildMenuView(this) : ordersView(this);
+    // não redesenha configurações enquanto o usuário digita o nome
+    if (this.sheet === 'settings' && !first && document.activeElement && document.activeElement.id === 'set-city') return;
+    body.innerHTML = view(this);
     body.scrollTop = scroll;
+    if (first && this.sheet === 'levels') {
+      const cur = $('lvl-current');
+      if (cur) body.scrollTop = cur.offsetTop - body.clientHeight / 2 + cur.clientHeight / 2;
+    }
+  }
+
+  // Atualiza todos os textos visíveis após trocar o idioma.
+  refreshTexts() {
+    hudKey = '';
+    this.renderPanel();
+    this.renderSheet();
+    if (this.placing) this._updatePlacing();
   }
 
   renderPanel() {
@@ -328,7 +390,7 @@ class CityGame {
     if (this.state.showcase) return;
     const changed = E.tick(this.state, this.now());
     if (this.selected) this.renderPanel();
-    if (this.sheet === 'orders' || (changed && this.sheet)) this.renderSheet();
+    if (this.sheet === 'orders' || (changed && this.sheet === 'build')) this.renderSheet();
   }
 
   _resize() {
@@ -365,9 +427,10 @@ function renderHud(game) {
   const ph = phaseForLevel(s.level);
   const deliverable = s.orders.filter(o => E.canDeliver(s, o)).length;
   const tip = s.showcase ? null : E.currentTip(s);
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, document.documentElement.lang].join('|');
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, s.cityName, document.documentElement.lang].join('|');
   if (key === hudKey) return;
   hudKey = key;
+  $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
   $('hud-phase').textContent = s.showcase ? `🧪 ${t('showcase')}` : `${ph.icon} ${tn(ph.name)}`;
   $('hud-level').textContent = `${t('level')} ${s.level}`;
   $('hud-xpbar').style.width = `${Math.min(100, (s.xp / xpToNext(s.level)) * 100)}%`;
@@ -420,10 +483,13 @@ function boot() {
   $('btn-home').onclick = () => game.fitView();
   $('btn-build').onclick = () => { sfx.unlock(); game.select(null); game.openSheet('build'); };
   $('btn-orders').onclick = () => { sfx.unlock(); game.openSheet('orders'); };
-  $('btn-lang').onclick = () => { toggleLang(); hudKey = ''; game.renderPanel(); game.renderSheet(); if (game.placing) game._updatePlacing(); };
-  $('btn-mute').onclick = () => { $('btn-mute').textContent = sfx.toggleMute() ? '🔇' : '🔊'; };
-  $('btn-mute').textContent = sfx.muted ? '🔇' : '🔊';
-  window.addEventListener('pointerdown', () => sfx.unlock(), { capture: true, once: true });
+  $('btn-lang').onclick = () => { toggleLang(); game.refreshTexts(); };
+  // volume da música (slider do menu ⚙️)
+  document.addEventListener('input', (e) => { if (e.target.id === 'music-vol') music.setVolume(e.target.value / 100); });
+  // Enter no campo de nome confirma
+  $('name-input').addEventListener('keydown', (e) => { if (e.key === 'Enter') game.saveName(e.target.value, true); });
+  // áudio (efeitos e música) só pode começar após um gesto do usuário
+  window.addEventListener('pointerdown', () => { sfx.unlock(); music.start(); }, { capture: true, once: true });
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

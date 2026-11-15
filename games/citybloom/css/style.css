@@ -219,7 +219,66 @@ body.placing .placebar { transform: translateY(0); }
   background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px;
   display: grid; grid-template-columns: 1fr auto; column-gap: 10px; row-gap: 6px; align-items: center;
 }
-.order .obtns { grid-column: 2; grid-row: 1 / span 2; flex-direction: column; }
+.order .obtns { grid-column: 2; grid-row: 2 / span 2; flex-direction: column; }
+.order .who { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; }
+.avatar { width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 2px 8px rgba(20,40,70,0.18); border: 2px solid #fff; }
+.whotxt { min-width: 0; }
+.whotxt b { font-size: 14.5px; }
+.whotxt .role { margin-left: 6px; font-size: 11.5px; font-weight: 800; color: var(--accent); background: #eaf2ff; padding: 2px 7px; border-radius: 8px; }
+.say {
+  position: relative; margin-top: 5px; padding: 6px 10px; border-radius: 12px; background: #f2f5f9;
+  font-size: 13px; font-style: italic; color: #3b4458;
+}
+.say::before { content: ''; position: absolute; left: -6px; top: 10px; border: 6px solid transparent; border-right-color: #f2f5f9; border-left: 0; }
+.order.ready .say { background: #e5f7eb; }
+.order.ready .say::before { border-right-color: #e5f7eb; }
+
+/* ---------------- pill da cidade e nível clicável ---------------- */
+.city-pill { cursor: pointer; max-width: 46vw; }
+.city-pill #hud-city { overflow: hidden; text-overflow: ellipsis; }
+.city-pill .pen { font-size: 11px; opacity: 0.55; }
+button.pill { font-family: inherit; color: var(--text); cursor: pointer; text-align: left; }
+
+/* ---------------- níveis ---------------- */
+.levels { display: grid; gap: 6px; }
+.phase-head {
+  display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 10px 12px; border-radius: 14px;
+  background: linear-gradient(90deg, #eaf2ff, #f6f9ff); position: sticky; top: 0; z-index: 1;
+}
+.phase-head .pi { font-size: 26px; }
+.phase-head b { display: block; font-size: 16px; }
+.phase-head small { color: var(--muted); font-weight: 700; }
+.phase-head.past { background: linear-gradient(90deg, #e9f8ee, #f5fcf7); }
+.phase-head.next { background: #f1f3f6; }
+.lvl-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+.lvl-row .ln {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 14px; background: #eef1f5; color: var(--muted);
+}
+.lvl-row.done { opacity: 0.6; }
+.lvl-row.done .ln { background: #dff5e6; color: var(--ok); }
+.lvl-row.cur { border: 2px solid var(--accent); box-shadow: 0 4px 14px rgba(46,125,255,0.18); }
+.lvl-row.cur .ln { background: var(--accent); color: #fff; }
+.lb { flex: 1; min-width: 0; }
+.lt { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.lx { font-size: 12px; font-weight: 700; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+.chip { font-size: 11.5px; font-weight: 800; padding: 3px 8px; border-radius: 9px; background: #fff4d6; color: #8a5a00; }
+
+/* ---------------- configurações ---------------- */
+.setting { padding: 12px 2px; border-bottom: 1px solid var(--line); }
+.setting:last-child { border-bottom: 0; }
+.setting label { display: block; font-weight: 900; font-size: 14.5px; margin-bottom: 8px; }
+.setting .row { display: flex; gap: 8px; align-items: center; }
+.setting input[type=text], .setting input:not([type]), .name-input {
+  flex: 1; min-width: 0; height: 42px; padding: 0 12px; border-radius: 12px; border: 1px solid #d5dbe3;
+  font: inherit; font-size: 16px; font-weight: 700; background: #fff; color: var(--text); user-select: text; -webkit-user-select: text;
+}
+.name-input { width: 100%; margin: 6px 0 14px; text-align: center; }
+.chipbtn { padding: 8px 12px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-weight: 800; font-size: 13.5px; }
+.chipbtn.on { background: linear-gradient(180deg, #4a90ff, #2464e8); color: #fff; border-color: transparent; }
+.vol { margin-top: 10px; }
+.vol input { flex: 1; accent-color: var(--accent); }
 .order.ready { border: 2px solid var(--ok); background: #f3fcf6; }
 .order.wait { display: flex; justify-content: space-between; align-items: center; color: var(--muted); }
 .ois { display: flex; gap: 8px; flex-wrap: wrap; }

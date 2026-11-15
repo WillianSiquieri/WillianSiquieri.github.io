@@ -38,6 +38,13 @@ const STRINGS = {
     levelUp: 'Nível {n}!', newPhase: 'Nova fase: {p}', unlocked: 'Liberado:', nothingNew: 'Continue crescendo!', great: 'Oba!',
     welcome: 'Bem-vindo de volta! Você ficou fora {t}.',
     showcase: 'Vitrine de prédios',
+    // níveis
+    levelsTitle: 'Níveis da cidade', start: 'Início', toNext: 'para o próximo', total: 'total',
+    // configurações e nome da cidade
+    settings: 'Configurações', cityName: 'Nome da cidade', cityNameDefault: 'Minha Cidade', save: 'Salvar',
+    nameTitle: 'Dê um nome à sua cidade', nameSub: 'Você pode trocar depois em ⚙️.', renameTitle: 'Renomear cidade',
+    nameGo: 'Começar', nameEmpty: 'Digite um nome para a cidade', nameSaved: 'Nome salvo: {n}',
+    music: 'Música', effects: 'Efeitos sonoros', on: 'Ligados', off: 'Desligados', language: 'Idioma',
     // dicas
     tipCollect: 'Toque no lote de madeira 🌲 para colher',
     tipPlant: 'Toque no lote vazio e produza madeira 🪵',
@@ -74,6 +81,11 @@ const STRINGS = {
     levelUp: 'Level {n}!', newPhase: 'New stage: {p}', unlocked: 'Unlocked:', nothingNew: 'Keep growing!', great: 'Great!',
     welcome: 'Welcome back! You were away for {t}.',
     showcase: 'Building showcase',
+    levelsTitle: 'City levels', start: 'Start', toNext: 'to next', total: 'total',
+    settings: 'Settings', cityName: 'City name', cityNameDefault: 'My City', save: 'Save',
+    nameTitle: 'Name your city', nameSub: 'You can change it later in ⚙️.', renameTitle: 'Rename city',
+    nameGo: 'Start', nameEmpty: 'Type a name for your city', nameSaved: 'Name saved: {n}',
+    music: 'Music', effects: 'Sound effects', on: 'On', off: 'Off', language: 'Language',
     tipCollect: 'Tap the wood lot 🌲 to harvest',
     tipPlant: 'Tap the empty lot and produce wood 🪵',
     tipPlank: 'Tap the Sawmill and make planks 🪚',

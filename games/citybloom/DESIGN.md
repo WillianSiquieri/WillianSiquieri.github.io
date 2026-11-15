@@ -104,7 +104,36 @@ XP para passar ao próximo nível: `20 + 15 × (nível − 1)^1.4`
 - Descartar um pedido → novo pedido depois de alguns minutos (ou na hora com anúncio).
 - Recompensa extra ocasional: 🔨 martelo / 📐 trena (ampliar o armazém).
 
-## 8. Monetização (sem custo para começar)
+### Personagens dos pedidos
+Cada pedido vem de um personagem com retrato desenhado por código, profissão e fala
+(PT/EN), e pede principalmente itens ligados à profissão:
+
+| Personagem | Profissão | Costuma pedir | Bônus |
+|---|---|---|---|
+| Beto | Construtor | tábua, tijolo, aço, madeira | pedidos um pouco maiores |
+| Dona Lúcia | Lojista | móveis, vidro, tábua | +10% moedas |
+| Sr. Ricardo | Empresário | qualquer coisa | pedidos maiores, +30% moedas |
+| Profa. Ana | Professora | madeira, tábua, vidro | +40% XP |
+| Chef Marco | Cozinheiro | madeira, tijolo, barro | +5% moedas, +10% XP |
+| Júlia | Arquiteta | vidro, aço, móveis, tijolo | +15% moedas e XP |
+| Seu Zé | Vizinho | madeira, barro, areia | pedidos pequenos |
+| Rafa | Bombeira | aço, tijolo, vidro | +10% moedas, +20% XP |
+
+Personagens diferentes aparecem ao mesmo tempo no quadro.
+
+### Martelo e trena
+Ao limpar obstáculos (35% de chance), cai o item que o jogador tem **menos** —
+os dois são gastos juntos para ampliar o armazém, então nunca falta um deles.
+
+## 8. Extras de experiência
+- **Nome da cidade**: pedido ao começar; renomear tocando no nome (HUD) ou em ⚙️.
+- **Tela de níveis**: tocar no nível mostra os 45 primeiros níveis por fase, XP de
+  cada um, total acumulado e o que liberam.
+- **Música de fundo gerada por código** (`js/engine/music.js`): três temas —
+  Manhã calma (piano), Cidade alegre (marimba), Lo-fi (piano elétrico + batida leve) —
+  com melodia que varia; volume e tema em ⚙️; pausa com a aba escondida.
+
+## 9. Monetização (sem custo para começar)
 
 Anúncios via SDK do portal, isolados em `js/engine/ads.js`:
 
@@ -118,7 +147,7 @@ Anúncios via SDK do portal, isolados em `js/engine/ads.js`:
 
 Regra: nunca mostrar anúncio sem o jogador pedir, exceto o intersticial raro.
 
-## 9. Técnica
+## 10. Técnica
 
 - HTML5 Canvas + JavaScript puro (ES modules), **sem build e sem dependências**.
 - Pasta autocontida (`games/citybloom/`) pronta para zipar e enviar aos portais.
@@ -154,9 +183,13 @@ js/ui/panels.js         painel de ações do item tocado
 js/ui/build.js          menu de construção com miniaturas
 js/ui/orders.js         quadro de pedidos
 js/ui/fx.js             textos flutuantes e partículas
+js/ui/levels.js         tela de níveis por fase
+js/ui/settings.js       configurações (nome, música, efeitos, idioma)
+js/render/avatars.js    retratos dos personagens dos pedidos
+js/engine/music.js      música de fundo gerada (3 temas)
 ```
 
-## 10. Roteiro
+## 11. Roteiro
 
 1. ✅ **Fundação**: mapa isométrico, câmera, toque, HUD, PT/EN, salvamento, vitrine.
 2. ✅ **Visual moderno**: todas as construções redesenhadas (vidro, sombras,
