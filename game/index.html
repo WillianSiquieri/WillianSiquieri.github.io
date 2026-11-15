@@ -1,99 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#f4f6f8">
-  <title>TracePlay — desenhe e deslize</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trace Rider</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // O jogo mudou para /games/trace-rider/. Mantém query (?t= pista compartilhada) e hash.
+    location.replace('../games/trace-rider/' + location.search + location.hash);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=../games/trace-rider/"></noscript>
 </head>
 <body>
-  <canvas id="game"></canvas>
-
-  <!-- Barra de ferramentas superior -->
-  <div class="toolbar top">
-    <div class="group">
-      <button id="tool-pencil" class="tool active" title="Desenhar (P)">✏️</button>
-      <button id="tool-eraser" class="tool" title="Apagar (E)">🧽</button>
-      <button id="tool-pan" class="tool" title="Mover (H)">✋</button>
-    </div>
-    <div class="group">
-      <button id="btn-undo" title="Desfazer (Ctrl+Z)">↶</button>
-      <button id="btn-redo" title="Refazer (Ctrl+Shift+Z)">↷</button>
-      <button id="btn-clear" title="Apagar minhas linhas">🗑️</button>
-      <button id="btn-save" class="sandbox-only" title="Salvar pista (Sandbox)">💾</button>
-      <button id="btn-share" class="sandbox-only" title="Compartilhar pista por link">🔗</button>
-    </div>
-    <div class="group">
-      <button id="btn-menu" title="Menu / fases">☰</button>
-      <button id="btn-mute" title="Som ligado/desligado">🔊</button>
-      <button id="btn-theme" title="Tema claro/escuro">🌓</button>
-    </div>
-  </div>
-
-  <!-- Controles de zoom (canto inferior esquerdo) -->
-  <div class="zoom-controls">
-    <button id="btn-zoom-in" title="Aproximar (+)">＋</button>
-    <button id="btn-zoom-out" title="Afastar (−)">－</button>
-  </div>
-
-  <!-- HUD de objetivos -->
-  <div id="hud" class="hud">
-    <span id="hud-level">Fase</span>
-    <span id="hud-stars"></span>
-    <span id="hud-time">⏱ 0.0s</span>
-    <span id="hud-record"></span>
-  </div>
-
-  <!-- Controles de jogo (inferior) -->
-  <div class="toolbar bottom">
-    <button id="btn-reset" title="Reiniciar (R)">⟲</button>
-    <button id="btn-play" class="primary" title="Jogar / Pausar (Espaço)">▶</button>
-  </div>
-
-  <div id="hint" class="hint"></div>
-  <div id="toast" class="toast"></div>
-
-  <!-- Menu / seleção de fases -->
-  <div id="menu" class="overlay">
-    <div class="card">
-      <h1>TracePlay</h1>
-      <p class="sub">Desenhe a pista e deslize até a bandeira. 🚩</p>
-      <div id="level-list" class="level-list"></div>
-      <button id="open-sandbox" class="wide">✏️ Modo livre (Sandbox)</button>
-      <div class="skin-row">
-        <span class="skin-label">Cor do carrinho:</span>
-        <div id="skin-picker" class="skin-picker"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Vitória -->
-  <div id="win" class="overlay">
-    <div class="card">
-      <h1>Você chegou! 🎉</h1>
-      <p id="win-record" class="record-badge">🏆 Novo recorde!</p>
-      <p class="big"><span id="win-time">0.0s</span> &nbsp; <span id="win-stars"></span></p>
-      <div class="row">
-        <button id="win-retry">⟲ Repetir</button>
-        <button id="win-menu">☰ Fases</button>
-        <button id="win-next" class="primary-btn">Próxima ▶</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Derrota -->
-  <div id="lose" class="overlay">
-    <div class="card">
-      <h1>Ops, caiu! 🙃</h1>
-      <p class="sub">Ajuste sua pista e tente de novo.</p>
-      <div class="row">
-        <button id="lose-retry" class="primary-btn">⟲ Tentar de novo</button>
-        <button id="lose-menu">☰ Fases</button>
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="js/main.js"></script>
+  <p>O jogo mudou de endereço: <a href="../games/trace-rider/">abrir Trace Rider</a>.</p>
 </body>
 </html>

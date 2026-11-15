@@ -1,0 +1,91 @@
+/* CityBloom — interface clara e alegre, mobile-first. */
+
+:root {
+  --panel: rgba(255, 255, 255, 0.94);
+  --text: #1f2430;
+  --muted: #6b7280;
+  --accent: #2e7dff;
+  --xp: #34c759;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0; height: 100%; overflow: hidden; overscroll-behavior: none;
+  background: #bfe6f7; color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none; -webkit-user-select: none;
+}
+
+#city { position: fixed; inset: 0; display: block; touch-action: none; }
+
+button {
+  font: inherit; color: var(--text); cursor: pointer;
+  border: 1px solid var(--border); background: var(--panel);
+}
+button:active { transform: scale(0.93); }
+
+/* HUD */
+.hud {
+  position: fixed; z-index: 10; left: 0; right: 0;
+  top: calc(env(safe-area-inset-top, 0px) + 10px);
+  padding: 0 10px; display: flex; justify-content: space-between; align-items: flex-start;
+  pointer-events: none;
+}
+.hud > * { pointer-events: auto; }
+.hud-left { display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100% - 60px); }
+
+.pill {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 6px 10px; font-weight: 700; font-size: 14px; box-shadow: var(--shadow);
+  display: flex; align-items: center; white-space: nowrap;
+}
+.level-pill { flex-direction: column; align-items: stretch; gap: 4px; min-width: 130px; }
+.level-top { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
+.level-top .lvl { color: var(--accent); }
+.xp { height: 6px; background: rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; }
+.xp-fill { height: 100%; width: 0; background: var(--xp); border-radius: 4px; transition: width 0.3s; }
+
+.round {
+  width: 46px; height: 46px; border-radius: 50%; font-size: 18px; font-weight: 700;
+  box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center;
+}
+
+.side {
+  position: fixed; z-index: 10; right: 10px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+/* Painel de informações (bottom sheet) */
+.info {
+  position: fixed; z-index: 20; left: 10px; right: 70px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  max-width: 440px;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: var(--shadow); padding: 12px 14px;
+  transform: translateY(140%); transition: transform 0.22s ease;
+}
+.info.show { transform: translateY(0); }
+.info-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.info-title { font-weight: 800; font-size: 17px; }
+.close { width: 30px; height: 30px; border-radius: 50%; font-size: 13px; flex-shrink: 0; }
+.info-body p { margin: 6px 0 0; font-size: 14px; line-height: 1.35; }
+.info-body .soon { color: var(--muted); font-size: 12px; font-style: italic; }
+
+/* Toast */
+.toast {
+  position: fixed; z-index: 30; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 70px);
+  transform: translateX(-50%) translateY(-10px); opacity: 0; pointer-events: none;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 14px; font-size: 14px; font-weight: 600; box-shadow: var(--shadow);
+  transition: opacity 0.2s, transform 0.2s; max-width: 90vw; text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 420px) {
+  .pill { font-size: 13px; padding: 5px 8px; }
+  .level-pill { min-width: 112px; }
+}

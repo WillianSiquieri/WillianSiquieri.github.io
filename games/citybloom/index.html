@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#bfe6f7">
+  <title>CityBloom</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="city"></canvas>
+
+  <!-- HUD superior -->
+  <div class="hud">
+    <div class="hud-left">
+      <div class="pill level-pill">
+        <div class="level-top">
+          <span id="hud-phase">🏡</span>
+          <span id="hud-level" class="lvl">Nível 1</span>
+        </div>
+        <div class="xp"><div id="hud-xpbar" class="xp-fill"></div></div>
+      </div>
+      <div class="pill" id="hud-coins">🪙 0</div>
+      <div class="pill" id="hud-pop">👥 0</div>
+      <div class="pill" id="hud-happy">⭐ 0</div>
+    </div>
+    <div class="hud-right">
+      <button id="btn-lang" class="round" title="Idioma / Language">EN</button>
+    </div>
+  </div>
+
+  <!-- Zoom / centralizar -->
+  <div class="side">
+    <button id="btn-zoom-in" class="round" title="Zoom +">＋</button>
+    <button id="btn-zoom-out" class="round" title="Zoom −">－</button>
+    <button id="btn-home" class="round" title="Centralizar">🎯</button>
+  </div>
+
+  <!-- Painel de informações -->
+  <div id="info" class="info">
+    <div class="info-head">
+      <span class="info-title"></span>
+      <button id="info-close" class="close" aria-label="Fechar">✕</button>
+    </div>
+    <div class="info-body"></div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
