@@ -14,6 +14,7 @@ import { levelsView } from './ui/levels.js';
 import { settingsView, esc } from './ui/settings.js';
 import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
 import { dailyView } from './ui/daily.js';
+import { inventoryView } from './ui/inventory.js';
 import { thumb } from './ui/build.js';
 import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
@@ -240,6 +241,7 @@ class CityGame {
       case 'closeSheet': this.closeSheet(); return;
       case 'modalOk': this.closeModal(); return;
       case 'daily': if (!s.showcase) this.openSheet('daily'); return;
+      case 'inventory': if (!s.showcase) { this.select(null); this.openSheet('inventory'); } return;
       case 'claimDaily': {
         const rr = E.claimDaily(s, now);
         if (!rr.ok) return this._error(rr);
@@ -399,6 +401,7 @@ class CityGame {
       levels: [`⭐ ${t('levelsTitle')}`, levelsView],
       settings: [`⚙️ ${t('settings')}`, settingsView],
       daily: [`🎁 ${t('dailyTitle')}`, dailyView],
+      inventory: [`📦 ${t('inventoryTitle')}`, inventoryView],
     };
     const [title, view] = views[this.sheet];
     $('sheet-title').textContent = title;
@@ -500,7 +503,7 @@ class CityGame {
     if (this.state.showcase) return;
     const changed = E.tick(this.state, this.now());
     if (this.selected) this.renderPanel();
-    if (this.sheet === 'orders' || (changed && this.sheet === 'build')) this.renderSheet();
+    if (this.sheet === 'orders' || this.sheet === 'inventory' || (changed && this.sheet === 'build')) this.renderSheet();
   }
 
   _resize() {

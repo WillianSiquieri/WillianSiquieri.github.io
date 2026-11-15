@@ -188,4 +188,56 @@ for (const [id, opts] of Object.entries(PEOPLE)) {
   <g clip-path="url(#s-clip)">${SCENE[id]}${inline(avatar)}${acc}</g></svg>`;
   fs.writeFileSync(`${OUT}/${id}.svg`, svg);
 }
+// ------------------------------------------------------------------ prefeito de corpo inteiro
+// Cabeça Micah (a mesma do retrato) sobre um corpo desenhado no mesmo traço:
+// paletó, faixa de prefeito, um braço acenando e o outro com uma prancheta.
+// Fundo transparente, viewBox 200×400.
+function fullBody() {
+  const K = 2.8, INK = '#111', NAVY = '#24324d', SKIN = '#f9c9b6';
+  const A = 170, AX = 15, AY = 0;                       // cabeça: 170×170 no topo
+  const head = createAvatar(micah, { seed: 'mayor', backgroundColor: ['transparent'], ...PEOPLE.mayor }).toString();
+  const headSvg = inline(head).replace(/x="[^"]*" y="[^"]*" width="[^"]*" height="[^"]*"/, `x="${AX}" y="${AY}" width="${A}" height="${A}"`);
+  const st = `stroke="${INK}" stroke-width="${K}" stroke-linejoin="round" stroke-linecap="round"`;
+  const limb = (d, w, c) => `<path d="${d}" stroke="${INK}" stroke-width="${w + 2 * K}" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="${d}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`;
+  const hand = (x, y) => `<circle cx="${x}" cy="${y}" r="9.5" fill="${SKIN}" ${st}/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" width="200" height="400">
+  <ellipse cx="100" cy="391" rx="64" ry="7" fill="#1a2a40" opacity=".18"/>
+  <path d="M62 288 L60 372 H97 L100 288 Z" fill="#1b2438" ${st}/>
+  <path d="M100 288 L103 372 H140 L138 288 Z" fill="#1b2438" ${st}/>
+  <path d="M57 371 H98 V379 Q98 386 91 386 H52 Q45 386 47 379 Q49 371 57 371 Z" fill="#4a2e1c" ${st}/>
+  <path d="M102 371 H143 Q151 371 153 379 Q155 386 148 386 H109 Q102 386 102 379 Z" fill="#4a2e1c" ${st}/>
+  <path d="M34 168 C30 200 32 250 36 292 H164 C168 250 170 200 164 168 Z" fill="${NAVY}"/>
+  <path d="M34 168 C30 200 32 250 36 292 H164 C168 250 170 200 164 168" fill="none" ${st}/>
+  <path d="M38 280 H162" stroke="#1b2438" stroke-width="5" opacity=".6"/>
+  ${headSvg}
+  <path d="M88 166 H112 L100 228 Z" fill="#ffffff" ${st}/>
+  <path d="M96 167 H104 L102.5 175 H97.5 Z" fill="#c1121f" ${st}/>
+  <path d="M97.5 175 H102.5 L106 212 L100 220 L94 212 Z" fill="#e63946" ${st}/>
+  <path d="M86 168 L77 196 L100 232 M114 168 L123 196 L100 232" fill="none" ${st}/>
+  <circle cx="100" cy="250" r="2.6" fill="#0f1626"/><circle cx="100" cy="268" r="2.6" fill="#0f1626"/>
+  <path d="M140 169 L163 179 L62 292 L38 282 Z" fill="#1f9d55" ${st}/>
+  <path d="M152 174 L50 287" stroke="#ffd23f" stroke-width="6"/>
+  <circle cx="94" cy="236" r="9" fill="#ffd23f" ${st}/><circle cx="94" cy="236" r="3.8" fill="#1f9d55"/>
+  <g transform="rotate(-10 136 250)">
+    <rect x="116" y="226" width="40" height="50" rx="4" fill="#c58a55" ${st}/>
+    <rect x="121" y="234" width="30" height="37" rx="2" fill="#ffffff"/>
+    <path d="M125 244 H147 M125 251 H147 M125 258 H141" stroke="#9aa5b5" stroke-width="2"/>
+    <rect x="128" y="222" width="16" height="8" rx="2" fill="#b8c0cc" ${st}/>
+  </g>
+  ${limb('M42 186 L20 224 L19 178', 21, NAVY)}
+  <g fill="${SKIN}" ${st}>
+    <rect x="10.5" y="146" width="6" height="14" rx="3" transform="rotate(-12 13 153)"/>
+    <rect x="16.5" y="143" width="6" height="15" rx="3"/>
+    <rect x="22.5" y="145" width="6" height="14" rx="3" transform="rotate(12 25 152)"/>
+    <ellipse cx="29" cy="165" rx="4" ry="6.5" transform="rotate(35 29 165)"/>
+    <ellipse cx="19.5" cy="166" rx="10.5" ry="11"/>
+  </g>
+  <path d="M15 156 V162 M20 155 V161 M24.5 156 V162" stroke="${SKIN}" stroke-width="3.2" stroke-linecap="round"/>
+  ${limb('M158 186 L174 234 L152 254', 21, NAVY)}
+  ${hand(146, 256)}
+  ${mustache(AX + 0.5536 * A, AY + 0.5536 * A, 0.238 * A)}
+</svg>`;
+}
+fs.writeFileSync(`${OUT}/mayor-full.svg`, fullBody());
+
 console.log('ok:', fs.readdirSync(OUT).join(' '));

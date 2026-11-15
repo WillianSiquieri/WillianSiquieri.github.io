@@ -2,7 +2,7 @@
 
 import { DAILY, ITEMS } from '../game/config.js';
 import * as E from '../game/economy.js';
-import { mentorFace, rewardChips } from './mentor.js';
+import { mentorFigure, rewardChips } from './mentor.js';
 import { t, fmtNum } from '../i18n.js';
 
 function preview(r) {
@@ -46,7 +46,7 @@ export function dailyView(game) {
 
   return `
     <div class="mentor-mini">
-      <img class="mentor-face" src="${mentorFace()}" alt="">
+      <img class="mentor-figure" src="${mentorFigure()}" alt="">
       <div class="mentor-say">${say}</div>
     </div>
     ${top}

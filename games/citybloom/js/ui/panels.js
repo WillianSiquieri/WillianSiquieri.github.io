@@ -158,7 +158,7 @@ export function panelView(game) {
         <div class="invgrid">${cells}</div>
         <div class="upgrade"><div><b>${t('upgradeStorage')} (+25)</b><div class="rc">${costHtml(s, cost)}</div></div>
         ${btn('whUpgrade', '⬆️', 'primary small', '', !canAfford(s, cost))}</div>`,
-      actions: '',
+      actions: btn('inventory', `📦 ${t('seeInventory')}`, 'primary'),
     };
   }
 

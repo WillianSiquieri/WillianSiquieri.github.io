@@ -5,14 +5,15 @@ import { MENTOR, ITEMS } from '../game/config.js';
 import { avatarURL } from '../render/avatars.js';
 import { t, tn, fmtNum } from '../i18n.js';
 
-export const mentorFace = () => avatarURL(MENTOR);
+export const mentorFace = () => avatarURL(MENTOR);                       // rosto (dica)
+export const mentorFigure = () => 'assets/characters/micah/mayor-full.svg'; // corpo inteiro
 
 // Cartão do prefeito: fala + conteúdo opcional + botões.
 export function mentorCard({ text, body = '', buttons = '' }) {
   return `
     <div class="mentor">
       <div class="mentor-head">
-        <img class="mentor-face" src="${mentorFace()}" alt="">
+        <img class="mentor-figure" src="${mentorFigure()}" alt="">
         <div class="mentor-talk">
           <div class="mentor-name">${tn(MENTOR.name)}</div>
           <div class="mentor-say">${text}</div>

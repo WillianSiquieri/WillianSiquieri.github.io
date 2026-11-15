@@ -129,8 +129,9 @@ Ao limpar obstáculos (35% de chance), cai o item que o jogador tem **menos** �
 os dois são gastos juntos para ampliar o armazém, então nunca falta um deles.
 
 ### Prefeito Otávio (guia)
-Personagem que acompanha o jogador (retrato Micah `assets/characters/micah/mayor.svg`,
-com faixa de prefeito; `js/ui/mentor.js`):
+Personagem que acompanha o jogador (`js/ui/mentor.js`): **corpo inteiro** nos cartões e
+no baú (`assets/characters/micah/mayor-full.svg` — cabeça Micah + corpo desenhado: paletó,
+faixa de prefeito, acenando com prancheta) e rosto (`mayor.svg`) na dica:
 - **Abertura**: boas-vindas → pergunta o nome da cidade → "conto com a sua ajuda para
   prosperar {cidade} e ajudar os nossos moradores". Save antigo: apresentação curta,
   uma vez (`state.mentor.intro`).
@@ -153,6 +154,12 @@ com faixa de prefeito; `js/ui/mentor.js`):
 - Perdeu um dia → volta ao dia 1; depois do 7º recomeça.
 - Depois de abrir, **baú extra por anúncio** (premiado `chest`), 1× por dia.
 - Botão 🎁 no HUD com selo; abre sozinho ao entrar quando há baú.
+
+### Estoque
+Tocar no 📦 do HUD (ou "Ver estoque completo" no Armazém) abre a folha **Estoque**
+(`js/ui/inventory.js`): capacidade + ampliar armazém, e todos os itens agrupados
+(matérias-primas, produtos, ferramentas especiais) com quantidade, de onde vem e nível
+em que libera; itens zerados aparecem apagados.
 
 ### Mover construções
 - Qualquer construção pode ser reposicionada de graça: botão **✥ Mover** no painel →
@@ -227,6 +234,7 @@ js/ui/settings.js       configurações (nome, música, efeitos, idioma)
 js/render/avatars.js    retratos dos personagens dos pedidos (Micah)
 js/ui/mentor.js         Prefeito Otávio: cartão com fala, presentes
 js/ui/daily.js          baú diário (calendário de 7 dias + extra)
+js/ui/inventory.js      folha de estoque (todos os itens)
 js/engine/music.js      música de fundo (tema, volume, preferências)
 js/engine/sampler.js    toca músicas com amostras de instrumentos reais
 js/game/songs.js        músicas compostas (dados: melodia, acordes, baixo)

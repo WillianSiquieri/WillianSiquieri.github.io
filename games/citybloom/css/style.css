@@ -189,6 +189,21 @@ body.placing .placebar { transform: translateY(0); }
 .recipe .rl { display: flex; align-items: center; gap: 10px; }
 .recipe .ci { font-size: 26px; }
 
+/* ---------------- estoque ---------------- */
+.istore { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
+.istore .irow { display: flex; justify-content: space-between; font-weight: 800; }
+.istore.full .irow span { color: #c92a2a; }
+.istore .pbar { margin: 8px 0 4px; }
+.istore .upgrade { margin-top: 8px; }
+.sheet-body .sec { margin: 14px 0 6px; font-weight: 900; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.ilist { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.icard { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px 10px; min-width: 0; }
+.icard .iicon { font-size: 28px; flex-shrink: 0; }
+.icard .iinfo { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.icard .iinfo b { font-size: 14px; }
+.icard .iinfo small { font-size: 11px; color: var(--muted); line-height: 1.2; }
+.icard .iqty { font-size: 20px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.icard.zero { opacity: .45; }
 .invgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px; margin-top: 10px; }
 .inv { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px; text-align: center; display: flex; flex-direction: column; }
 .inv span { font-size: 22px; } .inv b { font-size: 15px; } .inv small { font-size: 10.5px; color: var(--muted); }
@@ -333,7 +348,13 @@ button.pill { font-family: inherit; color: var(--text); cursor: pointer; text-al
 .burst { font-size: 48px; animation: spin 1.2s ease-out; }
 /* ---------------- Prefeito Otávio ---------------- */
 .modal-card:has(.mentor) { text-align: left; padding: 18px 16px 16px; width: min(380px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; }
-.mentor-head { display: flex; gap: 12px; align-items: flex-start; }
+.mentor-head { display: flex; gap: 10px; align-items: flex-end; }
+.mentor-figure {
+  height: 190px; width: 95px; flex-shrink: 0; object-fit: contain; transform-origin: 50% 100%;
+  animation: breathe 3.2s ease-in-out infinite; filter: drop-shadow(0 4px 6px rgba(20,40,70,0.15));
+}
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02, 1.015); } }
+.mentor-head .mentor-talk { align-self: center; }
 .mentor-face { width: 84px; height: 84px; border-radius: 22px; flex-shrink: 0; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(20,40,70,0.22); background: #dff1ff; }
 .mentor-talk { flex: 1; min-width: 0; }
 .mentor-name { font-weight: 900; font-size: 13px; color: #1f9d55; text-transform: uppercase; letter-spacing: .04em; margin: 2px 0 4px; }
@@ -341,7 +362,7 @@ button.pill { font-family: inherit; color: var(--text); cursor: pointer; text-al
   position: relative; background: #f2f6fb; border-radius: 16px; padding: 10px 12px;
   font-size: 15.5px; font-weight: 700; line-height: 1.35;
 }
-.mentor-head .mentor-say::before { content: ''; position: absolute; left: -7px; top: 14px; border: 7px solid transparent; border-right-color: #f2f6fb; border-left: 0; }
+.mentor-head .mentor-say::before { content: ''; position: absolute; left: -7px; top: 22px; border: 7px solid transparent; border-right-color: #f2f6fb; border-left: 0; }
 .mentor .name-input { margin: 14px 0 2px; }
 .mentor-actions { margin-top: 14px; }
 .mentor .lv-badge { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 4px; font-size: 24px; }
@@ -359,7 +380,10 @@ button.pill { font-family: inherit; color: var(--text); cursor: pointer; text-al
 
 /* ---------------- baú diário (folha) ---------------- */
 .mentor-mini { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
-.mentor-mini .mentor-face { width: 56px; height: 56px; border-radius: 16px; }
+.mentor-mini { align-items: flex-end; }
+.mentor-mini .mentor-figure { height: 120px; width: 60px; }
+.mentor-mini .mentor-say { position: relative; align-self: center; }
+.mentor-mini .mentor-say::before { content: ''; position: absolute; left: -7px; top: 50%; margin-top: -7px; border: 7px solid transparent; border-right-color: #f2f6fb; border-left: 0; }
 .mentor-mini .mentor-say { flex: 1; font-size: 14.5px; }
 .daily-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .day {
