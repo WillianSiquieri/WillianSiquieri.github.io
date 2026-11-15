@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs><clipPath id="cb-clip"><rect width="200" height="200" rx="28"/></clipPath></defs>
+  <g clip-path="url(#cb-clip)">
+    <rect width="200" height="200" fill="#f4efe8"/>
+    <g stroke="#e3dbd0" stroke-width="1.5"><path d="M20 0 V200"/><path d="M0 20 H200"/><path d="M40 0 V200"/><path d="M0 40 H200"/><path d="M60 0 V200"/><path d="M0 60 H200"/><path d="M80 0 V200"/><path d="M0 80 H200"/><path d="M100 0 V200"/><path d="M0 100 H200"/><path d="M120 0 V200"/><path d="M0 120 H200"/><path d="M140 0 V200"/><path d="M0 140 H200"/><path d="M160 0 V200"/><path d="M0 160 H200"/><path d="M180 0 V200"/><path d="M0 180 H200"/></g>
+    <rect x="0" y="0" width="200" height="22" fill="#d6c7b5"/>
+    <g stroke="#8d99a6" stroke-width="2.5" fill="none" stroke-linecap="round">
+      <path d="M24 22 V52"/><circle cx="24" cy="58" r="7"/><path d="M44 22 V60"/><path d="M40 60 h8"/>
+      <path d="M160 22 V48"/><ellipse cx="160" cy="58" rx="8" ry="10"/><path d="M180 22 V56"/><path d="M176 56 l8 8"/></g>
+    <rect x="0" y="178" width="200" height="22" fill="#cdb8a0"/>
+  <defs><radialGradient id="cb-skin" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#f7c9a5"/><stop offset="1" stop-color="#e3a77f"/></radialGradient>
+    <linearGradient id="cb-coat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e3e8ee"/></linearGradient>
+    <linearGradient id="cb-pan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b6470"/><stop offset="1" stop-color="#2d333b"/></linearGradient></defs>
+  <!-- tronco -->
+  <path d="M38 200 C38 168 54 150 80 144 L100 152 L120 144 C146 150 162 168 162 200 Z" fill="url(#cb-coat)"/>
+  <path d="M100 152 L120 144 C126 160 124 186 118 200 H100 Z" fill="#eef2f6"/>
+  <g fill="#c9d1da"><circle cx="90" cy="164" r="2.6"/><circle cx="112" cy="164" r="2.6"/><circle cx="90" cy="178" r="2.6"/><circle cx="112" cy="178" r="2.6"/><circle cx="90" cy="192" r="2.6"/><circle cx="112" cy="192" r="2.6"/></g>
+  <path d="M80 144 Q100 160 120 144 L114 156 Q100 164 86 156 Z" fill="#e63946"/><path d="M96 158 L100 172 L104 158 Z" fill="#c62e3b"/>
+  <!-- braço com frigideira -->
+  <path d="M146 156 C158 150 164 140 162 128 L150 126 C150 136 146 144 136 150 Z" fill="url(#cb-coat)"/>
+  <rect x="156" y="88" width="7" height="44" rx="3" fill="#3b2a1e" transform="rotate(18 159 110)"/>
+  <ellipse cx="170" cy="84" rx="26" ry="10" fill="url(#cb-pan)" transform="rotate(-10 170 84)"/>
+  <ellipse cx="170" cy="82" rx="20" ry="6.5" fill="#1f242b" transform="rotate(-10 170 84)"/>
+  <ellipse cx="166" cy="80" rx="7" ry="3.2" fill="#ffd166"/><circle cx="168" cy="79.5" r="2.2" fill="#ff9f1c"/>
+  <path d="M160 70 q-4 -8 2 -14 M172 68 q-4 -8 2 -14 M182 70 q-4 -8 2 -14" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+  <ellipse cx="156" cy="126" rx="9" ry="8" fill="#e3a77f"/>
+  <!-- pescoço -->
+  <path d="M88 128 H112 V148 Q100 156 88 148 Z" fill="#e3a77f"/>
+  
+  <!-- orelhas -->
+  <ellipse cx="66" cy="96" rx="9" ry="12" fill="#e3a77f"/><ellipse cx="66" cy="96" rx="4.5" ry="7" fill="#c0835c"/>
+  <ellipse cx="134" cy="96" rx="9" ry="12" fill="#e3a77f"/><ellipse cx="134" cy="96" rx="4.5" ry="7" fill="#c0835c"/>
+  <!-- cabeça -->
+  <path d="M100 46 C126 46 136 64 136 88 C136 116 122 136 100 138 C78 136 64 116 64 88 C64 64 74 46 100 46 Z" fill="url(#cb-skin)"/>
+  <path d="M70 108 C76 126 88 136 100 138 C112 136 124 126 130 108 C124 122 112 130 100 131 C88 130 76 122 70 108 Z" fill="#c0835c" opacity=".35"/>
+  <ellipse cx="80" cy="108" rx="8" ry="5" fill="#ff8a80" opacity=".3"/><ellipse cx="120" cy="108" rx="8" ry="5" fill="#ff8a80" opacity=".3"/>
+  <!-- olhos -->
+  <g>
+    <ellipse cx="85" cy="94" rx="8.5" ry="7.5" fill="#ffffff"/><ellipse cx="115" cy="94" rx="8.5" ry="7.5" fill="#ffffff"/>
+    <circle cx="86" cy="95" r="5.4" fill="#4a3423"/><circle cx="116" cy="95" r="5.4" fill="#4a3423"/>
+    <circle cx="86" cy="95" r="2.8" fill="#1d1d24"/><circle cx="116" cy="95" r="2.8" fill="#1d1d24"/>
+    <circle cx="88" cy="92.6" r="1.7" fill="#fff"/><circle cx="118" cy="92.6" r="1.7" fill="#fff"/>
+    <circle cx="84" cy="97" r=".8" fill="#fff" opacity=".8"/><circle cx="114" cy="97" r=".8" fill="#fff" opacity=".8"/>
+    <path d="M76.5 92 Q85 84.5 93.5 91" fill="none" stroke="#2b2b33" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M106.5 91 Q115 84.5 123.5 92" fill="none" stroke="#2b2b33" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <!-- sobrancelhas -->
+  <path d="M75 82 Q84 76 93 80" fill="none" stroke="#2c1b18" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M107 80 Q116 76 125 82" fill="none" stroke="#2c1b18" stroke-width="3.6" stroke-linecap="round"/>
+  <!-- nariz -->
+  <path d="M100 98 Q96 108 99 111 Q102 113 105 110" fill="none" stroke="#c0835c" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- boca -->
+  <path d="M88 117 Q100 129 112 117 Q100 121 88 117 Z" fill="#8f2d2d"/><path d="M90.5 118 Q100 121.4 109.5 118 L108 120.5 Q100 122.6 92 120.5 Z" fill="#ffffff"/><path d="M95 124 Q100 127 105 124 Q100 125.5 95 124Z" fill="#e57373"/>
+  <!-- bigode -->
+  <path d="M82 114 Q90 104 100 111 Q110 104 118 114 Q122 118 116 117 Q108 112 100 116 Q92 112 84 117 Q78 118 82 114 Z" fill="#2c1b18"/>
+  <!-- cabelo nas laterais -->
+  <path d="M65 90 Q63 74 70 66 L74 92 Z" fill="#2c1b18"/><path d="M135 90 Q137 74 130 66 L126 92 Z" fill="#2c1b18"/>
+  <g transform="translate(100 74) scale(0.84)">
+  <circle cx="-26" cy="-34" r="24" fill="#ffffff"/><circle cx="26" cy="-34" r="24" fill="#ffffff"/><circle cx="0" cy="-48" r="28" fill="#ffffff"/>
+  <circle cx="-26" cy="-34" r="24" fill="none" stroke="#dfe4ea" stroke-width="2"/><circle cx="26" cy="-34" r="24" fill="none" stroke="#dfe4ea" stroke-width="2"/>
+  <circle cx="0" cy="-48" r="28" fill="#ffffff"/>
+  <path d="M-40 -18 H40 V2 Q0 6 -40 2 Z" fill="#ffffff" stroke="#dfe4ea" stroke-width="2"/>
+  <path d="M-12 -64 Q-2 -70 10 -64" fill="none" stroke="#eef1f5" stroke-width="3"/></g></g></svg>
