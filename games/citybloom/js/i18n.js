@@ -49,6 +49,7 @@ const STRINGS = {
     creditMusic: 'Música "Bossa da Prefeitura": composição original para o CityBloom.',
     creditInstruments: 'Instrumentos: soundfont FluidR3_GM (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman) —',
     creditCharacters: 'Personagens: estilo Micah, de Micah Lanier, gerado com DiceBear —',
+    move: '✥ Mover', moveHint: 'Toque no mapa para escolher o novo lugar', moving: 'Mover', moved: 'Construção movida! ✥',
     // Prefeito Otávio (guia)
     mayorHello: 'Olá! Eu sou o <b>Prefeito Otávio</b>. Bem-vindo à nossa cidade! 🏙️',
     mayorAskName: 'Antes de tudo: como vai se chamar a nossa cidade?',
@@ -109,6 +110,7 @@ const STRINGS = {
     creditMusic: 'Music "Town Hall Bossa": original composition for CityBloom.',
     creditInstruments: 'Instruments: FluidR3_GM soundfont (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman) —',
     creditCharacters: 'Characters: Micah style by Micah Lanier, generated with DiceBear —',
+    move: '✥ Move', moveHint: 'Tap the map to choose the new spot', moving: 'Move', moved: 'Building moved! ✥',
     mayorHello: 'Hello! I am <b>Mayor Otávio</b>. Welcome to our town! 🏙️',
     mayorAskName: 'First things first: what shall we call our city?',
     mayorCount: 'What a lovely name! I count on your help to make <b>{c}</b> thrive and to help our residents. Let\'s start by harvesting some wood 🌲!',

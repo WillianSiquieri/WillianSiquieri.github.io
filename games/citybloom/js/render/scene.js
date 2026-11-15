@@ -93,7 +93,9 @@ export class Scene {
 
     // ---- lista de desenho por profundidade ----
     const list = [];
+    const movingObj = ui.ghost && ui.ghost.moving;
     for (const o of state.objects) {
+      if (o === movingObj) continue;   // sendo movido: só o fantasma aparece
       list.push({ k: 'obj', o, d: (o.i + o.size - 1) + (o.j + o.size - 1), i: o.i });
     }
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
@@ -201,17 +203,26 @@ export class Scene {
     const org = pt(g.i, g.j);
     ctx.save();
     ctx.globalAlpha = 0.72;
-    if (def.type === 'lot') this.cache.draw(ctx, 'lot:none:0', BBOX_LOT, (cx) => lotSprite(cx, null, 0), org.x, org.y);
+    if (def.type === 'lot') {
+      const m = g.moving, res = m && m.resource, stage = res ? 2 : 0;
+      this.cache.draw(ctx, `lot:${res || 'none'}:${stage}`, BBOX_LOT, (cx) => lotSprite(cx, res, stage), org.x, org.y);
+    }
     else this.cache.draw(ctx, 'b:' + g.type, bboxBuilding(s, HEIGHT[g.type] || 40), (cx) => PAINT[g.type](cx), org.x, org.y);
     ctx.restore();
   }
 
   // Toque: primeiro testa contornos de prédios (frente → trás), depois o chão.
-  pick(state, w, tileAt) {
+  // Se o prédio da frente já está selecionado, tocar de novo no mesmo ponto
+  // seleciona o que está escondido atrás dele.
+  pick(state, w, tileAt, current = null) {
     const objs = state.objects
       .filter(o => BUILDINGS[o.type].type !== 'lot')
       .sort((a, b) => ((b.i + b.size) + (b.j + b.size)) - ((a.i + a.size) + (a.j + a.size)));
-    for (const o of objs) if (pointIn(w, this.hull(o))) return { kind: 'object', obj: o };
+    const hits = objs.filter(o => pointIn(w, this.hull(o)));
+    if (hits.length) {
+      const k = hits.indexOf(current);
+      return { kind: 'object', obj: hits[k < 0 ? 0 : (k + 1) % hits.length] };
+    }
     const { i, j } = tileAt(w.x, w.y);
     if (i < 0 || j < 0 || i >= state.size || j >= state.size) return null;
     const o = objectAt(state, i, j);

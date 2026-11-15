@@ -318,6 +318,18 @@ export function buildCheck(state, type) {
   return ok();
 }
 
+// Reposiciona uma construção já feita (grátis). O progresso (aluguel,
+// produção) continua igual.
+export function moveObject(state, o, i, j) {
+  if (!state.objects.includes(o)) return fail('generic');
+  if (o.i === i && o.j === j) return ok({ same: true });
+  if (!canPlace(state, o.type, i, j, o)) return fail('invalidPlace');
+  o.i = i; o.j = j;
+  touch(state);
+  bump(state, 'moved');
+  return ok({ obj: o });
+}
+
 export function build(state, type, i, j, now) {
   const c = buildCheck(state, type);
   if (!c.ok) return c;

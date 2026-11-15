@@ -154,6 +154,12 @@ com faixa de prefeito; `js/ui/mentor.js`):
 - Depois de abrir, **baú extra por anúncio** (premiado `chest`), 1× por dia.
 - Botão 🎁 no HUD com selo; abre sozinho ao entrar quando há baú.
 
+### Mover construções
+- Qualquer construção pode ser reposicionada de graça: botão **✥ Mover** no painel →
+  toca no novo lugar (fantasma verde/vermelho) → ✓. Produção e aluguel continuam.
+  Regra pura: `moveObject` (usa `canPlace` ignorando o próprio prédio).
+- Prédio escondido atrás de outro: tocar de novo no mesmo ponto seleciona o de trás.
+
 ## 8. Extras de experiência
 - **Nome da cidade**: pedido ao começar; renomear tocando no nome (HUD) ou em ⚙️.
 - **Tela de níveis**: tocar no nível mostra os 45 primeiros níveis por fase, XP de

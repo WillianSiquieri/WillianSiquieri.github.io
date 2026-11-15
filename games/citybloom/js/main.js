@@ -154,7 +154,8 @@ class CityGame {
       return;
     }
     if (this.sheet) this.closeSheet();
-    const sel = this.scene.pick(this.state, w, tileAt);
+    const cur = this.selected && this.selected.kind === 'object' ? this.selected.obj : null;
+    const sel = this.scene.pick(this.state, w, tileAt, cur);
     if (!sel) return this.select(null);
     if (sel.kind === 'object' && !this.state.showcase) {
       const o = sel.obj;
@@ -209,6 +210,7 @@ class CityGame {
         r = E.clearObstacle(s, tile.i, tile.j);
         if (r.ok) { this.fx.burst(tile.i, tile.j, 1, this.time()); this.selected = null; }
       } break;
+      case 'move': if (o && !s.showcase) this.startMove(o); return;
       case 'buildHere': if (tile) { this.buildAt = { i: tile.i, j: tile.j }; this.select(null); this.openSheet('build'); } return;
       case 'orders': this.openSheet('orders'); return;
       case 'levels': if (!s.showcase) this.openSheet('levels'); return;
@@ -321,11 +323,27 @@ class CityGame {
     document.body.classList.add('placing');
   }
 
+  // Mover uma construção já feita: usa o mesmo modo de posicionar.
+  startMove(o) {
+    this.placing = { type: o.type, i: o.i, j: o.j, valid: true, moving: o };
+    this.closeSheet();
+    this.select(null);
+    this._updatePlacing();
+    document.body.classList.add('placing');
+    sfx.click();
+  }
+
   _updatePlacing() {
     const p = this.placing;
-    p.valid = E.canPlace(this.state, p.type, p.i, p.j);
+    p.valid = E.canPlace(this.state, p.type, p.i, p.j, p.moving || null);
     const def = BUILDINGS[p.type];
-    $('place-name').textContent = tn(def.name);
+    $('place-name').textContent = (p.moving ? t('move') + ' · ' : '') + tn(def.name);
+    if (p.moving) {
+      $('place-cost').innerHTML = '';
+      $('place-hint').textContent = p.valid ? t('moveHint') : t('errInvalidPlace');
+      $('place-ok').disabled = !p.valid;
+      return;
+    }
     $('place-cost').innerHTML = Object.entries(def.build || {}).map(([k, v]) => {
       const have = k === 'coins' ? this.state.coins : (this.state.inventory[k] || 0);
       return `<span class="cost${have >= v ? '' : ' miss'}">${k === 'coins' ? '🪙' : ITEMS[k].icon} ${fmtNum(v)}</span>`;
@@ -337,6 +355,15 @@ class CityGame {
   confirmPlacing() {
     const p = this.placing;
     if (!p) return;
+    if (p.moving) {
+      const r = E.moveObject(this.state, p.moving, p.i, p.j);
+      if (!r.ok) return this._error(r);
+      this.placing = null;
+      document.body.classList.remove('placing');
+      if (!r.same) { this.fx.burst(p.i, p.j, p.moving.size, this.time()); sfx.build(); toast(t('moved')); save(this.state); }
+      this.select({ kind: 'object', obj: p.moving });
+      return;
+    }
     const r = E.build(this.state, p.type, p.i, p.j, this.now());
     if (!r.ok) return this._error(r);
     this.placing = null;
@@ -403,6 +430,10 @@ class CityGame {
     $('panel-body').innerHTML = v.body;
     $('panel-actions').innerHTML = v.actions || '';
     $('panel-actions').style.display = v.actions ? 'flex' : 'none';
+    const mv = $('panel-move');
+    const movable = this.selected && this.selected.kind === 'object';
+    mv.classList.toggle('show', !!movable);
+    if (movable) mv.textContent = t('move');
     panel.classList.add('show');
   }
 
