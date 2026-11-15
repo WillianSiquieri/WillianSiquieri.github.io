@@ -9,7 +9,10 @@ import { Rider, RIDER_RADIUS } from './game/rider.js';
 import { InputManager } from './ui/input.js';
 import { History } from './ui/history.js';
 import { LEVELS, getLevel, nextLevelId } from './game/levels.js';
-import { getProgress, recordLevelResult, saveSandbox, loadSandbox } from './game/storage.js';
+import {
+  getProgress, recordLevelResult, saveSandbox, loadSandbox,
+  getSkin, setSkin, SKINS, encodeTrack, decodeTrack,
+} from './game/storage.js';
 import { sfx } from './engine/audio.js';
 
 // ---- Parâmetros de física (por passo fixo) ----
@@ -44,6 +47,7 @@ class Game {
     this.screen = 'menu';        // 'menu' | 'game'
     this.level = null;           // fase atual (null = sandbox)
     this.isSandbox = false;
+    this.skin = getSkin();       // cor do carrinho
 
     this.startPoint = { x: 0, y: -40 };
     this.rider = new Rider(this.startPoint.x, this.startPoint.y);
@@ -183,6 +187,66 @@ class Game {
     if (!muted) sfx.click();
   }
 
+  setSkin(id) {
+    const skin = SKINS.find(s => s.id === id);
+    if (!skin) return;
+    this.skin = skin;
+    setSkin(id);
+    sfx.click();
+  }
+
+  // Compartilhar: gera um link com a pista do Sandbox e copia para a área de transferência.
+  shareSandbox() {
+    const segs = this.track.userSegments().map(s => [
+      Math.round(s.a.x), Math.round(s.a.y), Math.round(s.b.x), Math.round(s.b.y),
+    ]);
+    if (!segs.length) { toast('Desenhe algo antes de compartilhar 🙂'); return; }
+    const code = encodeTrack(segs);
+    const url = location.origin + location.pathname + '?t=' + code;
+    if (url.length > 8000) { toast('Pista muito grande para o link :('); return; }
+    const done = () => toast('Link copiado! Cole para compartilhar 🔗');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done).catch(() => prompt('Copie o link:', url));
+    } else {
+      prompt('Copie o link:', url);
+    }
+  }
+
+  // Carrega uma pista vinda de um link (?t=) direto no Sandbox.
+  loadSharedTrack(code) {
+    const segs = decodeTrack(code);
+    if (!segs) { toast('Link de pista inválido'); this.goToMenu(); return; }
+    this.level = null;
+    this.isSandbox = true;
+    this.screen = 'game';
+    this.track.clear();
+    for (const [ax, ay, bx, by] of segs) this.track.addSegment(ax, ay, bx, by, false);
+    this.startPoint = { x: 0, y: -40 };
+    this.finish = null;
+    this.stars = [];
+    this.failY = Infinity;
+    this.history.clear();
+    this._enterEdit(false);
+    this._fitToTrack();
+    this._hideOverlays();
+    this._setHint('Pista compartilhada carregada! Toque em ▶ para jogar.');
+    this._syncHud();
+  }
+
+  // Enquadra a câmera em torno dos segmentos existentes (pista compartilhada).
+  _fitToTrack() {
+    if (!this.track.segments.length) return;
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    for (const s of this.track.segments) {
+      minX = Math.min(minX, s.a.x, s.b.x); maxX = Math.max(maxX, s.a.x, s.b.x);
+      minY = Math.min(minY, s.a.y, s.b.y); maxY = Math.max(maxY, s.a.y, s.b.y);
+    }
+    const pad = 120, cam = this.camera;
+    const w = (maxX - minX) + pad * 2, h = (maxY - minY) + pad * 2;
+    cam.zoom = Math.max(cam.minZoom, Math.min(cam.vw / w, cam.vh / h, cam.maxZoom));
+    cam.x = (minX + maxX) / 2; cam.y = (minY + maxY) / 2;
+  }
+
   // ---------- Controles ----------
   setTool(tool) { this.tool = tool; sfx.click(); this._syncHud(); }
 
@@ -310,9 +374,14 @@ class Game {
     this.result = 'won';
     const total = this.stars.length;
     const got = this.stars.filter(s => s.collected).length;
-    if (this.level) recordLevelResult(this.level.id, this.playTime, got);
+    let isRecord = false;
+    if (this.level) {
+      const prev = getProgress()[this.level.id];
+      isRecord = !prev || this.playTime < (prev.bestTime != null ? prev.bestTime : Infinity);
+      recordLevelResult(this.level.id, this.playTime, got);
+    }
     sfx.win();
-    showWin(this, got, total, this.playTime);
+    showWin(this, got, total, this.playTime, isRecord);
   }
   _lose() {
     this.mode = 'edit';
@@ -443,7 +512,7 @@ class Game {
     const ctx = this.ctx, r = this.rider;
     ctx.strokeStyle = line; ctx.lineWidth = 4;
     ctx.beginPath(); ctx.moveTo(r.tail.x, r.tail.y); ctx.lineTo(r.nose.x, r.nose.y); ctx.stroke();
-    ctx.fillStyle = accent;
+    ctx.fillStyle = this.skin ? this.skin.color : accent;
     ctx.beginPath();
     ctx.moveTo(r.nose.x, r.nose.y); ctx.lineTo(r.tail.x, r.tail.y); ctx.lineTo(r.body.x, r.body.y);
     ctx.closePath(); ctx.fill();
@@ -477,6 +546,11 @@ class Game {
         if (name) name.textContent = this.level ? this.level.name : 'Sandbox';
         if (stars) stars.textContent = this.stars.length ? `⭐ ${got}/${this.stars.length}` : '';
         if (time) time.textContent = `⏱ ${this.playTime.toFixed(1)}s`;
+        const rec = document.getElementById('hud-record');
+        if (rec) {
+          const best = this.level ? (getProgress()[this.level.id] || {}).bestTime : null;
+          rec.textContent = best != null ? `🏆 ${best.toFixed(1)}s` : '';
+        }
       } else {
         hud.style.display = 'none';
       }
@@ -520,13 +594,31 @@ function renderMenu(game) {
     btn.addEventListener('click', () => game.loadLevel(lvl.id));
     list.appendChild(btn);
   }
+  renderSkinPicker(game);
 }
 
-function showWin(game, got, total, time) {
+function renderSkinPicker(game) {
+  const box = document.getElementById('skin-picker');
+  if (!box) return;
+  box.innerHTML = '';
+  for (const s of SKINS) {
+    const sw = document.createElement('button');
+    sw.className = 'skin-swatch' + (game.skin.id === s.id ? ' active' : '');
+    sw.style.background = s.color;
+    sw.title = s.name;
+    sw.setAttribute('aria-label', s.name);
+    sw.addEventListener('click', () => { game.setSkin(s.id); renderSkinPicker(game); });
+    box.appendChild(sw);
+  }
+}
+
+function showWin(game, got, total, time, isRecord) {
   const el = document.getElementById('win');
   if (!el) return;
   document.getElementById('win-time').textContent = fmt(time);
   document.getElementById('win-stars').textContent = total ? `⭐ ${got}/${total}` : '';
+  const rec = document.getElementById('win-record');
+  if (rec) rec.style.display = (isRecord && game.level) ? 'block' : 'none';
   const nextId = game.level ? nextLevelId(game.level.id) : null;
   const nextBtn = document.getElementById('win-next');
   nextBtn.style.display = nextId ? 'inline-flex' : 'none';
@@ -573,6 +665,7 @@ function boot() {
   on('btn-menu', () => game.goToMenu());
   on('btn-save', () => game.saveSandboxNow());
   on('open-sandbox', () => game.loadSandboxMode());
+  on('btn-share', () => game.shareSandbox());
   on('btn-zoom-in', () => game.zoomInOut(1));
   on('btn-zoom-out', () => game.zoomInOut(-1));
   on('btn-mute', () => game.toggleMute());
@@ -601,8 +694,11 @@ function boot() {
     else if ((e.ctrlKey || e.metaKey) && e.key === 'y') { e.preventDefault(); game.redo(); }
   });
 
-  // Começa no menu.
-  game.goToMenu();
+  // Se veio um link de pista compartilhada (?t=), carrega direto no Sandbox.
+  let shared = null;
+  try { shared = new URLSearchParams(location.search).get('t'); } catch (_) {}
+  if (shared) game.loadSharedTrack(shared);
+  else game.goToMenu();
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

@@ -225,6 +225,26 @@ body.sandbox .sandbox-only { display: flex; }
 
 button.wide { width: 100%; height: 50px; border-radius: 14px; font-size: 16px; font-weight: 600; }
 
+/* Seletor de skin (cor do carrinho) */
+.skin-row { margin-top: 16px; text-align: center; }
+.skin-label { display: block; font-size: 13px; opacity: 0.7; margin-bottom: 8px; }
+.skin-picker { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.skin-swatch {
+  width: 36px; height: 36px; border-radius: 50%; padding: 0;
+  border: 3px solid transparent;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.skin-swatch.active { border-color: var(--btn-text); transform: scale(1.12); }
+
+/* Selo de novo recorde */
+.record-badge {
+  display: none;
+  margin: 0 0 8px;
+  color: #f5b301;
+  font-weight: 800;
+  font-size: 18px;
+}
+
 .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .row button { width: auto; height: 46px; padding: 0 16px; border-radius: 12px; font-size: 15px; font-weight: 600; }
 .primary-btn { background: var(--accent); border-color: var(--accent); color: #fff; }
