@@ -128,6 +128,32 @@ Personagens diferentes aparecem ao mesmo tempo no quadro.
 Ao limpar obstáculos (35% de chance), cai o item que o jogador tem **menos** —
 os dois são gastos juntos para ampliar o armazém, então nunca falta um deles.
 
+### Prefeito Otávio (guia)
+Personagem que acompanha o jogador (retrato Micah `assets/characters/micah/mayor.svg`,
+com faixa de prefeito; `js/ui/mentor.js`):
+- **Abertura**: boas-vindas → pergunta o nome da cidade → "conto com a sua ajuda para
+  prosperar {cidade} e ajudar os nossos moradores". Save antigo: apresentação curta,
+  uma vez (`state.mentor.intro`).
+- **Subir de nível**: parabeniza (frase especial ao mudar de fase), mostra o que foi
+  liberado (com miniaturas) e entrega o **presente do nível**.
+- **Dicas**: a barra de objetivo mostra o rosto do prefeito.
+
+### Presente de nível (`levelReward` em `config.js`)
+- Moedas: `50 + 30·(nível−1)^1,3` (nível 2 ≈ 80, 10 ≈ 600, 20 ≈ 1.400) — **×2 ao mudar
+  de fase**.
+- Material da fase (matéria-prima + produto, 2–5 unidades): Vilarejo madeira/tábua,
+  Vila barro/tijolo, Cidade pequena areia/vidro, Cidade ferro/aço, Metrópole aço/móveis.
+- A cada 5 níveis: +1 🔨 e +1 📐.
+- Aplicado dentro de `addXP` (toda ação que dá XP); itens que não cabem no armazém
+  viram moedas (2× o valor).
+
+### Baú diário (`DAILY` em `config.js`, `js/ui/daily.js`)
+- Calendário de 7 dias (data local): moedas → madeira/tábua → moedas → material da
+  fase → moedas → 🔨📐 → **dia 7: baú grande**. Moedas × (1 + 0,15·(nível−1)).
+- Perdeu um dia → volta ao dia 1; depois do 7º recomeça.
+- Depois de abrir, **baú extra por anúncio** (premiado `chest`), 1× por dia.
+- Botão 🎁 no HUD com selo; abre sozinho ao entrar quando há baú.
+
 ## 8. Extras de experiência
 - **Nome da cidade**: pedido ao começar; renomear tocando no nome (HUD) ou em ⚙️.
 - **Tela de níveis**: tocar no nível mostra os 45 primeiros níveis por fase, XP de
@@ -193,6 +219,8 @@ js/ui/fx.js             textos flutuantes e partículas
 js/ui/levels.js         tela de níveis por fase
 js/ui/settings.js       configurações (nome, música, efeitos, idioma)
 js/render/avatars.js    retratos dos personagens dos pedidos (Micah)
+js/ui/mentor.js         Prefeito Otávio: cartão com fala, presentes
+js/ui/daily.js          baú diário (calendário de 7 dias + extra)
 js/engine/music.js      música de fundo (tema, volume, preferências)
 js/engine/sampler.js    toca músicas com amostras de instrumentos reais
 js/game/songs.js        músicas compostas (dados: melodia, acordes, baixo)

@@ -11,7 +11,10 @@ import { panelView } from './ui/panels.js';
 import { buildMenuView } from './ui/build.js';
 import { ordersView } from './ui/orders.js';
 import { levelsView } from './ui/levels.js';
-import { settingsView } from './ui/settings.js';
+import { settingsView, esc } from './ui/settings.js';
+import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
+import { dailyView } from './ui/daily.js';
+import { thumb } from './ui/build.js';
 import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
@@ -61,8 +64,35 @@ class CityGame {
     this._loop = this._loop.bind(this);
     requestAnimationFrame(this._loop);
 
-    // Cidade sem nome (jogo novo ou save antigo): pede um nome.
-    if (!this.state.showcase && !this.state.cityName) setTimeout(() => this.openName(false), 700);
+    // Prefeito Otávio: apresentação (1ª vez) ou baú diário pronto.
+    if (!this.state.showcase) {
+      if (!this.state.mentor.intro) setTimeout(() => this.startIntro(), 700);
+      else if (E.dailyStatus(this.state, this.now()).canClaim) setTimeout(() => { if (!this.sheet && !this.modalQueue.length) this.openSheet('daily'); }, 1200);
+    }
+  }
+
+  // ---------------------------------------------------------------- prefeito: abertura
+  // Jogo novo: boas-vindas → nome da cidade → "conto com você".
+  // Save antigo (já tem nome): só uma apresentação curta.
+  startIntro() {
+    const s = this.state;
+    const done = () => { s.mentor.intro = true; save(s); };
+    const go = `<button class="btn primary" data-act="modalOk">${t('letsGo')}</button>`;
+    if (s.cityName) {
+      this.pushModal({ render: () => mentorCard({ text: t('mayorBack', { c: esc(s.cityName) }), buttons: go }), onOk: done });
+      return;
+    }
+    this.pushModal({ render: () => mentorCard({ text: t('mayorHello'), buttons: `<button class="btn primary" data-act="modalOk">${t('next')} ›</button>` }) });
+    this.pushModal({
+      render: () => mentorCard({
+        text: t('mayorAskName'),
+        body: `<input id="intro-name" class="name-input" maxlength="20" autocomplete="off" enterkeyhint="done" placeholder="${esc(t('cityNameDefault'))}">`,
+        buttons: `<button class="btn primary" data-act="modalOk">${t('nameGo')}</button>`,
+      }),
+      focus: 'intro-name',
+      onOk: () => this.saveName($('intro-name').value, true),
+    });
+    this.pushModal({ render: () => mentorCard({ text: t('mayorCount', { c: esc(s.cityName || t('cityNameDefault')) }), buttons: go }), onOk: done });
   }
 
   // ---------------------------------------------------------------- nome da cidade
@@ -207,6 +237,25 @@ class CityGame {
       case 'closePanel': this.select(null); return;
       case 'closeSheet': this.closeSheet(); return;
       case 'modalOk': this.closeModal(); return;
+      case 'daily': if (!s.showcase) this.openSheet('daily'); return;
+      case 'claimDaily': {
+        const rr = E.claimDaily(s, now);
+        if (!rr.ok) return this._error(rr);
+        this.dailyResult = rr;
+        this._gift(rr.got);
+        this.renderSheet();
+        return;
+      }
+      case 'claimExtra':
+        ads.rewarded('chest').then(ok => {
+          if (!ok) return;
+          const rr = E.claimDailyExtra(s, this.now());
+          if (!rr.ok) return this._error(rr);
+          this.dailyResult = rr;
+          this._gift(rr.got);
+          this.renderSheet();
+        });
+        return;
       default: return;
     }
     if (r) this._result(r, ...(at || [0, 0, 1]));
@@ -228,7 +277,7 @@ class CityGame {
     else if (r.coins) sfx.coin();
     else if (r.items || r.drop) sfx.collect();
     else if (r.xp) sfx.build();
-    if (r.levels && r.levels.length) this.levelUp(r.levels, r.phaseChanged);
+    if (r.levels && r.levels.length) this.levelUp(r.levels, r.phaseChanged, r.rewards);
     E.tick(this.state, this.now());
     save(this.state);
     return true;
@@ -322,6 +371,7 @@ class CityGame {
       orders: [`📋 ${t('ordersTitle')}`, ordersView],
       levels: [`⭐ ${t('levelsTitle')}`, levelsView],
       settings: [`⚙️ ${t('settings')}`, settingsView],
+      daily: [`🎁 ${t('dailyTitle')}`, dailyView],
     };
     const [title, view] = views[this.sheet];
     $('sheet-title').textContent = title;
@@ -357,32 +407,61 @@ class CityGame {
   }
 
   // ---------------------------------------------------------------- nível
-  levelUp(levels, phaseChanged) {
+  levelUp(levels, phaseChanged, rewards = []) {
     const lv = levels[levels.length - 1];
     const unlocked = levels.flatMap(l => E.unlocksAt(l));
-    this.modalQueue.push({ lv, unlocked, phase: phaseChanged ? phaseForLevel(lv) : null });
-    if (!$('modal').classList.contains('show')) this._showModal();
+    const phase = phaseChanged ? phaseForLevel(lv) : null;
+    const got = sumRewards(rewards);
+    this.pushModal({
+      render: () => {
+        const list = unlocked.map(u => u.kind === 'building'
+          ? `<li><img src="${thumb(u.key)}" alt=""><span>${tn(BUILDINGS[u.key].name)}</span></li>`
+          : `<li><span class="uicon">${ITEMS[u.key].icon}</span><span>${tn(ITEMS[u.key].name)}</span></li>`).join('');
+        return mentorCard({
+          text: congratsLine(lv, phase, esc(this.state.cityName || t('cityNameDefault'))),
+          body: `
+            <div class="lv-badge"><span class="burst">⭐</span><b>${t('levelUp', { n: lv })}</b></div>
+            ${list ? `<p class="sec">${t('unlocked')}</p><ul class="unlocks">${list}</ul>` : `<p class="muted">${t('nothingNew')}</p>`}
+            ${got.coins || Object.keys(got.items).length ? `<p class="sec">${t('yourReward')}</p>${rewardChips(got)}` : ''}`,
+          buttons: `<button class="btn primary" data-act="modalOk">${t('collectGift')}</button>`,
+        });
+      },
+      onOk: () => { this._gift(got); if (phase) ads.interstitial(); },
+    });
     sfx.levelUp();
+  }
+
+  // Moedas/itens flutuando sobre a Prefeitura + som.
+  _gift(got) {
+    const th = this.state.objects.find(x => x.type === 'townhall');
+    const lines = [];
+    if (got.coins) lines.push({ text: `+${fmtNum(got.coins)} 🪙`, color: '#b07800' });
+    for (const [k, v] of Object.entries(got.items || {})) lines.push({ text: `+${v} ${ITEMS[k].icon}`, color: '#1f2430' });
+    if (th && lines.length) { this.fx.float(th.i, th.j, th.size, lines, this.time()); this.fx.burst(th.i, th.j, th.size, this.time()); }
+    sfx.coin();
+    hudKey = '';
+    save(this.state);
+  }
+
+  // Fila de cartões (prefeito / nível). Cada item: { render(), onOk?(), focus? }.
+  // onOk devolvendo false mantém o cartão aberto (ex.: nome inválido).
+  pushModal(item) {
+    this.modalQueue.push(item);
+    if (!$('modal').classList.contains('show')) this._showModal();
   }
   _showModal() {
     const m = this.modalQueue[0];
     if (!m) return;
-    const list = m.unlocked.map(u => u.kind === 'building'
-      ? `<li>${tn(BUILDINGS[u.key].name)}</li>`
-      : `<li>${ITEMS[u.key].icon} ${tn(ITEMS[u.key].name)}</li>`).join('');
-    $('modal-body').innerHTML = `
-      <div class="burst">⭐</div>
-      <h2>${t('levelUp', { n: m.lv })}</h2>
-      ${m.phase ? `<p class="phase">${m.phase.icon} ${t('newPhase', { p: tn(m.phase.name) })}</p>` : ''}
-      ${list ? `<p class="muted">${t('unlocked')}</p><ul>${list}</ul>` : `<p class="muted">${t('nothingNew')}</p>`}
-      <button class="btn primary" data-act="modalOk">${t('great')}</button>`;
+    $('modal-body').innerHTML = m.render();
     $('modal').classList.add('show');
+    if (m.focus) setTimeout(() => { const el = $(m.focus); if (el) el.focus(); }, 80);
   }
   closeModal() {
-    const m = this.modalQueue.shift();
+    const m = this.modalQueue[0];
+    if (m && m.onOk && m.onOk() === false) return;
+    this.modalQueue.shift();
     $('modal').classList.remove('show');
-    if (m && m.phase) ads.interstitial();
-    if (this.modalQueue.length) setTimeout(() => this._showModal(), 250);
+    if (this.modalQueue.length) setTimeout(() => this._showModal(), 200);
   }
 
   // ---------------------------------------------------------------- tempo
@@ -427,7 +506,9 @@ function renderHud(game) {
   const ph = phaseForLevel(s.level);
   const deliverable = s.orders.filter(o => E.canDeliver(s, o)).length;
   const tip = s.showcase ? null : E.currentTip(s);
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, s.cityName, document.documentElement.lang].join('|');
+  const daily = !s.showcase && E.dailyStatus(s, game.now());
+  const gift = daily ? (daily.canClaim ? 2 : daily.extraAvailable ? 1 : 0) : -1;
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, s.cityName, gift, document.documentElement.lang].join('|');
   if (key === hudKey) return;
   hudKey = key;
   $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
@@ -444,7 +525,10 @@ function renderHud(game) {
   badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
   $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
   const tipEl = $('tip');
-  if (tip) { tipEl.textContent = '💡 ' + t(tip); tipEl.classList.add('show'); } else tipEl.classList.remove('show');
+  if (tip) { $('tip-text').textContent = t(tip); tipEl.classList.add('show'); } else tipEl.classList.remove('show');
+  $('btn-daily').style.display = gift < 0 ? 'none' : '';
+  $('daily-badge').style.display = gift === 2 ? 'flex' : 'none';
+  $('btn-daily').classList.toggle('ready', gift === 2);
 }
 
 function drawLabel(ctx, o, zoom) {
@@ -488,6 +572,8 @@ function boot() {
   document.addEventListener('input', (e) => { if (e.target.id === 'music-vol') music.setVolume(e.target.value / 100); });
   // Enter no campo de nome confirma
   $('name-input').addEventListener('keydown', (e) => { if (e.key === 'Enter') game.saveName(e.target.value, true); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.id === 'intro-name') game.closeModal(); });
+  $('tip-face').src = mentorFace();
   // áudio (efeitos e música) só pode começar após um gesto do usuário
   window.addEventListener('pointerdown', () => { sfx.unlock(); music.start(); }, { capture: true, once: true });
 }

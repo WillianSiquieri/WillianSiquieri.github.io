@@ -5,6 +5,7 @@
 import {
   ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, SPECIAL_DROP_CHANCE, MAP, CHUNK_PRICE,
   ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP, CLIENTS,
+  levelReward, phaseGoods, DAILY, DAILY_COIN_GROWTH, DAILY_EXTRA,
 } from './config.js';
 import { makeObject, tileOf, objectAt, countOf, population, happiness } from './state.js';
 
@@ -58,14 +59,92 @@ function payOrFail(state, cost) {
 // ---------------------------------------------------------------------------
 export function addXP(state, n) {
   const before = phaseIndex(state.level);
-  const levels = [];
+  const levels = [], rewards = [];
   state.xp += n;
   while (state.xp >= xpToNext(state.level)) {
     state.xp -= xpToNext(state.level);
     state.level++;
     levels.push(state.level);
+    // presente do prefeito a cada nível
+    rewards.push({ level: state.level, ...grantReward(state, levelReward(state.level)) });
   }
-  return { levels, phaseChanged: phaseIndex(state.level) !== before };
+  return { levels, rewards, phaseChanged: phaseIndex(state.level) !== before };
+}
+
+// ---------------------------------------------------------------------------
+// Presentes (nível, baú diário): entrega moedas e itens. Itens que não cabem no
+// armazém viram moedas (2× o valor), para o armazém nunca travar a coleta.
+// Devolve o que foi de fato recebido: { coins, items, converted }.
+// ---------------------------------------------------------------------------
+export function grantReward(state, reward) {
+  const got = { coins: reward.coins || 0, items: {}, converted: 0 };
+  for (const [k, v] of Object.entries(reward.items || {})) {
+    if (!v) continue;
+    const special = ITEMS[k].kind === 'special';
+    const fit = special ? v : Math.min(v, freeSpace(state));
+    if (fit > 0) { state.inventory[k] = have(state, k) + fit; got.items[k] = fit; }
+    if (v > fit) got.converted += (v - fit) * ITEMS[k].value * 2;
+  }
+  got.coins += got.converted;
+  state.coins += got.coins;
+  touch(state);
+  return got;
+}
+
+// ---------------------------------------------------------------------------
+// Baú diário: calendário de 7 dias + baú extra (anúncio) uma vez por dia.
+// Dias contam pela data local do aparelho. Perdeu um dia → volta ao dia 1.
+// ---------------------------------------------------------------------------
+export function dayKey(now) {
+  const d = new Date(now);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+function dayNum(key) { const [y, m, d] = key.split('-').map(Number); return Math.round(Date.UTC(y, m - 1, d) / 864e5); }
+function ensureDaily(state) { if (!state.daily) state.daily = { next: 0, last: null, extra: null }; return state.daily; }
+
+export function dailyStatus(state, now) {
+  const d = ensureDaily(state);
+  const today = dayKey(now);
+  const gap = d.last ? dayNum(today) - dayNum(d.last) : null;
+  const claimedToday = gap === 0;
+  const streakBroken = gap !== null && gap > 1;
+  const day = claimedToday ? (d.next + 6) % 7 : (streakBroken ? 0 : d.next % 7);
+  return { canClaim: !claimedToday, claimedToday, day, streakBroken, extraAvailable: claimedToday && d.extra !== today };
+}
+
+// Recompensa concreta do dia `day` (0–6) para o nível atual.
+export function dailyReward(state, day) {
+  return resolveReward(state, DAILY[day]);
+}
+function resolveReward(state, def) {
+  const [raw, product] = phaseGoods(state.level);
+  const mult = 1 + DAILY_COIN_GROWTH * (state.level - 1);
+  const items = {};
+  for (const [k, v] of Object.entries(def.items || {})) {
+    const key = k === 'raw' ? raw : k === 'product' ? product : k;
+    items[key] = (items[key] || 0) + v;
+  }
+  return { coins: Math.round((def.coins || 0) * mult), items };
+}
+
+export function claimDaily(state, now) {
+  const st = dailyStatus(state, now);
+  if (!st.canClaim) return fail('alreadyClaimed');
+  const d = state.daily;
+  const got = grantReward(state, dailyReward(state, st.day));
+  d.next = (st.day + 1) % 7;
+  d.last = dayKey(now);
+  bump(state, 'dailyClaimed');
+  return ok({ day: st.day, got });
+}
+
+export function claimDailyExtra(state, now, rand = Math.random) {
+  const st = dailyStatus(state, now);
+  if (!st.extraAvailable) return fail(st.claimedToday ? 'alreadyClaimed' : 'claimFirst');
+  const def = DAILY_EXTRA[Math.floor(rand() * DAILY_EXTRA.length) % DAILY_EXTRA.length];
+  const got = grantReward(state, resolveReward(state, def));
+  state.daily.extra = dayKey(now);
+  return ok({ got });
 }
 
 // O que um nível libera (para a mensagem de "subiu de nível").

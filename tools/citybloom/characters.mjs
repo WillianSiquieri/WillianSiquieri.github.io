@@ -31,6 +31,9 @@ const PEOPLE = {
     shirt: ['collared'], shirtColor: ['6c757d'], mouth: ['smile'], eyes: ['smilingShadow'] },
   firefighter: { ...NO, hair: ['pixie'], hairColor: ['4a2c17'], baseColor: ['ac6651'], shirt: ['crew'], shirtColor: ['d64933'],
     mouth: ['smile'], eyes: ['eyesShadow'], eyebrows: ['eyelashesUp'] },
+  // guia do jogo: Prefeito Otávio
+  mayor: { ...NO, hair: ['fonze'], hairColor: ['c9ccd1'], baseColor: ['f9c9b6'], shirt: ['collared'], shirtColor: ['24324d'],
+    mouth: ['smile'], eyes: ['smiling'], eyebrows: ['up'] },
 };
 
 // ------------------------------------------------------------------ cenários (200×200)
@@ -101,6 +104,18 @@ const SCENE = {
     <g fill="#d9dde2">${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<rect x="30" y="${52 + k * 18}" width="140" height="3"/>`).join('')}</g>
     <rect x="44" y="52" width="112" height="18" rx="3" fill="#9fc5df" opacity=".9"/>
     <circle cx="100" cy="26" r="10" fill="#ffd166"/><path d="M100 18 l2.4 5 5.4.6-4 3.7 1 5.3-4.8-2.6-4.8 2.6 1-5.3-4-3.7 5.4-.6Z" fill="#c83d2d"/>`,
+  mayor: `
+    <linearGradient id="s-sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4ff"/><stop offset="1" stop-color="#dff1ff"/></linearGradient>
+    <rect width="200" height="200" fill="url(#s-sky3)"/>
+    <ellipse cx="34" cy="30" rx="20" ry="7" fill="#ffffff" opacity=".9"/><ellipse cx="172" cy="22" rx="18" ry="6" fill="#ffffff" opacity=".9"/>
+    <path d="M100 6 V40" stroke="#6b7280" stroke-width="2"/><path d="M100 7 h22 l-5 6 5 6 h-22 Z" fill="#2bb673"/><circle cx="109" cy="13" r="3" fill="#ffd166"/>
+    <path d="M100 40 C76 40 70 58 70 58 H130 C130 58 124 40 100 40 Z" fill="#e9eef5" stroke="#c7d0dc" stroke-width="1.5"/>
+    <path d="M6 82 L100 52 L194 82 Z" fill="#f6f1e7" stroke="#d8cbb3" stroke-width="2"/>
+    <rect x="0" y="82" width="200" height="10" fill="#e7dcc6"/>
+    <rect x="0" y="92" width="200" height="108" fill="#fbf7ef"/>
+    <g fill="#ffffff" stroke="#e0d4bd" stroke-width="1.5">${[8, 40, 140, 172].map(x => `<rect x="${x}" y="92" width="20" height="108"/><rect x="${x - 3}" y="92" width="26" height="6"/>`).join('')}</g>
+    <g fill="#9cc7e6" opacity=".8"><rect x="60" y="104" width="16" height="26" rx="8"/><rect x="124" y="104" width="16" height="26" rx="8"/></g>
+    <rect x="0" y="186" width="200" height="14" fill="#d9cdb3"/>`,
 };
 
 // ------------------------------------------------------------------ acessórios
@@ -136,6 +151,15 @@ const tie = (cx, y, w) => { const s = w / 100; return `<g transform="translate($
   <path d="M-12 0 H12 L8 14 H-8 Z" fill="#c1121f"/><path d="M-8 14 H8 L14 70 L0 86 L-14 70 Z" fill="#e63946"/>
   <path d="M-6 30 L8 22 M-9 48 L11 38 M-12 66 L12 54" stroke="#ffb3b8" stroke-width="3" opacity=".7"/></g>`; };
 
+// faixa de prefeito (verde-amarela, na diagonal do ombro ao quadril)
+const sash = () => `<g>
+  <path d="M132 160 L150 168 L74 200 L48 200 Z" fill="#1f9d55"/>
+  <path d="M138 163 L144 165.5 L66 200 L58 200 Z" fill="#ffd23f"/>
+  <circle cx="100" cy="182" r="8" fill="#ffd23f" stroke="#c99a1e" stroke-width="1.5"/><circle cx="100" cy="182" r="3.4" fill="#1f9d55"/></g>`;
+
+const mustache = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
+  <path d="M0 -4 C-10 -12 -30 -10 -40 2 C-34 8 -22 4 -14 6 C-6 8 -2 4 0 2 C2 4 6 8 14 6 C22 4 34 8 40 2 C30 -10 10 -12 0 -4 Z" fill="#b9bec6" stroke="#7d848e" stroke-width="2"/></g>`; };
+
 const X = 15, Y = 32, S = 168;
 const ACCESSORY = {
   builder: () => hardHat(X + S * 0.48, Y + S * 0.23, S * 0.56),
@@ -143,7 +167,9 @@ const ACCESSORY = {
   firefighter: () => fireHelmet(X + S * 0.5, Y + S * 0.23, S * 0.55),
   neighbor: () => cap(X + S * 0.5, Y + S * 0.23, S * 0.52),
   business: () => tie(X + S * 0.5, Y + S * 0.9, S * 0.2),
+  mayor: () => tie(X + S * 0.5, Y + S * 0.9, S * 0.2) + sash() + mustache(MX, MY, MW),
 };
+const [MX, MY, MW] = (process.env.MUST || '108,125,40').split(',').map(Number);
 
 function inline(svg) {
   const raw = svg.replace(/<\?xml[^>]*>/, '');

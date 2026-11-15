@@ -61,6 +61,8 @@ export function newGame(now = Date.now()) {
     orders: [], nextOrderId: 1,
     chunksBought: 0,
     stats: {},
+    daily: { next: 0, last: null, extra: null },   // baú diário (7 dias)
+    mentor: { intro: false },                      // apresentação do prefeito
     seed: 777,
     lastSeen: now,
   };
@@ -178,6 +180,8 @@ export function load() {
     const s = JSON.parse(raw);
     if (!s || s.v !== VERSION || !Array.isArray(s.tiles) || !Array.isArray(s.objects)) return null;
     s.rev = (s.rev || 0) + 1;
+    if (!s.daily) s.daily = { next: 0, last: null, extra: null };
+    if (!s.mentor) s.mentor = { intro: false, returning: true }; // save antigo: apresentação curta
     return s;
   } catch (_) { return null; }
 }

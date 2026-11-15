@@ -345,6 +345,48 @@ export const START = {
   inventory: { wood: 2 },
 };
 
+// ---------------------------------------------------------------------------
+// Guia do jogo, recompensa de nível e baú diário
+// ---------------------------------------------------------------------------
+export const MENTOR = { id: 'mayor', name: { pt: 'Prefeito Otávio', en: 'Mayor Otávio' } };
+
+// Material típico de cada fase (para presentes): [matéria-prima, produto].
+const PHASE_GOODS = [['wood', 'plank'], ['clay', 'brick'], ['sand', 'glass'], ['iron', 'steel'], ['steel', 'furniture']];
+export function phaseGoods(level) { return PHASE_GOODS[phaseIndex(level)]; }
+
+// Presente do prefeito ao chegar no nível `level`.
+export function levelReward(level) {
+  const newPhase = PHASES.some(p => p.minLevel === level && level > 1);
+  let coins = Math.round(50 + 30 * Math.pow(Math.max(0, level - 1), 1.3));
+  if (newPhase) coins *= 2;
+  const [raw, product] = phaseGoods(level);
+  const n = Math.min(5, 2 + Math.floor(level / 8));
+  const items = { [raw]: n, [product]: Math.max(1, n - 1) };
+  if (level % 5 === 0) { items.hammer = 1; items.tape = 1; }
+  return { coins, items };
+}
+
+// Calendário de 7 dias. Moedas crescem com o nível: × (1 + 0,15·(nível−1)).
+// Itens: 'raw'/'product' = material da fase atual.
+export const DAILY = [
+  { coins: 60 },
+  { items: { wood: 4, plank: 2 } },
+  { coins: 100 },
+  { items: { raw: 4, product: 3 } },
+  { coins: 160 },
+  { items: { hammer: 1, tape: 1 }, coins: 60 },
+  { coins: 300, items: { raw: 5, product: 4, hammer: 2, tape: 2 }, big: true },
+];
+export const DAILY_COIN_GROWTH = 0.15;
+
+// Baú extra (anúncio): um destes, sorteado.
+export const DAILY_EXTRA = [
+  { coins: 80 },
+  { items: { raw: 3, product: 2 } },
+  { coins: 50, items: { hammer: 1 } },
+  { coins: 50, items: { tape: 1 } },
+];
+
 // XP ganho ao construir algo com este custo.
 export function buildXP(cost) {
   return 3 + Math.round((cost && cost.coins ? cost.coins : 0) / 12);
