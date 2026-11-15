@@ -132,24 +132,38 @@ Regra: nunca mostrar anúncio sem o jogador pedir, exceto o intersticial raro.
 ### Estrutura
 ```
 index.html, css/style.css
-js/main.js            boot, render, HUD, painel de informações
-js/i18n.js            textos PT/EN
-js/engine/camera.js   câmera (pan/zoom)
-js/engine/input.js    toque/mouse: arrastar, tocar, pinça, roda
-js/engine/iso.js      projeção isométrica + desenho dos prédios
-js/engine/ads.js      adaptador de anúncios (stub local)
-js/game/config.js     catálogo: itens, lotes, prédios, fases (dados)
-js/game/state.js      estado, mapa inicial, salvar/carregar
+js/main.js              liga tudo: toques, ações, painéis, nível, salvar
+js/i18n.js              textos PT/EN
+js/engine/camera.js     câmera (pan/zoom)
+js/engine/input.js      toque/mouse: arrastar, tocar, pinça, roda
+js/engine/iso.js        matemática isométrica
+js/engine/ads.js        adaptador de anúncios (stub local)
+js/engine/audio.js      sons gerados (Web Audio)
+js/game/config.js       catálogo e números da economia (dados)
+js/game/state.js        estado, mapa inicial, salvar/carregar (save v2)
+js/game/economy.js      regras puras: lotes, fábricas, aluguel, construir,
+                        quadras, obstáculos, pedidos, XP/níveis, dicas
+js/render/kit.js        primitivas de desenho moderno (faces, vidro, telhados…)
+js/render/buildings.js  desenho de cada construção + animações
+js/render/terrain.js    grama, ruas, calçadas, lotes de produção, base do mapa
+js/render/props.js      árvores, carros, postes, entulho, cercas
+js/render/sprites.js    cache de sprites por faixa de zoom
+js/render/traffic.js    trânsito animado
+js/render/scene.js      monta o quadro em ordem de profundidade
+js/ui/panels.js         painel de ações do item tocado
+js/ui/build.js          menu de construção com miniaturas
+js/ui/orders.js         quadro de pedidos
+js/ui/fx.js             textos flutuantes e partículas
 ```
 
 ## 10. Roteiro
 
-1. ✅ **Fundação**: mapa isométrico, lotes, obstáculos, prédios iniciais, câmera,
-   toque com informações, HUD, PT/EN, salvamento, vitrine.
-2. **Produção e coleta**: iniciar recurso no lote, timers, coletar, inventário,
-   armazém com limite, progresso offline.
-3. **Fábricas e casas**: filas de produção, construir/evoluir casas, aluguel.
-4. **Pedidos e progresso**: quadro de pedidos, XP/níveis, fases, comprar lotes,
-   limpar obstáculos, menu de construção.
-5. **Polimento**: tutorial do Vilarejo, sons, animações de coleta, balanceamento.
-6. **Lançamento**: integrar o SDK de anúncios do portal escolhido e publicar.
+1. ✅ **Fundação**: mapa isométrico, câmera, toque, HUD, PT/EN, salvamento, vitrine.
+2. ✅ **Visual moderno**: todas as construções redesenhadas (vidro, sombras,
+   telhados, varandas, letreiros), ruas com calçada e trânsito, lotes temáticos.
+3. ✅ **Mecânica**: lotes, fábricas com fila, aluguel, evoluir casas, comércio,
+   construir com posicionamento, quadras, obstáculos, pedidos, XP/níveis/fases,
+   armazém, dicas de objetivo, progresso offline, sons e efeitos.
+4. **Balanceamento e conteúdo**: ajustar tempos/preços com testes reais, eventos
+   diários, baú diário (anúncio premiado), mais decorações.
+5. **Lançamento**: integrar o SDK de anúncios do portal escolhido e publicar.

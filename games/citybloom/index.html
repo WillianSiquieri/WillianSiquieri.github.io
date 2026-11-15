@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#bfe6f7">
+  <meta name="theme-color" content="#a9dcf3">
   <title>CityBloom</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <canvas id="city"></canvas>
 
-  <!-- HUD superior -->
+  <!-- HUD -->
   <div class="hud">
     <div class="hud-left">
       <div class="pill level-pill">
-        <div class="level-top">
-          <span id="hud-phase">🏡</span>
-          <span id="hud-level" class="lvl">Nível 1</span>
-        </div>
+        <div class="level-top"><span id="hud-phase">🏡</span><span id="hud-level" class="lvl">Nível 1</span></div>
         <div class="xp"><div id="hud-xpbar" class="xp-fill"></div></div>
       </div>
-      <div class="pill" id="hud-coins">🪙 0</div>
-      <div class="pill" id="hud-pop">👥 0</div>
-      <div class="pill" id="hud-happy">⭐ 0</div>
+      <div class="pill res"><span class="ri">🪙</span><span id="hud-coins">0</span></div>
+      <div class="pill res"><span class="ri">👥</span><span id="hud-pop">0</span></div>
+      <div class="pill res"><span class="ri">⭐</span><span id="hud-happy">0</span></div>
+      <div class="pill res"><span class="ri">📦</span><span id="hud-storage">0/50</span></div>
     </div>
     <div class="hud-right">
-      <button id="btn-lang" class="round" title="Idioma / Language">EN</button>
+      <button id="btn-mute" class="round small" title="Som">🔊</button>
+      <button id="btn-lang" class="round small" title="Idioma / Language">EN</button>
     </div>
   </div>
 
@@ -36,14 +35,45 @@
     <button id="btn-home" class="round" title="Centralizar">🎯</button>
   </div>
 
-  <!-- Painel de informações -->
-  <div id="info" class="info">
-    <div class="info-head">
-      <span class="info-title"></span>
-      <button id="info-close" class="close" aria-label="Fechar">✕</button>
-    </div>
-    <div class="info-body"></div>
+  <!-- Dica de objetivo -->
+  <div id="tip" class="tip"></div>
+
+  <!-- Barra inferior -->
+  <div class="bottombar">
+    <button id="btn-orders" class="bigbtn"><span class="bi">📋</span><span id="lbl-orders">Pedidos</span><span id="orders-badge" class="badge">0</span></button>
+    <button id="btn-build" class="bigbtn primary"><span class="bi">🔨</span><span id="lbl-build">Construir</span></button>
   </div>
+
+  <!-- Painel do item tocado -->
+  <div id="panel" class="panel">
+    <div class="panel-head">
+      <span id="panel-title" class="panel-title"></span>
+      <button class="close" data-act="closePanel" aria-label="Fechar">✕</button>
+    </div>
+    <div id="panel-body" class="panel-body"></div>
+    <div id="panel-actions" class="panel-actions"></div>
+  </div>
+
+  <!-- Menus (construir / pedidos) -->
+  <div id="sheet" class="sheet">
+    <div class="sheet-card">
+      <div class="panel-head">
+        <span id="sheet-title" class="panel-title"></span>
+        <button class="close" data-act="closeSheet" aria-label="Fechar">✕</button>
+      </div>
+      <div id="sheet-body" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <!-- Posicionar construção -->
+  <div id="placebar" class="placebar">
+    <div class="pinfo"><b id="place-name"></b><small id="place-hint" class="phint"></small><div id="place-cost" class="rc"></div></div>
+    <button class="btn ghost" data-act="placeCancel">✕</button>
+    <button id="place-ok" class="btn primary" data-act="placeOk">✓</button>
+  </div>
+
+  <!-- Subiu de nível -->
+  <div id="modal" class="modal"><div id="modal-body" class="modal-card"></div></div>
 
   <div id="toast" class="toast"></div>
 

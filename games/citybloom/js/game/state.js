@@ -1,14 +1,14 @@
-// state.js — estado do jogo, geração do mapa inicial, salvar/carregar em
-// localStorage e marca de tempo para progresso offline (timers continuam com o
-// jogo fechado — usado pela economia na próxima etapa).
+// state.js — estado do jogo, mapa inicial, consultas e salvar/carregar.
+// Tudo que tem tempo usa horários absolutos (ms) — assim a produção continua
+// com o jogo fechado sem precisar "simular" nada ao voltar.
 
-import { BUILDINGS, MAP, START, OBSTACLES } from './config.js';
+import { BUILDINGS, MAP, START, WAREHOUSE } from './config.js';
 
-const SAVE_KEY = 'citybloom.save.v1';
-const VERSION = 1;
+const SAVE_KEY = 'citybloom.save.v2';
+export const VERSION = 2;
 
-// PRNG determinístico (mulberry32) para o mapa ser sempre igual.
-function rng(seed) {
+// PRNG determinístico (mulberry32).
+export function rng(seed) {
   return function () {
     seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
     let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
@@ -17,26 +17,33 @@ function rng(seed) {
   };
 }
 
-let nextId = 1;
-function obj(type, i, j, extra = {}) {
-  return { id: nextId++, type, i, j, size: BUILDINGS[type].size, ...extra };
+// Cria um objeto do mapa com os campos de timer adequados ao tipo.
+export function makeObject(state, type, i, j, now, extra = {}) {
+  const def = BUILDINGS[type];
+  const o = { id: state.nextId++, type, i, j, size: def.size };
+  if (def.type === 'house') o.rentReadyAt = now + def.rentTime * 1000;
+  if (def.type === 'factory') o.queue = [];
+  if (def.type === 'commerce') o.incomeReadyAt = null; // começa quando houver população
+  if (def.type === 'lot') { o.resource = null; o.readyAt = null; }
+  return Object.assign(o, extra); // `extra` pode sobrescrever (ex.: casa já pronta)
 }
 
 // ---------------------------------------------------------------------------
 // Novo jogo
 // ---------------------------------------------------------------------------
-export function newGame() {
-  const n = MAP.size;
-  const a0 = Math.floor((n - MAP.startArea) / 2), a1 = a0 + MAP.startArea - 1; // 5..10
-  const roadJ = a0 + 3;
-  const rand = rng(1234);
+export function newGame(now = Date.now()) {
+  const n = MAP.size, C = MAP.chunk;
+  const [c0, c1] = MAP.startChunks;
+  const rand = rng(20261115);
 
   const tiles = [];
   for (let j = 0; j < n; j++) {
     for (let i = 0; i < n; i++) {
-      const inStart = i >= a0 && i <= a1 && j >= a0 && j <= a1;
-      const t = { kind: j === roadJ ? 'road' : 'grass', locked: !inStart };
-      if (!inStart && t.kind === 'grass' && rand() < 0.16) {
+      const ci = Math.floor(i / C), cj = Math.floor(j / C);
+      const unlocked = ci >= c0 && ci <= c1 && cj >= c0 && cj <= c1;
+      const road = MAP.roadRows.includes(j) || MAP.roadCols.includes(i);
+      const t = { kind: road ? 'road' : 'grass', locked: !unlocked };
+      if (!unlocked && !road && rand() < 0.16) {
         const r = rand();
         t.obstacle = r < 0.45 ? 'bush' : r < 0.85 ? 'rubble' : 'car';
       }
@@ -44,40 +51,43 @@ export function newGame() {
     }
   }
 
-  const objects = [
-    obj('townhall', a0 + 1, a0 + 1),
-    obj('warehouse', a0 + 4, a0 + 1),
-    obj('house1', a0, roadJ + 1),
-    obj('house1', a0 + 1, roadJ + 1),
-    obj('lot', a0 + 3, roadJ + 1, { resource: 'wood', startedAt: Date.now() }),
-    obj('lot', a0 + 4, roadJ + 1),
-    obj('sawmill', a0 + 5, roadJ + 1),
-    obj('tree', a0, a0),
-    obj('tree', a1, a1),
-  ];
-
-  // Obstáculos dentro da área inicial (para limpar no começo).
-  const tile = (i, j) => tiles[j * n + i];
-  tile(a0 + 3, a0).obstacle = 'bush';
-  tile(a1, a0).obstacle = 'car';
-  tile(a0 + 3, a1).obstacle = 'rubble';
-
-  return {
+  const state = {
     v: VERSION,
     coins: START.coins, level: START.level, xp: START.xp,
-    inventory: { wood: 4, plank: 2 },
-    size: n,
-    tiles,
-    objects,
-    lastSeen: Date.now(),
+    inventory: { ...START.inventory },
+    capacity: WAREHOUSE.base, warehouseLevel: 0,
+    size: n, tiles,
+    objects: [], nextId: 1, rev: 0,
+    orders: [], nextOrderId: 1,
+    chunksBought: 0,
+    stats: {},
+    seed: 777,
+    lastSeen: now,
   };
+
+  const add = (type, i, j, extra) => state.objects.push(makeObject(state, type, i, j, now, extra));
+  add('townhall', 7, 6);
+  add('warehouse', 10, 6);
+  add('sawmill', 10, 7);
+  add('lot', 6, 10, { resource: 'wood', readyAt: now + 5000 });   // primeira colheita rápida
+  add('lot', 7, 10);
+  add('house1', 9, 10, { rentReadyAt: now + 20000 });
+  add('house1', 10, 10, { rentReadyAt: now + 35000 });
+  add('tree', 6, 6);
+  add('tree', 11, 11);
+
+  const tile = (i, j) => tiles[j * n + i];
+  tile(6, 8).obstacle = 'bush';
+  tile(11, 8).obstacle = 'rubble';
+  tile(8, 11).obstacle = 'car';
+
+  return state;
 }
 
 // ---------------------------------------------------------------------------
-// Vitrine (?showcase=1): todos os prédios do catálogo lado a lado, para
-// validar o visual. Não é salva.
+// Vitrine (?showcase=1): todas as construções lado a lado. Não é salva.
 // ---------------------------------------------------------------------------
-export function showcaseGame() {
+export function showcaseGame(now = Date.now()) {
   const rows = [
     ['house1', 'house2', 'house3', 'house4', 'house5', 'house6', 'house7'],
     ['sawmill', 'kiln', 'glassworks', 'carpentry', 'steelworks', 'warehouse'],
@@ -86,20 +96,23 @@ export function showcaseGame() {
     ['lot:wood', 'lot:sand', 'lot:clay', 'lot:iron', 'stadium', 'airport'],
   ];
   const STEP = 4;
-  const n = 7 * STEP + 1;
+  const n = 7 * STEP + 2;
   const tiles = [];
   for (let k = 0; k < n * n; k++) tiles.push({ kind: 'grass', locked: false });
-  const objects = [];
-  rows.forEach((row, r) => {
-    row.forEach((key, c) => {
-      const [type, resource] = key.split(':');
-      const extra = resource ? { resource, startedAt: Date.now() - 1e9 } : {};
-      objects.push(obj(type, 1 + c * STEP, 1 + r * STEP, extra));
-    });
-  });
-  // rua de exemplo
-  for (let i = 0; i < n; i++) tiles[(n - 2) * n + i].kind = 'road';
-  return { v: VERSION, coins: 0, level: 50, xp: 0, inventory: {}, size: n, tiles, objects, lastSeen: Date.now(), showcase: true };
+  for (let i = 0; i < n; i++) tiles[(n - 3) * n + i].kind = 'road';
+  for (let j = 0; j < n; j++) tiles[j * n + (n - 3)].kind = 'road';
+  const state = {
+    v: VERSION, coins: 0, level: 50, xp: 0, inventory: {}, capacity: 50, warehouseLevel: 0,
+    size: n, tiles, objects: [], nextId: 1, rev: 0, orders: [], nextOrderId: 1,
+    chunksBought: 0, stats: {}, seed: 1, lastSeen: now, showcase: true,
+  };
+  const progress = { wood: 1, sand: 0.5, clay: 0.2, iron: 1 };
+  rows.forEach((row, r) => row.forEach((key, c) => {
+    const [type, resource] = key.split(':');
+    const extra = resource ? { resource, readyAt: now + (1 - progress[resource]) * 60000 * 5 } : {};
+    state.objects.push(makeObject(state, type, 1 + c * STEP, 1 + r * STEP, now, extra));
+  }));
+  return state;
 }
 
 // ---------------------------------------------------------------------------
@@ -110,11 +123,31 @@ export function tileOf(state, i, j) {
   return state.tiles[j * state.size + i];
 }
 
-export function objectAt(state, i, j) {
+// Grade de ocupação (id do objeto por tile), recalculada só quando state.rev muda.
+const occCache = new WeakMap();
+export function occupancy(state) {
+  const c = occCache.get(state);
+  if (c && c.rev === state.rev && c.count === state.objects.length) return c.grid;
+  const grid = new Array(state.size * state.size).fill(null);
   for (const o of state.objects) {
-    if (i >= o.i && i < o.i + o.size && j >= o.j && j < o.j + o.size) return o;
+    for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) {
+      const i = o.i + di, j = o.j + dj;
+      if (i < state.size && j < state.size) grid[j * state.size + i] = o;
+    }
   }
-  return null;
+  occCache.set(state, { rev: state.rev, count: state.objects.length, grid });
+  return grid;
+}
+
+export function objectAt(state, i, j) {
+  if (i < 0 || j < 0 || i >= state.size || j >= state.size) return null;
+  return occupancy(state)[j * state.size + i];
+}
+
+export function countOf(state, type) {
+  let k = 0;
+  for (const o of state.objects) if (o.type === type) k++;
+  return k;
 }
 
 export function population(state) {
@@ -128,15 +161,6 @@ export function happiness(state) {
   for (const o of state.objects) { const d = BUILDINGS[o.type]; if (d.happiness) h += d.happiness; }
   return h;
 }
-
-// Preço de um lote bloqueado: cresce com a distância do centro.
-export function lotPrice(state, i, j) {
-  const c = (state.size - 1) / 2;
-  const dist = Math.max(Math.abs(i - c), Math.abs(j - c));
-  return Math.round(50 * Math.ceil(2 * (1 + dist / 3)));
-}
-
-export function obstacleInfo(type) { return OBSTACLES[type]; }
 
 // ---------------------------------------------------------------------------
 // Salvar / carregar
@@ -152,12 +176,15 @@ export function load() {
     const raw = localStorage.getItem(SAVE_KEY);
     if (!raw) return null;
     const s = JSON.parse(raw);
-    if (!s || s.v !== VERSION || !Array.isArray(s.tiles)) return null;
-    nextId = Math.max(nextId, ...s.objects.map(o => o.id + 1));
+    if (!s || s.v !== VERSION || !Array.isArray(s.tiles) || !Array.isArray(s.objects)) return null;
+    s.rev = (s.rev || 0) + 1;
     return s;
   } catch (_) { return null; }
 }
 
 export function resetSave() {
-  try { localStorage.removeItem(SAVE_KEY); } catch (_) {}
+  try {
+    localStorage.removeItem(SAVE_KEY);
+    localStorage.removeItem('citybloom.save.v1'); // save antigo da fundação
+  } catch (_) {}
 }

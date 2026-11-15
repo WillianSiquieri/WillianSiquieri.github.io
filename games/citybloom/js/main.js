@@ -1,30 +1,36 @@
-// main.js — CityBloom: boot, render isométrico, câmera e interface.
-// Etapa atual ("preparar o terreno"): mapa com lotes livres/bloqueados, ruas,
-// obstáculos e prédios iniciais; pan/zoom/pinça; tocar mostra informações.
-// A mecânica de produção/coleta/pedidos entra na próxima etapa.
+// main.js — CityBloom: liga estado, regras, desenho e interface.
 
 import { Camera } from './engine/camera.js';
 import { InputManager } from './engine/input.js';
 import { ads } from './engine/ads.js';
-import {
-  TW, TH, pt, tileAt, center,
-  drawTile, drawSelection, drawBuilding, buildingHull, drawDecor, drawLot, drawObstacle, pointInPoly,
-} from './engine/iso.js';
-import { BUILDINGS, ITEMS, RESOURCE_LOTS, OBSTACLES, phaseForLevel, xpToNext } from './game/config.js';
-import {
-  newGame, showcaseGame, load, save, resetSave,
-  tileOf, objectAt, population, happiness, lotPrice,
-} from './game/state.js';
-import { t, tn, toggleLang, fmtTime } from './i18n.js';
+import { sfx } from './engine/audio.js';
+import { pt, tileAt, center, TW } from './engine/iso.js';
+import { Scene } from './render/scene.js';
+import { Fx } from './ui/fx.js';
+import { panelView } from './ui/panels.js';
+import { buildMenuView } from './ui/build.js';
+import { ordersView } from './ui/orders.js';
+import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
+import * as E from './game/economy.js';
+import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness } from './game/state.js';
+import { t, tn, toggleLang, fmtTime, fmtNum } from './i18n.js';
+
+const $ = (id) => document.getElementById(id);
 
 class CityGame {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.dpr = 1;
     this.camera = new Camera();
-    this.selected = null;   // { kind:'object', obj } | { kind:'tile', i, j }
-    this.startT = performance.now();
+    this.fx = new Fx();
+    this.selected = null;
+    this.sheet = null;            // 'build' | 'orders' | null
+    this.buildTab = 'houses';
+    this.placing = null;          // { type, i, j, valid }
+    this.buildAt = null;          // tile sugerido pelo "Construir aqui"
+    this.modalQueue = [];
+    this.t0 = performance.now();
+    this.lastFrame = this.t0;
 
     const params = new URLSearchParams(location.search);
     if (params.get('reset') === '1') resetSave();
@@ -33,16 +39,19 @@ class CityGame {
     } else {
       const loaded = load();
       this.state = loaded || newGame();
-      if (loaded) this._welcomeBack(Date.now() - loaded.lastSeen);
+      const away = loaded ? Date.now() - loaded.lastSeen : 0; // antes de salvar (save atualiza lastSeen)
+      if (away > 60000) setTimeout(() => toast(t('welcome', { t: fmtTime(away / 1000) })), 600);
+      E.tick(this.state, Date.now());
       save(this.state);
     }
 
+    this.scene = new Scene(this.state);
     this.input = new InputManager(canvas, this);
     this._resize();
     window.addEventListener('resize', () => this._resize());
     this.fitView();
 
-    // Salva periodicamente e ao sair da aba (marca o horário para o offline).
+    setInterval(() => this._second(), 1000);
     setInterval(() => save(this.state), 10000);
     document.addEventListener('visibilitychange', () => { if (document.hidden) save(this.state); });
 
@@ -50,60 +59,276 @@ class CityGame {
     requestAnimationFrame(this._loop);
   }
 
-  // ---------- Câmera ----------
+  now() { return Date.now(); }
+  time() { return (performance.now() - this.t0) / 1000; }
+
+  // ---------------------------------------------------------------- câmera
   fitView() {
     const s = this.state, cam = this.camera;
-    let i0 = 0, j0 = 0, i1 = s.size, j1 = s.size;
-    if (!s.showcase) {
-      // enquadra a área liberada
-      i0 = j0 = Infinity; i1 = j1 = -Infinity;
-      for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
-        if (!tileOf(s, i, j).locked) { i0 = Math.min(i0, i); j0 = Math.min(j0, j); i1 = Math.max(i1, i + 1); j1 = Math.max(j1, j + 1); }
-      }
+    let i0 = Infinity, j0 = Infinity, i1 = -Infinity, j1 = -Infinity;
+    for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
+      if (!tileOf(s, i, j).locked) { i0 = Math.min(i0, i); j0 = Math.min(j0, j); i1 = Math.max(i1, i + 1); j1 = Math.max(j1, j + 1); }
     }
     const L = pt(i0, j1), R = pt(i1, j0), T = pt(i0, j0), B = pt(i1, j1);
-    const w = (R.x - L.x) + TW * 1.5, h = (B.y - T.y) + 140;
-    cam.zoom = Math.max(cam.minZoom, Math.min(cam.maxZoom, Math.min(cam.vw / w, (cam.vh - 120) / h)));
+    const w = (R.x - L.x) + TW * 2.2, h = (B.y - T.y) + 220;
+    cam.zoom = Math.max(cam.minZoom, Math.min(cam.maxZoom, Math.min(cam.vw / w, (cam.vh - 150) / h)));
     cam.x = (L.x + R.x) / 2;
-    cam.y = (T.y + B.y) / 2 - 20;
+    cam.y = (T.y + B.y) / 2 - 30;
   }
-
   panByScreen(dx, dy) { this.camera.panByScreen(dx, dy); }
   zoomAt(sx, sy, f) { this.camera.zoomAt(sx, sy, f); }
-  zoomStep(dir) { this.camera.zoomAt(this.camera.vw / 2, this.camera.vh / 2, dir > 0 ? 1.25 : 0.8); }
+  zoomStep(d) { this.camera.zoomAt(this.camera.vw / 2, this.camera.vh / 2, d > 0 ? 1.25 : 0.8); }
 
-  // ---------- Toque ----------
+  // ---------------------------------------------------------------- toque
   tap(sx, sy) {
+    sfx.unlock();
     const w = this.camera.toWorld(sx, sy);
-    // 1) prédios altos: testa o contorno de cada um, da frente para trás
-    const list = this._drawList();
-    for (let k = list.length - 1; k >= 0; k--) {
-      const it = list[k];
-      if (it.kind !== 'object') continue;
-      const def = BUILDINGS[it.obj.type];
-      if (def.type === 'lot' || def.type === 'decor') continue;
-      if (pointInPoly(w, buildingHull(it.obj.i, it.obj.j, it.obj.size, def.look))) {
-        return this._select({ kind: 'object', obj: it.obj });
-      }
+    if (this.placing) {
+      const { i, j } = tileAt(w.x, w.y);
+      const s = BUILDINGS[this.placing.type].size;
+      this.placing.i = Math.max(0, Math.min(this.state.size - s, i));
+      this.placing.j = Math.max(0, Math.min(this.state.size - s, j));
+      this._updatePlacing();
+      return;
     }
-    // 2) tile no chão
-    const { i, j } = tileAt(w.x, w.y);
-    const tile = tileOf(this.state, i, j);
-    if (!tile) return this._select(null);
-    const o = objectAt(this.state, i, j);
-    this._select(o ? { kind: 'object', obj: o } : { kind: 'tile', i, j });
+    if (this.sheet) this.closeSheet();
+    const sel = this.scene.pick(this.state, w, tileAt);
+    if (!sel) return this.select(null);
+    if (sel.kind === 'object' && !this.state.showcase) {
+      const o = sel.obj;
+      const r = E.quickCollect(this.state, o, this.now());
+      if (r) this._result(r, o.i, o.j, o.size);
+      if (o.type === 'townhall') { this.select(sel); return this.openSheet('orders'); }
+    }
+    this.select(sel);
+    sfx.click();
   }
 
-  _select(sel) {
+  select(sel) {
     this.selected = sel;
-    renderInfo(this);
+    this.renderPanel();
   }
 
-  // ---------- Loop ----------
-  _loop() {
-    this._render((performance.now() - this.startT) / 1000);
-    renderHud(this);
-    requestAnimationFrame(this._loop);
+  // ---------------------------------------------------------------- ações
+  act(act, arg) {
+    sfx.unlock();
+    const s = this.state, now = this.now();
+    const o = this.selected && this.selected.kind === 'object' ? this.selected.obj : null;
+    const tile = this.selected && this.selected.kind === 'tile' ? this.selected : null;
+    let r = null, at = o ? [o.i, o.j, o.size] : tile ? [tile.i, tile.j, 1] : null;
+
+    switch (act) {
+      case 'collect': if (o) r = E.quickCollect(s, o, now) || { ok: false, err: 'notReady' }; break;
+      case 'collect2':
+        if (o) ads.rewarded('double').then(ok => {
+          if (!ok) return;
+          const d = BUILDINGS[o.type];
+          const rr = d.type === 'house' ? E.collectRent(s, o, this.now(), 2) : E.collectIncome(s, o, this.now(), 2);
+          this._result(rr, o.i, o.j, o.size); this.renderPanel();
+        });
+        return;
+      case 'speed':
+        if (o) ads.rewarded('speedup').then(ok => {
+          if (!ok) return;
+          const rr = E.speedUp(s, o, this.now());
+          if (rr.ok) { sfx.coin(); save(s); } else this._error(rr);
+          this.renderPanel();
+        });
+        return;
+      case 'startLot': if (o) r = E.startLot(s, o, arg, now); if (r && r.ok) r.silent = 'build'; break;
+      case 'recipe': if (o) r = E.startRecipe(s, o, Number(arg), now); if (r && r.ok) r.silent = 'build'; break;
+      case 'upgrade': if (o) r = E.upgradeHouse(s, o, now); if (r && r.ok) { this.fx.burst(o.i, o.j, o.size, this.time()); sfx.build(); } break;
+      case 'buyChunk': if (tile) {
+        const { ci, cj } = E.chunkOf(tile.i, tile.j);
+        r = E.buyChunk(s, ci, cj);
+        if (r.ok) { at = [ci * 3 + 1, cj * 3 + 1, 1]; this.fx.burst(ci * 3 + 1, cj * 3 + 1, 1, this.time()); sfx.build(); this.selected = null; }
+      } break;
+      case 'clear': if (tile) {
+        r = E.clearObstacle(s, tile.i, tile.j);
+        if (r.ok) { this.fx.burst(tile.i, tile.j, 1, this.time()); this.selected = null; }
+      } break;
+      case 'buildHere': if (tile) { this.buildAt = { i: tile.i, j: tile.j }; this.select(null); this.openSheet('build'); } return;
+      case 'orders': this.openSheet('orders'); return;
+      case 'whUpgrade': r = E.upgradeWarehouse(s); break;
+      case 'deliver': {
+        r = E.deliverOrder(s, Number(arg));
+        const th = s.objects.find(x => x.type === 'townhall');
+        if (th) at = [th.i, th.j, th.size];
+        if (r.ok) this.fx.burst(at[0], at[1], at[2], this.time());
+      } break;
+      case 'discard': r = E.discardOrder(s, Number(arg), now); if (r.ok) r.silent = 'click'; break;
+      case 'reroll':
+        ads.rewarded('reroll').then(ok => { if (ok && E.rerollOrder(s, Number(arg)).ok) { save(s); this.renderSheet(); } });
+        return;
+      case 'tab': this.buildTab = arg; this.renderSheet(); sfx.click(); return;
+      case 'pick': this.startPlacing(arg); return;
+      case 'placeOk': this.confirmPlacing(); return;
+      case 'placeCancel': this.cancelPlacing(); return;
+      case 'closePanel': this.select(null); return;
+      case 'closeSheet': this.closeSheet(); return;
+      case 'modalOk': this.closeModal(); return;
+      default: return;
+    }
+    if (r) this._result(r, ...(at || [0, 0, 1]));
+    this.renderPanel();
+    if (this.sheet) this.renderSheet();
+  }
+
+  // Trata o resultado de uma ação: efeitos, sons, nível, salvar.
+  _result(r, i, j, size) {
+    if (!r.ok) return this._error(r);
+    const lines = [];
+    if (r.items) for (const [k, v] of Object.entries(r.items)) lines.push({ text: `+${v} ${ITEMS[k].icon}`, color: '#1f2430' });
+    if (r.coins) lines.push({ text: `+${fmtNum(r.coins)} 🪙`, color: '#b07800' });
+    if (r.drop) lines.push({ text: `+1 ${ITEMS[r.drop].icon}`, color: '#7b3fe4' });
+    if (r.xp) lines.push({ text: `+${r.xp} XP`, color: '#2e7dff' });
+    if (lines.length) this.fx.float(i, j, size, lines, this.time());
+    if (r.silent === 'build') sfx.build();
+    else if (r.silent === 'click') sfx.click();
+    else if (r.coins) sfx.coin();
+    else if (r.items || r.drop) sfx.collect();
+    else if (r.xp) sfx.build();
+    if (r.levels && r.levels.length) this.levelUp(r.levels, r.phaseChanged);
+    E.tick(this.state, this.now());
+    save(this.state);
+    return true;
+  }
+
+  _error(r) {
+    sfx.error();
+    const map = {
+      noCoins: 'errNoCoins', noItems: 'errNoItems', storageFull: 'errStorageFull', locked: 'errLocked',
+      queueFull: 'errQueueFull', invalidPlace: 'errInvalidPlace', maxCount: 'errMaxCount', notAdjacent: 'errNotAdjacent',
+    };
+    const need = r.need ? Object.entries(r.need).map(([k, v]) => `${v}× ${k === 'coins' ? '🪙' : ITEMS[k].icon}`).join('  ') : '';
+    toast(t(map[r.err] || 'errGeneric', { need, level: r.level }), true);
+    return false;
+  }
+
+  // ---------------------------------------------------------------- construir
+  startPlacing(type) {
+    const c = E.buildCheck(this.state, type);
+    if (!c.ok) return this._error(c);
+    const s = this.state, size = BUILDINGS[type].size;
+    let spot = null;
+    if (this.buildAt && E.canPlace(s, type, this.buildAt.i, this.buildAt.j)) spot = this.buildAt;
+    if (!spot) {
+      // procura o lugar livre mais perto do centro da tela
+      const w = this.camera.toWorld(this.camera.vw / 2, this.camera.vh / 2);
+      const c0 = tileAt(w.x, w.y);
+      let best = null, bd = Infinity;
+      for (let j = 0; j <= s.size - size; j++) for (let i = 0; i <= s.size - size; i++) {
+        if (!E.canPlace(s, type, i, j)) continue;
+        const d = (i - c0.i) ** 2 + (j - c0.j) ** 2;
+        if (d < bd) { bd = d; best = { i, j }; }
+      }
+      spot = best || { i: c0.i, j: c0.j };
+    }
+    this.buildAt = null;
+    this.placing = { type, i: spot.i, j: spot.j, valid: false };
+    this.closeSheet();
+    this.select(null);
+    this._updatePlacing();
+    document.body.classList.add('placing');
+  }
+
+  _updatePlacing() {
+    const p = this.placing;
+    p.valid = E.canPlace(this.state, p.type, p.i, p.j);
+    const def = BUILDINGS[p.type];
+    $('place-name').textContent = tn(def.name);
+    $('place-cost').innerHTML = Object.entries(def.build || {}).map(([k, v]) => {
+      const have = k === 'coins' ? this.state.coins : (this.state.inventory[k] || 0);
+      return `<span class="cost${have >= v ? '' : ' miss'}">${k === 'coins' ? '🪙' : ITEMS[k].icon} ${fmtNum(v)}</span>`;
+    }).join('');
+    $('place-hint').textContent = p.valid ? t('placeHint') : t('errInvalidPlace');
+    $('place-ok').disabled = !p.valid;
+  }
+
+  confirmPlacing() {
+    const p = this.placing;
+    if (!p) return;
+    const r = E.build(this.state, p.type, p.i, p.j, this.now());
+    if (!r.ok) return this._error(r);
+    this.placing = null;
+    document.body.classList.remove('placing');
+    this.fx.burst(p.i, p.j, BUILDINGS[p.type].size, this.time());
+    sfx.build();
+    this._result({ ...r, silent: 'build' }, p.i, p.j, BUILDINGS[p.type].size);
+    this.select({ kind: 'object', obj: r.obj });
+  }
+
+  cancelPlacing() {
+    this.placing = null;
+    document.body.classList.remove('placing');
+  }
+
+  // ---------------------------------------------------------------- folhas (menus)
+  openSheet(kind) {
+    this.sheet = kind;
+    this.renderSheet();
+    $('sheet').classList.add('show');
+    sfx.click();
+  }
+  closeSheet() {
+    this.sheet = null;
+    $('sheet').classList.remove('show');
+  }
+  renderSheet() {
+    if (!this.sheet) return;
+    $('sheet-title').textContent = this.sheet === 'build' ? `🔨 ${t('buildTitle')}` : `📋 ${t('ordersTitle')}`;
+    const body = $('sheet-body');
+    const scroll = body.scrollTop;
+    body.innerHTML = this.sheet === 'build' ? buildMenuView(this) : ordersView(this);
+    body.scrollTop = scroll;
+  }
+
+  renderPanel() {
+    const panel = $('panel');
+    const v = this.state.showcase ? null : panelView(this);
+    if (!v) { panel.classList.remove('show'); return; }
+    $('panel-title').textContent = v.title;
+    $('panel-body').innerHTML = v.body;
+    $('panel-actions').innerHTML = v.actions || '';
+    $('panel-actions').style.display = v.actions ? 'flex' : 'none';
+    panel.classList.add('show');
+  }
+
+  // ---------------------------------------------------------------- nível
+  levelUp(levels, phaseChanged) {
+    const lv = levels[levels.length - 1];
+    const unlocked = levels.flatMap(l => E.unlocksAt(l));
+    this.modalQueue.push({ lv, unlocked, phase: phaseChanged ? phaseForLevel(lv) : null });
+    if (!$('modal').classList.contains('show')) this._showModal();
+    sfx.levelUp();
+  }
+  _showModal() {
+    const m = this.modalQueue[0];
+    if (!m) return;
+    const list = m.unlocked.map(u => u.kind === 'building'
+      ? `<li>${tn(BUILDINGS[u.key].name)}</li>`
+      : `<li>${ITEMS[u.key].icon} ${tn(ITEMS[u.key].name)}</li>`).join('');
+    $('modal-body').innerHTML = `
+      <div class="burst">⭐</div>
+      <h2>${t('levelUp', { n: m.lv })}</h2>
+      ${m.phase ? `<p class="phase">${m.phase.icon} ${t('newPhase', { p: tn(m.phase.name) })}</p>` : ''}
+      ${list ? `<p class="muted">${t('unlocked')}</p><ul>${list}</ul>` : `<p class="muted">${t('nothingNew')}</p>`}
+      <button class="btn primary" data-act="modalOk">${t('great')}</button>`;
+    $('modal').classList.add('show');
+  }
+  closeModal() {
+    const m = this.modalQueue.shift();
+    $('modal').classList.remove('show');
+    if (m && m.phase) ads.interstitial();
+    if (this.modalQueue.length) setTimeout(() => this._showModal(), 250);
+  }
+
+  // ---------------------------------------------------------------- tempo
+  _second() {
+    if (this.state.showcase) return;
+    const changed = E.tick(this.state, this.now());
+    if (this.selected) this.renderPanel();
+    if (this.sheet === 'orders' || (changed && this.sheet)) this.renderSheet();
   }
 
   _resize() {
@@ -116,215 +341,89 @@ class CityGame {
     this.camera.setViewport(w, h);
   }
 
-  // Lista de desenho ordenada por profundidade (algoritmo do pintor).
-  _drawList() {
-    const s = this.state, list = [];
-    for (const o of s.objects) {
-      list.push({ kind: 'object', obj: o, depth: (o.i + o.size - 1) + (o.j + o.size - 1), i: o.i });
-    }
-    for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
-      const tl = s.tiles[j * s.size + i];
-      if (tl.obstacle && !objectAt(s, i, j)) list.push({ kind: 'obstacle', i, j, type: tl.obstacle, depth: i + j });
-    }
-    list.sort((a, b) => a.depth - b.depth || a.i - b.i);
-    return list;
-  }
-
-  _render(time) {
-    const ctx = this.ctx, cam = this.camera, d = this.dpr, s = this.state;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    const g = ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-    g.addColorStop(0, '#bfe6f7'); g.addColorStop(1, '#e6f6ee');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-    ctx.setTransform(cam.zoom * d, 0, 0, cam.zoom * d,
-      (cam.vw / 2 - cam.x * cam.zoom) * d, (cam.vh / 2 - cam.y * cam.zoom) * d);
-
-    // Base de terra sob o mapa (efeito "maquete").
-    const n = s.size, depth = 22;
-    const L = pt(0, n), B = pt(n, n), R = pt(n, 0);
-    const down = (p) => ({ x: p.x, y: p.y + depth });
-    ctx.fillStyle = '#9b6b43';
-    ctx.beginPath(); ctx.moveTo(L.x, L.y); ctx.lineTo(B.x, B.y); ctx.lineTo(down(B).x, down(B).y); ctx.lineTo(down(L).x, down(L).y); ctx.closePath(); ctx.fill();
-    ctx.fillStyle = '#7f5534';
-    ctx.beginPath(); ctx.moveTo(B.x, B.y); ctx.lineTo(R.x, R.y); ctx.lineTo(down(R).x, down(R).y); ctx.lineTo(down(B).x, down(B).y); ctx.closePath(); ctx.fill();
-
-    // Chão
-    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
-      const tl = s.tiles[j * n + i];
-      drawTile(ctx, i, j, tl.kind, tl.locked);
-    }
-
-    // Seleção (no chão, antes dos prédios)
-    const sel = this.selected;
-    if (sel) {
-      if (sel.kind === 'tile') drawSelection(ctx, sel.i, sel.j, 1);
-      else drawSelection(ctx, sel.obj.i, sel.obj.j, sel.obj.size, '#ffe066');
-    }
-
-    // Objetos por profundidade
-    const now = Date.now();
-    const labels = [];
-    for (const it of this._drawList()) {
-      if (it.kind === 'obstacle') { drawObstacle(ctx, it.i, it.j, it.type); continue; }
-      const o = it.obj, def = BUILDINGS[o.type];
-      if (def.type === 'lot') {
-        const prog = o.resource ? lotProgress(o, now) : 0;
-        drawLot(ctx, o.i, o.j, o.resource, prog);
-        if (o.resource && prog >= 1) drawBubble(ctx, center(o.i, o.j), ITEMS[o.resource].icon, time);
-      } else if (def.type === 'decor') {
-        drawDecor(ctx, o.i, o.j, def.look, time);
-      } else {
-        drawBuilding(ctx, o.i, o.j, o.size, def.look, time, o.id);
-      }
-      if (s.showcase) labels.push([o, def]);
-    }
-    // Rótulos (vitrine) por último, para nunca ficarem atrás de prédios.
-    for (const [o, def] of labels) drawLabel(ctx, o, def, cam.zoom);
-  }
-
-  _welcomeBack(ms) {
-    if (ms < 60 * 1000) return;
-    const sec = Math.round(ms / 1000);
-    toast((navigator.language || '').toLowerCase().startsWith('pt')
-      ? `Bem-vindo de volta! Você ficou fora ${fmtTime(sec)}.`
-      : `Welcome back! You were away for ${fmtTime(sec)}.`);
+  _loop() {
+    const nowP = performance.now();
+    const dt = Math.min(0.1, (nowP - this.lastFrame) / 1000);
+    this.lastFrame = nowP;
+    const time = this.time();
+    this.scene.update(dt);
+    this.scene.render(this.ctx, this.camera, this.dpr, this.state, time, this.now(), {
+      selected: this.placing ? null : this.selected,
+      ghost: this.placing,
+      labels: this.state.showcase ? (ctx, o) => drawLabel(ctx, o, this.camera.zoom) : null,
+    });
+    this.fx.render(this.ctx, time);
+    renderHud(this);
+    requestAnimationFrame(this._loop);
   }
 }
 
-// ---------------------------------------------------------------------------
-// Auxiliares de desenho
-// ---------------------------------------------------------------------------
-function lotProgress(o, now) {
-  const r = RESOURCE_LOTS[o.resource];
-  if (!r || !o.startedAt) return 0;
-  return Math.min(1, (now - o.startedAt) / (r.time * 1000));
-}
-
-function drawBubble(ctx, c, icon, time) {
-  const bob = Math.sin(time * 3) * 2;
-  const x = c.x, y = c.y - 34 + bob;
-  ctx.fillStyle = '#ffffff';
-  ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.arc(x, y, 11, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(x - 4, y + 9); ctx.lineTo(x, y + 15); ctx.lineTo(x + 4, y + 9); ctx.fill();
-  ctx.font = '13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText(icon, x, y + 1);
-}
-
-function drawLabel(ctx, o, def, zoom) {
-  const c = center(o.i, o.j, o.size);
-  const fs = Math.max(9, Math.min(16, 11 / zoom));
-  ctx.font = `600 ${fs}px -apple-system, Segoe UI, sans-serif`;
-  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-  const label = tn(def.name) + (o.resource ? ` (${tn(ITEMS[o.resource].name)})` : '');
-  const y = c.y + (TH / 2) * o.size + 4;
-  ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.9)';
-  ctx.strokeText(label, c.x, y);
-  ctx.fillStyle = '#1f2430';
-  ctx.fillText(label, c.x, y);
-}
-
-// ---------------------------------------------------------------------------
-// HUD (DOM)
-// ---------------------------------------------------------------------------
-let hudCache = '';
+// ------------------------------------------------------------------ HUD
+let hudKey = '';
 function renderHud(game) {
   const s = game.state;
   const ph = phaseForLevel(s.level);
-  const need = xpToNext(s.level);
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), ph.id, document.documentElement.lang].join('|');
-  if (key === hudCache) return;
-  hudCache = key;
-  document.getElementById('hud-phase').textContent = `${ph.icon} ${tn(ph.name)}`;
-  document.getElementById('hud-level').textContent = `${t('level')} ${s.level}`;
-  document.getElementById('hud-xpbar').style.width = `${Math.min(100, (s.xp / need) * 100)}%`;
-  document.getElementById('hud-coins').textContent = `🪙 ${s.coins}`;
-  document.getElementById('hud-pop').textContent = `👥 ${population(s)}`;
-  document.getElementById('hud-happy').textContent = `⭐ ${happiness(s)}`;
-  document.getElementById('btn-lang').textContent = t('lang');
-  if (s.showcase) document.getElementById('hud-phase').textContent = `🧪 ${t('showcase')}`;
+  const deliverable = s.orders.filter(o => E.canDeliver(s, o)).length;
+  const tip = s.showcase ? null : E.currentTip(s);
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, document.documentElement.lang].join('|');
+  if (key === hudKey) return;
+  hudKey = key;
+  $('hud-phase').textContent = s.showcase ? `🧪 ${t('showcase')}` : `${ph.icon} ${tn(ph.name)}`;
+  $('hud-level').textContent = `${t('level')} ${s.level}`;
+  $('hud-xpbar').style.width = `${Math.min(100, (s.xp / xpToNext(s.level)) * 100)}%`;
+  $('hud-coins').textContent = fmtNum(s.coins);
+  $('hud-pop').textContent = fmtNum(population(s));
+  $('hud-happy').textContent = fmtNum(happiness(s));
+  $('hud-storage').textContent = `${E.used(s)}/${s.capacity}`;
+  $('hud-storage').parentElement.classList.toggle('full', E.used(s) >= s.capacity);
+  $('btn-lang').textContent = t('lang');
+  const badge = $('orders-badge');
+  badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
+  $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
+  const tipEl = $('tip');
+  if (tip) { tipEl.textContent = '💡 ' + t(tip); tipEl.classList.add('show'); } else tipEl.classList.remove('show');
 }
 
-// ---------------------------------------------------------------------------
-// Painel de informações (bottom sheet)
-// ---------------------------------------------------------------------------
-function renderInfo(game) {
-  const panel = document.getElementById('info');
-  const sel = game.selected;
-  if (!sel) { panel.classList.remove('show'); return; }
-  const s = game.state;
-  let title = '', lines = [];
-
-  if (sel.kind === 'tile') {
-    const tile = tileOf(s, sel.i, sel.j);
-    if (tile.obstacle) {
-      const ob = OBSTACLES[tile.obstacle];
-      title = tn(ob.name);
-      lines.push(`${t('clearFor')} ${ob.clear} 🪙 · +${ob.xp} XP`);
-    } else if (tile.locked) {
-      title = t('locked');
-      lines.push(t('lockedDesc'));
-      lines.push(`${t('buyFor')} ${lotPrice(s, sel.i, sel.j)} 🪙`);
-    } else if (tile.kind === 'road') {
-      title = t('road'); lines.push(t('roadDesc'));
-    } else {
-      title = t('grass'); lines.push(t('grassDesc'));
-    }
-  } else {
-    const o = sel.obj, def = BUILDINGS[o.type];
-    title = tn(def.name);
-    if (def.desc) lines.push(tn(def.desc));
-    if (def.type === 'house') {
-      lines.push(`👥 ${def.residents} ${t('residents')} · 🪙 ${def.rent} ${t('rent')} ${t('every')} ${fmtTime(def.rentTime)}`);
-    }
-    if (def.recipes) {
-      for (const r of def.recipes) {
-        const ins = Object.entries(r.in).map(([k, v]) => `${v}× ${ITEMS[k].icon}`).join(' + ');
-        lines.push(`${t('producing')}: ${ins} → ${ITEMS[r.out].icon} ${tn(ITEMS[r.out].name)} (${fmtTime(r.time)})`);
-      }
-    }
-    if (def.type === 'lot') {
-      if (o.resource) {
-        const r = RESOURCE_LOTS[o.resource];
-        const left = Math.max(0, Math.ceil(r.time - (Date.now() - o.startedAt) / 1000));
-        lines.push(`${ITEMS[o.resource].icon} ${tn(ITEMS[o.resource].name)} — ${left > 0 ? fmtTime(left) : '✅'}`);
-      } else {
-        lines.push(t('emptyLot'));
-      }
-    }
-    if (def.unlock > 1) lines.push(`${t('unlocksAt')} ${def.unlock}`);
-  }
-  lines.push(`<span class="soon">${t('comingSoon')}</span>`);
-
-  panel.querySelector('.info-title').textContent = title;
-  panel.querySelector('.info-body').innerHTML = lines.map(l => `<p>${l}</p>`).join('');
-  panel.classList.add('show');
+function drawLabel(ctx, o, zoom) {
+  const def = BUILDINGS[o.type];
+  const c = center(o.i, o.j, o.size);
+  const y = c.y + 16 * o.size + 6;
+  ctx.font = `700 ${12 / zoom}px -apple-system, "Segoe UI", sans-serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+  const label = tn(def.name) + (o.resource ? ` · ${ITEMS[o.resource].icon}` : '');
+  ctx.lineWidth = 3.5 / zoom; ctx.strokeStyle = 'rgba(255,255,255,0.95)'; ctx.strokeText(label, c.x, y);
+  ctx.fillStyle = '#1f2430'; ctx.fillText(label, c.x, y);
 }
 
 let toastTimer;
-function toast(msg) {
-  const el = document.getElementById('toast');
-  el.textContent = msg; el.classList.add('show');
+function toast(msg, bad = false) {
+  const el = $('toast');
+  el.textContent = msg;
+  el.classList.toggle('bad', bad);
+  el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
 }
 
-// ---------------------------------------------------------------------------
-// Boot
-// ---------------------------------------------------------------------------
+// ------------------------------------------------------------------ boot
 function boot() {
   ads.init();
-  const game = new CityGame(document.getElementById('city'));
-  window.__city = game; // depuração
+  const game = new CityGame($('city'));
+  window.__city = game;
 
-  const on = (id, fn) => document.getElementById(id).addEventListener('click', fn);
-  on('btn-zoom-in', () => game.zoomStep(1));
-  on('btn-zoom-out', () => game.zoomStep(-1));
-  on('btn-home', () => game.fitView());
-  on('btn-lang', () => { toggleLang(); hudCache = ''; renderInfo(game); });
-  on('info-close', () => game._select(null));
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]');
+    if (b && !b.disabled) game.act(b.dataset.act, b.dataset.arg);
+  });
+  $('btn-zoom-in').onclick = () => game.zoomStep(1);
+  $('btn-zoom-out').onclick = () => game.zoomStep(-1);
+  $('btn-home').onclick = () => game.fitView();
+  $('btn-build').onclick = () => { sfx.unlock(); game.select(null); game.openSheet('build'); };
+  $('btn-orders').onclick = () => { sfx.unlock(); game.openSheet('orders'); };
+  $('btn-lang').onclick = () => { toggleLang(); hudKey = ''; game.renderPanel(); game.renderSheet(); if (game.placing) game._updatePlacing(); };
+  $('btn-mute').onclick = () => { $('btn-mute').textContent = sfx.toggleMute() ? '🔇' : '🔊'; };
+  $('btn-mute').textContent = sfx.muted ? '🔇' : '🔊';
+  window.addEventListener('pointerdown', () => sfx.unlock(), { capture: true, once: true });
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
