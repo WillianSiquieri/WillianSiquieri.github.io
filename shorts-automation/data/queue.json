@@ -335,5 +335,81 @@
     "publishError": "não foi possível apagar H7z4tLkZAkE do YouTube",
     "publishErrorAt": "2026-11-15T13:23:48.351Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
+  },
+  {
+    "id": "sh_mwi5uimpjgdd",
+    "status": "draft",
+    "createdAt": "2026-11-15T18:20:57.937Z",
+    "theme": "Inflação e El Niño 2027",
+    "title": "El Niño pode elevar a inflação em 2027",
+    "hook": "2,3% de alta no preço dos alimentos!",
+    "script": "Os climatologistas preveem um El Niño forte para 2027. Economistas apontam que isso pode empurrar a inflação em até 0,7 ponto percentual. O resultado? O carrinho de supermercado vai ficar mais caro, principalmente arroz e carne. No seu bolso, isso significa menos poder de compra e a necessidade de ajustar a carteira para proteger o patrimônio.",
+    "cta": "Se quiser saber como blindar suas finanças contra a subida dos preços, se inscreve aí.",
+    "tags": [
+      "economia",
+      "inflação",
+      "El Niño",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "inflacao",
+      "ElNiño",
+      "preços"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/el-nino-deve-pesar-mais-na-inflacao-em-2027-veja-o-que-pode-ficar-mais-caro/",
+    "rationale": "Tema com número impactante (0,7 ponto na inflação) e ligação direta ao bolso do brasileiro, atendendo ao formato \"número que choca\" e ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "previewFile": "data/previews/sh_mwi5uimpjgdd.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "BIqBLOUtnjA",
+    "previewUrl": "https://youtube.com/shorts/BIqBLOUtnjA",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwi5v5zxfjm5",
+    "status": "draft",
+    "createdAt": "2026-11-15T18:20:57.937Z",
+    "theme": "Pacote fiscal e juros no Brasil",
+    "title": "Pacote fiscal pode cortar juros agora",
+    "hook": "Juros à vista de 10,75% ao ano!",
+    "script": "O vice‑presidente Alckmin anunciou um pacote fiscal que promete reduzir a taxa Selic. Se aprovado, a taxa pode cair cerca de 0,5 ponto percentual nas próximas semanas. Isso significa empréstimos mais baratos e crédito mais acessível para quem quer comprar casa ou carro. Na prática, seu financiamento pode ficar até R$200 a menos por mês.",
+    "cta": "Quer acompanhar como essas mudanças afetam seu crédito, se inscreva agora.",
+    "tags": [
+      "finanças",
+      "juros",
+      "política fiscal",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "juros",
+      "pacote fiscal",
+      "Selic"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/pacote-fiscal-alckmin-diz-que-medida-reduz-juros-e-espera-aval-do-senado-na-terca/",
+    "rationale": "Apresenta número relevante (queda de 0,5 ponto na Selic) e mostra impacto concreto no bolso, seguindo o modelo de hook numérico e variação de estilo entre os dois shorts.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 30,
+      "previewFile": "data/previews/sh_mwi5v5zxfjm5.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "9FReBHrKF_I",
+    "previewUrl": "https://youtube.com/shorts/9FReBHrKF_I",
+    "privacyStatus": "unlisted"
   }
 ]
