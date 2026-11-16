@@ -2,7 +2,7 @@
 // distância. O personagem (rider) é um conjunto de pontos ligados por
 // restrições, o que dá um corpo rígido/semi-rígido estável e barato.
 
-import { resolvePointSegments } from './collision.js';
+import { resolvePointSegments, sweepPointSegments } from './collision.js';
 
 // Cria um ponto de Verlet. px/py = posição anterior (codifica a velocidade).
 export function makePoint(x, y) {
@@ -46,7 +46,13 @@ export function satisfyConstraints(constraints, iterations) {
 export function collide(points, grid, radius, friction) {
   for (const p of points) {
     if (p.pinned) continue;
-    const candidates = grid.query(p, radius + 4);
-    if (candidates.length) resolvePointSegments(p, candidates, radius, friction);
+    // candidatos ao longo de todo o movimento do passo (não só em volta do ponto)
+    const pad = radius + 4;
+    const candidates = grid.queryBox(
+      Math.min(p.x, p.px) - pad, Math.min(p.y, p.py) - pad,
+      Math.max(p.x, p.px) + pad, Math.max(p.y, p.py) + pad);
+    if (!candidates.length) continue;
+    sweepPointSegments(p, candidates, radius);
+    resolvePointSegments(p, candidates, radius, friction);
   }
 }

@@ -46,9 +46,14 @@ export class SpatialGrid {
 
   // Retorna segmentos candidatos num raio ao redor do ponto p.
   query(p, radius) {
+    return this.queryBox(p.x - radius, p.y - radius, p.x + radius, p.y + radius);
+  }
+
+  // Retorna segmentos candidatos que tocam a caixa [minX,maxX]×[minY,maxY].
+  queryBox(minX, minY, maxX, maxY) {
     const c = this.cell;
-    const x0 = Math.floor((p.x - radius) / c), x1 = Math.floor((p.x + radius) / c);
-    const y0 = Math.floor((p.y - radius) / c), y1 = Math.floor((p.y + radius) / c);
+    const x0 = Math.floor(minX / c), x1 = Math.floor(maxX / c);
+    const y0 = Math.floor(minY / c), y1 = Math.floor(maxY / c);
     const seen = new Set();
     const out = [];
     for (let cy = y0; cy <= y1; cy++) {
@@ -64,6 +69,40 @@ export class SpatialGrid {
     }
     return out;
   }
+}
+
+// Colisão contínua: se o movimento do ponto neste passo (de px,py até x,y)
+// cruzou algum segmento, o ponto volta para o ponto de contato, do lado de onde
+// veio (a `radius` da linha).
+// Sem isso, em quedas rápidas o ponto anda mais que o raio por passo e
+// "atravessa" a pista como se ela fosse invisível.
+export function sweepPointSegments(point, segments, radius) {
+  const mx = point.x - point.px, my = point.y - point.py;
+  if (mx * mx + my * my < 1e-8) return false;
+  let best = null, bestT = Infinity;
+  for (const s of segments) {
+    const ex = s.b.x - s.a.x, ey = s.b.y - s.a.y;
+    const denom = mx * ey - my * ex;
+    if (Math.abs(denom) < 1e-9) continue;            // paralelo
+    const qx = s.a.x - point.px, qy = s.a.y - point.py;
+    const t = (qx * ey - qy * ex) / denom;            // fração do movimento
+    const u = (qx * my - qy * mx) / denom;            // fração do segmento
+    if (t < 0 || t > 1 || u < 0 || u > 1) continue;
+    if (t < bestT) { bestT = t; best = s; }
+  }
+  if (!best) return false;
+  const ex = best.b.x - best.a.x, ey = best.b.y - best.a.y;
+  const el = Math.hypot(ex, ey) || 1;
+  let nx = -ey / el, ny = ex / el;
+  // normal apontando para o lado de onde o ponto veio
+  if ((point.px - best.a.x) * nx + (point.py - best.a.y) * ny < 0) { nx = -nx; ny = -ny; }
+  // Corrige só a posição (como o resto da física de Verlet): a velocidade
+  // implícita (pos − anterior) diminui na direção da pista sozinha, sem
+  // "frear" o carrinho de uma vez em curvas fechadas.
+  const hx = point.px + mx * bestT, hy = point.py + my * bestT;
+  point.x = hx + nx * radius;
+  point.y = hy + ny * radius;
+  return true;
 }
 
 // Resolve a colisão de um ponto de Verlet (com posição atual e anterior) contra
