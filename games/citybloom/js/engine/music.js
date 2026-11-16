@@ -54,6 +54,15 @@ class Music {
     this.player.setVolume(this.volume);
   }
 
+  // Silêncio temporário (durante anúncio): pausa sem perder o lugar na música.
+  hold(on) {
+    this.player.held = on;
+    const ctx = this.player.ctx;
+    if (!ctx) return;
+    if (on) ctx.suspend();
+    else if (this.theme !== 'off' && !document.hidden) ctx.resume();
+  }
+
   isPlaying() { return this.player.isPlaying() && !!this.player.ctx && this.player.ctx.state === 'running'; }
 }
 

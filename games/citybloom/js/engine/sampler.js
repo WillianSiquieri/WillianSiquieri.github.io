@@ -61,7 +61,7 @@ export class SongPlayer {
     })();
     document.addEventListener('visibilitychange', () => {
       if (!this.ctx) return;
-      if (document.hidden) this.ctx.suspend(); else if (this.timer) this.ctx.resume();
+      if (document.hidden) this.ctx.suspend(); else if (this.timer && !this.held) this.ctx.resume();
     });
   }
 

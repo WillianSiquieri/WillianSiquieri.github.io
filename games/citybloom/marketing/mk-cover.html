@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.bg{position:absolute;inset:0;background:url(mk-bg.jpg) center/cover}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,40,80,.78) 0%,rgba(18,40,80,.45) 42%,rgba(18,40,80,0) 70%)}
+.logo{position:absolute;left:6vw;top:50%;transform:translateY(-55%);color:#fff}
+.title{font-weight:900;font-size:15vh;letter-spacing:-.02em;line-height:.95;display:flex;align-items:center;gap:2.2vh;
+  text-shadow:0 .6vh 0 #1f63d9,0 1.4vh 2.6vh rgba(0,0,0,.35)}
+.title b{color:#ffd23f}
+.flower{width:14vh;height:14vh;flex-shrink:0;filter:drop-shadow(0 .8vh 1.2vh rgba(0,0,0,.3))}
+.tag{margin-top:2.6vh;font-size:4.6vh;font-weight:800;color:#fff;text-shadow:0 .4vh 1vh rgba(0,0,0,.45);max-width:52vw}
+.pill{display:inline-block;margin-top:3vh;background:#ffd23f;color:#1c2230;font-weight:900;font-size:3.6vh;padding:1.4vh 3vh;border-radius:5vh;box-shadow:0 .8vh 0 #c99a1e}
+.mayor{position:absolute;right:5vw;bottom:-2vh;height:96vh;filter:drop-shadow(0 1.5vh 2.5vh rgba(0,0,0,.35))}
+/* retrato */
+body.portrait .shade{background:linear-gradient(180deg,rgba(18,40,80,.8) 0%,rgba(18,40,80,.4) 38%,rgba(18,40,80,0) 60%)}
+body.portrait .logo{left:0;right:0;top:5vh;transform:none;text-align:center}
+body.portrait .title{justify-content:center;font-size:13vw;flex-direction:column;gap:1vh}
+body.portrait .flower{width:22vw;height:22vw}
+body.portrait .tag{font-size:5.6vw;max-width:none;margin:2vh 6vw 0}
+body.portrait .pill{font-size:3.6vw;max-width:84vw;padding:1.2vh 3vw}
+body.portrait .mayor{right:50%;transform:translateX(50%);height:55vh}
+/* quadrado */
+body.square .shade{background:linear-gradient(180deg,rgba(18,40,80,.78) 0%,rgba(18,40,80,.35) 45%,rgba(18,40,80,0) 70%)}
+body.square .logo{left:6vw;top:6vh;transform:none}
+body.square .title{font-size:12.5vh}
+body.square .flower{width:12vh;height:12vh}
+body.square .tag{font-size:5vh;max-width:58vw}
+body.square .pill{display:none}
+body.square .mayor{right:3vw;height:66vh}
+/* ícone */
+body.icon .shade{background:linear-gradient(180deg,rgba(18,40,80,.0) 45%,rgba(18,40,80,.85) 100%)}
+body.icon .logo{left:0;right:0;top:auto;bottom:5vh;transform:none;text-align:center}
+body.icon .title{justify-content:center;font-size:15vh}
+body.icon .flower,body.icon .tag,body.icon .pill{display:none}
+body.icon .mayor{right:50%;transform:translateX(50%);bottom:auto;top:4vh;height:82vh}
+</style></head><body>
+<div class="bg"></div><div class="shade"></div>
+<img class="mayor" src="/games/citybloom/assets/characters/micah/mayor-full.svg">
+<div class="logo">
+  <div class="title"><svg class="flower" viewBox="0 0 100 100"><g transform="translate(50 50)">
+    <g fill="#ff7aa8" stroke="#fff" stroke-width="3"><ellipse rx="15" ry="26" cy="-24"/><ellipse rx="15" ry="26" cy="-24" transform="rotate(72)"/><ellipse rx="15" ry="26" cy="-24" transform="rotate(144)"/><ellipse rx="15" ry="26" cy="-24" transform="rotate(216)"/><ellipse rx="15" ry="26" cy="-24" transform="rotate(288)"/></g>
+    <circle r="15" fill="#ffd23f" stroke="#fff" stroke-width="3"/><g fill="#2e7dff"><rect x="-8" y="-8" width="5" height="14" rx="1"/><rect x="-2" y="-12" width="5" height="18" rx="1"/><rect x="4" y="-5" width="5" height="11" rx="1"/></g></g></svg>
+    <span>City<b>Bloom</b></span></div>
+  <div class="tag" id="tag">Construa sua cidade e faça ela florescer!</div>
+  <div class="pill" id="pill">🏗️ Construa · 🏭 Produza · 📋 Entregue pedidos</div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+document.body.className = q.get('mode') || '';
+if (q.get('lang') === 'en') { tag.textContent = 'Build your city and watch it bloom!'; pill.textContent = '🏗️ Build · 🏭 Produce · 📋 Deliver orders'; }
+</script></body></html>

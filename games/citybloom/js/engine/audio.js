@@ -11,7 +11,7 @@ class Sfx {
   }
 
   unlock() {
-    if (this.ctx) { if (this.ctx.state === 'suspended') this.ctx.resume(); return; }
+    if (this.ctx) { if (this.ctx.state === 'suspended' && !this.held) this.ctx.resume(); return; }
     try {
       const AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return;
@@ -22,6 +22,13 @@ class Sfx {
     } catch (_) { this.ctx = null; }
   }
 
+  // Silêncio temporário (durante anúncio).
+  hold(on) {
+    this.held = on;
+    if (!this.ctx) return;
+    if (on) this.ctx.suspend(); else this.ctx.resume();
+  }
+
   toggleMute() {
     this.muted = !this.muted;
     try { localStorage.setItem(MUTE_KEY, this.muted ? '1' : '0'); } catch (_) {}
@@ -29,7 +36,7 @@ class Sfx {
   }
 
   _tone(freq, dur, type = 'sine', gain = 1, delay = 0, slide = 0) {
-    if (this.muted || !this.ctx) return;
+    if (this.muted || this.held || !this.ctx) return;
     const t0 = this.ctx.currentTime + delay;
     const o = this.ctx.createOscillator(), g = this.ctx.createGain();
     o.type = type;

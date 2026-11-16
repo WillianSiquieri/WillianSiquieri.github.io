@@ -191,6 +191,13 @@ Anúncios via SDK do portal, isolados em `js/engine/ads.js`:
 | Intersticial | ao subir de **fase** (raro) | — |
 
 Regra: nunca mostrar anúncio sem o jogador pedir, exceto o intersticial raro.
+Intersticial: nunca no 1º minuto e no máximo 1 a cada 3 min. Durante o anúncio a música
+e os sons ficam em silêncio; sem anúncio disponível o jogo avisa e não dá a recompensa.
+
+Portal escolhido por `js/portal.js` (`window.CB_PORTAL`): `local` (GitHub Pages, sem
+anúncio), `crazygames` (SDK v3) ou `gamedistribution` (Game ID em `CB_GD_GAME_ID`).
+Os .zip de cada portal saem de `tools/citybloom/build-portal.mjs`; capas, ícone e
+capturas em `marketing/`; passo a passo e textos em `PORTAIS.md`.
 
 ## 10. Técnica
 

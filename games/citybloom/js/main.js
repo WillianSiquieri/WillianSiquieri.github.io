@@ -39,7 +39,8 @@ class CityGame {
     this.t0 = performance.now();
     this.lastFrame = this.t0;
 
-    const params = new URLSearchParams(location.search);
+    // ?reset=1 e ?showcase=1 são ferramentas de teste: desligadas nos portais
+    const params = new URLSearchParams((window.CB_PORTAL || 'local') === 'local' ? location.search : '');
     if (params.get('reset') === '1') resetSave();
     if (params.get('showcase') === '1') {
       this.state = showcaseGame();
@@ -184,7 +185,7 @@ class CityGame {
     switch (act) {
       case 'collect': if (o) r = E.quickCollect(s, o, now) || { ok: false, err: 'notReady' }; break;
       case 'collect2':
-        if (o) ads.rewarded('double').then(ok => {
+        if (o) this._rewarded('double').then(ok => {
           if (!ok) return;
           const d = BUILDINGS[o.type];
           const rr = d.type === 'house' ? E.collectRent(s, o, this.now(), 2) : E.collectIncome(s, o, this.now(), 2);
@@ -192,7 +193,7 @@ class CityGame {
         });
         return;
       case 'speed':
-        if (o) ads.rewarded('speedup').then(ok => {
+        if (o) this._rewarded('speedup').then(ok => {
           if (!ok) return;
           const rr = E.speedUp(s, o, this.now());
           if (rr.ok) { sfx.coin(); save(s); } else this._error(rr);
@@ -231,7 +232,7 @@ class CityGame {
       } break;
       case 'discard': r = E.discardOrder(s, Number(arg), now); if (r.ok) r.silent = 'click'; break;
       case 'reroll':
-        ads.rewarded('reroll').then(ok => { if (ok && E.rerollOrder(s, Number(arg)).ok) { save(s); this.renderSheet(); } });
+        this._rewarded('reroll').then(ok => { if (ok && E.rerollOrder(s, Number(arg)).ok) { save(s); this.renderSheet(); } });
         return;
       case 'tab': this.buildTab = arg; this.renderSheet(); sfx.click(); return;
       case 'pick': this.startPlacing(arg); return;
@@ -251,7 +252,7 @@ class CityGame {
         return;
       }
       case 'claimExtra':
-        ads.rewarded('chest').then(ok => {
+        this._rewarded('chest').then(ok => {
           if (!ok) return;
           const rr = E.claimDailyExtra(s, this.now());
           if (!rr.ok) return this._error(rr);
@@ -265,6 +266,11 @@ class CityGame {
     if (r) this._result(r, ...(at || [0, 0, 1]));
     this.renderPanel();
     if (this.sheet) this.renderSheet();
+  }
+
+  // Anúncio premiado: avisa quando não houver anúncio (não concede nada).
+  _rewarded(placement) {
+    return ads.rewarded(placement).then(ok => { if (!ok) toast(t('adUnavailable'), true); return ok; });
   }
 
   // Trata o resultado de uma ação: efeitos, sons, nível, salvar.
@@ -588,7 +594,10 @@ function toast(msg, bad = false) {
 
 // ------------------------------------------------------------------ boot
 function boot() {
-  ads.init();
+  // anúncios: silencia o jogo durante o anúncio; avisa o portal do carregamento
+  ads.onPause = () => { music.hold(true); sfx.hold(true); };
+  ads.onResume = () => { music.hold(false); sfx.hold(false); };
+  ads.init().then(() => { ads.loading(true); ads.gameplay(true); });
   const game = new CityGame($('city'));
   window.__city = game;
 
