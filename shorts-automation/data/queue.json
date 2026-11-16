@@ -373,5 +373,87 @@
     "youtubeId": "9FReBHrKF_I",
     "previewUrl": "https://youtube.com/shorts/9FReBHrKF_I",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwjs106agv41",
+    "status": "draft",
+    "createdAt": "2026-11-16T21:29:38.338Z",
+    "theme": "Mercado financeiro",
+    "title": "Ibovespa despenca e o dólar dispara: o que isso mexe no seu bolso?",
+    "hook": "Por que a bolsa caiu quase 2% e o dólar subiu 2,15% hoje?",
+    "script": "A queda no Ibovespa reflete medo de mais pressão fiscal no Brasil. Quando o governo tem déficit, investidores pedem juros mais altos e vendem ações. O dólar sobe porque a moeda americana se valoriza frente ao real em busca de segurança. Resultado: suas ações perdem valor e o custo das importações aumenta. Se você tem dívida em dólar ou compra produtos importados, sente o impacto imediato. Se investe em ações, pode ser hora de rever a carteira.",
+    "cta": "Quer entender como a variação do dólar afeta seu dinheiro todo dia? Se inscreve aí.",
+    "tags": [
+      "#Ibovespa",
+      "#Dólar",
+      "#Finanças",
+      "#Investimento",
+      "#Economia"
+    ],
+    "captionKeywords": [
+      "Ibovespa",
+      "dólar",
+      "fiscal",
+      "investimentos",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-16112026/",
+    "rationale": "Alta relevância por combinar queda de índice e alta do dólar, tema que gera preocupação direta no bolso do público brasileiro.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 39,
+      "previewFile": "data/previews/sh_mwjs106agv41.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "xIy2HL6oeFc",
+    "previewUrl": "https://youtube.com/shorts/xIy2HL6oeFc",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwjs1k6w8c1o",
+    "status": "draft",
+    "createdAt": "2026-11-16T21:29:38.338Z",
+    "theme": "Commodities",
+    "title": "Vale vê preço do minério de ferro na mínima em 16 meses: o que isso significa pra você?",
+    "hook": "Por que as ações da Vale despencaram 4% agora?",
+    "script": "O preço do minério de ferro caiu para a menor cotação em 16 meses, puxado por excesso de oferta e desaceleração da China. Como a Vale vende grande parte da sua receita em minério, a queda reduz seu lucro trimestral. Para o investidor, isso pode gerar dividendos menores e volatilidade nas ações. Para quem consome produtos de aço, a queda pode chegar a preços mais baixos, mas só se a tendência se mantiver. Fique de olho nos próximos relatórios de produção.",
+    "cta": "Quer saber como a oscilação do minério impacta seus investimentos? Inscreva-se agora.",
+    "tags": [
+      "#Vale",
+      "#Minério",
+      "#Commodities",
+      "#Investimento",
+      "#Ações"
+    ],
+    "captionKeywords": [
+      "Vale",
+      "minério de ferro",
+      "commodities",
+      "ações",
+      "preço"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/vale-vale3-acoes-caem-mais-de-3-com-minerio-na-minima-em-16-meses/",
+    "rationale": "Tema quente de commodities que afeta tanto investidores de ações quanto consumidores, gerando alta taxa de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwjs1k6w8c1o.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "mbmyaie09_w",
+    "previewUrl": "https://youtube.com/shorts/mbmyaie09_w",
+    "privacyStatus": "unlisted"
   }
 ]

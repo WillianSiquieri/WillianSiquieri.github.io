@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 437,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 45.3,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 96,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 52.5,
     "avgViewSec": 24
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2217,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 61.2,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 70,
     "avgViewSec": 25
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 6,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 57.3,
     "avgViewSec": 18
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
     "avgViewPct": 80.1,
     "avgViewSec": 26
   },
@@ -392,11 +392,11 @@
     "views": 11,
     "likes": 0,
     "comments": 0,
-    "score": 8,
+    "score": 15,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z",
-    "avgViewPct": 45,
-    "avgViewSec": 22
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z",
+    "avgViewPct": 80,
+    "avgViewSec": 39
   },
   {
     "id": "sh_mweaelr64eai",
@@ -439,11 +439,11 @@
     "views": 14,
     "likes": 0,
     "comments": 0,
-    "score": 7,
+    "score": 9,
     "publishError": null,
-    "avgViewPct": 30.5,
-    "avgViewSec": 11,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "avgViewPct": 39.4,
+    "avgViewSec": 15,
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": 9.6,
     "avgViewSec": 4,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -541,11 +541,11 @@
     "views": 7,
     "likes": 0,
     "comments": 0,
-    "score": 10,
+    "score": 11,
     "publishError": null,
-    "avgViewPct": 85.5,
-    "avgViewSec": 35,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "avgViewPct": 91.6,
+    "avgViewSec": 38,
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
@@ -592,11 +592,11 @@
     "views": 4,
     "likes": 0,
     "comments": 0,
-    "score": 4,
+    "score": 7,
     "publishError": null,
-    "avgViewPct": null,
-    "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "avgViewPct": 102.9,
+    "avgViewSec": 36,
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   },
   {
     "id": "sh_mwfcfmv03zb5",
@@ -689,11 +689,11 @@
     "views": 3,
     "likes": 0,
     "comments": 0,
-    "score": 3,
+    "score": 2,
     "publishError": null,
-    "avgViewPct": null,
-    "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "avgViewPct": 39.2,
+    "avgViewSec": 21,
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   },
   {
     "id": "sh_mwi5uimpjgdd",
@@ -741,6 +741,6 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-16T14:39:57.863Z"
+    "analyticsUpdatedAt": "2026-11-16T21:29:34.790Z"
   }
 ]
