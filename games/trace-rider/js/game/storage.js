@@ -4,6 +4,7 @@
 const PROGRESS_KEY = 'traceplay.progress.v1';
 const SANDBOX_KEY = 'traceplay.sandbox.v1';
 const SKIN_KEY = 'traceplay.skin.v1';
+const VEHICLE_KEY = 'traceplay.vehicle.v1';
 
 function readJSON(key, fallback) {
   try {
@@ -56,6 +57,14 @@ export function getSkin() {
 }
 export function setSkin(id) {
   try { localStorage.setItem(SKIN_KEY, id); } catch (_) {}
+}
+
+// ---- Veículo (visual do personagem) ----
+export function getVehicleId() {
+  try { return localStorage.getItem(VEHICLE_KEY) || 'sled'; } catch (_) { return 'sled'; }
+}
+export function setVehicleId(id) {
+  try { localStorage.setItem(VEHICLE_KEY, id); } catch (_) {}
 }
 
 // ---- Compartilhar pista por link ----

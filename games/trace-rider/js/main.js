@@ -11,8 +11,9 @@ import { History } from './ui/history.js';
 import { LEVELS, getLevel, nextLevelId } from './game/levels.js';
 import {
   getProgress, recordLevelResult, saveSandbox, loadSandbox,
-  getSkin, setSkin, SKINS, encodeTrack, decodeTrack,
+  getSkin, setSkin, SKINS, encodeTrack, decodeTrack, getVehicleId, setVehicleId,
 } from './game/storage.js';
+import { VEHICLES, getVehicleDef, drawThumb } from './game/vehicles.js';
 import { sfx } from './engine/audio.js';
 
 // ---- Parâmetros de física (por passo fixo) ----
@@ -48,6 +49,9 @@ class Game {
     this.level = null;           // fase atual (null = sandbox)
     this.isSandbox = false;
     this.skin = getSkin();       // cor do carrinho
+    this.vehicle = getVehicleDef(getVehicleId()); // visual (trenó, skate, BMX…)
+    this.wheelAngle = 0;         // giro das rodas (só visual)
+    this.prevBase = null;
 
     this.startPoint = { x: 0, y: -40 };
     this.rider = new Rider(this.startPoint.x, this.startPoint.y);
@@ -187,6 +191,14 @@ class Game {
     if (!muted) sfx.click();
   }
 
+  setVehicle(id) {
+    const v = VEHICLES.find(x => x.id === id);
+    if (!v) return;
+    this.vehicle = v;
+    setVehicleId(id);
+    sfx.click();
+  }
+
   setSkin(id) {
     const skin = SKINS.find(s => s.id === id);
     if (!skin) return;
@@ -254,7 +266,7 @@ class Game {
     this.mode = 'edit';
     this.result = null;
     this.rider.start = { ...this.startPoint };
-    this.rider.reset();
+    this.rider.reset(); this.prevBase = null;
     for (const s of this.stars) s.collected = false;
     this.playTime = 0;
     if (recenter) {
@@ -288,7 +300,7 @@ class Game {
     this.mode = 'play';
     this.result = null;
     this.rider.start = { ...this.startPoint };
-    this.rider.reset();
+    this.rider.reset(); this.prevBase = null;
     this.rider.kick(KICK_VX);
     for (const s of this.stars) s.collected = false;
     this.playTime = 0;
@@ -332,6 +344,13 @@ class Game {
         steps++;
         if (this.mode !== 'play') break; // ganhou/perdeu dentro do passo
       }
+      // giro das rodas: distância andada pela base ao longo do próprio eixo
+      const b = this.rider.base();
+      if (this.prevBase) {
+        const dx = b.x - this.prevBase.x, dy = b.y - this.prevBase.y;
+        this.wheelAngle += (dx * Math.cos(b.angle) + dy * Math.sin(b.angle)) / 5.5;
+      }
+      this.prevBase = b;
       const c = this.rider.center();
       this.camera.follow(c.x, c.y, 0.12);
       this._syncHud();
@@ -509,14 +528,16 @@ class Game {
   }
 
   _drawRider(line, accent) {
-    const ctx = this.ctx, r = this.rider;
-    ctx.strokeStyle = line; ctx.lineWidth = 4;
-    ctx.beginPath(); ctx.moveTo(r.tail.x, r.tail.y); ctx.lineTo(r.nose.x, r.nose.y); ctx.stroke();
-    ctx.fillStyle = this.skin ? this.skin.color : accent;
-    ctx.beginPath();
-    ctx.moveTo(r.nose.x, r.nose.y); ctx.lineTo(r.tail.x, r.tail.y); ctx.lineTo(r.body.x, r.body.y);
-    ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.arc(r.body.x, r.body.y, 6, 0, Math.PI * 2); ctx.fillStyle = line; ctx.fill();
+    const ctx = this.ctx, r = this.rider, b = r.base();
+    const vx = r.nose.x - r.nose.px, vy = r.nose.y - r.nose.py;
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.rotate(b.angle);
+    this.vehicle.draw(ctx, {
+      color: this.skin ? this.skin.color : accent, line,
+      wheel: this.wheelAngle, speed: this.mode === 'play' ? Math.hypot(vx, vy) : 0, t: performance.now() / 1000,
+    });
+    ctx.restore();
   }
 
   // ---------- HUD ----------
@@ -594,7 +615,25 @@ function renderMenu(game) {
     btn.addEventListener('click', () => game.loadLevel(lvl.id));
     list.appendChild(btn);
   }
+  renderVehiclePicker(game);
   renderSkinPicker(game);
+}
+
+// Escolha do veículo: cartões com miniatura desenhada pela mesma função do jogo.
+function renderVehiclePicker(game) {
+  const box = document.getElementById('vehicle-picker');
+  if (!box) return;
+  const line = getComputedStyle(document.documentElement).getPropertyValue('--line').trim() || '#222';
+  box.innerHTML = '';
+  for (const v of VEHICLES) {
+    const card = document.createElement('button');
+    card.className = 'vehicle-card' + (game.vehicle.id === v.id ? ' active' : '');
+    card.setAttribute('aria-label', v.name);
+    card.innerHTML = `<canvas></canvas><span>${v.name}</span>`;
+    card.addEventListener('click', () => { game.setVehicle(v.id); renderVehiclePicker(game); });
+    box.appendChild(card);
+    drawThumb(card.querySelector('canvas'), v, game.skin.color, line);
+  }
 }
 
 function renderSkinPicker(game) {
@@ -607,7 +646,7 @@ function renderSkinPicker(game) {
     sw.style.background = s.color;
     sw.title = s.name;
     sw.setAttribute('aria-label', s.name);
-    sw.addEventListener('click', () => { game.setSkin(s.id); renderSkinPicker(game); });
+    sw.addEventListener('click', () => { game.setSkin(s.id); renderSkinPicker(game); renderVehiclePicker(game); });
     box.appendChild(sw);
   }
 }
