@@ -87,7 +87,7 @@
     "comments": 0,
     "score": 437,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 45.3,
     "avgViewSec": 24
   },
@@ -130,7 +130,7 @@
     "comments": 0,
     "score": 96,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 52.5,
     "avgViewSec": 24
   },
@@ -173,7 +173,7 @@
     "comments": 2,
     "score": 2217,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 61.2,
     "avgViewSec": 26
   },
@@ -217,7 +217,7 @@
     "comments": 0,
     "score": 5,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 98.6,
     "avgViewSec": 51
   },
@@ -260,7 +260,7 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 70,
     "avgViewSec": 25
   },
@@ -303,7 +303,7 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 57.3,
     "avgViewSec": 18
   },
@@ -348,7 +348,7 @@
     "comments": 0,
     "score": 7,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 80.1,
     "avgViewSec": 26
   },
@@ -394,7 +394,7 @@
     "comments": 0,
     "score": 8,
     "publishError": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z",
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z",
     "avgViewPct": 45,
     "avgViewSec": 22
   },
@@ -443,7 +443,7 @@
     "publishError": null,
     "avgViewPct": 30.5,
     "avgViewSec": 11,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z"
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
   },
   {
     "id": "sh_mwf04gaog4iu",
@@ -494,7 +494,7 @@
     "publishError": null,
     "avgViewPct": 9.6,
     "avgViewSec": 4,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z"
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
   },
   {
     "id": "sh_mwf05gbi8z7y",
@@ -538,14 +538,14 @@
     "privacyStatus": "public",
     "decidedAt": "2026-11-13T17:12:30.854Z",
     "publishedAt": "2026-11-13T17:12:47.705Z",
-    "views": 5,
+    "views": 7,
     "likes": 0,
     "comments": 0,
-    "score": 7,
+    "score": 10,
     "publishError": null,
     "avgViewPct": 85.5,
     "avgViewSec": 35,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z"
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
   },
   {
     "id": "sh_mwf06b7dhi8r",
@@ -596,7 +596,7 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z"
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
   },
   {
     "id": "sh_mwfcfmv03zb5",
@@ -693,6 +693,54 @@
     "publishError": null,
     "avgViewPct": null,
     "avgViewSec": null,
-    "analyticsUpdatedAt": "2026-11-15T22:26:56.020Z"
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
+  },
+  {
+    "id": "sh_mwi5uimpjgdd",
+    "status": "published",
+    "createdAt": "2026-11-15T18:20:57.937Z",
+    "theme": "Inflação e El Niño 2027",
+    "title": "El Niño pode elevar a inflação em 2027",
+    "hook": "2,3% de alta no preço dos alimentos!",
+    "script": "Os climatologistas preveem um El Niño forte para 2027. Economistas apontam que isso pode empurrar a inflação em até 0,7 ponto percentual. O resultado? O carrinho de supermercado vai ficar mais caro, principalmente arroz e carne. No seu bolso, isso significa menos poder de compra e a necessidade de ajustar a carteira para proteger o patrimônio.",
+    "cta": "Se quiser saber como blindar suas finanças contra a subida dos preços, se inscreve aí.",
+    "tags": [
+      "economia",
+      "inflação",
+      "El Niño",
+      "investimentos"
+    ],
+    "captionKeywords": [
+      "inflacao",
+      "ElNiño",
+      "preços"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/el-nino-deve-pesar-mais-na-inflacao-em-2027-veja-o-que-pode-ficar-mais-caro/",
+    "rationale": "Tema com número impactante (0,7 ponto na inflação) e ligação direta ao bolso do brasileiro, atendendo ao formato \"número que choca\" e ao nicho de finanças.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 26,
+      "previewFile": null,
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "BIqBLOUtnjA",
+    "previewUrl": "https://youtube.com/shorts/BIqBLOUtnjA",
+    "privacyStatus": "public",
+    "decidedAt": "2026-11-16T01:45:09.153Z",
+    "publishedAt": "2026-11-16T01:45:21.896Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0,
+    "publishError": null,
+    "avgViewPct": null,
+    "avgViewSec": null,
+    "analyticsUpdatedAt": "2026-11-16T01:45:25.292Z"
   }
 ]
