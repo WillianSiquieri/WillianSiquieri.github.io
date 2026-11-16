@@ -338,7 +338,7 @@
   },
   {
     "id": "sh_mwi5uimpjgdd",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-15T18:20:57.937Z",
     "theme": "Inflação e El Niño 2027",
     "title": "El Niño pode elevar a inflação em 2027",
@@ -372,7 +372,8 @@
     },
     "youtubeId": "BIqBLOUtnjA",
     "previewUrl": "https://youtube.com/shorts/BIqBLOUtnjA",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-16T01:45:09.153Z"
   },
   {
     "id": "sh_mwi5v5zxfjm5",
