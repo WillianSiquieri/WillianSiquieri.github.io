@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350">
+  <rect width="1080" height="1350" fill="hsl(340,60%,88%)"/>
+  <rect x="60" y="60" width="960" height="1230" rx="40" fill="hsl(340,55%,78%)"/>
+  <text x="540" y="700" font-family="sans-serif" font-size="90" font-weight="bold"
+    fill="hsl(340,45%,32%)" text-anchor="middle">vestido</text>
+  <text x="540" y="800" font-family="sans-serif" font-size="42"
+    fill="hsl(340,35%,42%)" text-anchor="middle">foto de exemplo</text>
+</svg>
