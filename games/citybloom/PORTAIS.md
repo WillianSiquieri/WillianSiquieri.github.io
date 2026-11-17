@@ -16,7 +16,7 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 | Arquivo | Uso |
 |---|---|
 | `cover-1920x1080.jpg` | capa horizontal (CrazyGames, GameDistribution) |
-| `cover-en-1920x1080.jpg` | capa horizontal em inglês |
+| `cover-en-*.jpg` | as mesmas capas em inglês (1920×1080, 1280×720, 800×450, 512×384, vertical e quadrada) |
 | `cover-1280x720.jpg`, `cover-800x450.jpg`, `cover-512x384.jpg` | capas menores (GameDistribution pede 512×384) |
 | `cover-portrait-800x1200.jpg` | capa vertical |
 | `cover-square-800x800.jpg` | capa quadrada |
