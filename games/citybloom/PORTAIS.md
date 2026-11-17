@@ -22,6 +22,9 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 | `cover-square-800x800.jpg` | capa quadrada |
 | `icon-512x512.png` | ícone (GameDistribution pede 512×512) |
 | `screen-1-cidade.jpg` … `screen-4-bau.jpg` | capturas do jogo (1920×1080) |
+| `video-landscape-1920x1080.mp4` | vídeo de prévia horizontal (18,5 s, jogo em inglês) |
+| `video-portrait-1080x1620.mp4` | vídeo de prévia vertical 2:3 (mesmo formato da capa vertical) |
+| `video-portrait-1080x1920.mp4` | vídeo de prévia vertical 9:16 (formato de celular) |
 
 ## Passo a passo — GameDistribution (o mais fácil de aceitar)
 1. Acesse **gamedistribution.com**, clique em *Developers* e crie a conta, que é grátis.

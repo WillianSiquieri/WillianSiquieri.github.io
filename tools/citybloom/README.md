@@ -26,3 +26,14 @@ laboratório, documentos, retratos de teste e instrumentos não usados). Ver
 
 `characters.mjs` gera `assets/characters/micah/<id>.svg` (clientes e `mayor.svg`) e
 `mayor-full.svg` (prefeito de corpo inteiro).
+
+## Vídeos de prévia (portais)
+`tools/citybloom/video/rec.cjs` grava o vídeo de prévia quadro a quadro com o Playwright. O relógio da página é falso (`page.clock`), então a gravação fica lisa mesmo com a máquina lenta. O roteiro está em `director.js`: coletar aluguel e lotes → construir uma casa → entregar um pedido → o Prefeito comemora o nível.
+
+Precisa de um servidor na raiz do repositório (`python3 -m http.server 8099`) e do `ffmpeg`.
+```
+node tools/citybloom/video/rec.cjs 1280 720 1.5 1.8 citybloom-landscape     # 1920×1080
+node tools/citybloom/video/rec.cjs 540 810 2 1.35 citybloom-portrait-2x3    # 1080×1620
+node tools/citybloom/video/rec.cjs 540 960 2 1.35 citybloom-portrait-9x16   # 1080×1920
+```
+Argumentos: largura e altura em px CSS, escala, zoom da câmera e nome. O `.mp4` sai na mesma pasta do script. Com `--stills=1,5,9` só grava fotos nesses segundos, para revisar o roteiro.
