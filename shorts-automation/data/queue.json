@@ -455,5 +455,82 @@
     "youtubeId": "mbmyaie09_w",
     "previewUrl": "https://youtube.com/shorts/mbmyaie09_w",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwl4yuuo7xr7",
+    "status": "draft",
+    "createdAt": "2026-11-17T20:19:39.312Z",
+    "theme": "Mercado de capitais",
+    "title": "BDRs na B3: mito que aumenta seu poder de compra",
+    "hook": "Todo mundo acha que só ações brasileiras rendem aqui no Brasil, né?",
+    "script": "Mas a B3 acabou de anunciar que, a partir de maio de 2027, vai aceitar BDRs – certificados de ações estrangeiras. Isso significa que você poderá comprar empresas como Apple ou Tesla sem precisar de conta no exterior. O preço ainda segue a cotação internacional, então não dá para achar barato de graça. A confusão nasce porque muita gente pensa que BDRs são só para grandes investidores, mas a corretora já permite fracionamento, como acontece com ações nacionais. No fim das contas, seu portfólio ganha diversificação e você reduz risco de concentração. Agora, pesquise quais BDRs têm histórico sólido e inclua um ou dois no seu plano de investimentos.",
+    "cta": "Quer descobrir como abrir espaço para as maiores empresas do mundo no seu home broker? Se inscreve aí e fica por dentro!",
+    "tags": [
+      "#BDR",
+      "#B3",
+      "#Investimento",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "BDR",
+      "B3",
+      "investimento internacional",
+      "diversificação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/b3-anuncia-nova-metodologia-com-a-inclusao-de-bdrs-na-bolsa-a-partir-de-maio/",
+    "rationale": "Tema quente de mercado, alta relevância para investidores individuais e encaixa no formato mito vs realidade, oferecendo ação prática.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 52,
+      "previewFile": "data/previews/sh_mwl4yuuo7xr7.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "zPjd46EYhx8",
+    "previewUrl": "https://youtube.com/shorts/zPjd46EYhx8",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwl4zwv76peq",
+    "status": "draft",
+    "createdAt": "2026-11-17T20:19:39.312Z",
+    "theme": "Renda fixa",
+    "title": "Tesouro Direto: por que os prefixados caíram e o IPCA+ fica incerto",
+    "hook": "Todo mundo acredita que título prefixado é sempre a escolha mais segura, não é?",
+    "script": "A realidade é outra. Nesta semana, os títulos prefixados do Tesouro Direto perderam até 0,8% após uma disparada nos juros futuros. Enquanto isso, o IPCA+ mostrou comportamento misto, reagindo à dúvida sobre o próximo pacote fiscal do Senado. A gente pensa que prefixado protege contra inflação, mas quando a taxa Selic sobe, o preço desses papéis cai. Já o IPCA+ depende da expectativa de inflação – se o governo mudar o plano fiscal, o rendimento pode variar. Essa confusão acontece porque muitos investidores olham só para a taxa nominal e esquecem do risco de taxa de juros. Se você tem dinheiro guardado, vale a pena analisar o cenário de juros e escolher o título que melhor acompanha a sua tolerância ao risco. Rebalanceie agora ou mantenha a estratégia de longo prazo, mas nunca deixe o preço dos títulos te surpreender.",
+    "cta": "Curtiu entender o que realmente impacta seus títulos? Se inscreve e acompanha as mudanças no Tesouro Direto!",
+    "tags": [
+      "#TesouroDireto",
+      "#RendaFixa",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "Tesouro Direto",
+      "prefixado",
+      "IPCA+",
+      "juros"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/onde-investir/tesouro-direto-hoje-prefixados-recuam-apos-disparada-e-ipca-tem-movimento-misto/",
+    "rationale": "Aborda um tema de renda fixa muito procurado, desmonta mito comum e dá orientação prática, mantendo estilo curto e variado.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 68,
+      "previewFile": "data/previews/sh_mwl4zwv76peq.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "aY70qvLvlDU",
+    "previewUrl": "https://youtube.com/shorts/aY70qvLvlDU",
+    "privacyStatus": "unlisted"
   }
 ]
