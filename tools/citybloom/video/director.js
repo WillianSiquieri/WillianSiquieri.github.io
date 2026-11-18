@@ -31,7 +31,7 @@ D.setup = async (opt) => {
   for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
     const t = S.tileOf(s, i, j); if (t.kind === 'road' || S.objectAt(s, i, j)) continue;
     if (keepFree.some(([a, b]) => a === i && b === j)) continue;
-    const r = rnd(); const type = r < 0.42 ? pickHouse() : r < 0.7 ? 'tree' : r < 0.8 ? decor[Math.floor(rnd() * decor.length)] : null;
+    const dn = opt.density || 1, r = rnd(); const type = r < 0.42 * dn ? pickHouse() : r < 0.7 * dn ? 'tree' : r < 0.8 * dn ? decor[Math.floor(rnd() * decor.length)] : null;
     if (!type || !E.canPlace(s, type, i, j)) continue;
     s.objects.push(S.makeObject(s, type, i, j, now, BUILDINGS[type].type === 'house' ? { rentReadyAt: now + 600000 + rnd() * 600000 } : {})); s.rev++;
   }
@@ -42,7 +42,10 @@ D.setup = async (opt) => {
   for (const o of s.objects) if (o.type === 'lot') { o.readyAt = now - 1000; }
   g.scene = new (g.scene.constructor)(s);
   g.select(null);
-  D.g = g; D.s = s; D.L = L; D.xpNext = xpToNext(L);
+  D.g = g; D.s = s; D.L = L;
+  // gravação: a cidade 3D só é desenhada no último rAF de cada quadro do vídeo
+  D.allowRender = true;
+  if (g.world && !g.world.__gated) { const orig = g.world.render.bind(g.world); g.world.render = (...a) => { if (D.allowRender) orig(...a); }; g.world.__gated = true; } D.xpNext = xpToNext(L);
   return { L, size: s.size, order: s.orders[0], unlock: E.unlocksAt(L + 1) };
 };
 

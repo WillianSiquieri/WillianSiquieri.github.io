@@ -6,6 +6,7 @@ const [W, H, DSF, Z, NAME] = a;
 const opt = Object.fromEntries(a.filter(x => x.startsWith('--')).map(x => x.slice(2).split('=')));
 const FPS = +(opt.fps || 30), DUR = +(opt.dur || 18.5);
 const DIR = path.join(__dirname, 'frames-' + NAME);
+const TSTART = Date.now();
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   const p = await b.newPage({ viewport: { width: +W, height: +H }, deviceScaleFactor: +DSF, locale: 'en-US' });
@@ -16,12 +17,12 @@ const DIR = path.join(__dirname, 'frames-' + NAME);
   for (;;) { if (await p.evaluate(() => !!window.__city)) break; await new Promise(r => setTimeout(r, 100)); }
   // espera a cidade 3D (modelos chegam pela rede; o relógio falso não atrapalha)
   for (;;) { const ok = await p.evaluate(() => !!(window.__city.world && window.__city.world.ready)); if (ok) break; await p.clock.runFor(100); await new Promise(r => setTimeout(r, 200)); }
-  await p.evaluate(() => { __city.world.autoQuality = false; });
+  await p.evaluate((o) => { const w = __city.world; w.autoQuality = false; if (o.shadow === '0') { w.sun.castShadow = false; w.renderer.shadowMap.enabled = false; } if (o.shadow === 'lo') { w.sun.shadow.mapSize.set(1024, 1024); w.sun.shadow.map && w.sun.shadow.map.dispose(); w.sun.shadow.map = null; } }, opt);
   await p.clock.runFor(1500);
   await p.addStyleTag({ content: '.tip,.tut-hand,#loading{display:none!important}' });
   await p.evaluate(fs.readFileSync(path.join(__dirname, 'director.js'), 'utf8'));
   const FREE = []; for (let i = 11; i <= 14; i++) for (let j = 15; j <= 18; j++) FREE.push([i, j]);
-  const info = await p.evaluate((free) => __dir.setup({ free }), FREE);
+  const info = await p.evaluate(([free, density]) => __dir.setup({ free, density }), [FREE, +(opt.density || 1)]);
   console.log(JSON.stringify(info));
   await p.evaluate(([Z, BUILD]) => {
     const D = __dir, g = D.g, s = D.s, E = D.E, cam = g.camera;
@@ -91,30 +92,37 @@ const DIR = path.join(__dirname, 'frames-' + NAME);
   await new Promise(r => setTimeout(r, 1200)); // imagens
   fs.rmSync(DIR, { recursive: true, force: true }); fs.mkdirSync(DIR, { recursive: true });
   const stills = opt.stills ? opt.stills.split(',').map(Number) : null;
-  const N = Math.round(DUR * FPS);
+  const cdp = await p.context().newCDPSession(p);
+  const N = Math.round(DUR * FPS); const T0 = Date.now(); console.log('setup pronto', ((Date.now() - TSTART) / 1000).toFixed(1) + 's');
   let si = 0;
   for (let f = 0; f < N; f++) {
     const t = f / FPS;
-    await p.evaluate((t) => __dir.frame(t), t);
-    await p.clock.runFor(Math.round((f + 1) * 1000 / FPS) - Math.round(f * 1000 / FPS));
+    await p.evaluate((t) => { __dir.frame(t); __dir.allowRender = false; }, t);
+    const step = Math.round((f + 1) * 1000 / FPS) - Math.round(f * 1000 / FPS);
+    await p.clock.runFor(step - 17);
+    await p.evaluate(() => { __dir.allowRender = true; });
+    await p.clock.runFor(17);
     await p.evaluate(() => __dir.sync());
     if (stills) {
       if (si < stills.length && t + 1e-6 >= stills[si]) { await p.screenshot({ path: path.join(DIR, `still-${stills[si]}.jpg`), type: 'jpeg', quality: 80 }); si++; }
       continue;
     }
-    await p.screenshot({ path: path.join(DIR, String(f).padStart(4, '0') + '.jpg'), type: 'jpeg', quality: 93, timeout: 120000 });
+    const ts = Date.now();
+    const shot = await cdp.send('Page.captureScreenshot', { format: 'jpeg', quality: 92, optimizeForSpeed: true });
+    fs.writeFileSync(path.join(DIR, String(f).padStart(4, '0') + '.jpg'), Buffer.from(shot.data, 'base64'));
+    if (f < 3 || f % 50 === 0) console.log('quadro', f, 'total', ((Date.now() - T0) / (f + 1) / 1000).toFixed(1) + 's/quadro', 'foto', ((Date.now() - ts) / 1000).toFixed(1) + 's');
   }
   await b.close();
   if (!stills) {
     const out = path.join(__dirname, NAME + '.mp4');
     // --cover=arquivo: o vídeo começa pela capa (regra do CrazyGames) e funde no jogo
-    const Wp = Math.round(+W * +DSF), Hp = Math.round(+H * +DSF);
+    const [Wp, Hp] = opt.out ? opt.out.split('x').map(Number) : [Math.round(+W * +DSF), Math.round(+H * +DSF)];
     const input = ['-framerate', String(FPS), '-i', path.join(DIR, '%04d.jpg')];
-    const enc = ['-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out];
+    const enc = (opt.cover ? [] : ['-vf', `scale=${Wp}:${Hp}:flags=lanczos`]).concat(['-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
     if (opt.cover) {
       execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-t', '1.1', '-i', opt.cover, ...input, '-filter_complex',
         `[0]scale=${Wp}:${Hp}:force_original_aspect_ratio=increase,crop=${Wp}:${Hp},setsar=1,fps=${FPS},format=yuv420p[c];` +
-        `[1]scale=${Wp}:${Hp},setsar=1,format=yuv420p[g];[c][g]xfade=transition=fade:duration=0.5:offset=0.6,format=yuv420p`, ...enc]);
+        `[1]scale=${Wp}:${Hp}:flags=lanczos,setsar=1,format=yuv420p[g];[c][g]xfade=transition=fade:duration=0.5:offset=0.6,format=yuv420p`, ...enc]);
     } else execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...input, ...enc]);
     console.log(out, Math.round(fs.statSync(out).size / 1024) + ' KB');
   }
