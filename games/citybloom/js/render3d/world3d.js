@@ -23,6 +23,12 @@ const DIR = new THREE.Vector3(Math.cos(ELEV) / Math.SQRT2, Math.sin(ELEV), Math.
 
 const NAT = 'nature/';
 const SCENERY_TREES = [NAT + 'tree_oak', NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone', NAT + 'tree_pineRoundA'];
+const PUFF_GEO = new THREE.IcosahedronGeometry(0.06, 0);
+const PUFF_MAT = new THREE.MeshStandardMaterial({ color: 0xf4f6f8, roughness: 1, transparent: true, opacity: 0.82, flatShading: true });
+function boxMesh(w, h, d, color, opts = {}) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshStandardMaterial({ color, roughness: 0.8, ...opts }));
+  m.position.y = h / 2; m.castShadow = m.receiveShadow = true; return m;
+}
 const hash = (a, b = 0, c = 0) => { let h = (a * 374761393 + b * 668265263 + c * 2147483647) | 0; h = (h ^ (h >>> 13)) * 1274126177; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
 
 // Junta as malhas fixas (chão, ruas, enfeites) em poucas malhas, uma por material:
@@ -196,7 +202,7 @@ export class World3D {
     const cx = cv.getContext('2d');
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
       const t = state.tiles[j * n + i], h = hash(i, j);
-      const L = t.locked ? 43 + h * 4 : 46 + h * 5;
+      const L = t.locked ? 41 + h * 4 : 42 + h * 5;
       const S = t.locked ? 26 : 40 + h * 8;
       cx.fillStyle = `hsl(${98 + h * 8}, ${S}%, ${L}%)`;
       cx.fillRect(i * P, j * P, P, P);
@@ -301,6 +307,14 @@ export class World3D {
         if (v.rot) inner.rotation.y = v.rot;
         g = this.fit(inner, o.size, v.fill || 0.86, v.maxH || Infinity);
         if (v.extra) v.extra(g, this, o.size, o.id);
+        if (v.pool) {                       // casa com piscina: casa atrás, piscina na frente
+          const h = g.userData.h;
+          g.children[0].position.x -= 0.12; g.children[0].position.z -= 0.12;
+          const pool = new THREE.Group();
+          pool.add(boxMesh(0.36, 0.035, 0.3, 0xf2f2f2), boxMesh(0.3, 0.036, 0.24, 0x29b6f6, { roughness: 0.15, metalness: 0.1 }));
+          pool.position.set(0.24, 0, 0.26);
+          const w = new THREE.Group(); w.add(g, pool); w.userData.h = h; g = w;
+        }
       } else g = new THREE.Group();
       // gira 0°/90° para variar (as duas faces viradas para a câmera)
       if (!(v && v.fixed)) g.rotation.y = hash(o.id, 7) < 0.5 ? 0 : Math.PI / 2;
@@ -308,6 +322,16 @@ export class World3D {
     const outer = new THREE.Group();
     outer.add(g);
     outer.userData.h = g.userData.h || 0.8;
+    // partes animadas: fumaça, bandeira, serra, jato d'água
+    const fx = [];
+    outer.traverse(q => {
+      if (q.name === 'smoke') {
+        const k = q.userData.k || 1;
+        for (let n = 0; n < 3; n++) { const p = new THREE.Mesh(PUFF_GEO, PUFF_MAT); p.castShadow = false; q.add(p); }
+        fx.push({ kind: 'smoke', o: q, k });
+      } else if (q.name === 'flag' || q.name === 'spin' || q.name === 'jet') fx.push({ kind: q.name, o: q });
+    });
+    outer.userData.fx = fx;
     return outer;
   }
 
@@ -342,7 +366,7 @@ export class World3D {
         if (e) this.root.remove(e.g);
         const g = this._makeObject(o, key);
         const grow = e ? e.key.startsWith('lot:') && key.startsWith('lot:') ? 0.25 : 0.45 : (this.firstSync ? 0 : 0.6);
-        e = { g, key, born: grow ? t : -99, grow, bump: -99 };
+        e = { g, key, born: grow ? t : -99, grow, bump: -99, fx: g.userData.fx, seed: hash(o.id, 31) * 10 };
         this.objs.set(o.id, e);
         this.root.add(g);
         this.heights.set(o.id, g.userData.h);
@@ -367,6 +391,18 @@ export class World3D {
       const b = t - e.bump;
       if (b >= 0 && b < 0.45) { const w = Math.sin(b * 30) * (1 - b / 0.45) * 0.09; sy *= 1 + w; sx *= 1 - w * 0.5; }
       e.g.scale.set(sx, sy, sx);
+      if (e.fx) for (const f of e.fx) {
+        const T = t + e.seed;
+        if (f.kind === 'smoke') {
+          f.o.children.forEach((p, n) => {
+            const ph = (T * 0.45 + n / 3) % 1;
+            p.position.set(ph * 0.12 * f.k, ph * 0.55 * f.k, -ph * 0.05 * f.k);
+            p.scale.setScalar(Math.max(0.001, Math.sin(ph * Math.PI) * (0.5 + ph) * f.k));
+          });
+        } else if (f.kind === 'flag') f.o.rotation.y = Math.sin(T * 3.1) * 0.35;
+        else if (f.kind === 'spin') f.o.rotation.y = T * 6;
+        else if (f.kind === 'jet') f.o.scale.y = 1 + Math.sin(T * 7) * 0.18;
+      }
     }
   }
 
@@ -510,10 +546,18 @@ export class World3D {
     g.traverse(o => { if (o.isMesh) o.castShadow = false; });
     this._thumbScene.add(g);
     const box = new THREE.Box3().setFromObject(g);
-    const ctr = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3());
-    const r = Math.max(sz.x * 0.75, sz.y * 0.62, sz.z * 0.75) * 0.95;
-    const cam = new THREE.OrthographicCamera(-r, r, r, -r, 0.1, 200);
-    cam.position.copy(ctr).addScaledVector(DIR, 50); cam.lookAt(ctr);
+    const ctr = box.getCenter(new THREE.Vector3());
+    const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
+    cam.position.copy(ctr).addScaledVector(DIR, 50); cam.lookAt(ctr); cam.updateMatrixWorld();
+    // enquadra pelos 8 cantos projetados na tela
+    let r = 0;
+    for (let k = 0; k < 8; k++) {
+      const v = new THREE.Vector3(k & 1 ? box.max.x : box.min.x, k & 2 ? box.max.y : box.min.y, k & 4 ? box.max.z : box.min.z);
+      v.applyMatrix4(cam.matrixWorldInverse);
+      r = Math.max(r, Math.abs(v.x), Math.abs(v.y));
+    }
+    r *= 1.06;
+    cam.left = -r; cam.right = r; cam.top = r; cam.bottom = -r; cam.updateProjectionMatrix();
     this._thumbR.render(this._thumbScene, cam);
     this._thumbScene.remove(g);
     return this._thumbR.domElement.toDataURL();

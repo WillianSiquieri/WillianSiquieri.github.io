@@ -16,45 +16,9 @@ const subTex = ['', SUB + 'Textures/variation-a', SUB + 'Textures/variation-b', 
 const comTex = ['', COM + 'Textures/variation-a', COM + 'Textures/variation-b'];
 const vary = (models, texs, extra = {}) => models.flatMap(m => texs.map(tex => ({ m, tex: tex || null, ...extra })));
 
-// ---------------------------------------------------------------- materiais simples
-const mats = new Map();
-export function mat(color, opts = {}) {
-  const key = color + JSON.stringify(opts);
-  if (!mats.has(key)) mats.set(key, new THREE.MeshStandardMaterial({ color, roughness: 0.85, ...opts }));
-  return mats.get(key);
-}
-function box(w, h, d, color, x = 0, y = 0, z = 0, opts) {
-  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat(color, opts));
-  m.position.set(x, y + h / 2, z); m.castShadow = m.receiveShadow = true;
-  return m;
-}
-function cyl(rt, rb, h, color, x = 0, y = 0, z = 0, seg = 16, opts) {
-  const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), mat(color, opts));
-  m.position.set(x, y + h / 2, z); m.castShadow = m.receiveShadow = true;
-  return m;
-}
-function flag(color, x, z, h = 0.8) {
-  const g = new THREE.Group();
-  g.add(cyl(0.012, 0.012, h, 0xdfe5ea, x, 0, z, 6));
-  const f = new THREE.Mesh(new THREE.PlaneGeometry(0.22, 0.13), mat(color, { side: THREE.DoubleSide }));
-  f.position.set(x + 0.11, h - 0.08, z); f.castShadow = true; f.name = 'flag';
-  g.add(f);
-  return g;
-}
-function cross(x, y, z, s = 0.22, ry = 0) {
-  const g = new THREE.Group();
-  g.add(box(s, s, 0.03, 0xffffff, 0, -s / 2, 0));
-  g.add(box(s * 0.7, s * 0.22, 0.04, 0xe53935, 0, -s * 0.11, 0));
-  g.add(box(s * 0.22, s * 0.7, 0.04, 0xe53935, 0, -s * 0.35, 0));
-  g.position.set(x, y, z); g.rotation.y = ry;
-  return g;
-}
-// coloca um modelo do kit já encaixado (tamanho s) em (x, z)
-function part(world, name, s, x, z, r = 0, tex = null, maxH = Infinity) {
-  const m = world.fit(world.model(name, tex), s, 1, maxH);
-  m.position.set(x, 0, z); m.rotation.y = r;
-  return m;
-}
+import { mat, box, cyl, flag, cross, part } from './parts.js';
+import { BUILDS } from './builds.js';
+export { mat };
 
 // ---------------------------------------------------------------- construções montadas
 const CUSTOM = {
@@ -86,30 +50,6 @@ const CUSTOM = {
     g.userData.h = 1.12 * size / 1.75;
     return g;
   },
-  // Posto de saúde: prédio branco com cruz vermelha.
-  clinic(world, size, id) {
-    const g = new THREE.Group();
-    const b = world.fit(world.model(COM + 'building-c'), size, 0.84);
-    g.add(b);
-    const h = b.userData.h;
-    g.add(cross(0, h + 0.2, 0.05, 0.24));
-    g.add(box(0.04, 0.16, 0.04, 0xcfd6dd, 0, h, 0.05));
-    g.userData.h = h + 0.25;
-    return g;
-  },
-  // Hospital: prédio largo, cruz e heliponto.
-  hospital(world, size) {
-    const g = new THREE.Group();
-    const b = world.fit(world.model(COM + 'building-j'), size, 0.9);
-    g.add(b);
-    const h = b.userData.h;
-    const pad = cyl(0.26, 0.26, 0.02, 0x3b4252, 0.35, h, -0.1, 24); g.add(pad);
-    g.add(box(0.05, 0.021, 0.22, 0xffffff, 0.27, h + 0.01, -0.1), box(0.05, 0.021, 0.22, 0xffffff, 0.43, h + 0.01, -0.1), box(0.16, 0.021, 0.05, 0xffffff, 0.35, h + 0.01, -0.1));
-    g.add(cross(-0.45, h + 0.32, 0.2, 0.32));
-    g.add(box(0.05, 0.2, 0.05, 0xcfd6dd, -0.45, h, 0.2));
-    g.userData.h = h + 0.35;
-    return g;
-  },
   // Bombeiros: galpão vermelho com torre e sirene.
   firehouse(world, size) {
     const g = new THREE.Group(), red = 0xd8433b;
@@ -122,17 +62,6 @@ const CUSTOM = {
     g.add(cyl(0.05, 0.05, 0.06, 0xffd23f, 0.3, 0.77, -0.2, 10, { emissive: 0xff8800, emissiveIntensity: 0.6 }));
     g.add(box(0.5, 0.1, 0.02, 0xffffff, -0.05, 0.3, 0.345));
     g.scale.setScalar(size); g.userData.h = 0.85 * size;
-    return g;
-  },
-  // Escola: prédio baixo, quadra e bandeira.
-  school(world, size) {
-    const g = new THREE.Group();
-    const b = world.fit(world.model(COM + 'building-e', COM + 'Textures/variation-a'), size, 0.82);
-    b.position.z = -0.12; g.add(b);
-    g.add(box(0.9, 0.012, 0.22, 0x5aa469, 0, 0, 0.35));
-    g.add(box(0.86, 0.013, 0.012, 0xffffff, 0, 0, 0.35));
-    g.add(flag(0x2e7dff, 0.4, 0.34, 0.7));
-    g.userData.h = b.userData.h;
     return g;
   },
   // Praça: piso de pedra, canteiros, árvore e bancos.
@@ -208,32 +137,32 @@ const CUSTOM = {
 };
 
 export function buildCustom(name, world, size, id) {
-  return CUSTOM[name](world, size, id);
+  return (CUSTOM[name] || BUILDS[name])(world, size, id);
 }
 
 // ---------------------------------------------------------------- catálogo por tipo
 export const CATALOG = {
   townhall: [{ custom: 'townhall', fixed: true }],
-  warehouse: vary([IND + 'building-s', IND + 'building-p'], ['', IND + 'Textures/variation-a'], { fill: 0.9 }),
-  sawmill: [{ m: IND + 'building-h', fill: 0.8, extra: (g, w) => g.add(part(w, NAT + 'log_stackLarge', 0.36, 0.28, 0.3, Math.PI / 2)) }],
-  kiln: [{ m: IND + 'building-n', tex: IND + 'Textures/variation-b', fill: 0.88 }],
-  glassworks: [{ m: IND + 'building-c', tex: IND + 'Textures/variation-a', fill: 0.92 }],
-  carpentry: [{ m: IND + 'building-k', tex: IND + 'Textures/variation-c', fill: 0.9 }],
-  steelworks: [{ m: IND + 'building-m', fill: 0.92 }],
+  warehouse: [{ custom: 'warehouse', fixed: true }],
+  sawmill: [{ custom: 'sawmill', fixed: true }],
+  kiln: [{ custom: 'kiln', fixed: true }],
+  glassworks: [{ custom: 'glassworks', fixed: true }],
+  carpentry: [{ custom: 'carpentry', fixed: true }],
+  steelworks: [{ custom: 'steelworks', fixed: true }],
   lot: [],
   house1: vary([SUB + 'building-type-h', SUB + 'building-type-i', SUB + 'building-type-g', SUB + 'building-type-m'], subTex),
   house2: vary([SUB + 'building-type-a', SUB + 'building-type-c', SUB + 'building-type-j', SUB + 'building-type-o'], subTex),
   house3: vary([SUB + 'building-type-e', SUB + 'building-type-k', SUB + 'building-type-r', SUB + 'building-type-s', SUB + 'building-type-u'], subTex),
-  house4: vary([SUB + 'building-type-f', SUB + 'building-type-n', SUB + 'building-type-t', SUB + 'building-type-b'], subTex, { fill: 0.92 }),
+  house4: vary([SUB + 'building-type-f', SUB + 'building-type-n', SUB + 'building-type-t', SUB + 'building-type-b'], subTex, { fill: 0.7, pool: true }),
   house5: vary([COM + 'building-c', COM + 'building-d', COM + 'building-a', COM + 'building-h'], comTex, { fill: 0.8 }),
   house6: vary([COM + 'building-f', COM + 'building-g', COM + 'building-l', COM + 'building-i'], comTex, { fill: 0.8 }),
   house7: vary([COM + 'building-skyscraper-a', COM + 'building-skyscraper-b', COM + 'building-skyscraper-c', COM + 'building-skyscraper-e'], [''], { fill: 0.78 }),
-  bakery: [{ m: COM + 'building-c', tex: COM + 'Textures/variation-a', fill: 0.8, extra: (g, w) => g.add(part(w, COM + 'detail-parasol-a', 0.22, 0.32, 0.36)) }],
-  market: [{ m: COM + 'building-e', tex: COM + 'Textures/variation-b', fill: 0.9 }],
-  clothes: [{ m: COM + 'building-b', tex: COM + 'Textures/variation-a', fill: 0.8 }],
-  mall: [{ m: COM + 'building-n', fill: 0.9 }],
+  bakery: [{ custom: 'bakery', fixed: true }],
+  market: [{ custom: 'market', fixed: true }],
+  clothes: [{ custom: 'clothes', fixed: true }],
+  mall: [{ custom: 'mall', fixed: true }],
   school: [{ custom: 'school', fixed: true }],
-  clinic: [{ custom: 'clinic' }],
+  clinic: [{ custom: 'clinic', fixed: true }],
   firehouse: [{ custom: 'firehouse', fixed: true }],
   hospital: [{ custom: 'hospital', fixed: true }],
   tree: vary([NAT + 'tree_oak', NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone'], [''], { fill: 0.7, maxH: 0.78 }),
@@ -292,7 +221,8 @@ export function modelFiles() {
   for (const res of ['none', 'wood', 'clay', 'sand', 'iron']) for (const st of [0, 1, 2, 3]) for (const p of LOT_PARTS(res, st)) if (typeof p[0] === 'string') set.add(p[0]);
   for (const list of Object.values(OBSTACLE_PARTS)) for (const p of list) set.add(p[0]);
   [SUB + 'planter', NAT + 'tree_oak', NAT + 'plant_bushDetailed', NAT + 'plant_bush', NAT + 'log_stackLarge', COM + 'detail-parasol-a',
-    COM + 'building-c', COM + 'building-j', COM + 'building-e',
+    COM + 'building-e', IND + 'building-m', IND + 'shipping-container-a', IND + 'shipping-container-b', IND + 'shipping-container-c',
+    NAT + 'log_stack', 'cars/ambulance', 'cars/sedan', 'cars/taxi', 'cars/suv', 'cars/hatchback-sports',
     NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone', NAT + 'tree_pineRoundA', NAT + 'grass', NAT + 'grass_large'].forEach(f => set.add(f));
   return [...set];
 }
