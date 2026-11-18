@@ -18,7 +18,7 @@ D.setup = async (opt) => {
   let L = 14; while (L < 40 && !E.unlocksAt(L + 1).some(u => u.kind === 'building')) L++;
   s.cityName = 'Bloomville'; s.level = L; s.xp = Math.floor(xpToNext(L) * 0.55); s.coins = 8640; s.capacity = 200;
   s.inventory = { wood: 18, plank: 12, clay: 10, brick: 14, sand: 8, glass: 7, furniture: 4, steel: 3, iron: 4, hammer: 3, tape: 3 };
-  s.mentor.intro = true; s.stats = { lotStarted: 9, factoryStarted: 9, rentCollected: 9, ordersDone: 9, built: 9, chunksBought: 9 };
+  s.mentor.intro = true; s.mentor.tut = false; g.greetUntil = 0; s.stats = { lotStarted: 9, factoryStarted: 9, rentCollected: 9, ordersDone: 9, built: 9, chunksBought: 9 };
   s.daily = { next: 1, last: E.dayKey(now), extra: E.dayKey(now) };
   let seed = opt.seed || 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   const houses = Object.keys(BUILDINGS).filter(k => BUILDINGS[k].type === 'house');

@@ -7,15 +7,18 @@ const opt = Object.fromEntries(a.filter(x => x.startsWith('--')).map(x => x.slic
 const FPS = +(opt.fps || 30), DUR = +(opt.dur || 18.5);
 const DIR = path.join(__dirname, 'frames-' + NAME);
 (async () => {
-  const b = await chromium.launch();
+  const b = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   const p = await b.newPage({ viewport: { width: +W, height: +H }, deviceScaleFactor: +DSF, locale: 'en-US' });
   p.on('console', m => { if (/err/i.test(m.text())) console.log('[page]', m.text()); });
   await p.addInitScript(() => { try { localStorage.setItem('citybloom.lang.v1', 'en'); } catch (_) {} });
   await p.clock.install({ time: Date.parse('2026-11-17T15:00:00') });
   await p.goto('http://127.0.0.1:8099/games/citybloom/?reset=1');
   for (;;) { if (await p.evaluate(() => !!window.__city)) break; await new Promise(r => setTimeout(r, 100)); }
+  // espera a cidade 3D (modelos chegam pela rede; o relógio falso não atrapalha)
+  for (;;) { const ok = await p.evaluate(() => !!(window.__city.world && window.__city.world.ready)); if (ok) break; await p.clock.runFor(100); await new Promise(r => setTimeout(r, 200)); }
+  await p.evaluate(() => { __city.world.autoQuality = false; });
   await p.clock.runFor(1500);
-  await p.addStyleTag({ content: '.tip{display:none!important}' });
+  await p.addStyleTag({ content: '.tip,.tut-hand,#loading{display:none!important}' });
   await p.evaluate(fs.readFileSync(path.join(__dirname, 'director.js'), 'utf8'));
   const FREE = []; for (let i = 11; i <= 14; i++) for (let j = 15; j <= 18; j++) FREE.push([i, j]);
   const info = await p.evaluate((free) => __dir.setup({ free }), FREE);
@@ -99,13 +102,20 @@ const DIR = path.join(__dirname, 'frames-' + NAME);
       if (si < stills.length && t + 1e-6 >= stills[si]) { await p.screenshot({ path: path.join(DIR, `still-${stills[si]}.jpg`), type: 'jpeg', quality: 80 }); si++; }
       continue;
     }
-    await p.screenshot({ path: path.join(DIR, String(f).padStart(4, '0') + '.jpg'), type: 'jpeg', quality: 93 });
+    await p.screenshot({ path: path.join(DIR, String(f).padStart(4, '0') + '.jpg'), type: 'jpeg', quality: 93, timeout: 120000 });
   }
   await b.close();
   if (!stills) {
     const out = path.join(__dirname, NAME + '.mp4');
-    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(DIR, '%04d.jpg'),
-      '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]);
+    // --cover=arquivo: o vídeo começa pela capa (regra do CrazyGames) e funde no jogo
+    const Wp = Math.round(+W * +DSF), Hp = Math.round(+H * +DSF);
+    const input = ['-framerate', String(FPS), '-i', path.join(DIR, '%04d.jpg')];
+    const enc = ['-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out];
+    if (opt.cover) {
+      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-t', '1.1', '-i', opt.cover, ...input, '-filter_complex',
+        `[0]scale=${Wp}:${Hp}:force_original_aspect_ratio=increase,crop=${Wp}:${Hp},setsar=1,fps=${FPS},format=yuv420p[c];` +
+        `[1]scale=${Wp}:${Hp},setsar=1,format=yuv420p[g];[c][g]xfade=transition=fade:duration=0.5:offset=0.6,format=yuv420p`, ...enc]);
+    } else execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...input, ...enc]);
     console.log(out, Math.round(fs.statSync(out).size / 1024) + ' KB');
   }
 })();

@@ -5,26 +5,39 @@ com os anúncios. Os dois são grátis. Termos, percentuais e valor mínimo de s
 com o tempo, então confira na página de cada portal ao se cadastrar.
 
 ## O que já está pronto
-- **Anúncios integrados** (`js/engine/ads.js`): os premiados (terminar produção, dobrar
-  aluguel, baú extra, trocar pedido) e um intersticial raro ao mudar de fase. O
-  intersticial nunca aparece no 1º minuto e no máximo 1 a cada 3 minutos.
-- **Durante o anúncio** a música e os sons ficam em silêncio.
-- **Sem anúncio disponível** o jogo avisa "Anúncio indisponível" e não dá a recompensa.
+- **Visual 3D** low-poly: modelos Kenney (CC0) e ícones Fluent Emoji (MIT). Cada construção
+  tem modelo, cor e placa próprios.
+- **Entra direto no jogo**, sem tela que bloqueia. O Prefeito cumprimenta num balão e a
+  mão do tutorial aponta cada passo (pode pular). Depois disso aparecem as **missões com
+  prêmio**.
+- **Começo rápido:** nos primeiros níveis os tempos são bem curtos.
+- **Anúncios integrados** (`js/engine/ads.js`):
+  - os premiados (terminar já, dobrar aluguel, baú extra, novo pedido) **sempre têm uma
+    alternativa em moedas**;
+  - sem anúncio disponível (bloqueador ou fase *Basic Launch*), o botão de vídeo some;
+  - o intersticial só aparece ao mudar de fase.
+- **SDK do CrazyGames:**
+  - o progresso é salvo na conta do jogador (Data module);
+  - o idioma vem do portal;
+  - o carregamento e a partida são avisados ao SDK.
+- **Durante o anúncio** a música e os sons ficam em silêncio. No iPhone o som volta no
+  próximo toque.
+- **Pacote:** cerca de 3 MB compactado, cerca de 300 arquivos. Funciona em telas pequenas
+  (821×462, 800×450) e no celular.
 - **Pacotes .zip**, um por portal, gerados por `tools/citybloom/build-portal.mjs`.
-- **Imagens** na pasta `marketing/`:
+- **Imagens e vídeos** na pasta `marketing/`. As capas têm **só o nome do jogo** (regra
+  do CrazyGames).
 
 | Arquivo | Uso |
 |---|---|
-| `cover-1920x1080.jpg` | capa horizontal (CrazyGames, GameDistribution) |
-| `cover-en-*.jpg` | as mesmas capas em inglês (1920×1080, 1280×720, 800×450, 512×384, vertical e quadrada) |
+| `cover-1920x1080.jpg` | capa horizontal 16:9 (obrigatória no CrazyGames) |
+| `cover-portrait-800x1200.jpg` | capa vertical 2:3 (obrigatória) |
+| `cover-square-800x800.jpg` | capa quadrada 1:1 (obrigatória) |
 | `cover-1280x720.jpg`, `cover-800x450.jpg`, `cover-512x384.jpg` | capas menores (GameDistribution pede 512×384) |
-| `cover-portrait-800x1200.jpg` | capa vertical |
-| `cover-square-800x800.jpg` | capa quadrada |
 | `icon-512x512.png` | ícone (GameDistribution pede 512×512) |
-| `screen-1-cidade.jpg` … `screen-4-bau.jpg` | capturas do jogo (1920×1080) |
-| `video-landscape-1920x1080.mp4` | vídeo de prévia horizontal (18,5 s, jogo em inglês) |
-| `video-portrait-1080x1620.mp4` | vídeo de prévia vertical 2:3 (mesmo formato da capa vertical) |
-| `video-portrait-1080x1920.mp4` | vídeo de prévia vertical 9:16 (formato de celular) |
+| `video-landscape-1920x1080.mp4` | vídeo de prévia horizontal (começa pela capa, ~19 s, sem som) |
+| `video-portrait-1080x1620.mp4` | vídeo de prévia vertical 2:3 |
+| `screen-1-cidade.jpg` … `screen-4-bau.jpg` | capturas do jogo |
 
 ## Passo a passo — GameDistribution (o mais fácil de aceitar)
 1. Acesse **gamedistribution.com**, clique em *Developers* e crie a conta, que é grátis.
