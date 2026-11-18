@@ -106,8 +106,12 @@ D.frame = (t) => {
 D.sync = () => {
   const now = performance.now();
   for (const a of document.getAnimations()) {
+    if (a.__done) continue;
     if (a.__t0 === undefined) { a.__t0 = now; a.pause(); }
-    a.currentTime = now - a.__t0;
+    const t = now - a.__t0, end = a.effect ? a.effect.getComputedTiming().endTime : Infinity;
+    // pausada, a animação nunca termina sozinha: concluir dispara o onfinish (ex.: some a moeda voadora)
+    if (isFinite(end) && t >= end) { a.__done = true; a.finish(); continue; }
+    a.currentTime = t;
   }
 };
 })();
