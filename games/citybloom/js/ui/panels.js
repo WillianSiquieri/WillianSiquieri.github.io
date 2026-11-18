@@ -30,7 +30,7 @@ function speedBtns(s, o, now) {
 // Dobrar: só com anúncio disponível e no máximo a cada 4 min.
 const doubleBtn = (s, now) => ads.available() && adOffer(s, 'double', now) ? btn('collect2', `▶ ${t('double')}`, 'ad') : '';
 
-const bar = (p) => `<div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div>`;
+const bar = (p) => `<div class="pbar"><div style="width:${Math.round(Math.max(0, Math.min(1, p)) * 100)}%"></div></div>`;
 
 export function panelView(game) {
   const s = game.state, sel = game.selected, now = Date.now();

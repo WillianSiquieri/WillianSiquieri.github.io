@@ -71,7 +71,7 @@ export function newGame(now = Date.now()) {
   add('townhall', 7, 6);
   add('warehouse', 10, 6);
   add('sawmill', 10, 7);
-  add('lot', 6, 10, { resource: 'wood', readyAt: now + 3000 });   // primeira colheita rápida
+  add('lot', 6, 10, { resource: 'wood', readyAt: now + 3000, total: 3000 });   // primeira colheita rápida
   add('lot', 7, 10);
   add('house1', 9, 10, { rentReadyAt: now + 8000 });            // aluguel logo no tutorial
   add('house1', 10, 10, { rentReadyAt: now + 14000 });
@@ -175,6 +175,15 @@ export function happiness(state) {
 let store = null;
 export function setStorage(s) { store = s; }
 const st = () => store || localStorage;
+
+// Primeira vez com o save da conta: traz o progresso local, se a conta estiver vazia.
+export function migrateLocalSave(target) {
+  try {
+    if (target.getItem(SAVE_KEY)) return;
+    const local = localStorage.getItem(SAVE_KEY);
+    if (local) target.setItem(SAVE_KEY, local);
+  } catch (_) {}
+}
 
 export function save(state) {
   if (state.showcase) return;

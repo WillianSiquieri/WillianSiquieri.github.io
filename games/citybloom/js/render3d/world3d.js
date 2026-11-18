@@ -23,11 +23,33 @@ const DIR = new THREE.Vector3(Math.cos(ELEV) / Math.SQRT2, Math.sin(ELEV), Math.
 
 const NAT = 'nature/';
 const SCENERY_TREES = [NAT + 'tree_oak', NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone', NAT + 'tree_pineRoundA'];
-const PUFF_GEO = new THREE.IcosahedronGeometry(0.06, 0);
-const PUFF_MAT = new THREE.MeshStandardMaterial({ color: 0xf4f6f8, roughness: 1, transparent: true, opacity: 0.82, flatShading: true });
+// Recursos compartilhados (marcados .userData.shared) nunca são liberados;
+// o resto é liberado com disposeTree() quando o objeto sai da cena.
+const shared = (x) => { x.userData.shared = true; return x; };
+const PUFF_GEO = shared(new THREE.IcosahedronGeometry(0.06, 0));
+const PUFF_MAT = shared(new THREE.MeshStandardMaterial({ color: 0xf4f6f8, roughness: 1, transparent: true, opacity: 0.82, flatShading: true }));
+const cache = new Map();
+const once = (key, make) => { if (!cache.has(key)) cache.set(key, shared(make())); return cache.get(key); };
 function boxMesh(w, h, d, color, opts = {}) {
-  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshStandardMaterial({ color, roughness: 0.8, ...opts }));
+  const m = new THREE.Mesh(once(`bg${w},${h},${d}`, () => new THREE.BoxGeometry(w, h, d)),
+    once(`bm${color}${JSON.stringify(opts)}`, () => new THREE.MeshStandardMaterial({ color, roughness: 0.8, ...opts })));
   m.position.y = h / 2; m.castShadow = m.receiveShadow = true; return m;
+}
+// Material tingido (cache por material + cor).
+function tinted(material, tint) {
+  return once(`tint${material.uuid}${tint}`, () => { const m = material.clone(); m.color.multiply(new THREE.Color(tint)); return m; });
+}
+function disposeTree(root) {
+  if (!root) return;
+  root.traverse(o => {
+    if (!o.isMesh) return;
+    if (o.geometry && !o.geometry.userData.shared) o.geometry.dispose();
+    for (const m of [].concat(o.material)) {
+      if (!m || m.userData.shared) continue;
+      if (m.map && !m.map.userData.shared) m.map.dispose();
+      m.dispose();
+    }
+  });
 }
 const hash = (a, b = 0, c = 0) => { let h = (a * 374761393 + b * 668265263 + c * 2147483647) | 0; h = (h ^ (h >>> 13)) * 1274126177; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
 
@@ -122,7 +144,9 @@ export class World3D {
         g.scene.traverse(o => {
           if (!o.isMesh) return;
           o.castShadow = true; o.receiveShadow = true;
+          shared(o.geometry);
           for (const m of [].concat(o.material)) {
+            shared(m); if (m.map) shared(m.map);
             if (m.metalness > 0.3) m.metalness = 0;
             m.roughness = Math.max(m.roughness, 0.7);
             const nm = (m.name || '').toLowerCase();
@@ -136,7 +160,7 @@ export class World3D {
         this.models.set(f, g.scene); tick();
       }).catch(e => { console.warn('[3d] modelo', f, e && e.message); tick(); })),
       ...texFiles.map(f => texLoader.loadAsync(`assets/models/${f}.png`).then(t => {
-        t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; this.texVariants.set(f, t); tick();
+        t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; this.texVariants.set(f, shared(t)); tick();
       }).catch(() => tick())),
     ]);
     this._buildStatic();
@@ -153,7 +177,7 @@ export class World3D {
         if (!o.isMesh) return;
         const key = o.material.uuid + '|' + tex;
         let m = this.matCache.get(key);
-        if (!m) { m = o.material.clone(); m.map = this.texVariants.get(tex); this.matCache.set(key, m); }
+        if (!m) { m = shared(o.material.clone()); m.map = this.texVariants.get(tex); this.matCache.set(key, m); }
         o.material = m;
       });
     }
@@ -187,6 +211,7 @@ export class World3D {
     const key = n + '|' + state.tiles.map(t => (t.locked ? 1 : 0)).join('');
     if (key === this.groundKey) return;
     this.groundKey = key;
+    disposeTree(this.groundGroup);
     this.groundGroup.clear();
     // laje da ilha
     const slab = new THREE.Mesh(new THREE.BoxGeometry(n + 0.6, 0.6, n + 0.6), [
@@ -236,7 +261,7 @@ export class World3D {
       const g = new THREE.Group();
       for (const [name, x, z, s, r, tint] of OBSTACLE_PARTS[t.obstacle] || []) {
         const m = this.fit(this.model(name), s);
-        if (tint) m.traverse(q => { if (q.isMesh) { q.material = q.material.clone(); q.material.color.multiply(new THREE.Color(tint)); } });
+        if (tint) m.traverse(q => { if (q.isMesh) q.material = tinted(q.material, tint); });
         m.position.set(x, 0, z); m.rotation.y = r + hash(i, j, 5) * 0.6;
         g.add(m);
       }
@@ -254,7 +279,7 @@ export class World3D {
     const key = n + '|' + state.tiles.map(t => (t.kind === 'road' ? 1 : 0)).join('');
     if (key === this.roadKey) return;
     this.roadKey = key;
-    if (this.roadGroup) this.scene.remove(this.roadGroup);
+    if (this.roadGroup) { this.scene.remove(this.roadGroup); disposeTree(this.roadGroup); }
     this.roadGroup = new THREE.Group(); this.scene.add(this.roadGroup);
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
       if (state.tiles[j * n + i].kind !== 'road') continue;
@@ -339,17 +364,17 @@ export class World3D {
     const [, res, st] = key.split(':'); const stage = Number(st);
     const g = new THREE.Group();
     // canteiro de terra com borda de madeira
-    const soil = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.06, 0.86), new THREE.MeshStandardMaterial({ color: 0x8a5a36, roughness: 1 }));
+    const soil = new THREE.Mesh(once('lotSoilG', () => new THREE.BoxGeometry(0.86, 0.06, 0.86)), once('lotSoilM', () => new THREE.MeshStandardMaterial({ color: 0x8a5a36, roughness: 1 })));
     soil.position.y = 0.03; soil.receiveShadow = true; g.add(soil);
-    const wood = new THREE.MeshStandardMaterial({ color: 0xd9a066, roughness: 0.9 });
+    const wood = once('lotWoodM', () => new THREE.MeshStandardMaterial({ color: 0xd9a066, roughness: 0.9 }));
     for (const [x, z, w, d] of [[0, -0.45, 0.94, 0.06], [0, 0.45, 0.94, 0.06], [-0.45, 0, 0.06, 0.94], [0.45, 0, 0.06, 0.94]]) {
-      const b = new THREE.Mesh(new THREE.BoxGeometry(w, 0.1, d), wood); b.position.set(x, 0.05, z); b.castShadow = b.receiveShadow = true; g.add(b);
+      const b = new THREE.Mesh(once(`lotB${w},${d}`, () => new THREE.BoxGeometry(w, 0.1, d)), wood); b.position.set(x, 0.05, z); b.castShadow = b.receiveShadow = true; g.add(b);
     }
     const parts = LOT_PARTS(res || 'none', stage);
     for (const [name, x, z, s, r, tint] of parts) {
       const m = typeof name === 'function' ? name(this) : this.fit(this.model(name), s);
       if (typeof name !== 'function') { m.position.set(x, 0.06, z); m.rotation.y = r || 0; }
-      if (tint) m.traverse(q => { if (q.isMesh) { q.material = q.material.clone(); q.material.color.multiply(new THREE.Color(tint)); } });
+      if (tint) m.traverse(q => { if (q.isMesh) q.material = tinted(q.material, tint); });
       g.add(m);
     }
     g.userData.h = stage === 3 ? 0.55 : 0.35;
@@ -363,7 +388,7 @@ export class World3D {
       const key = this._objKey(o, now);
       let e = this.objs.get(o.id);
       if (!e || e.key !== key) {
-        if (e) this.root.remove(e.g);
+        if (e) { this.root.remove(e.g); disposeTree(e.g); }
         const g = this._makeObject(o, key);
         const grow = e ? e.key.startsWith('lot:') && key.startsWith('lot:') ? 0.25 : 0.45 : (this.firstSync ? 0 : 0.6);
         e = { g, key, born: grow ? t : -99, grow, bump: -99, fx: g.userData.fx, seed: hash(o.id, 31) * 10 };
@@ -374,7 +399,7 @@ export class World3D {
       e.g.position.set(o.i + o.size / 2, 0, o.j + o.size / 2);
       e.o = o;
     }
-    for (const [id, e] of this.objs) if (!seen.has(id)) { this.root.remove(e.g); this.objs.delete(id); this.heights.delete(id); }
+    for (const [id, e] of this.objs) if (!seen.has(id)) { this.root.remove(e.g); disposeTree(e.g); this.objs.delete(id); this.heights.delete(id); }
     this.firstSync = false;
   }
 
@@ -453,12 +478,12 @@ export class World3D {
   _ghost(gh, t) {
     const key = gh ? gh.type + (gh.moving ? ':' + this._objKey(gh.moving, Date.now()) : '') : '';
     if (key !== this.ghostKey) {
-      if (this.ghost) this.scene.remove(this.ghost);
+      if (this.ghost) { this.scene.remove(this.ghost); disposeTree(this.ghost); }
       this.ghost = null; this.ghostKey = key;
       if (gh) {
         const fake = gh.moving || { id: 1, type: gh.type, size: BUILDINGS[gh.type].size, resource: null };
         const g = this._makeObject(fake, gh.moving ? this._objKey(gh.moving, Date.now()) : (BUILDINGS[gh.type].type === 'lot' ? 'lot::0' : gh.type));
-        g.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.transparent = true; o.material.opacity = 0.7; o.castShadow = false; } });
+        g.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.userData = {}; o.material.transparent = true; o.material.opacity = 0.7; o.castShadow = false; } });
         const pad = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: 0x34c759, transparent: true, opacity: 0.45, depthWrite: false }));
         pad.rotation.x = -Math.PI / 2; pad.position.y = 0.014; pad.name = 'pad';
         g.add(pad);
@@ -475,7 +500,7 @@ export class World3D {
 
   // ------------------------------------------------------------------ quadro
   setSize(w, h, dpr) {
-    this.renderer.setPixelRatio(Math.min(dpr || 1, 2));
+    this.renderer.setPixelRatio(Math.min(dpr || 1, this.dprCap || 2));
     this.renderer.setSize(w, h, false);
   }
 
@@ -509,7 +534,7 @@ export class World3D {
     const avg = q.acc / q.n; q.acc = 0; q.n = 0; q.since = t;
     if (avg < 1 / 28 || q.level >= 2) return;
     q.level++;
-    if (q.level === 1) this.renderer.setPixelRatio(Math.min(this.renderer.getPixelRatio(), 1));
+    if (q.level === 1) { this.dprCap = 1; this.renderer.setPixelRatio(Math.min(this.renderer.getPixelRatio(), 1)); }
     if (q.level === 2) { this.sun.castShadow = false; this.renderer.shadowMap.enabled = false; }
     console.info('[3d] qualidade reduzida para o nível', q.level);
   }
@@ -560,6 +585,7 @@ export class World3D {
     cam.left = -r; cam.right = r; cam.top = r; cam.bottom = -r; cam.updateProjectionMatrix();
     this._thumbR.render(this._thumbScene, cam);
     this._thumbScene.remove(g);
+    disposeTree(g);
     return this._thumbR.domElement.toDataURL();
   }
 }

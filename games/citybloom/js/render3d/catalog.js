@@ -16,7 +16,7 @@ const subTex = ['', SUB + 'Textures/variation-a', SUB + 'Textures/variation-b', 
 const comTex = ['', COM + 'Textures/variation-a', COM + 'Textures/variation-b'];
 const vary = (models, texs, extra = {}) => models.flatMap(m => texs.map(tex => ({ m, tex: tex || null, ...extra })));
 
-import { mat, box, cyl, flag, cross, part } from './parts.js';
+import { mat, box, cyl, flag, cross, part, geo } from './parts.js';
 import { BUILDS } from './builds.js';
 export { mat };
 
@@ -176,7 +176,7 @@ export const CATALOG = {
 // [modelo | (world)=>mesh, x, z, tamanho, giro, tinta] — coordenadas a partir do centro.
 const SPOTS4 = [[-0.2, -0.2], [0.2, -0.2], [-0.2, 0.2], [0.2, 0.2]];
 function mound(color, r, h, x, z) {
-  return () => { const m = new THREE.Mesh(new THREE.ConeGeometry(r, h, 9), mat(color, { flatShading: true })); m.position.set(x, 0.06 + h / 2, z); m.castShadow = m.receiveShadow = true; return m; };
+  return () => { const m = new THREE.Mesh(geo(`cone${r},${h}`, () => new THREE.ConeGeometry(r, h, 9)), mat(color, { flatShading: true })); m.position.set(x, 0.06 + h / 2, z); m.castShadow = m.receiveShadow = true; return m; };
 }
 export function LOT_PARTS(res, stage) {
   const grow = [0.35, 0.6, 0.85, 1][stage];

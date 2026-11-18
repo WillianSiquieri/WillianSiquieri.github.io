@@ -141,6 +141,7 @@ export function drawRich(ctx, text, x, y, px, opts = {}) {
   let w = 0;
   for (const p of parts) w += p.e ? isz + gap : ctx.measureText(p.t).width;
   let cx = x - w / 2;
+  const ta = ctx.textAlign, tb = ctx.textBaseline;
   ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
   for (const p of parts) {
     if (p.e) {
@@ -153,4 +154,5 @@ export function drawRich(ctx, text, x, y, px, opts = {}) {
       cx += ctx.measureText(p.t).width;
     }
   }
+  ctx.textAlign = ta; ctx.textBaseline = tb;
 }

@@ -21,7 +21,7 @@ import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
-import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage } from './game/state.js';
+import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage, migrateLocalSave } from './game/state.js';
 import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
@@ -142,6 +142,7 @@ class CityGame {
       const tgt = document.querySelector(targetSel);
       if (!tgt || n <= 0) return;
       const tr = tgt.getBoundingClientRect(), tx = tr.left + 20, ty = tr.top + tr.height / 2;
+      if (!tr.width) return;
       for (let k = 0; k < n; k++) {
         const el = document.createElement('img');
         el.className = 'flyer'; el.src = icon; el.alt = '';
@@ -163,7 +164,7 @@ class CityGame {
     };
     if (r.coins) go('assets/icons/1fa99.webp', '#hud-coins', Math.min(6, 2 + Math.floor(Math.log2(r.coins + 1) / 2)));
     const items = Object.entries(r.items || {});
-    if (items.length || r.drop) go('assets/icons/1f4e6.webp', '[data-act="inventory"]', Math.min(4, 1 + items.length));
+    if (items.length || r.drop) go('assets/icons/1f4e6.webp', '.hud [data-act="inventory"]', Math.min(4, 1 + items.length));
     if (r.xp) go('assets/icons/2b50.webp', '.level-pill', 1);
   }
 
@@ -600,6 +601,7 @@ class CityGame {
   }
 
   _loop() {
+    requestAnimationFrame(this._loop);   // primeiro: um erro num quadro não congela o jogo
     const nowP = performance.now();
     const dt = Math.min(0.1, (nowP - this.lastFrame) / 1000);
     this.lastFrame = nowP;
@@ -627,7 +629,6 @@ class CityGame {
     this.fx.render(this.ctx, time);
     renderHud(this);
     this.tutorial.update(time);
-    requestAnimationFrame(this._loop);
   }
 }
 
@@ -709,9 +710,11 @@ async function boot() {
   // No CrazyGames: espera o SDK (até 4 s) para usar o save da conta (Data module)
   // e o idioma do jogador antes de montar a cidade.
   if ((window.CB_PORTAL || 'local') === 'crazygames') {
-    await Promise.race([adsReady, new Promise(r => setTimeout(r, 4000))]);
+    // espera o SDK de verdade (a tela de carregamento fica à mostra); só usa o
+    // save da conta quando ele está pronto, para nunca gravar uma cidade nova por cima
+    await Promise.race([adsReady, new Promise(r => setTimeout(r, 20000))]);
     const store = ads.storage();
-    if (store) setStorage(store);
+    if (store) { migrateLocalSave(store); setStorage(store); }
     applyPortalLocale(ads.locale);
   }
   const game = new CityGame($('city'));

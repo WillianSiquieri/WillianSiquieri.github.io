@@ -8,11 +8,11 @@ import * as THREE from 'three';
 const mats = new Map();
 export function mat(color, opts = {}) {
   const key = color + JSON.stringify(opts);
-  if (!mats.has(key)) mats.set(key, new THREE.MeshStandardMaterial({ color, roughness: 0.82, ...opts }));
+  if (!mats.has(key)) { const m = new THREE.MeshStandardMaterial({ color, roughness: 0.82, ...opts }); m.userData.shared = true; mats.set(key, m); }
   return mats.get(key);
 }
 const geoCache = new Map();
-function geo(key, make) { if (!geoCache.has(key)) geoCache.set(key, make()); return geoCache.get(key); }
+export function geo(key, make) { if (!geoCache.has(key)) { const g = make(); g.userData.shared = true; geoCache.set(key, g); } return geoCache.get(key); }
 
 export function box(w, h, d, color, x = 0, y = 0, z = 0, opts) {
   const m = new THREE.Mesh(geo(`b${w},${h},${d}`, () => new THREE.BoxGeometry(w, h, d)), mat(color, opts));
@@ -120,7 +120,7 @@ function signTexture(kind, bg) {
   c.fillStyle = '#ffffff'; c.beginPath(); c.arc(64, 64, 63, 0, Math.PI * 2); c.fill();
   c.fillStyle = bg; c.beginPath(); c.arc(64, 64, 56, 0, Math.PI * 2); c.fill();
   PICTO[kind](c);
-  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; t.userData.shared = true;
   signTex.set(key, t);
   return t;
 }
@@ -128,8 +128,12 @@ function signTexture(kind, bg) {
 export function sign(kind, bg, x, y, z, s = 0.26) {
   const g = new THREE.Group();
   g.add(cyl(0.012, 0.012, 0.08, 0x8a96a3, 0, -0.08, 0, 6));
-  const disc = new THREE.Mesh(geo('signdisc', () => new THREE.CircleGeometry(0.5, 28)),
-    new THREE.MeshStandardMaterial({ map: signTexture(kind, bg), emissive: 0xffffff, emissiveMap: signTexture(kind, bg), emissiveIntensity: 0.55, roughness: 0.6, side: THREE.DoubleSide }));
+  const smKey = 'sign' + kind + bg;
+  if (!mats.has(smKey)) {
+    const m = new THREE.MeshStandardMaterial({ map: signTexture(kind, bg), emissive: 0xffffff, emissiveMap: signTexture(kind, bg), emissiveIntensity: 0.55, roughness: 0.6, side: THREE.DoubleSide });
+    m.userData.shared = true; mats.set(smKey, m);
+  }
+  const disc = new THREE.Mesh(geo('signdisc', () => new THREE.CircleGeometry(0.5, 28)), mats.get(smKey));
   s *= 1.35;
   disc.scale.setScalar(s); disc.position.y = s / 2; disc.castShadow = true;
   g.add(disc);

@@ -57,8 +57,9 @@ export const ads = {
 
   async _initCrazy() {
     if (!(window.CrazyGames && window.CrazyGames.SDK)) await loadScript('https://sdk.crazygames.com/crazygames-sdk-v3.js');
-    this.sdk = window.CrazyGames.SDK;
-    await this.sdk.init();
+    const sdk = window.CrazyGames.SDK;
+    await sdk.init();
+    this.sdk = sdk;            // só depois do init: antes disso o Data module não serve
     try { this.locale = (this.sdk.user && this.sdk.user.systemInfo && this.sdk.user.systemInfo.locale) || null; } catch (_) {}
     try { this.adblock = !!(await this.sdk.ad.hasAdblock()); } catch (_) {}
   },
@@ -66,13 +67,14 @@ export const ads = {
   // Há anúncio premiado para oferecer agora? (sem isso o botão de vídeo nem aparece)
   available() {
     if (this.provider === 'local') return true;
+    if (this.provider === 'gamedistribution' && !(window.gdsdk && window.gdsdk.showAd)) return false;
     return this.ready && !this.adblock && !this.busy && Date.now() >= this.unavailableUntil;
   },
 
   // Armazenamento do progresso: Data module do CrazyGames (salva na conta do
   // jogador e sincroniza entre aparelhos); fora dele, localStorage.
   storage() {
-    try { if (this.provider === 'crazygames' && this.sdk && this.sdk.data) return this.sdk.data; } catch (_) {}
+    try { if (this.provider === 'crazygames' && this.ready && this.sdk && this.sdk.data) return this.sdk.data; } catch (_) {}
     return null;
   },
 
