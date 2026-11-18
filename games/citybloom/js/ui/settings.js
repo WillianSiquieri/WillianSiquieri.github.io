@@ -44,7 +44,9 @@ export function settingsView(game) {
     <div class="setting credits">
       <label>📜 ${t('credits')}</label>
       <p>🎵 ${t('creditMusic')}</p>
-      <p>🎻 ${t('creditInstruments')} <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a></p>
-      <p>🧑‍🔧 ${t('creditCharacters')} <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
+      <p>🎻 ${t('creditInstruments')} (CC BY 3.0)</p>
+      <p>🧑‍🔧 ${t('creditCharacters')} (CC BY 4.0)</p>
+      <p>🏙️ ${t('creditModels')}</p>
+      <p>⭐ ${t('creditIcons')}</p>
     </div>`;
 }

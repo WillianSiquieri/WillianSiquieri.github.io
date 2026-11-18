@@ -2,7 +2,8 @@
 // personagem (retrato desenhado por código), com fala própria.
 
 import { ITEMS } from '../game/config.js';
-import { canDeliver, clientOf } from '../game/economy.js';
+import { canDeliver, clientOf, rerollCost } from '../game/economy.js';
+import { ads } from '../engine/ads.js';
 import { avatarURL } from '../render/avatars.js';
 import { t, tn, fmtTime, fmtNum, getLang } from '../i18n.js';
 
@@ -12,7 +13,8 @@ export function ordersView(game) {
     if (o.waitUntil) {
       return `<div class="order wait">
         <div class="ow">⏳ ${t('newOrderIn')} <b>${fmtTime((o.waitUntil - now) / 1000)}</b></div>
-        <button class="btn ad small" data-act="reroll" data-arg="${o.id}">${t('newNow')}</button>
+        <div class="obtns">${ads.available() ? `<button class="btn ad small" data-act="reroll" data-arg="${o.id}">▶ ${t('newNow')}</button>` : ''}
+        <button class="btn coin small" data-act="rerollCoins" data-arg="${o.id}"${s.coins < rerollCost(s) ? ' disabled' : ''}>🪙 ${rerollCost(s)}</button></div>
       </div>`;
     }
     const c = clientOf(o);

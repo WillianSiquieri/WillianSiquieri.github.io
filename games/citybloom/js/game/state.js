@@ -170,28 +170,34 @@ export function happiness(state) {
 // ---------------------------------------------------------------------------
 // Salvar / carregar
 // ---------------------------------------------------------------------------
+// Onde o progresso fica: localStorage ou o Data module do portal (mesma API:
+// getItem/setItem/removeItem), escolhido no boot com setStorage().
+let store = null;
+export function setStorage(s) { store = s; }
+const st = () => store || localStorage;
+
 export function save(state) {
   if (state.showcase) return;
   state.lastSeen = Date.now();
-  try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch (_) {}
+  try { st().setItem(SAVE_KEY, JSON.stringify(state)); } catch (_) {}
 }
 
 export function load() {
   try {
-    const raw = localStorage.getItem(SAVE_KEY);
+    const raw = st().getItem(SAVE_KEY);
     if (!raw) return null;
     const s = JSON.parse(raw);
     if (!s || s.v !== VERSION || !Array.isArray(s.tiles) || !Array.isArray(s.objects)) return null;
     s.rev = (s.rev || 0) + 1;
     if (!s.daily) s.daily = { next: 0, last: null, extra: null };
-    if (!s.mentor) s.mentor = { intro: false, returning: true }; // save antigo: apresentação curta
+    if (!s.mentor) s.mentor = { intro: true };
     return s;
   } catch (_) { return null; }
 }
 
 export function resetSave() {
   try {
-    localStorage.removeItem(SAVE_KEY);
+    st().removeItem(SAVE_KEY);
     localStorage.removeItem('citybloom.save.v1'); // save antigo da fundação
   } catch (_) {}
 }

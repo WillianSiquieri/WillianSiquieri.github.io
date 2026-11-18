@@ -21,8 +21,8 @@ import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
-import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness } from './game/state.js';
-import { t, tn, toggleLang, setLang, fmtTime, fmtNum } from './i18n.js';
+import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage } from './game/state.js';
+import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -85,12 +85,9 @@ class CityGame {
   // ---------------------------------------------------------------- cidade 3D
   // Carrega o Three.js e os modelos; se algo falhar, o jogo segue no desenho 2D.
   async _init3d() {
-    // Por enquanto o 3D é uma prévia: liga com ?r3d=1 (fica lembrado) e desliga com ?r3d=0.
-    const q = new URLSearchParams(location.search).get('r3d');
-    try { if (q === '1' || q === '0') localStorage.setItem('citybloom.r3d', q); } catch (_) {}
-    let on = q === '1';
-    try { on = on || localStorage.getItem('citybloom.r3d') === '1'; } catch (_) {}
-    if (!on || q === '0' || new URLSearchParams(location.search).get('r2d') === '1') return false;
+    // 3D é o padrão; ?r3d=0 (ou ?r2d=1) usa o desenho 2D (testes/aparelhos fracos).
+    const q = new URLSearchParams(location.search);
+    if (q.get('r3d') === '0' || q.get('r2d') === '1') return false;
     try {
       const { World3D } = await import('./render3d/world3d.js');
       if (!World3D.supported()) return false;
@@ -242,6 +239,7 @@ class CityGame {
       case 'collect2':
         if (o) this._rewarded('double').then(ok => {
           if (!ok) return;
+          E.adUsed(s, 'double', this.now());
           const d = BUILDINGS[o.type];
           const rr = d.type === 'house' ? E.collectRent(s, o, this.now(), 2) : E.collectIncome(s, o, this.now(), 2);
           this._result(rr, o.i, o.j, o.size); this.renderPanel();
@@ -255,6 +253,14 @@ class CityGame {
           this.renderPanel();
         });
         return;
+      case 'speedCoins': if (o) { r = E.speedUpCoins(s, o, now); if (r.ok) { r.silent = 'build'; this.fx.burst(o.i, o.j, o.size, this.time()); } } break;
+      case 'chestCoins': {
+        const rr = E.claimDailyExtraCoins(s, now);
+        if (!rr.ok) return this._error(rr);
+        this.dailyResult = rr; this._gift(rr.got); this.renderSheet();
+        return;
+      }
+      case 'rerollCoins': { const rr = E.rerollOrderCoins(s, Number(arg)); if (!rr.ok) return this._error(rr); sfx.click(); save(s); this.renderSheet(); return; }
       case 'startLot': if (o) r = E.startLot(s, o, arg, now); if (r && r.ok) r.silent = 'build'; break;
       case 'recipe': if (o) r = E.startRecipe(s, o, Number(arg), now); if (r && r.ok) r.silent = 'build'; break;
       case 'upgrade': if (o) r = E.upgradeHouse(s, o, now); if (r && r.ok) { this.fx.burst(o.i, o.j, o.size, this.time()); sfx.build(); } break;
@@ -335,7 +341,10 @@ class CityGame {
 
   // Anúncio premiado: avisa quando não houver anúncio (não concede nada).
   _rewarded(placement) {
-    return ads.rewarded(placement).then(ok => { if (!ok) toast(t('adUnavailable'), true); return ok; });
+    return ads.rewarded(placement).then(ok => {
+      if (!ok) { toast(t('adUnavailable'), true); this.renderPanel(); if (this.sheet) this.renderSheet(); }
+      return ok;
+    });
   }
 
   // Trata o resultado de uma ação: efeitos, sons, nível, salvar.
@@ -691,12 +700,20 @@ function toast(msg, bad = false) {
 }
 
 // ------------------------------------------------------------------ boot
-function boot() {
+async function boot() {
   // anúncios: silencia o jogo durante o anúncio; avisa o portal do carregamento
   ads.onPause = () => { music.hold(true); sfx.hold(true); };
   ads.onResume = () => { music.hold(false); sfx.hold(false); };
   watchIcons();
   const adsReady = ads.init();
+  // No CrazyGames: espera o SDK (até 4 s) para usar o save da conta (Data module)
+  // e o idioma do jogador antes de montar a cidade.
+  if ((window.CB_PORTAL || 'local') === 'crazygames') {
+    await Promise.race([adsReady, new Promise(r => setTimeout(r, 4000))]);
+    const store = ads.storage();
+    if (store) setStorage(store);
+    applyPortalLocale(ads.locale);
+  }
   const game = new CityGame($('city'));
   window.__city = game;
   // tela de carregamento: some quando a cidade 3D (ou a 2D) está pronta
@@ -726,6 +743,13 @@ function boot() {
   $('tip-face').src = mentorFace();
   // áudio (efeitos e música) só pode começar após um gesto do usuário
   window.addEventListener('pointerdown', () => { sfx.unlock(); music.start(); }, { capture: true, once: true });
+  // iOS suspende o áudio ao sair do app ou numa ligação: volta no próximo toque
+  const resumeAudio = () => {
+    if (ads.busy || document.hidden) return;
+    for (const ctx of [sfx.ctx, music.theme !== 'off' && music.ctx]) if (ctx && ctx.state !== 'running' && ctx.state !== 'closed') ctx.resume().catch(() => {});
+  };
+  document.addEventListener('touchend', resumeAudio, { passive: true });
+  document.addEventListener('click', resumeAudio);
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

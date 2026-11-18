@@ -4,8 +4,9 @@
 import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs } from '../game/config.js';
 import {
   lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkPrice,
-  used, warehouseCost, canAfford,
+  used, warehouseCost, canAfford, speedUpCost, adOffer,
 } from '../game/economy.js';
+import { ads } from '../engine/ads.js';
 import { tileOf, population } from '../game/state.js';
 import { t, tn, fmtTime, fmtNum } from '../i18n.js';
 
@@ -19,6 +20,15 @@ export function costHtml(state, cost) {
 
 const btn = (act, label, cls = '', arg = '', disabled = false) =>
   `<button class="btn ${cls}" data-act="${act}" data-arg="${arg}"${disabled ? ' disabled' : ''}>${label}</button>`;
+
+// Terminar já: vídeo (se houver anúncio) e/ou moedas (só produção).
+function speedBtns(s, o, now) {
+  const cost = speedUpCost(s, o, now);
+  return (ads.available() ? btn('speed', `▶ ${t('speedUp')}`, 'ad') : '') +
+    (cost ? btn('speedCoins', `🪙 ${cost} · ${t('speedUp')}`, 'coin', '', s.coins < cost) : '');
+}
+// Dobrar: só com anúncio disponível e no máximo a cada 4 min.
+const doubleBtn = (s, now) => ads.available() && adOffer(s, 'double', now) ? btn('collect2', `▶ ${t('double')}`, 'ad') : '';
 
 const bar = (p) => `<div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div>`;
 
@@ -73,7 +83,7 @@ export function panelView(game) {
       body: ready ? `<p class="ok">✅ ${t('lotReady')}</p>`
         : `<p>${t('lotGrowing')} — ${t('timeLeft')} <b>${fmtTime((o.readyAt - now) / 1000)}</b></p>${bar(lotProgress(o, now))}`,
       actions: ready ? btn('collect', `${t('collect')} ${item.icon}`, 'primary')
-        : btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad'),
+        : speedBtns(s, o, now),
     };
   }
 
@@ -100,7 +110,7 @@ export function panelView(game) {
       title,
       body: `<div class="slots"><span class="lbl">${t('queue')}</span>${slots.join('')}</div>${recipes}`,
       actions: (done.length ? btn('collect', `${t('collect')} (${done.length})`, 'primary') : '') +
-               (pend.length ? btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad') : ''),
+               (pend.length ? speedBtns(s, o, now) : ''),
     };
   }
 
@@ -121,8 +131,8 @@ export function panelView(game) {
       body: `<p>👥 ${def.residents} ${t('residents')} · ${t('rent')} 🪙 ${rent} ${t('every')} ${fmtTime(secs(s, def.rentTime))}</p>
         ${ready ? `<p class="ok">✅ 🪙 ${rent}</p>` : `${bar(1 - (o.rentReadyAt - now) / (secs(s, def.rentTime) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.rentReadyAt - now) / 1000)}</p>`}
         ${up}`,
-      actions: ready ? btn('collect', `${t('collect')} 🪙 ${rent}`, 'primary') + btn('collect2', `${t('watchAd')} · ${t('double')}`, 'ad')
-        : btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad'),
+      actions: ready ? btn('collect', `${t('collect')} 🪙 ${rent}`, 'primary') + doubleBtn(s, now)
+        : speedBtns(s, o, now),
     };
   }
 
@@ -137,8 +147,8 @@ export function panelView(game) {
       title,
       body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p>` +
         (ready ? `<p class="ok">✅ 🪙 ${amount}</p>` : o.incomeReadyAt ? `${bar(1 - (o.incomeReadyAt - now) / (secs(s, def.income.time) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.incomeReadyAt - now) / 1000)}</p>` : ''),
-      actions: ready ? btn('collect', `${t('collect')} 🪙 ${amount}`, 'primary') + btn('collect2', `${t('watchAd')} · ${t('double')}`, 'ad')
-        : (o.incomeReadyAt ? btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad') : ''),
+      actions: ready ? btn('collect', `${t('collect')} 🪙 ${amount}`, 'primary') + doubleBtn(s, now)
+        : (o.incomeReadyAt ? speedBtns(s, o, now) : ''),
     };
   }
 

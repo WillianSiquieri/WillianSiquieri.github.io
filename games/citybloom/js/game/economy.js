@@ -650,3 +650,48 @@ export function claimMission(state) {
   state.mission = newMission(state, m.n + 1);
   return ok({ coins: m.reward.coins, xp: m.reward.xp, ...lv });
 }
+
+// ---------------------------------------------------------------------------
+// Alternativas em moedas aos anúncios premiados (regra dos portais: sempre deve
+// haver outro caminho além do anúncio) e intervalo entre ofertas de anúncio.
+// ---------------------------------------------------------------------------
+function remainingMs(o, now) {
+  const def = BUILDINGS[o.type];
+  if (def.type === 'lot' && o.resource && o.readyAt > now) return o.readyAt - now;
+  if (def.type === 'factory') { const p = factoryPending(o, now); return p.length ? Math.min(...p.map(q => q.readyAt)) - now : 0; }
+  return 0;
+}
+// Só produção (lote/fábrica) pode ser acelerada com moedas: ~1 moeda a cada 6 s.
+export function speedUpCost(state, o, now) {
+  const ms = remainingMs(o, now);
+  return ms > 0 ? Math.max(3, Math.ceil(ms / 6000)) : 0;
+}
+export function speedUpCoins(state, o, now) {
+  const cost = speedUpCost(state, o, now);
+  if (!cost) return fail('notBusy');
+  const f = payOrFail(state, { coins: cost });
+  if (f) return f;
+  const r = speedUp(state, o, now);
+  if (!r.ok) { state.coins += cost; return r; }
+  return ok({ spent: cost });
+}
+export const extraChestCost = (state) => 40 + state.level * 15;
+export function claimDailyExtraCoins(state, now, rand = Math.random) {
+  const st = dailyStatus(state, now);
+  if (!st.extraAvailable) return fail(st.claimedToday ? 'alreadyClaimed' : 'claimFirst');
+  const f = payOrFail(state, { coins: extraChestCost(state) });
+  if (f) return f;
+  return claimDailyExtra(state, now, rand);
+}
+export const rerollCost = (state) => 15 + state.level * 3;
+export function rerollOrderCoins(state, id, rand = Math.random) {
+  const f = payOrFail(state, { coins: rerollCost(state) });
+  if (f) return f;
+  const r = rerollOrder(state, id, rand);
+  if (!r.ok) state.coins += rerollCost(state);
+  return r;
+}
+// Oferta de anúncio "dobrar" no máximo a cada 4 minutos.
+export const AD_GAP = { double: 4 * 60 * 1000 };
+export function adOffer(state, kind, now) { return now >= ((state.adNext || {})[kind] || 0); }
+export function adUsed(state, kind, now) { state.adNext = { ...(state.adNext || {}), [kind]: now + (AD_GAP[kind] || 0) }; }

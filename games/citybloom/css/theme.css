@@ -149,3 +149,8 @@ img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-b
   .daily-grid { grid-template-columns: repeat(7, 1fr); gap: 5px; }
   .day.big { grid-column: span 1; }
 }
+
+/* anúncio + alternativa em moedas lado a lado */
+.extra-row { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 14px; }
+.extra-row .big-claim { margin: 0; }
+.order.wait .obtns { flex-direction: row; }

@@ -4,6 +4,7 @@ import { DAILY, ITEMS } from '../game/config.js';
 import * as E from '../game/economy.js';
 import { mentorFigure, rewardChips } from './mentor.js';
 import { t, fmtNum } from '../i18n.js';
+import { ads } from '../engine/ads.js';
 
 function preview(r) {
   const parts = [];
@@ -40,7 +41,7 @@ export function dailyView(game) {
   } else {
     top = (res ? `<div class="chest-open"><span class="chest-burst">🎉</span><b>${t('youGot')}</b>${rewardChips(res.got)}</div>` : '') +
       (st.extraAvailable
-        ? `<button class="btn ad big-claim" data-act="claimExtra">▶ ${t('extraChest')}</button>`
+        ? `<div class="extra-row">${ads.available() ? `<button class="btn ad big-claim" data-act="claimExtra">▶ ${t('extraChest')}</button>` : ''}<button class="btn coin big-claim" data-act="chestCoins"${s.coins < E.extraChestCost(s) ? ' disabled' : ''}>🪙 ${fmtNum(E.extraChestCost(s))} · ${t('extraChest')}</button></div>`
         : `<p class="muted center">${t('comeBack')}</p>`);
   }
 

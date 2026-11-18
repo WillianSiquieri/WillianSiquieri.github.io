@@ -26,7 +26,7 @@ const STRINGS = {
     capacity: 'Capacidade', empty: 'Vazio por enquanto.',
     // pedidos
     ordersTitle: 'Pedidos da Prefeitura', deliver: 'Entregar', discard: 'Descartar',
-    newOrderIn: 'Novo pedido em', newNow: '▶ Novo agora',
+    newOrderIn: 'Novo pedido em', newNow: 'Novo agora',
     // construir
     buildTitle: 'Construir', placeHint: 'Toque no mapa para escolher o lugar', confirm: 'Construir', cancel: 'Cancelar',
     owned: 'na cidade', limit: 'limite',
@@ -47,9 +47,11 @@ const STRINGS = {
     music: 'Música', effects: 'Efeitos sonoros', on: 'Ligados', off: 'Desligados', language: 'Idioma',
     credits: 'Créditos',
     creditMusic: 'Música "Bossa da Prefeitura": composição original para o CityBloom.',
-    creditInstruments: 'Instrumentos: soundfont FluidR3_GM (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman) —',
-    creditCharacters: 'Personagens: estilo Micah, de Micah Lanier, gerado com DiceBear —',
-    adUnavailable: 'Anúncio indisponível agora. Tente de novo daqui a pouco.',
+    creditInstruments: 'Instrumentos: soundfont FluidR3_GM (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman)',
+    creditCharacters: 'Personagens: estilo Micah, de Micah Lanier, gerado com DiceBear',
+    creditModels: 'Modelos 3D: Kenney (kenney.nl), CC0. Motor: Three.js (MIT).',
+    creditIcons: 'Ícones: Fluent Emoji da Microsoft (MIT). Fonte: Fredoka (OFL).',
+    adUnavailable: 'Sem anúncio agora — dá para usar moedas 🪙',
     inventoryTitle: 'Estoque', seeInventory: 'Ver estoque completo',
     rawGroup: 'Matérias-primas', productGroup: 'Produtos', specialGroup: 'Ferramentas especiais',
     specialNote: 'Não ocupam espaço no armazém. Servem para ampliar o armazém.',
@@ -65,7 +67,7 @@ const STRINGS = {
     next: 'Continuar', letsGo: 'Vamos lá!', yourReward: 'Seu presente', collectGift: 'Coletar! 🎁',
     convertedNote: 'Armazém cheio: o que não coube virou {n} 🪙.',
     // baú diário
-    dailyTitle: 'Baú diário', day: 'Dia', openChest: 'Abrir baú', youGot: 'Você recebeu:', extraChest: 'Baú extra (anúncio)',
+    dailyTitle: 'Baú diário', day: 'Dia', openChest: 'Abrir baú', youGot: 'Você recebeu:', extraChest: 'Baú extra',
     dailySayReady: 'Bom dia! O baú do <b>dia {d}</b> está esperando por você. Volte todo dia: o 7º é o maior!',
     dailySayBroken: 'Senti sua falta! A sequência recomeçou, mas o baú de hoje já está pronto. 😉',
     dailySayDone: 'Volte amanhã para abrir o baú do <b>dia {d}</b>! 🗓️',
@@ -102,7 +104,7 @@ const STRINGS = {
     seeOrders: '📋 See orders', inventory: 'Inventory', upgradeStorage: 'Expand storage',
     capacity: 'Capacity', empty: 'Empty for now.',
     ordersTitle: 'Town Hall orders', deliver: 'Deliver', discard: 'Discard',
-    newOrderIn: 'New order in', newNow: '▶ New now',
+    newOrderIn: 'New order in', newNow: 'New now',
     buildTitle: 'Build', placeHint: 'Tap the map to choose a spot', confirm: 'Build', cancel: 'Cancel',
     owned: 'in city', limit: 'limit',
     errNoCoins: 'Not enough coins 🪙', errNoItems: 'Missing: {need}', errStorageFull: 'Storage full! Expand it at the warehouse 📦',
@@ -118,9 +120,11 @@ const STRINGS = {
     music: 'Music', effects: 'Sound effects', on: 'On', off: 'Off', language: 'Language',
     credits: 'Credits',
     creditMusic: 'Music "Town Hall Bossa": original composition for CityBloom.',
-    creditInstruments: 'Instruments: FluidR3_GM soundfont (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman) —',
-    creditCharacters: 'Characters: Micah style by Micah Lanier, generated with DiceBear —',
-    adUnavailable: 'No ad available right now. Try again in a moment.',
+    creditInstruments: 'Instruments: FluidR3_GM soundfont (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman)',
+    creditCharacters: 'Characters: Micah style by Micah Lanier, generated with DiceBear',
+    creditModels: '3D models: Kenney (kenney.nl), CC0. Engine: Three.js (MIT).',
+    creditIcons: 'Icons: Microsoft Fluent Emoji (MIT). Font: Fredoka (OFL).',
+    adUnavailable: 'No ad right now — you can use coins 🪙',
     inventoryTitle: 'Inventory', seeInventory: 'See full inventory',
     rawGroup: 'Raw materials', productGroup: 'Products', specialGroup: 'Special tools',
     specialNote: 'They take no storage space. Used to expand the storage.',
@@ -134,7 +138,7 @@ const STRINGS = {
     mayorPhase: 'What a historic day! We are now officially a <b>{p}</b>! Thank you for everything! 🎉',
     next: 'Continue', letsGo: "Let's go!", yourReward: 'Your gift', collectGift: 'Collect! 🎁',
     convertedNote: 'Storage full: what did not fit became {n} 🪙.',
-    dailyTitle: 'Daily chest', day: 'Day', openChest: 'Open chest', youGot: 'You got:', extraChest: 'Extra chest (ad)',
+    dailyTitle: 'Daily chest', day: 'Day', openChest: 'Open chest', youGot: 'You got:', extraChest: 'Extra chest',
     dailySayReady: 'Good morning! The <b>day {d}</b> chest is waiting for you. Come back every day: the 7th is the biggest!',
     dailySayBroken: 'I missed you! The streak restarted, but today\'s chest is ready. 😉',
     dailySayDone: 'Come back tomorrow to open the <b>day {d}</b> chest! 🗓️',
@@ -154,13 +158,26 @@ const STRINGS = {
   },
 };
 
+function saved() {
+  try { const v = localStorage.getItem(LANG_KEY); return v === 'pt' || v === 'en' ? v : null; } catch (_) { return null; }
+}
 function detect() {
-  try {
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved === 'pt' || saved === 'en') return saved;
-  } catch (_) {}
+  const v = saved();
+  if (v) return v;
+  // no CrazyGames o idioma vem do SDK (applyPortalLocale); até lá, inglês
+  if ((typeof window !== 'undefined' && window.CB_PORTAL) === 'crazygames') return 'en';
   const nav = (navigator.language || 'en').toLowerCase();
   return nav.startsWith('pt') ? 'pt' : 'en';
+}
+
+// Idioma informado pelo portal (ex.: 'pt-BR'), usado só se o jogador não escolheu.
+export function applyPortalLocale(locale) {
+  if (!locale || saved()) return false;
+  const l = String(locale).toLowerCase().startsWith('pt') ? 'pt' : 'en';
+  if (l === lang) return false;
+  lang = l;
+  if (typeof document !== 'undefined') document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en';
+  return true;
 }
 
 let lang = detect();
@@ -193,4 +210,4 @@ export function fmtTime(sec) {
 // 1234 → "1.234" (pt) / "1,234" (en)
 export function fmtNum(n) { return Math.round(n).toLocaleString(lang === 'pt' ? 'pt-BR' : 'en-US'); }
 
-setLang(lang);
+if (typeof document !== 'undefined') document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';   // não grava: só a escolha do jogador é salva
