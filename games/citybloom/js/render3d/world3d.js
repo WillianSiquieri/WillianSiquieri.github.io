@@ -1,0 +1,521 @@
+// world3d.js — a cidade em 3D (Three.js + modelos low-poly CC0 do Kenney).
+//
+// A câmera é ortográfica com elevação de 30° e girada 45°: assim o chão 3D cai
+// exatamente na mesma grade isométrica 2:1 do jogo (engine/iso.js). Tile (i, j)
+// ocupa [i, i+1] × [j, j+1] no plano XZ. Por isso Camera (x, y, zoom), o toque,
+// fitView, os efeitos flutuantes e as bolhas continuam valendo como antes.
+//
+// Este módulo só desenha. Regras e estado ficam em game/.
+
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { BUILDINGS, MAP } from '../game/config.js';
+import { lotProgress } from '../game/economy.js';
+import { roadType } from '../render/terrain.js';
+import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
+export { modelFiles };
+
+const K = 32 * Math.SQRT2;                 // px (mundo 2D) por unidade 3D no chão
+const ELEV = Math.PI / 6;                  // 30° → projeção 2:1
+export const HPX = Math.cos(ELEV) * K;     // px 2D por unidade de altura (~39,2)
+const DIR = new THREE.Vector3(Math.cos(ELEV) / Math.SQRT2, Math.sin(ELEV), Math.cos(ELEV) / Math.SQRT2);
+
+const NAT = 'nature/';
+const SCENERY_TREES = [NAT + 'tree_oak', NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone', NAT + 'tree_pineRoundA'];
+const hash = (a, b = 0, c = 0) => { let h = (a * 374761393 + b * 668265263 + c * 2147483647) | 0; h = (h ^ (h >>> 13)) * 1274126177; return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
+
+// Junta as malhas fixas (chão, ruas, enfeites) em poucas malhas, uma por material:
+// muito menos chamadas de desenho, o que pesa sobretudo no celular.
+function mergeStatic(group) {
+  group.updateMatrixWorld(true);
+  const buckets = new Map(), keep = [];
+  group.traverse(o => {
+    if (!o.isMesh) return;
+    if (Array.isArray(o.material)) { keep.push(o); return; }
+    const g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+    for (const k of Object.keys(g.attributes)) if (!['position', 'normal', 'uv'].includes(k)) g.deleteAttribute(k);
+    g.applyMatrix4(o.matrixWorld);
+    const sig = o.material.uuid + '|' + Object.keys(g.attributes).sort().join(',') + '|' + o.castShadow;
+    if (!buckets.has(sig)) buckets.set(sig, { mat: o.material, cast: o.castShadow, geos: [] });
+    buckets.get(sig).geos.push(g);
+  });
+  const out = new THREE.Group();
+  for (const o of keep) {
+    const c = o.clone(false);
+    o.matrixWorld.decompose(c.position, c.quaternion, c.scale);
+    out.add(c);
+  }
+  for (const b of buckets.values()) {
+    const geo = mergeGeometries(b.geos, false);
+    if (!geo) continue;
+    const m = new THREE.Mesh(geo, b.mat);
+    m.castShadow = b.cast; m.receiveShadow = true;
+    out.add(m);
+  }
+  return out;
+}
+
+export class World3D {
+  static supported() {
+    try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (_) { return false; }
+  }
+
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ready = false;
+    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+    this.renderer.toneMapping = THREE.NeutralToneMapping;
+    this.renderer.toneMappingExposure = 1.0;
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.setClearColor(0x000000, 0);
+
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 600);
+    this.target = new THREE.Vector3();
+
+    // luz: céu + sol quente com sombra
+    this.hemi = new THREE.HemisphereLight(0xdff2ff, 0x6f8f5a, 1.15);
+    this.scene.add(this.hemi);
+    this.sun = new THREE.DirectionalLight(0xfff1dc, 3.0);
+    this.sun.castShadow = true;
+    this.sun.shadow.mapSize.set(2048, 2048);
+    this.sun.shadow.bias = -0.0004;
+    this.sun.shadow.normalBias = 0.02;
+    this.scene.add(this.sun, this.sun.target);
+
+    this.root = new THREE.Group(); this.scene.add(this.root);       // objetos
+    this.groundGroup = new THREE.Group(); this.scene.add(this.groundGroup);
+    this.carGroup = new THREE.Group(); this.scene.add(this.carGroup);
+    this.objs = new Map();           // id → { g, key, born, bump }
+    this.models = new Map();         // 'kit/name' → gltf.scene
+    this.texVariants = new Map();    // 'kit/variation-a' → Texture
+    this.matCache = new Map();
+    this.heights = new Map();        // id → altura (unidades 3D)
+    this.typeHeight = {};            // tipo → altura média (miniaturas/bolhas sem objeto)
+    this.firstSync = true;
+    this.groundKey = '';
+    this.roadKey = '';
+    this.ghost = null; this.ghostKey = '';
+    this.selMesh = null;
+  }
+
+  // ------------------------------------------------------------------ carregamento
+  async load(onProgress = () => {}) {
+    const loader = new GLTFLoader();
+    const files = modelFiles();
+    const texFiles = [...new Set(Object.values(CATALOG).flat().map(v => v.tex).filter(Boolean))];
+    const total = files.length + texFiles.length;
+    let done = 0;
+    const tick = () => onProgress(++done / total);
+    const texLoader = new THREE.TextureLoader();
+    await Promise.all([
+      ...files.map(f => loader.loadAsync(`assets/models/${f}.glb`).then(g => {
+        g.scene.traverse(o => {
+          if (!o.isMesh) return;
+          o.castShadow = true; o.receiveShadow = true;
+          for (const m of [].concat(o.material)) {
+            if (m.metalness > 0.3) m.metalness = 0;
+            m.roughness = Math.max(m.roughness, 0.7);
+            const nm = (m.name || '').toLowerCase();
+            if (f.startsWith('nature/')) {           // folhas verde-água → verde-grama
+              if (/leaf|grass/.test(nm) && !/fall|dark/.test(f)) m.color.set(nm.includes('grass') ? 0x67b84a : 0x58b043);
+              else if (/rock|stone/.test(f) && nm === 'dirt') m.color.set(0x9da5ad);
+              else if (/bark|wood|dirt/.test(nm)) m.color.set(0x9a6239);
+            }
+          }
+        });
+        this.models.set(f, g.scene); tick();
+      }).catch(e => { console.warn('[3d] modelo', f, e && e.message); tick(); })),
+      ...texFiles.map(f => texLoader.loadAsync(`assets/models/${f}.png`).then(t => {
+        t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; this.texVariants.set(f, t); tick();
+      }).catch(() => tick())),
+    ]);
+    this._buildStatic();
+    this.ready = true;
+  }
+
+  // Clona um modelo (geometria compartilhada) com a textura de variação.
+  model(name, tex) {
+    const src = this.models.get(name);
+    if (!src) return new THREE.Group();
+    const g = src.clone(true);
+    if (tex && this.texVariants.has(tex)) {
+      g.traverse(o => {
+        if (!o.isMesh) return;
+        const key = o.material.uuid + '|' + tex;
+        let m = this.matCache.get(key);
+        if (!m) { m = o.material.clone(); m.map = this.texVariants.get(tex); this.matCache.set(key, m); }
+        o.material = m;
+      });
+    }
+    return g;
+  }
+
+  // Encaixa um grupo no quadrado size×size (centro no chão, base em y=0).
+  fit(g, size, fill = 0.88, maxH = Infinity) {
+    const box = new THREE.Box3().setFromObject(g);
+    const s = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3());
+    let k = (size * fill) / Math.max(s.x, s.z, 0.01);
+    if (s.y * k > maxH) k = maxH / s.y;
+    const wrap = new THREE.Group();
+    g.position.set(-c.x * k, -box.min.y * k, -c.z * k);
+    g.scale.setScalar(k);
+    wrap.add(g);
+    wrap.userData.h = s.y * k;
+    return wrap;
+  }
+
+  // ------------------------------------------------------------------ chão estático
+  _buildStatic() {
+    // água em volta e "ilha" de terra
+    const water = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0x7cc9e0, roughness: 0.35, metalness: 0.05 }));
+    water.rotation.x = -Math.PI / 2; water.position.y = -0.55; water.receiveShadow = true;
+    this.water = water; this.scene.add(water);
+  }
+
+  _buildGround(state) {
+    const n = state.size;
+    const key = n + '|' + state.tiles.map(t => (t.locked ? 1 : 0)).join('');
+    if (key === this.groundKey) return;
+    this.groundKey = key;
+    this.groundGroup.clear();
+    // laje da ilha
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(n + 0.6, 0.6, n + 0.6), [
+      ...Array(2).fill(new THREE.MeshStandardMaterial({ color: 0x9c6b43, roughness: 1 })),
+      new THREE.MeshStandardMaterial({ color: 0x79b35a, roughness: 1 }),
+      new THREE.MeshStandardMaterial({ color: 0x6d4a2f, roughness: 1 }),
+      ...Array(2).fill(new THREE.MeshStandardMaterial({ color: 0x8a5d3a, roughness: 1 })),
+    ]);
+    slab.position.set(n / 2, -0.31, n / 2); slab.receiveShadow = true;
+    this.groundGroup.add(slab);
+    // grama com variação por tile (textura de canvas)
+    const P = 16, cv = document.createElement('canvas'); cv.width = cv.height = n * P;
+    const cx = cv.getContext('2d');
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      const t = state.tiles[j * n + i], h = hash(i, j);
+      const L = t.locked ? 43 + h * 4 : 46 + h * 5;
+      const S = t.locked ? 26 : 40 + h * 8;
+      cx.fillStyle = `hsl(${98 + h * 8}, ${S}%, ${L}%)`;
+      cx.fillRect(i * P, j * P, P, P);
+      cx.fillStyle = t.locked ? 'rgba(30,40,30,0.12)' : 'rgba(255,255,255,0.10)';
+      cx.fillRect(i * P, j * P, P, 1); cx.fillRect(i * P, j * P, 1, P);
+    }
+    const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+    const grass = new THREE.Mesh(new THREE.PlaneGeometry(n, n), new THREE.MeshStandardMaterial({ map: tex, roughness: 1 }));
+    grass.rotation.x = -Math.PI / 2; grass.position.set(n / 2, 0.001, n / 2); grass.receiveShadow = true;
+    this.groundGroup.add(grass);
+    // obstáculos (terra à venda)
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      const t = state.tiles[j * n + i];
+      if (!t.obstacle) {
+        if (t.kind === 'road') continue;
+        // enfeites: mata nas quadras à venda, tufos de grama nas compradas
+        const h = hash(i, j, 21);
+        if (t.locked && h < 0.42) {
+          const m = this.fit(this.model(SCENERY_TREES[Math.floor(hash(i, j, 22) * SCENERY_TREES.length)]), 0.5, 1, 0.55 + hash(i, j, 23) * 0.25);
+          m.position.set(i + 0.3 + hash(i, j, 24) * 0.4, 0, j + 0.3 + hash(i, j, 25) * 0.4);
+          m.rotation.y = h * 20;
+          this.groundGroup.add(m);
+        } else if (h < (t.locked ? 0.7 : 0.22)) {
+          const m = this.fit(this.model(NAT + (h < 0.5 ? 'grass_large' : 'grass')), 0.22, 1);
+          m.position.set(i + 0.08 + hash(i, j, 26) * 0.14, 0, j + 0.08 + hash(i, j, 27) * 0.14);
+          m.traverse(q => { if (q.isMesh) q.castShadow = false; });
+          this.groundGroup.add(m);
+        }
+        continue;
+      }
+      const g = new THREE.Group();
+      for (const [name, x, z, s, r, tint] of OBSTACLE_PARTS[t.obstacle] || []) {
+        const m = this.fit(this.model(name), s);
+        if (tint) m.traverse(q => { if (q.isMesh) { q.material = q.material.clone(); q.material.color.multiply(new THREE.Color(tint)); } });
+        m.position.set(x, 0, z); m.rotation.y = r + hash(i, j, 5) * 0.6;
+        g.add(m);
+      }
+      g.position.set(i, 0, j);
+      this.groundGroup.add(g);
+    }
+    const merged = mergeStatic(this.groundGroup);
+    this.groundGroup.clear();
+    this.groundGroup.add(merged);
+    this.roadKey = '';
+  }
+
+  _buildRoads(state) {
+    const n = state.size;
+    const key = n + '|' + state.tiles.map(t => (t.kind === 'road' ? 1 : 0)).join('');
+    if (key === this.roadKey) return;
+    this.roadKey = key;
+    if (this.roadGroup) this.scene.remove(this.roadGroup);
+    this.roadGroup = new THREE.Group(); this.scene.add(this.roadGroup);
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      if (state.tiles[j * n + i].kind !== 'road') continue;
+      const ty = roadType(state, i, j);
+      const m = this.model(ty === 'x' ? 'roads/road-crossroad' : 'roads/road-straight');
+      m.position.set(i + 0.5, 0.004, j + 0.5);
+      if (ty === 'j') m.rotation.y = Math.PI / 2;
+      m.traverse(o => { if (o.isMesh) o.castShadow = false; });
+      this.roadGroup.add(m);
+      // postes
+      if (ty === 'i' && i % 3 === 1) this._lamp(i + 0.5, j + 0.06, 0);
+      if (ty === 'j' && j % 3 === 1) this._lamp(i + 0.06, j + 0.5, Math.PI / 2);
+    }
+    const merged = mergeStatic(this.roadGroup);
+    this.roadGroup.clear();
+    this.roadGroup.add(merged);
+  }
+
+  _lamp(x, z, r) {
+    const m = this.fit(this.model(MISC_MODELS.lamp), 0.5, 0.5, 0.62);
+    m.position.set(x, 0, z); m.rotation.y = r;
+    this.roadGroup.add(m);
+  }
+
+  // ------------------------------------------------------------------ objetos
+  _variant(o) {
+    const list = CATALOG[o.type];
+    if (!list || !list.length) return null;
+    return list[Math.floor(hash(o.id, 11) * list.length)];
+  }
+
+  _objKey(o, now) {
+    const def = BUILDINGS[o.type];
+    if (def.type === 'lot') {
+      const stage = !o.resource ? 0 : (now >= o.readyAt ? 3 : Math.min(2, Math.floor(lotProgress(o, now) * 3)));
+      return `lot:${o.resource || ''}:${stage}`;
+    }
+    return o.type;
+  }
+
+  _makeObject(o, key) {
+    const def = BUILDINGS[o.type];
+    let g;
+    if (def.type === 'lot') g = this._makeLot(key, o.id);
+    else {
+      const v = this._variant(o);
+      if (v && v.custom) g = buildCustom(v.custom, this, o.size, o.id);
+      else if (v) {
+        const inner = this.model(v.m, v.tex);
+        if (v.rot) inner.rotation.y = v.rot;
+        g = this.fit(inner, o.size, v.fill || 0.86, v.maxH || Infinity);
+        if (v.extra) v.extra(g, this, o.size, o.id);
+      } else g = new THREE.Group();
+      // gira 0°/90° para variar (as duas faces viradas para a câmera)
+      if (!(v && v.fixed)) g.rotation.y = hash(o.id, 7) < 0.5 ? 0 : Math.PI / 2;
+    }
+    const outer = new THREE.Group();
+    outer.add(g);
+    outer.userData.h = g.userData.h || 0.8;
+    return outer;
+  }
+
+  _makeLot(key, id) {
+    const [, res, st] = key.split(':'); const stage = Number(st);
+    const g = new THREE.Group();
+    // canteiro de terra com borda de madeira
+    const soil = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.06, 0.86), new THREE.MeshStandardMaterial({ color: 0x8a5a36, roughness: 1 }));
+    soil.position.y = 0.03; soil.receiveShadow = true; g.add(soil);
+    const wood = new THREE.MeshStandardMaterial({ color: 0xd9a066, roughness: 0.9 });
+    for (const [x, z, w, d] of [[0, -0.45, 0.94, 0.06], [0, 0.45, 0.94, 0.06], [-0.45, 0, 0.06, 0.94], [0.45, 0, 0.06, 0.94]]) {
+      const b = new THREE.Mesh(new THREE.BoxGeometry(w, 0.1, d), wood); b.position.set(x, 0.05, z); b.castShadow = b.receiveShadow = true; g.add(b);
+    }
+    const parts = LOT_PARTS(res || 'none', stage);
+    for (const [name, x, z, s, r, tint] of parts) {
+      const m = typeof name === 'function' ? name(this) : this.fit(this.model(name), s);
+      if (typeof name !== 'function') { m.position.set(x, 0.06, z); m.rotation.y = r || 0; }
+      if (tint) m.traverse(q => { if (q.isMesh) { q.material = q.material.clone(); q.material.color.multiply(new THREE.Color(tint)); } });
+      g.add(m);
+    }
+    g.userData.h = stage === 3 ? 0.55 : 0.35;
+    return g;
+  }
+
+  _sync(state, now, t) {
+    const seen = new Set();
+    for (const o of state.objects) {
+      seen.add(o.id);
+      const key = this._objKey(o, now);
+      let e = this.objs.get(o.id);
+      if (!e || e.key !== key) {
+        if (e) this.root.remove(e.g);
+        const g = this._makeObject(o, key);
+        const grow = e ? e.key.startsWith('lot:') && key.startsWith('lot:') ? 0.25 : 0.45 : (this.firstSync ? 0 : 0.6);
+        e = { g, key, born: grow ? t : -99, grow, bump: -99 };
+        this.objs.set(o.id, e);
+        this.root.add(g);
+        this.heights.set(o.id, g.userData.h);
+      }
+      e.g.position.set(o.i + o.size / 2, 0, o.j + o.size / 2);
+      e.o = o;
+    }
+    for (const [id, e] of this.objs) if (!seen.has(id)) { this.root.remove(e.g); this.objs.delete(id); this.heights.delete(id); }
+    this.firstSync = false;
+  }
+
+  // Animações: surgir com "pulo" e balançar ao coletar.
+  _animate(t) {
+    for (const e of this.objs.values()) {
+      let sx = 1, sy = 1;
+      const a = t - e.born;
+      if (a >= 0 && a < e.grow) {
+        const p = a / e.grow;
+        const el = 1 - Math.pow(2, -10 * p) * Math.cos(p * Math.PI * 3.2);   // elástico
+        sx = sy = Math.max(0.01, el);
+      }
+      const b = t - e.bump;
+      if (b >= 0 && b < 0.45) { const w = Math.sin(b * 30) * (1 - b / 0.45) * 0.09; sy *= 1 + w; sx *= 1 - w * 0.5; }
+      e.g.scale.set(sx, sy, sx);
+    }
+  }
+
+  bump(i, j, t) {
+    for (const e of this.objs.values()) {
+      const o = e.o; if (!o) continue;
+      if (i >= o.i && i < o.i + o.size && j >= o.j && j < o.j + o.size) { e.bump = t; return; }
+    }
+  }
+
+  // Altura em px do mundo 2D (bolhas, toque).
+  heightPx(o) {
+    const h = this.heights.get(o.id);
+    return (h == null ? 0.8 : h) * HPX;
+  }
+
+  // ------------------------------------------------------------------ carros
+  _cars(traffic) {
+    const items = traffic.items();
+    if (!this.cars || this.cars.length !== items.length) {
+      this.carGroup.clear();
+      this.cars = items.map((c, k) => {
+        const m = this.fit(this.model(CAR_MODELS[k % CAR_MODELS.length]), 0.42, 1);
+        this.carGroup.add(m); return m;
+      });
+    }
+    items.forEach((c, k) => {
+      const m = this.cars[k];
+      m.position.set(c.ci, 0.02, c.cj);
+      m.rotation.y = c.dir === 'i+' ? Math.PI / 2 : c.dir === 'i-' ? -Math.PI / 2 : c.dir === 'j+' ? 0 : Math.PI;
+    });
+  }
+
+  // ------------------------------------------------------------------ seleção e fantasma
+  _selection(sel) {
+    if (!this.selMesh) {
+      this.selMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: 0xffd23f, transparent: true, opacity: 0.45, depthWrite: false }));
+      this.selMesh.rotation.x = -Math.PI / 2;
+      this.scene.add(this.selMesh);
+    }
+    if (!sel) { this.selMesh.visible = false; return; }
+    const [i, j, s] = sel.kind === 'object' ? [sel.obj.i, sel.obj.j, sel.obj.size] : [sel.i, sel.j, 1];
+    this.selMesh.visible = true;
+    this.selMesh.scale.set(s, s, 1);
+    this.selMesh.position.set(i + s / 2, 0.012, j + s / 2);
+  }
+
+  _ghost(gh, t) {
+    const key = gh ? gh.type + (gh.moving ? ':' + this._objKey(gh.moving, Date.now()) : '') : '';
+    if (key !== this.ghostKey) {
+      if (this.ghost) this.scene.remove(this.ghost);
+      this.ghost = null; this.ghostKey = key;
+      if (gh) {
+        const fake = gh.moving || { id: 1, type: gh.type, size: BUILDINGS[gh.type].size, resource: null };
+        const g = this._makeObject(fake, gh.moving ? this._objKey(gh.moving, Date.now()) : (BUILDINGS[gh.type].type === 'lot' ? 'lot::0' : gh.type));
+        g.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.transparent = true; o.material.opacity = 0.7; o.castShadow = false; } });
+        const pad = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: 0x34c759, transparent: true, opacity: 0.45, depthWrite: false }));
+        pad.rotation.x = -Math.PI / 2; pad.position.y = 0.014; pad.name = 'pad';
+        g.add(pad);
+        this.ghost = g; this.scene.add(g);
+      }
+    }
+    if (!this.ghost) return;
+    const s = BUILDINGS[gh.type].size;
+    this.ghost.position.set(gh.i + s / 2, 0.02 + Math.abs(Math.sin(t * 4)) * 0.05, gh.j + s / 2);
+    const pad = this.ghost.getObjectByName('pad');
+    pad.scale.set(s, s, 1); pad.position.y = -0.006;
+    pad.material.color.set(gh.valid ? 0x34c759 : 0xff3b30);
+  }
+
+  // ------------------------------------------------------------------ quadro
+  setSize(w, h, dpr) {
+    this.renderer.setPixelRatio(Math.min(dpr || 1, 2));
+    this.renderer.setSize(w, h, false);
+  }
+
+  _camera(cam) {
+    const ppu = K * cam.zoom;
+    const c = this.camera;
+    c.left = -cam.vw / 2 / ppu; c.right = cam.vw / 2 / ppu;
+    c.top = cam.vh / 2 / ppu; c.bottom = -cam.vh / 2 / ppu;
+    const gi = (cam.x / 32 + cam.y / 16) / 2, gj = (cam.y / 16 - cam.x / 32) / 2;
+    this.target.set(gi, 0, gj);
+    c.position.copy(this.target).addScaledVector(DIR, 120);
+    c.lookAt(this.target);
+    c.updateProjectionMatrix();
+    // sol acompanha a área visível
+    const R = Math.max(c.right, c.top * 2) + 3;
+    const sc = this.sun.shadow.camera;
+    sc.left = -R; sc.right = R; sc.top = R; sc.bottom = -R; sc.near = 1; sc.far = 200;
+    sc.updateProjectionMatrix();
+    this.sun.target.position.copy(this.target);
+    this.sun.position.copy(this.target).add(new THREE.Vector3(-30, 60, 22));
+  }
+
+  // Qualidade automática: se o aparelho não aguenta ~30 fps, baixa a resolução
+  // e depois desliga as sombras (uma vez por nível, sem voltar).
+  _quality(t) {
+    const q = this._q || (this._q = { last: t, acc: 0, n: 0, level: 0, since: t });
+    const dt = t - q.last; q.last = t;
+    if (dt <= 0 || dt > 0.5 || document.hidden) return;
+    q.acc += dt; q.n++;
+    if (t - q.since < 3) return;
+    const avg = q.acc / q.n; q.acc = 0; q.n = 0; q.since = t;
+    if (avg < 1 / 28 || q.level >= 2) return;
+    q.level++;
+    if (q.level === 1) this.renderer.setPixelRatio(Math.min(this.renderer.getPixelRatio(), 1));
+    if (q.level === 2) { this.sun.castShadow = false; this.renderer.shadowMap.enabled = false; }
+    console.info('[3d] qualidade reduzida para o nível', q.level);
+  }
+
+  render(cam, state, t, now, ui = {}, traffic = null) {
+    if (!this.ready) return;
+    if (this.autoQuality !== false) this._quality(t);
+    this._buildGround(state);
+    this._buildRoads(state);
+    this._sync(state, now, t);
+    this._animate(t);
+    if (traffic) this._cars(traffic);
+    this._selection(ui.selected);
+    this._ghost(ui.ghost, t);
+    this._camera(cam);
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  // ------------------------------------------------------------------ miniaturas
+  thumb(type, px = 240) {
+    if (!this.ready) return null;
+    if (!this._thumbR) {
+      this._thumbR = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+      this._thumbR.outputColorSpace = THREE.SRGBColorSpace;
+      this._thumbR.toneMapping = THREE.NeutralToneMapping;
+      this._thumbR.setSize(px, px);
+      this._thumbScene = new THREE.Scene();
+      this._thumbScene.add(new THREE.HemisphereLight(0xdff2ff, 0x6f8f5a, 1.6));
+      const d = new THREE.DirectionalLight(0xfff1dc, 2.4); d.position.set(-3, 6, 2.2); this._thumbScene.add(d);
+    }
+    const def = BUILDINGS[type];
+    const fake = { id: 3, type, size: def.size, resource: def.type === 'lot' ? 'wood' : null, readyAt: 0 };
+    const g = this._makeObject(fake, def.type === 'lot' ? 'lot:wood:3' : type);
+    g.traverse(o => { if (o.isMesh) o.castShadow = false; });
+    this._thumbScene.add(g);
+    const box = new THREE.Box3().setFromObject(g);
+    const ctr = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3());
+    const r = Math.max(sz.x * 0.75, sz.y * 0.62, sz.z * 0.75) * 0.95;
+    const cam = new THREE.OrthographicCamera(-r, r, r, -r, 0.1, 200);
+    cam.position.copy(ctr).addScaledVector(DIR, 50); cam.lookAt(ctr);
+    this._thumbR.render(this._thumbScene, cam);
+    this._thumbScene.remove(g);
+    return this._thumbR.domElement.toDataURL();
+  }
+}

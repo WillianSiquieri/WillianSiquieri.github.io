@@ -13,5 +13,15 @@
 - Gerados com **DiceBear** (https://www.dicebear.com/), MIT License.
 - Estilo "Ilustração do CityBloom": desenhado para o jogo.
 
+## Modelos 3D (assets/models/)
+- **Kenney** (www.kenney.nl): City Kit Suburban, City Kit Commercial, City Kit Industrial,
+  City Kit Roads, Car Kit e Nature Kit. Licença Creative Commons Zero (CC0), livre para uso
+  pessoal e comercial (ver `assets/models/LICENSE-Kenney.txt`).
+- Prefeitura, estádio, aeroporto, praça, chafariz, escola, posto de saúde, hospital e
+  bombeiros: montados em código para o jogo (`js/render3d/catalog.js`).
+
+## Motor 3D
+- **Three.js** r180 (https://threejs.org), MIT License (`js/vendor/three/LICENSE`).
+
 ## Músicas
 Composições originais para o CityBloom (js/game/songs.js).

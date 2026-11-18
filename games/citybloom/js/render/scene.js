@@ -45,9 +45,34 @@ export class Scene {
     return this.roadTypes;
   }
 
+  // Altura (px do mundo 2D) — vem do 3D quando ele está ligado.
+  height(o) { return this.heightOf ? this.heightOf(o) : (HEIGHT[o.type] || 30); }
+
+  // Camada de sobreposição sobre a cidade 3D: só bolhas, barras e placas.
+  renderOverlay(ctx, cam, dpr, state, t, now) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.setTransform(cam.zoom * dpr, 0, 0, cam.zoom * dpr,
+      (cam.vw / 2 - cam.x * cam.zoom) * dpr, (cam.vh / 2 - cam.y * cam.zoom) * dpr);
+    if (state.showcase) return;
+    const n = state.size, C = MAP.chunk, nc = n / C, price = chunkPrice(state);
+    for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) {
+      if (chunkBuyable(state, ci, cj)) forSaleSign(ctx, pt(ci * C + 1.5, cj * C + 1.5), `🏷️ ${price}`, true);
+    }
+    const bubbles = [];
+    for (const o of state.objects) {
+      const def = BUILDINGS[o.type];
+      if (def.type === 'lot' && o.resource && now < o.readyAt) this._progressBar(ctx, center(o.i, o.j), lotProgress(o, now));
+      const icon = readyIcon(state, o, now);
+      if (icon) bubbles.push({ o, icon });
+    }
+    bubbles.sort((a, b) => (a.o.i + a.o.j) - (b.o.i + b.o.j));
+    for (const b of bubbles) this._bubble(ctx, b.o, b.icon, t);
+  }
+
   // Contorno clicável de uma construção (prédios altos).
   hull(o) {
-    const h = HEIGHT[o.type] || 30, s = o.size;
+    const h = this.height(o), s = o.size;
     const T = pt(o.i, o.j), R = pt(o.i + s, o.j), B = pt(o.i + s, o.j + s), L = pt(o.i, o.j + s);
     return [L, B, R, up(R, h), up(T, h), up(L, h)];
   }
@@ -180,7 +205,7 @@ export class Scene {
   }
 
   _bubble(ctx, o, icon, t) {
-    const h = BUILDINGS[o.type].type === 'lot' ? 26 : Math.min(HEIGHT[o.type] || 30, 80);
+    const h = BUILDINGS[o.type].type === 'lot' ? 26 : Math.min(this.height(o), 80);
     const c = up(center(o.i, o.j, o.size), h + 12 + Math.sin(t * 3 + o.id) * 2);
     ctx.fillStyle = 'rgba(0,0,0,0.18)';
     ctx.beginPath(); ctx.arc(c.x + 1, c.y + 2, 12, 0, Math.PI * 2); ctx.fill();

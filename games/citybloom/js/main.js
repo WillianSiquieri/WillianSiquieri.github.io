@@ -15,7 +15,7 @@ import { settingsView, esc } from './ui/settings.js';
 import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
 import { dailyView } from './ui/daily.js';
 import { inventoryView } from './ui/inventory.js';
-import { thumb } from './ui/build.js';
+import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
@@ -54,8 +54,10 @@ class CityGame {
     }
 
     this.scene = new Scene(this.state);
+    this.world = null;            // cidade 3D (quando WebGL e modelos carregarem)
     this.input = new InputManager(canvas, this);
     this._resize();
+    this.ready3d = this._init3d();
     window.addEventListener('resize', () => this._resize());
     this.fitView();
 
@@ -70,6 +72,33 @@ class CityGame {
     if (!this.state.showcase) {
       if (!this.state.mentor.intro) setTimeout(() => this.startIntro(), 700);
       else if (E.dailyStatus(this.state, this.now()).canClaim) setTimeout(() => { if (!this.sheet && !this.modalQueue.length) this.openSheet('daily'); }, 1200);
+    }
+  }
+
+  // ---------------------------------------------------------------- cidade 3D
+  // Carrega o Three.js e os modelos; se algo falhar, o jogo segue no desenho 2D.
+  async _init3d() {
+    // Por enquanto o 3D é uma prévia: liga com ?r3d=1 (fica lembrado) e desliga com ?r3d=0.
+    const q = new URLSearchParams(location.search).get('r3d');
+    try { if (q === '1' || q === '0') localStorage.setItem('citybloom.r3d', q); } catch (_) {}
+    let on = q === '1';
+    try { on = on || localStorage.getItem('citybloom.r3d') === '1'; } catch (_) {}
+    if (!on || q === '0' || new URLSearchParams(location.search).get('r2d') === '1') return false;
+    try {
+      const { World3D } = await import('./render3d/world3d.js');
+      if (!World3D.supported()) return false;
+      const w = new World3D($('city3d'));
+      w.setSize(window.innerWidth, window.innerHeight, this.dpr);
+      await w.load(p => { if (this.onLoad) this.onLoad(p); });
+      this.world = w;
+      this.scene.heightOf = (o) => w.heightPx(o);
+      setThumbProvider(type => w.thumb(type));
+      document.body.classList.add('r3d');
+      if (this.sheet) this.renderSheet();
+      return true;
+    } catch (e) {
+      console.warn('[3d] indisponível, usando 2D:', e && e.message);
+      return false;
     }
   }
 
@@ -282,6 +311,7 @@ class CityGame {
     if (r.drop) lines.push({ text: `+1 ${ITEMS[r.drop].icon}`, color: '#7b3fe4' });
     if (r.xp) lines.push({ text: `+${r.xp} XP`, color: '#2e7dff' });
     if (lines.length) this.fx.float(i, j, size, lines, this.time());
+    if (this.world) this.world.bump(i, j, this.time());
     if (r.silent === 'build') sfx.build();
     else if (r.silent === 'click') sfx.click();
     else if (r.coins) sfx.coin();
@@ -520,6 +550,7 @@ class CityGame {
     this.canvas.style.width = w + 'px';
     this.canvas.style.height = h + 'px';
     this.camera.setViewport(w, h);
+    if (this.world) this.world.setSize(w, h, this.dpr);
   }
 
   _loop() {
@@ -528,11 +559,19 @@ class CityGame {
     this.lastFrame = nowP;
     const time = this.time();
     this.scene.update(dt);
-    this.scene.render(this.ctx, this.camera, this.dpr, this.state, time, this.now(), {
-      selected: this.placing ? null : this.selected,
-      ghost: this.placing,
-      labels: this.state.showcase ? (ctx, o) => drawLabel(ctx, o, this.camera.zoom) : null,
-    });
+    if (this.world) {
+      this.world.render(this.camera, this.state, time, this.now(), {
+        selected: this.placing ? null : this.selected,
+        ghost: this.placing,
+      }, this.scene.traffic);
+      this.scene.renderOverlay(this.ctx, this.camera, this.dpr, this.state, time, this.now());
+    } else {
+      this.scene.render(this.ctx, this.camera, this.dpr, this.state, time, this.now(), {
+        selected: this.placing ? null : this.selected,
+        ghost: this.placing,
+        labels: this.state.showcase ? (ctx, o) => drawLabel(ctx, o, this.camera.zoom) : null,
+      });
+    }
     this.fx.render(this.ctx, time);
     renderHud(this);
     requestAnimationFrame(this._loop);

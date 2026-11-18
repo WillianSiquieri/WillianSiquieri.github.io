@@ -12,8 +12,13 @@ import { t, tn } from '../i18n.js';
 const thumbs = new Map();
 
 // Miniatura PNG (dataURL) do prédio, gerada uma vez.
+// Com a cidade 3D ligada, as miniaturas vêm dos modelos 3D.
+let provider = null;
+export function setThumbProvider(fn) { provider = fn; thumbs.clear(); }
+
 export function thumb(type) {
   if (thumbs.has(type)) return thumbs.get(type);
+  if (provider) { const url = provider(type); if (url) { thumbs.set(type, url); return url; } }
   const def = BUILDINGS[type];
   const bb = def.type === 'lot' ? BBOX_LOT : bboxBuilding(def.size, HEIGHT[type] || 40);
   // recorta a sombra/folga para a miniatura ficar mais cheia
