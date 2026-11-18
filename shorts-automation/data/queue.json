@@ -532,5 +532,83 @@
     "youtubeId": "aY70qvLvlDU",
     "previewUrl": "https://youtube.com/shorts/aY70qvLvlDU",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwmjvzmp531u",
+    "status": "draft",
+    "createdAt": "2026-11-18T20:05:05.953Z",
+    "theme": "Real em queda frente ao dólar e commodities",
+    "title": "Por que o real despencou mais que outras moedas?",
+    "hook": "O real está mais barato que nunca, mas o que isso muda no seu bolso?",
+    "script": "Até o início de 2024, o real acompanhava o dólar, mas hoje está 5% mais fraco que a média das moedas emergentes. Primeiro, o dólar subiu porque o Fed mantém a taxa alta, atraindo investidores para ativos seguros. Segundo, as commodities — soja, minério, petróleo — caíram de preço. Quando esses produtos ficam mais baratos, o Brasil ganha menos exportação, reduzindo a entrada de dólares. Menos dólares = menos força para o real. Resultado: a viagem internacional fica mais cara, e o preço de produtos importados sobe. Se você compra eletrônicos ou faz viagens, sente o peso agora. Fique de olho na taxa de câmbio e na agenda do Fed; a próxima decisão de juros vem em 31 de dezembro.",
+    "cta": "Quer entender como a variação do real afeta o seu dia a dia? Se inscreve aí e acompanha a próxima mudança da taxa de câmbio.",
+    "tags": [
+      "#real",
+      "#dolar",
+      "#economia",
+      "#investimentos"
+    ],
+    "captionKeywords": [
+      "real",
+      "dólar",
+      "commodities",
+      "câmbio"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/real-cai-mais-outras-moedas-commodities-dolar/",
+    "rationale": "Tema com alto engajamento porque conecta a desvalorização do real a despesas cotidianas, segue formato antes‑depois e traz próximo marco (decisão do Fed).",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "previewFile": "data/previews/sh_mwmjvzmp531u.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "F4xzJeVKStM",
+    "previewUrl": "https://youtube.com/shorts/F4xzJeVKStM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwmjwrsh8if2",
+    "status": "draft",
+    "createdAt": "2026-11-18T20:05:05.953Z",
+    "theme": "Fed projeta novas altas de juros e alerta sobre IA na inflação",
+    "title": "O Fed pode subir mais juros – o que isso significa para o brasileiro?",
+    "hook": "A taxa de juros dos EUA pode subir de novo, e o seu crédito pode sentir o impacto!",
+    "script": "Em julho, a ata do Fed mostrou que os dirigentes ainda veem risco de inflação persistente. Eles projetam mais um aumento de 25 pontos base ainda este ano. Por que importa para o Brasil? Primeiro, juros altos nos EUA atraem capital, fortalecendo o dólar e pressionando a taxa de câmbio. Segundo, o custo do crédito internacional sobe, encarecendo financiamentos de empresas brasileiras que dependem de dívida externa. Isso pode refletir em juros maiores no crédito ao consumidor aqui. Além disso, o Fed está estudando como a inteligência artificial pode influenciar a inflação, sinalizando que novas métricas podem mudar a política monetária. Fique atento: a próxima reunião do Fed acontece em 31 de outubro. Se o consenso mudar, pode chegar ao seu bolso em menos de um mês.",
+    "cta": "Curioso para saber como a política dos EUA mexe no seu cartão de crédito? Se inscreve aí e acompanha cada passo do Fed.",
+    "tags": [
+      "#Fed",
+      "#juros",
+      "#economia",
+      "#investimentos"
+    ],
+    "captionKeywords": [
+      "Fed",
+      "juros",
+      "inflação",
+      "IA"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/dirigentes-do-fed-projetam-altas-de-juros-e-tem-cautela-com-ia-na-inflacao-diz-ata/",
+    "rationale": "Aborda decisão do Fed, conecta a alta de juros à taxa de câmbio e crédito no Brasil, usando estrutura antes‑depois e indica próximo marco (reunião de 31/10).",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 52,
+      "previewFile": "data/previews/sh_mwmjwrsh8if2.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "qZ78V99hpzE",
+    "previewUrl": "https://youtube.com/shorts/qZ78V99hpzE",
+    "privacyStatus": "unlisted"
   }
 ]
