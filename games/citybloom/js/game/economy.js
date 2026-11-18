@@ -2,7 +2,7 @@
 // Cada ação devolve { ok: true, ... } ou { ok: false, err: 'chave', need? }.
 // Tempos são horários absolutos (ms): o progresso offline acontece sozinho.
 
-import {
+import { secs,
   ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, SPECIAL_DROP_CHANCE, MAP, CHUNK_PRICE,
   ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP, CLIENTS,
   levelReward, phaseGoods, DAILY, DAILY_COIN_GROWTH, DAILY_EXTRA,
@@ -164,7 +164,7 @@ export function happinessMult(state) {
 // ---------------------------------------------------------------------------
 export function lotProgress(o, now) {
   if (!o.resource || !o.readyAt) return 0;
-  const total = RESOURCE_LOTS[o.resource].time * 1000;
+  const total = o.total || RESOURCE_LOTS[o.resource].time * 1000;
   return Math.max(0, Math.min(1, 1 - (o.readyAt - now) / total));
 }
 
@@ -176,7 +176,8 @@ export function startLot(state, o, res, now) {
   const f = payOrFail(state, { coins: r.cost });
   if (f) return f;
   o.resource = res;
-  o.readyAt = now + r.time * 1000;
+  o.total = secs(state, r.time) * 1000;
+  o.readyAt = now + o.total;
   bump(state, 'lotStarted');
   return ok();
 }
@@ -189,7 +190,7 @@ export function collectLot(state, o, now) {
   const items = { [o.resource]: r.yield };
   addItems(state, items);
   const lv = addXP(state, r.xp);
-  o.resource = null; o.readyAt = null;
+  o.resource = null; o.readyAt = null; o.total = null;
   bump(state, 'lotCollected');
   return ok({ items, xp: r.xp, ...lv });
 }
@@ -209,7 +210,7 @@ export function startRecipe(state, o, idx, now) {
   if (f) return f;
   const last = o.queue.reduce((m, q) => Math.max(m, q.readyAt), 0);
   const start = Math.max(now, last);
-  o.queue.push({ r: idx, readyAt: start + rec.time * 1000 });
+  o.queue.push({ r: idx, readyAt: start + secs(state, rec.time) * 1000 });
   bump(state, 'factoryStarted');
   return ok();
 }
@@ -243,7 +244,7 @@ export function collectRent(state, o, now, mult = 1) {
   if (now < o.rentReadyAt) return fail('notReady');
   const coins = Math.round(def.rent * happinessMult(state) * mult);
   state.coins += coins;
-  o.rentReadyAt = now + def.rentTime * 1000;
+  o.rentReadyAt = now + secs(state, def.rentTime) * 1000;
   bump(state, 'rentCollected');
   const lv = addXP(state, 1);
   return ok({ coins, xp: 1, ...lv });
@@ -254,7 +255,7 @@ export function collectIncome(state, o, now, mult = 1) {
   if (!o.incomeReadyAt || now < o.incomeReadyAt) return fail('notReady');
   const coins = Math.round(def.income.coins * happinessMult(state) * mult);
   state.coins += coins;
-  o.incomeReadyAt = now + def.income.time * 1000;
+  o.incomeReadyAt = now + secs(state, def.income.time) * 1000;
   bump(state, 'incomeCollected');
   const lv = addXP(state, 2);
   return ok({ coins, xp: 2, ...lv });
@@ -271,7 +272,7 @@ export function upgradeHouse(state, o, now) {
   let bonus = 0;
   if (now >= o.rentReadyAt) { bonus = Math.round(def.rent * happinessMult(state)); state.coins += bonus; }
   o.type = def.next;
-  o.rentReadyAt = now + nd.rentTime * 1000;
+  o.rentReadyAt = now + secs(state, nd.rentTime) * 1000;
   touch(state);
   bump(state, 'upgraded');
   const xp = buildXP(nd.build);
@@ -555,7 +556,7 @@ export function tick(state, now, rand = Math.random) {
   for (const o of state.objects) {
     const d = BUILDINGS[o.type];
     if (d.type !== 'commerce') continue;
-    if (pop >= d.minPop && !o.incomeReadyAt) o.incomeReadyAt = now + d.income.time * 1000;
+    if (pop >= d.minPop && !o.incomeReadyAt) o.incomeReadyAt = now + secs(state, d.income.time) * 1000;
     if (pop < d.minPop && o.incomeReadyAt && o.incomeReadyAt > now) o.incomeReadyAt = null;
   }
   return refillOrders(state, now, rand);
@@ -603,4 +604,49 @@ const TIP_DONE = {
 export function currentTip(state) {
   for (const k of TIPS) if (!TIP_DONE[k](state)) return k;
   return null;
+}
+
+// ---------------------------------------------------------------------------
+// Missões (objetivo sempre visível depois dos primeiros passos)
+// ---------------------------------------------------------------------------
+// Cada missão conta um contador de `stats` a partir de onde ele estava quando a
+// missão começou. A ordem gira entre os tipos; metas e prêmios crescem com o nível.
+export const MISSION_KINDS = [
+  { k: 'rent', stat: 'rentCollected', n: L => 3 + Math.floor(L / 4) },
+  { k: 'harvest', stat: 'lotCollected', n: L => 3 + Math.floor(L / 5) },
+  { k: 'orders', stat: 'ordersDone', n: L => 2 + Math.floor(L / 6) },
+  { k: 'products', stat: 'productsMade', n: L => 3 + Math.floor(L / 5) },
+  { k: 'build', stat: 'built', n: L => 1 + Math.floor(L / 12) },
+  { k: 'upgrade', stat: 'upgraded', n: () => 1, minLevel: 6 },
+];
+
+function newMission(state, n) {
+  const L = state.level;
+  let kind = null;
+  for (let k = 0; k < MISSION_KINDS.length && !kind; k++) {
+    const c = MISSION_KINDS[(n + k) % MISSION_KINDS.length];
+    if (!c.minLevel || L >= c.minLevel) kind = c;
+  }
+  return { n, k: kind.k, base: state.stats[kind.stat] || 0, target: kind.n(L) };
+}
+
+export function mission(state) {
+  if (!state.mission || !MISSION_KINDS.some(c => c.k === state.mission.k)) state.mission = newMission(state, (state.mission && state.mission.n) || 0);
+  const m = state.mission, kind = MISSION_KINDS.find(c => c.k === m.k);
+  const progress = Math.min(m.target, (state.stats[kind.stat] || 0) - m.base);
+  const L = state.level;
+  return {
+    ...m, progress, done: progress >= m.target,
+    reward: { coins: Math.round((25 + L * 10) * (1 + m.target / 4)), xp: 4 + L * 2 },
+  };
+}
+
+export function claimMission(state) {
+  const m = mission(state);
+  if (!m.done) return fail('notReady');
+  state.coins += m.reward.coins;
+  const lv = addXP(state, m.reward.xp);
+  bump(state, 'missionsDone');
+  state.mission = newMission(state, m.n + 1);
+  return ok({ coins: m.reward.coins, xp: m.reward.xp, ...lv });
 }

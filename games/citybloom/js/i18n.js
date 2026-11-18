@@ -78,6 +78,11 @@ const STRINGS = {
     tipOrder: 'Toque na Prefeitura e entregue um pedido 📋',
     tipBuild: 'Construa algo novo no botão 🔨',
     tipExpand: 'Compre uma quadra nova (placa 🏷️)',
+    mayorHi: 'Olá! Sou o Prefeito Otávio. Siga a mão para começar!',
+    skip: 'Pular', missionTitle: 'Missão', claim: 'Pegar',
+    mission_rent: 'Colete aluguel {n} vezes', mission_harvest: 'Colha {n} lotes', mission_orders: 'Entregue {n} pedidos',
+    mission_products: 'Fabrique {n} produtos', mission_build: 'Construa {n} coisa(s) nova(s)', mission_upgrade: 'Melhore {n} casa',
+    missionDone: 'Missão cumprida!',
   },
   en: {
     level: 'Level', lang: 'PT', close: 'Close',
@@ -141,6 +146,11 @@ const STRINGS = {
     tipOrder: 'Tap the Town Hall and deliver an order 📋',
     tipBuild: 'Build something new with the 🔨 button',
     tipExpand: 'Buy a new block (🏷️ sign)',
+    mayorHi: "Hi! I'm Mayor Otávio. Follow the hand to get started!",
+    skip: 'Skip', missionTitle: 'Mission', claim: 'Collect',
+    mission_rent: 'Collect rent {n} times', mission_harvest: 'Harvest {n} lots', mission_orders: 'Deliver {n} orders',
+    mission_products: 'Make {n} products', mission_build: 'Build {n} new thing(s)', mission_upgrade: 'Upgrade {n} house',
+    missionDone: 'Mission complete!',
   },
 };
 

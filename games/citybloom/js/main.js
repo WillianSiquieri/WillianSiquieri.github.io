@@ -14,6 +14,7 @@ import { levelsView } from './ui/levels.js';
 import { settingsView, esc } from './ui/settings.js';
 import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
 import { dailyView } from './ui/daily.js';
+import { Tutorial } from './ui/tutorial.js';
 import { inventoryView } from './ui/inventory.js';
 import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
@@ -55,6 +56,9 @@ class CityGame {
 
     this.scene = new Scene(this.state);
     this.world = null;            // cidade 3D (quando WebGL e modelos carregarem)
+    this.tutorial = new Tutorial(this);
+    this.camTween = null;
+    this.greetUntil = 0;
     this.input = new InputManager(canvas, this);
     this._resize();
     this.ready3d = this._init3d();
@@ -68,10 +72,12 @@ class CityGame {
     this._loop = this._loop.bind(this);
     requestAnimationFrame(this._loop);
 
-    // Prefeito Otávio: apresentação (1ª vez) ou baú diário pronto.
-    if (!this.state.showcase) {
-      if (!this.state.mentor.intro) setTimeout(() => this.startIntro(), 700);
-      else if (E.dailyStatus(this.state, this.now()).canClaim) setTimeout(() => { if (!this.sheet && !this.modalQueue.length) this.openSheet('daily'); }, 1200);
+    // O jogador cai direto na cidade (regra dos portais): o Prefeito se apresenta
+    // num balão que não bloqueia e a mão do tutorial mostra o primeiro toque.
+    if (!this.state.showcase && !this.state.mentor.intro) {
+      this.state.mentor.intro = true;
+      this.greetUntil = this.time() + 7;
+      save(this.state);
     }
   }
 
@@ -102,30 +108,6 @@ class CityGame {
     }
   }
 
-  // ---------------------------------------------------------------- prefeito: abertura
-  // Jogo novo: boas-vindas → nome da cidade → "conto com você".
-  // Save antigo (já tem nome): só uma apresentação curta.
-  startIntro() {
-    const s = this.state;
-    const done = () => { s.mentor.intro = true; save(s); };
-    const go = `<button class="btn primary" data-act="modalOk">${t('letsGo')}</button>`;
-    if (s.cityName) {
-      this.pushModal({ render: () => mentorCard({ text: t('mayorBack', { c: esc(s.cityName) }), buttons: go }), onOk: done });
-      return;
-    }
-    this.pushModal({ render: () => mentorCard({ text: t('mayorHello'), buttons: `<button class="btn primary" data-act="modalOk">${t('next')} ›</button>` }) });
-    this.pushModal({
-      render: () => mentorCard({
-        text: t('mayorAskName'),
-        body: `<input id="intro-name" class="name-input" maxlength="20" autocomplete="off" enterkeyhint="done" placeholder="${esc(t('cityNameDefault'))}">`,
-        buttons: `<button class="btn primary" data-act="modalOk">${t('nameGo')}</button>`,
-      }),
-      focus: 'intro-name',
-      onOk: () => this.saveName($('intro-name').value, true),
-    });
-    this.pushModal({ render: () => mentorCard({ text: t('mayorCount', { c: esc(s.cityName || t('cityNameDefault')) }), buttons: go }), onOk: done });
-  }
-
   // ---------------------------------------------------------------- nome da cidade
   openName(rename) {
     $('name-title').textContent = t(rename ? 'renameTitle' : 'nameTitle');
@@ -152,6 +134,14 @@ class CityGame {
     return true;
   }
 
+  panelOpen() { return $('panel').classList.contains('show'); }
+
+  // Leva a câmera com calma até um ponto do mundo.
+  panTo(wx, wy, dur = 0.8) {
+    const c = this.camera;
+    this.camTween = { x0: c.x, y0: c.y, x1: wx, y1: wy, t0: this.time(), dur };
+  }
+
   now() { return Date.now(); }
   time() { return (performance.now() - this.t0) / 1000; }
 
@@ -163,7 +153,9 @@ class CityGame {
       if (!tileOf(s, i, j).locked) { i0 = Math.min(i0, i); j0 = Math.min(j0, j); i1 = Math.max(i1, i + 1); j1 = Math.max(j1, j + 1); }
     }
     const L = pt(i0, j1), R = pt(i1, j0), T = pt(i0, j0), B = pt(i1, j1);
-    const w = (R.x - L.x) + TW * 2.2, h = (B.y - T.y) + 220;
+    // folga menor em telas estreitas: a cidade começa grande no celular
+    const narrow = cam.vw < 600;
+    const w = (R.x - L.x) + TW * (narrow ? 0.5 : 2.2), h = (B.y - T.y) + (narrow ? 160 : 220);
     cam.zoom = Math.max(cam.minZoom, Math.min(cam.maxZoom, Math.min(cam.vw / w, (cam.vh - 150) / h)));
     cam.x = (L.x + R.x) / 2;
     cam.y = (T.y + B.y) / 2 - 30;
@@ -271,6 +263,16 @@ class CityGame {
       case 'closeSheet': this.closeSheet(); return;
       case 'modalOk': this.closeModal(); return;
       case 'daily': if (!s.showcase) this.openSheet('daily'); return;
+      case 'tutSkip': s.mentor.tut = false; this.greetUntil = 0; save(s); hudKey = ''; sfx.click(); return;
+      case 'claimMission': {
+        const rr = E.claimMission(s);
+        if (!rr.ok) return this._error(rr);
+        const th = s.objects.find(x => x.type === 'townhall');
+        this._result(rr, th ? th.i : 0, th ? th.j : 0, th ? th.size : 1);
+        toast(t('missionDone'));
+        hudKey = '';
+        return;
+      }
       case 'inventory': if (!s.showcase) { this.select(null); this.openSheet('inventory'); } return;
       case 'claimDaily': {
         const rr = E.claimDaily(s, now);
@@ -559,6 +561,12 @@ class CityGame {
     this.lastFrame = nowP;
     const time = this.time();
     this.scene.update(dt);
+    if (this.camTween) {
+      const k = Math.min(1, (time - this.camTween.t0) / this.camTween.dur), e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      this.camera.x = this.camTween.x0 + (this.camTween.x1 - this.camTween.x0) * e;
+      this.camera.y = this.camTween.y0 + (this.camTween.y1 - this.camTween.y0) * e;
+      if (k >= 1) this.camTween = null;
+    }
     if (this.world) {
       this.world.render(this.camera, this.state, time, this.now(), {
         selected: this.placing ? null : this.selected,
@@ -574,6 +582,7 @@ class CityGame {
     }
     this.fx.render(this.ctx, time);
     renderHud(this);
+    this.tutorial.update(time);
     requestAnimationFrame(this._loop);
   }
 }
@@ -584,10 +593,13 @@ function renderHud(game) {
   const s = game.state;
   const ph = phaseForLevel(s.level);
   const deliverable = s.orders.filter(o => E.canDeliver(s, o)).length;
-  const tip = s.showcase ? null : E.currentTip(s);
+  const tut = !s.showcase && s.mentor && s.mentor.tut !== false;
+  const tip = s.showcase ? null : (tut ? E.currentTip(s) : null);
+  const greet = !s.showcase && game.time() < game.greetUntil;
+  const ms = s.showcase || tip || greet ? null : E.mission(s);
   const daily = !s.showcase && E.dailyStatus(s, game.now());
   const gift = daily ? (daily.canClaim ? 2 : daily.extraAvailable ? 1 : 0) : -1;
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, s.cityName, gift, document.documentElement.lang].join('|');
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang].join('|');
   if (key === hudKey) return;
   hudKey = key;
   $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
@@ -604,7 +616,19 @@ function renderHud(game) {
   badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
   $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
   const tipEl = $('tip');
-  if (tip) { $('tip-text').textContent = t(tip); tipEl.classList.add('show'); } else tipEl.classList.remove('show');
+  const tbtn = $('tip-btn'), sub = $('tip-sub');
+  tipEl.classList.toggle('mission', !!ms); tipEl.classList.toggle('done', !!(ms && ms.done));
+  if (greet || tip) {
+    $('tip-text').textContent = greet ? t('mayorHi') : t(tip);
+    sub.textContent = '';
+    tbtn.textContent = t('skip'); tbtn.dataset.act = 'tutSkip'; tbtn.className = 'tip-btn ghost';
+    tipEl.classList.add('show');
+  } else if (ms) {
+    $('tip-text').textContent = t('mission_' + ms.k, { n: ms.target });
+    sub.innerHTML = `${ms.progress}/${ms.target} · 🪙 ${fmtNum(ms.reward.coins)} · ${ms.reward.xp} XP`;
+    tbtn.textContent = t('claim'); tbtn.dataset.act = 'claimMission'; tbtn.className = 'tip-btn' + (ms.done ? '' : ' hidden');
+    tipEl.classList.add('show');
+  } else tipEl.classList.remove('show');
   $('btn-daily').style.display = gift < 0 ? 'none' : '';
   $('daily-badge').style.display = gift === 2 ? 'flex' : 'none';
   $('btn-daily').classList.toggle('ready', gift === 2);

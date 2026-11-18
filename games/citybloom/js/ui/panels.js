@@ -1,7 +1,7 @@
 // panels.js — painel de ações do item tocado (bottom sheet).
 // Gera HTML com botões `data-act` / `data-arg`; o main.js trata os cliques.
 
-import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP } from '../game/config.js';
+import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs } from '../game/config.js';
 import {
   lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkPrice,
   used, warehouseCost, canAfford,
@@ -61,7 +61,7 @@ export function panelView(game) {
         return `<button class="choice" data-act="startLot" data-arg="${k}"${locked || s.coins < r.cost ? ' disabled' : ''}>
           <span class="ci">${ITEMS[k].icon}</span>
           <span class="cn">${tn(ITEMS[k].name)} ×${r.yield}</span>
-          <span class="cm">${locked ? `🔒 ${t('level')} ${r.unlock}` : `⏱ ${fmtTime(r.time)} · 🪙 ${r.cost}`}</span>
+          <span class="cm">${locked ? `🔒 ${t('level')} ${r.unlock}` : `⏱ ${fmtTime(secs(s, r.time))} · 🪙 ${r.cost}`}</span>
         </button>`;
       }).join('');
       return { title, body: `<p>${t('lotEmpty')}</p><div class="choices">${opts}</div>`, actions: '' };
@@ -92,7 +92,7 @@ export function panelView(game) {
       const out = ITEMS[r.out];
       const full = o.queue.length >= def.queue;
       return `<div class="recipe">
-        <div class="rl"><span class="ci">${out.icon}</span><div><b>${tn(out.name)}</b><div class="rc">${costHtml(s, r.in)} · ⏱ ${fmtTime(r.time)}</div></div></div>
+        <div class="rl"><span class="ci">${out.icon}</span><div><b>${tn(out.name)}</b><div class="rc">${costHtml(s, r.in)} · ⏱ ${fmtTime(secs(s, r.time))}</div></div></div>
         ${btn('recipe', t('produce'), 'primary small', idx, full || !canAfford(s, r.in))}
       </div>`;
     }).join('');
@@ -112,14 +112,14 @@ export function panelView(game) {
       const nd = BUILDINGS[def.next];
       const locked = nd.unlock > s.level;
       up = `<div class="upgrade"><div><b>${t('upgrade')}: ${tn(nd.name)}</b>
-          <div class="rc">👥 ${nd.residents} · 🪙 ${nd.rent}/${fmtTime(nd.rentTime)}</div>
+          <div class="rc">👥 ${nd.residents} · 🪙 ${nd.rent}/${fmtTime(secs(s, nd.rentTime))}</div>
           <div class="rc">${locked ? `🔒 ${t('unlocksAt')} ${nd.unlock}` : costHtml(s, nd.build)}</div></div>
         ${btn('upgrade', '⬆️', 'primary small', '', locked || !canAfford(s, nd.build))}</div>`;
     }
     return {
       title,
-      body: `<p>👥 ${def.residents} ${t('residents')} · ${t('rent')} 🪙 ${rent} ${t('every')} ${fmtTime(def.rentTime)}</p>
-        ${ready ? `<p class="ok">✅ 🪙 ${rent}</p>` : `${bar(1 - (o.rentReadyAt - now) / (def.rentTime * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.rentReadyAt - now) / 1000)}</p>`}
+      body: `<p>👥 ${def.residents} ${t('residents')} · ${t('rent')} 🪙 ${rent} ${t('every')} ${fmtTime(secs(s, def.rentTime))}</p>
+        ${ready ? `<p class="ok">✅ 🪙 ${rent}</p>` : `${bar(1 - (o.rentReadyAt - now) / (secs(s, def.rentTime) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.rentReadyAt - now) / 1000)}</p>`}
         ${up}`,
       actions: ready ? btn('collect', `${t('collect')} 🪙 ${rent}`, 'primary') + btn('collect2', `${t('watchAd')} · ${t('double')}`, 'ad')
         : btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad'),
@@ -130,13 +130,13 @@ export function panelView(game) {
     const pop = population(s);
     const amount = Math.round(def.income.coins * happinessMult(s));
     if (pop < def.minPop) {
-      return { title, body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(def.income.time)}</p><p class="warn">👥 ${pop}/${def.minPop} — ${t('needPop', { n: def.minPop })}</p>`, actions: '' };
+      return { title, body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p><p class="warn">👥 ${pop}/${def.minPop} — ${t('needPop', { n: def.minPop })}</p>`, actions: '' };
     }
     const ready = o.incomeReadyAt && now >= o.incomeReadyAt;
     return {
       title,
-      body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(def.income.time)}</p>` +
-        (ready ? `<p class="ok">✅ 🪙 ${amount}</p>` : o.incomeReadyAt ? `${bar(1 - (o.incomeReadyAt - now) / (def.income.time * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.incomeReadyAt - now) / 1000)}</p>` : ''),
+      body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p>` +
+        (ready ? `<p class="ok">✅ 🪙 ${amount}</p>` : o.incomeReadyAt ? `${bar(1 - (o.incomeReadyAt - now) / (secs(s, def.income.time) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.incomeReadyAt - now) / 1000)}</p>` : ''),
       actions: ready ? btn('collect', `${t('collect')} 🪙 ${amount}`, 'primary') + btn('collect2', `${t('watchAd')} · ${t('double')}`, 'ad')
         : (o.incomeReadyAt ? btn('speed', `${t('watchAd')} · ${t('speedUp')}`, 'ad') : ''),
     };

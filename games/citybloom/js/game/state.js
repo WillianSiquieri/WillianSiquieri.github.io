@@ -2,7 +2,7 @@
 // Tudo que tem tempo usa horários absolutos (ms) — assim a produção continua
 // com o jogo fechado sem precisar "simular" nada ao voltar.
 
-import { BUILDINGS, MAP, START, WAREHOUSE } from './config.js';
+import { BUILDINGS, MAP, START, WAREHOUSE, secs } from './config.js';
 
 const SAVE_KEY = 'citybloom.save.v2';
 export const VERSION = 2;
@@ -21,7 +21,7 @@ export function rng(seed) {
 export function makeObject(state, type, i, j, now, extra = {}) {
   const def = BUILDINGS[type];
   const o = { id: state.nextId++, type, i, j, size: def.size };
-  if (def.type === 'house') o.rentReadyAt = now + def.rentTime * 1000;
+  if (def.type === 'house') o.rentReadyAt = now + secs(state, def.rentTime) * 1000;
   if (def.type === 'factory') o.queue = [];
   if (def.type === 'commerce') o.incomeReadyAt = null; // começa quando houver população
   if (def.type === 'lot') { o.resource = null; o.readyAt = null; }
@@ -71,12 +71,15 @@ export function newGame(now = Date.now()) {
   add('townhall', 7, 6);
   add('warehouse', 10, 6);
   add('sawmill', 10, 7);
-  add('lot', 6, 10, { resource: 'wood', readyAt: now + 5000 });   // primeira colheita rápida
+  add('lot', 6, 10, { resource: 'wood', readyAt: now + 3000 });   // primeira colheita rápida
   add('lot', 7, 10);
-  add('house1', 9, 10, { rentReadyAt: now + 20000 });
-  add('house1', 10, 10, { rentReadyAt: now + 35000 });
+  add('house1', 9, 10, { rentReadyAt: now + 8000 });            // aluguel logo no tutorial
+  add('house1', 10, 10, { rentReadyAt: now + 14000 });
   add('tree', 6, 6);
   add('tree', 11, 11);
+
+  // primeiro pedido feito para o tutorial: dá para entregar com a madeira colhida
+  state.orders.push({ id: state.nextOrderId++, client: 'neighbor', line: 0, items: { wood: 2 }, coins: 30, xp: 8 });
 
   const tile = (i, j) => tiles[j * n + i];
   tile(6, 8).obstacle = 'bush';

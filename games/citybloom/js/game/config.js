@@ -308,6 +308,13 @@ export function phaseIndex(level) {
 export function phaseForLevel(level) { return PHASES[phaseIndex(level)]; }
 
 // XP para passar do nível `level` ao próximo.
+// Ritmo do começo: os primeiros níveis andam bem mais rápido (sem esperas
+// chatas logo de cara); a partir do nível 8 os tempos são os da tabela.
+export function timeScale(level) {
+  return level <= 2 ? 0.1 : level <= 3 ? 0.2 : level <= 4 ? 0.35 : level <= 5 ? 0.5 : level <= 7 ? 0.75 : 1;
+}
+export function secs(state, base) { return Math.max(3, Math.round(base * timeScale(state.level))); }
+
 export function xpToNext(level) {
   return Math.round(20 + 15 * Math.pow(level - 1, 1.4));
 }
