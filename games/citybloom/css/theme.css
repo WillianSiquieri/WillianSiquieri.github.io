@@ -1,0 +1,151 @@
+/* theme.css — visual "de jogo" do CityBloom (por cima de style.css):
+   fonte arredondada, botões gordinhos que afundam ao tocar, cartões sólidos,
+   ícones 3D (assets/icons) e layout compacto para telas baixas (iframes). */
+
+@font-face { font-family: 'Fredoka'; font-weight: 500; font-display: swap; src: url('../assets/fonts/fredoka-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Fredoka'; font-weight: 600; font-display: swap; src: url('../assets/fonts/fredoka-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Fredoka'; font-weight: 700; font-display: swap; src: url('../assets/fonts/fredoka-latin-700-normal.woff2') format('woff2'); }
+
+:root {
+  --text: #22305a;
+  --muted: #6c7a99;
+  --card: #fffdf9;
+  --edge: rgba(34, 48, 90, 0.18);
+  --lift: 0 4px 0 var(--edge), 0 10px 22px rgba(34, 48, 90, 0.16);
+  --blue1: #4da3ff; --blue2: #2b6fe6; --blueE: #1d4fb0;
+  --green1: #5fdc6e; --green2: #2fb24c; --greenE: #1f8a37;
+  --orange1: #ffc23d; --orange2: #ff8f1f; --orangeE: #c8620a;
+  --purple1: #b07bff; --purple2: #7b3fe4; --purpleE: #5526ad;
+  --red: #ff4d4f;
+}
+html, body { font-family: 'Fredoka', 'Nunito', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.005em; }
+button, input { font-family: inherit; }
+
+/* ícones 3D no lugar dos emoji */
+img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-block; object-fit: contain; pointer-events: none; }
+.bi img.emo, .lockbig img.emo { width: 30px; height: 30px; vertical-align: middle; }
+.round img.emo { width: 26px; height: 26px; vertical-align: middle; }
+.round.small img.emo { width: 22px; height: 22px; }
+.gift img.emo { width: 32px; height: 32px; }
+.ci img.emo, .oi span img.emo, .iicon img.emo, .uicon img.emo, .slot img.emo { width: 30px; height: 30px; vertical-align: middle; }
+.dicon img.emo { width: 36px; height: 36px; }
+.day.big .dicon img.emo { width: 46px; height: 46px; }
+.tab img.emo { width: 26px; height: 26px; }
+.phase-head .pi img.emo { width: 32px; height: 32px; }
+.burst img.emo { width: 56px; height: 56px; }
+.lv-badge .burst img.emo { width: 40px; height: 40px; }
+.chest-burst img.emo { width: 38px; height: 38px; }
+
+/* ---------------- superfícies sólidas (sem vidro: mais leve no celular) ---------------- */
+.glass, .pill, .round, .panel, .sheet-card, .placebar, .tip, .toast, .bigbtn, .modal-card {
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  background: var(--card); border: 2px solid #fff; box-shadow: var(--lift);
+}
+
+/* ---------------- HUD ---------------- */
+.pill { border-radius: 999px; padding: 5px 12px 5px 7px; font-weight: 700; font-size: 15px; gap: 6px; }
+.pill .ri { display: inline-flex; }
+.pill .ri img.emo { width: 24px; height: 24px; vertical-align: middle; }
+.level-pill { border-radius: 16px; padding: 6px 12px; }
+.level-top { font-size: 13px; }
+.level-top .lvl { color: var(--blue2); }
+.xp { height: 9px; border-radius: 6px; background: #e6ebf5; box-shadow: inset 0 1px 2px rgba(34,48,90,0.15); }
+.xp-fill { background: linear-gradient(180deg, #7cf08a, #2fb24c); border-radius: 6px; position: relative; overflow: hidden; }
+.xp-fill::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent); transform: translateX(-100%); animation: shine 2.6s ease-in-out infinite; }
+@keyframes shine { 60%, 100% { transform: translateX(100%); } }
+.pill.bump { animation: bump .45s cubic-bezier(.3,1.8,.5,1); }
+@keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
+.round { border-radius: 50%; }
+.round:active, .pill:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--edge), 0 6px 14px rgba(34,48,90,0.14); }
+
+/* ---------------- botões ---------------- */
+.bigbtn { border-radius: 22px; font-weight: 700; font-size: 17px; height: 60px; border: 3px solid #fff; transition: transform .08s, box-shadow .08s; }
+.bigbtn:active { transform: translateY(4px); }
+#btn-orders { background: linear-gradient(180deg, var(--blue1), var(--blue2)); color: #fff; box-shadow: 0 5px 0 var(--blueE), 0 12px 24px rgba(34,48,90,0.25); text-shadow: 0 2px 0 rgba(0,0,0,0.18); }
+#btn-orders:active { box-shadow: 0 1px 0 var(--blueE), 0 6px 14px rgba(34,48,90,0.2); }
+.bigbtn.primary, #btn-build { background: linear-gradient(180deg, var(--orange1), var(--orange2)); color: #fff; box-shadow: 0 5px 0 var(--orangeE), 0 12px 24px rgba(34,48,90,0.25); text-shadow: 0 2px 0 rgba(0,0,0,0.18); }
+#btn-build:active { box-shadow: 0 1px 0 var(--orangeE), 0 6px 14px rgba(34,48,90,0.2); }
+.badge { background: var(--red); border: 2px solid #fff; font-weight: 700; box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+
+.btn { border-radius: 16px; font-weight: 700; font-size: 15px; background: #edf1f8; color: var(--text); box-shadow: 0 3px 0 #cfd7e6; transition: transform .08s, box-shadow .08s; }
+.btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 #cfd7e6; }
+.btn.primary { background: linear-gradient(180deg, var(--green1), var(--green2)); color: #fff; box-shadow: 0 4px 0 var(--greenE); text-shadow: 0 1px 0 rgba(0,0,0,0.2); }
+.btn.primary:active:not(:disabled) { box-shadow: 0 1px 0 var(--greenE); }
+.btn.ad { background: linear-gradient(180deg, var(--purple1), var(--purple2)); color: #fff; box-shadow: 0 4px 0 var(--purpleE); text-shadow: 0 1px 0 rgba(0,0,0,0.2); }
+.btn.ad:active:not(:disabled) { box-shadow: 0 1px 0 var(--purpleE); }
+.btn.coin { background: linear-gradient(180deg, var(--orange1), var(--orange2)); color: #fff; box-shadow: 0 4px 0 var(--orangeE); text-shadow: 0 1px 0 rgba(0,0,0,0.2); }
+.btn.coin:active:not(:disabled) { box-shadow: 0 1px 0 var(--orangeE); }
+.btn.ghost { background: #edf1f8; }
+.btn:disabled { opacity: 0.45; box-shadow: none; }
+.tip-btn { font-weight: 700; border-radius: 14px; }
+.close { background: #edf1f8; box-shadow: 0 2px 0 #cfd7e6; font-weight: 700; }
+.movebtn { background: #e6f0ff; color: var(--blue2); font-weight: 700; box-shadow: 0 2px 0 #c7d9f7; }
+
+/* ---------------- painel, menus e cartões ---------------- */
+.panel { border-radius: 24px; border-width: 3px; padding: 12px 14px 14px; }
+.panel-title, .sheet-title { font-weight: 700; font-size: 19px; }
+.sheet-card { border-radius: 28px 28px 0 0; border-width: 3px; border-bottom: 0; background: #f4f7fc; }
+.card, .choice, .recipe, .upgrade, .order, .icard, .istore, .lvl-row, .slot, .inv, .tab, .chipbtn { border: 2px solid #fff; box-shadow: 0 3px 0 #dfe5f0; }
+.card { border-radius: 20px; background: #fff; }
+.card > img { border-radius: 14px; background: radial-gradient(circle at 50% 60%, #ffffff, #e3f1ff 70%); }
+.card b, .choice .cn, .whotxt b { font-weight: 700; }
+.tab { border-radius: 16px; font-weight: 700; }
+.tab.on, .chipbtn.on { background: linear-gradient(180deg, var(--blue1), var(--blue2)); color: #fff; box-shadow: 0 3px 0 var(--blueE); border-color: #fff; }
+.order.ready { border-color: var(--green2); box-shadow: 0 3px 0 #b7e8c4; }
+.oi { border-radius: 14px; }
+.chip, .gift-chip { font-weight: 700; }
+.modal-card { border-radius: 28px; border-width: 3px; }
+.mentor-say { font-weight: 600; }
+.mentor-name { font-weight: 700; }
+.sec, .sheet-body .sec, .mentor .sec, .dlabel, .slots .lbl { font-weight: 700 !important; }
+.toast { border-radius: 18px; font-weight: 700; }
+.placebar { border-radius: 24px; border-width: 3px; }
+.placebar .btn { border-radius: 16px; }
+
+/* ---------------- moedas e itens voando até o contador ---------------- */
+.flyer { position: fixed; left: 0; top: 0; z-index: 60; width: 30px; height: 30px; pointer-events: none; will-change: transform; }
+
+/* ---------------- tela de carregamento ---------------- */
+.loading {
+  position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  background: radial-gradient(circle at 50% 40%, #bde8ff, #6fc3ee 70%); transition: opacity .45s;
+}
+.loading.hide { opacity: 0; pointer-events: none; }
+.loading .logo { display: flex; align-items: center; gap: 10px; font-size: clamp(34px, 8vw, 60px); font-weight: 700; color: #fff; text-shadow: 0 4px 0 #2a6fb8, 0 8px 18px rgba(0,0,0,0.2); }
+.loading .logo b { color: #ffd23f; text-shadow: 0 4px 0 #c8620a, 0 8px 18px rgba(0,0,0,0.2); font-weight: 700; }
+.loading .logo img { width: clamp(46px, 10vw, 76px); height: auto; }
+.loading .mayor { height: clamp(120px, 26vh, 220px); filter: drop-shadow(0 8px 10px rgba(0,0,0,0.2)); animation: breathe 3s ease-in-out infinite; }
+.loading .bar { width: min(320px, 70vw); height: 18px; border-radius: 10px; background: rgba(255,255,255,0.55); border: 3px solid #fff; overflow: hidden; box-shadow: 0 4px 0 rgba(34,48,90,0.18); }
+.loading .bar div { height: 100%; width: 0; background: linear-gradient(180deg, var(--orange1), var(--orange2)); transition: width .25s; }
+
+/* ---------------- telas baixas (iframes 16:9 pequenos, celular deitado) ---------------- */
+@media (max-height: 560px) {
+  .hud { top: 6px; }
+  .pill { font-size: 13px; padding: 3px 9px 3px 5px; }
+  .pill .ri img.emo { width: 20px; height: 20px; }
+  .level-pill { min-width: 110px; padding: 4px 10px; }
+  .round { width: 40px; height: 40px; }
+  .round.small { width: 34px; height: 34px; }
+  .gift { top: 50px; }
+  .bigbtn { height: 48px; min-width: 104px; font-size: 15px; border-radius: 18px; }
+  .bi img.emo { width: 24px; height: 24px; }
+  .bottombar { bottom: 8px; }
+  .side { bottom: 66px; gap: 6px; }
+  .tip { bottom: 62px; font-size: 12.5px; }
+  .panel { max-height: calc(100vh - 70px); bottom: 8px; max-width: 420px; }
+  .sheet-card { max-height: calc(100vh - 12px); padding-top: 10px; }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; }
+  .card > img { height: 78px; }
+  .modal { padding: 8px; }
+  .modal-card:has(.mentor) { max-height: calc(100vh - 16px); padding: 12px 14px; }
+  .mentor-figure { height: 140px; width: 70px; }
+  .mentor-say { font-size: 14px; }
+  .loading .mayor { height: 110px; }
+}
+@media (max-height: 470px) {
+  .level-pill { min-width: 96px; }
+  .hud-left { gap: 4px; }
+  .mentor-figure { height: 110px; width: 55px; }
+  .daily-grid { grid-template-columns: repeat(7, 1fr); gap: 5px; }
+  .day.big { grid-column: span 1; }
+}

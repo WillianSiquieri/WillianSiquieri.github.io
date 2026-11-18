@@ -2,6 +2,7 @@
 // estrelinhas ao construir. Desenhados no canvas com a mesma câmera do mapa.
 
 import { center } from '../engine/iso.js';
+import { drawRich } from './icons.js';
 
 export class Fx {
   constructor() { this.items = []; }
@@ -31,11 +32,10 @@ export class Fx {
       if (f.kind === 'text') {
         const y = f.y - p * 30;
         ctx.globalAlpha = p < 0.7 ? 1 : 1 - (p - 0.7) / 0.3;
-        ctx.font = '800 13px -apple-system, "Segoe UI", sans-serif';
-        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-        ctx.lineWidth = 3.5; ctx.strokeStyle = 'rgba(255,255,255,0.95)';
-        ctx.strokeText(f.text, f.x, y);
-        ctx.fillStyle = f.color; ctx.fillText(f.text, f.x, y);
+        const pop = p < 0.12 ? 0.6 + p / 0.12 * 0.5 : p < 0.2 ? 1.1 - (p - 0.12) / 0.08 * 0.1 : 1;   // surge com "pulo"
+        const px = 15 * pop;
+        ctx.font = `700 ${px}px Fredoka, "Segoe UI", sans-serif`;
+        drawRich(ctx, f.text, f.x, y, px, { stroke: 'rgba(255,255,255,0.97)', fill: f.color, lineWidth: 4.5 * pop });
       } else {
         const tt = t - f.t0;
         ctx.globalAlpha = 1 - p;

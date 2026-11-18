@@ -9,6 +9,7 @@ import { bush, rubble, abandonedCar, lamp, car, hash } from './props.js';
 import { PAINT, ANIM, HEIGHT } from './buildings.js';
 import { SpriteCache, bboxBuilding, BBOX_TILE, BBOX_LOT, BBOX_PROP } from './sprites.js';
 import { Traffic } from './traffic.js';
+import { emojiImage } from '../ui/icons.js';
 import { BUILDINGS, MAP } from '../game/config.js';
 import { lotProgress, readyIcon, chunkBuyable, chunkPrice } from '../game/economy.js';
 import { objectAt } from '../game/state.js';
@@ -57,7 +58,7 @@ export class Scene {
     if (state.showcase) return;
     const n = state.size, C = MAP.chunk, nc = n / C, price = chunkPrice(state);
     for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) {
-      if (chunkBuyable(state, ci, cj)) forSaleSign(ctx, pt(ci * C + 1.5, cj * C + 1.5), `🏷️ ${price}`, true);
+      if (chunkBuyable(state, ci, cj)) forSaleSign(ctx, pt(ci * C + 1.5, cj * C + 1.5), `🪙 ${price}`, true);
     }
     const bubbles = [];
     for (const o of state.objects) {
@@ -168,7 +169,7 @@ export class Scene {
       } else if (it.k === 'car') {
         car(ctx, it.c.ci, it.c.cj, it.c.dir, it.c.color);
       } else if (it.k === 'sign') {
-        forSaleSign(ctx, pt(it.ci * MAP.chunk + 1.5, it.cj * MAP.chunk + 1.5), `🏷️ ${it.price}`, true);
+        forSaleSign(ctx, pt(it.ci * MAP.chunk + 1.5, it.cj * MAP.chunk + 1.5), `🪙 ${it.price}`, true);
       } else if (it.k === 'ghost') {
         this._ghost(ctx, it.g);
       }
@@ -216,9 +217,9 @@ export class Scene {
     ctx.beginPath(); ctx.moveTo(c.x - 4, c.y + 10); ctx.lineTo(c.x, c.y + 16); ctx.lineTo(c.x + 4, c.y + 10); ctx.fill();
     ctx.strokeStyle = '#34c759'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.arc(c.x, c.y, 12, 0, Math.PI * 2); ctx.stroke();
-    ctx.font = '14px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(icon, c.x, c.y + 1);
+    const im = emojiImage(icon);
+    if (im && im.complete && im.naturalWidth) ctx.drawImage(im, c.x - 9, c.y - 9, 18, 18);
+    else { ctx.font = '14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(icon, c.x, c.y + 1); }
   }
 
   _ghost(ctx, g) {

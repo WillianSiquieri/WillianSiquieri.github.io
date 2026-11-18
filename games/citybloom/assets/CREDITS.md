@@ -20,6 +20,14 @@
 - Prefeitura, estádio, aeroporto, praça, chafariz, escola, posto de saúde, hospital e
   bombeiros: montados em código para o jogo (`js/render3d/catalog.js`).
 
+## Ícones (assets/icons/)
+- **Fluent Emoji 3D** — Microsoft (https://github.com/microsoft/fluentui-emoji), MIT License,
+  via o pacote @lobehub/fluent-emoji-3d (MIT). Reduzidos para 128 px.
+
+## Fonte (assets/fonts/)
+- **Fredoka** — The Fredoka Project Authors, SIL Open Font License 1.1
+  (`assets/fonts/OFL-Fredoka.txt`).
+
 ## Motor 3D
 - **Three.js** r180 (https://threejs.org), MIT License (`js/vendor/three/LICENSE`).
 

@@ -15,6 +15,7 @@ import { settingsView, esc } from './ui/settings.js';
 import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
 import { dailyView } from './ui/daily.js';
 import { Tutorial } from './ui/tutorial.js';
+import { watchIcons } from './ui/icons.js';
 import { inventoryView } from './ui/inventory.js';
 import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
@@ -135,6 +136,39 @@ class CityGame {
   }
 
   panelOpen() { return $('panel').classList.contains('show'); }
+
+  // Moedas, itens e XP voam do prédio até o contador do HUD, que pulsa.
+  _fly(r, i, j, size) {
+    const c = center(i, j, size);
+    const from = this.camera.toScreen(c.x, c.y - 20);
+    const go = (icon, targetSel, n) => {
+      const tgt = document.querySelector(targetSel);
+      if (!tgt || n <= 0) return;
+      const tr = tgt.getBoundingClientRect(), tx = tr.left + 20, ty = tr.top + tr.height / 2;
+      for (let k = 0; k < n; k++) {
+        const el = document.createElement('img');
+        el.className = 'flyer'; el.src = icon; el.alt = '';
+        document.body.append(el);
+        const sx = from.x + (Math.random() - 0.5) * 40, sy = from.y + (Math.random() - 0.5) * 20;
+        const mx = (sx + tx) / 2 + (Math.random() - 0.5) * 80, my = Math.min(sy, ty) - 60 - Math.random() * 40;
+        const a = el.animate([
+          { transform: `translate(${sx - 15}px, ${sy - 15}px) scale(0.4)`, opacity: 0 },
+          { transform: `translate(${sx - 15}px, ${sy - 35}px) scale(1.1)`, opacity: 1, offset: 0.15 },
+          { transform: `translate(${mx - 15}px, ${my - 15}px) scale(1)`, opacity: 1, offset: 0.55 },
+          { transform: `translate(${tx - 15}px, ${ty - 15}px) scale(0.7)`, opacity: 1 },
+        ], { duration: 750 + k * 60, delay: k * 70, easing: 'cubic-bezier(.5,0,.6,1)', fill: 'both' });
+        a.onfinish = () => {
+          el.remove();
+          const pill = tgt.closest('.pill') || tgt;
+          if (k === n - 1) { pill.classList.remove('bump'); void pill.offsetWidth; pill.classList.add('bump'); }
+        };
+      }
+    };
+    if (r.coins) go('assets/icons/1fa99.webp', '#hud-coins', Math.min(6, 2 + Math.floor(Math.log2(r.coins + 1) / 2)));
+    const items = Object.entries(r.items || {});
+    if (items.length || r.drop) go('assets/icons/1f4e6.webp', '[data-act="inventory"]', Math.min(4, 1 + items.length));
+    if (r.xp) go('assets/icons/2b50.webp', '.level-pill', 1);
+  }
 
   // Leva a câmera com calma até um ponto do mundo.
   panTo(wx, wy, dur = 0.8) {
@@ -313,6 +347,7 @@ class CityGame {
     if (r.drop) lines.push({ text: `+1 ${ITEMS[r.drop].icon}`, color: '#7b3fe4' });
     if (r.xp) lines.push({ text: `+${r.xp} XP`, color: '#2e7dff' });
     if (lines.length) this.fx.float(i, j, size, lines, this.time());
+    this._fly(r, i, j, size);
     if (this.world) this.world.bump(i, j, this.time());
     if (r.silent === 'build') sfx.build();
     else if (r.silent === 'click') sfx.click();
@@ -660,9 +695,18 @@ function boot() {
   // anúncios: silencia o jogo durante o anúncio; avisa o portal do carregamento
   ads.onPause = () => { music.hold(true); sfx.hold(true); };
   ads.onResume = () => { music.hold(false); sfx.hold(false); };
-  ads.init().then(() => { ads.loading(true); ads.gameplay(true); });
+  watchIcons();
+  const adsReady = ads.init();
   const game = new CityGame($('city'));
   window.__city = game;
+  // tela de carregamento: some quando a cidade 3D (ou a 2D) está pronta
+  const bar = $('load-bar');
+  game.onLoad = (p) => { bar.style.width = Math.round(10 + p * 90) + '%'; };
+  bar.style.width = '10%';
+  const done = () => { bar.style.width = '100%'; setTimeout(() => $('loading').classList.add('hide'), 150); };
+  Promise.race([game.ready3d, new Promise(r => setTimeout(r, 15000))]).then(done);
+  // o portal só conta "jogando" quando a cidade aparece
+  Promise.all([adsReady, Promise.race([game.ready3d, new Promise(r => setTimeout(r, 15000))])]).then(() => { ads.loading(true); ads.gameplay(true); });
 
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]');

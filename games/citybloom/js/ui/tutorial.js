@@ -117,7 +117,8 @@ export class Tutorial {
     if (!p || p.ui) return p;
     const hit = document.elementFromPoint(p.x, p.y);
     if (!hit || hit.id === 'city' || hit.id === 'city3d' || this.el.contains(hit)) return p;
-    for (const q of ['[data-act="closeSheet"]', '[data-act="closePanel"]']) {
+    if (this.game.sheet) return null;            // menu aberto pelo jogador: a mão espera
+    for (const q of ['[data-act="closePanel"]']) {
       const e = document.querySelector(q);
       if (visible(e)) { const r = e.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, ui: true }; }
     }

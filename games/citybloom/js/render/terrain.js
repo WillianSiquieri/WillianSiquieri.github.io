@@ -4,6 +4,7 @@
 // As funções de tile desenham na origem (0,0) da grade (o cache de sprites
 // posiciona depois).
 
+import { drawRich } from '../ui/icons.js';
 import { G, up, box, poly, tint, lerp, line, prism, cylinder, roundRect } from './kit.js';
 import { tree, hash, fence } from './props.js';
 
@@ -118,14 +119,12 @@ export function forSaleSign(ctx, p, label, buyable) {
   ctx.beginPath(); ctx.ellipse(p.x + 3, p.y + 1, 7, 3, 0, 0, Math.PI * 2); ctx.fill();
   line(ctx, p, up(p, 14), '#6b4a2e', 1.6);
   // placa
-  const w = buyable ? 38 : 22, h = 13, x = p.x - w / 2, y = p.y - 27;
-  ctx.fillStyle = 'rgba(0,0,0,0.2)'; roundRect(ctx, x + 1.5, y + 2, w, h, 4); ctx.fill();
-  ctx.fillStyle = buyable ? '#ffffff' : '#d9dee3'; roundRect(ctx, x, y, w, h, 4); ctx.fill();
-  ctx.strokeStyle = buyable ? '#2e7dff' : '#9aa3ad'; ctx.lineWidth = 1.5; ctx.stroke();
-  ctx.fillStyle = buyable ? '#1f2430' : '#6b7280';
-  ctx.font = '700 8px -apple-system, "Segoe UI", sans-serif';
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText(label, p.x, y + h / 2 + 0.5);
+  const w = buyable ? 46 : 24, h = 17, x = p.x - w / 2, y = p.y - 30;
+  ctx.fillStyle = 'rgba(0,0,0,0.22)'; roundRect(ctx, x, y + 2.5, w, h, 8); ctx.fill();
+  ctx.fillStyle = buyable ? '#ffc23d' : '#d9dee3'; roundRect(ctx, x, y, w, h, 8); ctx.fill();
+  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.8; ctx.stroke();
+  ctx.font = '700 10px Fredoka, "Segoe UI", sans-serif';
+  drawRich(ctx, label, p.x, y + h / 2 + 0.5, 10, { fill: buyable ? '#5a3300' : '#6b7280' });
 }
 
 // ---------------------------------------------------------------------------
