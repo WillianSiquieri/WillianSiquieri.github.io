@@ -18,7 +18,8 @@
   --purple1: #b07bff; --purple2: #7b3fe4; --purpleE: #5526ad;
   --red: #ff4d4f;
 }
-html, body { font-family: 'Fredoka', 'Nunito', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.005em; }
+/* sem kerning: na Fredoka o par TÁ/ÁV desloca o A e deixa o acento solto */
+html, body { font-family: 'Fredoka', 'Nunito', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.005em; font-kerning: none; }
 button, input { font-family: inherit; }
 
 /* ícones 3D no lugar dos emoji */

@@ -123,7 +123,7 @@ export function forSaleSign(ctx, p, label, buyable) {
   ctx.fillStyle = 'rgba(0,0,0,0.22)'; roundRect(ctx, x, y + 2.5, w, h, 8); ctx.fill();
   ctx.fillStyle = buyable ? '#ffc23d' : '#d9dee3'; roundRect(ctx, x, y, w, h, 8); ctx.fill();
   ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.8; ctx.stroke();
-  ctx.font = '700 10px Fredoka, "Segoe UI", sans-serif';
+  ctx.font = '700 10px Fredoka, "Segoe UI", sans-serif'; if ('fontKerning' in ctx) ctx.fontKerning = 'none';
   drawRich(ctx, label, p.x, y + h / 2 + 0.5, 10, { fill: buyable ? '#5a3300' : '#6b7280' });
 }
 

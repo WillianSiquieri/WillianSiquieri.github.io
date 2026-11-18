@@ -13,6 +13,9 @@ const TSTART = Date.now();
   p.on('console', m => { if (/err/i.test(m.text())) console.log('[page]', m.text()); });
   await p.addInitScript(() => { try { localStorage.setItem('citybloom.lang.v1', 'en'); } catch (_) {} });
   await p.clock.install({ time: Date.parse('2026-11-17T15:00:00') });
+  // relógio parado: o tempo do jogo só anda pelo runFor de cada quadro (sem isso o tempo real
+  // de gravação, ~15 s por quadro, deixa todos os aluguéis prontos)
+  await p.clock.pauseAt(Date.parse('2026-11-17T15:00:01'));
   await p.goto('http://127.0.0.1:8099/games/citybloom/?reset=1');
   for (;;) { if (await p.evaluate(() => !!window.__city)) break; await new Promise(r => setTimeout(r, 100)); }
   // espera a cidade 3D (modelos chegam pela rede; o relógio falso não atrapalha)

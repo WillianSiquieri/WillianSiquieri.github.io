@@ -34,7 +34,7 @@ export class Fx {
         ctx.globalAlpha = p < 0.7 ? 1 : 1 - (p - 0.7) / 0.3;
         const pop = p < 0.12 ? 0.6 + p / 0.12 * 0.5 : p < 0.2 ? 1.1 - (p - 0.12) / 0.08 * 0.1 : 1;   // surge com "pulo"
         const px = 15 * pop;
-        ctx.font = `700 ${px}px Fredoka, "Segoe UI", sans-serif`;
+        ctx.font = `700 ${px}px Fredoka, "Segoe UI", sans-serif`; if ('fontKerning' in ctx) ctx.fontKerning = 'none';
         drawRich(ctx, f.text, f.x, y, px, { stroke: 'rgba(255,255,255,0.97)', fill: f.color, lineWidth: 4.5 * pop });
       } else {
         const tt = t - f.t0;
