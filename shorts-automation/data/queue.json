@@ -610,5 +610,86 @@
     "youtubeId": "qZ78V99hpzE",
     "previewUrl": "https://youtube.com/shorts/qZ78V99hpzE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwnysojx5nsx",
+    "status": "draft",
+    "createdAt": "2026-11-19T19:50:12.045Z",
+    "theme": "Trump compra ações da Nvidia",
+    "title": "Trump investe na Nvidia: quem sai ganhando?",
+    "hook": "Você sabia que o ex‑presidente dos EUA acabou de apostar na Nvidia?",
+    "script": "Em setembro, Donald Trump comprou até 265 mil dólares em ações da Nvidia. A compra veio quando a empresa está no topo da tecnologia de IA. Quem sai ganhando? Investidores de varejo que já têm a ação em carteira, porque o preço pode subir ainda mais com o hype da IA. Quem perde? Os críticos que enxergam o movimento como mera propaganda política e podem ficar presos a expectativas infladas. E você, acha que esse investimento vai impulsionar ainda mais a ação ou é só um truque de mídia?",
+    "cta": "Se quiser entender como movimentos de figuras públicas podem mexer no preço das suas ações, se inscreve aí.",
+    "tags": [
+      "#Trump",
+      "#Nvidia",
+      "#Investimentos",
+      "#Bolsa",
+      "#Tecnologia"
+    ],
+    "captionKeywords": [
+      "Trump",
+      "Nvidia",
+      "ações",
+      "IA",
+      "investimento"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/trump-comprou-ate-us-265-000-em-acoes-da-nvidia-em-setembro/",
+    "rationale": "Notícia internacional com impacto direto no mercado de tecnologia, gera curiosidade e permite explicar quem ganha ou perde, mantendo o foco no bolso do espectador.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 40,
+      "previewFile": "data/previews/sh_mwnysojx5nsx.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "cyWtFAXVdRM",
+    "previewUrl": "https://youtube.com/shorts/cyWtFAXVdRM",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwnythp9g4xq",
+    "status": "draft",
+    "createdAt": "2026-11-19T19:50:12.045Z",
+    "theme": "Gastos públicos superam valor de mercado da B3",
+    "title": "Gastos do governo ultrapassam valor das empresas da B3: quem sente o efeito?",
+    "hook": "Os gastos do governo agora valem mais que todas as empresas listadas na B3.",
+    "script": "Pela terceira vez consecutiva, os gastos públicos federais no ano já superam a soma do valor de mercado de todas as companhias da B3. Quem ganha? O setor de infraestrutura e fornecedores de serviços públicos, que recebem mais contratos. Quem perde? O investidor comum, porque esse desequilíbrio pode elevar a dívida pública e pressionar a inflação, mexendo no seu poder de compra. E você, acha que o Estado está gastando demais ou é necessário para manter a economia em movimento?",
+    "cta": "Quer saber como o ritmo dos gastos públicos pode mudar o seu orçamento, se inscreve aí.",
+    "tags": [
+      "#GastosPublicos",
+      "#B3",
+      "#Economia",
+      "#FinançasPessoais"
+    ],
+    "captionKeywords": [
+      "gastos públicos",
+      "B3",
+      "dívida",
+      "inflação",
+      "economia"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/gastos-publicos-federais-no-ano-superam-valor-de-mercado-de-todas-as-empresas-da-b3/",
+    "rationale": "Tema nacional com relevância direta para a economia do país, permite abordar claramente quem ganha e quem perde, atendendo ao formato pedido e ao interesse do público brasileiro.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "previewFile": "data/previews/sh_mwnythp9g4xq.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "ZdFXGxH9b6w",
+    "previewUrl": "https://youtube.com/shorts/ZdFXGxH9b6w",
+    "privacyStatus": "unlisted"
   }
 ]
