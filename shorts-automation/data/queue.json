@@ -691,5 +691,83 @@
     "youtubeId": "ZdFXGxH9b6w",
     "previewUrl": "https://youtube.com/shorts/ZdFXGxH9b6w",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwpdijnhgjhb",
+    "status": "draft",
+    "createdAt": "2026-11-20T19:29:59.549Z",
+    "theme": "Ações emergentes e a crise de IA",
+    "title": "Por que as ações de emergentes estão perto de um bear market?",
+    "hook": "A tempestade da IA está ameaçando o mercado de emergentes!",
+    "script": "A crise de IA começou com cortes de investimento nas gigantes de tecnologia. Isso puxou as bolsas asiáticas, onde a maioria das empresas emergentes está listada. Resultado: queda de mais de 15% nos últimos meses, deixando o índice quase no nível de bear market. Os investidores agora ficam de olho nas próximas decisões de bancos centrais e nos relatórios de lucro da região. Se a pressão continuar, podemos ver mais vendas e oportunidades de compra em setores menos expostos à IA.",
+    "cta": "Quer entender como a volatilidade das emergentes pode impactar seu portfólio, se inscreve aí.",
+    "tags": [
+      "#Ações",
+      "#MercadoFinanceiro",
+      "#IA",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "ações emergentes",
+      "bear market",
+      "crise IA",
+      "bolsa asiática"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/acoes-de-emergentes-ficam-proximas-a-bear-market-com-expansao-da-crise-de-ia/",
+    "rationale": "Tema quente que conecta tecnologia e mercado de ações, alta relevância para investidores que buscam entender riscos e oportunidades.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "previewFile": "data/previews/sh_mwpdijnhgjhb.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "G0g82lIKp8s",
+    "previewUrl": "https://youtube.com/shorts/G0g82lIKp8s",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwpdj2iu9j69",
+    "status": "draft",
+    "createdAt": "2026-11-20T19:29:59.549Z",
+    "theme": "Calendário do Pé-de-Meia 2026",
+    "title": "Quando o Pé-de-Meia cai em novembro? Veja a data exata",
+    "hook": "Seu benefício do Pé-de-Meia tem data marcada!",
+    "script": "O Governo anunciou que o pagamento do Pé-de-Meia de novembro será creditado no dia 23. O valor segue o salário mínimo atualizado, então seu bolso receberá o mesmo aumento que a inflação de 2026. Para conferir, acesse o portal da Caixa ou o app do seu banco. Fique atento: quem não tiver cadastro atualizado pode ter atraso. Nos próximos dias, o foco será a divulgação dos valores de dezembro e a correção de possíveis erros de pagamento.",
+    "cta": "Se quiser não perder nenhum detalhe sobre seus benefícios, se inscreve aí.",
+    "tags": [
+      "#Benefícios",
+      "#FinançasPessoais",
+      "#Calendário",
+      "#Brasil"
+    ],
+    "captionKeywords": [
+      "Pé-de-Meia",
+      "benefício",
+      "calendário",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/minhas-financas/calendario-pe-de-meia-outubro-2026-2/",
+    "rationale": "Informação prática que afeta diretamente o público brasileiro, gera engajamento ao entregar data e orientação sobre como receber o benefício.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwpdj2iu9j69.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+12%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "k5x6-l4kdsE",
+    "previewUrl": "https://youtube.com/shorts/k5x6-l4kdsE",
+    "privacyStatus": "unlisted"
   }
 ]
