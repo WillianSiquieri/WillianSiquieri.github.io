@@ -613,7 +613,7 @@
   },
   {
     "id": "sh_mwpdj2iu9j69",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-20T19:29:59.549Z",
     "theme": "Calendário do Pé-de-Meia 2026",
     "title": "Quando o Pé-de-Meia cai em novembro? Veja a data exata",
@@ -648,7 +648,8 @@
     },
     "youtubeId": "k5x6-l4kdsE",
     "previewUrl": "https://youtube.com/shorts/k5x6-l4kdsE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:47:07.253Z"
   },
   {
     "id": "sh_mwqqxghni1os",
