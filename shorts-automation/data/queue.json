@@ -377,7 +377,7 @@
   },
   {
     "id": "sh_mwl4zwv76peq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-17T20:19:39.312Z",
     "theme": "Renda fixa",
     "title": "Tesouro Direto: por que os prefixados caíram e o IPCA+ fica incerto",
@@ -411,7 +411,8 @@
     },
     "youtubeId": "aY70qvLvlDU",
     "previewUrl": "https://youtube.com/shorts/aY70qvLvlDU",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:48:49.396Z"
   },
   {
     "id": "sh_mwmjvzmp531u",
