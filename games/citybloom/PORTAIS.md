@@ -7,6 +7,18 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 ## O que já está pronto
 - **Visual 3D** low-poly: modelos Kenney (CC0) e ícones Fluent Emoji (MIT). Cada construção
   tem modelo, cor e placa próprios.
+- **Mundo grande e vivo** (36×36):
+  - ruas com curvas, rotatória, praia, rio com ponte e floresta;
+  - névoa com nuvens na borda do mundo;
+  - carros e pessoas andando, com trânsito que entra e sai pela névoa.
+- **A cidade evolui a cada fase:**
+  - ruas: de terra no vilarejo, depois paralelepípedo, depois asfalto com faixas de pedestre
+    e semáforos;
+  - veículos: carroça e bicicleta no começo, ônibus na cidade;
+  - roupas das pessoas;
+  - visual da prefeitura;
+  - quintais das casas.
+- **Inglês como padrão.** Prefeito **Walt Parker** e moradores com nomes em inglês.
 - **Entra direto no jogo**, sem tela que bloqueia. O Prefeito cumprimenta num balão e a
   mão do tutorial aponta cada passo (pode pular). Depois disso aparecem as **missões com
   prêmio**.
@@ -78,8 +90,8 @@ moradores e faça a cidade florescer de vilarejo a metrópole!
 and help it bloom from a tiny hamlet into a metropolis!
 
 **Descrição longa (PT):**
-O Prefeito Walt Parker conta com você! Em CityBloom você transforma um vilarejo numa
-metrópole cheia de vida. Colha madeira, barro, areia e ferro nos lotes de produção,
+O Prefeito Walt Parker conta com você! Em CityBloom você transforma um vilarejo de estradas
+de terra numa metrópole cheia de vida, com ônibus, semáforos e gente nas calçadas. Colha madeira, barro, areia e ferro nos lotes de produção,
 transforme tudo em tábuas, tijolos, vidro, móveis e aço nas fábricas e use os materiais
 para construir casas, comércios, serviços e monumentos. Atenda os pedidos dos moradores
 — o construtor Bob, a lojista Ms. Lucy, o Chef Mark e muitos outros — para ganhar
@@ -89,8 +101,9 @@ diário, receba presentes a cada nível e jogue no seu ritmo: o progresso contin
 com o jogo fechado!
 
 **Long description (EN):**
-Mayor Walt Parker is counting on you! In CityBloom you turn a tiny hamlet into a thriving
-metropolis. Harvest wood, clay, sand and iron on production lots, turn them into planks,
+Mayor Walt Parker is counting on you! In CityBloom you turn a tiny hamlet with dirt roads
+into a thriving metropolis full of buses, traffic lights and busy sidewalks — by the sea, by
+the river and surrounded by forest. Harvest wood, clay, sand and iron on production lots, turn them into planks,
 bricks, glass, furniture and steel at the factories, and use them to build homes, shops,
 services and landmarks. Fulfil orders from the residents — Bob the builder, Ms. Lucy
 the shopkeeper, Chef Mark and many more — to earn coins and XP. Upgrade houses, buy new
@@ -107,7 +120,7 @@ pace: your city keeps producing even while you're away!
 **Tags:** city builder, farm, simulation, idle, casual, building, town, management,
 cozy, isometric
 
-**Idiomas:** Português, English (troca no botão EN/PT)
+**Idiomas:** English (padrão), Português (troca no botão EN/PT)
 
 **Plataformas:** celular e computador (HTML5)
 

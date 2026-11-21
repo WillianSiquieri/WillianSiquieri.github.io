@@ -58,7 +58,7 @@ export class Scene {
     if (state.showcase) return;
     const n = state.size, C = MAP.chunk, nc = n / C, price = chunkPrice(state);
     for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) {
-      if (chunkBuyable(state, ci, cj)) forSaleSign(ctx, pt(ci * C + 1.5, cj * C + 1.5), `🪙 ${price}`, true);
+      if (!this.hideSale && chunkBuyable(state, ci, cj)) forSaleSign(ctx, pt(ci * C + 1.5, cj * C + 1.5), `🪙 ${price}`, true);
     }
     const bubbles = [];
     for (const o of state.objects) {
@@ -138,7 +138,7 @@ export class Scene {
     if (!state.showcase) {
       const C = MAP.chunk, nc = n / C, price = chunkPrice(state);
       for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) {
-        if (chunkBuyable(state, ci, cj)) list.push({ k: 'sign', ci, cj, price, d: ci * C + 1 + cj * C + 1 + 0.9, i: ci * C + 1 });
+        if (!this.hideSale && chunkBuyable(state, ci, cj)) list.push({ k: 'sign', ci, cj, price, d: ci * C + 1 + cj * C + 1 + 0.9, i: ci * C + 1 });
       }
     }
     if (ui.ghost) {

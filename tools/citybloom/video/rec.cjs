@@ -24,12 +24,12 @@ const TSTART = Date.now();
   await p.clock.runFor(1500);
   await p.addStyleTag({ content: '.tip,.tut-hand,#loading{display:none!important}' });
   await p.evaluate(fs.readFileSync(path.join(__dirname, 'director.js'), 'utf8'));
-  const FREE = []; for (let i = 11; i <= 14; i++) for (let j = 15; j <= 18; j++) FREE.push([i, j]);
+  const FREE = []; for (let i = 13; i <= 16; i++) for (let j = 20; j <= 23; j++) FREE.push([i, j]);
   const info = await p.evaluate(([free, density]) => __dir.setup({ free, density }), [FREE, +(opt.density || 1)]);
   console.log(JSON.stringify(info));
   await p.evaluate(([Z, BUILD]) => {
     const D = __dir, g = D.g, s = D.s, E = D.E, cam = g.camera;
-    const F = D.ISO.center(10, 14.6, 1);
+    const F = D.ISO.center(16.5, 20.5, 1);
     const now = Date.now();
     const portrait = cam.vh > cam.vw; const xpToNextL = D.xpNext;
     // casas prontas: perto de pontos da tela
@@ -46,10 +46,10 @@ const TSTART = Date.now();
       used.add(best); houses.push(best); best.rentReadyAt = now - 1000;
     }
     const th = s.objects.find(o => o.type === 'townhall');
-    const lots = s.objects.filter(o => o.type === 'lot' && o.resource).sort((a, b) => Math.hypot(a.i - 10, a.j - 15) - Math.hypot(b.i - 10, b.j - 15)).slice(0, 2);
+    const lots = s.objects.filter(o => o.type === 'lot' && o.resource).sort((a, b) => Math.hypot(a.i - 16, a.j - 20) - Math.hypot(b.i - 16, b.j - 20)).slice(0, 2);
     const collect = (o) => () => { const r = E.quickCollect(s, o, g.now()); if (r) g._result(r, o.i, o.j, o.size); g.select({ kind: 'object', obj: o }); };
     const click = (sel) => () => { const e = document.querySelector(sel); if (e) e.click(); };
-    const target = { i: 12, j: 16 };
+    const target = { i: 14, j: 21 };
     D.plan({
       cam: [
         { t: 0, x: F.x - 40, y: F.y - 10, z: Z * 0.82 },
@@ -82,7 +82,7 @@ const TSTART = Date.now();
         { t: 4.3, tap: 1, fn: collect(lots[0]) },
         { t: 5.0, tap: 1, fn: collect(lots[1]) },
         { t: 6.2, tap: 1, fn: () => { g.select(null); click('#btn-build')(); } },
-        { t: 7.3, tap: 1, fn: () => { g.buildAt = { i: 13, j: 17 }; click(`[data-act="pick"][data-arg="${BUILD}"]`)(); } },
+        { t: 7.3, tap: 1, fn: () => { g.buildAt = { i: 15, j: 22 }; click(`[data-act="pick"][data-arg="${BUILD}"]`)(); } },
         { t: 8.5, tap: 1, fn: () => { const q = D.tile(target.i, target.j); g.tap(q.x, q.y); } },
         { t: 9.4, tap: 1, fn: click('#place-ok') },
         { t: 11.3, tap: 1, fn: () => { g.select({ kind: 'object', obj: th }); g.openSheet('orders'); } },

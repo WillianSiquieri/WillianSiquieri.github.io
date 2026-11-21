@@ -151,11 +151,11 @@ const tie = (cx, y, w) => { const s = w / 100; return `<g transform="translate($
   <path d="M-12 0 H12 L8 14 H-8 Z" fill="#c1121f"/><path d="M-8 14 H8 L14 70 L0 86 L-14 70 Z" fill="#e63946"/>
   <path d="M-6 30 L8 22 M-9 48 L11 38 M-12 66 L12 54" stroke="#ffb3b8" stroke-width="3" opacity=".7"/></g>`; };
 
-// faixa de prefeito (verde-amarela, na diagonal do ombro ao quadril)
+// faixa de prefeito (vermelha e branca, com distintivo dourado, na diagonal do ombro ao quadril)
 const sash = () => `<g>
-  <path d="M132 160 L150 168 L74 200 L48 200 Z" fill="#1f9d55"/>
-  <path d="M138 163 L144 165.5 L66 200 L58 200 Z" fill="#ffd23f"/>
-  <circle cx="100" cy="182" r="8" fill="#ffd23f" stroke="#c99a1e" stroke-width="1.5"/><circle cx="100" cy="182" r="3.4" fill="#1f9d55"/></g>`;
+  <path d="M132 160 L150 168 L74 200 L48 200 Z" fill="#c8102e"/>
+  <path d="M138 163 L144 165.5 L66 200 L58 200 Z" fill="#ffffff"/>
+  <circle cx="100" cy="182" r="8" fill="#ffd23f" stroke="#c99a1e" stroke-width="1.5"/><circle cx="100" cy="182" r="3.4" fill="#1d4fa8"/></g>`;
 
 const mustache = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
   <path d="M0 -4 C-10 -12 -30 -10 -40 2 C-34 8 -22 4 -14 6 C-6 8 -2 4 0 2 C2 4 6 8 14 6 C22 4 34 8 40 2 C30 -10 10 -12 0 -4 Z" fill="#b9bec6" stroke="#7d848e" stroke-width="2"/></g>`; };
@@ -215,9 +215,9 @@ function fullBody() {
   <path d="M97.5 175 H102.5 L106 212 L100 220 L94 212 Z" fill="#e63946" ${st}/>
   <path d="M86 168 L77 196 L100 232 M114 168 L123 196 L100 232" fill="none" ${st}/>
   <circle cx="100" cy="250" r="2.6" fill="#0f1626"/><circle cx="100" cy="268" r="2.6" fill="#0f1626"/>
-  <path d="M140 169 L163 179 L62 292 L38 282 Z" fill="#1f9d55" ${st}/>
-  <path d="M152 174 L50 287" stroke="#ffd23f" stroke-width="6"/>
-  <circle cx="94" cy="236" r="9" fill="#ffd23f" ${st}/><circle cx="94" cy="236" r="3.8" fill="#1f9d55"/>
+  <path d="M140 169 L163 179 L62 292 L38 282 Z" fill="#c8102e" ${st}/>
+  <path d="M152 174 L50 287" stroke="#ffffff" stroke-width="6"/>
+  <circle cx="94" cy="236" r="9" fill="#ffd23f" ${st}/><circle cx="94" cy="236" r="3.8" fill="#1d4fa8"/>
   <g transform="rotate(-10 136 250)">
     <rect x="116" y="226" width="40" height="50" rx="4" fill="#c58a55" ${st}/>
     <rect x="121" y="234" width="30" height="37" rx="2" fill="#ffffff"/>

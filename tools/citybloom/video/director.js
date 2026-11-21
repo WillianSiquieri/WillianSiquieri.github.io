@@ -12,26 +12,42 @@ D.setup = async (opt) => {
   D.ISO = ISO; D.E = E;
   const g = __city; g.modalQueue.length = 0; document.querySelector('#modal').classList.remove('show'); g.closeSheet();
   const now = Date.now();
-  const sc = S.showcaseGame(now); const s = g.state;
-  Object.assign(s, { tiles: sc.tiles, objects: sc.objects, nextId: sc.nextId, size: sc.size, chunksBought: 20 });
-  // nível com novidades no próximo
-  let L = 14; while (L < 40 && !E.unlocksAt(L + 1).some(u => u.kind === 'building')) L++;
-  s.cityName = 'Bloomville'; s.level = L; s.xp = Math.floor(xpToNext(L) * 0.55); s.coins = 8640; s.capacity = 200;
+  // mapa de verdade (36×36): centro da cidade comprado, natureza e névoa em volta
+  const base = S.newGame(now); const s = g.state;
+  Object.assign(s, { tiles: base.tiles, objects: base.objects, nextId: base.nextId, size: base.size, chunksBought: 30 });
+  const lo = opt.lo || 9, hi = opt.hi || 26;
+  for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
+    const t = S.tileOf(s, i, j);
+    if (i >= lo && j >= lo && i <= hi && j <= hi) { t.locked = false; delete t.obstacle; }
+  }
+  // nível na fase Cidade, com novidade no próximo
+  let L = opt.level || 21; while (L < 40 && !E.unlocksAt(L + 1).some(u => u.kind === 'building')) L++;
+  s.cityName = 'Bloomville'; s.level = L; s.xp = Math.floor(xpToNext(L) * 0.55); s.coins = 18640; s.capacity = 250; s.warehouseLevel = 2;
   s.inventory = { wood: 18, plank: 12, clay: 10, brick: 14, sand: 8, glass: 7, furniture: 4, steel: 3, iron: 4, hammer: 3, tape: 3 };
   s.mentor.intro = true; s.mentor.tut = false; g.greetUntil = 0; s.stats = { lotStarted: 9, factoryStarted: 9, rentCollected: 9, ordersDone: 9, built: 9, chunksBought: 9 };
   s.daily = { next: 1, last: E.dayKey(now), extra: E.dayKey(now) };
   let seed = opt.seed || 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   const houses = Object.keys(BUILDINGS).filter(k => BUILDINGS[k].type === 'house');
   const decor = Object.keys(BUILDINGS).filter(k => BUILDINGS[k].type === 'decor' && BUILDINGS[k].size === 1);
-  for (const t of s.tiles) { t.obstacle = null; t.locked = false; }
+  const keepFree = opt.free || [];
+  const isFree = (i, j, sz) => { for (let dj = 0; dj < sz; dj++) for (let di = 0; di < sz; di++) if (keepFree.some(([a, b]) => a === i + di && b === j + dj)) return false; return true; };
+  // uma de cada construção especial, perto do centro (espiral)
+  const cx = 17, cz = 20;
+  const spots = []; for (let j = lo; j <= hi; j++) for (let i = lo; i <= hi; i++) spots.push([i, j]);
+  spots.sort((a, b) => Math.hypot(a[0] - cx, a[1] - cz) - Math.hypot(b[0] - cx, b[1] - cz));
+  const special = Object.keys(BUILDINGS).filter(k => !['house', 'decor', 'lot'].includes(BUILDINGS[k].type) && !s.objects.some(o => o.type === k) && BUILDINGS[k].buildable !== false);
+  for (const type of special) {
+    const sp = spots.find(([i, j]) => E.canPlace(s, type, i, j) && isFree(i, j, BUILDINGS[type].size) && Math.hypot(i - cx, j - cz) > 2.5);
+    if (sp) { s.objects.push(S.makeObject(s, type, sp[0], sp[1], now)); s.rev++; }
+  }
+  for (let k = 0; k < 4; k++) { const sp = spots.find(([i, j]) => E.canPlace(s, 'lot', i, j) && isFree(i, j, 1) && Math.hypot(i - cx, j - cz) > 3); if (sp) s.objects.push(S.makeObject(s, 'lot', sp[0], sp[1], now, { resource: ['wood', 'clay', 'sand', 'iron'][k], readyAt: now - 1000 })); }
   const W = [3, 4, 4, 3, 1.6, 0.6, 0.3], tot = W.reduce((a, b) => a + b, 0);
   const pickHouse = () => { let x = rnd() * tot; for (let k = 0; k < W.length; k++) { x -= W[k]; if (x <= 0) return houses[k]; } return houses[0]; };
-  const keepFree = opt.free || [];
   s.rev++;
-  for (let j = 0; j < s.size; j++) for (let i = 0; i < s.size; i++) {
-    const t = S.tileOf(s, i, j); if (t.kind === 'road' || S.objectAt(s, i, j)) continue;
-    if (keepFree.some(([a, b]) => a === i && b === j)) continue;
-    const dn = opt.density || 1, r = rnd(); const type = r < 0.42 * dn ? pickHouse() : r < 0.7 * dn ? 'tree' : r < 0.8 * dn ? decor[Math.floor(rnd() * decor.length)] : null;
+  for (const [i, j] of spots) {
+    const t = S.tileOf(s, i, j); if (t.kind !== 'grass' || S.objectAt(s, i, j)) continue;
+    if (!isFree(i, j, 1)) continue;
+    const dn = opt.density || 1, r = rnd(); const type = r < 0.5 * dn ? pickHouse() : r < 0.72 * dn ? 'tree' : r < 0.8 * dn ? decor[Math.floor(rnd() * decor.length)] : null;
     if (!type || !E.canPlace(s, type, i, j)) continue;
     s.objects.push(S.makeObject(s, type, i, j, now, BUILDINGS[type].type === 'house' ? { rentReadyAt: now + 600000 + rnd() * 600000 } : {})); s.rev++;
   }
@@ -41,7 +57,9 @@ D.setup = async (opt) => {
   // lotes prontos
   for (const o of s.objects) if (o.type === 'lot') { o.readyAt = now - 1000; }
   g.scene = new (g.scene.constructor)(s);
-  g.select(null);
+  g.scene.traffic.popBoost = opt.boost == null ? 400 : opt.boost;   // ruas movimentadas
+  g.scene.hideSale = opt.sale !== true;                              // sem placas de quadra à venda na divulgação
+  g.fitView(); g.select(null);
   D.g = g; D.s = s; D.L = L;
   // gravação: a cidade 3D só é desenhada no último rAF de cada quadro do vídeo
   D.allowRender = true;
