@@ -534,7 +534,7 @@
   },
   {
     "id": "sh_mwnythp9g4xq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-19T19:50:12.045Z",
     "theme": "Gastos públicos superam valor de mercado da B3",
     "title": "Gastos do governo ultrapassam valor das empresas da B3: quem sente o efeito?",
@@ -570,7 +570,8 @@
     },
     "youtubeId": "ZdFXGxH9b6w",
     "previewUrl": "https://youtube.com/shorts/ZdFXGxH9b6w",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:47:46.331Z"
   },
   {
     "id": "sh_mwpdijnhgjhb",
