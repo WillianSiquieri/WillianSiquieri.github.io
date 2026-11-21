@@ -574,7 +574,7 @@
   },
   {
     "id": "sh_mwpdijnhgjhb",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-20T19:29:59.549Z",
     "theme": "Ações emergentes e a crise de IA",
     "title": "Por que as ações de emergentes estão perto de um bear market?",
@@ -609,6 +609,7 @@
     },
     "youtubeId": "G0g82lIKp8s",
     "previewUrl": "https://youtube.com/shorts/G0g82lIKp8s",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:47:33.003Z"
   }
 ]
