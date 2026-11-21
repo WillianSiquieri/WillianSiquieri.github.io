@@ -17,15 +17,96 @@ const comTex = ['', COM + 'Textures/variation-a', COM + 'Textures/variation-b'];
 const vary = (models, texs, extra = {}) => models.flatMap(m => texs.map(tex => ({ m, tex: tex || null, ...extra })));
 
 import { KENNEY_VEHICLES } from './vehicles.js';
-import { mat, box, cyl, flag, cross, part, geo } from './parts.js';
+import { mat, box, cyl, flag, cross, part, geo, gable } from './parts.js';
 import { BUILDS } from './builds.js';
 export { mat };
 
 // ---------------------------------------------------------------- construções montadas
+// Prefeituras das fases Vilarejo, Vila e Metrópole (Cidade pequena/Cidade usam a clássica).
+const TOWNHALL_PHASES = {
+  // salão de toras com varanda e campanário
+  wood(world, size) {
+    const g = new THREE.Group(), wood = 0xa86e3e, dark = 0x6e4325;
+    g.add(box(1.5, 0.05, 1.1, 0xc9a173));
+    g.add(box(1.2, 0.4, 0.75, wood, 0, 0.05, -0.1));
+    for (let k = 0; k < 7; k++) g.add(box(1.21, 0.012, 0.76, dark, 0, 0.09 + k * 0.05, -0.1));
+    g.add(gable(0.86, 0.34, 1.32, 0x7a4a2a, 0, 0.45, -0.1, true));
+    g.add(box(1.0, 0.03, 0.3, 0xb98450, 0, 0.05, 0.42));
+    for (const x of [-0.45, -0.15, 0.15, 0.45]) g.add(box(0.04, 0.3, 0.04, dark, x, 0.08, 0.55));
+    g.add(box(1.04, 0.04, 0.34, 0x7a4a2a, 0, 0.38, 0.42));
+    g.add(box(0.22, 0.28, 0.02, 0x5a3a22, 0, 0.05, 0.28));
+    for (const x of [-0.4, 0.4]) g.add(box(0.14, 0.12, 0.02, 0xffe08a, x, 0.2, 0.28, { emissive: 0xffb84d, emissiveIntensity: 0.3 }));
+    g.add(box(0.2, 0.26, 0.2, wood, 0, 0.72, -0.1));
+    g.add(cyl(0.05, 0.07, 0.08, 0xe0b040, 0, 0.8, -0.1, 10, { metalness: 0.4, roughness: 0.4 }));
+    const r = new THREE.Mesh(new THREE.ConeGeometry(0.17, 0.2, 4), mat(0x7a4a2a, { flatShading: true }));
+    r.position.set(0, 1.08, -0.1); r.rotation.y = Math.PI / 4; r.castShadow = true; g.add(r);
+    g.add(flag(0x2ecc71, 0.62, 0.62, 0.42));
+    for (const x of [-0.7, 0.7]) g.add(part(world, NAT + 'plant_bushDetailed', 0.2, x, 0.55));
+    g.scale.setScalar(size / 1.75); g.userData.h = 1.18 * size / 1.75;
+    return g;
+  },
+  // casa de tijolo com torre do sino
+  brick(world, size) {
+    const g = new THREE.Group(), brick = 0xb5543c, trim = 0xf1e4cf;
+    g.add(box(1.6, 0.06, 1.2, 0xbdb3a3));
+    g.add(box(1.3, 0.5, 0.8, brick, 0, 0.06, -0.08));
+    g.add(box(1.34, 0.04, 0.84, trim, 0, 0.56, -0.08));
+    g.add(gable(0.9, 0.3, 1.4, 0x55606e, 0, 0.6, -0.08, true));
+    g.add(box(0.3, 0.32, 0.03, 0x4a3226, 0, 0.06, 0.33));
+    g.add(box(0.36, 0.04, 0.06, trim, 0, 0.38, 0.33));
+    for (const x of [-0.45, -0.25, 0.25, 0.45]) for (const y of [0.18, 0.38]) g.add(box(0.1, 0.12, 0.02, 0x9cc3e6, x, y, 0.33));
+    g.add(box(0.7, 0.03, 0.22, 0xd8cdb6, 0, 0.0, 0.5));
+    g.add(box(0.28, 0.5, 0.28, brick, 0.48, 0.6, -0.32));
+    g.add(box(0.3, 0.04, 0.3, trim, 0.48, 1.1, -0.32));
+    g.add(cyl(0.06, 0.08, 0.1, 0xe0b040, 0.48, 0.92, -0.32, 10, { metalness: 0.4, roughness: 0.4 }));
+    const r = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.26, 4), mat(0x55606e, { flatShading: true }));
+    r.position.set(0.48, 1.27, -0.32); r.rotation.y = Math.PI / 4; r.castShadow = true; g.add(r);
+    g.add(flag(0x2ecc71, 0.6, 0.6, 0.55));
+    for (const x of [-0.7, 0.7]) g.add(part(world, NAT + 'plant_bushDetailed', 0.22, x, 0.6));
+    g.scale.setScalar(size / 1.75); g.userData.h = 1.4 * size / 1.75;
+    return g;
+  },
+  // metrópole: torre de vidro, cúpula de vidro e praça
+  modern(world, size) {
+    const g = new THREE.Group(), glass = 0x7fb8e0, white = 0xf4f6f8;
+    g.add(box(1.7, 0.05, 1.3, 0xd5d9de));
+    g.add(box(1.4, 0.32, 0.9, white, 0, 0.05, -0.1));
+    g.add(box(1.42, 0.24, 0.92, glass, 0, 0.09, -0.1, { roughness: 0.15, metalness: 0.2 }));
+    g.add(box(0.7, 1.0, 0.55, glass, -0.25, 0.37, -0.2, { roughness: 0.12, metalness: 0.25 }));
+    for (let k = 0; k < 6; k++) g.add(box(0.72, 0.02, 0.57, white, -0.25, 0.42 + k * 0.17, -0.2));
+    g.add(box(0.74, 0.05, 0.59, white, -0.25, 1.37, -0.2));
+    const dome = new THREE.Mesh(new THREE.SphereGeometry(0.3, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), mat(0xa9d8f5, { roughness: 0.1, metalness: 0.3 }));
+    dome.position.set(0.42, 0.37, -0.05); dome.castShadow = true; g.add(dome);
+    g.add(cyl(0.31, 0.31, 0.04, white, 0.42, 0.33, -0.05, 20));
+    g.add(box(1.0, 0.02, 0.3, 0xc7ccd2, 0, 0.05, 0.5));
+    g.add(flag(0x2ecc71, 0.7, 0.6, 0.7));
+    for (const x of [-0.72, 0.72]) g.add(part(world, NAT + 'tree_oak', 0.24, x, 0.55));
+    g.scale.setScalar(size / 1.75); g.userData.h = 1.45 * size / 1.75;
+    return g;
+  },
+};
+
 const CUSTOM = {
   // Prefeitura: prédio clássico com colunas, frontão, cúpula e bandeira.
+  // Prefeitura: um visual por fase da cidade (world.curPhase).
   townhall(world, size) {
+    const ph = world.curPhase || 0;
+    if (ph === 0) return TOWNHALL_PHASES.wood(world, size);
+    if (ph === 1) return TOWNHALL_PHASES.brick(world, size);
+    if (ph === 4) return TOWNHALL_PHASES.modern(world, size);
     const g = new THREE.Group(), cream = 0xf3ead7, roof = 0x5b6b8c;
+    if (ph === 3) {                                   // cidade: torre do relógio atrás
+      g.add(box(0.36, 0.95, 0.36, 0xe2d6bd, 0.55, 0.08, -0.42));
+      g.add(box(0.4, 0.05, 0.4, 0xc9bda5, 0.55, 1.03, -0.42));
+      for (const [x, z, side] of [[0.55, -0.235, 0], [0.735, -0.42, 1]]) {
+        const c = cyl(0.11, 0.11, 0.015, 0xffffff, x, 0.73, z, 20);
+        if (side) c.rotation.z = Math.PI / 2; else c.rotation.x = Math.PI / 2;
+        g.add(c);
+        g.add(box(side ? 0.008 : 0.012, 0.07, side ? 0.012 : 0.008, 0x333333, x + side * 0.01, 0.76, z + (1 - side) * 0.01));
+      }
+      const sp = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.3, 4), mat(roof, { flatShading: true }));
+      sp.position.set(0.55, 1.23, -0.42); sp.rotation.y = Math.PI / 4; sp.castShadow = true; g.add(sp);
+    }
     g.add(box(1.7, 0.08, 1.3, 0xc9c1b0));                        // base
     g.add(box(1.5, 0.5, 1.0, cream, 0, 0.08, -0.05));            // corpo
     g.add(box(1.56, 0.06, 1.06, 0xe2d6bd, 0, 0.58, -0.05));      // cornija

@@ -23,7 +23,16 @@ export const BUILDS = {
     g.add(part(w, IND + 'shipping-container-c', 0.36, 0.28, 0.26, Math.PI / 2, null, Infinity, 0.15));
     g.add(part(w, IND + 'shipping-container-b', 0.36, 0.3, -0.2, 0));
     g.add(sign('crate', '#3d7bd9', -0.1, 0.55, -0.14, 0.2));
-    return done(g, 0.78);
+    // ampliações do armazém (world.curWh): mais contêineres, galpão anexo, guindaste
+    const lv = w.curWh || 0;
+    if (lv >= 1) g.add(part(w, IND + 'shipping-container-a', 0.36, 0.3, -0.2, 0, null, Infinity, 0.15));
+    if (lv >= 2) { g.add(box(0.26, 0.24, 0.3, 0xdfe4ea, -0.32, 0.03, 0.24)); g.add(gable(0.3, 0.1, 0.34, 0x2f66c0, -0.32, 0.27, 0.24)); }
+    if (lv >= 3) {
+      g.add(box(0.04, 0.62, 0.04, 0xf2b705, 0.36, 0.03, -0.38));
+      g.add(box(0.42, 0.035, 0.035, 0xf2b705, 0.2, 0.62, -0.38));
+      g.add(box(0.01, 0.16, 0.01, 0x333333, 0.04, 0.47, -0.38));
+    }
+    return done(g, lv >= 3 ? 0.9 : 0.78);
   },
   // Serraria: barracão de madeira aberto, pilhas de toras e serra circular.
   sawmill(w) {

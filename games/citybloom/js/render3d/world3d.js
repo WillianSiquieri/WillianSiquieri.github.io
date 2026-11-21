@@ -285,6 +285,9 @@ export class World3D {
       const stage = !o.resource ? 0 : (now >= o.readyAt ? 3 : Math.min(2, Math.floor(lotProgress(o, now) * 3)));
       return `lot:${o.resource || ''}:${stage}`;
     }
+    if (o.type === 'townhall') return 'townhall:' + this.curPhase;
+    if (o.type === 'warehouse') return 'warehouse:' + this.curWh;
+    if (def.type === 'house' && o.size === 1) return o.type + ':' + (this.curPhase <= 1 ? 0 : this.curPhase >= 3 ? 2 : 1);
     return o.type;
   }
 
@@ -314,6 +317,7 @@ export class World3D {
     }
     const outer = new THREE.Group();
     outer.add(g);
+    if (def.type === 'house' && o.size === 1) this._houseYard(outer, key, o.id);
     outer.userData.h = g.userData.h || 0.8;
     // partes animadas: fumaça, bandeira, serra, jato d'água
     const fx = [];
@@ -326,6 +330,54 @@ export class World3D {
     });
     outer.userData.fx = fx;
     return outer;
+  }
+
+  // Quintal das casas conforme a fase: cerquinha de madeira e horta no vilarejo,
+  // nada a mais na cidade pequena, caixa de correio e arbusto podado nas cidades grandes.
+  _houseYard(g, key, id) {
+    const st = Number(key.split(':')[1] || 1);
+    if (st === 1) return;
+    if (st === 0) {
+      const wood = 0xc69460;
+      g.add(boxMesh(0.9, 0.012, 0.012, wood).translateX(0).translateY(0.05).translateZ(0.46));
+      g.add(boxMesh(0.012, 0.012, 0.9, wood).translateX(0.46).translateY(0.05));
+      for (let k = 0; k < 5; k++) { g.add(boxMesh(0.02, 0.08, 0.02, wood).translateX(-0.44 + k * 0.22).translateZ(0.46)); g.add(boxMesh(0.02, 0.08, 0.02, wood).translateX(0.46).translateZ(-0.44 + k * 0.22)); }
+      if (hash(id, 41) < 0.5) for (let k = 0; k < 3; k++) g.add(boxMesh(0.05, 0.035, 0.05, 0x5aa83a).translateX(-0.36 + k * 0.08).translateZ(0.38));
+    } else {
+      g.add(boxMesh(0.025, 0.09, 0.025, 0x555b66).translateX(0.4).translateZ(0.42));
+      g.add(boxMesh(0.05, 0.035, 0.07, hash(id, 42) < 0.5 ? 0x2f66c0 : 0xc0392b).translateX(0.4).translateY(0.09).translateZ(0.42));
+      g.add(boxMesh(0.16, 0.07, 0.07, 0x3f8f3a).translateX(-0.3).translateZ(0.42));
+    }
+  }
+
+  // Obra: andaime e poeira por ~1 s quando algo é construído ou evolui.
+  _scaffold(o, t) {
+    const g = new THREE.Group(), s = o.size, h = Math.min(1.2, (this.heights.get(o.id) || 0.6) * 0.9);
+    const pole = 0xd9a441, plank = 0xb07c4a;
+    for (const [x, z] of [[-0.48, -0.48], [0.48, -0.48], [-0.48, 0.48], [0.48, 0.48]]) g.add(boxMesh(0.025, h, 0.025, pole).translateX(x * s).translateZ(z * s));
+    for (const y of [h * 0.45, h * 0.9]) {
+      g.add(boxMesh(0.98 * s, 0.02, 0.05, plank).translateY(y).translateZ(0.48 * s));
+      g.add(boxMesh(0.05, 0.02, 0.98 * s, plank).translateY(y).translateX(0.48 * s));
+    }
+    const dust = [];
+    for (let k = 0; k < 10; k++) { const p = new THREE.Mesh(PUFF_GEO, PUFF_MAT); p.castShadow = false; p.userData.a = k / 10 * Math.PI * 2; g.add(p); dust.push(p); }
+    g.position.set(o.i + s / 2, 0, o.j + s / 2);
+    this.root.add(g);
+    (this.works || (this.works = [])).push({ g, t0: t, dust, s });
+  }
+  _works(t) {
+    if (!this.works) return;
+    this.works = this.works.filter(w => {
+      const a = (t - w.t0) / 1.2;
+      if (a >= 1) { this.root.remove(w.g); disposeTree(w.g); return false; }
+      w.g.scale.y = a < 0.15 ? a / 0.15 : a > 0.8 ? Math.max(0.01, (1 - a) / 0.2) : 1;
+      for (const p of w.dust) {
+        const r = (0.3 + a * 0.6) * w.s;
+        p.position.set(Math.cos(p.userData.a) * r, 0.04 + a * 0.1, Math.sin(p.userData.a) * r);
+        p.scale.setScalar(Math.max(0.01, (1 - a) * 2.2 * w.s));
+      }
+      return true;
+    });
   }
 
   _makeLot(key, id) {
@@ -359,10 +411,13 @@ export class World3D {
         if (e) { this.root.remove(e.g); disposeTree(e.g); }
         const g = this._makeObject(o, key);
         const grow = e ? e.key.startsWith('lot:') && key.startsWith('lot:') ? 0.25 : 0.45 : (this.firstSync ? 0 : 0.6);
+        // obra só para prédio novo ou que mudou de modelo (não para lote mudando de estágio)
+        const work = !this.firstSync && !key.startsWith('lot:') && (!e || e.key.split(':')[0] !== key.split(':')[0] || (key.startsWith('townhall') || key.startsWith('warehouse')));
         e = { g, key, born: grow ? t : -99, grow, bump: -99, fx: g.userData.fx, seed: hash(o.id, 31) * 10 };
         this.objs.set(o.id, e);
         this.root.add(g);
         this.heights.set(o.id, g.userData.h);
+        if (work) this._scaffold(o, t);
       }
       e.g.position.set(o.i + o.size / 2, 0, o.j + o.size / 2);
       e.o = o;
@@ -512,11 +567,14 @@ export class World3D {
   render(cam, state, t, now, ui = {}, traffic = null) {
     if (!this.ready) return;
     if (this.autoQuality !== false) this._quality(t);
+    this.curPhase = this._phase(state);
+    this.curWh = Math.min(3, state.warehouseLevel || 0);
     this._buildGround(state);
     this._buildRoads(state);
     this._grid(state, ui.ghost);
     this._sync(state, now, t);
     this._animate(t);
+    this._works(t);
     animateWater(this.water, t);
     animateMist(this.mist, t);
     if (traffic) this._cars(traffic);
