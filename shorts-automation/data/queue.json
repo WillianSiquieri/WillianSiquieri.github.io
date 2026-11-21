@@ -338,7 +338,7 @@
   },
   {
     "id": "sh_mwl4yuuo7xr7",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-17T20:19:39.312Z",
     "theme": "Mercado de capitais",
     "title": "BDRs na B3: mito que aumenta seu poder de compra",
@@ -373,7 +373,8 @@
     },
     "youtubeId": "zPjd46EYhx8",
     "previewUrl": "https://youtube.com/shorts/zPjd46EYhx8",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:48:59.710Z"
   },
   {
     "id": "sh_mwl4zwv76peq",
