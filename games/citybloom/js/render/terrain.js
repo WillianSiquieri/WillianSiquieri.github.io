@@ -106,7 +106,7 @@ export function roadTile(ctx, type) {
 
 // Tipo da rua pelo vizinho.
 export function roadType(state, i, j) {
-  const isRoad = (a, b) => { const t = a >= 0 && b >= 0 && a < state.size && b < state.size ? state.tiles[b * state.size + a] : null; return t && t.kind === 'road'; };
+  const isRoad = (a, b) => { const t = a >= 0 && b >= 0 && a < state.size && b < state.size ? state.tiles[b * state.size + a] : null; return t && t.kind === 'road' && t.ra !== 'corner'; };
   const alongI = isRoad(i - 1, j) || isRoad(i + 1, j);
   const alongJ = isRoad(i, j - 1) || isRoad(i, j + 1);
   if (alongI && alongJ) return 'x';

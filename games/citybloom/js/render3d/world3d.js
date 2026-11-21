@@ -44,11 +44,12 @@ function tinted(material, tint) {
 function disposeTree(root) {
   if (!root) return;
   root.traverse(o => {
-    if (!o.isMesh) return;
+    if (!o.isMesh && !o.isLineSegments) return;
+    if (o.isInstancedMesh) o.dispose();                 // buffers de instância
     if (o.geometry && !o.geometry.userData.shared) o.geometry.dispose();
     for (const m of [].concat(o.material)) {
       if (!m || m.userData.shared) continue;
-      if (m.map && !m.map.userData.shared) m.map.dispose();
+      for (const k of ['map', 'alphaMap', 'emissiveMap']) if (m[k] && !m[k].userData.shared) m[k].dispose();
       m.dispose();
     }
   });
@@ -479,7 +480,7 @@ export class World3D {
       const k = used.get(c.kind) || 0; used.set(c.kind, k + 1);
       if (!list[k]) { const m = makeVehicle(this, c.kind); this.carGroup.add(m); list[k] = m; }
       const m = list[k];
-      m.visible = true; m.position.set(c.x, 0.02, c.z); m.rotation.y = c.yaw;
+      m.visible = true; m.position.set(c.x, 0.02 + (c.lift || 0), c.z); m.rotation.y = c.yaw;
     }
     for (const [kind, list] of this.vpool) for (let k = used.get(kind) || 0; k < list.length; k++) list[k].visible = false;
     if (!this.people) this.people = new People(this.scene);

@@ -76,7 +76,7 @@ export class People {
       this._q.setFromAxisAngle(this._v.set(0, 1, 0), p.yaw);
       // leve balanço vertical do passo
       const bob = Math.abs(Math.sin(p.walk)) * 0.006;
-      this._b.compose(this._v.set(p.x, bob, p.z), this._q, this._s.set(sc, sc, sc));
+      this._b.compose(this._v.set(p.x, bob + (p.lift || 0), p.z), this._q, this._s.set(sc, sc, sc));
       const set = (name, local, color) => {
         this._m.multiplyMatrices(this._b, local); P[name].setMatrixAt(k, this._m);
         if (color != null) P[name].setColorAt(k, this._c.setHex(color));

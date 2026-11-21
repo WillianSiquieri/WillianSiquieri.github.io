@@ -3,7 +3,7 @@
 
 import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs } from '../game/config.js';
 import {
-  lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkPrice,
+  lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkHasLand, chunkPrice,
   used, warehouseCost, canAfford, speedUpCost, adOffer,
 } from '../game/economy.js';
 import { ads } from '../engine/ads.js';
@@ -39,8 +39,10 @@ export function panelView(game) {
   // ---------------- chão ----------------
   if (sel.kind === 'tile') {
     const tile = tileOf(s, sel.i, sel.j);
+    if (tile.kind === 'water') return { title: `🌊 ${t('water')}`, body: `<p>${t('waterDesc')}</p>`, actions: '' };
     if (tile.locked) {
       const { ci, cj } = chunkOf(sel.i, sel.j);
+      if (!chunkHasLand(s, ci, cj)) return { title: `🏖️ ${t('noLandTitle')}`, body: `<p>${t('noLand')}</p>`, actions: '' };
       const buyable = chunkBuyable(s, ci, cj), price = chunkPrice(s);
       return {
         title: `🏷️ ${t('lockedTitle')}`,
@@ -57,6 +59,7 @@ export function panelView(game) {
       };
     }
     if (tile.kind === 'road') return { title: `🛣️ ${t('road')}`, body: `<p>${t('roadDesc')}</p>`, actions: '' };
+    if (tile.kind === 'sand') return { title: `🏖️ ${t('beach')}`, body: `<p>${t('beachDesc')}</p>`, actions: '' };
     return { title: `🌱 ${t('grass')}`, body: `<p>${t('grassDesc')}</p>`, actions: btn('buildHere', t('buildHere'), 'primary') };
   }
 

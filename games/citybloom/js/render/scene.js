@@ -100,7 +100,7 @@ export class Scene {
     for (let j = view.j0; j <= view.j1; j++) for (let i = view.i0; i <= view.i1; i++) {
       const tl = state.tiles[j * n + i];
       const o = pt(i, j);
-      if (tl.kind === 'road') {
+      if (tl.kind === 'road' && tl.ra !== 'corner') {
         const ty = roads.types[j * n + i];
         this.cache.draw(ctx, 'r:' + ty, BBOX_TILE, (cx) => roadTile(cx, ty), o.x, o.y);
       } else if (tl.kind === 'water') {
@@ -134,7 +134,7 @@ export class Scene {
       if (tl.obstacle) list.push({ k: 'obs', i, j, type: tl.obstacle, dim: tl.locked, d: i + j });
     }
     for (const [li, lj] of roads.lamps) list.push({ k: 'lamp', li, lj, d: Math.floor(li) + Math.floor(lj) + 0.6, i: li });
-    for (const c of this.traffic.items()) list.push({ k: 'car', c, d: c.depth, i: c.ci });
+    for (const c of this.traffic.items()) if (c.ci >= 0 && c.cj >= 0 && c.ci < n && c.cj < n) list.push({ k: 'car', c, d: c.depth, i: c.ci });   // no 2D não há névoa: só dentro do mapa
     if (!state.showcase) {
       const C = MAP.chunk, nc = n / C, price = chunkPrice(state);
       for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) {

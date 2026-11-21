@@ -375,7 +375,7 @@ class CityGame {
     sfx.error();
     const map = {
       noCoins: 'errNoCoins', noItems: 'errNoItems', storageFull: 'errStorageFull', locked: 'errLocked',
-      queueFull: 'errQueueFull', invalidPlace: 'errInvalidPlace', maxCount: 'errMaxCount', notAdjacent: 'errNotAdjacent',
+      queueFull: 'errQueueFull', invalidPlace: 'errInvalidPlace', maxCount: 'errMaxCount', notAdjacent: 'errNotAdjacent', noLand: 'noLand',
     };
     const need = r.need ? Object.entries(r.need).map(([k, v]) => `${v}× ${k === 'coins' ? '🪙' : ITEMS[k].icon}`).join('  ') : '';
     toast(t(map[r.err] || 'errGeneric', { need, level: r.level }), true);

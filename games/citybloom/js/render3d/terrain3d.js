@@ -4,7 +4,7 @@
 // névoa na borda do mundo. Só desenha; o traçado vem de game/roads.js.
 
 import * as THREE from 'three';
-import { ROUNDABOUTS, kindAt, isRoadAt } from '../game/roads.js';
+import { ROUNDABOUTS as ALL_RA, kindAt, isRoadAt } from '../game/roads.js';
 export { kindAt };
 
 export const EXT = 14;                 // tiles de mundo além da borda do mapa
@@ -28,6 +28,9 @@ function vnoise(x, y, s = 0) {
   const a = hash(xi, yi, s), b = hash(xi + 1, yi, s), c = hash(xi, yi + 1, s), d = hash(xi + 1, yi + 1, s);
   return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
 }
+
+// Rotatórias que existem neste mapa (a vitrine, por exemplo, não tem).
+const roundabouts = (state) => ALL_RA.filter(([i, j]) => { const n = state.size; return i < n && j < n && state.tiles[j * n + i].ra === 'center'; });
 
 // ---------------------------------------------------------------- forma das ruas
 // Bits: N (j-1) = 1, E (i+1) = 2, S (j+1) = 4, W (i-1) = 8.
@@ -69,6 +72,7 @@ function paintRoads(cx, state, phase, W) {
     if (isRoadAt(state, i, j + 1)) segs.push([i, j, i, j + 1]);
     segs.push([i, j, i, j]);
   }
+  const ROUNDABOUTS = roundabouts(state);
   const stroke = (w, color) => {
     rc.strokeStyle = color; rc.lineWidth = w * P; rc.beginPath();
     for (const [a, b, c, d] of segs) { rc.moveTo(X(a + 0.5), X(b + 0.5)); rc.lineTo(X(c + 0.5) + (a === c && b === d ? 0.01 : 0), X(d + 0.5)); }
@@ -104,11 +108,30 @@ function paintRoads(cx, state, phase, W) {
     rc.globalCompositeOperation = 'source-over';
   }
   // ilha da rotatória
-  for (const [ci, cj] of ROUNDABOUTS) blob(rc, X(ci + 0.5), X(cj + 0.5), 0.62 * P, '#6fb24a', 'rgba(111,178,74,0)');
+  for (const [ci, cj] of roundabouts(state)) blob(rc, X(ci + 0.5), X(cj + 0.5), 0.62 * P, '#6fb24a', 'rgba(111,178,74,0)');
   cx.drawImage(R, 0, 0);
 }
 
+// Base do chão (grama, praia, água, flores e ruas pintadas): depende só do traçado e da
+// fase, então é desenhada uma vez e reaproveitada a cada compra de quadra.
+let BASE_CV = null, BASE_KEY = '';
 export function groundCanvas(state, phase) {
+  const n = state.size, W = (n + 2 * EXT) * P;
+  const key = n + '|' + Math.min(phase, 2) + '|' + (state.showcase ? 's' : '');
+  if (key !== BASE_KEY) { BASE_CV = baseCanvas(state, phase); BASE_KEY = key; }
+  const cv = document.createElement('canvas'); cv.width = cv.height = W;
+  const cx = cv.getContext('2d');
+  cx.drawImage(BASE_CV, 0, 0);
+  // terra à venda: um pouco mais escura (mata)
+  cx.fillStyle = 'rgba(28,70,24,0.10)';
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+    const t = state.tiles[j * n + i];
+    if (t.locked && t.kind === 'grass') cx.fillRect(X(i), X(j), P, P);
+  }
+  return cv;
+}
+
+function baseCanvas(state, phase) {
   const n = state.size, T = n + 2 * EXT, W = T * P;
   const cv = document.createElement('canvas'); cv.width = cv.height = W;
   const cx = cv.getContext('2d');
@@ -119,11 +142,6 @@ export function groundCanvas(state, phase) {
     const x = rand() * W, y = rand() * W, r = P * (0.6 + rand() * 2.6);
     const h = 86 + rand() * 24, sat = 40 + rand() * 20, l = 34 + rand() * 16;
     blob(cx, x, y, r, `hsla(${h},${sat}%,${l}%,0.16)`, `hsla(${h},${sat}%,${l}%,0)`);
-  }
-  // terra à venda: um pouco mais escura (mata)
-  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
-    if (!state.tiles[j * n + i].locked) continue;
-    cx.fillStyle = 'rgba(28,70,24,0.10)'; cx.fillRect(X(i), X(j), P, P);
   }
   // praia, raso e fundo do mar/rio
   const lo = -EXT, hi = n + EXT;
@@ -435,7 +453,7 @@ export function buildRoads3D(world, state, phase) {
     }
   }
   // rotatória
-  for (const [ci, cj] of ROUNDABOUTS) {
+  for (const [ci, cj] of roundabouts(state)) {
     if (phase >= 2) put('roads/road-roundabout', ci + 0.5, cj + 0.5, 0);
     // canteiro com árvore no meio
     cube(g, ci + 0.5, 0, cj + 0.5, 0.5, 0.05, 0.5, 0x6fb24a);

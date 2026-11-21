@@ -10,6 +10,8 @@ const STRINGS = {
     // chão
     grass: 'Terreno livre', grassDesc: 'Espaço livre para construir.', buildHere: '🔨 Construir aqui',
     road: 'Rua', roadDesc: 'Por aqui passam os carros da cidade.',
+    water: 'Água', waterDesc: 'Mar e rio: bonito de ver, mas não dá para construir aqui.', beach: 'Praia', beachDesc: 'Areia da praia: lugar de passear, não de construir.',
+    noLandTitle: 'Só água e areia', noLand: 'Esta quadra não tem terreno para construir, por isso não está à venda.',
     lockedTitle: 'Quadra à venda', lockedDesc: 'Compre para expandir a cidade.',
     buyFor: 'Comprar por', notAdjacent: 'Compre primeiro uma quadra vizinha da cidade.',
     clear: 'Limpar', clearDesc: 'Limpe para liberar o espaço. Pode render 🔨 ou 📐!',
@@ -91,6 +93,8 @@ const STRINGS = {
     build: 'Build', orders: 'Orders', storage: 'Storage',
     grass: 'Free land', grassDesc: 'Free space to build.', buildHere: '🔨 Build here',
     road: 'Road', roadDesc: 'City traffic goes through here.',
+    water: 'Water', waterDesc: 'Sea and river: lovely to look at, but you can’t build here.', beach: 'Beach', beachDesc: 'Beach sand: a place to stroll, not to build.',
+    noLandTitle: 'Only water and sand', noLand: 'This block has no land to build on, so it isn’t for sale.',
     lockedTitle: 'Block for sale', lockedDesc: 'Buy it to expand your city.',
     buyFor: 'Buy for', notAdjacent: 'First buy a block next to your city.',
     clear: 'Clear', clearDesc: 'Clear it to free the space. May drop 🔨 or 📐!',

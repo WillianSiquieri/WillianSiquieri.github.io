@@ -374,6 +374,7 @@ export function chunkPrice(state) {
   return Math.round(CHUNK_PRICE.base * Math.pow(1 + CHUNK_PRICE.step * state.chunksBought, CHUNK_PRICE.pow) / 10) * 10;
 }
 export function buyChunk(state, ci, cj) {
+  if (!chunkHasLand(state, ci, cj)) return fail('noLand');
   if (!chunkBuyable(state, ci, cj)) return fail('notAdjacent');
   const f = payOrFail(state, { coins: chunkPrice(state) });
   if (f) return f;

@@ -250,13 +250,16 @@ export class Traffic {
     if ((this._t = (this._t || 0) + dt) > 0.5) { this._t = 0; this.exits = edgeExits(this.state); this._fill(false); }
   }
 
-  // Veículos: { x, z (unidades de tile), yaw, kind, color, ci, cj, dir, depth }
+  // Altura do piso: a ponte fica um pouco acima do chão.
+  _lift(x, z) { const t = this._tile(Math.floor(x), Math.floor(z)); return t && t.bridge ? 0.035 : 0; }
+
+  // Veículos: { x, z (unidades de tile), yaw, kind, color, ci, cj, dir, depth, lift }
   items() {
     return this.cars.map(c => {
       const p = at(c.path, c.d);
       const yaw = Math.atan2(p.hx, p.hz);
       const dir = Math.abs(p.hx) > Math.abs(p.hz) ? (p.hx > 0 ? 'i+' : 'i-') : (p.hz > 0 ? 'j+' : 'j-');
-      return { x: p.x, z: p.z, yaw, kind: c.kind, color: c.color, ci: p.x, cj: p.z, dir, depth: Math.floor(p.x) + Math.floor(p.z) + 0.5 };
+      return { x: p.x, z: p.z, yaw, kind: c.kind, color: c.color, ci: p.x, cj: p.z, dir, depth: Math.floor(p.x) + Math.floor(p.z) + 0.5, lift: this._lift(p.x, p.z) };
     });
   }
 
@@ -265,7 +268,7 @@ export class Traffic {
     return this.people.map(a => {
       const p = at(a.path, a.d);
       const fade = Math.min(1, a.age / 0.6, (a.life - a.age) / 0.6);
-      return { x: p.x, z: p.z, yaw: Math.atan2(p.hx, p.hz), walk: (this.clock - a.born) * a.speed * 26, style: a.style, look: a.look, runner: !!a.runner, scale: Math.max(0.01, fade) };
+      return { x: p.x, z: p.z, lift: this._lift(p.x, p.z), yaw: Math.atan2(p.hx, p.hz), walk: (this.clock - a.born) * a.speed * 26, style: a.style, look: a.look, runner: !!a.runner, scale: Math.max(0.01, fade) };
     });
   }
 }
