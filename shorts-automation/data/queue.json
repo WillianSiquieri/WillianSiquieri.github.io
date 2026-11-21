@@ -454,7 +454,7 @@
   },
   {
     "id": "sh_mwmjwrsh8if2",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-18T20:05:05.953Z",
     "theme": "Fed projeta novas altas de juros e alerta sobre IA na inflação",
     "title": "O Fed pode subir mais juros – o que isso significa para o brasileiro?",
@@ -489,7 +489,8 @@
     },
     "youtubeId": "qZ78V99hpzE",
     "previewUrl": "https://youtube.com/shorts/qZ78V99hpzE",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:48:24.810Z"
   },
   {
     "id": "sh_mwnysojx5nsx",
