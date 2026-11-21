@@ -16,6 +16,7 @@ const subTex = ['', SUB + 'Textures/variation-a', SUB + 'Textures/variation-b', 
 const comTex = ['', COM + 'Textures/variation-a', COM + 'Textures/variation-b'];
 const vary = (models, texs, extra = {}) => models.flatMap(m => texs.map(tex => ({ m, tex: tex || null, ...extra })));
 
+import { KENNEY_VEHICLES } from './vehicles.js';
 import { mat, box, cyl, flag, cross, part, geo } from './parts.js';
 import { BUILDS } from './builds.js';
 export { mat };
@@ -211,7 +212,7 @@ export const OBSTACLE_PARTS = {
   car: [['cars/sedan', 0.5, 0.5, 0.62, 0.7, 0x9a8f80]],
 };
 
-export const CAR_MODELS = ['cars/sedan', 'cars/taxi', 'cars/van', 'cars/suv', 'cars/hatchback-sports', 'cars/police', 'cars/delivery', 'cars/sedan-sports', 'cars/truck'];
+export const CAR_MODELS = KENNEY_VEHICLES.map(k => 'cars/' + k);
 export const MISC_MODELS = { lamp: 'roads/light-square' };
 export const ROAD_MODELS = ['roads/road-straight', 'roads/road-crossroad', 'roads/road-bend', 'roads/road-intersection', 'roads/road-end-round',
   'roads/road-roundabout', 'roads/road-crossing', 'roads/traffic-light', 'roads/light-square-double', 'roads/light-curved-double', 'roads/sign-highway'];

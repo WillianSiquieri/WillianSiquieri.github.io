@@ -4,7 +4,8 @@
 // névoa na borda do mundo. Só desenha; o traçado vem de game/roads.js.
 
 import * as THREE from 'three';
-import { natureAt, ROUNDABOUTS } from '../game/roads.js';
+import { ROUNDABOUTS, kindAt, isRoadAt } from '../game/roads.js';
+export { kindAt };
 
 export const EXT = 14;                 // tiles de mundo além da borda do mapa
 const P = 32;                          // px de textura por tile
@@ -27,22 +28,6 @@ function vnoise(x, y, s = 0) {
   const a = hash(xi, yi, s), b = hash(xi + 1, yi, s), c = hash(xi, yi + 1, s), d = hash(xi + 1, yi + 1, s);
   return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
 }
-
-// Tipo do tile em qualquer coordenada (fora do mapa: natureza ou rua que segue reta até a névoa).
-export function kindAt(state, i, j) {
-  const n = state.size;
-  if (i >= 0 && j >= 0 && i < n && j < n) return state.tiles[j * n + i].kind;
-  // rua que sai do mapa continua em linha reta
-  const ci = Math.min(n - 1, Math.max(0, i)), cj = Math.min(n - 1, Math.max(0, j));
-  const t = state.tiles[cj * n + ci];
-  if (t.kind === 'road' && (ci === i || cj === j)) return 'road';
-  return natureAt(i, j);
-}
-const isRoadAt = (state, i, j) => {
-  const n = state.size;
-  if (i >= 0 && j >= 0 && i < n && j < n) { const t = state.tiles[j * n + i]; return t.kind === 'road' && t.ra !== 'corner'; }
-  return kindAt(state, i, j) === 'road';
-};
 
 // ---------------------------------------------------------------- forma das ruas
 // Bits: N (j-1) = 1, E (i+1) = 2, S (j+1) = 4, W (i-1) = 8.

@@ -89,3 +89,19 @@ export function edgeExits(state) {
   }
   return out;
 }
+
+// Tipo do tile em qualquer coordenada (fora do mapa: natureza, ou rua que segue reta até a névoa).
+export function kindAt(state, i, j) {
+  const n = state.size;
+  if (i >= 0 && j >= 0 && i < n && j < n) return state.tiles[j * n + i].kind;
+  const ci = Math.min(n - 1, Math.max(0, i)), cj = Math.min(n - 1, Math.max(0, j));
+  const t = state.tiles[cj * n + ci];
+  if (t.kind === 'road' && (ci === i || cj === j)) return 'road';
+  return natureAt(i, j);
+}
+// Rua "de passagem" (os cantos da rotatória são só enfeite).
+export function isRoadAt(state, i, j) {
+  const n = state.size;
+  if (i >= 0 && j >= 0 && i < n && j < n) { const t = state.tiles[j * n + i]; return t.kind === 'road' && t.ra !== 'corner'; }
+  return kindAt(state, i, j) === 'road';
+}

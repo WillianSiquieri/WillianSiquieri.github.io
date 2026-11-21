@@ -12,6 +12,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { BUILDINGS, MAP, phaseIndex } from '../game/config.js';
 import { lotProgress } from '../game/economy.js';
+import { makeVehicle } from './vehicles.js';
+import { People } from './people.js';
 import { buildGround, buildForest, buildFence, buildMist, buildGrid, buildRoads3D, animateWater, animateMist } from './terrain3d.js';
 import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
 export { modelFiles };
@@ -412,19 +414,21 @@ export class World3D {
 
   // ------------------------------------------------------------------ carros
   _cars(traffic) {
+    // pool de malhas por tipo de veículo (reaproveitadas quando um sai e outro entra)
     const items = traffic.items();
-    if (!this.cars || this.cars.length !== items.length) {
-      this.carGroup.clear();
-      this.cars = items.map((c, k) => {
-        const m = this.fit(this.model(CAR_MODELS[k % CAR_MODELS.length]), 0.42, 1);
-        this.carGroup.add(m); return m;
-      });
+    if (!this.vpool) this.vpool = new Map();
+    const used = new Map();
+    for (const c of items) {
+      let list = this.vpool.get(c.kind);
+      if (!list) { list = []; this.vpool.set(c.kind, list); }
+      const k = used.get(c.kind) || 0; used.set(c.kind, k + 1);
+      if (!list[k]) { const m = makeVehicle(this, c.kind); this.carGroup.add(m); list[k] = m; }
+      const m = list[k];
+      m.visible = true; m.position.set(c.x, 0.02, c.z); m.rotation.y = c.yaw;
     }
-    items.forEach((c, k) => {
-      const m = this.cars[k];
-      m.position.set(c.ci, 0.02, c.cj);
-      m.rotation.y = c.dir === 'i+' ? Math.PI / 2 : c.dir === 'i-' ? -Math.PI / 2 : c.dir === 'j+' ? 0 : Math.PI;
-    });
+    for (const [kind, list] of this.vpool) for (let k = used.get(kind) || 0; k < list.length; k++) list[k].visible = false;
+    if (!this.people) this.people = new People(this.scene);
+    this.people.update(traffic.peopleItems());
   }
 
   // ------------------------------------------------------------------ seleção e fantasma
