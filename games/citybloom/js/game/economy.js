@@ -304,7 +304,7 @@ export function canPlace(state, type, i, j, ignore = null) {
   const def = BUILDINGS[type];
   for (let dj = 0; dj < def.size; dj++) for (let di = 0; di < def.size; di++) {
     const t = tileOf(state, i + di, j + dj);
-    if (!t || t.locked || t.kind === 'road' || t.obstacle) return false;
+    if (!t || t.locked || t.kind !== 'grass' || t.obstacle) return false;
     const o = objectAt(state, i + di, j + dj);
     if (o && o !== ignore) return false;
   }
@@ -355,15 +355,23 @@ function chunkUnlocked(state, ci, cj) {
   if (ci < 0 || cj < 0 || ci >= n || cj >= n) return false;
   return !tileOf(state, ci * MAP.chunk, cj * MAP.chunk).locked;
 }
+// Quadra com terra para construir (quadras só de água/praia/rua não são vendidas).
+export function chunkHasLand(state, ci, cj) {
+  let g = 0;
+  for (let j = cj * MAP.chunk; j < (cj + 1) * MAP.chunk; j++)
+    for (let i = ci * MAP.chunk; i < (ci + 1) * MAP.chunk; i++) { const t = tileOf(state, i, j); if (t && t.kind === 'grass') g++; }
+  return g >= 3;
+}
 export function chunkBuyable(state, ci, cj) {
   if (chunkUnlocked(state, ci, cj)) return false;
   const n = state.size / MAP.chunk;
   if (ci < 0 || cj < 0 || ci >= n || cj >= n) return false;
+  if (!chunkHasLand(state, ci, cj)) return false;
   return chunkUnlocked(state, ci - 1, cj) || chunkUnlocked(state, ci + 1, cj) ||
          chunkUnlocked(state, ci, cj - 1) || chunkUnlocked(state, ci, cj + 1);
 }
 export function chunkPrice(state) {
-  return Math.round(CHUNK_PRICE.base * Math.pow(CHUNK_PRICE.growth, state.chunksBought) / 10) * 10;
+  return Math.round(CHUNK_PRICE.base * Math.pow(1 + CHUNK_PRICE.step * state.chunksBought, CHUNK_PRICE.pow) / 10) * 10;
 }
 export function buyChunk(state, ci, cj) {
   if (!chunkBuyable(state, ci, cj)) return fail('notAdjacent');

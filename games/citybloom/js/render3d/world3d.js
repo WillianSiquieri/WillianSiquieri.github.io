@@ -10,9 +10,9 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { BUILDINGS, MAP } from '../game/config.js';
+import { BUILDINGS, MAP, phaseIndex } from '../game/config.js';
 import { lotProgress } from '../game/economy.js';
-import { roadType } from '../render/terrain.js';
+import { buildGround, buildForest, buildFence, buildMist, buildGrid, buildRoads3D, animateWater, animateMist } from './terrain3d.js';
 import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
 export { modelFiles };
 
@@ -199,62 +199,41 @@ export class World3D {
   }
 
   // ------------------------------------------------------------------ chão estático
-  _buildStatic() {
-    // água em volta e "ilha" de terra
-    const water = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0x7cc9e0, roughness: 0.35, metalness: 0.05 }));
-    water.rotation.x = -Math.PI / 2; water.position.y = -0.55; water.receiveShadow = true;
-    this.water = water; this.scene.add(water);
-  }
+  _buildStatic() {}
+
+  // Fase visual: 0 terra, 1 paralelepípedo, 2+ asfalto (muda chão, cerca, ruas e postes).
+  _phase(state) { return state.showcase ? 3 : phaseIndex(state.level || 1); }
 
   _buildGround(state) {
-    const n = state.size;
-    const key = n + '|' + state.tiles.map(t => (t.locked ? 1 : 0)).join('');
+    const n = state.size, ph = this._phase(state);
+    const key = n + '|' + Math.min(ph, 2) + '|' + state.tiles.map(t => (t.obstacle ? 2 : t.locked ? 1 : 0)).join('');
     if (key === this.groundKey) return;
     this.groundKey = key;
-    disposeTree(this.groundGroup);
-    this.groundGroup.clear();
-    // laje da ilha
-    const slab = new THREE.Mesh(new THREE.BoxGeometry(n + 0.6, 0.6, n + 0.6), [
-      ...Array(2).fill(new THREE.MeshStandardMaterial({ color: 0x9c6b43, roughness: 1 })),
-      new THREE.MeshStandardMaterial({ color: 0x79b35a, roughness: 1 }),
-      new THREE.MeshStandardMaterial({ color: 0x6d4a2f, roughness: 1 }),
-      ...Array(2).fill(new THREE.MeshStandardMaterial({ color: 0x8a5d3a, roughness: 1 })),
-    ]);
-    slab.position.set(n / 2, -0.31, n / 2); slab.receiveShadow = true;
-    this.groundGroup.add(slab);
-    // grama com variação por tile (textura de canvas)
-    const P = 16, cv = document.createElement('canvas'); cv.width = cv.height = n * P;
-    const cx = cv.getContext('2d');
-    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
-      const t = state.tiles[j * n + i], h = hash(i, j);
-      const L = t.locked ? 41 + h * 4 : 42 + h * 5;
-      const S = t.locked ? 26 : 40 + h * 8;
-      cx.fillStyle = `hsl(${98 + h * 8}, ${S}%, ${L}%)`;
-      cx.fillRect(i * P, j * P, P, P);
-      cx.fillStyle = t.locked ? 'rgba(30,40,30,0.12)' : 'rgba(255,255,255,0.10)';
-      cx.fillRect(i * P, j * P, P, 1); cx.fillRect(i * P, j * P, 1, P);
+    for (const gr of [this.groundGroup, this.forestGroup, this.fenceGroup]) if (gr) { disposeTree(gr); gr.clear(); }
+    if (!this.forestGroup) { this.forestGroup = new THREE.Group(); this.fenceGroup = new THREE.Group(); this.scene.add(this.forestGroup, this.fenceGroup); }
+    // névoa da borda (uma vez por tamanho de mapa)
+    if (this.mistN !== n) {
+      if (this.mist) { this.scene.remove(this.mist); disposeTree(this.mist); }
+      this.mist = buildMist(n); this.mistN = n; this.scene.add(this.mist);
     }
-    const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
-    const grass = new THREE.Mesh(new THREE.PlaneGeometry(n, n), new THREE.MeshStandardMaterial({ map: tex, roughness: 1 }));
-    grass.rotation.x = -Math.PI / 2; grass.position.set(n / 2, 0.001, n / 2); grass.receiveShadow = true;
-    this.groundGroup.add(grass);
-    // obstáculos (terra à venda)
+    // chão (grama, praia, mar, rio e, nas fases 0–1, as ruas de terra / pedra)
+    const gnd = buildGround(state, ph);
+    this.water = gnd.water;
+    this.groundGroup.add(gnd.group);
+    this.forestGroup.add(buildForest(state));
+    this.fenceGroup.add(buildFence(state, ph));
+    // enfeites miúdos e obstáculos (mesclados)
+    const deco = new THREE.Group();
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
       const t = state.tiles[j * n + i];
       if (!t.obstacle) {
-        if (t.kind === 'road') continue;
-        // enfeites: mata nas quadras à venda, tufos de grama nas compradas
+        if (t.kind !== 'grass' || t.locked) continue;
         const h = hash(i, j, 21);
-        if (t.locked && h < 0.42) {
-          const m = this.fit(this.model(SCENERY_TREES[Math.floor(hash(i, j, 22) * SCENERY_TREES.length)]), 0.5, 1, 0.55 + hash(i, j, 23) * 0.25);
-          m.position.set(i + 0.3 + hash(i, j, 24) * 0.4, 0, j + 0.3 + hash(i, j, 25) * 0.4);
-          m.rotation.y = h * 20;
-          this.groundGroup.add(m);
-        } else if (h < (t.locked ? 0.7 : 0.22)) {
-          const m = this.fit(this.model(NAT + (h < 0.5 ? 'grass_large' : 'grass')), 0.22, 1);
+        if (h < 0.16) {
+          const m = this.fit(this.model(NAT + (h < 0.08 ? 'grass_large' : 'grass')), 0.22, 1);
           m.position.set(i + 0.08 + hash(i, j, 26) * 0.14, 0, j + 0.08 + hash(i, j, 27) * 0.14);
           m.traverse(q => { if (q.isMesh) q.castShadow = false; });
-          this.groundGroup.add(m);
+          deco.add(m);
         }
         continue;
       }
@@ -266,42 +245,29 @@ export class World3D {
         g.add(m);
       }
       g.position.set(i, 0, j);
-      this.groundGroup.add(g);
+      deco.add(g);
     }
-    const merged = mergeStatic(this.groundGroup);
-    this.groundGroup.clear();
-    this.groundGroup.add(merged);
+    this.groundGroup.add(mergeStatic(deco));
+    disposeTree(deco);
+    if (this.gridMesh) { this.scene.remove(this.gridMesh); disposeTree(this.gridMesh); this.gridMesh = null; }
     this.roadKey = '';
   }
 
   _buildRoads(state) {
-    const n = state.size;
-    const key = n + '|' + state.tiles.map(t => (t.kind === 'road' ? 1 : 0)).join('');
+    const n = state.size, ph = this._phase(state);
+    const key = n + '|' + ph + '|' + state.tiles.map(t => (t.kind === 'road' ? 1 : 0)).join('');
     if (key === this.roadKey) return;
     this.roadKey = key;
     if (this.roadGroup) { this.scene.remove(this.roadGroup); disposeTree(this.roadGroup); }
-    this.roadGroup = new THREE.Group(); this.scene.add(this.roadGroup);
-    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
-      if (state.tiles[j * n + i].kind !== 'road') continue;
-      const ty = roadType(state, i, j);
-      const m = this.model(ty === 'x' ? 'roads/road-crossroad' : 'roads/road-straight');
-      m.position.set(i + 0.5, 0.004, j + 0.5);
-      if (ty === 'j') m.rotation.y = Math.PI / 2;
-      m.traverse(o => { if (o.isMesh) o.castShadow = false; });
-      this.roadGroup.add(m);
-      // postes
-      if (ty === 'i' && i % 3 === 1) this._lamp(i + 0.5, j + 0.06, 0);
-      if (ty === 'j' && j % 3 === 1) this._lamp(i + 0.06, j + 0.5, Math.PI / 2);
-    }
-    const merged = mergeStatic(this.roadGroup);
-    this.roadGroup.clear();
-    this.roadGroup.add(merged);
+    const g = buildRoads3D(this, state, ph);
+    this.roadGroup = mergeStatic(g);
+    this.scene.add(this.roadGroup);
   }
 
-  _lamp(x, z, r) {
-    const m = this.fit(this.model(MISC_MODELS.lamp), 0.5, 0.5, 0.62);
-    m.position.set(x, 0, z); m.rotation.y = r;
-    this.roadGroup.add(m);
+  // Grade de construção: só aparece ao posicionar/mover.
+  _grid(state, show) {
+    if (show && !this.gridMesh) { this.gridMesh = buildGrid(state); this.scene.add(this.gridMesh); }
+    if (this.gridMesh) this.gridMesh.visible = !!show;
   }
 
   // ------------------------------------------------------------------ objetos
@@ -544,8 +510,11 @@ export class World3D {
     if (this.autoQuality !== false) this._quality(t);
     this._buildGround(state);
     this._buildRoads(state);
+    this._grid(state, ui.ghost);
     this._sync(state, now, t);
     this._animate(t);
+    animateWater(this.water, t);
+    animateMist(this.mist, t);
     if (traffic) this._cars(traffic);
     this._selection(ui.selected);
     this._ghost(ui.ghost, t);

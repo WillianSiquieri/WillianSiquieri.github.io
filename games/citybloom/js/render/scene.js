@@ -4,7 +4,7 @@
 
 import { pt, center } from '../engine/iso.js';
 import { up, poly, roundRect } from './kit.js';
-import { grassTile, roadTile, roadType, lotSprite, lockedOverlay, forSaleSign, mapBase } from './terrain.js';
+import { grassTile, roadTile, roadType, lotSprite, lockedOverlay, forSaleSign, mapBase, waterTile, sandTile } from './terrain.js';
 import { bush, rubble, abandonedCar, lamp, car, hash } from './props.js';
 import { PAINT, ANIM, HEIGHT } from './buildings.js';
 import { SpriteCache, bboxBuilding, BBOX_TILE, BBOX_LOT, BBOX_PROP } from './sprites.js';
@@ -103,6 +103,11 @@ export class Scene {
       if (tl.kind === 'road') {
         const ty = roads.types[j * n + i];
         this.cache.draw(ctx, 'r:' + ty, BBOX_TILE, (cx) => roadTile(cx, ty), o.x, o.y);
+      } else if (tl.kind === 'water') {
+        const v = Math.floor(hash(i, j, 4) * 2);
+        this.cache.draw(ctx, 'w:' + v, BBOX_TILE, (cx) => waterTile(cx, v), o.x, o.y);
+      } else if (tl.kind === 'sand') {
+        this.cache.draw(ctx, 's', BBOX_TILE, (cx) => sandTile(cx), o.x, o.y);
       } else {
         const v = Math.floor(hash(i, j, 3) * 4);
         this.cache.draw(ctx, 'g:' + v, BBOX_TILE, (cx) => grassTile(cx, v), o.x, o.y);

@@ -9,9 +9,24 @@ export class Camera {
     this.maxZoom = 2.5;
     this.vw = 1;       // tamanho da viewport (pixels CSS)
     this.vh = 1;
+    this.limit = null; // { n, margin }: o centro fica no mapa (± margem, em tiles)
   }
 
-  setViewport(w, h) { this.vw = w; this.vh = h; }
+  setViewport(w, h) { this.vw = w; this.vh = h; this.clamp(); }
+
+  // Limita a câmera ao mapa: o centro não sai do losango do mapa (com folga) e o
+  // zoom mínimo não deixa ver além da névoa da borda.
+  setLimit(n, margin = 1.5) { this.limit = { n, margin }; this.clamp(); }
+  clamp() {
+    const L = this.limit; if (!L) return;
+    const span = L.n + 12;
+    this.minZoom = Math.max(0.35, this.vw / (span * 64), this.vh / (span * 32));
+    if (this.zoom < this.minZoom) this.zoom = this.minZoom;
+    let gi = (this.x / 32 + this.y / 16) / 2, gj = (this.y / 16 - this.x / 32) / 2;
+    const lo = -L.margin, hi = L.n + L.margin;
+    gi = Math.min(hi, Math.max(lo, gi)); gj = Math.min(hi, Math.max(lo, gj));
+    this.x = (gi - gj) * 32; this.y = (gi + gj) * 16;
+  }
 
   // Mundo -> tela
   toScreen(wx, wy) {
@@ -33,6 +48,7 @@ export class Camera {
   panByScreen(dx, dy) {
     this.x -= dx / this.zoom;
     this.y -= dy / this.zoom;
+    this.clamp();
   }
 
   // Zoom mantendo o ponto de tela (sx, sy) fixo no mesmo ponto de mundo.
@@ -42,6 +58,7 @@ export class Camera {
     const after = this.toWorld(sx, sy);
     this.x += before.x - after.x;
     this.y += before.y - after.y;
+    this.clamp();
   }
 
   // Interpola suavemente o centro da câmera em direção a (tx, ty).

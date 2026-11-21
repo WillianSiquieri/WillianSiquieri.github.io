@@ -191,6 +191,7 @@ class CityGame {
     cam.zoom = Math.max(cam.minZoom, Math.min(cam.maxZoom, Math.min(cam.vw / w, (cam.vh - 150) / h)));
     cam.x = (L.x + R.x) / 2;
     cam.y = (T.y + B.y) / 2 - 30;
+    cam.setLimit(s.size);
   }
   panByScreen(dx, dy) { this.camera.panByScreen(dx, dy); }
   zoomAt(sx, sy, f) { this.camera.zoomAt(sx, sy, f); }
@@ -611,6 +612,7 @@ class CityGame {
       const k = Math.min(1, (time - this.camTween.t0) / this.camTween.dur), e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
       this.camera.x = this.camTween.x0 + (this.camTween.x1 - this.camTween.x0) * e;
       this.camera.y = this.camTween.y0 + (this.camTween.y1 - this.camTween.y0) * e;
+      this.camera.clamp();
       if (k >= 1) this.camTween = null;
     }
     if (this.world) {
@@ -660,8 +662,8 @@ function renderHud(game) {
   const badge = $('orders-badge');
   badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
   $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
-  if (this._ttLang !== getLang()) {   // dicas (title / aria-label) no idioma atual
-    this._ttLang = getLang();
+  if (game._ttLang !== getLang()) {   // dicas (title / aria-label) no idioma atual
+    game._ttLang = getLang();
     for (const el of document.querySelectorAll('[data-tt]')) { const v = t(el.dataset.tt); if (el.hasAttribute('aria-label')) el.setAttribute('aria-label', v); else el.title = v; }
   }
   const tipEl = $('tip');

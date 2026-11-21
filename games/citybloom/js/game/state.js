@@ -3,9 +3,10 @@
 // com o jogo fechado sem precisar "simular" nada ao voltar.
 
 import { BUILDINGS, MAP, START, WAREHOUSE, secs } from './config.js';
+import { layout, OLD_OFFSET } from './roads.js';
 
 const SAVE_KEY = 'citybloom.save.v2';
-export const VERSION = 2;
+export const VERSION = 3;   // 3: mapa 36×36 (o 18×18 antigo virou o miolo)
 
 // PRNG determinístico (mulberry32).
 export function rng(seed) {
@@ -28,29 +29,53 @@ export function makeObject(state, type, i, j, now, extra = {}) {
   return Object.assign(o, extra); // `extra` pode sobrescrever (ex.: casa já pronta)
 }
 
+// Quadras iniciais (no centro do mapa).
+function startChunk(i, j) {
+  const C = MAP.chunk, [c0, c1] = MAP.startChunks;
+  const ci = Math.floor(i / C), cj = Math.floor(j / C);
+  return ci >= c0 && ci <= c1 && cj >= c0 && cj <= c1;
+}
+
+// Tiles do mapa: tipo pelo traçado fixo; obstáculos só na grama bloqueada.
+function makeTiles(n, lockedAt, rand) {
+  const { kind, bridge, ra } = layout(n);
+  const tiles = [];
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+    const k = j * n + i;
+    const t = { kind: kind[k], locked: lockedAt(i, j) };
+    if (bridge.has(k)) t.bridge = true;
+    if (ra.has(k)) t.ra = ra.get(k);
+    if (t.locked && t.kind === 'grass' && rand() < 0.16) {
+      const r = rand();
+      t.obstacle = r < 0.45 ? 'bush' : r < 0.85 ? 'rubble' : 'car';
+    }
+    tiles.push(t);
+  }
+  return tiles;
+}
+
+// Save v2 (mapa 18×18) → v3: o mapa antigo vira o miolo do novo, sem perder nada.
+export function migrate(s) {
+  if (!s || s.v !== 2 || s.size !== 18) return s;
+  const n = MAP.size, O = OLD_OFFSET, old = s.tiles;
+  const inOld = (i, j) => i >= O && j >= O && i < O + 18 && j < O + 18;
+  const tiles = makeTiles(n, (i, j) => !inOld(i, j) || old[(j - O) * 18 + i - O].locked, rng(20261115));
+  for (let j = 0; j < 18; j++) for (let i = 0; i < 18; i++) {
+    const a = old[j * 18 + i], b = tiles[(j + O) * n + i + O];
+    b.locked = a.locked;
+    if (a.obstacle) b.obstacle = a.obstacle; else delete b.obstacle;
+  }
+  for (const o of s.objects) { o.i += O; o.j += O; }
+  s.tiles = tiles; s.size = n; s.v = VERSION; s.rev = (s.rev || 0) + 1;
+  return s;
+}
+
 // ---------------------------------------------------------------------------
 // Novo jogo
 // ---------------------------------------------------------------------------
 export function newGame(now = Date.now()) {
-  const n = MAP.size, C = MAP.chunk;
-  const [c0, c1] = MAP.startChunks;
-  const rand = rng(20261115);
-
-  const tiles = [];
-  for (let j = 0; j < n; j++) {
-    for (let i = 0; i < n; i++) {
-      const ci = Math.floor(i / C), cj = Math.floor(j / C);
-      const unlocked = ci >= c0 && ci <= c1 && cj >= c0 && cj <= c1;
-      const road = MAP.roadRows.includes(j) || MAP.roadCols.includes(i);
-      const t = { kind: road ? 'road' : 'grass', locked: !unlocked };
-      if (!unlocked && !road && rand() < 0.16) {
-        const r = rand();
-        t.obstacle = r < 0.45 ? 'bush' : r < 0.85 ? 'rubble' : 'car';
-      }
-      tiles.push(t);
-    }
-  }
-
+  const n = MAP.size;
+  const tiles = makeTiles(n, (i, j) => !startChunk(i, j), rng(20261115));
   const state = {
     v: VERSION,
     coins: START.coins, level: START.level, xp: START.xp,
@@ -67,7 +92,8 @@ export function newGame(now = Date.now()) {
     lastSeen: now,
   };
 
-  const add = (type, i, j, extra) => state.objects.push(makeObject(state, type, i, j, now, extra));
+  const O = OLD_OFFSET;   // posições do mapa antigo, agora no miolo
+  const add = (type, i, j, extra) => state.objects.push(makeObject(state, type, i + O, j + O, now, extra));
   add('townhall', 7, 6);
   add('warehouse', 10, 6);
   add('sawmill', 10, 7);
@@ -81,7 +107,7 @@ export function newGame(now = Date.now()) {
   // primeiro pedido feito para o tutorial: dá para entregar com a madeira colhida
   state.orders.push({ id: state.nextOrderId++, client: 'neighbor', line: 0, items: { wood: 2 }, coins: 30, xp: 8 });
 
-  const tile = (i, j) => tiles[j * n + i];
+  const tile = (i, j) => tiles[(j + O) * n + i + O];
   tile(6, 8).obstacle = 'bush';
   tile(11, 8).obstacle = 'rubble';
   tile(8, 11).obstacle = 'car';
@@ -195,7 +221,7 @@ export function load() {
   try {
     const raw = st().getItem(SAVE_KEY);
     if (!raw) return null;
-    const s = JSON.parse(raw);
+    const s = migrate(JSON.parse(raw));
     if (!s || s.v !== VERSION || !Array.isArray(s.tiles) || !Array.isArray(s.objects)) return null;
     s.rev = (s.rev || 0) + 1;
     if (!s.daily) s.daily = { next: 0, last: null, extra: null };

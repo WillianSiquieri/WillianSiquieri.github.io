@@ -323,14 +323,12 @@ export function xpToNext(level) {
 // Mapa, expansão, pedidos, armazém, felicidade
 // ---------------------------------------------------------------------------
 export const MAP = {
-  size: 18,              // grade 18×18
+  size: 36,              // grade 36×36 (traçado das ruas, praia e rio em game/roads.js)
   chunk: 3,              // quadras de 3×3 (unidade de compra)
-  startChunks: [2, 3],   // quadras iniciais (2..3 × 2..3) = tiles 6..11
-  roadRows: [9, 15],     // ruas horizontais (j fixo)
-  roadCols: [3, 12],     // ruas verticais (i fixo)
+  startChunks: [5, 6],   // quadras iniciais (5..6 × 5..6) = tiles 15..20, no miolo
 };
 
-export const CHUNK_PRICE = { base: 150, growth: 1.5 };
+export const CHUNK_PRICE = { base: 150, step: 0.4, pow: 1.7 };   // base·(1 + step·n)^pow
 
 export const ORDERS = {
   baseSlots: 3,          // +1 por fase, até maxSlots

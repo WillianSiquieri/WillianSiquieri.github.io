@@ -213,10 +213,12 @@ export const OBSTACLE_PARTS = {
 
 export const CAR_MODELS = ['cars/sedan', 'cars/taxi', 'cars/van', 'cars/suv', 'cars/hatchback-sports', 'cars/police', 'cars/delivery', 'cars/sedan-sports', 'cars/truck'];
 export const MISC_MODELS = { lamp: 'roads/light-square' };
+export const ROAD_MODELS = ['roads/road-straight', 'roads/road-crossroad', 'roads/road-bend', 'roads/road-intersection', 'roads/road-end-round',
+  'roads/road-roundabout', 'roads/road-crossing', 'roads/traffic-light', 'roads/light-square-double', 'roads/light-curved-double', 'roads/sign-highway'];
 
 // Todos os arquivos GLB usados (carregados uma vez na abertura).
 export function modelFiles() {
-  const set = new Set([...CAR_MODELS, MISC_MODELS.lamp, 'roads/road-straight', 'roads/road-crossroad']);
+  const set = new Set([...CAR_MODELS, MISC_MODELS.lamp, ...ROAD_MODELS]);
   for (const list of Object.values(CATALOG)) for (const v of list) if (v.m) set.add(v.m);
   for (const res of ['none', 'wood', 'clay', 'sand', 'iron']) for (const st of [0, 1, 2, 3]) for (const p of LOT_PARTS(res, st)) if (typeof p[0] === 'string') set.add(p[0]);
   for (const list of Object.values(OBSTACLE_PARTS)) for (const p of list) set.add(p[0]);

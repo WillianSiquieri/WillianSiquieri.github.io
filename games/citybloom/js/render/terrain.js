@@ -45,6 +45,13 @@ export function grassTile(ctx, variant) {
   line(ctx, q[0], q[3], 'rgba(255,255,255,0.12)', 0.6);
 }
 
+// Água (mar e rio) e areia da praia — usados só no modo 2D de reserva.
+export function waterTile(ctx, variant) {
+  poly(ctx, D(0, 0, 1, 1), variant % 2 ? '#3d9fd6' : '#43a5da');
+  if (variant === 1) line(ctx, G(0.25, 0.4), G(0.55, 0.4), 'rgba(255,255,255,0.5)', 1);
+}
+export function sandTile(ctx) { poly(ctx, D(0, 0, 1, 1), '#ead49c'); }
+
 // ---------------------------------------------------------------------------
 // Ruas: type 'i' (corre ao longo de i), 'j' (ao longo de j), 'x' (cruzamento)
 // ---------------------------------------------------------------------------
