@@ -493,7 +493,7 @@
   },
   {
     "id": "sh_mwnysojx5nsx",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-19T19:50:12.045Z",
     "theme": "Trump compra ações da Nvidia",
     "title": "Trump investe na Nvidia: quem sai ganhando?",
@@ -530,7 +530,8 @@
     },
     "youtubeId": "cyWtFAXVdRM",
     "previewUrl": "https://youtube.com/shorts/cyWtFAXVdRM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:48:14.487Z"
   },
   {
     "id": "sh_mwnythp9g4xq",
