@@ -365,7 +365,7 @@ button.pill { font-family: inherit; color: var(--text); cursor: pointer; text-al
 .modal-card ul { list-style: none; padding: 0; margin: 6px 0 16px; display: grid; gap: 4px; font-weight: 700; }
 .modal-card .btn { width: 100%; height: 48px; }
 .burst { font-size: 48px; animation: spin 1.2s ease-out; }
-/* ---------------- Prefeito Otávio ---------------- */
+/* ---------------- Prefeito Walt Parker ---------------- */
 .modal-card:has(.mentor) { text-align: left; padding: 18px 16px 16px; width: min(380px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; }
 .mentor-head { display: flex; gap: 10px; align-items: flex-end; }
 .mentor-figure {

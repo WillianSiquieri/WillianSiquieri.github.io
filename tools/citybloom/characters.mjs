@@ -31,7 +31,7 @@ const PEOPLE = {
     shirt: ['collared'], shirtColor: ['6c757d'], mouth: ['smile'], eyes: ['smilingShadow'] },
   firefighter: { ...NO, hair: ['pixie'], hairColor: ['4a2c17'], baseColor: ['ac6651'], shirt: ['crew'], shirtColor: ['d64933'],
     mouth: ['smile'], eyes: ['eyesShadow'], eyebrows: ['eyelashesUp'] },
-  // guia do jogo: Prefeito Otávio
+  // guia do jogo: Prefeito Walt Parker
   mayor: { ...NO, hair: ['fonze'], hairColor: ['c9ccd1'], baseColor: ['f9c9b6'], shirt: ['collared'], shirtColor: ['24324d'],
     mouth: ['smile'], eyes: ['smiling'], eyebrows: ['up'] },
 };

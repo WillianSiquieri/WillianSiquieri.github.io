@@ -113,14 +113,14 @@ em `assets/characters/micah/<id>.svg`, gerados por `tools/citybloom/characters.m
 
 | Personagem | Profissão | Costuma pedir | Bônus |
 |---|---|---|---|
-| Beto | Construtor | tábua, tijolo, aço, madeira | pedidos um pouco maiores |
-| Dona Lúcia | Lojista | móveis, vidro, tábua | +10% moedas |
-| Sr. Ricardo | Empresário | qualquer coisa | pedidos maiores, +30% moedas |
-| Profa. Ana | Professora | madeira, tábua, vidro | +40% XP |
-| Chef Marco | Cozinheiro | madeira, tijolo, barro | +5% moedas, +10% XP |
-| Júlia | Arquiteta | vidro, aço, móveis, tijolo | +15% moedas e XP |
-| Seu Zé | Vizinho | madeira, barro, areia | pedidos pequenos |
-| Rafa | Bombeira | aço, tijolo, vidro | +10% moedas, +20% XP |
+| Bob | Construtor | tábua, tijolo, aço, madeira | pedidos um pouco maiores |
+| Ms. Lucy | Lojista | móveis, vidro, tábua | +10% moedas |
+| Mr. Richard | Empresário | qualquer coisa | pedidos maiores, +30% moedas |
+| Ms. Anna | Professora | madeira, tábua, vidro | +40% XP |
+| Chef Mark | Cozinheiro | madeira, tijolo, barro | +5% moedas, +10% XP |
+| Julia | Arquiteta | vidro, aço, móveis, tijolo | +15% moedas e XP |
+| Old Joe | Vizinho | madeira, barro, areia | pedidos pequenos |
+| Rae | Bombeira | aço, tijolo, vidro | +10% moedas, +20% XP |
 
 Personagens diferentes aparecem ao mesmo tempo no quadro.
 
@@ -128,7 +128,7 @@ Personagens diferentes aparecem ao mesmo tempo no quadro.
 Ao limpar obstáculos (35% de chance), cai o item que o jogador tem **menos** —
 os dois são gastos juntos para ampliar o armazém, então nunca falta um deles.
 
-### Prefeito Otávio (guia)
+### Prefeito Walt Parker (guia)
 Personagem que acompanha o jogador (`js/ui/mentor.js`): **corpo inteiro** nos cartões e
 no baú (`assets/characters/micah/mayor-full.svg` — cabeça Micah + corpo desenhado: paletó,
 faixa de prefeito, acenando com prancheta) e rosto (`mayor.svg`) na dica:
@@ -239,7 +239,7 @@ js/ui/fx.js             textos flutuantes e partículas
 js/ui/levels.js         tela de níveis por fase
 js/ui/settings.js       configurações (nome, música, efeitos, idioma)
 js/render/avatars.js    retratos dos personagens dos pedidos (Micah)
-js/ui/mentor.js         Prefeito Otávio: cartão com fala, presentes
+js/ui/mentor.js         Prefeito Walt Parker: cartão com fala, presentes
 js/ui/daily.js          baú diário (calendário de 7 dias + extra)
 js/ui/inventory.js      folha de estoque (todos os itens)
 js/engine/music.js      música de fundo (tema, volume, preferências)

@@ -1,4 +1,4 @@
-// mentor.js — o Prefeito Otávio, guia do jogo: cartão com retrato e balão de
+// mentor.js — o Prefeito Walt Parker, guia do jogo: cartão com retrato e balão de
 // fala (abertura, subir de nível) e lista de presentes recebidos.
 
 import { MENTOR, ITEMS } from '../game/config.js';

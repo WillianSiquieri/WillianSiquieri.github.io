@@ -41,7 +41,7 @@ const STRINGS = {
     // níveis
     levelsTitle: 'Níveis da cidade', start: 'Início', toNext: 'para o próximo', total: 'total',
     // configurações e nome da cidade
-    settings: 'Configurações', cityName: 'Nome da cidade', cityNameDefault: 'Minha Cidade', save: 'Salvar',
+    rename: 'Renomear', center: 'Centralizar', settings: 'Configurações', cityName: 'Nome da cidade', cityNameDefault: 'Minha Cidade', save: 'Salvar',
     nameTitle: 'Dê um nome à sua cidade', nameSub: 'Você pode trocar depois em ⚙️.', renameTitle: 'Renomear cidade',
     nameGo: 'Começar', nameEmpty: 'Digite um nome para a cidade', nameSaved: 'Nome salvo: {n}',
     music: 'Música', effects: 'Efeitos sonoros', on: 'Ligados', off: 'Desligados', language: 'Idioma',
@@ -57,11 +57,11 @@ const STRINGS = {
     specialNote: 'Não ocupam espaço no armazém. Servem para ampliar o armazém.',
     fromLot: 'Lote de produção', fromFactory: 'Feito na', fromClear: 'Limpando terrenos e presentes',
     move: '✥ Mover', moveHint: 'Toque no mapa para escolher o novo lugar', moving: 'Mover', moved: 'Construção movida! ✥',
-    // Prefeito Otávio (guia)
-    mayorHello: 'Olá! Eu sou o <b>Prefeito Otávio</b>. Bem-vindo à nossa cidade! 🏙️',
+    // Prefeito Walt Parker (guia)
+    mayorHello: 'Olá! Eu sou o <b>Prefeito Walt Parker</b>. Bem-vindo à nossa cidade! 🏙️',
     mayorAskName: 'Antes de tudo: como vai se chamar a nossa cidade?',
     mayorCount: 'Que nome lindo! Conto com a sua ajuda para fazer <b>{c}</b> prosperar e ajudar os nossos moradores. Vamos começar colhendo madeira 🌲!',
-    mayorBack: 'Olá! Eu sou o <b>Prefeito Otávio</b>. A partir de agora vou acompanhar você em <b>{c}</b>: dicas, parabéns a cada nível e um presente por dia 🎁!',
+    mayorBack: 'Olá! Eu sou o <b>Prefeito Walt Parker</b>. A partir de agora vou acompanhar você em <b>{c}</b>: dicas, parabéns a cada nível e um presente por dia 🎁!',
     mayorLevel: 'Parabéns! <b>{c}</b> chegou ao nível {n}! Os moradores estão orgulhosos. 👏|Que trabalho incrível! Nível {n}! A cidade cresce a cada dia. 🌱|Nível {n}! Eu sabia que podia contar com você! 🎉|Mais um nível, {n}! Aqui está um presente da Prefeitura. 🎁',
     mayorPhase: 'Que dia histórico! Agora somos oficialmente uma <b>{p}</b>! Obrigado por tudo! 🎉',
     next: 'Continuar', letsGo: 'Vamos lá!', yourReward: 'Seu presente', collectGift: 'Coletar! 🎁',
@@ -80,7 +80,7 @@ const STRINGS = {
     tipOrder: 'Toque na Prefeitura e entregue um pedido 📋',
     tipBuild: 'Construa algo novo no botão 🔨',
     tipExpand: 'Compre uma quadra nova (placa 🏷️)',
-    mayorHi: 'Olá! Sou o Prefeito Otávio. Siga a mão para começar!',
+    mayorHi: 'Olá! Sou o Prefeito Walt. Siga a mão para começar!',
     skip: 'Pular', missionTitle: 'Missão', claim: 'Pegar',
     mission_rent: 'Colete aluguel {n} vezes', mission_harvest: 'Colha {n} lotes', mission_orders: 'Entregue {n} pedidos',
     mission_products: 'Fabrique {n} produtos', mission_build: 'Construa {n} coisa(s) nova(s)', mission_upgrade: 'Melhore {n} casa',
@@ -114,7 +114,7 @@ const STRINGS = {
     welcome: 'Welcome back! You were away for {t}.',
     showcase: 'Building showcase',
     levelsTitle: 'City levels', start: 'Start', toNext: 'to next', total: 'total',
-    settings: 'Settings', cityName: 'City name', cityNameDefault: 'My City', save: 'Save',
+    rename: 'Rename', center: 'Center', settings: 'Settings', cityName: 'City name', cityNameDefault: 'My City', save: 'Save',
     nameTitle: 'Name your city', nameSub: 'You can change it later in ⚙️.', renameTitle: 'Rename city',
     nameGo: 'Start', nameEmpty: 'Type a name for your city', nameSaved: 'Name saved: {n}',
     music: 'Music', effects: 'Sound effects', on: 'On', off: 'Off', language: 'Language',
@@ -130,10 +130,10 @@ const STRINGS = {
     specialNote: 'They take no storage space. Used to expand the storage.',
     fromLot: 'Production lot', fromFactory: 'Made at the', fromClear: 'Clearing land and gifts',
     move: '✥ Move', moveHint: 'Tap the map to choose the new spot', moving: 'Move', moved: 'Building moved! ✥',
-    mayorHello: 'Hello! I am <b>Mayor Otávio</b>. Welcome to our town! 🏙️',
+    mayorHello: 'Hello! I am <b>Mayor Walt Parker</b>. Welcome to our town! 🏙️',
     mayorAskName: 'First things first: what shall we call our city?',
     mayorCount: 'What a lovely name! I count on your help to make <b>{c}</b> thrive and to help our residents. Let\'s start by harvesting some wood 🌲!',
-    mayorBack: 'Hello! I am <b>Mayor Otávio</b>. From now on I will be with you in <b>{c}</b>: tips, congratulations on every level and a gift every day 🎁!',
+    mayorBack: 'Hello! I am <b>Mayor Walt Parker</b>. From now on I will be with you in <b>{c}</b>: tips, congratulations on every level and a gift every day 🎁!',
     mayorLevel: 'Congratulations! <b>{c}</b> reached level {n}! The residents are proud. 👏|Amazing work! Level {n}! The city grows every day. 🌱|Level {n}! I knew I could count on you! 🎉|Another level, {n}! Here is a gift from the Town Hall. 🎁',
     mayorPhase: 'What a historic day! We are now officially a <b>{p}</b>! Thank you for everything! 🎉',
     next: 'Continue', letsGo: "Let's go!", yourReward: 'Your gift', collectGift: 'Collect! 🎁',
@@ -150,7 +150,7 @@ const STRINGS = {
     tipOrder: 'Tap the Town Hall and deliver an order 📋',
     tipBuild: 'Build something new with the 🔨 button',
     tipExpand: 'Buy a new block (🏷️ sign)',
-    mayorHi: "Hi! I'm Mayor Otávio. Follow the hand to get started!",
+    mayorHi: "Hi! I'm Mayor Walt. Follow the hand to get started!",
     skip: 'Skip', missionTitle: 'Mission', claim: 'Collect',
     mission_rent: 'Collect rent {n} times', mission_harvest: 'Harvest {n} lots', mission_orders: 'Deliver {n} orders',
     mission_products: 'Make {n} products', mission_build: 'Build {n} new thing(s)', mission_upgrade: 'Upgrade {n} house',
@@ -164,10 +164,8 @@ function saved() {
 function detect() {
   const v = saved();
   if (v) return v;
-  // no CrazyGames o idioma vem do SDK (applyPortalLocale); até lá, inglês
-  if ((typeof window !== 'undefined' && window.CB_PORTAL) === 'crazygames') return 'en';
-  const nav = (navigator.language || 'en').toLowerCase();
-  return nav.startsWith('pt') ? 'pt' : 'en';
+  // inglês é o padrão; português só pela escolha do jogador ou pelo idioma do portal (applyPortalLocale)
+  return 'en';
 }
 
 // Idioma informado pelo portal (ex.: 'pt-BR'), usado só se o jogador não escolheu.

@@ -78,22 +78,22 @@ moradores e faça a cidade florescer de vilarejo a metrópole!
 and help it bloom from a tiny hamlet into a metropolis!
 
 **Descrição longa (PT):**
-O Prefeito Otávio conta com você! Em CityBloom você transforma um vilarejo numa
+O Prefeito Walt Parker conta com você! Em CityBloom você transforma um vilarejo numa
 metrópole cheia de vida. Colha madeira, barro, areia e ferro nos lotes de produção,
 transforme tudo em tábuas, tijolos, vidro, móveis e aço nas fábricas e use os materiais
 para construir casas, comércios, serviços e monumentos. Atenda os pedidos dos moradores
-— o construtor Beto, a lojista Dona Lúcia, o Chef Marco e muitos outros — para ganhar
+— o construtor Bob, a lojista Ms. Lucy, o Chef Mark e muitos outros — para ganhar
 moedas e experiência. Evolua as casas, compre novas quadras, deixe os moradores felizes
 e passe pelas fases Vilarejo, Vila, Cidade pequena, Cidade e Metrópole. Abra o baú
 diário, receba presentes a cada nível e jogue no seu ritmo: o progresso continua mesmo
 com o jogo fechado!
 
 **Long description (EN):**
-Mayor Otávio is counting on you! In CityBloom you turn a tiny hamlet into a thriving
+Mayor Walt Parker is counting on you! In CityBloom you turn a tiny hamlet into a thriving
 metropolis. Harvest wood, clay, sand and iron on production lots, turn them into planks,
 bricks, glass, furniture and steel at the factories, and use them to build homes, shops,
-services and landmarks. Fulfil orders from the residents — Beto the builder, Mrs. Lúcia
-the shopkeeper, Chef Marco and many more — to earn coins and XP. Upgrade houses, buy new
+services and landmarks. Fulfil orders from the residents — Bob the builder, Ms. Lucy
+the shopkeeper, Chef Mark and many more — to earn coins and XP. Upgrade houses, buy new
 blocks, keep residents happy and grow through the Hamlet, Village, Small town, City and
 Metropolis stages. Open the daily chest, get a gift every level and play at your own
 pace: your city keeps producing even while you're away!

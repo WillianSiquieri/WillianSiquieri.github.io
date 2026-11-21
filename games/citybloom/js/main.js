@@ -22,7 +22,7 @@ import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
 import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage, migrateLocalSave } from './game/state.js';
-import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale } from './i18n.js';
+import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale, getLang } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -660,6 +660,10 @@ function renderHud(game) {
   const badge = $('orders-badge');
   badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
   $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
+  if (this._ttLang !== getLang()) {   // dicas (title / aria-label) no idioma atual
+    this._ttLang = getLang();
+    for (const el of document.querySelectorAll('[data-tt]')) { const v = t(el.dataset.tt); if (el.hasAttribute('aria-label')) el.setAttribute('aria-label', v); else el.title = v; }
+  }
   const tipEl = $('tip');
   const tbtn = $('tip-btn'), sub = $('tip-sub');
   tipEl.classList.toggle('mission', !!ms); tipEl.classList.toggle('done', !!(ms && ms.done));

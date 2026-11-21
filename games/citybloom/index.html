@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -19,30 +19,30 @@
   <!-- HUD -->
   <div class="hud">
     <div class="hud-left">
-      <button class="pill city-pill" data-act="rename" title="Renomear"><span class="ri">🏙️</span><span id="hud-city"></span><span class="pen">✏️</span></button>
-      <button class="pill level-pill" data-act="levels" title="Níveis">
-        <div class="level-top"><span id="hud-phase">🏡</span><span id="hud-level" class="lvl">Nível 1</span></div>
+      <button class="pill city-pill" data-act="rename" data-tt="rename" title="Rename"><span class="ri">🏙️</span><span id="hud-city"></span><span class="pen">✏️</span></button>
+      <button class="pill level-pill" data-act="levels" data-tt="levelsTitle" title="City levels">
+        <div class="level-top"><span id="hud-phase">🏡</span><span id="hud-level" class="lvl">Level 1</span></div>
         <div class="xp"><div id="hud-xpbar" class="xp-fill"></div></div>
       </button>
       <div class="pill res"><span class="ri">🪙</span><span id="hud-coins">0</span></div>
       <div class="pill res"><span class="ri">👥</span><span id="hud-pop">0</span></div>
       <div class="pill res"><span class="ri">⭐</span><span id="hud-happy">0</span></div>
-      <button class="pill res" data-act="inventory" title="Estoque"><span class="ri">📦</span><span id="hud-storage">0/50</span></button>
+      <button class="pill res" data-act="inventory" data-tt="inventory" title="Inventory"><span class="ri">📦</span><span id="hud-storage">0/50</span></button>
     </div>
     <div class="hud-right">
-      <button id="btn-settings" class="round small" data-act="settings" title="Configurações">⚙️</button>
-      <button id="btn-lang" class="round small" title="Idioma / Language">EN</button>
+      <button id="btn-settings" class="round small" data-act="settings" data-tt="settings" title="Settings">⚙️</button>
+      <button id="btn-lang" class="round small" title="Language / Idioma">EN</button>
     </div>
   </div>
 
   <!-- Baú diário -->
-  <button id="btn-daily" class="round gift" data-act="daily" title="Baú diário">🎁<span id="daily-badge" class="badge">!</span></button>
+  <button id="btn-daily" class="round gift" data-act="daily" data-tt="dailyTitle" title="Daily chest">🎁<span id="daily-badge" class="badge">!</span></button>
 
   <!-- Zoom / centralizar -->
   <div class="side">
     <button id="btn-zoom-in" class="round" title="Zoom +">＋</button>
     <button id="btn-zoom-out" class="round" title="Zoom −">－</button>
-    <button id="btn-home" class="round" title="Centralizar">🎯</button>
+    <button id="btn-home" class="round" data-tt="center" title="Center">🎯</button>
   </div>
 
   <!-- Dica de objetivo -->
@@ -50,8 +50,8 @@
 
   <!-- Barra inferior -->
   <div class="bottombar">
-    <button id="btn-orders" class="bigbtn"><span class="bi">📋</span><span id="lbl-orders">Pedidos</span><span id="orders-badge" class="badge">0</span></button>
-    <button id="btn-build" class="bigbtn primary"><span class="bi">🔨</span><span id="lbl-build">Construir</span></button>
+    <button id="btn-orders" class="bigbtn"><span class="bi">📋</span><span id="lbl-orders">Orders</span><span id="orders-badge" class="badge">0</span></button>
+    <button id="btn-build" class="bigbtn primary"><span class="bi">🔨</span><span id="lbl-build">Build</span></button>
   </div>
 
   <!-- Painel do item tocado -->
@@ -59,7 +59,7 @@
     <div class="panel-head">
       <span id="panel-title" class="panel-title"></span>
       <button id="panel-move" class="movebtn" data-act="move"></button>
-      <button class="close" data-act="closePanel" aria-label="Fechar">✕</button>
+      <button class="close" data-act="closePanel" data-tt="close" aria-label="Close">✕</button>
     </div>
     <div id="panel-body" class="panel-body"></div>
     <div id="panel-actions" class="panel-actions"></div>
@@ -70,7 +70,7 @@
     <div class="sheet-card">
       <div class="panel-head">
         <span id="sheet-title" class="panel-title"></span>
-        <button class="close" data-act="closeSheet" aria-label="Fechar">✕</button>
+        <button class="close" data-act="closeSheet" data-tt="close" aria-label="Close">✕</button>
       </div>
       <div id="sheet-body" class="sheet-body"></div>
     </div>
@@ -83,7 +83,7 @@
     <button id="place-ok" class="btn primary" data-act="placeOk">✓</button>
   </div>
 
-  <!-- Prefeito Otávio: abertura e subir de nível -->
+  <!-- Prefeito Walt Parker: abertura e subir de nível -->
   <div id="modal" class="modal"><div id="modal-body" class="modal-card"></div></div>
 
   <!-- Nome da cidade -->
