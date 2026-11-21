@@ -652,7 +652,7 @@
   },
   {
     "id": "sh_mwqqxghni1os",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-21T18:32:45.208Z",
     "theme": "Auxílio judicial pós-Brumadinho e efeito na renda familiar",
     "title": "STF desbloqueia auxílio de Brumadinho: mais de 51 mil famílias podem receber agora",
@@ -687,6 +687,7 @@
     },
     "youtubeId": "uTfzSWDxsWw",
     "previewUrl": "https://youtube.com/shorts/uTfzSWDxsWw",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:46:48.128Z"
   }
 ]
