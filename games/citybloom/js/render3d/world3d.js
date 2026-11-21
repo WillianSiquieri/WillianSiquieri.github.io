@@ -12,7 +12,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { BUILDINGS, MAP, phaseIndex } from '../game/config.js';
 import { lotProgress } from '../game/economy.js';
-import { makeVehicle } from './vehicles.js';
+import { makeVehicle, brokenWagon } from './vehicles.js';
 import { People } from './people.js';
 import { buildGround, buildForest, buildFence, buildMist, buildGrid, buildRoads3D, animateWater, animateMist } from './terrain3d.js';
 import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
@@ -241,6 +241,10 @@ export class World3D {
         continue;
       }
       const g = new THREE.Group();
+      if (t.obstacle === 'car' && ph <= 1) {           // vilarejo/vila: carroça quebrada, não carro
+        const wg = brokenWagon(); wg.position.set(0.5, 0, 0.5); wg.rotation.y = hash(i, j, 5) * 6; g.add(wg);
+        g.position.set(i, 0, j); deco.add(g); continue;
+      }
       for (const [name, x, z, s, r, tint] of OBSTACLE_PARTS[t.obstacle] || []) {
         const m = this.fit(this.model(name), s);
         if (tint) m.traverse(q => { if (q.isMesh) q.material = tinted(q.material, tint); });
@@ -287,7 +291,8 @@ export class World3D {
       return `lot:${o.resource || ''}:${stage}`;
     }
     if (o.type === 'townhall') return 'townhall:' + this.curPhase;
-    if (o.type === 'warehouse') return 'warehouse:' + this.curWh;
+    if (o.type === 'warehouse') return 'warehouse:' + this.curWh + ':' + (this.curPhase <= 1 ? 0 : 1);
+    if (o.type === 'sawmill' || o.type === 'kiln') return o.type + ':' + (this.curPhase >= 3 ? 1 : 0);
     if (def.type === 'house' && o.size === 1) return o.type + ':' + (this.curPhase <= 1 ? 0 : this.curPhase >= 3 ? 2 : 1);
     return o.type;
   }
@@ -413,7 +418,7 @@ export class World3D {
         const g = this._makeObject(o, key);
         const grow = e ? e.key.startsWith('lot:') && key.startsWith('lot:') ? 0.25 : 0.45 : (this.firstSync ? 0 : 0.6);
         // obra só para prédio novo ou que mudou de modelo (não para lote mudando de estágio)
-        const work = !this.firstSync && !key.startsWith('lot:') && (!e || e.key.split(':')[0] !== key.split(':')[0] || (key.startsWith('townhall') || key.startsWith('warehouse')));
+        const work = !this.firstSync && !key.startsWith('lot:') && (!e || e.key.split(':')[0] !== key.split(':')[0] || /^(townhall|warehouse|sawmill|kiln)/.test(key));
         e = { g, key, born: grow ? t : -99, grow, bump: -99, fx: g.userData.fx, seed: hash(o.id, 31) * 10 };
         this.objs.set(o.id, e);
         this.root.add(g);
@@ -481,6 +486,11 @@ export class World3D {
       if (!list[k]) { const m = makeVehicle(this, c.kind); this.carGroup.add(m); list[k] = m; }
       const m = list[k];
       m.visible = true; m.position.set(c.x, 0.02 + (c.lift || 0), c.z); m.rotation.y = c.yaw;
+      // pernas do cavalo e do ciclista: andam só com o veículo em movimento
+      if (m.userData.legs) {
+        const ph = (m.userData.walk = (m.userData.walk || 0) + (c.moving ? this._dt * m.userData.gait : 0));
+        for (const l of m.userData.legs) l.o.rotation.x = c.moving ? Math.sin(ph + l.ph) * 0.55 : 0;
+      }
     }
     for (const [kind, list] of this.vpool) for (let k = used.get(kind) || 0; k < list.length; k++) list[k].visible = false;
     if (!this.people) this.people = new People(this.scene);
@@ -578,6 +588,7 @@ export class World3D {
     this._works(t);
     animateWater(this.water, t);
     animateMist(this.mist, t);
+    this._dt = Math.min(0.1, Math.max(0, t - (this._lastT == null ? t : this._lastT))); this._lastT = t;
     if (traffic) this._cars(traffic);
     this._selection(ui.selected);
     this._ghost(ui.ghost, t);

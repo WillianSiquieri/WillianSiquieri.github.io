@@ -17,14 +17,14 @@ const OUT = 7;                       // até onde os veículos vão dentro da n�
 
 // Frota por fase: [tipo, peso]. Velocidade em tiles/s.
 export const FLEET = [
-  [['cart', 4], ['bike', 3], ['tractor', 2]],
-  [['cart', 2], ['bike', 3], ['tractor', 1], ['van', 2], ['delivery-flat', 2], ['truck-flat', 1], ['sedan', 2]],
-  [['sedan', 4], ['hatchback-sports', 2], ['suv', 3], ['taxi', 2], ['delivery', 2], ['van', 2], ['police', 1], ['garbage-truck', 1], ['bike', 1]],
+  [['cart', 5], ['bike', 2]],                                                      // vilarejo: só tração animal e bicicleta
+  [['cart', 3], ['bike', 2], ['vintage-car', 3], ['vintage-truck', 2]],           // vila: chegam os primeiros carros (antigos)
+  [['sedan', 4], ['hatchback-sports', 2], ['suv', 3], ['taxi', 2], ['delivery', 2], ['van', 2], ['police', 1], ['garbage-truck', 1], ['tractor', 1], ['bike', 1]],
   [['sedan', 3], ['suv', 3], ['suv-luxury', 2], ['taxi', 3], ['bus', 3], ['delivery', 2], ['truck', 1], ['ambulance', 1], ['firetruck', 1], ['police', 1], ['garbage-truck', 1]],
   [['sedan-sports', 3], ['suv-luxury', 3], ['taxi', 4], ['bus', 2], ['bus-long', 2], ['race', 1], ['sedan', 2], ['delivery', 2], ['ambulance', 1], ['police', 1]],
 ];
-const SPEED = { cart: 0.32, bike: 0.42, tractor: 0.3, bus: 0.55, 'bus-long': 0.5, 'garbage-truck': 0.45, truck: 0.55 };
-const LEN = { bus: 0.5, 'bus-long': 0.7, truck: 0.45, 'garbage-truck': 0.45, firetruck: 0.45, cart: 0.4 };
+const SPEED = { cart: 0.32, bike: 0.42, tractor: 0.3, 'vintage-car': 0.5, 'vintage-truck': 0.42, bus: 0.55, 'bus-long': 0.5, 'garbage-truck': 0.45, truck: 0.55 };
+const LEN = { bus: 0.5, 'bus-long': 0.7, truck: 0.45, 'garbage-truck': 0.45, firetruck: 0.45, cart: 0.45, 'vintage-car': 0.42, 'vintage-truck': 0.45 };
 const MAXV = [6, 12, 20, 30, 40], MAXP = [10, 18, 28, 40, 54];
 
 function pick(list, r) {
@@ -259,7 +259,7 @@ export class Traffic {
       const p = at(c.path, c.d);
       const yaw = Math.atan2(p.hx, p.hz);
       const dir = Math.abs(p.hx) > Math.abs(p.hz) ? (p.hx > 0 ? 'i+' : 'i-') : (p.hz > 0 ? 'j+' : 'j-');
-      return { x: p.x, z: p.z, yaw, kind: c.kind, color: c.color, ci: p.x, cj: p.z, dir, depth: Math.floor(p.x) + Math.floor(p.z) + 0.5, lift: this._lift(p.x, p.z) };
+      return { x: p.x, z: p.z, yaw, moving: (c.v || 0) > 0.05, kind: c.kind, color: c.color, ci: p.x, cj: p.z, dir, depth: Math.floor(p.x) + Math.floor(p.z) + 0.5, lift: this._lift(p.x, p.z) };
     });
   }
 

@@ -1,4 +1,4 @@
-// Gera os retratos dos 8 personagens dos pedidos no estilo escolhido (Micah,
+// Gera os retratos dos 11 personagens dos pedidos no estilo escolhido (Micah,
 // por Micah Lanier, CC BY 4.0, via DiceBear) com cenário e acessório da profissão.
 // Saída: games/citybloom/assets/characters/micah/<id>.svg
 //
@@ -31,6 +31,13 @@ const PEOPLE = {
     shirt: ['collared'], shirtColor: ['6c757d'], mouth: ['smile'], eyes: ['smilingShadow'] },
   firefighter: { ...NO, hair: ['pixie'], hairColor: ['4a2c17'], baseColor: ['ac6651'], shirt: ['crew'], shirtColor: ['d64933'],
     mouth: ['smile'], eyes: ['eyesShadow'], eyebrows: ['eyelashesUp'] },
+  // personagens da época do vilarejo (fazendeiro, ferreiro, padeira)
+  farmer: { ...NO, hair: ['dougFunny'], hairColor: ['8a5a2b'], baseColor: ['f9c9b6'], facialHair: ['scruff'], facialHairProbability: 100, facialHairColor: ['8a5a2b'],
+    shirt: ['collared'], shirtColor: ['c0392b'], mouth: ['laughing'], eyes: ['smiling'] },
+  blacksmith: { ...NO, hair: ['mrClean'], baseColor: ['ac6651'], facialHair: ['beard'], facialHairProbability: 100, facialHairColor: ['1f1f1f'],
+    shirt: ['crew'], shirtColor: ['5a4632'], mouth: ['smirk'], eyes: ['eyes'], eyebrows: ['down'] },
+  baker: { ...NO, hair: ['full'], hairColor: ['d9b26a'], baseColor: ['f9c9b6'], shirt: ['crew'], shirtColor: ['f4a261'],
+    mouth: ['smile'], eyes: ['smiling'], eyebrows: ['eyelashesUp'] },
   // guia do jogo: Prefeito Walt Parker
   mayor: { ...NO, hair: ['fonze'], hairColor: ['c9ccd1'], baseColor: ['f9c9b6'], shirt: ['collared'], shirtColor: ['24324d'],
     mouth: ['smile'], eyes: ['smiling'], eyebrows: ['up'] },
@@ -104,6 +111,26 @@ const SCENE = {
     <g fill="#d9dde2">${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<rect x="30" y="${52 + k * 18}" width="140" height="3"/>`).join('')}</g>
     <rect x="44" y="52" width="112" height="18" rx="3" fill="#9fc5df" opacity=".9"/>
     <circle cx="100" cy="26" r="10" fill="#ffd166"/><path d="M100 18 l2.4 5 5.4.6-4 3.7 1 5.3-4.8-2.6-4.8 2.6 1-5.3-4-3.7 5.4-.6Z" fill="#c83d2d"/>`,
+  farmer: `
+    <linearGradient id="s-sky4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd8ff"/><stop offset="1" stop-color="#fff3d6"/></linearGradient>
+    <rect width="200" height="200" fill="url(#s-sky4)"/><circle cx="164" cy="34" r="15" fill="#fff3b0"/>
+    <path d="M0 120 Q50 100 100 116 T200 108 V200 H0 Z" fill="#9ccc65"/>
+    <g fill="#c0392b" stroke="#8e2a20" stroke-width="1.5"><path d="M14 128 V92 L36 76 L58 92 V128 Z"/></g><path d="M10 94 L36 72 L62 94" fill="none" stroke="#f6f1e7" stroke-width="4"/>
+    <rect x="28" y="104" width="16" height="24" fill="#f6f1e7"/><path d="M28 104 L44 128 M44 104 L28 128" stroke="#c0392b" stroke-width="2"/>
+    <g fill="#e9c46a">${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(k => `<path d="M${k * 20} 200 Q${k * 20 + 6} 150 ${k * 20 + 10} 140 Q${k * 20 + 14} 150 ${k * 20 + 20} 200 Z"/>`).join('')}</g>`,
+  blacksmith: `
+    <rect width="200" height="200" fill="#3b2f2a"/>
+    <g fill="#4a3b34">${Array.from({ length: 12 }, (_, r) => Array.from({ length: 7 }, (_, c) => `<rect x="${c * 30 + (r % 2 ? 15 : 0) - 10}" y="${r * 16}" width="28" height="14" rx="2"/>`).join('')).join('')}</g>
+    <path d="M150 200 V120 Q170 96 190 120 V200 Z" fill="#2a201c"/><ellipse cx="170" cy="150" rx="16" ry="20" fill="#ff8c2a"/><ellipse cx="170" cy="155" rx="9" ry="12" fill="#ffd166"/>
+    <path d="M10 170 H70 L62 182 H18 Z" fill="#5b6470"/><rect x="30" y="182" width="20" height="18" fill="#4a525c"/>
+    <g fill="#ffb347">${[[140, 110], [182, 100], [158, 92]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.2"/>`).join('')}</g>`,
+  baker: `
+    <rect width="200" height="200" fill="#fbe9d0"/>
+    <path d="M110 200 V110 Q155 60 200 110 V200 Z" fill="#c97b4a"/><path d="M130 200 V130 Q155 100 180 130 V200 Z" fill="#3b2318"/>
+    <ellipse cx="155" cy="168" rx="16" ry="6" fill="#ff8c2a"/>
+    <rect x="0" y="40" width="90" height="6" rx="2" fill="#a0683a"/><rect x="0" y="84" width="90" height="6" rx="2" fill="#a0683a"/>
+    <g fill="#e0a85a" stroke="#b97a35" stroke-width="1.5"><ellipse cx="18" cy="32" rx="14" ry="8"/><ellipse cx="50" cy="32" rx="14" ry="8"/><ellipse cx="22" cy="76" rx="12" ry="8"/><ellipse cx="52" cy="76" rx="12" ry="8"/></g>
+    <rect x="0" y="178" width="200" height="22" fill="#d9b48a"/>`,
   mayor: `
     <linearGradient id="s-sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4ff"/><stop offset="1" stop-color="#dff1ff"/></linearGradient>
     <rect width="200" height="200" fill="url(#s-sky3)"/>
@@ -147,6 +174,19 @@ const cap = (cx, y, w) => { const s = w / 100; return `<g transform="translate($
   <path d="M-46 2 Q-80 0 -88 10 Q-60 14 -30 8 Z" fill="#245a74"/>
   <circle cx="0" cy="-45" r="4" fill="#245a74"/><path d="M0 -44 V0 M-28 -36 Q-20 -12 -22 2 M28 -36 Q20 -12 22 2" stroke="#245a74" stroke-width="1.6" fill="none"/></g>`; };
 
+const strawHat = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
+  <ellipse cx="0" cy="0" rx="70" ry="13" fill="#e9c46a" stroke="#c9a23f" stroke-width="2.5"/>
+  <path d="M-36 0 Q-38 -44 0 -46 Q38 -44 36 0 Z" fill="#f1d27a" stroke="#c9a23f" stroke-width="2.5"/>
+  <path d="M-36 -8 Q0 -2 36 -8 V-2 Q0 4 -36 -2 Z" fill="#c0392b"/></g>`; };
+const bandana = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
+  <path d="M-46 4 Q-46 -40 0 -42 Q46 -40 46 4 Q0 -6 -46 4 Z" fill="#ffffff" stroke="#e3d6c4" stroke-width="2.5"/>
+  <g fill="#f4a261">${[[-24, -22], [0, -30], [22, -20], [-10, -8], [14, -6]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5"/>`).join('')}</g>
+  <path d="M40 0 L60 16 L44 18 Z" fill="#ffffff" stroke="#e3d6c4" stroke-width="2"/></g>`; };
+const apron = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
+  <path d="M-30 0 H30 L36 60 H-36 Z" fill="#6b4a2e" stroke="#3f2a19" stroke-width="2.5"/>
+  <path d="M-30 0 L-44 -18 M30 0 L44 -18" stroke="#3f2a19" stroke-width="5"/>
+  <rect x="-12" y="20" width="24" height="16" rx="3" fill="#5a3d25" stroke="#3f2a19" stroke-width="2"/></g>`; };
+
 const tie = (cx, y, w) => { const s = w / 100; return `<g transform="translate(${cx} ${y}) scale(${s})">
   <path d="M-12 0 H12 L8 14 H-8 Z" fill="#c1121f"/><path d="M-8 14 H8 L14 70 L0 86 L-14 70 Z" fill="#e63946"/>
   <path d="M-6 30 L8 22 M-9 48 L11 38 M-12 66 L12 54" stroke="#ffb3b8" stroke-width="3" opacity=".7"/></g>`; };
@@ -168,6 +208,9 @@ const ACCESSORY = {
   neighbor: () => cap(X + S * 0.5, Y + S * 0.23, S * 0.52),
   business: () => tie(X + S * 0.5, Y + S * 0.9, S * 0.2),
   mayor: () => tie(X + S * 0.5, Y + S * 0.9, S * 0.2) + sash() + mustache(MX, MY, MW),
+  farmer: () => strawHat(X + S * 0.5, Y + S * 0.24, S * 0.6),
+  baker: () => bandana(X + S * 0.5, Y + S * 0.24, S * 0.5),
+  blacksmith: () => apron(X + S * 0.5, Y + S * 0.86, S * 0.5),
 };
 const [MX, MY, MW] = (process.env.MUST || '108,125,40').split(',').map(Number);
 

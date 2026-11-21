@@ -13,6 +13,7 @@ export const BUILDS = {
   // ------------------------------------------------------------ indústria
   // Armazém: galpão largo de telhado azul, portão grande e contêineres.
   warehouse(w) {
+    if ((w.curPhase || 0) <= 1) return BUILDS.storehouse(w);
     const g = new THREE.Group();
     g.add(box(0.9, 0.03, 0.9, 0xb9bec4));
     g.add(box(0.62, 0.34, 0.5, 0xe9edf1, -0.1, 0.03, -0.14));
@@ -34,6 +35,34 @@ export const BUILDS = {
     }
     return done(g, lv >= 3 ? 0.9 : 0.78);
   },
+  // Armazém das épocas antigas (vilarejo e vila): celeiro de madeira com portão duplo,
+  // caixotes, barris e sacos; cresce com as ampliações (mais pilhas, anexo, guincho de madeira).
+  storehouse(w) {
+    const g = new THREE.Group(), wood = 0x9c6339, dark = 0x6e4325;
+    const lv = w.curWh || 0;
+    g.add(box(0.9, 0.03, 0.9, 0xc9a173));
+    g.add(box(0.6, 0.34, 0.48, 0xb07a48, -0.1, 0.03, -0.15));
+    for (let k = 0; k < 6; k++) g.add(box(0.012, 0.34, 0.49, dark, -0.38 + k * 0.11, 0.03, -0.15));   // tábuas
+    g.add(gable(0.64, 0.18, 0.52, 0x7a4a2a, -0.1, 0.37, -0.15));
+    g.add(box(0.24, 0.24, 0.02, 0x6e4325, -0.1, 0.03, 0.1));
+    g.add(box(0.24, 0.02, 0.022, 0xd9a066, -0.1, 0.14, 0.11)); g.add(box(0.02, 0.24, 0.022, 0xd9a066, -0.1, 0.03, 0.11));
+    const crate = (x, z, y = 0) => { g.add(box(0.13, 0.12, 0.13, 0xc69460, x, 0.03 + y, z)); g.add(box(0.132, 0.018, 0.132, 0x8a5a32, x, 0.08 + y, z)); };
+    const barrel = (x, z) => { g.add(cyl(0.05, 0.055, 0.13, 0x8a5a32, x, 0.03, z, 10)); g.add(cyl(0.053, 0.053, 0.014, 0x3b3b3b, x, 0.065, z, 10)); };
+    const sack = (x, z) => g.add(sphere(0.055, 0xe3cf9a, x, 0.07, z));
+    crate(0.28, 0.24); crate(0.28, 0.24, 0.12); crate(0.14, 0.3);
+    barrel(0.32, -0.08); barrel(0.32, 0.06);
+    sack(0.02, 0.3); sack(-0.08, 0.33);
+    if (lv >= 1) { crate(0.14, 0.3, 0.12); barrel(0.32, -0.22); }
+    if (lv >= 2) { g.add(box(0.24, 0.22, 0.28, 0xb07a48, -0.33, 0.03, 0.26)); g.add(gable(0.28, 0.1, 0.32, 0x7a4a2a, -0.33, 0.25, 0.26)); }
+    if (lv >= 3) {                                    // guincho de madeira no alto do celeiro
+      g.add(box(0.04, 0.12, 0.04, dark, -0.1, 0.5, 0.1));
+      g.add(box(0.04, 0.04, 0.2, dark, -0.1, 0.6, 0.18));
+      g.add(box(0.008, 0.16, 0.008, 0x333333, -0.1, 0.44, 0.27));
+      crate(-0.1, 0.27, 0.32);
+    }
+    g.add(sign('crate', '#8d5a2b', -0.1, 0.58, -0.15, 0.2));
+    return done(g, lv >= 3 ? 0.86 : 0.78);
+  },
   // Serraria: barracão de madeira aberto, pilhas de toras e serra circular.
   sawmill(w) {
     const g = new THREE.Group(), wood = 0x9c6339, dark = 0x6e4325;
@@ -48,6 +77,10 @@ export const BUILDS = {
     g.add(part(w, NAT + 'log_stack', 0.24, 0.3, -0.2, 0));
     g.add(new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.06, 8), mat(0xe8c48a, { flatShading: true })).translateX(-0.3).translateY(0.055).translateZ(0.3));
     g.add(sign('log', '#8d5a2b', -0.14, 0.52, -0.15, 0.2));
+    if ((w.curPhase || 0) >= 3) {                     // cidade: madeireira com telhado de metal e caminhão
+      g.traverse(o => { if (o.isMesh && o.material.color && o.material.color.getHex() === 0x7a4a2a) o.material = mat(0x8e99a4, { flatShading: true }); });
+      g.add(part(w, CAR + 'truck-flat', 0.36, 0.28, -0.02, 0));
+    }
     return done(g, 0.74);
   },
   // Olaria: prédio cor de tijolo, forno em cúpula, chaminé listrada e paletes de tijolos.
@@ -62,6 +95,10 @@ export const BUILDS = {
     g.add(chimney(-0.3, -0.3, 0.62, 0.06, 0xa1442a, 0xf1e3d3, 0.025));
     for (const [x, z] of [[0.24, 0.32], [-0.06, 0.3]]) g.add(stack(x, z, 0.18, 0.12, 4, 0xc0532f, 0xa8452a));
     g.add(sign('brick', '#b5532f', -0.1, 0.4, -0.05, 0.18));
+    if ((w.curPhase || 0) >= 3) {                     // cidade: forno industrial com silo e esteira
+      g.add(cyl(0.07, 0.07, 0.34, 0xcfd8dc, 0.32, 0.025, -0.3, 12, { metalness: 0.3, roughness: 0.5 }));
+      g.add(box(0.05, 0.02, 0.36, 0x5b6470, 0.32, 0.2, -0.1));
+    }
     return done(g, 0.7);
   },
   // Vidraria: prédio branco com telhado de vidro azul, forno brilhando e placas de vidro.

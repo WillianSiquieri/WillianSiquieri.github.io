@@ -212,7 +212,7 @@ export const BUILD_TABS = [
 export const OBSTACLES = {
   bush:   { clear: 8,  xp: 1, name: { pt: 'Mato', en: 'Overgrowth' } },
   rubble: { clear: 15, xp: 2, name: { pt: 'Entulho', en: 'Rubble' } },
-  car:    { clear: 25, xp: 3, name: { pt: 'Carro abandonado', en: 'Abandoned car' } },
+  car:    { clear: 25, xp: 3, name: { pt: 'Carro abandonado', en: 'Abandoned car' }, early: { pt: 'Carroça quebrada', en: 'Broken wagon' } },   // early: nome nas fases 0–1
 };
 export const SPECIAL_DROP_CHANCE = 0.35;
 
@@ -220,11 +220,37 @@ export const SPECIAL_DROP_CHANCE = 0.35;
 // Personagens que fazem os pedidos na Prefeitura
 //   likes: itens que costuma pedir (vazio = qualquer um)
 //   coins / xp / size: multiplicadores de recompensa e de tamanho do pedido
+//   era: [primeira, última] fase da cidade em que a pessoa aparece (0 Vilarejo … 4 Metrópole):
+//        no vilarejo pedem o fazendeiro, o ferreiro e a padeira; chef e bombeira só na cidade
 //   retrato: assets/characters/micah/<id>.svg (js/render/avatars.js)
 // ---------------------------------------------------------------------------
 export const CLIENTS = [
   {
-    id: 'builder', name: { pt: 'Bob', en: 'Bob' }, role: { pt: 'Construtor', en: 'Builder' },
+    id: 'farmer', era: [0, 2], name: { pt: 'Farmer Ted', en: 'Farmer Ted' }, role: { pt: 'Fazendeiro', en: 'Farmer' },
+    likes: ['wood', 'plank', 'clay'], coins: 1, xp: 1.05, size: 1,
+    lines: {
+      pt: ['Preciso consertar o celeiro antes da colheita!', 'Cerca nova pro gado, que tal?', 'A roça não espera!'],
+      en: ['I need to fix the barn before harvest!', 'A new fence for the cattle, how about it?', 'The farm can’t wait!'],
+    },
+  },
+  {
+    id: 'blacksmith', era: [0, 1], name: { pt: 'Hank', en: 'Hank' }, role: { pt: 'Ferreiro', en: 'Blacksmith' },
+    likes: ['wood', 'clay', 'brick', 'iron'], coins: 1.1, xp: 1.1, size: 1,
+    lines: {
+      pt: ['A forja precisa de lenha!', 'Vou reformar a oficina.', 'Ferradura nova não se faz sozinha!'],
+      en: ['The forge needs firewood!', 'I’m fixing up my workshop.', 'Horseshoes don’t make themselves!'],
+    },
+  },
+  {
+    id: 'baker', era: [0, 2], name: { pt: 'Martha', en: 'Martha' }, role: { pt: 'Padeira', en: 'Baker' },
+    likes: ['wood', 'brick', 'clay'], coins: 1.05, xp: 1.1, size: 1,
+    lines: {
+      pt: ['Lenha para o forno de pão!', 'Meu forno precisa de tijolos novos.', 'Pão quentinho pra vila toda!'],
+      en: ['Firewood for the bread oven!', 'My oven needs new bricks.', 'Warm bread for the whole village!'],
+    },
+  },
+  {
+    id: 'builder', era: [2, 4], name: { pt: 'Bob', en: 'Bob' }, role: { pt: 'Construtor', en: 'Builder' },
     likes: ['plank', 'brick', 'steel', 'wood'], coins: 1, xp: 1, size: 1.1,
     lines: {
       pt: ['Preciso disso pra obra de hoje!', 'A obra não pode parar!', 'Material bom, prédio forte!'],
@@ -232,7 +258,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'shop', name: { pt: 'Ms. Lucy', en: 'Ms. Lucy' }, role: { pt: 'Lojista', en: 'Shopkeeper' },
+    id: 'shop', era: [0, 4], name: { pt: 'Ms. Lucy', en: 'Ms. Lucy' }, role: { pt: 'Lojista', en: 'Shopkeeper' },
     likes: ['furniture', 'glass', 'plank'], coins: 1.1, xp: 1, size: 1,
     lines: {
       pt: ['Vou reformar a vitrine da loja!', 'Meus clientes vão adorar!', 'Chegou mercadoria nova?'],
@@ -240,7 +266,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'business', name: { pt: 'Mr. Richard', en: 'Mr. Richard' }, role: { pt: 'Empresário', en: 'Businessman' },
+    id: 'business', era: [2, 4], name: { pt: 'Mr. Richard', en: 'Mr. Richard' }, role: { pt: 'Empresário', en: 'Businessman' },
     likes: [], coins: 1.3, xp: 1, size: 1.4,
     lines: {
       pt: ['Pago bem por entrega rápida.', 'Negócio fechado?', 'Tenho um grande projeto na cidade.'],
@@ -248,7 +274,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'teacher', name: { pt: 'Ms. Anna', en: 'Ms. Anna' }, role: { pt: 'Professora', en: 'Teacher' },
+    id: 'teacher', era: [1, 4], name: { pt: 'Ms. Anna', en: 'Ms. Anna' }, role: { pt: 'Professora', en: 'Teacher' },
     likes: ['wood', 'plank', 'glass'], coins: 1, xp: 1.4, size: 0.9,
     lines: {
       pt: ['É para o projeto da escola!', 'As crianças vão construir maquetes!', 'Aprender construindo é o melhor.'],
@@ -256,7 +282,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'chef', name: { pt: 'Chef Mark', en: 'Chef Mark' }, role: { pt: 'Cozinheiro', en: 'Chef' },
+    id: 'chef', era: [3, 4], name: { pt: 'Chef Mark', en: 'Chef Mark' }, role: { pt: 'Cozinheiro', en: 'Chef' },
     likes: ['wood', 'brick', 'clay'], coins: 1.05, xp: 1.1, size: 1,
     lines: {
       pt: ['Lenha para o meu forno de pizza!', 'Vou abrir um restaurante novo!', 'Cozinha boa precisa de forno bom.'],
@@ -264,7 +290,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'architect', name: { pt: 'Julia', en: 'Julia' }, role: { pt: 'Arquiteta', en: 'Architect' },
+    id: 'architect', era: [2, 4], name: { pt: 'Julia', en: 'Julia' }, role: { pt: 'Arquiteta', en: 'Architect' },
     likes: ['glass', 'steel', 'furniture', 'brick'], coins: 1.15, xp: 1.15, size: 1.1,
     lines: {
       pt: ['Meu novo projeto precisa disso.', 'Vidro e aço: o futuro da cidade!', 'Vai ficar lindo, prometo.'],
@@ -272,7 +298,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'neighbor', name: { pt: 'Old Joe', en: 'Old Joe' }, role: { pt: 'Vizinho', en: 'Neighbor' },
+    id: 'neighbor', era: [0, 4], name: { pt: 'Old Joe', en: 'Old Joe' }, role: { pt: 'Vizinho', en: 'Neighbor' },
     likes: ['wood', 'clay', 'sand'], coins: 1, xp: 1, size: 0.7,
     lines: {
       pt: ['Um pouquinho pra arrumar o quintal.', 'Ô vizinho, me ajuda aí?', 'Coisa pequena, pago na hora!'],
@@ -280,7 +306,7 @@ export const CLIENTS = [
     },
   },
   {
-    id: 'firefighter', name: { pt: 'Rae', en: 'Rae' }, role: { pt: 'Bombeira', en: 'Firefighter' },
+    id: 'firefighter', era: [3, 4], name: { pt: 'Rae', en: 'Rae' }, role: { pt: 'Bombeira', en: 'Firefighter' },
     likes: ['steel', 'brick', 'glass'], coins: 1.1, xp: 1.2, size: 1,
     lines: {
       pt: ['Precisamos reforçar o quartel!', 'Segurança em primeiro lugar.', 'Rápido, é para uma emergência!'],

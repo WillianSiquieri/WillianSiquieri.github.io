@@ -1,7 +1,7 @@
 // panels.js — painel de ações do item tocado (bottom sheet).
 // Gera HTML com botões `data-act` / `data-arg`; o main.js trata os cliques.
 
-import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs } from '../game/config.js';
+import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs, phaseIndex } from '../game/config.js';
 import {
   lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkHasLand, chunkPrice,
   used, warehouseCost, canAfford, speedUpCost, adOffer,
@@ -53,7 +53,7 @@ export function panelView(game) {
     if (tile.obstacle) {
       const ob = OBSTACLES[tile.obstacle];
       return {
-        title: tn(ob.name),
+        title: tn(ob.early && phaseIndex(s.level) <= 1 ? ob.early : ob.name),   // no vilarejo o "carro" é uma carroça quebrada
         body: `<p>${t('clearDesc')}</p>`,
         actions: btn('clear', `${t('clear')} · 🪙 ${ob.clear}`, 'primary', '', s.coins < ob.clear),
       };

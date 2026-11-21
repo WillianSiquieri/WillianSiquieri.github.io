@@ -68,7 +68,13 @@ export function addXP(state, n) {
     // presente do prefeito a cada nível
     rewards.push({ level: state.level, ...grantReward(state, levelReward(state.level)) });
   }
-  return { levels, rewards, phaseChanged: phaseIndex(state.level) !== before };
+  const phaseChanged = phaseIndex(state.level) !== before;
+  if (phaseChanged) {
+    // pedidos de quem não é mais desta época passam para alguém da época (mesmos itens e prêmio)
+    const era = eraClients(state), ids = new Set(era.map(c => c.id));
+    for (const o of state.orders) if (!ids.has(o.client)) { o.client = era[o.id % era.length].id; o.line = 0; }
+  }
+  return { levels, rewards, phaseChanged };
 }
 
 // ---------------------------------------------------------------------------
@@ -458,8 +464,15 @@ export function generateOrder(state, rand = Math.random) {
 
 // Escolhe o personagem do pedido: só quem pode pedir algo já produzível,
 // preferindo quem ainda não está no quadro.
+// Personagens da época atual da cidade (fazendeiro no vilarejo, chef só na cidade…).
+export function eraClients(state) {
+  const ph = phaseIndex(state.level || 1);
+  return CLIENTS.filter(c => !c.era || (ph >= c.era[0] && ph <= c.era[1]));
+}
 function pickClient(state, pool, rand) {
-  const able = CLIENTS.filter(c => !c.likes.length || c.likes.some(k => pool.includes(k)));
+  const era = eraClients(state);
+  let able = era.filter(c => !c.likes.length || c.likes.some(k => pool.includes(k)));
+  if (!able.length) able = era;
   const onBoard = new Set(state.orders.map(o => o.client));
   const fresh = able.filter(c => !onBoard.has(c.id));
   const list = fresh.length ? fresh : able;
