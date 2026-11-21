@@ -338,7 +338,7 @@
   },
   {
     "id": "sh_mwjs1k6w8c1o",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-16T21:29:38.338Z",
     "theme": "Commodities",
     "title": "Vale vê preço do minério de ferro na mínima em 16 meses: o que isso significa pra você?",
@@ -375,7 +375,8 @@
     },
     "youtubeId": "mbmyaie09_w",
     "previewUrl": "https://youtube.com/shorts/mbmyaie09_w",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:45:12.582Z"
   },
   {
     "id": "sh_mwl4yuuo7xr7",
