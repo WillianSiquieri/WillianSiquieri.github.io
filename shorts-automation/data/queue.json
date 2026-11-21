@@ -731,5 +731,83 @@
     "youtubeId": "k5x6-l4kdsE",
     "previewUrl": "https://youtube.com/shorts/k5x6-l4kdsE",
     "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwqqwsd4k6qk",
+    "status": "draft",
+    "createdAt": "2026-11-21T18:32:45.208Z",
+    "theme": "Geopolítica do petróleo e impacto nos preços",
+    "title": "Petroleiros atacados no Estreito de Ormuz: o que isso faz com o preço da bomba?",
+    "hook": "Três navios carregados de petróleo foram alvejados!",
+    "script": "O Estreito de Ormuz controla cerca de 30% do petróleo mundial. Quando navios são atingidos, a oferta pode cair de repente. Isso faz o preço do barril subir em poucos minutos. Para quem compra gasolina, o efeito chega ao posto em até 48 horas, encarecendo a viagem de carro e o frete das mercadorias. No bolso, a conta de luz pode subir junto, já que a energia ainda depende de petróleo em muitas regiões.",
+    "cta": "Se quer entender como conflitos mundiais mexem no seu consumo diário, se inscreve aí.",
+    "tags": [
+      "economia",
+      "petróleo",
+      "geopolítica",
+      "preços"
+    ],
+    "captionKeywords": [
+      "preço do petróleo",
+      "Ormuz",
+      "gasolina",
+      "inflação"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/tres-petroleiros-sao-atingidos-perto-do-estreito-de-ormuz/",
+    "rationale": "Tema de alta relevância, liga geopolítica ao bolso do brasileiro e gera curiosidade imediata.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 29,
+      "previewFile": "data/previews/sh_mwqqwsd4k6qk.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "I5PucpfHavY",
+    "previewUrl": "https://youtube.com/shorts/I5PucpfHavY",
+    "privacyStatus": "unlisted"
+  },
+  {
+    "id": "sh_mwqqxghni1os",
+    "status": "draft",
+    "createdAt": "2026-11-21T18:32:45.208Z",
+    "theme": "Auxílio judicial pós-Brumadinho e efeito na renda familiar",
+    "title": "STF desbloqueia auxílio de Brumadinho: mais de 51 mil famílias podem receber agora",
+    "hook": "Mais de 51 mil pessoas vão receber dinheiro que estava travado!",
+    "script": "O STF derrubou o bloqueio que impedia o pagamento do auxílio às vítimas de Brumadinho. O valor total liberado chega a R$ 200 milhões. Cada família receberá entre R$ 2 mil e R$ 5 mil, dependendo da perda. Esse dinheiro pode cobrir despesas médicas, dívidas ou até repor parte da renda perdida. Na prática, o fluxo de caixa das famílias melhora e a economia local ganha um impulso de consumo.",
+    "cta": "Quer acompanhar como decisões judiciais afetam o seu orçamento, se inscreve agora.",
+    "tags": [
+      "finanças pessoais",
+      "judiciário",
+      "auxílio emergencial",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "auxílio Brumadinho",
+      "STF",
+      "renda familiar",
+      "economia doméstica"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/brasil/stf-libera-retomada-de-auxilio-a-mais-de-51-mil-atingidos-por-tragedia-em-brumadinho/",
+    "rationale": "Aborda decisão judicial com impacto direto na renda das famílias, tema que gera engajamento e conecta finanças pessoais ao cenário nacional.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "previewFile": "data/previews/sh_mwqqxghni1os.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "uTfzSWDxsWw",
+    "previewUrl": "https://youtube.com/shorts/uTfzSWDxsWw",
+    "privacyStatus": "unlisted"
   }
 ]
