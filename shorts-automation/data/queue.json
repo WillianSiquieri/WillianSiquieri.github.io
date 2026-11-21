@@ -415,7 +415,7 @@
   },
   {
     "id": "sh_mwmjvzmp531u",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-18T20:05:05.953Z",
     "theme": "Real em queda frente ao dólar e commodities",
     "title": "Por que o real despencou mais que outras moedas?",
@@ -450,7 +450,8 @@
     },
     "youtubeId": "F4xzJeVKStM",
     "previewUrl": "https://youtube.com/shorts/F4xzJeVKStM",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:48:37.051Z"
   },
   {
     "id": "sh_mwmjwrsh8if2",
