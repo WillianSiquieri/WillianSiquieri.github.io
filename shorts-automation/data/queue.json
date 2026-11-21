@@ -652,7 +652,7 @@
   },
   {
     "id": "sh_mwqqwsd4k6qk",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-21T18:32:45.208Z",
     "theme": "Geopolítica do petróleo e impacto nos preços",
     "title": "Petroleiros atacados no Estreito de Ormuz: o que isso faz com o preço da bomba?",
@@ -687,7 +687,8 @@
     },
     "youtubeId": "I5PucpfHavY",
     "previewUrl": "https://youtube.com/shorts/I5PucpfHavY",
-    "privacyStatus": "unlisted"
+    "privacyStatus": "unlisted",
+    "decidedAt": "2026-11-21T20:46:01.639Z"
   },
   {
     "id": "sh_mwqqxghni1os",
