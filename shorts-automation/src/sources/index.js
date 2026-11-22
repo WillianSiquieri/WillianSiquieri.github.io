@@ -1,10 +1,13 @@
 // Registro de fontes. Cada tipo de fonte tem um adaptador; para adicionar uma
 // nova (API, scraping, etc.) basta registrar aqui e referenciar em config.json.
 import { fetchRss } from './rss.js';
+import { fetchBible } from './bible.js';
 import { log } from '../util.js';
 
 const ADAPTERS = {
   rss: fetchRss,
+  // Catálogo fixo de passagens bíblicas; devolve itens no mesmo formato do RSS.
+  bible: fetchBible,
   // Futuro: 'newsapi': fetchNewsApi, 'gnews': fetchGNews, 'scrape': fetchScrape
 };
 

@@ -7,8 +7,8 @@
 //
 // Se ffmpeg não estiver disponível, retorna { rendered: false } sem falhar o pipeline.
 import { mkdir, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { log, warn } from '../util.js';
+import { join, relative, sep } from 'node:path';
+import { log, warn, ROOT } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
 import { synthesize, variantFor } from './tts.js';
 import { fetchBrollClips } from './broll.js';
@@ -273,7 +273,10 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
       try {
         await run(['-i', outPath, '-vf', 'scale=540:960', '-c:v', 'libx264', '-crf', '30',
           '-preset', 'veryfast', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', '-y', prev]);
-        previewFile = `data/previews/${draft.id}.mp4`;
+        // Caminho relativo à raiz do projeto: o painel monta a URL com ele e o
+        // publish.js o usa para apagar o arquivo. Derivado de previewDir para
+        // funcionar em qualquer canal (data/previews ou data/<canal>/previews).
+        previewFile = relative(ROOT, prev).split(sep).join('/');
         log(`Preview gerado → ${previewFile}`);
       } catch (e) {
         warn('Preview leve falhou (segue sem):', e.message);

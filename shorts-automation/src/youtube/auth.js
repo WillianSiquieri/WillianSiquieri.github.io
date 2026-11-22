@@ -7,6 +7,7 @@
 import { google } from 'googleapis';
 import { createServer } from 'node:http';
 import { warn } from '../util.js';
+import { CHANNEL, DEFAULT_CHANNEL } from '../state/store.js';
 
 // ATENÇÃO: `youtube.upload` só permite ENVIAR. Tornar público (videos.update) e
 // apagar um rejeitado (videos.delete) exigem o escopo `youtube` — sem ele o
@@ -26,12 +27,26 @@ export function oauthClient() {
   return new google.auth.OAuth2(clientId, clientSecret, redirect);
 }
 
+// Cada canal do YouTube tem o SEU refresh token: o token é amarrado ao canal que
+// autorizou. Então o canal "biblico" lê YT_REFRESH_TOKEN_BIBLICO e o financeiro
+// (padrão) lê YT_REFRESH_TOKEN. Sem o específico, não cai no do financeiro — isso
+// publicaria no canal errado, erro que já aconteceu neste projeto.
+export function refreshTokenEnvName(channel = CHANNEL) {
+  return channel === DEFAULT_CHANNEL
+    ? 'YT_REFRESH_TOKEN'
+    : `YT_REFRESH_TOKEN_${channel.toUpperCase().replace(/[^A-Z0-9]/g, '_')}`;
+}
+
 // Cliente autenticado e pronto (usa refresh token). Retorna null se faltar credencial.
 export function getAuth() {
   const oauth = oauthClient();
   if (!oauth) return null;
-  const refreshToken = process.env.YT_REFRESH_TOKEN;
-  if (!refreshToken) return null;
+  const nome = refreshTokenEnvName();
+  const refreshToken = process.env[nome];
+  if (!refreshToken) {
+    warn(`${nome} ausente — canal "${CHANNEL}" sem credencial do YouTube.`);
+    return null;
+  }
   oauth.setCredentials({ refresh_token: refreshToken });
   return oauth;
 }

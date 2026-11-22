@@ -5,10 +5,14 @@
 // gerador mock determinístico, para o pipeline rodar ponta-a-ponta sem segredos.
 import { log, warn, truncate } from '../util.js';
 
-const SYSTEM = `Você é um roteirista especialista em YouTube Shorts sobre atualidades.
+// Briefing padrão (canal de atualidades). Cada canal pode trocar o seu em
+// config/channels/<canal>.json → prompt.briefing, sem mexer nas regras de ofício
+// abaixo, que valem para qualquer canal.
+const BRIEFING_PADRAO = `Você é um roteirista especialista em YouTube Shorts sobre atualidades.
 Seu trabalho: a partir de manchetes reais, escolher os temas com maior potencial de
-engajamento e escrever roteiros curtos (30–50s de narração), em português do Brasil.
+engajamento e escrever roteiros curtos (30–50s de narração), em português do Brasil.`;
 
+const REGRAS = `
 Regras do roteiro:
 - O campo "hook" é a PRIMEIRA FRASE NARRADA. Ele é falado antes do script, então
   escreva-o como fala, curto, e NÃO repita o hook dentro do script.
@@ -23,6 +27,8 @@ Regras do roteiro:
   faz com o seu bolso, se inscreve aí."). Nunca repita a frase de outro short e
   nunca use fórmula pronta tipo "deixe seu like e se inscreva". Escreva sempre,
   mesmo que o fecho já tenha pergunta: quem decide onde usar é o sistema.`;
+
+const systemPrompt = (cfg = {}) => `${cfg.prompt?.briefing || BRIEFING_PADRAO}\n${REGRAS}`;
 
 // Formatos que entram em rotação para o canal não virar um molde só. Além de
 // prender mais, isso é requisito de monetização: a política do YouTube recusa
@@ -67,9 +73,10 @@ const FORMATOS = [
 ];
 
 // Rotaciona por dia, para lotes consecutivos não repetirem a forma.
-export function formatoDoDia(d = new Date()) {
+export function formatoDoDia(d = new Date(), formatos) {
+  const lista = formatos?.length ? formatos : FORMATOS;
   const dia = Math.floor(d.getTime() / 86400000);
-  return FORMATOS[dia % FORMATOS.length];
+  return lista[dia % lista.length];
 }
 
 
@@ -109,7 +116,7 @@ function outputToolSchema(count) {
 
 // O free tier da Groq limita ~8k tokens por minuto, então o prompt precisa ser
 // enxuto. `size` permite encolher ainda mais caso a API responda 413.
-function buildUserPrompt({ items, preferences, topPerformers, worstPerformers, count, niche }, size = {}) {
+function buildUserPrompt({ items, preferences, topPerformers, worstPerformers, count, niche, formats }, size = {}) {
   const maxItems = size.maxItems ?? 15;
   const summaryLen = size.summaryLen ?? 90;
   const headlines = items
@@ -135,7 +142,7 @@ function buildUserPrompt({ items, preferences, topPerformers, worstPerformers, c
   const melhores = (topPerformers || []).slice(0, 5).map(linha).join('\n') || '(sem histórico ainda)';
   const piores = (worstPerformers || []).slice(0, 4).map(linha).join('\n') || '(sem histórico ainda)';
 
-  const f = formatoDoDia();
+  const f = formatoDoDia(new Date(), formats);
 
   return `NICHO DO CANAL: ${niche}
 
@@ -165,7 +172,7 @@ Selecione os ${count} melhores temas dentre as manchetes acima (evite os indesej
 e entregue os shorts via a ferramenta 'entregar_shorts'.`;
 }
 
-async function generateWithClaude({ items, preferences, topPerformers, count, niche, llm }) {
+async function generateWithClaude({ items, preferences, topPerformers, count, niche, llm, prompt, formats }) {
   const { default: Anthropic } = await import('@anthropic-ai/sdk');
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   const tool = outputToolSchema(count);
@@ -173,10 +180,10 @@ async function generateWithClaude({ items, preferences, topPerformers, count, ni
   const resp = await client.messages.create({
     model: llm?.anthropicModel || llm?.model || 'claude-opus-4-8',
     max_tokens: 4000,
-    system: SYSTEM,
+    system: systemPrompt({ prompt }),
     tools: [tool],
     tool_choice: { type: 'tool', name: tool.name },
-    messages: [{ role: 'user', content: buildUserPrompt({ items, preferences, topPerformers, count, niche }) }],
+    messages: [{ role: 'user', content: buildUserPrompt({ items, preferences, topPerformers, count, niche, formats }) }],
   });
 
   const block = resp.content.find((b) => b.type === 'tool_use');
@@ -212,11 +219,11 @@ const GEMINI_DEFAULT_MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // Uma chamada a um modelo específico do Gemini.
-async function callGemini(model, { items, preferences, topPerformers, count, niche }) {
+async function callGemini(model, { items, preferences, topPerformers, count, niche, prompt, formats }) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
   const body = {
-    system_instruction: { parts: [{ text: SYSTEM }] },
-    contents: [{ role: 'user', parts: [{ text: buildUserPrompt({ items, preferences, topPerformers, count, niche }) }] }],
+    system_instruction: { parts: [{ text: systemPrompt({ prompt }) }] },
+    contents: [{ role: 'user', parts: [{ text: buildUserPrompt({ items, preferences, topPerformers, count, niche, formats }) }] }],
     generationConfig: { responseMimeType: 'application/json', responseSchema: geminiSchema(), temperature: 0.9, maxOutputTokens: 4096 },
   };
   const res = await fetch(url, {
@@ -312,7 +319,7 @@ function rankGroqModels(ids, preferred = []) {
 async function groqComplete(model, opts, size, budget) {
   const { count } = opts;
   const sys =
-    SYSTEM +
+    systemPrompt(opts) +
     `\n\nResponda APENAS com um objeto JSON no formato ` +
     `{"shorts":[{"theme","title","hook","script","cta","captionKeywords":[],"tags":[],"sourceLink","rationale"}]} ` +
     `contendo exatamente ${count} itens.`;

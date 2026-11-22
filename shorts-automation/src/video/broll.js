@@ -35,6 +35,13 @@ const FALLBACK_QUERIES = [
 ];
 
 function pickQueries(draft) {
+  // Termos curados vindos da própria fonte (ex.: catálogo bíblico, onde a
+  // história de Moisés já traz "ancient egypt pyramids"). Quando existem, eles
+  // mandam: é o que garante que a imagem combine com o que está sendo contado,
+  // em vez de depender de um mapa de palavras-chave adivinhar o assunto.
+  const curados = (draft.visual || []).filter(Boolean);
+  if (curados.length) return [...new Set(curados)];
+
   const hay = [draft.theme, draft.title, ...(draft.tags || []), ...(draft.captionKeywords || [])].join(' ');
   const hits = QUERY_MAP.filter((m) => m.re.test(hay)).flatMap((m) => m.qs);
   // Temas achados primeiro, genéricos depois, sem duplicar.

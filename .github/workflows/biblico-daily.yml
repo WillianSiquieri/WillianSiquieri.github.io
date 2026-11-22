@@ -1,0 +1,38 @@
+name: Minuto Bíblico · Ciclo diário
+
+# Chamador fino: todos os passos do pipeline ficam em shorts-daily.yml, que é
+# reutilizável. Aqui só se diz qual canal e quando.
+on:
+  schedule:
+    # ~07:00 BRT. Horário diferente do financeiro de propósito: os dois gravam
+    # no mesmo repositório, e separar reduz disputa de push.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Quantos shorts gerar (sobrescreve a config)'
+        required: false
+        default: ''
+      force:
+        description: 'Gerar mesmo com o modo pausado'
+        type: boolean
+        required: false
+        default: false
+      no_upload:
+        description: 'Não enviar ao YouTube (só render/preview, para testes)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  ciclo:
+    uses: ./.github/workflows/shorts-daily.yml
+    secrets: inherit
+    with:
+      channel: biblico
+      count: ${{ github.event.inputs.count || '' }}
+      force: ${{ github.event.inputs.force == 'true' }}
+      no_upload: ${{ github.event.inputs.no_upload == 'true' }}
