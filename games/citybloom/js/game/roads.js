@@ -29,7 +29,6 @@ const SEGMENTS = [
 
 // Rotatória 3×3 (centro): os 8 tiles em volta do centro também viram rua.
 export const ROUNDABOUTS = [[21, 29], [4, 4], [4, 18], [30, 24]];
-export const LAYOUT_VERSION = 4;
 
 // Linha da costa: água a partir de j = coast(i).
 function coast(i) {

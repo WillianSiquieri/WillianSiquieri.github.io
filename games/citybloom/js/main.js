@@ -52,6 +52,7 @@ class CityGame {
       this.state = loaded || newGame();
       const away = loaded ? Date.now() - loaded.lastSeen : 0; // antes de salvar (save atualiza lastSeen)
       if (away > 60000) setTimeout(() => toast(t('welcome', { t: fmtTime(away / 1000) })), 600);
+      if (this.state.refunded) { const k = this.state.refunded; delete this.state.refunded; setTimeout(() => toast(t('refunded', { n: k })), 2600); }
       E.tick(this.state, Date.now());
       save(this.state);
     }
@@ -379,7 +380,7 @@ class CityGame {
     sfx.error();
     const map = {
       noCoins: 'errNoCoins', noItems: 'errNoItems', storageFull: 'errStorageFull', locked: 'errLocked',
-      queueFull: 'errQueueFull', invalidPlace: 'errInvalidPlace', maxCount: 'errMaxCount', notAdjacent: 'errNotAdjacent', noLand: 'noLand',
+      queueFull: 'errQueueFull', invalidPlace: 'errInvalidPlace', maxCount: 'errMaxCount', notAdjacent: 'errNotAdjacent', noLand: 'noLand', needCoast: 'portDesc',
     };
     const need = r.need ? Object.entries(r.need).map(([k, v]) => `${v}× ${k === 'coins' ? '🪙' : ITEMS[k].icon}`).join('  ') : '';
     toast(t(map[r.err] || 'errGeneric', { need, level: r.level }), true);
@@ -648,10 +649,13 @@ function renderHud(game) {
   const tut = !s.showcase && s.mentor && s.mentor.tut !== false;
   const tip = s.showcase ? null : (tut ? E.currentTip(s) : null);
   const greet = !s.showcase && game.time() < game.greetUntil;
-  const ms = s.showcase || tip || greet ? null : E.mission(s);
+  // missões e prêmios pendentes: recalcula no máximo ~3× por segundo (varrem objetos e quadras)
+  const tnow = game.time();
+  if (!game._mc || tnow - game._mc.t > 0.3 || hudKey === '') game._mc = { t: tnow, ms: s.showcase ? null : E.mission(s), pend: s.showcase ? 0 : E.pendingRewards(s) };
+  const ms = s.showcase || tip || greet ? null : game._mc.ms;
   const daily = !s.showcase && E.dailyStatus(s, game.now());
   const gift = daily ? (daily.canClaim ? 2 : daily.extraAvailable ? 1 : 0) : -1;
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang, s.showcase ? 0 : E.pendingRewards(s)].join('|');
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang, game._mc.pend].join('|');
   if (key === hudKey) return;
   hudKey = key;
   $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
@@ -686,7 +690,7 @@ function renderHud(game) {
     tipEl.classList.add('show');
   } else tipEl.classList.remove('show');
   $('btn-daily').style.display = gift < 0 ? 'none' : '';
-  const pend = s.showcase ? 0 : E.pendingRewards(s);
+  const pend = game._mc.pend;
   $('btn-missions').style.display = s.showcase ? 'none' : '';
   $('missions-badge').textContent = pend; $('missions-badge').style.display = pend ? 'flex' : 'none';
   $('btn-missions').classList.toggle('ready', pend > 0);

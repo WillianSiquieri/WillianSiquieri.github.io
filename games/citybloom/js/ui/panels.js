@@ -3,7 +3,7 @@
 
 import { ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, MAP, secs, phaseIndex } from '../game/config.js';
 import {
-  lotProgress, factoryDone, factoryPending, happinessMult, chunkOf, chunkBuyable, chunkHasLand, chunkPrice,
+  lotProgress, factoryDone, factoryPending, happinessMult, incomeCoins, cargoOf, chunkOf, chunkBuyable, chunkHasLand, chunkPrice,
   used, warehouseCost, canAfford, speedUpCost, adOffer,
 } from '../game/economy.js';
 import { ads } from '../engine/ads.js';
@@ -141,15 +141,17 @@ export function panelView(game) {
 
   if (def.type === 'commerce') {
     const pop = population(s);
-    const amount = Math.round(def.income.coins * happinessMult(s));
+    const amount = incomeCoins(s, o);
+    const cargo = def.cargo ? Object.entries(cargoOf(s).items).map(([k, v]) => ` + ${ITEMS[k].icon} ${v}`).join('') : '';
+    const intro = def.cargo ? `<p class="muted">${t('portDesc')}</p>` : '';
     if (pop < def.minPop) {
       return { title, body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p><p class="warn">👥 ${pop}/${def.minPop} — ${t('needPop', { n: def.minPop })}</p>`, actions: '' };
     }
     const ready = o.incomeReadyAt && now >= o.incomeReadyAt;
     return {
       title,
-      body: `<p>${t('income')}: 🪙 ${amount} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p>` +
-        (ready ? `<p class="ok">✅ 🪙 ${amount}</p>` : o.incomeReadyAt ? `${bar(1 - (o.incomeReadyAt - now) / (secs(s, def.income.time) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.incomeReadyAt - now) / 1000)}</p>` : ''),
+      body: intro + `<p>${t('income')}: 🪙 ${amount}${cargo} ${t('every')} ${fmtTime(secs(s, def.income.time))}</p>` +
+        (ready ? `<p class="ok">✅ ${def.cargo ? '🚢 ' + t('shipArrived') + ' ' : ''}🪙 ${amount}${cargo}</p>` : o.incomeReadyAt ? `${bar(1 - (o.incomeReadyAt - now) / (secs(s, def.income.time) * 1000))}<p class="muted">${t('timeLeft')} ${fmtTime((o.incomeReadyAt - now) / 1000)}</p>` : ''),
       actions: ready ? btn('collect', `${t('collect')} 🪙 ${amount}`, 'primary') + doubleBtn(s, now)
         : (o.incomeReadyAt ? speedBtns(s, o, now) : ''),
     };

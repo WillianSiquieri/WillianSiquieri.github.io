@@ -133,6 +133,7 @@ export class World3D {
     this.roadKey = '';
     this.ghost = null; this.ghostKey = '';
     this.selMesh = null;
+    this._dt = 0; this._now = Date.now();
   }
 
   // ------------------------------------------------------------------ carregamento
@@ -283,6 +284,16 @@ export class World3D {
     if (this.gridMesh) this.gridMesh.visible = !!show;
   }
 
+  // Rotação do porto para o cais ficar do lado da água.
+  _waterYaw(o) {
+    const st = this._st, n = st.size; let dx = 0, dz = 0;
+    for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) {
+      const a = o.i + di, b = o.j + dj; if (a < 0 || b < 0 || a >= n || b >= n) continue;
+      if (st.tiles[b * n + a].kind === 'water') { dx += di - (o.size - 1) / 2; dz += dj - (o.size - 1) / 2; }
+    }
+    return Math.abs(dx) > Math.abs(dz) ? (dx > 0 ? Math.PI / 2 : -Math.PI / 2) : (dz >= 0 ? 0 : Math.PI);
+  }
+
   // ------------------------------------------------------------------ objetos
   _variant(o) {
     const list = CATALOG[o.type];
@@ -327,14 +338,7 @@ export class World3D {
       } else g = new THREE.Group();
       // gira 0°/90° para variar (as duas faces viradas para a câmera)
       if (!(v && v.fixed)) g.rotation.y = hash(o.id, 7) < 0.5 ? 0 : Math.PI / 2;
-      if (o.type === 'port' && this._st) {          // porto: o lado do mar fica para a água
-        const st = this._st, n = st.size; let dx = 0, dz = 0;
-        for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) {
-          const t = st.tiles[(o.j + dj) * n + o.i + di];
-          if (t && t.kind === 'water') { dx += di - (o.size - 1) / 2; dz += dj - (o.size - 1) / 2; }
-        }
-        g.rotation.y = Math.abs(dx) > Math.abs(dz) ? (dx > 0 ? Math.PI / 2 : -Math.PI / 2) : (dz >= 0 ? 0 : Math.PI);
-      }
+      if (o.type === 'port' && this._st && o.i != null) g.rotation.y = this._waterYaw(o);   // porto: o lado do mar fica para a água
     }
     const outer = new THREE.Group();
     outer.add(g);
@@ -552,6 +556,7 @@ export class World3D {
     if (!this.ghost) return;
     const s = BUILDINGS[gh.type].size;
     this.ghost.position.set(gh.i + s / 2, 0.02 + Math.abs(Math.sin(t * 4)) * 0.05, gh.j + s / 2);
+    if (gh.type === 'port' && this._st && this.ghost.children[0]) this.ghost.children[0].rotation.y = this._waterYaw({ i: gh.i, j: gh.j, size: s });
     const pad = this.ghost.getObjectByName('pad');
     pad.scale.set(s, s, 1); pad.position.y = -0.006;
     pad.material.color.set(gh.valid ? 0x34c759 : 0xff3b30);

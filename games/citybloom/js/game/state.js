@@ -97,14 +97,19 @@ function relayout(s) {
   };
   const keep = [];
   for (const o of s.objects) {
-    if (fits(o, o.i, o.j) || (() => { for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.delete((o.j + dj) * n + o.i + di); return fits(o, o.i, o.j); })()) {
+    for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.delete((o.j + dj) * n + o.i + di);   // tira a própria ocupação para testar
+    if (fits(o, o.i, o.j)) {
       for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.add((o.j + dj) * n + o.i + di);
       keep.push(o); continue;
     }
     let best = null, bd = Infinity;
     for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) if (fits(o, i, j)) { const d = Math.hypot(i - o.i, j - o.j); if (d < bd) { bd = d; best = [i, j]; } }
     if (best) { o.i = best[0]; o.j = best[1]; for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.add((o.j + dj) * n + o.i + di); keep.push(o); }
-    else { const b = BUILDINGS[o.type]; s.coins = (s.coins || 0) + ((b && b.build && b.build.coins) || 0); }
+    else {                                     // sem lugar: devolve o custo inteiro (moedas e materiais)
+      const b = BUILDINGS[o.type], cost = (b && b.build) || {};
+      for (const [k, v] of Object.entries(cost)) { if (k === 'coins') s.coins = (s.coins || 0) + v; else s.inventory[k] = (s.inventory[k] || 0) + v; }
+      s.refunded = (s.refunded || 0) + 1;
+    }
   }
   s.objects = keep; s.v = 4; s.rev = (s.rev || 0) + 1;
   return s;

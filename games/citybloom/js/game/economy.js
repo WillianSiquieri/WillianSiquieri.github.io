@@ -256,11 +256,20 @@ export function collectRent(state, o, now, mult = 1) {
   return ok({ coins, xp: 1, ...lv });
 }
 
+// Renda de um comércio (o porto cresce com a fase) e a carga do navio.
+export function incomeCoins(state, o) {
+  const def = BUILDINGS[o.type], ph = phaseIndex(state.level);
+  return Math.round(def.income.coins * (def.cargo ? 1 + ph * 0.6 : 1) * happinessMult(state));
+}
+export function cargoOf(state, mult = 1) {
+  const ph = phaseIndex(state.level), [raw, product] = phaseGoods(state.level);
+  return { items: { [raw]: Math.round((2 + ph) * mult), [product]: Math.max(1, Math.round((1 + ph / 2) * mult)) } };
+}
 export function collectIncome(state, o, now, mult = 1) {
   const def = BUILDINGS[o.type];
   if (!o.incomeReadyAt || now < o.incomeReadyAt) return fail('notReady');
   const ph = phaseIndex(state.level);
-  const coins = Math.round(def.income.coins * (def.cargo ? 1 + ph * 0.6 : 1) * happinessMult(state) * mult);
+  let coins = Math.round(incomeCoins(state, o) * mult);
   state.coins += coins;
   o.incomeReadyAt = now + secs(state, def.income.time) * 1000;
   bump(state, 'incomeCollected');
@@ -268,7 +277,8 @@ export function collectIncome(state, o, now, mult = 1) {
   if (def.cargo) {                       // navio chegou: carga da época
     bump(state, 'shipsArrived');
     const [raw, product] = phaseGoods(state.level);
-    items = grantReward(state, { items: { [raw]: Math.round((2 + ph) * mult), [product]: Math.max(1, Math.round((1 + ph / 2) * mult)) } }).items;
+    const got = grantReward(state, cargoOf(state, mult));
+    items = got.items; coins += got.converted;            // carga que não coube virou moedas
   }
   const lv = addXP(state, def.cargo ? 4 : 2);
   return ok({ coins, items, xp: def.cargo ? 4 : 2, ...lv });
@@ -353,7 +363,7 @@ export function moveObject(state, o, i, j) {
 export function build(state, type, i, j, now) {
   const c = buildCheck(state, type);
   if (!c.ok) return c;
-  if (!canPlace(state, type, i, j)) return fail('invalidPlace');
+  if (!canPlace(state, type, i, j)) return fail(BUILDINGS[type].placeOn === 'coast' ? 'needCoast' : 'invalidPlace');
   const def = BUILDINGS[type];
   const f = payOrFail(state, def.build);
   if (f) return f;
@@ -661,9 +671,16 @@ export const MISSION_KINDS = [
 export const MISSION_SLOTS = 3;
 
 // Missão n da fila (pula tipos ainda não liberados e os que já estão nas outras vagas).
+// Ainda dá para cumprir esse tipo de missão? (obstáculos e quadras acabam; casas chegam ao topo)
+function feasible(state, k) {
+  if (k === 'clear') return state.tiles.some(t => t.obstacle);
+  if (k === 'expand') { const nc = state.size / MAP.chunk; for (let cj = 0; cj < nc; cj++) for (let ci = 0; ci < nc; ci++) if (chunkBuyable(state, ci, cj)) return true; return false; }
+  if (k === 'upgrade') return state.objects.some(o => BUILDINGS[o.type].type === 'house' && BUILDINGS[o.type].next);
+  return true;
+}
 function newMission(state, n, taken = []) {
   const L = state.level;
-  const ok = (c) => (!c.minLevel || L >= c.minLevel) && (!c.needs || countOf(state, c.needs) > 0);
+  const ok = (c) => (!c.minLevel || L >= c.minLevel) && (!c.needs || countOf(state, c.needs) > 0) && feasible(state, c.k);
   let kind = null;
   for (let k = 0; k < MISSION_KINDS.length && !kind; k++) {
     const c = MISSION_KINDS[(n + k) % MISSION_KINDS.length];
@@ -679,7 +696,9 @@ function ensureMissions(state) {
     state.missions = [first];
     delete state.mission;
   }
-  state.missions = state.missions.filter(m => MISSION_KINDS.some(c => c.k === m.k));
+  // tira as que não existem mais ou ficaram impossíveis (e ainda não foram cumpridas)
+  const keep = state.missions.filter(m => MISSION_KINDS.some(c => c.k === m.k) && (feasible(state, m.k) || computeMission(state, m).done));
+  if (keep.length !== state.missions.length) state.missions = keep;
   let n = Math.max(-1, ...state.missions.map(m => m.n));
   while (state.missions.length < MISSION_SLOTS) state.missions.push(newMission(state, ++n, state.missions.map(m => m.k)));
   return state.missions;
@@ -723,7 +742,9 @@ const GOAL_VALUE = {
   stat: (s, g) => s.stats[g.stat] || 0,
 };
 export function phaseGoals(state) {
-  const ph = phaseIndex(state.level);
+  // a fase mais antiga ainda sem prêmio (quem subiu de fase antes de cumprir tudo não perde o prêmio)
+  const cur = phaseIndex(state.level), got = state.goalsClaimed || [];
+  let ph = cur; for (let k = 0; k <= cur; k++) if (!got.includes(k)) { ph = k; break; }
   const goals = (PHASE_GOALS[ph] || []).map(g => {
     const v = GOAL_VALUE[g.k](state, g), target = g.n || 1;
     return { ...g, target, progress: Math.min(target, v), done: v >= target };

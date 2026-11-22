@@ -96,7 +96,7 @@ export class Boats {
   constructor(scene, world) { this.world = world; this.group = new THREE.Group(); scene.add(this.group); this.list = []; this.phase = -1; this.t = 0; }
   _spawn(route, kind, d) {
     const g = makeBoat(kind);
-    const wake = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), M(0xffffff, { transparent: true, opacity: 0.45, depthWrite: false }));
+    const wake = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45, depthWrite: false }));   // material próprio: cada esteira pulsa no seu ritmo
     wake.rotation.x = -Math.PI / 2; const L = BIG[kind] ? 1.2 : 0.5; wake.scale.set(BIG[kind] ? 0.45 : 0.16, L, 1); wake.position.set(0, 0.006, -L / 2 - (BIG[kind] ? 1 : 0.15));
     g.add(wake);
     const o = new THREE.Group(); o.add(g); this.group.add(o);
@@ -105,7 +105,7 @@ export class Boats {
   setPhase(ph) {
     if (ph === this.phase) return;
     this.phase = ph;
-    for (const b of this.list) { this.group.remove(b.o); b.o.traverse(m => { if (m.isMesh && m.geometry && !m.geometry.userData.shared) m.geometry.dispose(); }); }
+    for (const b of this.list) { this.group.remove(b.o); b.o.traverse(m => { if (!m.isMesh) return; if (m.geometry && !m.geometry.userData.shared) m.geometry.dispose(); if (m.material && !m.material.userData.shared) m.material.dispose(); }); }
     this.list = [];
     const sea = SEA[ph], riv = RIVER[ph];
     sea.forEach((k, i) => this._spawn(BIG[k] ? ROUTES.far : (i % 2 ? ROUTES.far : ROUTES.near), k, (i / sea.length) * 60));
