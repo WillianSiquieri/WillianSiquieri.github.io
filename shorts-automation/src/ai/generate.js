@@ -22,6 +22,9 @@ Regras do roteiro:
 - Cada short do lote tem de parecer feito por uma pessoa diferente: varie a
   estrutura, o comprimento das frases e o fecho. Dois roteiros com a mesma forma
   tiram o canal da monetização (política de "conteúdo produzido em massa").
+- "sourceLink" tem de ser COPIADO EXATAMENTE do item que você escolheu da lista.
+  Nunca invente URL nem monte um link "equivalente": o sistema usa esse campo
+  para não repetir tema e para saber quais imagens combinam com o assunto.
 - No campo "cta", escreva UMA frase convidando a pessoa a se inscrever no canal,
   amarrada ao assunto DESTE short (ex.: "Se você quer acompanhar o que o dólar
   faz com o seu bolso, se inscreve aí."). Nunca repita a frase de outro short e
@@ -71,6 +74,15 @@ const FORMATOS = [
     fecho: 'Feche com o que esperar nos próximos dias, sem pergunta.',
   },
 ];
+
+// Segundos não seguram o modelo; contagem de palavras sim. Converte "30–40s"
+// no número de palavras correspondente.
+function palavrasPara(duracao) {
+  const nums = String(duracao || '').match(/\d+/g)?.map(Number) || [];
+  if (!nums.length) return 95;
+  const seg = nums.reduce((a, b) => a + b, 0) / nums.length;
+  return Math.round((seg * 2.5) / 5) * 5;
+}
 
 // Rotaciona por dia, para lotes consecutivos não repetirem a forma.
 export function formatoDoDia(d = new Date(), formatos) {
@@ -165,7 +177,9 @@ retenção baixa performou pior do que parece.
 
 FORMATO DESTE LOTE — "${f.nome}":
 ${f.estrutura}
-Duração da narração: ${f.duracao}. ${f.fecho}
+Duração da narração: ${f.duracao} — ou seja, cerca de ${palavrasPara(f.duracao)} palavras
+no campo "script" (a narração roda a ~2,5 palavras por segundo). Respeite esse tamanho:
+roteiro longo demais estoura a duração do short. ${f.fecho}
 Dentro do lote, varie o comprimento das frases e o ritmo entre os shorts.
 
 Selecione os ${count} melhores temas dentre as manchetes acima (evite os indesejados)
