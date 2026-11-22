@@ -22,6 +22,32 @@ import { uploadShort, youtubeReady } from './youtube/upload.js';
 import { refreshAnalytics, topPerformers, worstPerformers } from './youtube/analytics.js';
 import { log, warn, makeId, argFlag, collapseRepeats } from './util.js';
 
+// A IA às vezes INVENTA o sourceLink em vez de copiar o do item escolhido (no
+// canal bíblico ela devolveu URLs do biblegateway no lugar de "biblia:noe-arca").
+// Isso quebra duas coisas de uma vez: os termos visuais curados não são achados,
+// e a deduplicação — que casa por sourceLink — deixa o mesmo tema voltar.
+// Então o item é reconciliado por link, depois por título, e o sourceLink
+// gravado passa a ser o do item de verdade, não o que o modelo escreveu.
+const normTxt = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
+
+function resolveItem(draft, items) {
+  if (draft.sourceLink) {
+    const porLink = items.find((it) => it.link === draft.sourceLink);
+    if (porLink) return porLink;
+  }
+  const t = normTxt(draft.title);
+  const tema = normTxt(draft.theme);
+  if (!t && !tema) return null;
+  return (
+    items.find((it) => normTxt(it.title) === t || normTxt(it.title) === tema) ||
+    items.find((it) => {
+      const n = normTxt(it.title);
+      return n.length > 6 && (t.includes(n) || tema.includes(n));
+    }) ||
+    null
+  );
+}
+
 function usedKeys(queue, published) {
   const keys = new Set();
   for (const d of [...queue, ...published]) {
@@ -100,6 +126,8 @@ async function main() {
 
   for (const d of drafts) {
     const id = makeId();
+    const origem = resolveItem(d, fresh);
+    if (!origem) warn(`Draft "${d.title}" não casou com nenhum item da fonte — sem termos visuais e sem dedup confiável.`);
     const entry = {
       id,
       status: 'draft',
@@ -111,10 +139,10 @@ async function main() {
       cta: d.cta || '',
       // Termos visuais curados da fonte (catálogo bíblico), quando houver:
       // o b-roll prefere estes ao mapa de palavras-chave.
-      visual: (fresh.find((it) => it.link === d.sourceLink)?.visual) || undefined,
+      visual: origem?.visual || undefined,
       tags: d.tags || [],
       captionKeywords: d.captionKeywords || [],
-      sourceLink: d.sourceLink,
+      sourceLink: origem?.link || d.sourceLink,
       rationale: d.rationale,
       aiProvider: d.aiProvider || 'desconhecido',
       video: { rendered: false },
