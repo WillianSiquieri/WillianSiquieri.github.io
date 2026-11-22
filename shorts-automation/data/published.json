@@ -1038,5 +1038,94 @@
     "avgViewPct": null,
     "avgViewSec": null,
     "analyticsUpdatedAt": "2026-11-22T18:18:38.663Z"
+  },
+  {
+    "id": "sh_mws753qob034",
+    "status": "published",
+    "createdAt": "2026-11-22T18:54:53.232Z",
+    "theme": "Risco político no Brasil e impacto nos seus investimentos",
+    "title": "Bolsonaro internado: o que isso pode mudar no seu bolso?",
+    "hook": "Bolsonaro na UTI, mas o que isso tem a ver com seu dinheiro?",
+    "script": "Ele está internado e ainda sem data de alta. Quando um presidente fica doente, a incerteza sobe. Os investidores ficam nervosos, o real pode desvalorizar e o risco‑país aumenta. Isso eleva a taxa de juros e encarece empréstimos. Em resumo: seu custo de crédito pode subir e a bolsa pode oscilar. Fique de olho nas notícias e ajuste suas posições.",
+    "cta": "Quer entender como a política afeta seu patrimônio? Inscreva‑se agora.",
+    "tags": [
+      "#Bolsonaro",
+      "#MercadoFinanceiro",
+      "#Investimentos",
+      "#Política"
+    ],
+    "captionKeywords": [
+      "Bolsonaro",
+      "UTI",
+      "risco político",
+      "juros",
+      "investimentos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/politica/bolsonaro-segue-internado-na-uti-e-sem-previsao-de-alta-diz-boletim-medico/",
+    "rationale": "Tema de alto interesse (risco político) que já provou boa retenção no canal e tem ligação direta com finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 27,
+      "previewFile": "data/previews/sh_mws753qob034.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 6
+    },
+    "youtubeId": "5monalAj9F8",
+    "previewUrl": "https://youtube.com/shorts/5monalAj9F8",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-22T18:54:53.232Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
+  },
+  {
+    "id": "sh_mws75r7ljdab",
+    "status": "published",
+    "createdAt": "2026-11-22T18:54:53.232Z",
+    "theme": "Proposta de juros de cartão nos EUA e reflexos para o Brasil",
+    "title": "Cartão de crédito a 10% ao ano nos EUA: o que isso significa para você?",
+    "hook": "Já pensou pagar só 10% ao ano no seu cartão?",
+    "script": "Nos EUA, um grupo de senadores quer reduzir a taxa média de juros do cartão de 22,2% para 10% ao ano. Se aprovada, o crédito fica mais barato lá, mas também pode pressionar os bancos a subir juros em outras áreas. No Brasil, isso gera expectativa de discussões semelhantes, o que pode reduzir o custo do crédito para consumidores. Em resumo: menos juros no cartão, mais dinheiro no seu bolso.",
+    "cta": "Curioso sobre como mudanças nos EUA podem afetar seu crédito aqui? Inscreva‑se e acompanhe.",
+    "tags": [
+      "#Juros",
+      "#CartãoDeCrédito",
+      "#EUA",
+      "#Finanças"
+    ],
+    "captionKeywords": [
+      "juros de cartão",
+      "EUA",
+      "crédito",
+      "finanças pessoais"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mundo/juros-do-cartao-a-10-a-proposta-de-trump-que-une-rivais-e-assusta-bancos/",
+    "rationale": "Assunto internacional com potencial de impacto direto nos custos de crédito brasileiro, alinhado ao estilo de pergunta‑resposta que gera engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "previewFile": "data/previews/sh_mws75r7ljdab.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "8dO6ZXc92e4",
+    "previewUrl": "https://youtube.com/shorts/8dO6ZXc92e4",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-22T18:54:53.232Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
   }
 ]
