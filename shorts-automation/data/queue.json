@@ -420,5 +420,43 @@
     "decidedAt": "2026-11-21T20:47:46.331Z",
     "publishError": "não foi possível apagar ZdFXGxH9b6w do YouTube",
     "publishErrorAt": "2026-11-22T13:59:12.008Z"
+  },
+  {
+    "id": "sh_mws5uk431jse",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:18:41.619Z",
+    "theme": "Impostos sobre combustíveis",
+    "title": "ICMS do diesel disparou 735% desde 2002 – o que isso traz para o seu bolso?",
+    "hook": "Por que o diesel está cada vez mais caro?",
+    "script": "O ICMS sobre o diesel subiu 735,7% nos últimos 22 anos, bem acima da inflação. Esse aumento reflete no preço da bomba, encarecendo o frete de mercadorias e o custo do transporte público. Como consequência, o preço dos alimentos e de produtos industrializados também sobe, já que tudo depende de caminhões. Em resumo: mais imposto, preço maior na sua conta.",
+    "cta": "Se quiser entender como esses impostos afetam seu dia a dia, se inscreve aqui.",
+    "tags": [
+      "economia",
+      "impostos",
+      "combustível",
+      "finanças pessoais",
+      "Brasil"
+    ],
+    "captionKeywords": [
+      "ICMS",
+      "diesel",
+      "preço do combustível",
+      "inflação",
+      "custo de vida"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/economia/icms-sobre-o-diesel-acumula-alta-de-7357-desde-2002-acima-da-inflacao-acumulada/",
+    "rationale": "Notícia de alto impacto financeiro que afeta diretamente o consumidor brasileiro, alinhada ao nicho de finanças pessoais e economia, com potencial de engajamento por ser relevante e atual.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "previewFile": "data/previews/sh_mws5uk431jse.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 5,
+      "cortes": 8
+    }
   }
 ]
