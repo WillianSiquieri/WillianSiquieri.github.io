@@ -15,6 +15,7 @@ import { lotProgress } from '../game/economy.js';
 import { makeVehicle, brokenWagon } from './vehicles.js';
 import { People } from './people.js';
 import { Boats } from './boats.js';
+import { buildRelief, makeHeight, animateRelief } from './relief.js';
 import { buildGround, buildForest, buildFence, buildMist, buildGrid, buildRoads3D, animateWater, animateMist } from './terrain3d.js';
 import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
 export { modelFiles };
@@ -224,7 +225,11 @@ export class World3D {
     const gnd = buildGround(state, ph);
     this.water = gnd.water;
     this.groundGroup.add(gnd.group);
-    this.forestGroup.add(buildForest(state));
+    if (this.reliefN !== n || !this.relief) {           // relevo em volta (muda só com o tamanho do mapa)
+      if (this.relief) { this.scene.remove(this.relief); disposeTree(this.relief); }
+      this.relief = buildRelief(state); this.reliefH = makeHeight(state); this.reliefN = n; this.scene.add(this.relief);
+    }
+    this.forestGroup.add(buildForest(state, this.reliefH));
     this.fenceGroup.add(buildFence(state, ph));
     // enfeites miúdos e obstáculos (mesclados)
     const deco = new THREE.Group();
@@ -607,6 +612,7 @@ export class World3D {
     this._works(t);
     animateWater(this.water, t);
     animateMist(this.mist, t);
+    animateRelief(this.relief, t);
     this._dt = Math.min(0.1, Math.max(0, t - (this._lastT == null ? t : this._lastT))); this._lastT = t;
     if (traffic) this._cars(traffic);
     if (!this.boats) this.boats = new Boats(this.scene, this);

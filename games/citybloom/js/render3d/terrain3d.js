@@ -266,8 +266,8 @@ const BUSH_GEO = new THREE.IcosahedronGeometry(0.09, 0); BUSH_GEO.translate(0, 0
 for (const g of [TRUNK_GEO, ROUND_GEO, PINE_GEO, BUSH_GEO]) g.userData.shared = true;
 const TREE_MAT = new THREE.MeshStandardMaterial({ roughness: 0.85, flatShading: true }); TREE_MAT.userData.shared = true;
 
-export function buildForest(state) {
-  const n = state.size, F = 9;   // floresta até 9 tiles além da borda (depois, névoa)
+export function buildForest(state, H = null) {
+  const n = state.size, F = H ? 13 : 9;   // com relevo, a mata sobe pelas encostas   // floresta até 9 tiles além da borda (depois, névoa)
   const trees = [];
   const rand = mulberry(31);
   const nearRoad = (i, j) => isRoadAt(state, i, j) || isRoadAt(state, i + 1, j) || isRoadAt(state, i - 1, j) || isRoadAt(state, i, j + 1) || isRoadAt(state, i, j - 1);
@@ -287,6 +287,15 @@ export function buildForest(state) {
       trees.push({ x: i + 0.1 + rand() * 0.8, z: j + 0.1 + rand() * 0.8, type: r < 0.08 ? 3 : (pine ? r < 0.8 : r < 0.25) ? 1 : 0, s: 0.95 + rand() * 0.6, ry: rand() * 6.28 });
     }
   }
+  if (H) {   // no relevo: árvores na altura do chão; acima de ~2,4 só pedra e neve
+    for (let k = trees.length - 1; k >= 0; k--) {
+      const t = trees[k]; t.y = H(t.x, t.z);
+      const dd = Math.hypot(Math.max(-t.x, 0, t.x - n), Math.max(-t.z, 0, t.z - n));
+      // acima de ~2,4: pedra e neve; longe e alto: já dentro da névoa (não deixa árvore "no ar")
+      if (t.y > 2.4 || (dd > 8 && t.y > 0.4) || dd > 11) trees.splice(k, 1);
+      else if (t.y > 1.2 && t.type === 0) t.type = 1;
+    }
+  }
   const group = new THREE.Group();
   const trunks = trees.filter(t => t.type !== 3);
   const mk = (geo, list, color) => {
@@ -296,7 +305,7 @@ export function buildForest(state) {
     const c = new THREE.Color();
     list.forEach((t, k) => {
       e.set(0, t.ry || 0, 0); q.setFromEuler(e);
-      v.set(t.x, 0, t.z); sc.set(t.s, t.s * (0.9 + hash(k, 3) * 0.3), t.s);
+      v.set(t.x, t.y || 0, t.z); sc.set(t.s, t.s * (0.9 + hash(k, 3) * 0.3), t.s);
       m.compose(v, q, sc); im.setMatrixAt(k, m);
       im.setColorAt(k, color(c, t, k));
     });
