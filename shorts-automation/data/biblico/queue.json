@@ -50,5 +50,69 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mws5lfqibchb",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:11:36.042Z",
+    "theme": "Moisés e a travessia do mar",
+    "title": "A fuga impossível entre o exército egípcio e o Mar Vermelho",
+    "hook": "Um exército atrás e a água à frente: a escolha impossível de Moisés.",
+    "script": "É 1446 a.C., o Egito domina a região, escravizando os israelitas. Faraó, irritado, lança seu exército atrás de um povo que acabou de fugir. Moisés lidera dezenas de milhares através do deserto, mas ao chegar ao Mar Vermelho, o caminho se fecha: o mar à frente, soldados atrás. O povo começa a entrar em pânico, gritos de medo ecoam. Moisés ergue seu cajado, estende a mão e, segundo a tradição, o Senhor estende a mão sobre o mar. As águas se separam, formando paredes de água. O povo atravessa a seco, enquanto o exército egípcio tenta seguir e, ao alcançar o meio, as ondas retornam, submergindo-os. A travessia deixa milhares de israelitas livres, mas também a memória de um milagre que mudou o rumo de uma nação.",
+    "cta": "Quer saber como outros momentos de fuga mudaram a história, se inscreve aí.",
+    "visual": [
+      "ancient egypt pyramids",
+      "red sea coast waves",
+      "desert crowd walking",
+      "sandstorm desert wind"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:moises-mar-vermelho",
+    "rationale": "Escolhi o episódio da travessia porque combina tensão militar, medo coletivo e um ponto de virada dramático, perfeito para um short de 40‑50 s.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 57,
+      "previewFile": "data/biblico/previews/sh_mws5lfqibchb.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+12%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
+  },
+  {
+    "id": "sh_mws5muu659gx",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:11:36.042Z",
+    "theme": "Daniel na cova dos leões",
+    "title": "A noite em que leões não rosnaram",
+    "hook": "Ele foi jogado entre feras famintas, mas a noite foi silenciosa.",
+    "script": "É 539 a.C., o império persa controla a Babilônia. Daniel, um alto oficial judeu, recusa obedecer a um decreto que obriga todos a prestar culto ao rei Dario. Sua postura gera intriga; inimigos políticos manipulam a lei para acusá‑lo de traição. Dario, relutante, condena Daniel à cova dos leões, um poço escuro cheio de animais famintos. Naquela noite, Daniel ora, e o silêncio se instala. Quando os guardas verificam ao amanhecer, encontram o profeta ileso, enquanto os leões permanecem imóveis, como se nada tivessem sentido. Dario reconhece a intervenção divina e publica um édito que protege a fé dos judeus.",
+    "cta": "Curioso sobre outros relatos de resistência silenciosa? Inscreva‑se agora.",
+    "visual": [
+      "lion close up",
+      "stone cave dark",
+      "ancient persian palace",
+      "sunrise through stone window"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:daniel-leoes",
+    "rationale": "O relato de Daniel combina política de corte, risco de vida e um desfecho inesperado, oferecendo narrativa intensa dentro do limite de tempo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "previewFile": "data/biblico/previews/sh_mws5muu659gx.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
