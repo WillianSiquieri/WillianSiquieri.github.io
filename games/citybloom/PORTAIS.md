@@ -24,12 +24,23 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 - **4 rotatórias.**
 - **Água viva:** ondas, espuma na praia e barcos da época (canoa → veleiro → balsa → cargueiro
   → transatlântico).
-- **Porto** (nível 8): construído na praia, o navio chega com moedas e carga. Evolui de píer de
+- **Porto** (nível 5): construído na praia, o navio chega com moedas e carga. Evolui de píer de
   madeira a terminal de contêineres.
-- **Painel de missões 🏆:**
-  - 3 missões ao mesmo tempo;
-  - metas de cada fase com prêmio grande;
-  - conquistas com medalhas de bronze, prata e ouro.
+- **Progressão em duas partes:**
+  - o **nível** sobe com XP (pedidos, tarefas, colheitas, construções);
+  - a **fase** (Vilarejo → Vila → Cidade pequena → Cidade → Metrópole) só muda ao cumprir as
+    **metas da fase** no 🏆. Uma das metas é chegar ao último nível da fase;
+  - enquanto as metas não estão prontas, o nível fica parado com 🔒 e o XP continua guardado;
+  - ao cumprir tudo, aparece o botão **"Virar Vila!"**: festa do prefeito, prêmio, os níveis
+    guardados sobem de uma vez e a cidade muda de cara (ruas, veículos, pessoas, prédios).
+- **Pedidos e tarefas:** o quadro de Pedidos mistura entregas com **tarefas** pedidas pelos
+  moradores (por exemplo "Fabrique 4 produtos" ou "Colha 5 lotes"), com prêmio em moedas e XP.
+- **🏆 Metas e conquistas:** metas da fase e medalhas de bronze, prata e ouro.
+- **Tela limpa:**
+  - no topo, só cidade/nível, moedas e estoque;
+  - embaixo, Pedidos e Construir;
+  - o resto fica no menu ☰: metas, baú diário, estoque, cidade e níveis (com moradores e
+    felicidade), centralizar e configurações/idioma.
 - **Entra direto no jogo**, sem tela que bloqueia. O Prefeito cumprimenta num balão e a
   mão do tutorial aponta cada passo (pode pular). Depois disso aparecem as **missões com
   prêmio**.
@@ -60,7 +71,7 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 | `icon-512x512.png` | ícone (GameDistribution pede 512×512) |
 | `video-landscape-1920x1080.mp4` | vídeo de prévia horizontal (começa pela capa, ~19 s, sem som) |
 | `video-portrait-1080x1620.mp4` | vídeo de prévia vertical 2:3 |
-| `screen-1-cidade.jpg` … `screen-5-porto.jpg` | capturas do jogo (cidade, pedidos, prefeito, missões, porto) |
+| `screen-1-cidade.jpg` … `screen-5-porto.jpg` | capturas do jogo (cidade, pedidos e tarefas, prefeito, conquistas, porto) |
 
 ## Passo a passo — GameDistribution (o mais fácil de aceitar)
 1. Acesse **gamedistribution.com**, clique em *Developers* e crie a conta, que é grátis.
