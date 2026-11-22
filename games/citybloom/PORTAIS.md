@@ -19,6 +19,17 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
   - visual da prefeitura;
   - quintais das casas.
 - **Inglês como padrão.** Prefeito **Walt Parker** e moradores com nomes em inglês.
+- **Montanhas com neve** ao norte e a leste, com o rio descendo pelo vale e as estradas saindo
+  por passagens.
+- **4 rotatórias.**
+- **Água viva:** ondas, espuma na praia e barcos da época (canoa → veleiro → balsa → cargueiro
+  → transatlântico).
+- **Porto** (nível 8): construído na praia, o navio chega com moedas e carga. Evolui de píer de
+  madeira a terminal de contêineres.
+- **Painel de missões 🏆:**
+  - 3 missões ao mesmo tempo;
+  - metas de cada fase com prêmio grande;
+  - conquistas com medalhas de bronze, prata e ouro.
 - **Entra direto no jogo**, sem tela que bloqueia. O Prefeito cumprimenta num balão e a
   mão do tutorial aponta cada passo (pode pular). Depois disso aparecem as **missões com
   prêmio**.
@@ -49,7 +60,7 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
 | `icon-512x512.png` | ícone (GameDistribution pede 512×512) |
 | `video-landscape-1920x1080.mp4` | vídeo de prévia horizontal (começa pela capa, ~19 s, sem som) |
 | `video-portrait-1080x1620.mp4` | vídeo de prévia vertical 2:3 |
-| `screen-1-cidade.jpg` … `screen-4-bau.jpg` | capturas do jogo |
+| `screen-1-cidade.jpg` … `screen-5-porto.jpg` | capturas do jogo (cidade, pedidos, prefeito, missões, porto) |
 
 ## Passo a passo — GameDistribution (o mais fácil de aceitar)
 1. Acesse **gamedistribution.com**, clique em *Developers* e crie a conta, que é grátis.
@@ -102,14 +113,16 @@ com o jogo fechado!
 
 **Long description (EN):**
 Mayor Walt Parker is counting on you! In CityBloom you turn a tiny hamlet with dirt roads
-into a thriving metropolis full of buses, traffic lights and busy sidewalks — by the sea, by
-the river and surrounded by forest. Harvest wood, clay, sand and iron on production lots, turn them into planks,
+into a thriving metropolis full of buses, traffic lights and busy sidewalks — between snowy
+mountains, a winding river and the sea. Build a harbor and watch it grow from a wooden pier
+into a container port as ships bring you coins and cargo. Harvest wood, clay, sand and iron on production lots, turn them into planks,
 bricks, glass, furniture and steel at the factories, and use them to build homes, shops,
 services and landmarks. Fulfil orders from the residents — Bob the builder, Ms. Lucy
 the shopkeeper, Chef Mark and many more — to earn coins and XP. Upgrade houses, buy new
 blocks, keep residents happy and grow through the Hamlet, Village, Small town, City and
 Metropolis stages. Open the daily chest, get a gift every level and play at your own
-pace: your city keeps producing even while you're away!
+pace: your city keeps producing even while you're away! Complete missions, reach every
+stage goal and collect bronze, silver and gold medals.
 
 **Controles / Controls:**
 - Celular: tocar para selecionar e coletar; arrastar para mover o mapa; pinça para zoom.

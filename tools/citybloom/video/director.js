@@ -40,6 +40,12 @@ D.setup = async (opt) => {
     const sp = spots.find(([i, j]) => E.canPlace(s, type, i, j) && isFree(i, j, BUILDINGS[type].size) && Math.hypot(i - cx, j - cz) > 2.5);
     if (sp) { s.objects.push(S.makeObject(s, type, sp[0], sp[1], now)); s.rev++; }
   }
+  // porto na praia (a costa ao sul fica comprada para a divulgação)
+  for (let j = 27; j <= 33; j++) for (let i = 9; i <= 26; i++) { const t = S.tileOf(s, i, j); if (t.kind !== 'grass') { t.locked = false; delete t.obstacle; } }
+  if (!s.objects.some(o => o.type === 'port')) {
+    let ps = null; for (let j = 29; j <= 33 && !ps; j++) for (let i = 14; i <= 19 && !ps; i++) if (E.canPlace(s, 'port', i, j)) ps = [i, j];
+    if (ps) s.objects.push(S.makeObject(s, 'port', ps[0], ps[1], now, { incomeReadyAt: now - 1000 }));   // navio atracado
+  }
   for (let k = 0; k < 4; k++) { const sp = spots.find(([i, j]) => E.canPlace(s, 'lot', i, j) && isFree(i, j, 1) && Math.hypot(i - cx, j - cz) > 3); if (sp) s.objects.push(S.makeObject(s, 'lot', sp[0], sp[1], now, { resource: ['wood', 'clay', 'sand', 'iron'][k], readyAt: now - 1000 })); }
   const W = [3, 4, 4, 3, 1.6, 0.6, 0.3], tot = W.reduce((a, b) => a + b, 0);
   const pickHouse = () => { let x = rnd() * tot; for (let k = 0; k < W.length; k++) { x -= W[k]; if (x <= 0) return houses[k]; } return houses[0]; };
