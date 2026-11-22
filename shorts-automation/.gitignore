@@ -6,5 +6,9 @@ node_modules/
 tmp/
 
 # Exceção: previews leves dos shorts pendentes são versionados para o painel tocar.
+# Vale para o canal padrão (data/previews) e para os demais (data/<canal>/previews),
+# senão o painel de um canal novo fica sem player.
 !data/previews/
 !data/previews/*.mp4
+!data/*/previews/
+!data/*/previews/*.mp4
