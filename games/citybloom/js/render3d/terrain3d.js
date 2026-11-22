@@ -218,12 +218,44 @@ export function buildGround(state, phase) {
   }));
   water.rotation.x = -Math.PI / 2; water.position.set(n / 2, 0.012, n / 2); water.receiveShadow = true;
   group.add(water);
-  return { group, water };
+  // segunda camada de ondas, rolando na outra direção (a água "mexe" de verdade)
+  const waves2 = waveTexture().clone(); waves2.userData = {}; waves2.needsUpdate = true; waves2.repeat.set(T / 5, T / 5); waves2.rotation = 0.7;
+  const water2 = new THREE.Mesh(water.geometry, new THREE.MeshBasicMaterial({ color: 0xffffff, map: waves2, alphaMap: mask, transparent: true, opacity: 0.18, depthWrite: false, blending: THREE.AdditiveBlending }));
+  water2.rotation.x = -Math.PI / 2; water2.position.set(n / 2, 0.014, n / 2);
+  group.add(water2);
+  // espuma na beira (praia e margens), pulsando como onda que chega
+  const foam = new THREE.Mesh(water.geometry, new THREE.MeshBasicMaterial({ color: 0xffffff, alphaMap: new THREE.CanvasTexture(shoreMask(state)), transparent: true, opacity: 0.7, depthWrite: false }));
+  foam.rotation.x = -Math.PI / 2; foam.position.set(n / 2, 0.016, n / 2);
+  group.add(foam);
+  return { group, water: { a: water, b: water2, foam } };
 }
-export function animateWater(water, t) {
-  if (!water) return;
-  const m = water.material.map;
-  m.offset.set(Math.sin(t * 0.25) * 0.12, t * 0.02);
+export function animateWater(w, t) {
+  if (!w) return;
+  w.a.material.map.offset.set(Math.sin(t * 0.25) * 0.12, t * 0.02);
+  w.b.material.map.offset.set(-t * 0.015, Math.cos(t * 0.2) * 0.1);
+  w.foam.material.opacity = 0.45 + Math.sin(t * 1.3) * 0.25;
+  w.foam.scale.setScalar(1 + Math.sin(t * 1.3) * 0.0015);
+}
+
+// Faixa de espuma: água que encosta em terra.
+function shoreMask(state) {
+  const n = state.size, T = n + 2 * EXT, Q = 8, W = T * Q;
+  const cv = document.createElement('canvas'); cv.width = cv.height = W;
+  const cx = cv.getContext('2d');
+  cx.fillStyle = '#000'; cx.fillRect(0, 0, W, W);
+  const isW = (i, j) => kindAt(state, i, j) === 'water';
+  for (let j = -EXT; j < n + EXT; j++) for (let i = -EXT; i < n + EXT; i++) {
+    if (isW(i, j)) continue;
+    for (const [a, b] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      if (!isW(i + a, j + b)) continue;
+      // borda entre o tile de terra e a água: linha clara do lado da água
+      const x = (i + EXT + 0.5 + a * 0.55) * Q, y = (j + EXT + 0.5 + b * 0.55) * Q;
+      const g = cx.createRadialGradient(x, y, 0, x, y, Q * 0.42);
+      g.addColorStop(0, 'rgba(255,255,255,0.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+      cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, Q * 0.42, 0, Math.PI * 2); cx.fill();
+    }
+  }
+  return cv;
 }
 
 // ---------------------------------------------------------------- floresta (instanciada)

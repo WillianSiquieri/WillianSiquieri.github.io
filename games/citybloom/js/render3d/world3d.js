@@ -14,6 +14,7 @@ import { BUILDINGS, MAP, phaseIndex } from '../game/config.js';
 import { lotProgress } from '../game/economy.js';
 import { makeVehicle, brokenWagon } from './vehicles.js';
 import { People } from './people.js';
+import { Boats } from './boats.js';
 import { buildGround, buildForest, buildFence, buildMist, buildGrid, buildRoads3D, animateWater, animateMist } from './terrain3d.js';
 import { CATALOG, LOT_PARTS, OBSTACLE_PARTS, CAR_MODELS, MISC_MODELS, buildCustom, modelFiles } from './catalog.js';
 export { modelFiles };
@@ -293,6 +294,7 @@ export class World3D {
     if (o.type === 'townhall') return 'townhall:' + this.curPhase;
     if (o.type === 'warehouse') return 'warehouse:' + this.curWh + ':' + (this.curPhase <= 1 ? 0 : 1);
     if (o.type === 'sawmill' || o.type === 'kiln') return o.type + ':' + (this.curPhase >= 3 ? 1 : 0);
+    if (o.type === 'port') return 'port:' + this.curPhase + ':' + o.i + ',' + o.j;
     if (def.type === 'house' && o.size === 1) return o.type + ':' + (this.curPhase <= 1 ? 0 : this.curPhase >= 3 ? 2 : 1);
     return o.type;
   }
@@ -320,6 +322,14 @@ export class World3D {
       } else g = new THREE.Group();
       // gira 0°/90° para variar (as duas faces viradas para a câmera)
       if (!(v && v.fixed)) g.rotation.y = hash(o.id, 7) < 0.5 ? 0 : Math.PI / 2;
+      if (o.type === 'port' && this._st) {          // porto: o lado do mar fica para a água
+        const st = this._st, n = st.size; let dx = 0, dz = 0;
+        for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) {
+          const t = st.tiles[(o.j + dj) * n + o.i + di];
+          if (t && t.kind === 'water') { dx += di - (o.size - 1) / 2; dz += dj - (o.size - 1) / 2; }
+        }
+        g.rotation.y = Math.abs(dx) > Math.abs(dz) ? (dx > 0 ? Math.PI / 2 : -Math.PI / 2) : (dz >= 0 ? 0 : Math.PI);
+      }
     }
     const outer = new THREE.Group();
     outer.add(g);
@@ -333,6 +343,7 @@ export class World3D {
         for (let n = 0; n < 3; n++) { const p = new THREE.Mesh(PUFF_GEO, PUFF_MAT); p.castShadow = false; q.add(p); }
         fx.push({ kind: 'smoke', o: q, k });
       } else if (q.name === 'flag' || q.name === 'spin' || q.name === 'jet') fx.push({ kind: q.name, o: q });
+      else if (q.name === 'ship') fx.push({ kind: 'ship', o: q, z0: q.position.z, p: 1 });
     });
     outer.userData.fx = fx;
     return outer;
@@ -456,6 +467,13 @@ export class World3D {
         } else if (f.kind === 'flag') f.o.rotation.y = Math.sin(T * 3.1) * 0.35;
         else if (f.kind === 'spin') f.o.rotation.y = T * 6;
         else if (f.kind === 'jet') f.o.scale.y = 1 + Math.sin(T * 7) * 0.18;
+        else if (f.kind === 'ship') {
+          // navio atracado quando a renda está pronta; ao coletar, sai para o mar e volta depois
+          const o = e.o, ready = !o || !o.incomeReadyAt || this._now >= o.incomeReadyAt - 8000;
+          f.p += ((ready ? 1 : 0) - f.p) * Math.min(1, this._dt * 0.8);
+          f.o.position.z = f.z0 + (1 - f.p) * 4; f.o.visible = f.p > 0.03;
+          f.o.position.y = Math.sin(T * 1.5) * 0.008;
+        }
       }
     }
   }
@@ -578,6 +596,7 @@ export class World3D {
   render(cam, state, t, now, ui = {}, traffic = null) {
     if (!this.ready) return;
     if (this.autoQuality !== false) this._quality(t);
+    this._st = state; this._now = now;
     this.curPhase = this._phase(state);
     this.curWh = Math.min(3, state.warehouseLevel || 0);
     this._buildGround(state);
@@ -590,6 +609,8 @@ export class World3D {
     animateMist(this.mist, t);
     this._dt = Math.min(0.1, Math.max(0, t - (this._lastT == null ? t : this._lastT))); this._lastT = t;
     if (traffic) this._cars(traffic);
+    if (!this.boats) this.boats = new Boats(this.scene, this);
+    this.boats.setPhase(this.curPhase); this.boats.update(t, this._dt);
     this._selection(ui.selected);
     this._ghost(ui.ghost, t);
     this._camera(cam);

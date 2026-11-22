@@ -239,6 +239,7 @@ export const CATALOG = {
   house5: vary([COM + 'building-c', COM + 'building-d', COM + 'building-a', COM + 'building-h'], comTex, { fill: 0.8 }),
   house6: vary([COM + 'building-f', COM + 'building-g', COM + 'building-l', COM + 'building-i'], comTex, { fill: 0.8 }),
   house7: vary([COM + 'building-skyscraper-a', COM + 'building-skyscraper-b', COM + 'building-skyscraper-c', COM + 'building-skyscraper-e'], [''], { fill: 0.78 }),
+  port: [{ custom: 'port', fixed: true }],
   bakery: [{ custom: 'bakery', fixed: true }],
   market: [{ custom: 'market', fixed: true }],
   clothes: [{ custom: 'clothes', fixed: true }],
@@ -306,7 +307,7 @@ export function modelFiles() {
   for (const list of Object.values(OBSTACLE_PARTS)) for (const p of list) set.add(p[0]);
   [SUB + 'planter', NAT + 'tree_oak', NAT + 'plant_bushDetailed', NAT + 'plant_bush', NAT + 'log_stackLarge', COM + 'detail-parasol-a',
     COM + 'building-e', IND + 'building-m', IND + 'shipping-container-a', IND + 'shipping-container-b', IND + 'shipping-container-c',
-    NAT + 'log_stack', 'cars/ambulance', 'cars/sedan', 'cars/taxi', 'cars/suv', 'cars/hatchback-sports',
+    NAT + 'log_stack', NAT + 'canoe', 'cars/ambulance', 'cars/sedan', 'cars/taxi', 'cars/suv', 'cars/hatchback-sports',
     NAT + 'tree_default', NAT + 'tree_detailed', NAT + 'tree_fat', NAT + 'tree_cone', NAT + 'tree_pineRoundA', NAT + 'grass', NAT + 'grass_large'].forEach(f => set.add(f));
   return [...set];
 }

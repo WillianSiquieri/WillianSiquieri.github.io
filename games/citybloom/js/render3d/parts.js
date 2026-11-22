@@ -94,6 +94,10 @@ export function chimney(x, z, h, r, color, stripe = 0xffffff, y = 0) {
 
 // ---------------------------------------------------------------- placas com pictograma
 const PICTO = {
+  anchor(c) { c.strokeStyle = '#ffffff'; c.lineWidth = 10; c.lineCap = 'round';
+    c.beginPath(); c.arc(64, 34, 10, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.moveTo(64, 44); c.lineTo(64, 100); c.stroke(); c.beginPath(); c.moveTo(46, 58); c.lineTo(82, 58); c.stroke();
+    c.beginPath(); c.arc(64, 74, 28, Math.PI * 0.15, Math.PI * 0.85); c.stroke(); },
   bread(c) { c.fillStyle = '#d9913f'; c.beginPath(); c.ellipse(64, 70, 40, 24, 0, Math.PI, 0); c.lineTo(104, 82); c.lineTo(24, 82); c.fill();
     c.strokeStyle = '#f6d39a'; c.lineWidth = 6; for (const x of [46, 64, 82]) { c.beginPath(); c.moveTo(x - 8, 52); c.lineTo(x + 6, 66); c.stroke(); } },
   shirt(c) { c.fillStyle = '#ffffff'; c.beginPath(); c.moveTo(44, 30); c.lineTo(54, 30); c.quadraticCurveTo(64, 42, 74, 30); c.lineTo(84, 30); c.lineTo(108, 48); c.lineTo(98, 62); c.lineTo(88, 56);

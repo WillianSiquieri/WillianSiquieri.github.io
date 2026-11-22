@@ -507,6 +507,15 @@ function fountain(ctx) {
 // ---------------------------------------------------------------------------
 // Monumentos
 // ---------------------------------------------------------------------------
+// Porto (2D de reserva): cais de madeira e um barquinho.
+function port(ctx) {
+  paving(ctx, box(0.1, 0.1, 1.9, 0.9), '#c9a173', 6);
+  paving(ctx, box(0.6, 0.9, 1.0, 1.9), '#a8743f', 6);
+  const c = G(1.45, 1.4);
+  ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.ellipse(c.x, c.y, 14, 6, -0.45, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#2f6f8e'; ctx.beginPath(); ctx.ellipse(c.x, c.y - 2, 12, 5, -0.45, 0, Math.PI * 2); ctx.fill();
+}
+
 function stadium(ctx) {
   paving(ctx, box(0.04, 0.04, 1.96, 1.96), '#dcd8cf', 8);
   const c = G(1, 1);
@@ -565,14 +574,14 @@ export const PAINT = {
   bakery, market, clothes, mall,
   school, clinic, firehouse, hospital,
   tree: treeDecor, plaza, fountain,
-  stadium, airport,
+  stadium, airport, port,
 };
 
 export const HEIGHT = {
   house1: 34, house2: 38, house3: 40, house4: 34, house5: 66, house6: 108, house7: 156,
   townhall: 72, warehouse: 34, sawmill: 36, kiln: 54, glassworks: 44, carpentry: 40, steelworks: 70,
   bakery: 40, market: 40, clothes: 52, mall: 64, school: 46, clinic: 40, firehouse: 50, hospital: 70,
-  tree: 36, plaza: 30, fountain: 26, stadium: 50, airport: 62,
+  tree: 36, plaza: 30, fountain: 26, stadium: 50, airport: 62, port: 24,
 };
 
 // Partes animadas (desenhadas por cima do sprite, a cada quadro)
