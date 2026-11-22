@@ -131,7 +131,7 @@ export const BUILDINGS = {
   // carga da época (matéria-prima e produto). O visual evolui com a fase.
   port: {
     type: 'commerce', cat: 'commerce', size: 2, unlock: 5, max: 1, minPop: 0, placeOn: 'coast', cargo: true,
-    income: { coins: 45, time: 420 }, build: { coins: 300, plank: 6, brick: 4 },
+    income: { coins: 45, time: 420 }, build: { coins: 300, plank: 8, wood: 6 },   // só madeira: dá para fazer no vilarejo
     name: { pt: 'Porto', en: 'Harbor' },
   },
   bakery: {

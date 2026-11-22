@@ -27,8 +27,7 @@ export function missionsView(game) {
   const tabs = TABS.map(([id, ic, name]) => `<button class="tab${id === tab ? ' on' : ''}" data-act="mtab" data-arg="${id}">${ic}<span>${name}</span>${pending[id] ? `<i class="dot">${pending[id]}</i>` : ''}</button>`).join('');
   let body = '';
 
-  if (false) {
-  } else if (tab === 'goals') {
+  if (tab === 'goals') {
     const pg = pg0, next = pg.next;
     const done = pg.goals.filter(g => g.done).length;
     body = `<div class="ghead"><span class="gph">${PHASES[pg.phase].icon}</span><div><b>${next ? t('goalsTo', { p: tn(next.name) }) : t('goalsLast')}</b>

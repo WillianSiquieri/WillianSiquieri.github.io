@@ -56,7 +56,7 @@ export function ordersView(game) {
       <div class="ois tprog"><div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div><small>${m.progress}/${m.target}</small></div>
       <div class="orw">🪙 ${fmtNum(m.reward.coins)} · ⭐ ${m.reward.xp} XP</div>
       <div class="obtns">
-        <button class="btn primary small" data-act="claimMission" data-arg="${k}"${m.done ? '' : ' disabled'}>${m.done ? t('claim') : t('inProgress')}</button>
+        <button class="btn primary small" data-act="claimMission" data-arg="${m.n}"${m.done ? '' : ' disabled'}>${m.done ? t('claim') : t('inProgress')}</button>
       </div>
     </div>`;
   });

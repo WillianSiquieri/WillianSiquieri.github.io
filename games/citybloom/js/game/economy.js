@@ -63,7 +63,7 @@ export function addXP(state, n) {
   const cap = levelCap(state);
   while (state.xp >= xpToNext(state.level)) {
     // no último nível da fase o nível para: falta cumprir as metas da fase (o XP fica guardado)
-    if (state.level >= cap) { state.xp = xpToNext(state.level); break; }
+    if (state.level >= cap) break;            // o XP continua guardado e sobe os níveis ao virar a próxima fase
     state.xp -= xpToNext(state.level);
     state.level++;
     levels.push(state.level);
@@ -722,17 +722,18 @@ export function mission(state) {
   const list = missionsList(state);
   return list.slice().sort((a, b) => (b.done - a.done) || (b.progress / b.target - a.progress / a.target) || (a.n - b.n))[0];
 }
-export function claimMission(state, idx) {
+// n: número fixo da tarefa (não a posição na lista, que pode mudar). Sem n: a primeira pronta.
+export function claimMission(state, n) {
   const list = missionsList(state);
-  let i = idx == null || idx === '' ? list.findIndex(m => m.done) : Number(idx);
-  if (i < 0) i = 0;
+  let i = n == null || n === '' ? list.findIndex(m => m.done) : list.findIndex(m => m.n === Number(n));
+  if (i < 0) return fail('notReady');
   const m = list[i];
   if (!m || !m.done) return fail('notReady');
   state.coins += m.reward.coins;
   const lv = addXP(state, m.reward.xp);
   bump(state, 'missionsDone');
-  const n = Math.max(...state.missions.map(x => x.n)) + 1;
-  state.missions.splice(i, 1, newMission(state, n, state.missions.filter((_, k) => k !== i).map(x => x.k)));
+  const next = Math.max(...state.missions.map(x => x.n)) + 1;
+  state.missions.splice(i, 1, newMission(state, next, state.missions.filter((_, k) => k !== i).map(x => x.k)));
   return ok({ coins: m.reward.coins, xp: m.reward.xp, ...lv });
 }
 
@@ -756,19 +757,34 @@ export function phaseGoals(state) {
     return { ...g, target, progress: Math.min(target, v), done: v >= target };
   });
   const claimed = !next && (state.goalsClaimed || []).includes(ph);   // a última fase dá o prêmio uma vez
+  const paid = (state.paidPhases || []).includes(ph);                // save antigo: prêmio desta fase já pago
   const base = levelReward((next || PHASES[ph]).minLevel);
   const reward = { coins: Math.round(base.coins * 1.5), items: base.items, xp: 20 + ph * 25 };
-  return { phase: ph, next, goals, allDone: goals.every(g => g.done), claimed, reward };
+  return { phase: ph, next, goals, allDone: goals.every(g => g.done), claimed, paid, reward };
 }
+// Saves de antes das metas de fase: prêmios de fases passadas que o jogador não pegou.
+export function payOwedPrizes(state) {
+  const owed = state.owedPrizes || []; if (!owed.length) return null;
+  const total = { coins: 0, items: {} };
+  for (const ph of owed) {
+    const L = (PHASES[ph + 1] || PHASES[ph]).minLevel, base = levelReward(L);
+    const got = grantReward(state, { coins: Math.round(base.coins * 1.5), items: base.items });
+    total.coins += got.coins; for (const [k, v] of Object.entries(got.items)) total.items[k] = (total.items[k] || 0) + v;
+  }
+  delete state.owedPrizes;
+  return total;
+}
+
 // "Virar Vila!": com todas as metas prontas, a cidade passa de fase e ganha o prêmio.
 export function claimPhaseGoals(state) {
   const pg = phaseGoals(state);
   if (pg.claimed) return fail('alreadyClaimed');
   if (!pg.allDone) return fail('notReady');
-  (state.goalsClaimed || (state.goalsClaimed = [])).push(pg.phase);
+  const gc = state.goalsClaimed || (state.goalsClaimed = []);
+  if (!gc.includes(pg.phase)) gc.push(pg.phase);
   if (pg.next) { state.phase = pg.phase + 1; reassignOrders(state); }
-  const got = grantReward(state, pg.reward);
-  const lv = addXP(state, pg.reward.xp);              // o XP guardado sobe de nível na hora
+  const got = pg.paid ? { coins: 0, items: {} } : grantReward(state, pg.reward);
+  const lv = addXP(state, pg.paid ? 0 : pg.reward.xp);   // o XP guardado sobe de nível na hora
   touch(state);
   return ok({ coins: got.coins, items: got.items, xp: pg.reward.xp, ...lv, phaseChanged: !!pg.next, phase: state.phase });
 }

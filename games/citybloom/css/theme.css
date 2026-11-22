@@ -128,7 +128,6 @@ img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-b
   .round { width: 40px; height: 40px; }
   .round.small { width: 34px; height: 34px; }
   .gift { top: 50px; }
-  body .gift.missions { top: 96px; }
   .bigbtn { height: 48px; min-width: 104px; font-size: 15px; border-radius: 18px; }
   .bi img.emo { width: 24px; height: 24px; }
   .bottombar { bottom: 8px; }
@@ -158,7 +157,6 @@ img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-b
 .order.wait .obtns { flex-direction: row; }
 
 /* ---------------- painel de missões ---------------- */
-.gift.missions { top: calc(env(safe-area-inset-top, 0px) + 112px); }
 
 .mtabs .tab { position: relative; }
 .mtabs .tab .dot { position: absolute; top: -5px; right: -5px; background: var(--red); color: #fff; font-style: normal; font-size: 11px; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }

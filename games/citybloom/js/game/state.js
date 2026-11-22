@@ -273,7 +273,10 @@ export function load() {
     if (!s.mentor) s.mentor = { intro: true };
     if (s.phase == null) {                  // save de antes das metas de fase: fica na fase do nível
       s.phase = phaseIndex(s.level || 1);
-      s.goalsClaimed = [...new Set([...(s.goalsClaimed || []), ...Array.from({ length: s.phase }, (_, k) => k)])];
+      const got = s.goalsClaimed || [];
+      s.owedPrizes = Array.from({ length: s.phase }, (_, k) => k).filter(k => !got.includes(k));   // prêmios não pegos: pagos ao abrir
+      s.paidPhases = got.filter(k => k >= s.phase);                                                   // fase atual já premiada: não paga de novo
+      s.goalsClaimed = [...new Set([...got, ...Array.from({ length: s.phase }, (_, k) => k)])];
     }
     return s;
   } catch (_) { return null; }

@@ -23,7 +23,7 @@ import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseOf, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
 import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage, migrateLocalSave } from './game/state.js';
-import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale, getLang } from './i18n.js';
+import { t, tn, setLang, fmtTime, fmtNum, applyPortalLocale, getLang } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -52,6 +52,8 @@ class CityGame {
       this.state = loaded || newGame();
       const away = loaded ? Date.now() - loaded.lastSeen : 0; // antes de salvar (save atualiza lastSeen)
       if (away > 60000) setTimeout(() => toast(t('welcome', { t: fmtTime(away / 1000) })), 600);
+      const owed = E.payOwedPrizes(this.state);
+      if (owed) { save(this.state); setTimeout(() => this._gift(owed), 1800); }
       if (this.state.refunded) { const k = this.state.refunded; delete this.state.refunded; setTimeout(() => toast(t('refunded', { n: k })), 2600); }
       E.tick(this.state, Date.now());
       save(this.state);
@@ -197,7 +199,6 @@ class CityGame {
   }
   panByScreen(dx, dy) { this.camera.panByScreen(dx, dy); }
   zoomAt(sx, sy, f) { this.camera.zoomAt(sx, sy, f); }
-  zoomStep(d) { this.camera.zoomAt(this.camera.vw / 2, this.camera.vh / 2, d > 0 ? 1.25 : 0.8); }
 
   // ---------------------------------------------------------------- toque
   // Menu ☰ (abre/fecha; sem argumento alterna).
@@ -485,6 +486,7 @@ class CityGame {
 
   // ---------------------------------------------------------------- folhas (menus)
   openSheet(kind) {
+    this.menu(false);
     this.sheet = kind;
     $('sheet-body').scrollTop = 0;
     this.renderSheet(true);
@@ -556,7 +558,9 @@ class CityGame {
           : `<li><span class="uicon">${ITEMS[u.key].icon}</span><span>${tn(ITEMS[u.key].name)}</span></li>`).join('');
         return mentorCard({
           text: congratsLine(lv, phase, esc(this.state.cityName || t('cityNameDefault'))),
-          body: `
+          body: phaseOnly && phase ? `
+            <div class="lv-badge"><span class="burst">${phase.icon}</span><b>${tn(phase.name)}!</b></div>
+            <p class="muted">${t('stageNew')}</p>` : `
             <div class="lv-badge"><span class="burst">⭐</span><b>${t('levelUp', { n: lv })}</b></div>
             ${list ? `<p class="sec">${t('unlocked')}</p><ul class="unlocks">${list}</ul>` : `<p class="muted">${t('nothingNew')}</p>`}
             ${got.coins || Object.keys(got.items).length ? `<p class="sec">${t('yourReward')}</p>${rewardChips(got)}` : ''}`,
@@ -765,6 +769,8 @@ async function boot() {
     const b = e.target.closest('[data-act]');
     if (b && !b.disabled) game.act(b.dataset.act, b.dataset.arg);
   });
+  // toque/arraste fora do menu ☰ fecha o menu
+  document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#menu, #btn-menu')) game.menu(false); }, true);
   $('btn-build').onclick = () => { sfx.unlock(); game.select(null); game.openSheet('build'); };
   $('btn-orders').onclick = () => { sfx.unlock(); game.openSheet('orders'); };
   // volume da música (slider do menu ⚙️)
