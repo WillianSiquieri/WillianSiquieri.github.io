@@ -62,5 +62,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mws5rwbvi34m",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:16:37.483Z",
+    "theme": "Noé e o Dilúvio",
+    "title": "Noé e a Arca: Entre o riso e a chuva",
+    "hook": "Imagine construir um navio gigantesco enquanto todo mundo ri de você.",
+    "script": "Na época, as cidades eram governadas por reis que se divertiam com festas e guerras. As chuvas eram raras, a terra seca, e o medo de um desastre natural era quase inexistente. Então, um homem chamado Noé recebeu um aviso: um dilúvio devastador viria. Ele começou a cortar madeira, a pregar tábuas, enquanto os vizinhos zombavam, chamando‑o de louco. Apesar das dúvidas, Noé seguiu a instrução, construindo uma arca enorme com três andares e um teto de cobertura. Quando as primeiras gotas caíram, o céu se fechou e a água subiu sem parar, engolindo tudo. Apenas a arca flutuou, guardando Noé, sua família e um casal de cada espécie. O mundo, antes ruidoso, ficou silencioso sob a água, até que a chuva cessou e a terra surgiu novamente. A história mostra como alguém pode enfrentar o escárnio e o medo, seguindo um plano que parece impossível.",
+    "cta": "Quer saber como decisões improváveis mudam o curso da história? Se inscreve aí para mais relatos surpreendentes.",
+    "visual": [
+      "heavy rain storm clouds",
+      "wooden boat sea",
+      "animals pair walking",
+      "rainbow after rain"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:noe-arca",
+    "rationale": "Escolhi Noé porque permite contextualizar a época de cidades‑estado e o clima seco, criar contraste entre o escárnio e a catástrofe, e fechar mostrando a relevância da escolha de seguir um plano incomum, tudo dentro do limite de tempo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 64,
+      "previewFile": "data/biblico/previews/sh_mws5rwbvi34m.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "default",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
