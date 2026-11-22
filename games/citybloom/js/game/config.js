@@ -127,6 +127,13 @@ export const BUILDINGS = {
   },
 
   // ---- Comércio: renda em moedas (exige população mínima) ----
+  // Porto: construído na costa (areia + água). A cada chegada de navio rende moedas e
+  // carga da época (matéria-prima e produto). O visual evolui com a fase.
+  port: {
+    type: 'commerce', cat: 'commerce', size: 2, unlock: 8, max: 1, minPop: 0, placeOn: 'coast', cargo: true,
+    income: { coins: 45, time: 420 }, build: { coins: 300, plank: 6, brick: 4 },
+    name: { pt: 'Porto', en: 'Harbor' },
+  },
   bakery: {
     type: 'commerce', cat: 'commerce', size: 1, unlock: 6, max: 2, minPop: 8,
     income: { coins: 20, time: 300 }, build: { coins: 160, brick: 4 },
@@ -422,3 +429,28 @@ export const DAILY_EXTRA = [
 export function buildXP(cost) {
   return 3 + Math.round((cost && cost.coins ? cost.coins : 0) / 12);
 }
+
+// ---------------------------------------------------------------------------
+// Metas de cada fase (painel de missões). k: pop | houses | chunks | has (type) | stat (stat)
+// ---------------------------------------------------------------------------
+export const PHASE_GOALS = [
+  [{ k: 'pop', n: 10 }, { k: 'houses', n: 4 }, { k: 'stat', stat: 'lotCollected', n: 10 }, { k: 'stat', stat: 'ordersDone', n: 5 }, { k: 'chunks', n: 1 }],
+  [{ k: 'pop', n: 40 }, { k: 'houses', n: 10 }, { k: 'has', type: 'kiln' }, { k: 'has', type: 'bakery' }, { k: 'has', type: 'port' }, { k: 'chunks', n: 4 }],
+  [{ k: 'pop', n: 120 }, { k: 'houses', n: 20 }, { k: 'has', type: 'glassworks' }, { k: 'has', type: 'school' }, { k: 'has', type: 'market' }, { k: 'stat', stat: 'productsMade', n: 80 }],
+  [{ k: 'pop', n: 350 }, { k: 'houses', n: 32 }, { k: 'has', type: 'steelworks' }, { k: 'has', type: 'firehouse' }, { k: 'has', type: 'mall' }, { k: 'chunks', n: 18 }],
+  [{ k: 'pop', n: 800 }, { k: 'has', type: 'stadium' }, { k: 'has', type: 'airport' }, { k: 'has', type: 'house7', n: 3 }, { k: 'stat', stat: 'shipsArrived', n: 60 }, { k: 'chunks', n: 30 }],
+];
+
+// Conquistas: estatística acompanhada e as metas de Bronze, Prata e Ouro.
+export const ACHIEVEMENTS = [
+  { id: 'farmer', icon: '🌾', stat: 'lotCollected', tiers: [10, 100, 500] },
+  { id: 'maker', icon: '🏭', stat: 'productsMade', tiers: [10, 150, 800] },
+  { id: 'courier', icon: '📋', stat: 'ordersDone', tiers: [5, 75, 400] },
+  { id: 'landlord', icon: '🪙', stat: 'rentCollected', tiers: [20, 200, 1000] },
+  { id: 'builder', icon: '🔨', stat: 'built', tiers: [5, 40, 150] },
+  { id: 'explorer', icon: '🗺️', stat: 'chunksBought', tiers: [3, 15, 40] },
+  { id: 'cleaner', icon: '🧹', stat: 'cleared', tiers: [5, 30, 80] },
+  { id: 'achiever', icon: '🎯', stat: 'missionsDone', tiers: [3, 25, 100] },
+  { id: 'captain', icon: '⚓', stat: 'shipsArrived', tiers: [3, 30, 150] },
+  { id: 'loyal', icon: '🎁', stat: 'dailyClaimed', tiers: [3, 15, 60] },
+];

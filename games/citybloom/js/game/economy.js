@@ -5,7 +5,7 @@
 import { secs,
   ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, SPECIAL_DROP_CHANCE, MAP, CHUNK_PRICE,
   ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP, CLIENTS,
-  levelReward, phaseGoods, DAILY, DAILY_COIN_GROWTH, DAILY_EXTRA,
+  levelReward, phaseGoods, DAILY, DAILY_COIN_GROWTH, DAILY_EXTRA, PHASES, PHASE_GOALS, ACHIEVEMENTS,
 } from './config.js';
 import { makeObject, tileOf, objectAt, countOf, population, happiness } from './state.js';
 
@@ -259,12 +259,19 @@ export function collectRent(state, o, now, mult = 1) {
 export function collectIncome(state, o, now, mult = 1) {
   const def = BUILDINGS[o.type];
   if (!o.incomeReadyAt || now < o.incomeReadyAt) return fail('notReady');
-  const coins = Math.round(def.income.coins * happinessMult(state) * mult);
+  const ph = phaseIndex(state.level);
+  const coins = Math.round(def.income.coins * (def.cargo ? 1 + ph * 0.6 : 1) * happinessMult(state) * mult);
   state.coins += coins;
   o.incomeReadyAt = now + secs(state, def.income.time) * 1000;
   bump(state, 'incomeCollected');
-  const lv = addXP(state, 2);
-  return ok({ coins, xp: 2, ...lv });
+  let items;
+  if (def.cargo) {                       // navio chegou: carga da época
+    bump(state, 'shipsArrived');
+    const [raw, product] = phaseGoods(state.level);
+    items = grantReward(state, { items: { [raw]: Math.round((2 + ph) * mult), [product]: Math.max(1, Math.round((1 + ph / 2) * mult)) } }).items;
+  }
+  const lv = addXP(state, def.cargo ? 4 : 2);
+  return ok({ coins, items, xp: def.cargo ? 4 : 2, ...lv });
 }
 
 export function upgradeHouse(state, o, now) {
@@ -310,9 +317,15 @@ export function canPlace(state, type, i, j, ignore = null) {
   const def = BUILDINGS[type];
   for (let dj = 0; dj < def.size; dj++) for (let di = 0; di < def.size; di++) {
     const t = tileOf(state, i + di, j + dj);
-    if (!t || t.locked || t.kind !== 'grass' || t.obstacle) return false;
+    if (!t || t.locked || t.obstacle) return false;
+    if (def.placeOn === 'coast' ? !(t.kind === 'sand' || (t.kind === 'water' && !t.bridge)) : t.kind !== 'grass') return false;
     const o = objectAt(state, i + di, j + dj);
     if (o && o !== ignore) return false;
+  }
+  if (def.placeOn === 'coast') {   // porto: metade na areia, metade na água
+    let sand = 0, water = 0;
+    for (let dj = 0; dj < def.size; dj++) for (let di = 0; di < def.size; di++) { const k = tileOf(state, i + di, j + dj).kind; if (k === 'sand') sand++; else water++; }
+    if (!sand || !water) return false;
   }
   return true;
 }
@@ -613,7 +626,7 @@ export function quickCollect(state, o, now) {
 // ---------------------------------------------------------------------------
 // Dicas de objetivo (primeiros passos)
 // ---------------------------------------------------------------------------
-export const TIPS = ['tipCollect', 'tipPlant', 'tipPlank', 'tipRent', 'tipOrder', 'tipBuild', 'tipExpand'];
+export const TIPS = ['tipCollect', 'tipPlant', 'tipPlank', 'tipRent', 'tipOrder', 'tipBuild', 'tipExpand', 'tipMissions'];
 const TIP_DONE = {
   tipCollect: s => s.stats.lotCollected >= 1,
   tipPlant: s => s.stats.lotStarted >= 1,
@@ -622,6 +635,7 @@ const TIP_DONE = {
   tipOrder: s => s.stats.ordersDone >= 1,
   tipBuild: s => s.stats.built >= 1,
   tipExpand: s => s.stats.chunksBought >= 1,
+  tipMissions: s => !!s.stats.missionsOpened,
 };
 export function currentTip(state) {
   for (const k of TIPS) if (!TIP_DONE[k](state)) return k;
@@ -640,37 +654,123 @@ export const MISSION_KINDS = [
   { k: 'products', stat: 'productsMade', n: L => 3 + Math.floor(L / 5) },
   { k: 'build', stat: 'built', n: L => 1 + Math.floor(L / 12) },
   { k: 'upgrade', stat: 'upgraded', n: () => 1, minLevel: 6 },
+  { k: 'clear', stat: 'cleared', n: L => 1 + Math.floor(L / 10), minLevel: 3 },
+  { k: 'expand', stat: 'chunksBought', n: () => 1, minLevel: 4 },
+  { k: 'ships', stat: 'shipsArrived', n: L => 1 + Math.floor(L / 10), needs: 'port' },
 ];
+export const MISSION_SLOTS = 3;
 
-function newMission(state, n) {
+// Missão n da fila (pula tipos ainda não liberados e os que já estão nas outras vagas).
+function newMission(state, n, taken = []) {
   const L = state.level;
+  const ok = (c) => (!c.minLevel || L >= c.minLevel) && (!c.needs || countOf(state, c.needs) > 0);
   let kind = null;
   for (let k = 0; k < MISSION_KINDS.length && !kind; k++) {
     const c = MISSION_KINDS[(n + k) % MISSION_KINDS.length];
-    if (!c.minLevel || L >= c.minLevel) kind = c;
+    if (ok(c) && !taken.includes(c.k)) kind = c;
   }
+  if (!kind) kind = MISSION_KINDS[0];
   return { n, k: kind.k, base: state.stats[kind.stat] || 0, target: kind.n(L) };
 }
-
-export function mission(state) {
-  if (!state.mission || !MISSION_KINDS.some(c => c.k === state.mission.k)) state.mission = newMission(state, (state.mission && state.mission.n) || 0);
-  const m = state.mission, kind = MISSION_KINDS.find(c => c.k === m.k);
-  const progress = Math.min(m.target, (state.stats[kind.stat] || 0) - m.base);
-  const L = state.level;
-  return {
-    ...m, progress, done: progress >= m.target,
-    reward: { coins: Math.round((25 + L * 10) * (1 + m.target / 4)), xp: 4 + L * 2 },
-  };
+function ensureMissions(state) {
+  if (!Array.isArray(state.missions)) {
+    // save antigo: a missão única vira a primeira das 3
+    const first = state.mission && MISSION_KINDS.some(c => c.k === state.mission.k) ? state.mission : newMission(state, (state.mission && state.mission.n) || 0);
+    state.missions = [first];
+    delete state.mission;
+  }
+  state.missions = state.missions.filter(m => MISSION_KINDS.some(c => c.k === m.k));
+  let n = Math.max(-1, ...state.missions.map(m => m.n));
+  while (state.missions.length < MISSION_SLOTS) state.missions.push(newMission(state, ++n, state.missions.map(m => m.k)));
+  return state.missions;
 }
-
-export function claimMission(state) {
-  const m = mission(state);
-  if (!m.done) return fail('notReady');
+function computeMission(state, m) {
+  const kind = MISSION_KINDS.find(c => c.k === m.k);
+  const progress = Math.max(0, Math.min(m.target, (state.stats[kind.stat] || 0) - m.base));
+  const L = state.level;
+  return { ...m, progress, done: progress >= m.target, reward: { coins: Math.round((25 + L * 10) * (1 + m.target / 4)), xp: 4 + L * 2 } };
+}
+// As 3 missões ativas, com progresso e prêmio.
+export function missionsList(state) { return ensureMissions(state).map(m => computeMission(state, m)); }
+// A missão em destaque (barra de dica): a pronta, senão a mais adiantada, senão a mais antiga.
+export function mission(state) {
+  const list = missionsList(state);
+  return list.slice().sort((a, b) => (b.done - a.done) || (b.progress / b.target - a.progress / a.target) || (a.n - b.n))[0];
+}
+export function claimMission(state, idx) {
+  const list = missionsList(state);
+  let i = idx == null || idx === '' ? list.findIndex(m => m.done) : Number(idx);
+  if (i < 0) i = 0;
+  const m = list[i];
+  if (!m || !m.done) return fail('notReady');
   state.coins += m.reward.coins;
   const lv = addXP(state, m.reward.xp);
   bump(state, 'missionsDone');
-  state.mission = newMission(state, m.n + 1);
+  const n = Math.max(...state.missions.map(x => x.n)) + 1;
+  state.missions.splice(i, 1, newMission(state, n, state.missions.filter((_, k) => k !== i).map(x => x.k)));
   return ok({ coins: m.reward.coins, xp: m.reward.xp, ...lv });
+}
+
+// ---------------------------------------------------------------------------
+// Metas da fase: o que a cidade precisa para merecer a próxima fase. Completar
+// todas dá um prêmio grande (uma vez por fase). Calculadas do estado.
+// ---------------------------------------------------------------------------
+const GOAL_VALUE = {
+  pop: (s) => population(s),
+  houses: (s) => s.objects.filter(o => BUILDINGS[o.type].type === 'house').length,
+  chunks: (s) => s.chunksBought || 0,
+  has: (s, g) => countOf(s, g.type),
+  stat: (s, g) => s.stats[g.stat] || 0,
+};
+export function phaseGoals(state) {
+  const ph = phaseIndex(state.level);
+  const goals = (PHASE_GOALS[ph] || []).map(g => {
+    const v = GOAL_VALUE[g.k](state, g), target = g.n || 1;
+    return { ...g, target, progress: Math.min(target, v), done: v >= target };
+  });
+  const claimed = (state.goalsClaimed || []).includes(ph);
+  const L = (PHASES[ph + 1] || PHASES[ph]).minLevel;
+  const base = levelReward(L);
+  const reward = { coins: Math.round(base.coins * 1.5), items: base.items, xp: 20 + ph * 25 };
+  return { phase: ph, goals, allDone: goals.every(g => g.done), claimed, reward };
+}
+export function claimPhaseGoals(state) {
+  const pg = phaseGoals(state);
+  if (pg.claimed) return fail('alreadyClaimed');
+  if (!pg.allDone) return fail('notReady');
+  (state.goalsClaimed || (state.goalsClaimed = [])).push(pg.phase);
+  const got = grantReward(state, pg.reward);
+  const lv = addXP(state, pg.reward.xp);
+  return ok({ coins: got.coins, items: got.items, xp: pg.reward.xp, ...lv });
+}
+
+// ---------------------------------------------------------------------------
+// Conquistas: medalhas Bronze, Prata e Ouro sobre o que o jogador já fez.
+// ---------------------------------------------------------------------------
+export const ACH_REWARD = [{ coins: 60, xp: 5 }, { coins: 300, xp: 20 }, { coins: 1200, xp: 60 }];
+export function achievements(state) {
+  const got = state.ach || {};
+  return ACHIEVEMENTS.map(a => {
+    const v = state.stats[a.stat] || 0, tier = got[a.id] || 0;        // medalhas já pegas
+    const reached = a.tiers.filter(x => v >= x).length;                // medalhas conquistadas
+    const next = tier < 3 ? a.tiers[tier] : a.tiers[2];
+    return { ...a, value: v, tier, reached, claimable: reached > tier, next, progress: Math.min(v, next), reward: tier < 3 ? ACH_REWARD[tier] : null };
+  });
+}
+export function claimAchievement(state, id) {
+  const a = achievements(state).find(x => x.id === id);
+  if (!a) return fail('invalid');
+  if (!a.claimable) return fail('notReady');
+  (state.ach || (state.ach = {}))[id] = a.tier + 1;
+  state.coins += a.reward.coins;
+  const lv = addXP(state, a.reward.xp);
+  return ok({ coins: a.reward.coins, xp: a.reward.xp, tier: a.tier + 1, ...lv });
+}
+
+// Quantos prêmios estão esperando no painel de missões (badge do botão).
+export function pendingRewards(state) {
+  const pg = phaseGoals(state);
+  return missionsList(state).filter(m => m.done).length + (pg.allDone && !pg.claimed ? 1 : 0) + achievements(state).filter(a => a.claimable).length;
 }
 
 // ---------------------------------------------------------------------------

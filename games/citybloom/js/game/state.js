@@ -6,7 +6,7 @@ import { BUILDINGS, MAP, START, WAREHOUSE, secs } from './config.js';
 import { layout, OLD_OFFSET } from './roads.js';
 
 const SAVE_KEY = 'citybloom.save.v2';
-export const VERSION = 3;   // 3: mapa 36×36 (o 18×18 antigo virou o miolo)
+export const VERSION = 4;   // 3: mapa 36×36 (o 18×18 antigo virou o miolo) · 4: mais rotatórias
 
 // PRNG determinístico (mulberry32).
 export function rng(seed) {
@@ -56,17 +56,57 @@ function makeTiles(n, lockedAt, rand) {
 
 // Save v2 (mapa 18×18) → v3: o mapa antigo vira o miolo do novo, sem perder nada.
 export function migrate(s) {
-  if (!s || s.v !== 2 || s.size !== 18) return s;
-  const n = MAP.size, O = OLD_OFFSET, old = s.tiles;
-  const inOld = (i, j) => i >= O && j >= O && i < O + 18 && j < O + 18;
-  const tiles = makeTiles(n, (i, j) => !inOld(i, j) || old[(j - O) * 18 + i - O].locked, rng(20261115));
-  for (let j = 0; j < 18; j++) for (let i = 0; i < 18; i++) {
-    const a = old[j * 18 + i], b = tiles[(j + O) * n + i + O];
-    b.locked = a.locked;
-    if (a.obstacle) b.obstacle = a.obstacle; else delete b.obstacle;
+  if (!s) return s;
+  if (s.v === 2 && s.size === 18) {
+    const n = MAP.size, O = OLD_OFFSET, old = s.tiles;
+    const inOld = (i, j) => i >= O && j >= O && i < O + 18 && j < O + 18;
+    const tiles = makeTiles(n, (i, j) => !inOld(i, j) || old[(j - O) * 18 + i - O].locked, rng(20261115));
+    for (let j = 0; j < 18; j++) for (let i = 0; i < 18; i++) {
+      const a = old[j * 18 + i], b = tiles[(j + O) * n + i + O];
+      b.locked = a.locked;
+      if (a.obstacle) b.obstacle = a.obstacle; else delete b.obstacle;
+    }
+    for (const o of s.objects) { o.i += O; o.j += O; }
+    s.tiles = tiles; s.size = n; s.v = 4; s.rev = (s.rev || 0) + 1;   // tiles já no traçado atual
+    return s;
   }
-  for (const o of s.objects) { o.i += O; o.j += O; }
-  s.tiles = tiles; s.size = n; s.v = VERSION; s.rev = (s.rev || 0) + 1;
+  if (s.v === 3 && s.size === MAP.size) return relayout(s);
+  return s;
+}
+
+// v3 → v4: aplica o traçado novo (mais ruas e rotatórias) mantendo terra comprada e
+// obstáculos; o que estiver em tile que virou rua vai para o tile livre mais perto
+// (ou volta em moedas, se não houver lugar).
+function relayout(s) {
+  const n = s.size, { kind, bridge, ra } = layout(n);
+  for (let k = 0; k < n * n; k++) {
+    const t = s.tiles[k];
+    if (t.kind !== kind[k]) { t.kind = kind[k]; if (t.kind !== 'grass') delete t.obstacle; }
+    if (bridge.has(k)) t.bridge = true; else delete t.bridge;
+    if (ra.has(k)) t.ra = ra.get(k); else delete t.ra;
+  }
+  const occ = new Set();
+  for (const o of s.objects) for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.add((o.j + dj) * n + o.i + di);
+  const fits = (o, i, j) => {
+    for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) {
+      const a = i + di, b = j + dj; if (a < 0 || b < 0 || a >= n || b >= n) return false;
+      const t = s.tiles[b * n + a], k = b * n + a;
+      if (t.locked || t.kind !== 'grass' || t.obstacle || occ.has(k)) return false;
+    }
+    return true;
+  };
+  const keep = [];
+  for (const o of s.objects) {
+    if (fits(o, o.i, o.j) || (() => { for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.delete((o.j + dj) * n + o.i + di); return fits(o, o.i, o.j); })()) {
+      for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.add((o.j + dj) * n + o.i + di);
+      keep.push(o); continue;
+    }
+    let best = null, bd = Infinity;
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) if (fits(o, i, j)) { const d = Math.hypot(i - o.i, j - o.j); if (d < bd) { bd = d; best = [i, j]; } }
+    if (best) { o.i = best[0]; o.j = best[1]; for (let dj = 0; dj < o.size; dj++) for (let di = 0; di < o.size; di++) occ.add((o.j + dj) * n + o.i + di); keep.push(o); }
+    else { const b = BUILDINGS[o.type]; s.coins = (s.coins || 0) + ((b && b.build && b.build.coins) || 0); }
+  }
+  s.objects = keep; s.v = 4; s.rev = (s.rev || 0) + 1;
   return s;
 }
 

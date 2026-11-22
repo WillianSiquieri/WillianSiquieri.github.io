@@ -128,6 +128,7 @@ img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-b
   .round { width: 40px; height: 40px; }
   .round.small { width: 34px; height: 34px; }
   .gift { top: 50px; }
+  body .gift.missions { top: 96px; }
   .bigbtn { height: 48px; min-width: 104px; font-size: 15px; border-radius: 18px; }
   .bi img.emo { width: 24px; height: 24px; }
   .bottombar { bottom: 8px; }
@@ -155,3 +156,35 @@ img.emo { width: 1.3em; height: 1.3em; vertical-align: -0.3em; display: inline-b
 .extra-row { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 14px; }
 .extra-row .big-claim { margin: 0; }
 .order.wait .obtns { flex-direction: row; }
+
+/* ---------------- painel de missões ---------------- */
+.gift.missions { top: calc(env(safe-area-inset-top, 0px) + 112px); }
+
+.mtabs .tab { position: relative; }
+.mtabs .tab .dot { position: absolute; top: -5px; right: -5px; background: var(--red); color: #fff; font-style: normal; font-size: 11px; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
+.mbody { margin-top: 8px; display: flex; flex-direction: column; gap: 10px; }
+.mhint { margin: 0; font-size: 13px; }
+.mcard { background: #fff; border-radius: 16px; padding: 12px 14px; border: 2px solid #fff; box-shadow: 0 3px 0 #dfe5f0; }
+.mcard.done { background: #ecfbef; border-color: #7be08f; }
+.mtop { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 15px; }
+.mprog { font-weight: 700; color: var(--muted, #6b7280); }
+.mbot { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.mreward { font-weight: 700; font-size: 13px; color: #8a5a00; }
+.ghead { display: flex; gap: 10px; align-items: center; }
+.ghead .gph { font-size: 30px; } .ghead img.emo { width: 38px; height: 38px; }
+.ghead b { display: block; font-size: 16px; }
+.glist { display: flex; flex-direction: column; gap: 6px; }
+.grow { display: flex; gap: 10px; align-items: center; background: #fff; border-radius: 12px; padding: 8px 10px; }
+.grow.done { background: #ecfbef; }
+.grow .gtx { flex: 1; min-width: 0; font-weight: 600; } .grow .gtx .pbar { margin-top: 4px; height: 6px; }
+.grow small { font-weight: 700; color: #6b7280; white-space: nowrap; }
+.gprize { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: #fff4d6; border-radius: 14px; padding: 10px 12px; }
+.gprize .btn { margin-left: auto; }
+.achs { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.ach { display: flex; gap: 10px; align-items: center; background: #fff; border-radius: 14px; padding: 10px; border: 2px solid #fff; box-shadow: 0 3px 0 #dfe5f0; }
+.ach.ready { background: #fff8e1; border-color: #ffd23f; }
+.ach .ai { font-size: 28px; } .ach .ai img.emo { width: 40px; height: 40px; }
+.ach .ab { flex: 1; min-width: 0; display: flex; flex-direction: column; } .ach .ab .pbar { margin-top: 4px; height: 6px; }
+.ach .am { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.medals { display: flex; gap: 2px; } .medal { filter: grayscale(1); opacity: 0.3; } .medal img.emo { width: 22px; height: 22px; }
+.medal.got { filter: none; opacity: 1; } .medal.ready { filter: none; opacity: 0.75; animation: wiggle 2.4s ease-in-out infinite; }

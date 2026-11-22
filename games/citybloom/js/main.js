@@ -11,6 +11,7 @@ import { panelView } from './ui/panels.js';
 import { buildMenuView } from './ui/build.js';
 import { ordersView } from './ui/orders.js';
 import { levelsView } from './ui/levels.js';
+import { missionsView } from './ui/missions.js';
 import { settingsView, esc } from './ui/settings.js';
 import { mentorCard, rewardChips, sumRewards, congratsLine, mentorFace } from './ui/mentor.js';
 import { dailyView } from './ui/daily.js';
@@ -306,13 +307,16 @@ class CityGame {
       case 'modalOk': this.closeModal(); return;
       case 'daily': if (!s.showcase) this.openSheet('daily'); return;
       case 'tutSkip': s.mentor.tut = false; this.greetUntil = 0; save(s); hudKey = ''; sfx.click(); return;
-      case 'claimMission': {
-        const rr = E.claimMission(s);
+      case 'missions': if (!s.showcase) { this.select(null); s.stats.missionsOpened = (s.stats.missionsOpened || 0) + 1; this.openSheet('missions'); hudKey = ''; } return;
+      case 'mtab': this.missionTab = arg; this.renderSheet(); sfx.click(); return;
+      case 'claimMission': case 'claimGoals': case 'claimAch': {
+        const rr = act === 'claimMission' ? E.claimMission(s, arg) : act === 'claimGoals' ? E.claimPhaseGoals(s) : E.claimAchievement(s, arg);
         if (!rr.ok) return this._error(rr);
         const th = s.objects.find(x => x.type === 'townhall');
         this._result(rr, th ? th.i : 0, th ? th.j : 0, th ? th.size : 1);
-        toast(t('missionDone'));
-        hudKey = '';
+        toast(t(act === 'claimMission' ? 'missionDone' : act === 'claimGoals' ? 'goalsDone' : 'achDone'));
+        save(s); hudKey = '';
+        if (this.sheet === 'missions') this.renderSheet();
         return;
       }
       case 'inventory': if (!s.showcase) { this.select(null); this.openSheet('inventory'); } return;
@@ -483,6 +487,7 @@ class CityGame {
       build: [`🔨 ${t('buildTitle')}`, buildMenuView],
       orders: [`📋 ${t('ordersTitle')}`, ordersView],
       levels: [`⭐ ${t('levelsTitle')}`, levelsView],
+      missions: [`🏆 ${t('missionsTitle')}`, missionsView],
       settings: [`⚙️ ${t('settings')}`, settingsView],
       daily: [`🎁 ${t('dailyTitle')}`, dailyView],
       inventory: [`📦 ${t('inventoryTitle')}`, inventoryView],
@@ -646,7 +651,7 @@ function renderHud(game) {
   const ms = s.showcase || tip || greet ? null : E.mission(s);
   const daily = !s.showcase && E.dailyStatus(s, game.now());
   const gift = daily ? (daily.canClaim ? 2 : daily.extraAvailable ? 1 : 0) : -1;
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang].join('|');
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang, s.showcase ? 0 : E.pendingRewards(s)].join('|');
   if (key === hudKey) return;
   hudKey = key;
   $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
@@ -681,6 +686,10 @@ function renderHud(game) {
     tipEl.classList.add('show');
   } else tipEl.classList.remove('show');
   $('btn-daily').style.display = gift < 0 ? 'none' : '';
+  const pend = s.showcase ? 0 : E.pendingRewards(s);
+  $('btn-missions').style.display = s.showcase ? 'none' : '';
+  $('missions-badge').textContent = pend; $('missions-badge').style.display = pend ? 'flex' : 'none';
+  $('btn-missions').classList.toggle('ready', pend > 0);
   $('daily-badge').style.display = gift === 2 ? 'flex' : 'none';
   $('btn-daily').classList.toggle('ready', gift === 2);
 }

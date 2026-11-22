@@ -82,6 +82,7 @@ export class Tutorial {
         }
         if (g.sheet) return ui('[data-act="closeSheet"]');
         return ui('#btn-build') || ui('[data-act="closePanel"]');
+      case 'tipMissions': return g.sheet ? null : ui('#btn-missions');
       case 'tipExpand': {
         if (g.panelOpen()) { const b = ui('[data-act="buyChunk"]:not([disabled])'); if (b) return b; }
         // quadra à venda mais perto cujo centro dá para tocar (sem prédio na frente)

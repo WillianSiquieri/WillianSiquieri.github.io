@@ -25,7 +25,9 @@ export const FLEET = [
 ];
 const SPEED = { cart: 0.32, bike: 0.42, tractor: 0.3, 'vintage-car': 0.5, 'vintage-truck': 0.42, bus: 0.55, 'bus-long': 0.5, 'garbage-truck': 0.45, truck: 0.55 };
 const LEN = { bus: 0.5, 'bus-long': 0.7, truck: 0.45, 'garbage-truck': 0.45, firetruck: 0.45, cart: 0.45, 'vintage-car': 0.42, 'vintage-truck': 0.45 };
-const MAXV = [6, 12, 20, 30, 40], MAXP = [10, 18, 28, 40, 54];
+// +30% de movimento (pedido do usuário): limites e ritmo de crescimento × 1,3
+const BUSY = 1.3;
+const MAXV = [6, 12, 20, 30, 40].map(x => Math.round(x * BUSY)), MAXP = [10, 18, 28, 40, 54].map(x => Math.round(x * BUSY));
 
 function pick(list, r) {
   const tot = list.reduce((a, x) => a + x[1], 0);
@@ -209,8 +211,8 @@ export class Traffic {
       for (const p of this.people) p.style = ph;
     }
     const pop = s.showcase ? 999 : population(s) + (this.popBoost || 0);   // popBoost: vídeos e testes
-    const nv = Math.min(MAXV[ph], 3 + Math.floor(pop / 8));
-    const np = Math.min(MAXP[ph], 3 + Math.floor(pop / 5));
+    const nv = Math.min(MAXV[ph], Math.round((3 + pop / 8) * BUSY));
+    const np = Math.min(MAXP[ph], Math.round((3 + pop / 5) * BUSY));
     while (this.cars.length < nv) { const a = this._spawn(false, scatter || this.cars.length < nv / 2); if (!a) break; this.cars.push(a); }
     while (this.people.length < np) { const a = this._spawn(true, true); if (!a) break; this.people.push(a); }
     if (this.cars.length > nv) this.cars.length = nv;

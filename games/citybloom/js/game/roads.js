@@ -23,10 +23,13 @@ const SEGMENTS = [
   [12, 27, 12, 28], [21, 27, 21, 28], [21, 30, 21, 30],
   // volta da praia para o bairro leste e rua sem saída
   [27, 25, 27, 28], [27, 24, 32, 24],
+  // v4: estrada oeste (norte–sul) com duas rotatórias, e estrada leste até o sul com rotatória
+  [4, 0, 4, 23], [33, 24, 35, 24], [30, 19, 30, 23], [30, 25, 30, 35],
 ];
 
 // Rotatória 3×3 (centro): os 8 tiles em volta do centro também viram rua.
-export const ROUNDABOUTS = [[21, 29]];
+export const ROUNDABOUTS = [[21, 29], [4, 4], [4, 18], [30, 24]];
+export const LAYOUT_VERSION = 4;
 
 // Linha da costa: água a partir de j = coast(i).
 function coast(i) {
