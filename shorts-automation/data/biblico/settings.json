@@ -1,0 +1,14 @@
+{
+  "mode": "approval",
+  "shortsPerDay": 1,
+  "preferences": {
+    "guidance": "Narrativa, nao sermao. Frases curtas para legenda em tela. Publico adulto. Nada de pregacao ou promessa.",
+    "likedThemes": [],
+    "dislikedThemes": [
+      "pregacao",
+      "promessa de prosperidade",
+      "interpretacao denominacional"
+    ]
+  },
+  "updatedAt": "2026-11-22T18:04:37.724Z"
+}

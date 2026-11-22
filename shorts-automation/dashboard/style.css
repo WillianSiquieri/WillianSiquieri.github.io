@@ -178,3 +178,13 @@ textarea { resize: vertical; }
   .topbar { flex-direction: column; gap: 10px; align-items: stretch; }
   .topbar-right { justify-content: space-between; }
 }
+
+/* Seletor de canal: o mesmo painel serve vários canais. */
+.channel-switch { display: flex; gap: 6px; flex-wrap: wrap; }
+.channel-switch button {
+  background: #121a2a; color: var(--muted); border: 1px solid #223049;
+  padding: 7px 14px; border-radius: 999px; font-size: .82rem; font-weight: 600;
+  cursor: pointer; white-space: nowrap;
+}
+.channel-switch button:hover { color: #e6edf7; border-color: #2f4a6d; }
+.channel-switch button.on { background: #1d2b44; color: #fff; border-color: #3b5e8c; }

@@ -5,8 +5,32 @@ name: Shorts · Ciclo diário
 on:
   schedule:
     - cron: '0 12 * * *'
+  # Reutilizável: cada canal tem um workflow fino que chama este, passando o
+  # seu nome. Assim os passos do pipeline ficam num lugar só.
+  workflow_call:
+    inputs:
+      channel:
+        type: string
+        required: false
+        default: 'financeiro'
+      count:
+        type: string
+        required: false
+        default: ''
+      force:
+        type: boolean
+        required: false
+        default: false
+      no_upload:
+        type: boolean
+        required: false
+        default: false
   workflow_dispatch:
     inputs:
+      channel:
+        description: 'Canal (financeiro | biblico)'
+        required: false
+        default: 'financeiro'
       count:
         description: 'Quantos shorts gerar (sobrescreve a config)'
         required: false
@@ -27,7 +51,9 @@ permissions:
 
 concurrency:
   # Mesmo grupo do workflow de publicação: os dois gravam em data/ e,
-  # rodando juntos, um perdia o push do outro.
+  # rodando juntos, um perdia o push do outro. O grupo inclui o canal, mas
+  # todos compartilham o mesmo repositório, então o sufixo é só informativo:
+  # o push com rebase é o que de fato protege contra escrita concorrente.
   group: shorts-state
   cancel-in-progress: false
 
@@ -61,20 +87,28 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_REFRESH_TOKEN_BIBLICO: ${{ secrets.YT_REFRESH_TOKEN_BIBLICO }}
+          SA_CHANNEL: ${{ inputs.channel || github.event.inputs.channel || 'financeiro' }}
+          IN_COUNT: ${{ inputs.count || github.event.inputs.count }}
+          IN_FORCE: ${{ inputs.force || github.event.inputs.force }}
+          IN_NO_UPLOAD: ${{ inputs.no_upload || github.event.inputs.no_upload }}
         run: |
           ARGS=""
-          if [ -n "${{ github.event.inputs.count }}" ]; then ARGS="$ARGS --count=${{ github.event.inputs.count }}"; fi
-          if [ "${{ github.event.inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
-          if [ "${{ github.event.inputs.no_upload }}" = "true" ]; then ARGS="$ARGS --no-upload"; fi
+          if [ -n "$IN_COUNT" ]; then ARGS="$ARGS --count=$IN_COUNT"; fi
+          if [ "$IN_FORCE" = "true" ]; then ARGS="$ARGS --force"; fi
+          if [ "$IN_NO_UPLOAD" = "true" ]; then ARGS="$ARGS --no-upload"; fi
+          echo "canal: $SA_CHANNEL"
           node src/cycle.js $ARGS
 
       - name: Commitar estado atualizado
         if: always()
+        env:
+          SA_CHANNEL: ${{ inputs.channel || github.event.inputs.channel || 'financeiro' }}
         run: |
           git config user.name "shorts-bot"
           git config user.email "actions@github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "ciclo diário: novos shorts + analytics"
+          git diff --staged --quiet || git commit -m "ciclo diário ($SA_CHANNEL): novos shorts + analytics"
           # Os dois workflows escrevem em data/ e podem rodar juntos. Sem rebase,
           # um push perdido descartava o estado e deixava vídeo órfão no YouTube.
           for i in 1 2 3 4 5; do

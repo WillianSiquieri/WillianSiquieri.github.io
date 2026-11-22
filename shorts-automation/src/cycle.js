@@ -86,11 +86,13 @@ async function main() {
     count,
     niche: config.niche,
     llm: config.llm,
+    prompt: config.prompt,
+    formats: config.formats,
   });
   log(`${drafts.length} drafts gerados.`);
 
   const workDir = await mkdtemp(join(tmpdir(), 'shorts-'));
-  const previewDir = join(ROOT, 'data', 'previews');
+  const previewDir = store.previewsDir(); // por canal: data/previews ou data/<canal>/previews
   const mock = Boolean(argFlag('mock'));
   const now = new Date().toISOString();
   const newEntries = [];
@@ -107,6 +109,9 @@ async function main() {
       hook: d.hook,
       script: d.script,
       cta: d.cta || '',
+      // Termos visuais curados da fonte (catálogo bíblico), quando houver:
+      // o b-roll prefere estes ao mapa de palavras-chave.
+      visual: (fresh.find((it) => it.link === d.sourceLink)?.visual) || undefined,
       tags: d.tags || [],
       captionKeywords: d.captionKeywords || [],
       sourceLink: d.sourceLink,

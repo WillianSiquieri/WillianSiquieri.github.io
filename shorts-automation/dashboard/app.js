@@ -4,13 +4,60 @@
 
 const BASE = '..'; // relativo a dashboard/index.html
 const REPO_DIR = 'shorts-automation';
-const FILES = {
-  config: 'config/config.json',
-  settings: 'data/settings.json',
-  queue: 'data/queue.json',
-  published: 'data/published.json',
-  feedback: 'data/feedback.json',
-};
+
+// MULTI-CANAL: o mesmo painel serve vários canais. O canal padrão (financeiro)
+// usa os caminhos antigos, porque está em produção; os outros ficam numa
+// subpasta. Espelha exatamente o que src/state/store.js faz no motor.
+const CANAIS = [
+  { id: 'financeiro', nome: 'Minuto Financeiro', config: 'config/config.json' },
+  { id: 'biblico', nome: 'Minuto Bíblico', config: 'config/channels/biblico.json' },
+];
+const CH_KEY = 'sa_canal';
+let canal = (() => {
+  try {
+    const salvo = localStorage.getItem(CH_KEY);
+    if (salvo && CANAIS.some((c) => c.id === salvo)) return salvo;
+  } catch { /* localStorage bloqueado */ }
+  return CANAIS[0].id;
+})();
+
+const canalAtual = () => CANAIS.find((c) => c.id === canal) || CANAIS[0];
+const dataDir = () => (canal === CANAIS[0].id ? 'data' : `data/${canal}`);
+
+let FILES = {};
+function montarCaminhos() {
+  const d = dataDir();
+  FILES = {
+    config: canalAtual().config,
+    settings: `${d}/settings.json`,
+    queue: `${d}/queue.json`,
+    published: `${d}/published.json`,
+    feedback: `${d}/feedback.json`,
+  };
+}
+montarCaminhos();
+
+function trocarCanal(id) {
+  if (!CANAIS.some((c) => c.id === id) || id === canal) return;
+  canal = id;
+  try { localStorage.setItem(CH_KEY, id); } catch { /* ignora */ }
+  montarCaminhos();
+  for (const k of Object.keys(shaCache)) delete shaCache[k]; // sha é por arquivo
+  state = { config: {}, settings: {}, queue: [], published: [], feedback: [] };
+  renderCanais();
+  loadAll();
+}
+
+function renderCanais() {
+  const el = document.getElementById('channel-switch');
+  if (!el) return;
+  el.innerHTML = CANAIS.map(
+    (c) => `<button data-canal="${c.id}" class="${c.id === canal ? 'on' : ''}">${c.nome}</button>`
+  ).join('');
+  el.querySelectorAll('[data-canal]').forEach((b) => {
+    b.onclick = () => trocarCanal(b.dataset.canal);
+  });
+}
 
 const conn = loadConn();
 let state = { config: {}, settings: {}, queue: [], published: [], feedback: [] };
@@ -595,4 +642,5 @@ document.getElementById('btn-disconnect').onclick = async () => {
 modal.onclick = (e) => { if (e.target === modal) modal.classList.add('hidden'); };
 
 /* Start */
+renderCanais();
 loadAll().catch((e) => toast('Erro ao carregar: ' + e.message, true));

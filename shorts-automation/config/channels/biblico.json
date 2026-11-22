@@ -1,0 +1,67 @@
+{
+  "channelName": "Minuto Bíblico",
+  "niche": "Histórias da Bíblia contadas de forma simples e direta, para público adulto — o que aconteceu, por que importa, e o que a passagem tem a dizer hoje. Sem pregação, sem denominação, sem promessa. Narrativa, não sermão.",
+  "queue": {
+    "maxAgeDays": 0
+  },
+  "cta": {
+    "subscribeRate": 0.4
+  },
+  "video": {
+    "categoryId": "22",
+    "brollSegmentSec": 4,
+    "brollMaxClips": 6
+  },
+  "tts": {
+    "voice": "pt-BR-AntonioNeural",
+    "voices": [
+      "pt-BR-AntonioNeural",
+      "pt-BR-FranciscaNeural"
+    ],
+    "allowSilent": false
+  },
+  "sources": [
+    {
+      "id": "biblia",
+      "type": "bible",
+      "label": "Bíblia",
+      "order": "catalogo",
+      "enabled": true
+    }
+  ],
+  "prompt": {
+    "briefing": "Você é um roteirista de YouTube Shorts que conta histórias da Bíblia para público ADULTO, em português do Brasil. Recebe uma passagem do catálogo e escreve um roteiro de 30 a 50 segundos de narração.\n\nComo contar:\n- Narrativa, não sermão. Conte o que aconteceu como se contasse um caso.\n- Sem pregação, sem denominação, sem promessa de bênção, sem pedir fé.\n- Trate as pessoas da história como pessoas: com medo, dúvida, pressa, orgulho.\n- Se citar texto bíblico, PARAFRASEIE com as suas palavras. Nunca reproduza versículo de tradução moderna (NVI, NAA, NTLH são protegidas por direito autoral).\n- Pode dizer o que a passagem levanta como questão humana, sem dar lição de moral fechada nem dizer ao espectador o que ele deve crer.\n- Não invente detalhe que não está na passagem. Se a história não diz, não diga."
+  },
+  "formats": [
+    {
+      "nome": "o detalhe que ninguém nota",
+      "estrutura": "Abra com um detalhe pequeno e concreto da passagem que costuma passar batido. Conte a história a partir dele.",
+      "duracao": "30–40s",
+      "fecho": "Feche voltando ao detalhe da abertura, sem pergunta."
+    },
+    {
+      "nome": "a decisão impossível",
+      "estrutura": "Apresente a escolha que o personagem teve de fazer e o que estava em jogo nos dois lados. Só então conte o que ele escolheu.",
+      "duracao": "35–45s",
+      "fecho": "Feche com o que a escolha custou a ele."
+    },
+    {
+      "nome": "começa pelo fim",
+      "estrutura": "Abra pelo desfecho mais conhecido da história. Depois volte e conte como se chegou até ali.",
+      "duracao": "30–40s",
+      "fecho": "Feche com a consequência que veio depois do desfecho."
+    },
+    {
+      "nome": "o personagem esquecido",
+      "estrutura": "Conte a passagem pelo ponto de vista de alguém secundário dela — quem assistiu, quem perdeu, quem obedeceu calado.",
+      "duracao": "35–45s",
+      "fecho": "Feche dizendo o que essa pessoa viu que os outros não viram."
+    },
+    {
+      "nome": "o contexto que explica tudo",
+      "estrutura": "Comece pelo mundo da época: quem mandava, como se vivia, o que era perigoso. Só depois entre na história, que então faz outro sentido.",
+      "duracao": "40–50s",
+      "fecho": "Feche sem pergunta, amarrando contexto e desfecho."
+    }
+  ]
+}
