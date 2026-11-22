@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "id": "sh_mws5eyklejrb",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:06:33.861Z",
+    "theme": "biblia:noe-arca",
+    "title": "Noé e o Dilúvio",
+    "hook": "Um homem construiu uma arca gigante enquanto a maioria riu.",
+    "script": "Na Mesopotâmia de antes da escrita, as cidades se espalhavam ao longo dos rios. O rei da região, chamado de 'Deus dos Deuses', enviava sinais de ira: enchentes, pestes, fome. Noé, um agricultor que vivia à margem, recebeu um aviso inesperado: uma chuva que duraria quarenta dias e quarenta noites. Ele teria que fazer um barco enorme, maior que as casas da vila, e levar nele sua família e um casal de cada espécie animal. Enquanto martelava as madeiras, as pessoas zombavam, chamando-o de louco. Mas Noé persistiu, guiado por um medo profundo de perder tudo. Quando as nuvens finalmente se fecharam, a água subiu, engolindo campos, casas e gente. A arca balançava, mas permanecia firme. Depois de semanas, as águas baixaram e a porta se abriu. Noé soltou uma pomba; ela voltou sem nada, depois trouxe um ramo de oliveira. O mundo renascia, mas o homem carregava o peso de ter sido o único a sobreviver.",
+    "cta": "Se curte histórias de sobrevivência extrema, se inscreve aqui e acompanha o próximo relato.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.biblegateway.com/passage/?search=Genesis+6-9",
+    "rationale": "Escolhi Noé por seu contraste entre fé prática e escárnio da sociedade, permitindo contextualizar a vida na Mesopotâmia e o impacto da catástrofe.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 59,
+      "previewFile": "data/biblico/previews/sh_mws5eyklejrb.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+12%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
+  },
+  {
+    "id": "sh_mws5g5bh8xcy",
+    "status": "draft",
+    "createdAt": "2026-11-22T18:06:33.861Z",
+    "theme": "biblia:davi-golias",
+    "title": "Davi e Golias",
+    "hook": "Um pastor de 17 anos enfrentou um gigante que assustava um exército inteiro.",
+    "script": "Estamos no vale de Elá, onde os filisteus se reuniam com armaduras de bronze e armas de ferro, enquanto Israel, liderado por Saul, vivia sob constante ameaça. Entre os filisteus, surgia Golias, um guerreiro de quase três metros, cuja voz ecoava como trovão. Ele desafiava diariamente o exército de Israel, mas ninguém ousava responder. Davi, o caçador de ovelhas, chegou ao campo para levar mantimentos ao irmão. Ao ouvir o desafio, sentiu uma mistura de indignação e coragem. Recusou a armadura do rei, alegando que nunca a tinha usado. Em vez disso, pegou cinco pedras lisas, colocou-as no seu saco e avançou com sua funda. Quando Golias viu o jovem, zombou, mas Davi lançou a pedra; ela acertou a testa do gigante, que caiu como um tronco. O exército israelita, impulsionado pela surpresa, avançou e venceu. Davi saiu do campo não como pastor, mas como futuro rei, mostrando que a confiança pode mudar o rumo de uma guerra.",
+    "cta": "Quer saber como um simples estilingue virou lenda? Se inscreve e acompanha a próxima façanha bíblica.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.biblegateway.com/passage/?search=1+Samuel+17",
+    "rationale": "Davi e Golias trazem um cenário militar claro, contraste de poder e a virada inesperada que prende a atenção adulta, atendendo ao pedido de contextualização histórica.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 66,
+      "previewFile": "data/biblico/previews/sh_mws5g5bh8xcy.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    }
+  }
+]
