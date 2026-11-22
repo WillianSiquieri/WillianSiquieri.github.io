@@ -20,7 +20,7 @@ import { watchIcons } from './ui/icons.js';
 import { inventoryView } from './ui/inventory.js';
 import { thumb, setThumbProvider } from './ui/build.js';
 import { music } from './engine/music.js';
-import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseForLevel, xpToNext } from './game/config.js';
+import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseOf, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
 import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage, migrateLocalSave } from './game/state.js';
 import { t, tn, toggleLang, setLang, fmtTime, fmtNum, applyPortalLocale, getLang } from './i18n.js';
@@ -200,7 +200,15 @@ class CityGame {
   zoomStep(d) { this.camera.zoomAt(this.camera.vw / 2, this.camera.vh / 2, d > 0 ? 1.25 : 0.8); }
 
   // ---------------------------------------------------------------- toque
+  // Menu ☰ (abre/fecha; sem argumento alterna).
+  menu(open) {
+    const m = document.getElementById('menu'); if (!m) return;
+    const on = open == null ? !m.classList.contains('show') : open;
+    m.classList.toggle('show', on); document.body.classList.toggle('menu-open', on);
+  }
+
   tap(sx, sy) {
+    this.menu(false);
     sfx.unlock();
     const w = this.camera.toWorld(sx, sy);
     if (this.placing) {
@@ -237,8 +245,11 @@ class CityGame {
     const o = this.selected && this.selected.kind === 'object' ? this.selected.obj : null;
     const tile = this.selected && this.selected.kind === 'tile' ? this.selected : null;
     let r = null, at = o ? [o.i, o.j, o.size] : tile ? [tile.i, tile.j, 1] : null;
+    if (act !== 'menu') this.menu(false);         // qualquer ação fecha o menu ☰
 
     switch (act) {
+      case 'menu': this.menu(); sfx.click(); return;
+      case 'home': this.fitView(); return;
       case 'collect': if (o) r = E.quickCollect(s, o, now) || { ok: false, err: 'notReady' }; break;
       case 'collect2':
         if (o) this._rewarded('double').then(ok => {
@@ -281,6 +292,7 @@ class CityGame {
       case 'buildHere': if (tile) { this.buildAt = { i: tile.i, j: tile.j }; this.select(null); this.openSheet('build'); } return;
       case 'orders': this.openSheet('orders'); return;
       case 'levels': if (!s.showcase) this.openSheet('levels'); return;
+      case 'levelPill': if (!s.showcase) { if (E.levelBlocked(s)) { this.missionTab = 'goals'; this.openSheet('missions'); } else this.openSheet('levels'); } return;
       case 'settings': this.openSheet('settings'); return;
       case 'rename': if (!s.showcase) this.openName(true); return;
       case 'nameSave': this.saveName($('name-input').value, true); return;
@@ -315,9 +327,10 @@ class CityGame {
         if (!rr.ok) return this._error(rr);
         const th = s.objects.find(x => x.type === 'townhall');
         this._result(rr, th ? th.i : 0, th ? th.j : 0, th ? th.size : 1);
-        toast(t(act === 'claimMission' ? 'missionDone' : act === 'claimGoals' ? 'goalsDone' : 'achDone'));
+        toast(act === 'claimGoals' && rr.phaseChanged ? t('goalsDoneNew', { p: tn(PHASES[rr.phase].name) }) : t(act === 'claimMission' ? 'missionDone' : act === 'claimGoals' ? 'goalsDone' : 'achDone'));
+        if (act === 'claimGoals' && rr.phaseChanged) { this.closeSheet(); this.camTween = null; }
         save(s); hudKey = '';
-        if (this.sheet === 'missions') this.renderSheet();
+        if (this.sheet) this.renderSheet();
         return;
       }
       case 'inventory': if (!s.showcase) { this.select(null); this.openSheet('inventory'); } return;
@@ -370,7 +383,7 @@ class CityGame {
     else if (r.coins) sfx.coin();
     else if (r.items || r.drop) sfx.collect();
     else if (r.xp) sfx.build();
-    if (r.levels && r.levels.length) this.levelUp(r.levels, r.phaseChanged, r.rewards);
+    if ((r.levels && r.levels.length) || r.phaseChanged) this.levelUp(r.levels && r.levels.length ? r.levels : [this.state.level], r.phaseChanged, r.rewards || [], !(r.levels && r.levels.length));
     E.tick(this.state, this.now());
     save(this.state);
     return true;
@@ -487,7 +500,7 @@ class CityGame {
     const views = {
       build: [`🔨 ${t('buildTitle')}`, buildMenuView],
       orders: [`📋 ${t('ordersTitle')}`, ordersView],
-      levels: [`⭐ ${t('levelsTitle')}`, levelsView],
+      levels: [`🏙️ ${t('cityTitle')}`, levelsView],
       missions: [`🏆 ${t('missionsTitle')}`, missionsView],
       settings: [`⚙️ ${t('settings')}`, settingsView],
       daily: [`🎁 ${t('dailyTitle')}`, dailyView],
@@ -531,10 +544,10 @@ class CityGame {
   }
 
   // ---------------------------------------------------------------- nível
-  levelUp(levels, phaseChanged, rewards = []) {
+  levelUp(levels, phaseChanged, rewards = [], phaseOnly = false) {
     const lv = levels[levels.length - 1];
-    const unlocked = levels.flatMap(l => E.unlocksAt(l));
-    const phase = phaseChanged ? phaseForLevel(lv) : null;
+    const unlocked = phaseOnly ? [] : levels.flatMap(l => E.unlocksAt(l));
+    const phase = phaseChanged ? PHASES[phaseOf(this.state)] : null;
     const got = sumRewards(rewards);
     this.pushModal({
       render: () => {
@@ -644,32 +657,32 @@ class CityGame {
 let hudKey = '';
 function renderHud(game) {
   const s = game.state;
-  const ph = phaseForLevel(s.level);
+  const ph = PHASES[phaseOf(s)];
   const deliverable = s.orders.filter(o => E.canDeliver(s, o)).length;
   const tut = !s.showcase && s.mentor && s.mentor.tut !== false;
   const tip = s.showcase ? null : (tut ? E.currentTip(s) : null);
   const greet = !s.showcase && game.time() < game.greetUntil;
   // missões e prêmios pendentes: recalcula no máximo ~3× por segundo (varrem objetos e quadras)
   const tnow = game.time();
-  if (!game._mc || tnow - game._mc.t > 0.3 || hudKey === '') game._mc = { t: tnow, ms: s.showcase ? null : E.mission(s), pend: s.showcase ? 0 : E.pendingRewards(s) };
-  const ms = s.showcase || tip || greet ? null : game._mc.ms;
+  if (!game._mc || tnow - game._mc.t > 0.3 || hudKey === '') game._mc = { t: tnow, tasks: s.showcase ? 0 : E.missionsList(s).filter(m => m.done).length, pend: s.showcase ? 0 : E.pendingRewards(s) };
+  const ms = null;   // tarefas ficam no quadro de pedidos (sem barra de missão na tela)
   const daily = !s.showcase && E.dailyStatus(s, game.now());
   const gift = daily ? (daily.canClaim ? 2 : daily.extraAvailable ? 1 : 0) : -1;
-  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang, game._mc.pend].join('|');
+  const key = [s.level, s.xp, s.coins, population(s), happiness(s), E.used(s), s.capacity, deliverable, tip, greet, ms && [ms.k, ms.progress, ms.target, ms.done].join(), s.cityName, gift, document.documentElement.lang, game._mc.pend, game._mc.tasks].join('|');
   if (key === hudKey) return;
   hudKey = key;
   $('hud-city').textContent = s.showcase ? 'CityBloom' : (s.cityName || t('cityNameDefault'));
   $('hud-phase').textContent = s.showcase ? `🧪 ${t('showcase')}` : `${ph.icon} ${tn(ph.name)}`;
   $('hud-level').textContent = `${t('level')} ${s.level}`;
   $('hud-xpbar').style.width = `${Math.min(100, (s.xp / xpToNext(s.level)) * 100)}%`;
+  const blocked = !s.showcase && E.levelBlocked(s);    // nível parado: faltam as metas da fase
+  $('hud-level').textContent = `${t('level')} ${s.level}${blocked ? ' 🔒' : ''}`;
+  document.querySelector('.level-pill').classList.toggle('blocked', blocked);
   $('hud-coins').textContent = fmtNum(s.coins);
-  $('hud-pop').textContent = fmtNum(population(s));
-  $('hud-happy').textContent = fmtNum(happiness(s));
   $('hud-storage').textContent = `${E.used(s)}/${s.capacity}`;
   $('hud-storage').parentElement.classList.toggle('full', E.used(s) >= s.capacity);
-  $('btn-lang').textContent = t('lang');
-  const badge = $('orders-badge');
-  badge.textContent = deliverable; badge.style.display = deliverable ? 'flex' : 'none';
+  const badge = $('orders-badge'), nOrd = deliverable + game._mc.tasks;
+  badge.textContent = nOrd; badge.style.display = nOrd ? 'flex' : 'none';
   $('lbl-build').textContent = t('build'); $('lbl-orders').textContent = t('orders');
   if (game._ttLang !== getLang()) {   // dicas (title / aria-label) no idioma atual
     game._ttLang = getLang();
@@ -689,13 +702,14 @@ function renderHud(game) {
     tbtn.textContent = t('claim'); tbtn.dataset.act = 'claimMission'; tbtn.className = 'tip-btn' + (ms.done ? '' : ' hidden');
     tipEl.classList.add('show');
   } else tipEl.classList.remove('show');
-  $('btn-daily').style.display = gift < 0 ? 'none' : '';
-  const pend = game._mc.pend;
-  $('btn-missions').style.display = s.showcase ? 'none' : '';
-  $('missions-badge').textContent = pend; $('missions-badge').style.display = pend ? 'flex' : 'none';
-  $('btn-missions').classList.toggle('ready', pend > 0);
-  $('daily-badge').style.display = gift === 2 ? 'flex' : 'none';
-  $('btn-daily').classList.toggle('ready', gift === 2);
+  // badges do menu: baú pronto e metas/conquistas para pegar
+  const pend = game._mc.pend, daily2 = gift === 2;
+  $('mi-goals').textContent = pend; $('mi-goals').style.display = pend ? 'flex' : 'none';
+  $('mi-daily').style.display = daily2 ? 'flex' : 'none';
+  const mb = pend + (daily2 ? 1 : 0);
+  $('menu-badge').textContent = mb; $('menu-badge').style.display = mb && !s.showcase ? 'flex' : 'none';
+  $('btn-menu').classList.toggle('ready', mb > 0);
+  for (const el of document.querySelectorAll('#menu [data-t]')) el.textContent = t(el.dataset.t);
 }
 
 function drawLabel(ctx, o, zoom) {
@@ -751,12 +765,8 @@ async function boot() {
     const b = e.target.closest('[data-act]');
     if (b && !b.disabled) game.act(b.dataset.act, b.dataset.arg);
   });
-  $('btn-zoom-in').onclick = () => game.zoomStep(1);
-  $('btn-zoom-out').onclick = () => game.zoomStep(-1);
-  $('btn-home').onclick = () => game.fitView();
   $('btn-build').onclick = () => { sfx.unlock(); game.select(null); game.openSheet('build'); };
   $('btn-orders').onclick = () => { sfx.unlock(); game.openSheet('orders'); };
-  $('btn-lang').onclick = () => { toggleLang(); game.refreshTexts(); };
   // volume da música (slider do menu ⚙️)
   document.addEventListener('input', (e) => { if (e.target.id === 'music-vol') music.setVolume(e.target.value / 100); });
   // Enter no campo de nome confirma

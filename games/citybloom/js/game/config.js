@@ -130,7 +130,7 @@ export const BUILDINGS = {
   // Porto: construído na costa (areia + água). A cada chegada de navio rende moedas e
   // carga da época (matéria-prima e produto). O visual evolui com a fase.
   port: {
-    type: 'commerce', cat: 'commerce', size: 2, unlock: 8, max: 1, minPop: 0, placeOn: 'coast', cargo: true,
+    type: 'commerce', cat: 'commerce', size: 2, unlock: 5, max: 1, minPop: 0, placeOn: 'coast', cargo: true,
     income: { coins: 45, time: 420 }, build: { coins: 300, plank: 6, brick: 4 },
     name: { pt: 'Porto', en: 'Harbor' },
   },
@@ -339,6 +339,10 @@ export function phaseIndex(level) {
   return k;
 }
 export function phaseForLevel(level) { return PHASES[phaseIndex(level)]; }
+// Fase da cidade: guardada no estado (só muda ao cumprir as metas da fase). Saves antigos: pelo nível.
+export function phaseOf(state) { return state.showcase ? 3 : state.phase != null ? state.phase : phaseIndex(state.level || 1); }
+// Último nível possível sem passar de fase (a Metrópole não tem teto).
+export function levelCap(state) { const ph = phaseOf(state); return ph + 1 < PHASES.length ? PHASES[ph + 1].minLevel - 1 : Infinity; }
 
 // XP para passar do nível `level` ao próximo.
 // Ritmo do começo: os primeiros níveis andam bem mais rápido (sem esperas
@@ -391,6 +395,7 @@ export const MENTOR = { id: 'mayor', name: { pt: 'Prefeito Walt Parker', en: 'Ma
 // Material típico de cada fase (para presentes): [matéria-prima, produto].
 const PHASE_GOODS = [['wood', 'plank'], ['clay', 'brick'], ['sand', 'glass'], ['iron', 'steel'], ['steel', 'furniture']];
 export function phaseGoods(level) { return PHASE_GOODS[phaseIndex(level)]; }
+export function phaseGoodsOf(state) { return PHASE_GOODS[phaseOf(state)]; }
 
 // Presente do prefeito ao chegar no nível `level`.
 export function levelReward(level) {

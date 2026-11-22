@@ -5,7 +5,7 @@ const ease = x => x < 0 ? 0 : x > 1 ? 1 : x < .5 ? 4 * x * x * x : 1 - Math.pow(
 const lerp = (a, b, k) => a + (b - a) * k;
 
 D.setup = async (opt) => {
-  const { BUILDINGS, xpToNext } = await import('/games/citybloom/js/game/config.js');
+  const { BUILDINGS, xpToNext, phaseIndex } = await import('/games/citybloom/js/game/config.js');
   const E = await import('/games/citybloom/js/game/economy.js');
   const S = await import('/games/citybloom/js/game/state.js');
   const ISO = await import('/games/citybloom/js/engine/iso.js');
@@ -22,7 +22,7 @@ D.setup = async (opt) => {
   }
   // nível na fase Cidade, com novidade no próximo
   let L = opt.level || 21; while (L < 40 && !E.unlocksAt(L + 1).some(u => u.kind === 'building')) L++;
-  s.cityName = 'Bloomville'; s.level = L; s.xp = Math.floor(xpToNext(L) * 0.55); s.coins = 18640; s.capacity = 250; s.warehouseLevel = 2;
+  s.cityName = 'Bloomville'; s.level = L; s.phase = phaseIndex(L); s.goalsClaimed = Array.from({ length: s.phase }, (_, k) => k); s.xp = Math.floor(xpToNext(L) * 0.55); s.coins = 18640; s.capacity = 250; s.warehouseLevel = 2;
   s.inventory = { wood: 18, plank: 12, clay: 10, brick: 14, sand: 8, glass: 7, furniture: 4, steel: 3, iron: 4, hammer: 3, tape: 3 };
   s.mentor.intro = true; s.mentor.tut = false; g.greetUntil = 0; s.stats = { lotStarted: 9, factoryStarted: 9, rentCollected: 9, ordersDone: 9, built: 9, chunksBought: 9 };
   s.daily = { next: 1, last: E.dayKey(now), extra: E.dayKey(now) };

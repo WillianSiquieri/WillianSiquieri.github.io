@@ -1,5 +1,6 @@
-// missions.js — painel 🏆: missões ativas (3), metas da fase atual (com prêmio grande
-// ao completar tudo) e conquistas com medalhas Bronze, Prata e Ouro.
+// missions.js — painel 🏆: metas da fase (cumprir todas libera a fase seguinte, com
+// prêmio) e conquistas com medalhas Bronze, Prata e Ouro. As tarefas (missões) ficam
+// no quadro de pedidos (ui/orders.js).
 
 import { PHASES, BUILDINGS, ITEMS } from '../game/config.js';
 import * as E from '../game/economy.js';
@@ -10,6 +11,7 @@ const bar = (p) => `<div class="pbar"><div style="width:${Math.round(Math.max(0,
 const reward = (r) => `<span class="mreward">🪙 ${fmtNum(r.coins)}${r.xp ? ` · ⭐ ${r.xp} XP` : ''}${r.items ? Object.entries(r.items).map(([k, v]) => ` · ${ITEMS[k].icon} ${v}`).join('') : ''}</span>`;
 
 function goalText(g) {
+  if (g.k === 'level') return t('goal_level', { n: g.target });
   if (g.k === 'pop') return t('goal_pop', { n: fmtNum(g.target) });
   if (g.k === 'houses') return t('goal_houses', { n: g.target });
   if (g.k === 'chunks') return t('goal_chunks', { n: g.target });
@@ -18,32 +20,26 @@ function goalText(g) {
 }
 
 export function missionsView(game) {
-  const s = game.state, tab = game.missionTab || 'missions';
-  const pending = { missions: E.missionsList(s).filter(m => m.done).length, goals: (() => { const p = E.phaseGoals(s); return p.allDone && !p.claimed ? 1 : 0; })(), ach: E.achievements(s).filter(a => a.claimable).length };
-  const TABS = [['missions', '🎯', t('tabMissions')], ['goals', PHASES[E.phaseGoals(s).phase].icon, t('tabGoals')], ['ach', '🏅', t('tabAch')]];
+  const s = game.state, tab = game.missionTab === 'ach' ? 'ach' : 'goals';
+  const pg0 = E.phaseGoals(s);
+  const pending = { goals: pg0.allDone && !pg0.claimed ? 1 : 0, ach: E.achievements(s).filter(a => a.claimable).length };
+  const TABS = [['goals', PHASES[pg0.phase].icon, t('tabGoals')], ['ach', '🏅', t('tabAch')]];
   const tabs = TABS.map(([id, ic, name]) => `<button class="tab${id === tab ? ' on' : ''}" data-act="mtab" data-arg="${id}">${ic}<span>${name}</span>${pending[id] ? `<i class="dot">${pending[id]}</i>` : ''}</button>`).join('');
   let body = '';
 
-  if (tab === 'missions') {
-    body = `<p class="muted mhint">${t('missionsHint')}</p>` + E.missionsList(s).map((m, k) => `
-      <div class="mcard${m.done ? ' done' : ''}">
-        <div class="mtop"><b>${t('mission_' + m.k, { n: m.target })}</b><span class="mprog">${m.progress}/${m.target}</span></div>
-        ${bar(m.progress / m.target)}
-        <div class="mbot">${reward(m.reward)}
-          <button class="btn ${m.done ? 'primary' : 'ghost'} small" data-act="claimMission" data-arg="${k}"${m.done ? '' : ' disabled'}>${m.done ? t('claim') : t('inProgress')}</button></div>
-      </div>`).join('');
+  if (false) {
   } else if (tab === 'goals') {
-    const pg = E.phaseGoals(s), next = PHASES[pg.phase + 1];
+    const pg = pg0, next = pg.next;
     const done = pg.goals.filter(g => g.done).length;
     body = `<div class="ghead"><span class="gph">${PHASES[pg.phase].icon}</span><div><b>${next ? t('goalsTo', { p: tn(next.name) }) : t('goalsLast')}</b>
-        <small class="muted">${done}/${pg.goals.length} · ${t('goalsHint')}</small></div></div>
+        <small class="muted">${done}/${pg.goals.length} · ${next ? t('goalsHint', { p: tn(next.name) }) : t('goalsHintLast')}</small></div></div>
       ${bar(done / pg.goals.length)}
       <div class="glist">${pg.goals.map(g => `
         <div class="grow${g.done ? ' done' : ''}"><span class="gck">${g.done ? '✅' : '⬜'}</span>
           <div class="gtx"><span>${goalText(g)}</span>${g.done ? '' : bar(g.progress / g.target)}</div>
           <small>${fmtNum(g.progress)}/${fmtNum(g.target)}</small></div>`).join('')}</div>
       <div class="gprize"><b>🎁 ${t('goalsPrize')}</b>${reward(pg.reward)}
-        <button class="btn ${pg.allDone && !pg.claimed ? 'primary' : 'ghost'}" data-act="claimGoals"${pg.allDone && !pg.claimed ? '' : ' disabled'}>${pg.claimed ? '✅ ' + t('claimed') : t('claim')}</button></div>`;
+        <button class="btn ${pg.allDone && !pg.claimed ? 'primary' : 'ghost'} big" data-act="claimGoals"${pg.allDone && !pg.claimed ? '' : ' disabled'}>${pg.claimed ? '✅ ' + t('claimed') : next ? `${PHASES[pg.phase + 1].icon} ${t('becomeBtn', { p: tn(next.name) })}` : t('claim')}</button></div>`;
   } else {
     body = `<div class="achs">${E.achievements(s).map(a => {
       const medals = MEDAL.map((m, k) => `<span class="medal${k < a.tier ? ' got' : k < a.reached ? ' ready' : ''}">${m}</span>`).join('');

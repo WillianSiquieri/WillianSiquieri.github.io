@@ -2,7 +2,7 @@
 // Tudo que tem tempo usa horários absolutos (ms) — assim a produção continua
 // com o jogo fechado sem precisar "simular" nada ao voltar.
 
-import { BUILDINGS, MAP, START, WAREHOUSE, secs } from './config.js';
+import { BUILDINGS, MAP, START, WAREHOUSE, secs, phaseIndex } from './config.js';
 import { layout, OLD_OFFSET } from './roads.js';
 
 const SAVE_KEY = 'citybloom.save.v2';
@@ -122,7 +122,7 @@ export function newGame(now = Date.now()) {
   const n = MAP.size;
   const tiles = makeTiles(n, (i, j) => !startChunk(i, j), rng(20261115));
   const state = {
-    v: VERSION,
+    v: VERSION, phase: 0,
     coins: START.coins, level: START.level, xp: START.xp,
     inventory: { ...START.inventory },
     capacity: WAREHOUSE.base, warehouseLevel: 0,
@@ -271,6 +271,10 @@ export function load() {
     s.rev = (s.rev || 0) + 1;
     if (!s.daily) s.daily = { next: 0, last: null, extra: null };
     if (!s.mentor) s.mentor = { intro: true };
+    if (s.phase == null) {                  // save de antes das metas de fase: fica na fase do nível
+      s.phase = phaseIndex(s.level || 1);
+      s.goalsClaimed = [...new Set([...(s.goalsClaimed || []), ...Array.from({ length: s.phase }, (_, k) => k)])];
+    }
     return s;
   } catch (_) { return null; }
 }

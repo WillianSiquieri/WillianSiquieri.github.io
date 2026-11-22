@@ -8,7 +8,7 @@
 
 import { CAR_COLORS } from './props.js';
 import { isRoadAt, edgeExits } from '../game/roads.js';
-import { phaseIndex } from '../game/config.js';
+import { phaseOf } from '../game/config.js';
 import { population } from '../game/state.js';
 
 // N, E, S, W (bits 1, 2, 4, 8)
@@ -204,7 +204,7 @@ export class Traffic {
   _fill(scatter) {
     const s = this.state;
     this.center = this._center();
-    const ph = s.showcase ? 3 : phaseIndex(s.level || 1);
+    const ph = phaseOf(s);
     if (ph !== this.phase) {                    // fase nova: frota e pessoas da fase
       this.phase = ph;
       for (const c of this.cars) { c.kind = pick(FLEET[ph], this.rnd()); c.speed = (SPEED[c.kind] || 0.75) * (0.85 + this.rnd() * 0.3); c.len = LEN[c.kind] || 0.36; }

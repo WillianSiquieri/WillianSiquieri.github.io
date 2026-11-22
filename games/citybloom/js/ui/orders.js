@@ -1,8 +1,8 @@
 // orders.js — quadro de pedidos da Prefeitura: cada pedido vem de um
 // personagem (retrato desenhado por código), com fala própria.
 
-import { ITEMS } from '../game/config.js';
-import { canDeliver, clientOf, rerollCost } from '../game/economy.js';
+import { ITEMS, CLIENTS } from '../game/config.js';
+import { canDeliver, clientOf, rerollCost, missionsList } from '../game/economy.js';
 import { ads } from '../engine/ads.js';
 import { avatarURL } from '../render/avatars.js';
 import { t, tn, fmtTime, fmtNum, getLang } from '../i18n.js';
@@ -40,6 +40,27 @@ export function ordersView(game) {
         <button class="btn ghost small" data-act="discard" data-arg="${o.id}" title="${t('discard')}">🗑️</button>
       </div>
     </div>`;
-  }).join('');
-  return `<div class="orders">${cards}</div>`;
+  });
+  // Tarefas (missões): alguém da cidade pede para fazer algo, não para entregar itens
+  const tasks = missionsList(s).map((m, k) => {
+    const c = CLIENTS.find(x => x.id === m.client) || CLIENTS[0];
+    const p = Math.max(0, Math.min(1, m.progress / m.target));
+    return `<div class="order task${m.done ? ' ready' : ''}">
+      <div class="who">
+        <img class="avatar" src="${avatarURL(c)}" alt="">
+        <div class="whotxt">
+          <b>${tn(c.name)}</b><span class="role task">🛠️ ${t('task')}</span>
+          <div class="say">“${t('task_' + m.k, { n: m.target })}”</div>
+        </div>
+      </div>
+      <div class="ois tprog"><div class="pbar"><div style="width:${Math.round(p * 100)}%"></div></div><small>${m.progress}/${m.target}</small></div>
+      <div class="orw">🪙 ${fmtNum(m.reward.coins)} · ⭐ ${m.reward.xp} XP</div>
+      <div class="obtns">
+        <button class="btn primary small" data-act="claimMission" data-arg="${k}"${m.done ? '' : ' disabled'}>${m.done ? t('claim') : t('inProgress')}</button>
+      </div>
+    </div>`;
+  });
+  // intercala: pedido, tarefa, pedido, tarefa…
+  const out = []; for (let k = 0; k < Math.max(cards.length, tasks.length); k++) { if (cards[k]) out.push(cards[k]); if (tasks[k]) out.push(tasks[k]); }
+  return `<div class="orders">${out.join('')}</div>`;
 }

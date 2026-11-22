@@ -20,31 +20,26 @@
   <div class="hud">
     <div class="hud-left">
       <button class="pill city-pill" data-act="rename" data-tt="rename" title="Rename"><span class="ri">🏙️</span><span id="hud-city"></span><span class="pen">✏️</span></button>
-      <button class="pill level-pill" data-act="levels" data-tt="levelsTitle" title="City levels">
+      <button class="pill level-pill" data-act="levelPill" data-tt="levelsTitle" title="City levels">
         <div class="level-top"><span id="hud-phase">🏡</span><span id="hud-level" class="lvl">Level 1</span></div>
         <div class="xp"><div id="hud-xpbar" class="xp-fill"></div></div>
       </button>
       <div class="pill res"><span class="ri">🪙</span><span id="hud-coins">0</span></div>
-      <div class="pill res"><span class="ri">👥</span><span id="hud-pop">0</span></div>
-      <div class="pill res"><span class="ri">⭐</span><span id="hud-happy">0</span></div>
       <button class="pill res" data-act="inventory" data-tt="inventory" title="Inventory"><span class="ri">📦</span><span id="hud-storage">0/50</span></button>
     </div>
     <div class="hud-right">
-      <button id="btn-settings" class="round small" data-act="settings" data-tt="settings" title="Settings">⚙️</button>
-      <button id="btn-lang" class="round small" title="Language / Idioma">EN</button>
+      <button id="btn-menu" class="round menu-btn" data-act="menu" data-tt="menu" title="Menu"><span class="burger"><i></i><i></i><i></i></span><span id="menu-badge" class="badge">!</span></button>
     </div>
   </div>
 
-  <!-- Baú diário -->
-  <button id="btn-daily" class="round gift" data-act="daily" data-tt="dailyTitle" title="Daily chest">🎁<span id="daily-badge" class="badge">!</span></button>
-  <!-- Missões, metas da fase e conquistas -->
-  <button id="btn-missions" class="round gift missions" data-act="missions" data-tt="missionsTitle" title="Missions">🏆<span id="missions-badge" class="badge">!</span></button>
-
-  <!-- Zoom / centralizar -->
-  <div class="side">
-    <button id="btn-zoom-in" class="round" title="Zoom +">＋</button>
-    <button id="btn-zoom-out" class="round" title="Zoom −">－</button>
-    <button id="btn-home" class="round" data-tt="center" title="Center">🎯</button>
+  <!-- Menu (☰): tudo o que não é Pedidos/Construir fica aqui, para a cidade aparecer -->
+  <div id="menu" class="menu">
+    <button class="mitem" data-act="missions">🏆<span data-t="missionsTitle">Goals &amp; achievements</span><i id="mi-goals" class="badge">!</i></button>
+    <button class="mitem" data-act="daily">🎁<span data-t="dailyTitle">Daily chest</span><i id="mi-daily" class="badge">!</i></button>
+    <button class="mitem" data-act="inventory">📦<span data-t="inventory">Inventory</span></button>
+    <button class="mitem" data-act="levels">🏙️<span data-t="cityTitle">City &amp; levels</span></button>
+    <button class="mitem" data-act="home">🎯<span data-t="center">Center</span></button>
+    <button class="mitem" data-act="settings">⚙️<span data-t="settingsLang">Settings &amp; language</span></button>
   </div>
 
   <!-- Dica de objetivo -->

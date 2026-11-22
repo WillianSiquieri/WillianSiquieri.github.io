@@ -10,7 +10,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { BUILDINGS, MAP, phaseIndex } from '../game/config.js';
+import { BUILDINGS, MAP, phaseOf } from '../game/config.js';
 import { lotProgress } from '../game/economy.js';
 import { makeVehicle, brokenWagon } from './vehicles.js';
 import { People } from './people.js';
@@ -208,7 +208,7 @@ export class World3D {
   _buildStatic() {}
 
   // Fase visual: 0 terra, 1 paralelepípedo, 2+ asfalto (muda chão, cerca, ruas e postes).
-  _phase(state) { return state.showcase ? 3 : phaseIndex(state.level || 1); }
+  _phase(state) { return phaseOf(state); }
 
   _buildGround(state) {
     const n = state.size, ph = this._phase(state);

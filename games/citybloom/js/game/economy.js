@@ -4,7 +4,7 @@
 
 import { secs,
   ITEMS, RESOURCE_LOTS, BUILDINGS, OBSTACLES, SPECIAL_DROP_CHANCE, MAP, CHUNK_PRICE,
-  ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, xpToNext, buildXP, CLIENTS,
+  ORDERS, WAREHOUSE, warehouseUpgradeCost, HAPPINESS, phaseIndex, phaseOf, levelCap, phaseGoodsOf, xpToNext, buildXP, CLIENTS,
   levelReward, phaseGoods, DAILY, DAILY_COIN_GROWTH, DAILY_EXTRA, PHASES, PHASE_GOALS, ACHIEVEMENTS,
 } from './config.js';
 import { makeObject, tileOf, objectAt, countOf, population, happiness } from './state.js';
@@ -58,23 +58,27 @@ function payOrFail(state, cost) {
 // XP, níveis e fases
 // ---------------------------------------------------------------------------
 export function addXP(state, n) {
-  const before = phaseIndex(state.level);
   const levels = [], rewards = [];
   state.xp += n;
+  const cap = levelCap(state);
   while (state.xp >= xpToNext(state.level)) {
+    // no último nível da fase o nível para: falta cumprir as metas da fase (o XP fica guardado)
+    if (state.level >= cap) { state.xp = xpToNext(state.level); break; }
     state.xp -= xpToNext(state.level);
     state.level++;
     levels.push(state.level);
     // presente do prefeito a cada nível
     rewards.push({ level: state.level, ...grantReward(state, levelReward(state.level)) });
   }
-  const phaseChanged = phaseIndex(state.level) !== before;
-  if (phaseChanged) {
-    // pedidos de quem não é mais desta época passam para alguém da época (mesmos itens e prêmio)
-    const era = eraClients(state), ids = new Set(era.map(c => c.id));
-    for (const o of state.orders) if (!ids.has(o.client)) { o.client = era[o.id % era.length].id; o.line = 0; }
-  }
-  return { levels, rewards, phaseChanged };
+  return { levels, rewards, phaseChanged: false };
+}
+// Nível travado esperando as metas da fase?
+export function levelBlocked(state) { return state.level >= levelCap(state) && state.xp >= xpToNext(state.level); }
+
+// Pedidos de quem não é desta época passam para alguém da época (mesmos itens e prêmio).
+function reassignOrders(state) {
+  const era = eraClients(state), ids = new Set(era.map(c => c.id));
+  for (const o of state.orders) if (!ids.has(o.client)) { o.client = era[o.id % era.length].id; o.line = 0; }
 }
 
 // ---------------------------------------------------------------------------
@@ -123,7 +127,7 @@ export function dailyReward(state, day) {
   return resolveReward(state, DAILY[day]);
 }
 function resolveReward(state, def) {
-  const [raw, product] = phaseGoods(state.level);
+  const [raw, product] = phaseGoodsOf(state);
   const mult = 1 + DAILY_COIN_GROWTH * (state.level - 1);
   const items = {};
   for (const [k, v] of Object.entries(def.items || {})) {
@@ -258,17 +262,16 @@ export function collectRent(state, o, now, mult = 1) {
 
 // Renda de um comércio (o porto cresce com a fase) e a carga do navio.
 export function incomeCoins(state, o) {
-  const def = BUILDINGS[o.type], ph = phaseIndex(state.level);
+  const def = BUILDINGS[o.type], ph = phaseOf(state);
   return Math.round(def.income.coins * (def.cargo ? 1 + ph * 0.6 : 1) * happinessMult(state));
 }
 export function cargoOf(state, mult = 1) {
-  const ph = phaseIndex(state.level), [raw, product] = phaseGoods(state.level);
+  const ph = phaseOf(state), [raw, product] = phaseGoodsOf(state);
   return { items: { [raw]: Math.round((2 + ph) * mult), [product]: Math.max(1, Math.round((1 + ph / 2) * mult)) } };
 }
 export function collectIncome(state, o, now, mult = 1) {
   const def = BUILDINGS[o.type];
   if (!o.incomeReadyAt || now < o.incomeReadyAt) return fail('notReady');
-  const ph = phaseIndex(state.level);
   let coins = Math.round(incomeCoins(state, o) * mult);
   state.coins += coins;
   o.incomeReadyAt = now + secs(state, def.income.time) * 1000;
@@ -276,7 +279,6 @@ export function collectIncome(state, o, now, mult = 1) {
   let items;
   if (def.cargo) {                       // navio chegou: carga da época
     bump(state, 'shipsArrived');
-    const [raw, product] = phaseGoods(state.level);
     const got = grantReward(state, cargoOf(state, mult));
     items = got.items; coins += got.converted;            // carga que não coube virou moedas
   }
@@ -456,7 +458,7 @@ export function upgradeWarehouse(state) {
 // Pedidos (Prefeitura)
 // ---------------------------------------------------------------------------
 export function orderSlots(state) {
-  return Math.min(ORDERS.maxSlots, ORDERS.baseSlots + phaseIndex(state.level));
+  return Math.min(ORDERS.maxSlots, ORDERS.baseSlots + phaseOf(state));
 }
 
 // Itens que o jogador já consegue produzir com o que tem na cidade.
@@ -489,7 +491,7 @@ export function generateOrder(state, rand = Math.random) {
 // preferindo quem ainda não está no quadro.
 // Personagens da época atual da cidade (fazendeiro no vilarejo, chef só na cidade…).
 export function eraClients(state) {
-  const ph = phaseIndex(state.level || 1);
+  const ph = phaseOf(state);
   return CLIENTS.filter(c => !c.era || (ph >= c.era[0] && ph <= c.era[1]));
 }
 function pickClient(state, pool, rand) {
@@ -687,7 +689,8 @@ function newMission(state, n, taken = []) {
     if (ok(c) && !taken.includes(c.k)) kind = c;
   }
   if (!kind) kind = MISSION_KINDS[0];
-  return { n, k: kind.k, base: state.stats[kind.stat] || 0, target: kind.n(L) };
+  const era = eraClients(state);
+  return { n, k: kind.k, base: state.stats[kind.stat] || 0, target: kind.n(L), client: era[(n * 7 + 3) % era.length].id };
 }
 function ensureMissions(state) {
   if (!Array.isArray(state.missions)) {
@@ -699,6 +702,9 @@ function ensureMissions(state) {
   // tira as que não existem mais ou ficaram impossíveis (e ainda não foram cumpridas)
   const keep = state.missions.filter(m => MISSION_KINDS.some(c => c.k === m.k) && (feasible(state, m.k) || computeMission(state, m).done));
   if (keep.length !== state.missions.length) state.missions = keep;
+  // tarefa pedida por alguém da época atual (no quadro de pedidos)
+  const era = eraClients(state), ids = new Set(era.map(c => c.id));
+  for (const m of state.missions) if (!ids.has(m.client)) m.client = era[(m.n * 7 + 3) % era.length].id;
   let n = Math.max(-1, ...state.missions.map(m => m.n));
   while (state.missions.length < MISSION_SLOTS) state.missions.push(newMission(state, ++n, state.missions.map(m => m.k)));
   return state.missions;
@@ -735,6 +741,7 @@ export function claimMission(state, idx) {
 // todas dá um prêmio grande (uma vez por fase). Calculadas do estado.
 // ---------------------------------------------------------------------------
 const GOAL_VALUE = {
+  level: (s) => s.level,
   pop: (s) => population(s),
   houses: (s) => s.objects.filter(o => BUILDINGS[o.type].type === 'house').length,
   chunks: (s) => s.chunksBought || 0,
@@ -742,27 +749,28 @@ const GOAL_VALUE = {
   stat: (s, g) => s.stats[g.stat] || 0,
 };
 export function phaseGoals(state) {
-  // a fase mais antiga ainda sem prêmio (quem subiu de fase antes de cumprir tudo não perde o prêmio)
-  const cur = phaseIndex(state.level), got = state.goalsClaimed || [];
-  let ph = cur; for (let k = 0; k <= cur; k++) if (!got.includes(k)) { ph = k; break; }
-  const goals = (PHASE_GOALS[ph] || []).map(g => {
+  const ph = phaseOf(state), next = PHASES[ph + 1];
+  const list = (next ? [{ k: 'level', n: next.minLevel - 1 }] : []).concat(PHASE_GOALS[ph] || []);
+  const goals = list.map(g => {
     const v = GOAL_VALUE[g.k](state, g), target = g.n || 1;
     return { ...g, target, progress: Math.min(target, v), done: v >= target };
   });
-  const claimed = (state.goalsClaimed || []).includes(ph);
-  const L = (PHASES[ph + 1] || PHASES[ph]).minLevel;
-  const base = levelReward(L);
+  const claimed = !next && (state.goalsClaimed || []).includes(ph);   // a última fase dá o prêmio uma vez
+  const base = levelReward((next || PHASES[ph]).minLevel);
   const reward = { coins: Math.round(base.coins * 1.5), items: base.items, xp: 20 + ph * 25 };
-  return { phase: ph, goals, allDone: goals.every(g => g.done), claimed, reward };
+  return { phase: ph, next, goals, allDone: goals.every(g => g.done), claimed, reward };
 }
+// "Virar Vila!": com todas as metas prontas, a cidade passa de fase e ganha o prêmio.
 export function claimPhaseGoals(state) {
   const pg = phaseGoals(state);
   if (pg.claimed) return fail('alreadyClaimed');
   if (!pg.allDone) return fail('notReady');
   (state.goalsClaimed || (state.goalsClaimed = [])).push(pg.phase);
+  if (pg.next) { state.phase = pg.phase + 1; reassignOrders(state); }
   const got = grantReward(state, pg.reward);
-  const lv = addXP(state, pg.reward.xp);
-  return ok({ coins: got.coins, items: got.items, xp: pg.reward.xp, ...lv });
+  const lv = addXP(state, pg.reward.xp);              // o XP guardado sobe de nível na hora
+  touch(state);
+  return ok({ coins: got.coins, items: got.items, xp: pg.reward.xp, ...lv, phaseChanged: !!pg.next, phase: state.phase });
 }
 
 // ---------------------------------------------------------------------------
@@ -788,10 +796,10 @@ export function claimAchievement(state, id) {
   return ok({ coins: a.reward.coins, xp: a.reward.xp, tier: a.tier + 1, ...lv });
 }
 
-// Quantos prêmios estão esperando no painel de missões (badge do botão).
+// Quantos prêmios esperam no painel 🏆 (metas da fase e conquistas).
 export function pendingRewards(state) {
   const pg = phaseGoals(state);
-  return missionsList(state).filter(m => m.done).length + (pg.allDone && !pg.claimed ? 1 : 0) + achievements(state).filter(a => a.claimable).length;
+  return (pg.allDone && !pg.claimed ? 1 : 0) + achievements(state).filter(a => a.claimable).length;   // tarefas contam no quadro de pedidos
 }
 
 // ---------------------------------------------------------------------------
