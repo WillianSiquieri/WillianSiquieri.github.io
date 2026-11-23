@@ -1133,5 +1133,93 @@
     "avgViewPct": null,
     "avgViewSec": null,
     "analyticsUpdatedAt": "2026-11-23T17:17:06.919Z"
+  },
+  {
+    "id": "sh_mwtvs1wgkd69",
+    "status": "published",
+    "createdAt": "2026-11-23T23:12:20.896Z",
+    "theme": "Meta suspende ações sem direito a voto para Zuckerberg",
+    "title": "Todo mundo acha que ações sem voto não valem nada – a verdade da Meta",
+    "hook": "A maioria pensa que essas ações são lixo total.",
+    "script": "Mas a Meta acabou de suspender a emissão de ações sem direito a voto para Mark Zuckerberg. Muitos acreditam que, sem voto, o papel não tem valor. Na prática, esses papéis ainda dão direito a dividendos e podem ser negociados. A empresa fez isso para evitar disputas judiciais que poderiam desvalorizar a bolsa. Para o investidor, significa menos risco de diluição e mais clareza no preço das ações da Meta. Fique de olho nas próximas movimentações da gigante tech.",
+    "cta": "Quer entender como essas decisões afetam seu portfólio, se inscreve aí.",
+    "tags": [
+      "#Meta",
+      "#Ações",
+      "#Investimento"
+    ],
+    "captionKeywords": [
+      "Meta",
+      "ações",
+      "direito a voto",
+      "Zuckerberg",
+      "bolsa"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/meta-suspende-acoes-sem-direito-a-voto-com-zuckerberg-diante-de-disputa-judicial/",
+    "rationale": "Tema atual com impacto direto no mercado de ações, alta relevância para investidores brasileiros e permite explicar de forma simples o que acontece quando uma empresa suspende certos tipos de ações.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 32,
+      "previewFile": "data/previews/sh_mwtvs1wgkd69.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "WyQQU1N_n5s",
+    "previewUrl": "https://youtube.com/shorts/WyQQU1N_n5s",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-23T23:12:20.896Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
+  },
+  {
+    "id": "sh_mwtvst3q322i",
+    "status": "published",
+    "createdAt": "2026-11-23T23:12:20.896Z",
+    "theme": "Petrobras aprova investimento de US$ 122 bilhões até 2031",
+    "title": "Todo mundo acha que a Petrobras só vende petróleo – a realidade do novo plano",
+    "hook": "A maioria acredita que a Petrobras só se preocupa com produção de óleo.",
+    "script": "Na verdade, a companhia acabou de aprovar um plano de negócios que vai investir 122 bilhões de dólares até 2031. O foco não é só extração, mas também energia renovável, tecnologia de captura de carbono e expansão da cadeia de distribuição. Muitos pensam que isso vai subir o preço das ações, mas o objetivo principal é garantir geração de caixa estável e reduzir a dependência de combustíveis fósseis. Para quem tem dinheiro investido, pode significar dividendos mais consistentes nos próximos anos. Aproveite para rever sua exposição ao setor de energia.",
+    "cta": "Se quer acompanhar como esses investimentos podem mudar seu rendimento, se inscreve aí.",
+    "tags": [
+      "#Petrobras",
+      "#Investimento",
+      "#Energia"
+    ],
+    "captionKeywords": [
+      "Petrobras",
+      "investimento",
+      "energia",
+      "planos de negócios",
+      "dividendos"
+    ],
+    "sourceLink": "https://www.infomoney.com.br/mercados/petrobras-petr3-petr4-aprova-investimentos-de-us-122-bi-em-plano-de-negocios-2027-2031/",
+    "rationale": "Investimento maciço da Petrobras atrai atenção de investidores domésticos; explica de forma clara como o plano afeta dividendos e o futuro do setor energético, alinhado ao interesse do público em finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 47,
+      "previewFile": "data/previews/sh_mwtvst3q322i.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "pUOXRf5WStY",
+    "previewUrl": "https://youtube.com/shorts/pUOXRf5WStY",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-23T23:12:20.896Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
   }
 ]
