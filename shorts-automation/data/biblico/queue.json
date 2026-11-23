@@ -94,5 +94,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mwtswvmge3af",
+    "status": "draft",
+    "createdAt": "2026-11-23T21:52:07.192Z",
+    "theme": "Bíblia",
+    "title": "O detalhe que ninguém nota em Davi e Golias",
+    "hook": "Um simples pedaço de pedra mudou tudo.",
+    "script": "Todos lembram o gigante que assustava o exército. Mas o que realmente chamou a atenção de Davi foi a pedra que ele encontrou no riacho, lisa e do tamanho de sua mão. Enquanto os soldados carregavam armaduras pesadas, Davi pegou a pedra, amarrou-a na sua funda e saiu ao campo. Quando Golias avançou, o jovem lançou a pedra com precisão. O projétil acertou a testa do gigante, que despencou como se fosse uma árvore. O que parecia um brinquedo infantil virou a arma que derrubou o medo. E tudo começou com aquele pequeno seixo ao lado da água.",
+    "cta": "Se quiser descobrir mais detalhes que mudam a história, se inscreve aí.",
+    "visual": [
+      "ancient armor sword",
+      "shepherd boy sheep field",
+      "stone river pebbles",
+      "ancient battlefield valley"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:davi-golias",
+    "rationale": "Foca no detalhe pouco notado (a pedra), cumpre limite de 90 palavras, narrativa curta, sem sermão.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "previewFile": "data/biblico/previews/sh_mwtswvmge3af.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
