@@ -1,6 +1,9 @@
 {
   "channelName": "Minuto Bíblico",
   "niche": "Histórias da Bíblia contadas de forma simples e direta, para público adulto — o que aconteceu, por que importa, e o que a passagem tem a dizer hoje. Sem pregação, sem denominação, sem promessa. Narrativa, não sermão.",
+  "youtube": {
+    "expectedChannel": "Minuto Bíblico"
+  },
   "queue": {
     "maxAgeDays": 0
   },
