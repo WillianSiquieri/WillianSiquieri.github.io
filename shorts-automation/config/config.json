@@ -81,6 +81,38 @@
       "label": "Seu Dinheiro",
       "enabled": true,
       "weight": 1
+    },
+    {
+      "id": "infomoney-cripto",
+      "type": "rss",
+      "url": "https://www.infomoney.com.br/criptomoedas/feed/",
+      "label": "InfoMoney Cripto",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "portal-do-bitcoin",
+      "type": "rss",
+      "url": "https://portaldobitcoin.uol.com.br/feed/",
+      "label": "Portal do Bitcoin",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "livecoins",
+      "type": "rss",
+      "url": "https://livecoins.com.br/feed/",
+      "label": "Livecoins",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "g1-tecnologia",
+      "type": "rss",
+      "url": "https://g1.globo.com/rss/g1/tecnologia/",
+      "label": "G1 - Tecnologia",
+      "enabled": true,
+      "weight": 1
     }
   ]
 }

@@ -18,7 +18,11 @@ const QUERY_MAP = [
   { re: /aposentad|previd[êe]ncia|poupan/i, qs: ['saving money piggy bank', 'elderly couple walking', 'retirement home garden', 'hands holding documents'] },
   { re: /cart[ãa]o|d[íi]vida|cr[ée]dito|financ/i, qs: ['credit card payment money', 'worried person bills', 'online shopping laptop', 'contactless payment store'] },
   { re: /im[óo]vel|aluguel|casa|apartamento/i, qs: ['real estate city apartment', 'house keys handover', 'construction site building', 'family moving boxes'] },
-  { re: /tecnologia|intelig[êe]ncia|ia\b|startup|cripto|bitcoin/i, qs: ['technology data server', 'developer coding screen', 'smartphone app hands', 'modern office startup'] },
+  // Cripto tem visual próprio, e bem diferente de "dinheiro": hardware, telas de
+  // negociação, data center. Separado da linha de tecnologia de propósito.
+  { re: /cripto|bitcoin|ethereum|blockchain|token|exchange|binance|stablecoin|altcoin/i, qs: ['bitcoin physical coin', 'crypto trading screen charts', 'server room blue lights', 'circuit board macro', 'mining rig hardware', 'person phone trading app'] },
+  { re: /tecnologia|intelig[êe]ncia artificial|\bia\b|startup|software|chip|semicondutor|nuvem/i, qs: ['data center racks', 'developer coding screen', 'robot arm factory', 'microchip close up', 'modern office startup', 'fiber optic cables'] },
+  { re: /pib|economia|infla[çc][ãa]o global|recess[ãa]o|crescimento|desemprego global|fmi|banco mundial/i, qs: ['city skyline aerial', 'container port crane', 'stock exchange building', 'crowd commuters street', 'factory assembly line', 'world map data screen'] },
   { re: /emprego|desemprego|sal[áa]rio|trabalh/i, qs: ['office workers walking', 'job interview handshake', 'factory worker machine', 'commuters subway crowd'] },
   { re: /pol[íi]tica|elei[çc]|governo|congresso|stf/i, qs: ['government building columns', 'press conference microphones', 'crowd city street protest', 'official documents signing'] },
 ];
