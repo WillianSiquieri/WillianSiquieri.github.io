@@ -421,5 +421,83 @@
     "decidedAt": "2026-11-21T20:47:46.331Z",
     "publishError": "não foi possível apagar ZdFXGxH9b6w do YouTube",
     "publishErrorAt": "2026-11-24T16:55:19.597Z"
+  },
+  {
+    "id": "sh_mwvchycxg4zi",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:48:09.393Z",
+    "theme": "Habitação Popular e Bancos",
+    "title": "Itaú entra no MCMV: o que muda para quem quer comprar casa",
+    "hook": "Quer saber como o Itaú pode facilitar sua primeira casa?",
+    "script": "Até pouco tempo atrás, o programa Minha Casa Minha Vida era quase exclusivo da Caixa. Agora o Itaú lançou uma linha de crédito própria. A taxa de juros ficou próxima à oferecida pela Caixa, mas com prazo mais flexível. Para quem ainda paga aluguel, isso abre uma nova porta de financiamento. Mas atenção: a aprovação ainda depende da renda e do histórico de crédito. Se o seu score estiver em dia, vale a pena comparar as propostas antes de fechar. Próxima mudança: a revisão das regras de uso do FGTS, prevista para o segundo semestre.",
+    "cta": "Se quiser acompanhar as novidades de crédito e como elas afetam seu bolso, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.infomoney.com.br/business/itau-entra-no-mcmv-e-avanca-sobre-mercado-dominado-pela-caixa/",
+    "rationale": "Alta relevância para quem busca casa própria, tema financeiro diferente dos demais e grande potencial de engajamento.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 43,
+      "previewFile": "data/previews/sh_mwvchycxg4zi.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "default",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 9
+    }
+  },
+  {
+    "id": "sh_mwvcijvw94r1",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:48:09.393Z",
+    "theme": "Estratégia da Petrobras para investimentos sem depender do petróleo",
+    "title": "Petrobras aposta em projetos fora do petróleo: o que isso significa para você",
+    "hook": "A Petrobras está mudando de rumo e seu bolso sente o efeito.",
+    "script": "Antes, a estatal dependia quase que exclusivamente da alta do preço do barril para financiar novos projetos. Hoje, a diretoria anunciou que vai investir em energia renovável e infraestrutura, mesmo se o Brent ficar em US$ 50. Essa estratégia reduz a volatilidade dos lucros e pode manter dividendos mais estáveis. Para o investidor, isso significa menos risco de queda abrupta nos pagamentos. Porém, a transição ainda está no início, então acompanhe os relatórios trimestrais. Próximo marco: divulgação dos resultados de 2027, prevista para maio.",
+    "cta": "Quer entender como essas mudanças afetam seu investimento em ações, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.seudinheiro.com/2026/empresas/a-petrobras-petr4-nao-quer-depender-da-bonanca-do-petroleo-para-investir-o-recado-da-ceo-da-estatal-ao-mercado-bdap/",
+    "rationale": "Tema de energia e investimento corporativo, relevante para investidores individuais, sem repetir assunto de bancos ou cripto.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 37,
+      "previewFile": "data/previews/sh_mwvcijvw94r1.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    }
+  },
+  {
+    "id": "sh_mwvcj7mx592j",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:48:09.393Z",
+    "theme": "Hackers derrubam memecoin após ataque a influenciador",
+    "title": "Memecoin perde 60% depois de hackers roubarem milhões de dólares",
+    "hook": "Um ataque hacker acabou despencando uma moeda digital em 60%.",
+    "script": "Até então, a memecoin era celebrada por influencers e tinha alta liquidez. Na última semana, hackers invadiram a carteira de um grande influenciador e desviaram US$ 2,5 milhões. O pânico se espalhou, e o preço da moeda despencou 60% em poucas horas. Para quem tinha a moeda em exchanges, a perda foi quase total. O caso mostra a fragilidade das criptos menos reguladas e a importância de usar carteiras frias. Fique de olho nas próximas notícias sobre segurança cripto, especialmente após a atualização de protocolos prevista para dezembro.",
+    "cta": "Se quiser ficar por dentro dos riscos e oportunidades no mundo cripto, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://portaldobitcoin.uol.com.br/memecoin-despenca-60-apos-hackers-desviarem-us-25-milhoes-de-influenciador/",
+    "rationale": "Aborda segurança em cripto, tema quente e distinto dos outros dois, atendendo ao formato 'antes e depois' com queda de preço.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "previewFile": "data/previews/sh_mwvcj7mx592j.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 9
+    }
   }
 ]
