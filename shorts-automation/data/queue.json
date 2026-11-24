@@ -499,5 +499,83 @@
       "brollClips": 6,
       "cortes": 9
     }
+  },
+  {
+    "id": "sh_mwvcobw7cyyn",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:53:06.871Z",
+    "theme": "Banco do Brasil e IPOs",
+    "title": "Banco do Brasil recusa decisão sobre IPOs: entenda o impacto",
+    "hook": "O Banco do Brasil acabou de dizer não a novos IPOs.",
+    "script": "Até ontem, o BB anunciava planos de abrir capital de subsidiárias. Hoje, a instituição nega qualquer decisão após a CVM questionar. Antes, investidores esperavam novas oportunidades de compra de ações a preço promocional. Agora, o mercado fica à espera de uma resposta oficial, o que pode segurar a oferta de novos papéis. Para o investidor de varejo, isso significa menos chances de participar de valorização precoce. Fique de olho nas próximas declarações da CVM nos próximos 15 dias.",
+    "cta": "Quer saber como decisões regulatórias mexem no seu portfólio? Se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.moneytimes.com.br/banco-do-brasil-bbas3-nega-decisao-sobre-ipos-de-empresas-do-grupo-ap%C3%B3s-questionamento-da-cvm-rnda/",
+    "rationale": "Tema bancário relevante, alta curiosidade sobre IPOs e impacto direto no investidor.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 33,
+      "previewFile": "data/previews/sh_mwvcobw7cyyn.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    }
+  },
+  {
+    "id": "sh_mwvcpnsbja91",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:53:06.871Z",
+    "theme": "PEC fiscal \"turbinada\"",
+    "title": "Nova PEC pode mudar o piso salarial: o que isso traz para sua conta",
+    "hook": "O governo está preparando uma PEC que pode mexer no seu salário mínimo.",
+    "script": "A proposta vem após aprovação de um pacote fiscal que promete gerar economia. Antes, o piso salarial era fixado em lei sem revisão automática. A PEC \"turbinada\" inclui revisão periódica dos pisos, alinhando-os à inflação. Isso pode elevar o salário mínimo em cerca de 4% ao ano, mas também pode pressionar os custos das empresas e gerar aumento de preços. Para quem ganha próximo ao piso, a notícia traz esperança de renda maior, mas atenção ao efeito inflacionário nos próximos meses.",
+    "cta": "Quer acompanhar como reformas fiscais afetam seu bolso? Se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.moneytimes.com.br/potencia-fiscal-governo-prepara-pec-turbinada-com-revisao-de-pisos-veja-o-que-esta-na-mesa/",
+    "rationale": "Assunto fiscal tem amplo impacto doméstico e gera engajamento ao ligar política a finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 34,
+      "previewFile": "data/previews/sh_mwvcpnsbja91.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    }
+  },
+  {
+    "id": "sh_mwvcq939bzo",
+    "status": "draft",
+    "createdAt": "2026-11-24T23:53:06.871Z",
+    "theme": "ETF Hyperliquid na B3",
+    "title": "Primeiro ETF de Hyperliquid chega à B3: risco e oportunidade",
+    "hook": "A Hashdex lançou o primeiro ETF de Hyperliquid aqui no Brasil.",
+    "script": "Até pouco tempo, o Hyperliquid só era negociado em exchanges estrangeiras. Agora, a Hashdex trouxe o HYPH11 para a B3, permitindo compra via corretora tradicional. Antes, quem queria exposição precisava abrir conta no exterior e lidar com taxas altas. Hoje, o investimento fica mais acessível, mas ainda traz volatilidade típica de cripto. Para quem tem perfil moderado, pode ser um complemento ao portfólio, porém é essencial limitar a alocação a poucos por cento. Acompanhe o desempenho nas próximas semanas.",
+    "cta": "Curioso sobre como cripto entra na bolsa? Se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://portaldobitcoin.uol.com.br/primeiro-etf-de-hyperliquid-do-brasil-comeca-a-ser-negociado-na-b3/",
+    "rationale": "Inovação no mercado brasileiro, conecta cripto ao investidor tradicional, alta procura por novidades.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 49,
+      "previewFile": "data/previews/sh_mwvcq939bzo.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
