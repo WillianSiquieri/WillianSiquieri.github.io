@@ -177,7 +177,14 @@ async function main() {
       if (asm.rendered && youtubeReady() && !argFlag('no-upload')) {
         try {
           const privacy = settings.mode === 'auto' ? 'public' : 'unlisted';
-          const up = await uploadShort(entry, asm.videoPath, { privacyStatus: privacy, categoryId: config.video?.categoryId });
+          const up = await uploadShort(entry, asm.videoPath, {
+            privacyStatus: privacy,
+            categoryId: config.video?.categoryId,
+            // Só barra quando o nome esperado está declarado na config. Sem isso,
+            // apenas registra o canal no log: usar channelName como padrão
+            // quebraria um canal cujo nome no YouTube seja diferente do da config.
+            expectedChannel: config.youtube?.expectedChannel || null,
+          });
           if (up) {
             entry.youtubeId = up.youtubeId;
             entry.previewUrl = up.url;

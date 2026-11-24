@@ -124,6 +124,28 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 
 Sem as chaves do YouTube, o sistema ainda gera e enfileira os shorts — só não publica.
 
+#### Vários canais no mesmo projeto
+
+Cada canal do YouTube tem o **seu** refresh token, porque o token é amarrado ao
+canal escolhido na tela de consentimento. Mas o **Client ID e o Client Secret são
+do projeto, não do canal** — então não precisa de projeto novo no Google Cloud
+nem de credencial nova: só de um refresh token por canal.
+
+| canal | secret do refresh token |
+|---|---|
+| financeiro (padrão) | `YT_REFRESH_TOKEN` |
+| biblico | `YT_REFRESH_TOKEN_BIBLICO` |
+| `<outro>` | `YT_REFRESH_TOKEN_<OUTRO>` |
+
+O nome sai do canal automaticamente (ver `refreshTokenEnvName` em
+`src/youtube/auth.js`), e o motor **não** cai no token do financeiro quando o
+específico falta — isso publicaria no canal errado.
+
+Para travar isso de vez, declare o nome esperado em
+`config/channels/<canal>.json → youtube.expectedChannel`. Antes de enviar
+qualquer byte, o motor pergunta ao YouTube de quem é o token e **falha** se não
+for o canal certo. Sem esse campo ele só registra o canal no log, sem barrar.
+
 #### Regerar o `YT_REFRESH_TOKEN` pelo OAuth Playground
 
 Use quando a aprovação falhar com `Insufficient Permission`, quando os escopos

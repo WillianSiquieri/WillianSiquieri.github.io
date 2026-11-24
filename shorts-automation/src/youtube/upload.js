@@ -9,12 +9,48 @@ export function youtubeReady() {
   return Boolean(getAuth());
 }
 
-export async function uploadShort(draft, videoPath, { privacyStatus = 'private', categoryId = '25' } = {}) {
+// Qual canal o refresh token controla. O token é amarrado ao canal escolhido na
+// tela de consentimento, e escolher o errado ali já encheu o canal pessoal de
+// vídeos neste projeto. Conferido uma vez por processo (cache) e barato.
+let canalCache = null;
+export async function canalDoToken(auth) {
+  if (canalCache) return canalCache;
+  const youtube = google.youtube({ version: 'v3', auth });
+  const res = await youtube.channels.list({ part: ['snippet'], mine: true });
+  const c = res.data.items?.[0];
+  canalCache = { id: c?.id || null, title: c?.snippet?.title || null };
+  return canalCache;
+}
+
+// Compara o canal do token com o nome esperado na config. Não tenta ser exato:
+// normaliza acento, caixa e pontuação, porque o nome no YouTube raramente bate
+// caractere a caractere com o da config.
+const norm = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+
+export async function assertCanal(auth, esperado) {
+  const atual = await canalDoToken(auth);
+  if (!atual.title) {
+    log('Não foi possível confirmar o canal do token — seguindo.');
+    return atual;
+  }
+  log(`Canal do token: "${atual.title}" (${atual.id})`);
+  if (esperado && norm(atual.title) !== norm(esperado)) {
+    throw new Error(
+      `Canal errado: o token aponta para "${atual.title}", mas este canal é "${esperado}". ` +
+        `Gere o refresh token de novo e, na tela de consentimento, selecione "${esperado}".`
+    );
+  }
+  return atual;
+}
+
+export async function uploadShort(draft, videoPath, { privacyStatus = 'private', categoryId = '25', expectedChannel = null } = {}) {
   const auth = getAuth();
   if (!auth) {
     log('Credenciais do YouTube ausentes — upload pulado.');
     return null;
   }
+  // Antes de enviar qualquer byte: o token é do canal certo?
+  await assertCanal(auth, expectedChannel);
   const youtube = google.youtube({ version: 'v3', auth });
 
   const description = [
