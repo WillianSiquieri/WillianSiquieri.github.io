@@ -127,5 +127,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mwv5a6vleqin",
+    "status": "draft",
+    "createdAt": "2026-11-24T20:26:09.873Z",
+    "theme": "Abraão e Isaque",
+    "title": "A decisão impossível de Abraão",
+    "hook": "Já imaginou ter que sacrificar o próprio filho?",
+    "script": "Deus pediu a Abraão que levasse seu filho Isaac ao Monte Moriá e o oferecesse como holocausto. Abraão já tinha esperado anos pela promessa de um herdeiro; Isaac era a prova viva da promessa. Mas a ordem dizia que o filho seria a oferta. Ele partiu, carregando a madeira, a jumenta, e o menino adormecido. Chegando ao topo, preparou o altar, amarrou Isaac e levantou a faca. No último instante, um anjo gritou: não faça isso. Abraão soltou o menino, mas o sangue de um carneiro pronto foi o sacrifício que ficou.",
+    "cta": "Se quiser saber como decisões extremas mudam destinos, se inscreve aí.",
+    "visual": [
+      "desert mountain path",
+      "stone altar ancient",
+      "ram sheep desert",
+      "father son walking silhouette"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:abraao-isaque",
+    "rationale": "Escolha de Abraão ilustra a 'decisão impossível' solicitada, mantendo narrativa curta e sem pregação.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 45,
+      "previewFile": "data/biblico/previews/sh_mwv5a6vleqin.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
