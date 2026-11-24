@@ -65,7 +65,7 @@
   },
   {
     "id": "sh_mws5rwbvi34m",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-22T18:16:37.483Z",
     "theme": "Noé e o Dilúvio",
     "title": "Noé e a Arca: Entre o riso e a chuva",
@@ -93,7 +93,8 @@
       "comCta": true,
       "brollClips": 6,
       "cortes": 10
-    }
+    },
+    "decidedAt": "2026-11-24T02:14:53.624Z"
   },
   {
     "id": "sh_mwtswvmge3af",
