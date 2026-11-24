@@ -423,7 +423,7 @@
   },
   {
     "id": "sh_mws5uk431jse",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2026-11-22T18:18:41.619Z",
     "theme": "Impostos sobre combustíveis",
     "title": "ICMS do diesel disparou 735% desde 2002 – o que isso traz para o seu bolso?",
@@ -457,6 +457,7 @@
       "comCta": true,
       "brollClips": 5,
       "cortes": 8
-    }
+    },
+    "decidedAt": "2026-11-24T02:13:32.716Z"
   }
 ]
