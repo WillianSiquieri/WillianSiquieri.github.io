@@ -22,6 +22,9 @@ Regras do roteiro:
 - Cada short do lote tem de parecer feito por uma pessoa diferente: varie a
   estrutura, o comprimento das frases e o fecho. Dois roteiros com a mesma forma
   tiram o canal da monetização (política de "conteúdo produzido em massa").
+- Varie o ASSUNTO dentro do lote. Nunca dois shorts sobre o mesmo ativo, a mesma
+  empresa ou o mesmo indicador — nem em recortes diferentes. Se a lista permitir,
+  prefira assuntos de naturezas diferentes entre si.
 - "sourceLink" tem de ser COPIADO EXATAMENTE do item que você escolheu da lista.
   Nunca invente URL nem monte um link "equivalente": o sistema usa esse campo
   para não repetir tema e para saber quais imagens combinam com o assunto.
@@ -413,7 +416,7 @@ async function generateWithGroq(opts) {
     const model = models[i];
     // Saída: 1200 tokens cobrem com folga 1 roteiro em JSON.
     let budget = Math.min(1200, 400 * Math.max(1, count) + 400);
-    let size = { maxItems: 8, summaryLen: 60 };
+    let size = { maxItems: 12, summaryLen: 55 };
 
     for (let attempt = 1; attempt <= 4; attempt++) {
       try {
