@@ -23,7 +23,7 @@ import { music } from './engine/music.js';
 import { BUILDINGS, ITEMS, RESOURCE_LOTS, PHASES, phaseOf, xpToNext } from './game/config.js';
 import * as E from './game/economy.js';
 import { newGame, showcaseGame, load, save, resetSave, tileOf, population, happiness, setStorage, migrateLocalSave } from './game/state.js';
-import { t, tn, setLang, fmtTime, fmtNum, applyPortalLocale, getLang } from './i18n.js';
+import { t, tn, setLang, fmtTime, fmtNum, getLang } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -752,7 +752,6 @@ async function boot() {
     await Promise.race([adsReady, new Promise(r => setTimeout(r, 20000))]);
     const store = ads.storage();
     if (store) { migrateLocalSave(store); setStorage(store); }
-    applyPortalLocale(ads.locale);
   }
   const game = new CityGame($('city'));
   window.__city = game;

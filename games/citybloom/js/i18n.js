@@ -1,7 +1,7 @@
 // i18n.js — textos em português e inglês. Detecta o idioma do aparelho
 // (pt* → português, resto → inglês) e permite trocar manualmente (salvo).
 
-const LANG_KEY = 'citybloom.lang.v1';
+const LANG_KEY = 'citybloom.lang.v2';   // v2: o jogo volta a abrir em inglês; só a escolha no menu fica salva
 
 const STRINGS = {
   pt: {
@@ -48,7 +48,7 @@ const STRINGS = {
     nameGo: 'Começar', nameEmpty: 'Digite um nome para a cidade', nameSaved: 'Nome salvo: {n}',
     music: 'Música', effects: 'Efeitos sonoros', on: 'Ligados', off: 'Desligados', language: 'Idioma',
     credits: 'Créditos',
-    creditMusic: 'Música "Bossa da Prefeitura": composição original para o CityBloom.',
+    creditMusic: 'Músicas: composições originais para o CityBloom.',
     creditInstruments: 'Instrumentos: soundfont FluidR3_GM (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman)',
     creditCharacters: 'Personagens: estilo Micah, de Micah Lanier, gerado com DiceBear',
     creditModels: 'Modelos 3D: Kenney (kenney.nl), CC0. Motor: Three.js (MIT).',
@@ -140,7 +140,7 @@ const STRINGS = {
     nameGo: 'Start', nameEmpty: 'Type a name for your city', nameSaved: 'Name saved: {n}',
     music: 'Music', effects: 'Sound effects', on: 'On', off: 'Off', language: 'Language',
     credits: 'Credits',
-    creditMusic: 'Music "Town Hall Bossa": original composition for CityBloom.',
+    creditMusic: 'Music: original compositions for CityBloom.',
     creditInstruments: 'Instruments: FluidR3_GM soundfont (Frank Wen), via midi-js-soundfonts (Benjamin Gleitzman)',
     creditCharacters: 'Characters: Micah style by Micah Lanier, generated with DiceBear',
     creditModels: '3D models: Kenney (kenney.nl), CC0. Engine: Three.js (MIT).',
@@ -202,18 +202,8 @@ function saved() {
 function detect() {
   const v = saved();
   if (v) return v;
-  // inglês é o padrão; português só pela escolha do jogador ou pelo idioma do portal (applyPortalLocale)
+  // inglês sempre é o padrão; português só pela escolha do jogador em Configurações
   return 'en';
-}
-
-// Idioma informado pelo portal (ex.: 'pt-BR'), usado só se o jogador não escolheu.
-export function applyPortalLocale(locale) {
-  if (!locale || saved()) return false;
-  const l = String(locale).toLowerCase().startsWith('pt') ? 'pt' : 'en';
-  if (l === lang) return false;
-  lang = l;
-  if (typeof document !== 'undefined') document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en';
-  return true;
 }
 
 let lang = detect();

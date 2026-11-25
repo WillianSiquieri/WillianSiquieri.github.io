@@ -18,7 +18,12 @@ com o tempo, então confira na página de cada portal ao se cadastrar.
   - roupas das pessoas;
   - visual da prefeitura;
   - quintais das casas.
-- **Inglês como padrão.** Prefeito **Walt Parker** e moradores com nomes em inglês.
+- **Sempre abre em inglês** (não segue o idioma do portal). O português fica em
+  ☰ → Settings & language. Prefeito **Walt Parker** e moradores com nomes em inglês.
+- **Trilha sonora discreta**, composta para o jogo no estilo dos jogos de construção de
+  cidade: modal, acústica, lenta e sem percussão. **Hearth & Fields** (padrão: harpa, alaúde,
+  flauta doce, trompa, cordas e violoncelo) e **Distant Hills** (piano, coro, cordas e harpa).
+  Volume inicial baixo; Quiet Morning e Town Hall Bossa continuam como opção.
 - **Montanhas com neve** ao norte e a leste, com o rio descendo pelo vale e as estradas saindo
   por passagens.
 - **4 rotatórias.**

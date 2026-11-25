@@ -18,6 +18,7 @@ export function midiOf(name) {
 const QUAL = {
   '': [0, 4, 7], m: [0, 3, 7], '7': [0, 4, 7, 10], maj7: [0, 4, 7, 11], m7: [0, 3, 7, 10],
   m6: [0, 3, 7, 9], sus4: [0, 5, 7], add9: [0, 4, 7, 14],
+  '5': [0, 7], sus2: [0, 2, 7], m9: [0, 3, 7, 10, 14],
 };
 export function chord(sym) {
   const [main, slash] = sym.split('/');
@@ -241,7 +242,7 @@ function bossaPrefeitura() {
 // ===========================================================================
 function manhaTranquila() {
   const s = new Song({
-    id: 'manha', bpm: 80, swing: 0, gain: 3.4,
+    id: 'manha', bpm: 80, swing: 0, gain: 2.2,
     name: { pt: 'Manhã Tranquila', en: 'Quiet Morning' },
     desc: { pt: 'Calma e acolhedora', en: 'Calm and cozy' },
     instruments: { pt: 'Piano, cordas, harpa', en: 'Piano, strings, harp' },
@@ -315,7 +316,90 @@ function passeioBicicleta() {
   return s.done(t);
 }
 
-export const SONGS = [pracaAoSol(), bossaPrefeitura(), manhaTranquila(), passeioBicicleta()];
+// ===========================================================================
+// 5) LAREIRA E CAMPOS — trilha de fundo de jogo de construção: modal, antiga,
+//    sem percussão, melodia esparsa (Ré dórico, 72 BPM). É a música padrão.
+// ===========================================================================
+function lareiraCampos() {
+  const s = new Song({
+    id: 'hearth', bpm: 72, swing: 0, gain: 1.5,
+    name: { pt: 'Lareira e Campos', en: 'Hearth & Fields' },
+    desc: { pt: 'Calma, de vila antiga', en: 'Calm, old-village feel' },
+    instruments: { pt: 'Harpa, alaúde, flauta doce, trompa, cordas, violoncelo', en: 'Harp, lute, recorder, horn, strings, cello' },
+  });
+  const A = P('Dm G Dm C Dm G Am Dm');
+  const B = P('F C Gm Dm Bb F C A');
+  const melA = `D5:1.5 E5:.5 F5:1 A5:1 | G5:3 r:1 | A5:1 B5:.5 A5:.5 G5:1 F5:1 | E5:3 r:1 |
+    D5:1.5 E5:.5 F5:1 G5:1 | A5:2 C6:1 B5:1 | A5:1.5 G5:.5 E5:1 C5:1 | D5:4`;
+  const melA2 = `D5:1.5 E5:.5 F5:1 A5:1 | B5:2 A5:1 G5:1 | A5:1.5 F5:.5 E5:1 D5:1 | E5:2 G5:1 E5:1 |
+    D5:1 F5:1 A5:1 D6:1 | C6:2 B5:1 G5:1 | A5:1 G5:1 E5:1 C5:1 | D5:3 r:1`;
+  const melB = `A4:2 C5:2 | G4:2 E4:2 | D5:3 Bb4:1 | A4:4 | F4:2 D5:1.5 C5:.5 | C5:2 A4:2 | G4:1 A4:1 C5:1 E5:1 | E5:2 C#5:2`;
+  const celloB = `F3:4 | E3:4 | D3:4 | F3:4 | D3:4 | C3:4 | E3:4 | C#3:2 E3:2`;
+  const harp = (prog, t, vel, order = [0, 2, 1, 3], step = 1) => s.arp('orchestral_harp', prog, t, order, step, (ch) => spread(ch, 50, 4), vel);
+  const pad = (prog, t, vel) => s.chords('string_ensemble_1', prog, t, [[0, 4, 1]], (ch) => spread(ch, 53, 3), vel);
+  const lute = (prog, t, vel) => s.chords('acoustic_guitar_nylon', prog, t, [[0, 2, 1], [2, 2, 0.7]], (ch) => spread(ch, 48, 4), vel, 0.03);
+  const cello = (prog, t, vel) => s.bass('cello', prog, t, [[0, 'root', 2], [2, 'fifth', 2]], 36, vel);
+  let t = 0;
+  // introdução: bordão de Ré no violoncelo e a harpa abrindo
+  s.line('cello', 'D2+A2:4 | D2+A2:4 | D2+A2:4 | D2+A2:4', t, { vel: 0.3 });
+  harp(P('Dm Dm Dsus2 Dm'), t, 0.2); t += 16;
+  // A: flauta doce
+  harp(A, t, 0.2); lute(A, t, 0.16); cello(A, t, 0.3); pad(A, t, 0.1);
+  s.line('recorder', melA, t, { vel: 0.42, legato: 0.9 }); t += 32;
+  // A': respiro — só o alaúde dedilhado
+  s.arp('acoustic_guitar_nylon', A, t, [0, 1, 2, 3, 2, 1, 2, 1], 0.5, (ch) => spread(ch, 48, 4), 0.22);
+  cello(A, t, 0.26); pad(A, t, 0.12); t += 32;
+  // B: trompa e violoncelo em contracanto
+  harp(B, t, 0.16); pad(B, t, 0.14);
+  s.line('french_horn', melB, t, { vel: 0.4, legato: 0.92 });
+  s.line('cello', celloB, t, { vel: 0.3, legato: 0.95 });
+  s.bass('cello', B, t, [[0, 'root', 4]], 36, 0.22); t += 32;
+  // A2: flauta doce com variação, cordas em contracanto
+  harp(A, t, 0.2); lute(A, t, 0.14); cello(A, t, 0.28); pad(A, t, 0.13);
+  s.line('recorder', melA2, t, { vel: 0.4, legato: 0.9 }); t += 32;
+  // final: repouso em Ré e um compasso de respiro antes de recomeçar
+  harp(P('Dm Dsus2 Dm'), t, 0.15); s.line('cello', 'D2+A2:4 | D2+A2:4 | D2:4', t, { vel: 0.24 });
+  t += 16;
+  return s.done(t);
+}
+
+// ===========================================================================
+// 6) COLINAS DISTANTES — ambiente, contemplativa (Lá eólio, 66 BPM)
+// ===========================================================================
+function colinasDistantes() {
+  const s = new Song({
+    id: 'hills', bpm: 66, swing: 0, gain: 3.2,
+    name: { pt: 'Colinas Distantes', en: 'Distant Hills' },
+    desc: { pt: 'Ambiente e contemplativa', en: 'Ambient and reflective' },
+    instruments: { pt: 'Piano, coro, cordas, harpa, violoncelo', en: 'Piano, choir, strings, harp, cello' },
+  });
+  const A = P('Am:8 F:8 C:8 G:8');
+  const B = P('F G Am Am Dm Em F E');
+  const melA = `E5:2 A5:1 B5:1 | C6:3 r:1 | A5:2 G5:1 F5:1 | C5:3 r:1 |
+    E5:1.5 G5:.5 C6:2 | B5:2 G5:2 | D5:2 B4:1 D5:1 | r:4`;
+  const melA2 = `E5:2 A5:1 B5:1 | C6:2 E6:1 D6:1 | C6:2 A5:1 F5:1 | A5:3 r:1 |
+    G5:1.5 E5:.5 C6:2 | B5:1 C6:1 D6:2 | B5:3 G5:1 | r:4`;
+  const melB = `A5:2 C6:2 | B5:2 D6:2 | C6:2 E6:1 C6:1 | A5:4 | F5:2 A5:2 | G5:2 B5:2 | A5:1.5 G5:.5 F5:1 A5:1 | G#5:4`;
+  const lh = (prog, t, vel) => s.arp('acoustic_grand_piano', prog, t, [0, 2, 1, 2], 1, (ch) => spread(ch, 45, 3), vel);
+  const choir = (prog, t, vel) => s.chords('choir_aahs', prog, t, [[0, 8, 1]], (ch) => spread(ch, 55, 3), vel);
+  const roll = (prog, t, vel) => s.chords('orchestral_harp', prog, t, [[0, 3, 1]], (ch) => spread(ch, 57, 5), vel, 0.09);
+  const cello = (prog, t, vel) => s.bass('cello', prog, t, [[0, 'root', 4], [4, 'root', 4]], 33, vel);
+  let t = 0;
+  roll(P('Am:8 F:8'), t, 0.26); choir(P('Am:8 F:8'), t, 0.18); t += 16;               // introdução
+  lh(A, t, 0.17); cello(A, t, 0.26); choir(A, t, 0.08);
+  s.line('acoustic_grand_piano', melA, t, { vel: 0.38 }); t += 32;                    // A: piano
+  roll(B, t, 0.16); cello(B, t, 0.26); choir(B, t, 0.1);
+  s.line('string_ensemble_1', melB, t, { vel: 0.3 }); t += 32;                        // B: cordas
+  s.arp('orchestral_harp', A, t, [0, 1, 2, 3, 4, 3, 2, 1], 1, (ch) => spread(ch, 50, 5), 0.18);
+  cello(A, t, 0.22); choir(A, t, 0.1); t += 32;                                       // A': respiro
+  lh(A, t, 0.16); cello(A, t, 0.26); choir(A, t, 0.08);
+  s.line('acoustic_grand_piano', melA2, t, { vel: 0.36 });
+  s.line('orchestral_harp', melA2, t, { vel: 0.12 }); t += 32;                        // A2
+  roll(P('Am:8 F:4 Am:4'), t, 0.16); choir(P('Am:8 Am:6'), t, 0.1); t += 16;                       // final
+  return s.done(t);
+}
+
+export const SONGS = [pracaAoSol(), bossaPrefeitura(), manhaTranquila(), passeioBicicleta(), lareiraCampos(), colinasDistantes()];
 
 // Notas usadas por instrumento (para baixar só as amostras necessárias).
 export function notesUsed() {

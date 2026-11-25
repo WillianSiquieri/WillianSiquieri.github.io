@@ -7,12 +7,13 @@
 import { SongPlayer } from './sampler.js';
 import { SONGS } from '../game/songs.js';
 
-const PREF_KEY = 'citybloom.music.v1';
-const ENABLED = ['bossa'];   // músicas escolhidas para o jogo
+const PREF_KEY = 'citybloom.music.v2';   // v2: trilha calma nova como padrão (volta ao padrão quem tinha a v1)
+// Músicas escolhidas para o jogo; a primeira é a padrão (trilha de fundo discreta).
+const ENABLED = ['hearth', 'hills', 'manha', 'bossa'];
 
 export const THEMES = [
   { id: 'off', name: { pt: 'Desligada', en: 'Off' } },
-  ...SONGS.filter(s => ENABLED.includes(s.id)).map(s => ({ id: s.id, name: s.name })),
+  ...ENABLED.map(id => SONGS.find(s => s.id === id)).map(s => ({ id: s.id, name: s.name })),
 ];
 
 class Music {
@@ -20,9 +21,8 @@ class Music {
     this.player = new SongPlayer('assets/instruments/');
     let p = {};
     try { p = JSON.parse(localStorage.getItem(PREF_KEY) || '{}'); } catch (_) {}
-    // temas antigos (calm/happy/lofi) passam para a música atual
     this.theme = p.theme === 'off' ? 'off' : (THEMES.some(t => t.id === p.theme) ? p.theme : ENABLED[0]);
-    this.volume = typeof p.volume === 'number' ? p.volume : 0.6;
+    this.volume = typeof p.volume === 'number' ? p.volume : 0.35;
     this.player.volume = this.volume;
     this.started = false;
   }

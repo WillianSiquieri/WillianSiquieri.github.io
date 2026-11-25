@@ -21,7 +21,14 @@ const MIX = {
   orchestral_harp: { g: 0.8, pan: 0.3 },
   marimba: { g: 0.95, pan: 0.15 },
   whistle: { g: 0.7, pan: 0.1 },
+  cello: { g: 0.85, pan: -0.15 },
+  french_horn: { g: 0.7, pan: 0.15 },
+  recorder: { g: 0.75, pan: 0.2 },
+  choir_aahs: { g: 0.55, pan: 0 },
 };
+
+// Instrumentos de som contínuo (soltam a nota mais devagar).
+const SUSTAIN = new Set(['string_ensemble_1', 'cello', 'choir_aahs', 'french_horn', 'recorder', 'flute', 'whistle']);
 
 export class SongPlayer {
   constructor(baseUrl) {
@@ -43,7 +50,7 @@ export class SongPlayer {
     this.master = c.createGain(); this.master.gain.value = 0;
     this.comp.connect(this.master); this.master.connect(c.destination);
     this.reverb = c.createConvolver(); this.reverb.buffer = this._impulse(2.2);
-    const wet = c.createGain(); wet.gain.value = 0.22;
+    const wet = c.createGain(); wet.gain.value = 0.3;   // um pouco de sala: a música soa ao fundo
     this.reverb.connect(wet); wet.connect(this.comp);
     this.chan = {};
     for (const [inst, m] of Object.entries(MIX)) {
@@ -110,7 +117,7 @@ export class SongPlayer {
     this.spb = 60 / song.bpm;
     this.t0 = this.ctx.currentTime + 0.15;
     this.idx = 0; this.loopN = 0;
-    this._fade(this._level(), 0.6);
+    this._fade(this._level(), 3);           // entra devagar
     this.timer = setInterval(() => this._schedule(), 25);
     this._schedule();
   }
@@ -170,20 +177,39 @@ export class SongPlayer {
     const buf = this.buffers.get(ev.inst + '/' + sm);
     const out = this.chan[ev.inst];
     if (!buf || !out) return;
-    const c = this.ctx;
-    const src = c.createBufferSource();
-    src.buffer = buf;
-    src.playbackRate.value = Math.pow(2, (ev.n - sm) / 12);
-    const g = c.createGain();
+    const rate = Math.pow(2, (ev.n - sm) / 12);
     const dur = Math.max(0.05, ev.d * this.spb);
-    const end = Math.min(t + dur, t + buf.duration / src.playbackRate.value - 0.05);
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(Math.max(0.001, ev.v), t + 0.006);
-    g.gain.setValueAtTime(Math.max(0.001, ev.v), Math.max(t + 0.01, end));
-    g.gain.exponentialRampToValueAtTime(0.0001, Math.max(t + 0.02, end) + 0.22);
-    src.connect(g); g.connect(out);
-    src.start(t);
-    src.stop(Math.max(t + 0.05, end) + 0.25);
+    const v = Math.max(0.001, ev.v);
+    // As amostras têm ~3,1 s e as de som contínuo terminam secas. Notas longas desses
+    // instrumentos encadeiam trechos da mesma amostra (pulando o ataque) com crossfade;
+    // a nota solta (release) sempre acaba antes do fim do trecho, senão estala.
+    const sus = SUSTAIN.has(ev.inst), rel = sus ? 0.45 : 0.22;
+    const XF = 0.5, OFF = 0.7, noteEnd = t + dur;
+    let at = t, offset = 0, first = true;
+    for (let guard = 0; guard < 12; guard++) {
+      const availEnd = at + (buf.duration - offset) / rate - 0.03;
+      const src = this.ctx.createBufferSource();
+      src.buffer = buf; src.playbackRate.value = rate;
+      const g = this.ctx.createGain(), gg = g.gain;
+      gg.setValueAtTime(0.0001, at);
+      if (first) gg.exponentialRampToValueAtTime(v, at + 0.006);
+      else gg.linearRampToValueAtTime(v, at + XF);
+      src.connect(g); g.connect(out);
+      src.start(at, offset);
+      if (!sus || noteEnd + rel <= availEnd) {          // cabe neste trecho: segura e solta
+        const end = Math.max(at + (first ? 0.01 : XF), Math.min(noteEnd, availEnd - rel));
+        gg.setValueAtTime(v, end);
+        gg.exponentialRampToValueAtTime(0.0001, end + rel);
+        src.stop(end + rel + 0.03);
+        break;
+      }
+      // não cabe: o próximo trecho entra enquanto este sai
+      const next = availEnd - XF;
+      gg.setValueAtTime(v, next);
+      gg.linearRampToValueAtTime(0.0001, availEnd);
+      src.stop(availEnd + 0.01);
+      at = next; offset = OFF; first = false;
+    }
   }
 
   _perc(type, t, v) {
