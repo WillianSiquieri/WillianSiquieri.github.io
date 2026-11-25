@@ -453,7 +453,7 @@
   },
   {
     "id": "sh_mwvd5xpzb6bq",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-25T00:06:16.024Z",
     "theme": "Hackers derrubam 60% de memecoin após roubo de 2,5 milhões de dólares de influenciador",
     "title": "Ataque a memecoin: quem ganha e quem perde com a queda de 60%",
@@ -475,6 +475,7 @@
       "comCta": false,
       "brollClips": 6,
       "cortes": 7
-    }
+    },
+    "decidedAt": "2026-11-25T03:11:32.153Z"
   }
 ]
