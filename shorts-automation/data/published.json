@@ -1347,5 +1347,39 @@
     "avgViewPct": null,
     "avgViewSec": null,
     "analyticsUpdatedAt": "2026-11-25T03:11:36.846Z"
+  },
+  {
+    "id": "sh_mwvjte5d6hob",
+    "status": "published",
+    "createdAt": "2026-11-25T03:13:00.385Z",
+    "theme": "Banco do Brasil nega decisão sobre IPOs de empresas do grupo após questionamento da CVM",
+    "title": "Banco do Brasil bloqueia IPOs: quem sai ganhando e quem perde?",
+    "hook": "O Banco do Brasil acabou de dizer não a novos IPOs.",
+    "script": "A diretoria informou que, depois da CVM questionar a estratégia, vai manter a pausa nos lançamentos de ações das subsidiárias. Quem sai ganhando são os investidores que já tinham posições nas empresas do grupo, porque evitam diluição inesperada. Já quem perde são as companhias que queriam captar recursos no mercado, agora ficam sem capital fresco e podem atrasar projetos. Para quem acompanha a bolsa, isso significa menos oportunidades de comprar ações novas a preço de oferta. E você, acha que a decisão protege os acionistas ou trava o crescimento das empresas?",
+    "cta": "Se quiser ficar por dentro de como decisões como essa mexem no seu bolso, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://www.moneytimes.com.br/banco-do-brasil-bbas3-nega-decisao-sobre-ipos-de-empresas-do-grupo-apos-questionamento-da-cvm-rnda/",
+    "rationale": "Tema relevante ao público de finanças, apresenta claramente ganhadores e perdedores, evita sensacionalismo e cumpre limite de 35‑45 segundos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwvjte5d6hob.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "WD-bvNORgF4",
+    "previewUrl": "https://youtube.com/shorts/WD-bvNORgF4",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-25T03:13:00.385Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
   }
 ]
