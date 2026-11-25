@@ -422,5 +422,57 @@
     "publishError": "não foi possível apagar ZdFXGxH9b6w do YouTube",
     "publishErrorAt": "2026-11-24T23:57:35.639Z",
     "rejectReason": "expirou sem revisão (mais de 5 dias na fila)"
+  },
+  {
+    "id": "sh_mwvd58t4dl6i",
+    "status": "draft",
+    "createdAt": "2026-11-25T00:06:16.024Z",
+    "theme": "Trump lucrou com ações da Nvidia após retorno de Jensen Huang",
+    "title": "Trump faturou milhões com a Nvidia – entenda como isso afeta seu bolso",
+    "hook": "Você sabia que o ex‑presidente ganhou até quinze milhões de dólares com a Nvidia?",
+    "script": "A Nvidia voltou ao comando de Jensen Huang e as ações dispararam. Um relatório da Financial Times mostrou que Donald Trump teria lucrado até quinze milhões de dólares com essas ações. Quem sai ganhando? Investidores que compraram as ações antes da alta e acionistas da Nvidia que veem valorização no preço das ações. Quem perde? Quem entrou depois da alta, pagando preços inflacionados, e quem tem carteira concentrada em tecnologia sem diversificação. E você, já tem exposição à Nvidia ou prefere esperar?",
+    "cta": "Se quiser acompanhar como grandes nomes influenciam o mercado, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://exame.com/invest/mercados/trump-lucrou-ate-us-15-milhoes-com-acoes-da-nvidia-apos-o-retorno-de-huang-diz-ft/",
+    "rationale": "Tema de mercado internacional com impacto direto em investidores, alto potencial de engajamento e diferente dos demais shorts.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "previewFile": "data/previews/sh_mwvd58t4dl6i.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 9
+    }
+  },
+  {
+    "id": "sh_mwvd5xpzb6bq",
+    "status": "draft",
+    "createdAt": "2026-11-25T00:06:16.024Z",
+    "theme": "Hackers derrubam 60% de memecoin após roubo de 2,5 milhões de dólares de influenciador",
+    "title": "Ataque a memecoin: quem ganha e quem perde com a queda de 60%",
+    "hook": "Um hack fez a memecoin despencar sessenta por cento da noite para o dia.",
+    "script": "Um influenciador teve US$ 2,5 milhões desviados por hackers que atacaram a plataforma Bullpen. Imediatamente, a memecoin associada perdeu sessenta por cento do valor. Quem sai ganhando? Os hackers, que levaram milhões, e investidores que já tinham vendido antes da queda, garantindo lucro. Quem perde? Os compradores recentes, que viram seu investimento evaporar, e a comunidade da memecoin, que perde confiança e liquidez. Essa situação mostra o risco de ativos voláteis e a importância de segurança digital. E você, ainda investe em memecoins?",
+    "cta": "Quer ficar por dentro dos riscos das criptomoedas, se inscreve aí.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://portaldobitcoin.uol.com.br/memecoin-despenca-60-apos-hackers-desviarem-us-25-milhoes-de-influenciador/",
+    "rationale": "Assunto de cripto com alto interesse, foco em quem ganha e perde, distinto do primeiro short.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwvd5xpzb6bq.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+12%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    }
   }
 ]
