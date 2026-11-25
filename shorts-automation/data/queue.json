@@ -425,7 +425,7 @@
   },
   {
     "id": "sh_mwvd58t4dl6i",
-    "status": "draft",
+    "status": "rejected",
     "createdAt": "2026-11-25T00:06:16.024Z",
     "theme": "Trump lucrou com ações da Nvidia após retorno de Jensen Huang",
     "title": "Trump faturou milhões com a Nvidia – entenda como isso afeta seu bolso",
@@ -447,7 +447,9 @@
       "comCta": true,
       "brollClips": 6,
       "cortes": 9
-    }
+    },
+    "decidedAt": "2026-11-25T03:11:16.171Z",
+    "rejectReason": "Financial times tem que ser adicionado no arquivo de pronuncia correto"
   },
   {
     "id": "sh_mwvd5xpzb6bq",
