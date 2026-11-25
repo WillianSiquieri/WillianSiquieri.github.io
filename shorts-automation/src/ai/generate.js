@@ -22,6 +22,18 @@ Regras do roteiro:
 - Cada short do lote tem de parecer feito por uma pessoa diferente: varie a
   estrutura, o comprimento das frases e o fecho. Dois roteiros com a mesma forma
   tiram o canal da monetização (política de "conteúdo produzido em massa").
+- A narração é FALADA por voz sintética em português. Então, em "hook", "script"
+  e "cta":
+  · NUNCA escreva ticker (PETR4, CYRE3, AMAR3, ALZR11). Use o nome da empresa:
+    "a Cyrela", não "CYRE3". O ticker pode aparecer no título e nas tags, que são
+    texto, nunca na fala.
+  · Evite palavra em inglês quando existir equivalente em português: "corretora"
+    em vez de "exchange", "carteira" em vez de "wallet", "alta/queda" em vez de
+    "pump/dump", "fundo de índice" em vez de "ETF" quando couber.
+  · Nome próprio estrangeiro inevitável (Hyperliquid, Hashdex, Nasdaq) pode ser
+    usado, mas só quando ele for o assunto. Se der para dizer "a corretora" ou
+    "a gestora" e seguir, prefira isso.
+  · Escreva número e porcentagem como se fossem lidos em voz alta.
 - Varie o ASSUNTO dentro do lote. Nunca dois shorts sobre o mesmo ativo, a mesma
   empresa ou o mesmo indicador — nem em recortes diferentes. Se a lista permitir,
   prefira assuntos de naturezas diferentes entre si.

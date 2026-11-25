@@ -80,6 +80,14 @@ Prioridade no modo `auto`: **Groq → Gemini → Claude → mock**.
 - **Nada a configurar:** por padrão usa **edge-tts** (vozes neurais da Microsoft,
   gratuitas). Troque a voz em `config/config.json → tts.voice`
   (ex.: `pt-BR-AntonioNeural`, `pt-BR-FranciscaNeural`, `pt-BR-ThalitaNeural`).
+- **Pronúncia de nome estrangeiro e ticker.** A voz é pt-BR e lia "Hyperliquid"
+  e "AMAR3" de forma irreconhecível. Duas defesas: o prompt proíbe ticker na
+  narração (usa o nome da empresa) e evita inglês quando há equivalente; e
+  `src/video/pronuncia.js` reescreve foneticamente o que escapa, **só no áudio**
+  — as legendas voltam ao texto original com o tempo preservado. Para adicionar
+  um termo que ainda soe errado, basta `tts.pronuncia` na config do canal:
+  `{ "Hyperliquid": "Ráiperlícuid" }`. Acrônimo que o português já lê como
+  palavra (PIB, PEC) fica de fora de propósito: soletrar pioraria.
 - **Voz e entonação variam por short.** `tts.voices` lista as vozes em rotação; a
   escolha (voz + ritmo + tom) sai de um hash do id do short, então é estável para
   o mesmo vídeo e espalhada entre vídeos diferentes. Se uma voz for descontinuada,
