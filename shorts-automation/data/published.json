@@ -1384,5 +1384,143 @@
     "avgViewPct": null,
     "avgViewSec": null,
     "analyticsUpdatedAt": "2026-11-25T16:44:24.563Z"
+  },
+  {
+    "id": "sh_mwwlseq6e8zi",
+    "status": "published",
+    "createdAt": "2026-11-25T20:55:59.886Z",
+    "theme": "Dólar recua para R$ 5,80 com expectativas sobre a equipe econômica de Lula",
+    "title": "Dólar cai: o que isso faz com seu bolso?",
+    "hook": "O dólar acabou de descer para cinco reais e oitenta centavos.",
+    "script": "A moeda americana perdeu um ponto e meio por centavo hoje. Quem sai ganhando? Quem importa mais com importações, como quem compra eletrônicos ou roupas do exterior, vê a conta ficar mais barata. Também quem tem dívida em dólar sente alívio. Quem perde? Quem exporta serviços pagos em dólar pode ver a receita cair, já que o real ficou mais forte. E quem tem poupança em real ganha poder de compra. Em qual lado você está?",
+    "cta": "Se quiser entender como o dólar mexe no seu dinheiro, se inscreve aí.",
+    "tags": [
+      "dólar",
+      "câmbio",
+      "economia",
+      "Brasil",
+      "Lula"
+    ],
+    "captionKeywords": [
+      "dólar",
+      "câmbio",
+      "economia",
+      "Lula",
+      "importação",
+      "exportação"
+    ],
+    "sourceLink": "https://www.moneytimes.com.br/dolar-recua-para-os-r-580-com-expectativas-sobre-equipe-economica-de-lula-davs/",
+    "rationale": "Alta relevância, impacto direto no consumidor e permite clareza de ganhadores e perdedores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 34,
+      "previewFile": "data/previews/sh_mwwlseq6e8zi.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    },
+    "youtubeId": "D-g1JeY89EU",
+    "previewUrl": "https://youtube.com/shorts/D-g1JeY89EU",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-25T20:55:59.886Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
+  },
+  {
+    "id": "sh_mwwltcu3cloc",
+    "status": "published",
+    "createdAt": "2026-11-25T20:55:59.886Z",
+    "theme": "Aave lança aplicativo de poupança em dólares digitais com rendimento de até 7,25% ao ano",
+    "title": "Aave traz poupança em cripto: quem ganha?",
+    "hook": "A Aave acabou de abrir uma conta que paga mais de sete por cento ao ano.",
+    "script": "A plataforma de finanças descentralizadas lançou um app que rende até sete vírgula vinte e cinco por cento ao ano em dólares digitais. Quem ganha? Investidor que busca rendimento maior que a poupança tradicional e tem familiaridade com cripto. Também quem quer proteger o capital da inflação dos EUA. Quem perde? Quem ainda prefere bancos tradicionais e não quer lidar com riscos de volatilidade ou com a necessidade de converter para dólares. E quem tem medo de perder acesso ao dinheiro por questões regulatórias pode ficar na mão. E você, já considerou colocar parte da reserva em cripto?",
+    "cta": "Se curte descobrir novas formas de fazer seu dinheiro render, se inscreve aí.",
+    "tags": [
+      "Aave",
+      "cripto",
+      "investimento",
+      "rendimento",
+      "finanças"
+    ],
+    "captionKeywords": [
+      "Aave",
+      "cripto",
+      "poupança",
+      "rendimento",
+      "dólar digital"
+    ],
+    "sourceLink": "https://portaldobitcoin.uol.com.br/aave-lanca-aplicativo-de-poupanca-em-dolares-digitais-que-rende-ate-725-ao-ano/",
+    "rationale": "Tema de cripto com foco em rendimento, atraente para público de finanças pessoais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 39,
+      "previewFile": "data/previews/sh_mwwltcu3cloc.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    },
+    "youtubeId": "wedUsguBuRg",
+    "previewUrl": "https://youtube.com/shorts/wedUsguBuRg",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-25T20:55:59.886Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
+  },
+  {
+    "id": "sh_mwwlu7ddkwx3",
+    "status": "published",
+    "createdAt": "2026-11-25T20:55:59.886Z",
+    "theme": "Luiz Trabuco, executivo do Bradesco, cotado para Ministério da Fazenda",
+    "title": "Executivo do Bradesco pode virar ministro da Fazenda: quem se beneficia?",
+    "hook": "Luiz Trabuco pode ser o próximo ministro da Fazenda.",
+    "script": "O nome do executivo do Bradesco está entre os favoritos para liderar a Fazenda. Quem sai ganhando? O próprio banco, que pode ter mais influência nas decisões de política fiscal e, possivelmente, em regras que favoreçam o crédito. Também quem tem investimentos em renda fixa pode sentir estabilidade se houver continuidade nas políticas atuais. Quem perde? Concorrentes do Bradesco que esperam maior concorrência ou mudanças regulatórias que favoreçam outros players. E quem acompanha o orçamento federal pode ter mais volatilidade nas expectativas de gastos. Você acha que a presença de um executivo bancário na pasta muda a balança?",
+    "cta": "Se quer acompanhar como decisões políticas afetam seu dinheiro, se inscreve aí.",
+    "tags": [
+      "Luiz Trabuco",
+      "Bradesco",
+      "Fazenda",
+      "economia",
+      "política"
+    ],
+    "captionKeywords": [
+      "Luiz Trabuco",
+      "Bradesco",
+      "Ministério da Fazenda",
+      "política fiscal"
+    ],
+    "sourceLink": "https://g1.globo.com/politica/noticia/2026/11/25/luiz-trabuco-quem-e-o-executivo-cotado-para-ser-ministro-da-fazenda.ghtml",
+    "rationale": "Conexão entre setor bancário e política fiscal, tema de alto interesse para investidores.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 49,
+      "previewFile": "data/previews/sh_mwwlu7ddkwx3.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "-4%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    },
+    "youtubeId": "C4SD5mrTATk",
+    "previewUrl": "https://youtube.com/shorts/C4SD5mrTATk",
+    "privacyStatus": "public",
+    "publishedAt": "2026-11-25T20:55:59.886Z",
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "score": 0
   }
 ]
