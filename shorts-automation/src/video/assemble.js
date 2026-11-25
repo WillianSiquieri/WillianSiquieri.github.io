@@ -11,6 +11,7 @@ import { join, relative, sep } from 'node:path';
 import { log, warn, ROOT } from '../util.js';
 import { hasFfmpeg, run } from './ffmpeg.js';
 import { synthesize, variantFor } from './tts.js';
+import { aplicar as aplicarPronuncia, restaurarCues } from './pronuncia.js';
 import { fetchBrollClips } from './broll.js';
 
 // --- Legendas -------------------------------------------------------------
@@ -210,7 +211,10 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const ttsCfg = { ...(config.tts || {}), variant: variantFor(draft.id, config.tts || {}) };
   const narracao = narrationText(draft, config.cta || {});
   const comCta = narracao !== narrationText({ ...draft, cta: '' }, config.cta || {});
-  const tts = await synthesize(narracao, dir, ttsCfg);
+  // Reescrita fonética SÓ para o áudio: a voz pt-BR lê "Hyperliquid" e tickers
+  // de forma irreconhecível. O mapa devolve as legendas ao texto original.
+  const fala = aplicarPronuncia(narracao, config.tts?.pronuncia);
+  const tts = await synthesize(fala.texto, dir, ttsCfg);
   // Sem voz não há short: renderizar um vídeo mudo só gasta tempo e entope a fila.
   if (!tts?.audioPath) {
     warn(`Sem narração para ${draft.id} — short descartado.`);
@@ -227,7 +231,9 @@ export async function assembleVideo(draft, { config, workDir, previewDir }) {
   const outPath = join(dir, 'short.mp4');
 
   // 2) Legendas → arquivo .ass
-  const chunks = tts?.cues ? chunksFromCues(tts.cues) : chunksFromScript(narracao, durationSec);
+  // As legendas têm de mostrar o texto ORIGINAL, não a reescrita fonética.
+  const cuesOriginais = tts?.cues ? restaurarCues(tts.cues, fala.mapa) : null;
+  const chunks = cuesOriginais ? chunksFromCues(cuesOriginais) : chunksFromScript(narracao, durationSec);
   const assPath = join(dir, 'subs.ass');
   await writeFile(assPath, buildAss(chunks, { width, height }), 'utf8');
 
