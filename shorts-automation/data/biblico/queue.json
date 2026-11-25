@@ -159,5 +159,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mwwj3mg82mvl",
+    "status": "draft",
+    "createdAt": "2026-11-25T19:40:44.264Z",
+    "theme": "Jonas e o grande peixe",
+    "title": "Como Jonas acabou no ventre do peixe",
+    "hook": "Ele tentou fugir, mas acabou engolido por um peixe gigante.",
+    "script": "Deus mandou Jonas para Nínive, mas ele não quis ir. Em vez disso, comprou passagem para Társis, o ponto oposto. No mar, uma tempestade violenta fez a tripulação temer por suas vidas. Eles lançaram Jonas ao mar, acreditando que assim acalmariam a fúria. Um enorme peixe abriu a boca e o engoliu inteiro. Dentro da criatura, Jonas passou três dias e três noites, refletindo sobre sua fuga. Quando o peixe o devolveu à praia, ele finalmente aceitou a missão e pregou a cidade que precisava mudar.",
+    "cta": "Se quiser saber mais sobre quem realmente escuta quando tudo parece perdido, se inscreve aí.",
+    "visual": [
+      "stormy sea ship",
+      "whale underwater",
+      "harbor old boats",
+      "man walking city gate"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:jonas-peixe",
+    "rationale": "Escolhi o relato de Jonas porque permite iniciar pelo ponto alto – o ventre do peixe – e recuar para mostrar a fuga, a tempestade e a mudança de atitude, atendendo ao formato \"começa pelo fim\" e mantendo a narrativa curta e direta para adultos.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "previewFile": "data/biblico/previews/sh_mwwj3mg82mvl.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "+6%",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
