@@ -498,6 +498,40 @@ async function generateWithGroq(opts) {
   throw lastErr || new Error('Groq indisponível');
 }
 
+// O prompt pede para não nomear o formato no título, e o modelo obedece na
+// maioria das vezes — mas não sempre: "Linha do tempo rápida da alta do IPCA-15"
+// passou duas vezes. Com o canal em modo automático isso vai ao ar sem revisão,
+// então aqui a remoção é determinística.
+//
+// Trata os dois casos claramente ruins: o nome como PREFIXO do título e como
+// SUFIXO depois de dois-pontos. Um nome no meio da frase ("Regulação de cripto:
+// quem sai ganhando e quem perde?") é deixado em paz, porque ali virou
+// português natural e reescrever faria mais mal que bem.
+const escapeRe = (t) => String(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+export function limparTitulo(titulo, formatos) {
+  const lista = (formatos?.length ? formatos : FORMATOS).map((f) => f.nome).filter(Boolean);
+  let t = String(titulo || '').trim();
+  for (const nome of lista) {
+    const n = escapeRe(nome);
+    const prefixo = new RegExp(`^${n}\\s*(?::|[-—,]|d[aeo]s?|da|do|de|na|no|em)?\\s*`, 'i');
+    const sufixo = new RegExp(`\\s*[:\\-—]\\s*${n}\\s*\\??\\s*$`, 'i');
+    if (sufixo.test(t)) { t = t.replace(sufixo, ''); break; }
+    if (prefixo.test(t)) { t = t.replace(prefixo, ''); break; }
+  }
+  t = t.replace(/^[\s:,\-—]+/, '').trim();
+  if (!t) return String(titulo || '').trim();
+  // Se o que sobrou começa por conectivo, o corte deixou a frase manca
+  // ("Quem ganha e quem perde com a alta do Bitcoin" → "Com a alta do Bitcoin").
+  // Nesse caso o título original é melhor: desiste.
+  if (/^(com|de|da|do|das|dos|em|na|no|nas|nos|para|por|sobre|ap[óo]s|entre|e|ou|que|a|o|as|os)\b/i.test(t)) {
+    return String(titulo || '').trim();
+  }
+  const limpo = t.charAt(0).toUpperCase() + t.slice(1);
+  if (limpo !== String(titulo || '').trim()) warn(`Título tinha o nome do formato; ajustado para "${limpo}"`);
+  return limpo;
+}
+
 // Fallback sem IA: transforma manchetes diretamente em drafts simples.
 function generateMock({ items, count }) {
   const picked = items.slice(0, count);
@@ -536,7 +570,9 @@ export async function generateShorts(opts) {
   // Por padrão NÃO caímos no mock: publicar roteiro de template é pior que
   // não publicar nada (e mascara falhas silenciosas da IA por semanas).
   const allowMock = llm?.allowMockFallback === true;
-  const tag = (drafts, aiProvider) => drafts.map((d) => ({ ...d, aiProvider }));
+  // Marca o provedor e tira o nome do formato do título, se o modelo o repetiu.
+  const tag = (drafts, aiProvider) =>
+    drafts.map((d) => ({ ...d, aiProvider, title: limparTitulo(d.title, opts.formats) }));
 
   const provider = pickProvider(llm);
   if (RUNNERS[provider]) {
