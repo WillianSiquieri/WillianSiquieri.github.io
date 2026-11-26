@@ -526,5 +526,83 @@
       "brollClips": 6,
       "cortes": 7
     }
+  },
+  {
+    "id": "sh_mwxjkgc4jcl3",
+    "status": "draft",
+    "createdAt": "2026-11-26T12:41:35.668Z",
+    "theme": "mito contra realidade",
+    "title": "Fraude bilionária do Grupo Fictor: o que realmente está acontecendo?",
+    "hook": "Todo mundo acha que o Grupo Fictor é só mais um investidor agressivo.",
+    "script": "Mas a polícia civil de São Paulo acabou de abrir operação contra a empresa. Eles investigam um esquema de fraude que pode valer bilhões. A confusão nasce porque o grupo sempre apareceu como potencial comprador do Banco Master, gerando expectativa no mercado. Na prática, a suspeita é de que tenham usado documentos falsos para tentar a compra. Agora, os acionistas podem ver as ações cair e a confiança abalar. Fique de olho nas próximas decisões judiciais para entender o impacto no seu investimento.",
+    "cta": "Quer acompanhar como fraudes podem mexer no seu bolso? Inscreva‑se no canal e receba análises como esta todo dia.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://g1.globo.com/economia/noticia/2026/11/26/fictor-master-fraude.ghtml",
+    "rationale": "Formato mito contra realidade aplicado a um caso de fraude que gera grande impacto financeiro, tema único no lote.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 36,
+      "previewFile": "data/previews/sh_mwxjkgc4jcl3.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 8
+    }
+  },
+  {
+    "id": "sh_mwxjl5f1fkxn",
+    "status": "draft",
+    "createdAt": "2026-11-26T12:41:35.668Z",
+    "theme": "antes e depois",
+    "title": "Ataque a mineradores de Bitcoin no Brasil: o que mudou?",
+    "hook": "Antes, minerar Bitcoin no Brasil era só questão de energia barata.",
+    "script": "Agora, hackers invadiram fazendas de mineração e desviaram recompensas. Até então, os operadores contavam com lucros estáveis, reinvestindo na expansão das máquinas. O ataque mudou tudo: perdas de milhares de reais em poucos minutos, aumento do risco de segurança e queda temporária na produção de blocos. As empresas já estão reforçando firewalls e contratando especialistas em cibersegurança. O próximo marco a observar será a resposta regulatória, prevista para o próximo trimestre.",
+    "cta": "Se você investe em cripto ou acompanha mineração, inscreva‑se no canal para não perder as atualizações de segurança.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://portaldobitcoin.uol.com.br/hackers-atacam-mineradores-de-bitcoin-no-brasil-e-desviam-recompensas/",
+    "rationale": "Formato antes e depois mostrando a mudança repentina na mineração de Bitcoin, tema distinto dos demais.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 35,
+      "previewFile": "data/previews/sh_mwxjl5f1fkxn.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-ThalitaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 7
+    }
+  },
+  {
+    "id": "sh_mwxjlsle5pn1",
+    "status": "draft",
+    "createdAt": "2026-11-26T12:41:35.668Z",
+    "theme": "quem ganha e quem perde",
+    "title": "Regulação de cripto no Brasil: quem sai ganhando e quem perde?",
+    "hook": "O deputado acabou de pedir uma reunião para discutir a regulação de cripto e stablecoins.",
+    "script": "O que aconteceu? O parlamentar quer envolver Receita, MPF, Justiça e até a universidade na criação de regras. Quem ganha? As fintechs que já têm compliance robusto, porque ganharão clareza e poderão operar sem medo de multas. Quem perde? Exchanges menores e traders que dependem de volatilidade livre, já que regras mais rígidas podem limitar certos serviços. Investidores individuais também sentem o efeito, com possíveis custos de adequação. Em qual lado do debate você está?",
+    "cta": "Se você quer entender como mudanças regulatórias afetam seu investimento, inscreva‑se no canal e fique por dentro das novidades.",
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "https://livecoins.com.br/deputado-pede-convocacao-da-receita-mpf-e-justica-para-debater-regulacao-de-criptomoedas-e-stablecoins-do-bc/",
+    "rationale": "Formato quem ganha e quem perde aplicado à discussão de regulação cripto, oferecendo perspectiva clara sem repetir estrutura anterior.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 44,
+      "previewFile": "data/previews/sh_mwxjlsle5pn1.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "-4%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 9
+    }
   }
 ]
