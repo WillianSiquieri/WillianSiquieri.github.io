@@ -40,11 +40,19 @@ Regras do roteiro:
 - "sourceLink" tem de ser COPIADO EXATAMENTE do item que você escolheu da lista.
   Nunca invente URL nem monte um link "equivalente": o sistema usa esse campo
   para não repetir tema e para saber quais imagens combinam com o assunto.
-- No campo "cta", escreva UMA frase convidando a pessoa a se inscrever no canal,
-  amarrada ao assunto DESTE short (ex.: "Se você quer acompanhar o que o dólar
-  faz com o seu bolso, se inscreve aí."). Nunca repita a frase de outro short e
-  nunca use fórmula pronta tipo "deixe seu like e se inscreva". Escreva sempre,
-  mesmo que o fecho já tenha pergunta: quem decide onde usar é o sistema.`;
+- No campo "cta", escreva o convite para se inscrever no canal — uma ou duas
+  frases, amarradas ao TEMA deste short, e com o motivo de se inscrever. A frase
+  tem de dizer o que a pessoa ganha ao voltar. Exemplos do tom certo:
+  · "Você acompanha o mercado financeiro? Se inscreve no canal para receber
+     notícias como essa todos os dias."
+  · "Se você gosta desse tipo de análise sobre cripto, se inscreve no canal para
+     não perder as atualizações diárias."
+  · "Quer entender o que o câmbio faz com o seu bolso? Se inscreve no canal e
+     acompanhe as notícias do dia."
+  PROIBIDO terminar em "se inscreve aí" — soa seco e mal acabado. Também
+  proibido "deixe seu like", "ativa o sininho" e qualquer fórmula pronta.
+  Nunca repita a frase de outro short do lote. Escreva sempre, mesmo que o fecho
+  já tenha pergunta: quem decide onde usar é o sistema.`;
 
 const systemPrompt = (cfg = {}) => `${cfg.prompt?.briefing || BRIEFING_PADRAO}\n${REGRAS}`;
 
@@ -100,10 +108,20 @@ function palavrasPara(duracao) {
 }
 
 // Rotaciona por dia, para lotes consecutivos não repetirem a forma.
-export function formatoDoDia(d = new Date(), formatos) {
+// Um formato POR SHORT, não por dia. Rodando 4 shorts/dia com rotação diária,
+// os quatro saíam com a mesma estrutura — foi assim que "quem ganha e quem
+// perde" apareceu em três vídeos seguidos. O deslocamento anda com o dia, então
+// lotes de dias diferentes também não repetem a mesma sequência.
+export function formatosDoLote(count = 1, d = new Date(), formatos) {
   const lista = formatos?.length ? formatos : FORMATOS;
   const dia = Math.floor(d.getTime() / 86400000);
-  return lista[dia % lista.length];
+  const base = (dia * Math.max(1, count)) % lista.length;
+  return Array.from({ length: Math.max(1, count) }, (_, i) => lista[(base + i) % lista.length]);
+}
+
+// Mantido para quem só quer o formato do dia (um short).
+export function formatoDoDia(d = new Date(), formatos) {
+  return formatosDoLote(1, d, formatos)[0];
 }
 
 
@@ -169,7 +187,7 @@ function buildUserPrompt({ items, preferences, topPerformers, worstPerformers, c
   const melhores = (topPerformers || []).slice(0, 5).map(linha).join('\n') || '(sem histórico ainda)';
   const piores = (worstPerformers || []).slice(0, 4).map(linha).join('\n') || '(sem histórico ainda)';
 
-  const f = formatoDoDia(new Date(), formats);
+  const fs_ = formatosDoLote(count, new Date(), formats);
 
   return `NICHO DO CANAL: ${niche}
 
@@ -190,12 +208,16 @@ ${piores}
 Retenção é o que decide se o YouTube distribui: um vídeo com muitas views e
 retenção baixa performou pior do que parece.
 
-FORMATO DESTE LOTE — "${f.nome}":
-${f.estrutura}
-Duração da narração: ${f.duracao} — ou seja, cerca de ${palavrasPara(f.duracao)} palavras
-no campo "script" (a narração roda a ~2,5 palavras por segundo). Respeite esse tamanho:
-roteiro longo demais estoura a duração do short. ${f.fecho}
-Dentro do lote, varie o comprimento das frases e o ritmo entre os shorts.
+FORMATO DE CADA SHORT — um formato por short, na ordem. NÃO use o mesmo formato
+em dois shorts deste lote:
+${fs_
+  .map(
+    (f, i) =>
+      `Short ${i + 1} — "${f.nome}": ${f.estrutura} Duração: ${f.duracao}, ou seja ~${palavrasPara(f.duracao)} palavras no "script". ${f.fecho}`
+  )
+  .join('\n')}
+A narração roda a ~2,5 palavras por segundo; roteiro longo demais estoura a
+duração do short. Varie também o comprimento das frases e o ritmo entre eles.
 
 Selecione os ${count} melhores temas dentre as manchetes acima (evite os indesejados)
 e entregue os shorts via a ferramenta 'entregar_shorts'.`;
