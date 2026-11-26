@@ -191,5 +191,47 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mwxxu69t9mhd",
+    "status": "draft",
+    "createdAt": "2026-11-26T19:21:03.809Z",
+    "theme": "A sabedoria de Salomão — Duas mulheres, um bebê, e a sentença que revelou a verdade",
+    "title": "A serva que viu o julgamento de Salomão",
+    "hook": "Imagine ser a pessoa que trouxe o bebê ao rei mais sábio da história.",
+    "script": "Era uma noite quente em Jerusalém quando duas mulheres, ambas mães, entraram no palácio, clamando ser a verdadeira mãe do mesmo bebê. Eu, a serva que carregava a criança, ouvi o clamor e vi a tensão nos olhos de Salomão. O rei, sem rodeios, propôs cortar o bebê ao meio. O silêncio caiu. Uma das mulheres gritou que o filho fosse entregue à outra, preferindo perder a vida ao ver seu filho ferido. Salomão sorriu, reconheceu a verdadeira mãe e entregou o bebê a ela. Eu vi o alívio nos olhos dela, algo que os guardas não perceberam.",
+    "cta": "Quer descobrir mais histórias inesperadas da Bíblia? Se inscreva no canal e acompanhe cada detalhe que costuma passar despercebido.",
+    "visual": [
+      "ancient palace interior",
+      "golden throne ornate",
+      "scales of justice",
+      "jerusalem old city stone"
+    ],
+    "tags": [
+      "Bíblia",
+      "Salomão",
+      "Juízo",
+      "Narrativa bíblica"
+    ],
+    "captionKeywords": [
+      "Salomão",
+      "sabedoria",
+      "bênção",
+      "mãe e filho"
+    ],
+    "sourceLink": "biblia:salomao-sabedoria",
+    "rationale": "Escolhi o tema da sabedoria de Salomão porque permite focar na serva, personagem secundária, e cumprir o formato 'personagem esquecido', oferecendo uma perspectiva única dentro do limite de tempo.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 38,
+      "previewFile": "data/biblico/previews/sh_mwxxu69t9mhd.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "default",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
