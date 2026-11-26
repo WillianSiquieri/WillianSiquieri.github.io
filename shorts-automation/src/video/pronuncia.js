@@ -36,8 +36,9 @@ export const PRONUNCIA_BASE = {
   nasdaq: 'Nézdeque',
   etf: 'Ê Tê Éfe',
   etfs: 'Ê Tê Éfes',
-  ipo: 'I Pê Ó',
-  ipos: 'I Pê Ós',
+  // No mercado brasileiro IPO é lido em INGLÊS, não soletrado em português.
+  ipo: 'áipiou',
+  ipos: 'áipious',
   ceo: 'Cê Ê Ó',
   payroll: 'pêirról',
   hedge: 'rédje',
