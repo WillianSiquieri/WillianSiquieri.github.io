@@ -45,6 +45,20 @@ export const PRONUNCIA_BASE = {
   default: 'defôut',
   commodity: 'comóditi',
   commodities: 'comóditis',
+  // Siglas brasileiras que SE SOLETRAM. As que o português lê como palavra
+  // (PIB, PEC, Selic, Copom) ficam de fora de propósito.
+  ipca: 'i pê cê á',
+  igpm: 'i gê pê ême',
+  'igp-m': 'i gê pê ême',
+  cdi: 'cê dê i',
+  cdb: 'cê dê bê',
+  lci: 'éle cê i',
+  lca: 'éle cê á',
+  fgts: 'éfe gê tê ésse',
+  inss: 'i êne ésse ésse',
+  iof: 'i ó éfe',
+  cnpj: 'cê êne pê jota',
+  cpf: 'cê pê éfe',
   // tecnologia
   software: 'sófituer',
   hardware: 'rárduer',
@@ -78,6 +92,25 @@ function soletrarTicker(tok) {
 // Separa pontuação do miolo da palavra, para não estragar a reescrita.
 const PARTES = /^([^\p{L}\p{N}]*)(.*?)([^\p{L}\p{N}]*)$/u;
 
+// Reescreve o miolo, quebrando em compostos (hífen, barra, &). Devolve null
+// quando nada ali precisa de reescrita, para o token original ser preservado.
+function reescreverMiolo(miolo, dic) {
+  if (!miolo) return null;
+  const direto = dic[miolo.toLowerCase()] || soletrarTicker(miolo);
+  if (direto) return direto;
+  if (!/[-–—/&]/.test(miolo)) return null;
+
+  const pedacos = miolo.split(/([-–—/&])/);
+  let mudou = false;
+  const out = pedacos.map((p) => {
+    if (/^[-–—/&]$/.test(p)) return ' ';
+    const r = dic[p.toLowerCase()] || soletrarTicker(p);
+    if (r) mudou = true;
+    return r || p;
+  });
+  return mudou ? out.join(' ').replace(/\s+/g, ' ').trim() : null;
+}
+
 /**
  * Reescreve o texto para o TTS.
  * Devolve { texto, mapa } onde `mapa` tem uma entrada por palavra do texto de
@@ -95,8 +128,9 @@ export function aplicar(texto, extra = {}) {
 
   tokens.forEach((tok, grupo) => {
     const [, pre, miolo, pos] = PARTES.exec(tok) || [];
-    const chave = (miolo || '').toLowerCase();
-    const sub = dic[chave] || soletrarTicker(miolo || '');
+    // Compostos com hífen ou barra ("IPCA-15", "IGP-M", "LCI/LCA") são tratados
+    // pedaço por pedaço: sem isso "IPCA-15" não casava com nada no dicionário.
+    const sub = reescreverMiolo(miolo || '', dic);
 
     if (!sub) {
       saida.push(tok);
