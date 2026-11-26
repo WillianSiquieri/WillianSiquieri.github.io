@@ -34,6 +34,10 @@ Regras do roteiro:
     usado, mas só quando ele for o assunto. Se der para dizer "a corretora" ou
     "a gestora" e seguir, prefira isso.
   · Escreva número e porcentagem como se fossem lidos em voz alta.
+- O nome do formato é instrução INTERNA. Nunca escreva o nome dele no "title",
+  no "hook" nem no "script" — título como "Linha do tempo rápida da alta do
+  IPCA" ou "Dólar: mito ou realidade?" entrega o molde e soa artificial. O
+  formato define a ESTRUTURA do roteiro, não o texto que aparece.
 - Varie o ASSUNTO dentro do lote. Nunca dois shorts sobre o mesmo ativo, a mesma
   empresa ou o mesmo indicador — nem em recortes diferentes. Se a lista permitir,
   prefira assuntos de naturezas diferentes entre si.
