@@ -233,5 +233,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mwzd2pzljne8",
+    "status": "draft",
+    "createdAt": "2026-11-27T19:15:23.025Z",
+    "theme": "José e seus irmãos",
+    "title": "José: da venda ao trono no Egito",
+    "hook": "Um irmão virou escravo, mas acabou governando um império.",
+    "script": "Na época de Jacó, a terra de Canaã era um reduto de pastores nômades, onde a sobrevivência dependia de rebanhos. A família de Jacó era numerosa, mas a preferência do patriarca por José, o filho mais novo, provocava ciúmes. Quando José contou um sonho onde ele liderava seus irmãos, a tensão aumentou. Os irmãos, temerosos de perder a parte da herança, decidiram se livrar dele. O plano foi vendê-lo a mercadores que passavam, que o levaram ao Egito. Lá, apesar de ser escravo, José ganhou a confiança do faraó, interpretou sonhos que previram sete anos de fartura seguidos de sete de fome, e acabou sendo nomeado governador, responsável por armazenar alimentos para todo o país. O drama familiar acabou moldando a história de uma nação inteira.",
+    "cta": "Quer descobrir como outras histórias bíblicas mudaram o rumo de povos? Inscreva‑se no canal e acompanhe mais narrativas como esta.",
+    "visual": [
+      "ancient egypt pyramids",
+      "egyptian temple columns",
+      "wheat grain harvest",
+      "desert caravan camels"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:jose-egito",
+    "rationale": "Escolhi o relato de José porque combina contexto histórico, conflito familiar e reviravolta inesperada, atendendo ao formato \"o contexto que explica tudo\" e mantendo a narrativa adulta e neutra.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 65,
+      "previewFile": "data/biblico/previews/sh_mwzd2pzljne8.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-AntonioNeural",
+      "ttsRate": "default",
+      "comCta": true,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
