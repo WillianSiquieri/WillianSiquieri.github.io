@@ -265,5 +265,37 @@
       "brollClips": 6,
       "cortes": 10
     }
+  },
+  {
+    "id": "sh_mx0pk52db5w3",
+    "status": "draft",
+    "createdAt": "2026-11-28T17:52:37.285Z",
+    "theme": "Bíblia - O Bom Samaritano",
+    "title": "Um detalhe que muda tudo no Bom Samaritano",
+    "hook": "Um homem ferido à beira da estrada, mas ninguém percebeu quem o carregava.",
+    "script": "Na estrada de Jericó, um viajante foi atacado. Sangrava, quase sem vida, e ficou deitado na areia. Primeiro chegaram dois sacerdotes. Cada um olhou rápido, viu o sangue, mas seguiu seu caminho, talvez por medo de se sujar ou por pressa. Depois, um levita fez o mesmo. Só então apareceu um samaritano, alguém que a maioria evitava. Ele parou, avaliou o ferimento, usou vinho e óleo para limpar, e colocou o homem sobre seu próprio animal. Levou-o a uma hospedaria e pagou a conta. O detalhe que poucos notam? O samaritano não só ajudou, ele assumiu a responsabilidade financeira, algo que os religiosos nem consideraram.",
+    "cta": "Se curte histórias que revelam quem realmente age nos momentos críticos, se inscreve no canal e acompanha mais relatos como este.",
+    "visual": [
+      "desert road winding",
+      "helping hand reaching",
+      "donkey path countryside",
+      "old inn stone building"
+    ],
+    "tags": [],
+    "captionKeywords": [],
+    "sourceLink": "biblia:bom-samaritano",
+    "rationale": "Escolhi o Bom Samaritano porque permite focar num detalhe pouco notado – o pagamento da hospedaria – e encaixa no formato ‘o detalhe que ninguém nota’, atendendo ao pedido de narrativa adulta e sem pregação.",
+    "aiProvider": "groq",
+    "video": {
+      "rendered": true,
+      "durationSec": 42,
+      "previewFile": "data/biblico/previews/sh_mx0pk52db5w3.mp4",
+      "ttsProvider": "edge",
+      "ttsVoice": "pt-BR-FranciscaNeural",
+      "ttsRate": "+6%",
+      "comCta": false,
+      "brollClips": 6,
+      "cortes": 10
+    }
   }
 ]
